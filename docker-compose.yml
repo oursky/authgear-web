@@ -1,0 +1,37 @@
+# Default: Next.js + Nginx only. CMS + DB live on Strapi Cloud (no local PostgreSQL / Strapi container).
+# For self-hosted Strapi + Postgres, use: docker compose -f docker-compose.selfhosted.yml up --build -d
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        STRAPI_URL: ${STRAPI_URL}
+        NEXT_PUBLIC_STRAPI_URL: ${NEXT_PUBLIC_STRAPI_URL}
+    restart: unless-stopped
+    environment:
+      # Point both at your Strapi Cloud project URL (Dashboard → Project → API / Settings)
+      STRAPI_URL: ${STRAPI_URL}
+      NEXT_PUBLIC_STRAPI_URL: ${NEXT_PUBLIC_STRAPI_URL}
+      STRAPI_API_TOKEN: ${STRAPI_API_TOKEN:-}
+      CONTACT_WEBHOOK_URL: ${CONTACT_WEBHOOK_URL:-}
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+
+  nginx:
+    image: nginx:1.25-alpine
+    restart: unless-stopped
+    depends_on:
+      - frontend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx-cloud.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d/proxy-frontend-only.conf:/etc/nginx/conf.d/proxy-frontend-only.conf:ro
+      - ./nginx/certs:/etc/nginx/certs:ro
+    healthcheck:
+      test: ["CMD-SHELL", "nginx -t"]
+      interval: 30s
