@@ -69,5 +69,9 @@
     "month": "／月",
     "onceSuffix": "／一次買斷",
     "enterpriseContactLabel": "聯絡我們"
+  },
+  "Home": {
+    "title": "Authgear CLOUD — 您的一站式身份管理方案",
+    "description": "在享有企業級安全、高可用與專屬支援的 SaaS 平台上，輕鬆管理身份。Authgear Cloud 簡化身份管理，讓您專注業務成長。"
   }
 }
