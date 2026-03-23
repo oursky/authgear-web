@@ -218,5 +218,11 @@
   "AuthToolkit": {
     "title": "Auth Developer Mini-Toolkit",
     "description": ""
+  },
+  "Features": {
+    "startForFree": "免費開始",
+    "getDemo": "預約示範",
+    "scheduleDemo": "預約示範",
+    "freePlanDescription": "免費方案包含無限 MAU"
   }
 }

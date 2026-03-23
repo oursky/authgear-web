@@ -218,5 +218,11 @@
   "AuthToolkit": {
     "title": "Auth Developer Mini-Toolkit",
     "description": ""
+  },
+  "Features": {
+    "startForFree": "Start for Free",
+    "getDemo": "Get a Demo",
+    "scheduleDemo": "Schedule Demo",
+    "freePlanDescription": "Free plan includes unlimited MAUs"
   }
 }
