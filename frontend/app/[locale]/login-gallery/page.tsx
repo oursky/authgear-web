@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getLoginGalleryItems, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
@@ -35,7 +35,10 @@ export default async function LoginGalleryPage({ params }: Props) {
                 const imgUrl = strapiImageUrl(previewImage);
                 return (
                   <div key={item.id} role="listitem" className="w-dyn-item">
-                    <Link href={`/${locale}/login-gallery/${slug}`} className="login-gallery-card w-inline-block">
+                    <Link
+                      href={localizedPath(locale, `/login-gallery/${slug}`)}
+                      className="login-gallery-card w-inline-block"
+                    >
                       {imgUrl && (
                         <Image src={imgUrl} alt={title} width={400} height={300} className="login-gallery-preview" style={{ objectFit: 'cover', width: '100%' }} />
                       )}

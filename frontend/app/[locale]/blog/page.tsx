@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import {
   getBlogPosts,
   getBlogCategories,
@@ -27,7 +27,7 @@ function BlogCard({ post, locale }: { post: { id: number; attributes: BlogPost }
 
   return (
     <div role="listitem" className="blog-post w-dyn-item">
-      <Link href={`/${locale}/blog/${slug}`} className="card blog-post w-inline-block">
+      <Link href={localizedPath(locale, `/blog/${slug}`)} className="card blog-post w-inline-block">
         <div className="image-wrapper card-blog-post">
           {imgUrl && (
             <Image
@@ -97,9 +97,15 @@ export default async function BlogPage({ params }: Props) {
               <h2 className="heading-32">All posts</h2>
             </div>
             <div className="split-content top-latest-posts-left">
-              <Link href={`/${locale}/blog`} className="button-blog-category all w-button w--current">All</Link>
+              <Link href={localizedPath(locale, '/blog')} className="button-blog-category all w-button w--current">
+                All
+              </Link>
               {categories.map((cat) => (
-                <Link key={cat.id} href={`/${locale}/blog?category=${cat.attributes.slug}`} className="button-blog-category w-button">
+                <Link
+                  key={cat.id}
+                  href={localizedPath(locale, `/blog?category=${cat.attributes.slug}`)}
+                  className="button-blog-category w-button"
+                >
                   {cat.attributes.name}
                 </Link>
               ))}

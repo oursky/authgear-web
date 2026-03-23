@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getWhatsNewItems, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
@@ -37,7 +37,10 @@ export default async function WhatsNewPage({ params }: Props) {
                   : '';
                 return (
                   <div key={item.id} role="listitem" className="whats-new-item w-dyn-item">
-                    <Link href={`/${locale}/whats-new/${slug}`} className="card whats-new w-inline-block">
+                    <Link
+                      href={localizedPath(locale, `/whats-new/${slug}`)}
+                      className="card whats-new w-inline-block"
+                    >
                       {imgUrl && (
                         <Image src={imgUrl} alt={title} width={600} height={300} style={{ width: '100%', height: 'auto' }} />
                       )}

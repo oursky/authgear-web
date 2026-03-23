@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getIntegrations, getIntegrationCategories, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
@@ -49,7 +49,10 @@ export default async function IntegrationsPage({ params }: Props) {
                 const logoUrl = strapiImageUrl(logo);
                 return (
                   <div key={integration.id} role="listitem" className="w-dyn-item">
-                    <Link href={`/${locale}/integrations/${slug}`} className="integration-card w-inline-block">
+                    <Link
+                      href={localizedPath(locale, `/integrations/${slug}`)}
+                      className="integration-card w-inline-block"
+                    >
                       {logoUrl && <Image src={logoUrl} alt={name} width={60} height={60} className="integration-logo" />}
                       <div className="integration-card-content">
                         <h3 className="integration-name">{name}</h3>

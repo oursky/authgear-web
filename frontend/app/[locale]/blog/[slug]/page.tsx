@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getBlogPostBySlug, getBlogPosts, strapiImageUrl } from '@/lib/strapi';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -59,7 +59,10 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="blog-post-top-content-wrapper">
             <div className="animation-div">
               {catName && (
-                <Link href={`/${locale}/blog?category=${catSlug}`} className="badge blog-post-category w-inline-block">
+                <Link
+                  href={localizedPath(locale, `/blog?category=${catSlug}`)}
+                  className="badge blog-post-category w-inline-block"
+                >
                   <div className="blog-category-text">{catName}</div>
                 </Link>
               )}
@@ -132,7 +135,10 @@ export default async function BlogPostPage({ params }: Props) {
             <div role="list" className="section-blog-post-grid w-dyn-items">
               {latestPosts.map((lp) => (
                 <div key={lp.id} role="listitem" className="blog-post w-dyn-item">
-                  <Link href={`/${locale}/blog/${lp.attributes.slug}`} className="card blog-post w-inline-block">
+                  <Link
+                    href={localizedPath(locale, `/blog/${lp.attributes.slug}`)}
+                    className="card blog-post w-inline-block"
+                  >
                     <div className="image-wrapper card-blog-post">
                       {strapiImageUrl(lp.attributes.thumbnail) && (
                         <Image

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getCustomerStories, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
@@ -37,7 +37,10 @@ export default async function CustomerStoriesPage({ params }: Props) {
                 const coverUrl = strapiImageUrl(coverImage);
                 return (
                   <div key={story.id} role="listitem" className="case-study-item-wrap w-dyn-item">
-                    <Link href={`/${locale}/customer-stories/${slug}`} className="case-study-featured-image-wrap w-inline-block">
+                    <Link
+                      href={localizedPath(locale, `/customer-stories/${slug}`)}
+                      className="case-study-featured-image-wrap w-inline-block"
+                    >
                       {coverUrl ? (
                         <Image
                           src={coverUrl}
@@ -51,7 +54,10 @@ export default async function CustomerStoriesPage({ params }: Props) {
                         <div className="case-study-featured-image w-dyn-bind-empty" aria-hidden />
                       )}
                     </Link>
-                    <Link href={`/${locale}/customer-stories/${slug}`} className="case-study-content-wrap w-inline-block">
+                    <Link
+                      href={localizedPath(locale, `/customer-stories/${slug}`)}
+                      className="case-study-content-wrap w-inline-block"
+                    >
                       {logoUrl ? (
                         <Image src={logoUrl} alt="" width={200} height={64} className="image company-logo" style={{ maxHeight: 48, width: 'auto', height: 'auto' }} />
                       ) : null}
