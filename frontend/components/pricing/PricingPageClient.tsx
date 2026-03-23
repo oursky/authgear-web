@@ -9,6 +9,9 @@ type Props = {
   locale: string;
   contactPath: string;
   whatsappPath: string;
+  month: string;
+  onceSuffix: string;
+  enterpriseContactLabel: string;
 };
 
 function resolveHref(href: string, contactPath: string): string {
@@ -119,22 +122,19 @@ function PlanCardInner({
   );
 }
 
-export default function PricingPageClient({ copy, locale, contactPath, whatsappPath }: Props) {
+export default function PricingPageClient({ copy, locale, contactPath, whatsappPath, month, onceSuffix, enterpriseContactLabel }: Props) {
   const [tab, setTab] = useState(0);
-  const month = locale === 'zh-TW' ? '／月' : '/ month';
-  const onceSuffix = locale === 'zh-TW' ? '／一次買斷' : '/ one-time';
 
   const enterpriseLink = useMemo(() => {
-    const label = locale === 'zh-TW' ? '聯絡我們' : 'Contact us';
     return (
       <>
         <Link href={contactPath} className="comparison-label">
-          {label}
+          {enterpriseContactLabel}
         </Link>
         {copy.once.enterpriseContactSuffix}
       </>
     );
-  }, [contactPath, copy.once.enterpriseContactSuffix, locale]);
+  }, [contactPath, copy.once.enterpriseContactSuffix, enterpriseContactLabel]);
 
   return (
     <div className="page-wrapper">
