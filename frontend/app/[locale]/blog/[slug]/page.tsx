@@ -3,7 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
-import { getBlogPostBySlug, getBlogPosts, strapiImageUrl } from '@/lib/strapi';
+import {
+  blogPostDisplayPublishedAt,
+  getBlogPostBySlug,
+  getBlogPosts,
+  strapiImageUrl,
+} from '@/lib/strapi';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -37,14 +42,14 @@ export default async function BlogPostPage({ params }: Props) {
   const post = await getBlogPostBySlug(slug, strapiLocale);
   if (!post) notFound();
 
-  const { title, excerpt, body, thumbnail, category, author, publishedAt, publishedAtOverride } = post.attributes;
+  const { title, excerpt, body, thumbnail, category, author } = post.attributes;
   const imgUrl = strapiImageUrl(thumbnail);
   const catName = category?.data?.attributes?.name ?? '';
   const catSlug = category?.data?.attributes?.slug ?? '';
   const authorName = author?.data?.attributes?.name ?? '';
   const authorRole = author?.data?.attributes?.role ?? '';
   const authorImg = strapiImageUrl(author?.data?.attributes?.photo ?? null);
-  const displayDate = publishedAtOverride ?? publishedAt;
+  const displayDate = blogPostDisplayPublishedAt(post.attributes);
   const date = displayDate
     ? new Date(displayDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
     : '';

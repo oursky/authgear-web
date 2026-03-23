@@ -1,3 +1,5 @@
+import { unstable_cache } from 'next/cache';
+
 const STRAPI_URL = process.env.STRAPI_URL ?? 'http://localhost:1337';
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN ?? '';
 
@@ -227,16 +229,122 @@ export type BlogPost = {
   };
 };
 
+/** Date shown in UI and used for listing order: manual override, else Strapi `publishedAt`. */
+export function blogPostDisplayPublishedAt(attrs: {
+  publishedAt?: string | null;
+  publishedAtOverride?: string | null;
+}): string | null {
+  const o = attrs.publishedAtOverride;
+  if (o != null && String(o).trim() !== '') return o;
+  const p = attrs.publishedAt;
+  if (p != null && String(p).trim() !== '') return p;
+  return null;
+}
+
+function compareBlogPostsByDisplayPublishedAt(
+  a: { id: number; attributes: BlogPost },
+  b: { id: number; attributes: BlogPost }
+): number {
+  const ta = blogPostDisplayPublishedAt(a.attributes);
+  const tb = blogPostDisplayPublishedAt(b.attributes);
+  const da = ta ? new Date(ta).getTime() : 0;
+  const db = tb ? new Date(tb).getTime() : 0;
+  if (db !== da) return db - da;
+  return b.id - a.id;
+}
+
+/**
+ * Strapi cannot sort by COALESCE(override, publishedAt). We fetch a larger page (cap),
+ * sort client-side by {@link blogPostDisplayPublishedAt}, then return the first `pageSize` items.
+ */
+const BLOG_POSTS_LIST_FETCH_PAGE_SIZE_CAP = 500;
+
 /** Strapi 5: nested populate for author.photo (comma-separated populate is invalid). */
 const BLOG_POST_POPULATE =
   'populate[thumbnail]=true&populate[category]=true&populate[author][populate][photo]=true';
 
+export type BlogPostEntry = { id: number; attributes: BlogPost };
+
+const STRAPI_BLOG_FULL_LIST_BATCH = 100;
+const STRAPI_BLOG_FULL_LIST_MAX_PAGES = 100;
+
+/** Fetch every blog post for a locale, then sort by display publish date (for listing + infinite scroll). */
+async function fetchAllBlogPostsSortedUncached(
+  locale?: StrapiLocale
+): Promise<BlogPostEntry[]> {
+  const all: BlogPostEntry[] = [];
+  for (let page = 1; page <= STRAPI_BLOG_FULL_LIST_MAX_PAGES; page++) {
+    const res = await strapiGet<StrapiListResponse<BlogPost>>('blog-posts', {
+      locale,
+      populateQuery: BLOG_POST_POPULATE,
+      sort: 'publishedAt:desc',
+      pagination: { page, pageSize: STRAPI_BLOG_FULL_LIST_BATCH },
+    });
+    const batch = (res.data ?? []) as BlogPostEntry[];
+    all.push(...batch);
+    if (batch.length < STRAPI_BLOG_FULL_LIST_BATCH) break;
+  }
+  return all.sort(compareBlogPostsByDisplayPublishedAt);
+}
+
+const getCachedSortedBlogPostsFull = unstable_cache(
+  async (localeKey: string) =>
+    fetchAllBlogPostsSortedUncached(localeKey === 'default' ? undefined : (localeKey as StrapiLocale)),
+  ['strapi-blog-posts-sorted-full'],
+  { revalidate: 60 }
+);
+
+/** Full sorted list (cached). Use {@link getBlogPostsSlice} for listing pages / API pagination. */
+export async function getSortedBlogPostsList(locale?: StrapiLocale): Promise<BlogPostEntry[]> {
+  return getCachedSortedBlogPostsFull(locale ?? 'default');
+}
+
+/** Batch size for blog index SSR + `/api/blog-posts` infinite scroll. */
+export const BLOG_LIST_PAGE_SIZE = 50;
+
+/** Slice of globally sorted posts (same order as infinite scroll batches of `limit`). */
+export async function getBlogPostsSlice(
+  locale: StrapiLocale | undefined,
+  offset: number,
+  limit: number
+): Promise<{ data: BlogPostEntry[]; total: number; hasMore: boolean }> {
+  const sorted = await getSortedBlogPostsList(locale);
+  const total = sorted.length;
+  const data = sorted.slice(offset, offset + limit);
+  return { data, total, hasMore: offset + data.length < total };
+}
+
 export async function getBlogPosts(options: FetchOptions = {}) {
-  return strapiGet<StrapiListResponse<BlogPost>>('blog-posts', {
-    populateQuery: BLOG_POST_POPULATE,
-    sort: 'publishedAtOverride:desc',
+  const requestedPageSize = options.pagination?.pageSize ?? 25;
+  const fetchPageSize = Math.min(
+    Math.max(requestedPageSize, BLOG_POSTS_LIST_FETCH_PAGE_SIZE_CAP),
+    1000
+  );
+
+  const res = await strapiGet<StrapiListResponse<BlogPost>>('blog-posts', {
     ...options,
+    populateQuery: BLOG_POST_POPULATE,
+    sort: 'publishedAt:desc',
+    pagination: {
+      page: options.pagination?.page ?? 1,
+      pageSize: fetchPageSize,
+    },
   });
+
+  const sorted = [...(res.data ?? [])].sort(compareBlogPostsByDisplayPublishedAt);
+  const sliced = sorted.slice(0, requestedPageSize);
+
+  return {
+    ...res,
+    data: sliced,
+    meta: {
+      ...res.meta,
+      pagination: {
+        ...res.meta.pagination,
+        pageSize: requestedPageSize,
+      },
+    },
+  };
 }
 
 export async function getBlogPostBySlug(slug: string, locale?: StrapiLocale) {
