@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getCustomerStories, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getCustomerStories, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
   title: 'Customer Stories',
@@ -12,7 +13,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export default async function CustomerStoriesPage({ params }: Props) {
   const { locale } = await params;
-  const res = await getCustomerStories({ pagination: { pageSize: 50 }, locale: locale as StrapiLocale });
+  const res = await getCustomerStories({ pagination: { pageSize: 50 }, locale: pathLocaleToStrapiLocale(locale) });
   const stories = res.data ?? [];
 
   return (

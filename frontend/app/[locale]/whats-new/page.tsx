@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getWhatsNewItems, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getWhatsNewItems, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
   title: "What's New",
@@ -12,7 +13,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export default async function WhatsNewPage({ params }: Props) {
   const { locale } = await params;
-  const res = await getWhatsNewItems({ pagination: { pageSize: 50 }, locale: locale as StrapiLocale });
+  const res = await getWhatsNewItems({ pagination: { pageSize: 50 }, locale: pathLocaleToStrapiLocale(locale) });
   const items = res.data ?? [];
 
   return (

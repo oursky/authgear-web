@@ -192,10 +192,6 @@ export type StrapiListResponse<T> = {
   meta: { pagination: { page: number; pageSize: number; pageCount: number; total: number } };
 };
 
-export type StrapiSingleResponse<T> = {
-  data: { id: number; attributes: T } | null;
-};
-
 export function strapiImageUrl(image: StrapiImage | { url?: string } | null | undefined): string {
   if (!image) return '';
   const base = getStrapiPublicBase();
@@ -390,38 +386,4 @@ export async function getTeamMembers() {
     populate: '*',
     sort: 'name:asc',
   });
-}
-
-// ── Static Page Single Types ───────────────────────────────────────────────────
-export type StaticPageContent = {
-  seoTitle: string | null;
-  seoDescription: string | null;
-  heroTitle: string | null;
-  heroSubtitle: string | null;
-  body: string | null;
-};
-
-const STATIC_PAGE_ENDPOINTS: Record<string, string> = {
-  homepage: 'homepage',
-  'pricing-page': 'pricing-page',
-  'about-page': 'about-page',
-  'ciam-page': 'ciam-page',
-  'once-page': 'once-page',
-  'why-authgear-page': 'why-authgear-page',
-  'migrate-page': 'migrate-page',
-  'schedule-demo-page': 'schedule-demo-page',
-};
-
-export async function getStaticPageContent(
-  pageKey: keyof typeof STATIC_PAGE_ENDPOINTS,
-  locale?: StrapiLocale,
-): Promise<StaticPageContent | null> {
-  const endpoint = STATIC_PAGE_ENDPOINTS[pageKey];
-  if (!endpoint) return null;
-  try {
-    const res = await strapiGet<StrapiSingleResponse<StaticPageContent>>(endpoint, { locale });
-    return res.data?.attributes ?? null;
-  } catch {
-    return null;
-  }
 }

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
 import {
   getBlogPosts,
   getBlogCategories,
   strapiImageUrl,
   type BlogPost,
-  type StrapiLocale,
 } from '@/lib/strapi';
 
 export const metadata: Metadata = {
@@ -69,7 +69,7 @@ function BlogCard({ post, locale }: { post: { id: number; attributes: BlogPost }
 
 export default async function BlogPage({ params }: Props) {
   const { locale } = await params;
-  const strapiLocale = locale as StrapiLocale;
+  const strapiLocale = pathLocaleToStrapiLocale(locale);
 
   const [postsRes, catsRes] = await Promise.all([
     getBlogPosts({ pagination: { pageSize: 50 }, locale: strapiLocale }),

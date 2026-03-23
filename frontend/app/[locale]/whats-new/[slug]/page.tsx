@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getWhatsNewItems, getWhatsNewItemBySlug, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getWhatsNewItems, getWhatsNewItemBySlug, strapiImageUrl } from '@/lib/strapi';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -16,14 +17,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const item = await getWhatsNewItemBySlug(slug, locale as StrapiLocale);
+  const item = await getWhatsNewItemBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!item) return { title: 'Update Not Found' };
   return { title: item.attributes.title, description: item.attributes.excerpt };
 }
 
 export default async function WhatsNewItemPage({ params }: Props) {
   const { locale, slug } = await params;
-  const item = await getWhatsNewItemBySlug(slug, locale as StrapiLocale);
+  const item = await getWhatsNewItemBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!item) notFound();
 
   const { title, body, coverImage, publishedAt } = item.attributes;

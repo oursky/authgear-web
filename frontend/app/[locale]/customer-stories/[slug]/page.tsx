@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getCustomerStories, getCustomerStoryBySlug, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getCustomerStories, getCustomerStoryBySlug, strapiImageUrl } from '@/lib/strapi';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -16,14 +17,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const story = await getCustomerStoryBySlug(slug, locale as StrapiLocale);
+  const story = await getCustomerStoryBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!story) return { title: 'Story Not Found' };
   return { title: story.attributes.title, description: story.attributes.excerpt };
 }
 
 export default async function CustomerStoryPage({ params }: Props) {
   const { locale, slug } = await params;
-  const story = await getCustomerStoryBySlug(slug, locale as StrapiLocale);
+  const story = await getCustomerStoryBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!story) notFound();
 
   const { title, body, companyLogo, coverImage, companyInfoLines } = story.attributes;

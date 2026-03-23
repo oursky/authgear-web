@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { headers } from 'next/headers';
-import { localeToHtmlLang, type Locale } from '@/lib/i18n';
+import { localeToHtmlLang } from '@/lib/i18n';
 
 export const metadata: Metadata = {
   title: { default: 'Authgear', template: '%s - Authgear' },
@@ -293,8 +293,7 @@ const cookieConsentHtml = `
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const headersList = await headers();
-  const locale = (headersList.get('x-locale') ?? 'en') as Locale;
-  const htmlLang = localeToHtmlLang(locale);
+  const htmlLang = localeToHtmlLang(headersList.get('x-locale') ?? 'en');
   return (
     <html lang={htmlLang}>
       <head>

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getLoginGalleryItems, getLoginGalleryItemBySlug, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getLoginGalleryItems, getLoginGalleryItemBySlug, strapiImageUrl } from '@/lib/strapi';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -16,14 +17,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const item = await getLoginGalleryItemBySlug(slug, locale as StrapiLocale);
+  const item = await getLoginGalleryItemBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!item) return { title: 'Gallery Item Not Found' };
   return { title: item.attributes.title, description: item.attributes.description };
 }
 
 export default async function LoginGalleryItemPage({ params }: Props) {
   const { locale, slug } = await params;
-  const item = await getLoginGalleryItemBySlug(slug, locale as StrapiLocale);
+  const item = await getLoginGalleryItemBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!item) notFound();
 
   const { title, description, body, previewImage } = item.attributes;

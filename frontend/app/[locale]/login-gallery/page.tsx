@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getLoginGalleryItems, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getLoginGalleryItems, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
   title: 'Login Gallery',
@@ -12,7 +13,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export default async function LoginGalleryPage({ params }: Props) {
   const { locale } = await params;
-  const res = await getLoginGalleryItems({ pagination: { pageSize: 100 }, locale: locale as StrapiLocale });
+  const res = await getLoginGalleryItems({ pagination: { pageSize: 100 }, locale: pathLocaleToStrapiLocale(locale) });
   const items = res.data ?? [];
 
   return (

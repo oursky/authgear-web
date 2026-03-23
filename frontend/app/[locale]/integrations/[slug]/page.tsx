@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getIntegrations, getIntegrationBySlug, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getIntegrations, getIntegrationBySlug, strapiImageUrl } from '@/lib/strapi';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -16,7 +17,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const item = await getIntegrationBySlug(slug, locale as StrapiLocale);
+  const item = await getIntegrationBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!item) return { title: 'Integration Not Found' };
   return {
     title: `${item.attributes.name} Integration`,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function IntegrationPage({ params }: Props) {
   const { locale, slug } = await params;
-  const item = await getIntegrationBySlug(slug, locale as StrapiLocale);
+  const item = await getIntegrationBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!item) notFound();
 
   const { name, description, body, heroImage, logo } = item.attributes;

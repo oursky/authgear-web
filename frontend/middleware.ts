@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { LOCALES, DEFAULT_LOCALE, resolveLocale, type Locale } from './lib/i18n';
+import {
+  LOCALES,
+  DEFAULT_LOCALE,
+  LEGACY_ZH_PATH_LOCALE,
+  resolveLocale,
+  type Locale,
+} from './lib/i18n';
 
 function pathnameHasLocale(pathname: string): Locale | null {
   for (const locale of LOCALES) {
@@ -12,6 +18,14 @@ function pathnameHasLocale(pathname: string): Locale | null {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Canonical Chinese URLs: /zh-Hant-TW/... → /zh/...
+  const legacyPrefix = `/${LEGACY_ZH_PATH_LOCALE}`;
+  if (pathname === legacyPrefix || pathname.startsWith(`${legacyPrefix}/`)) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/zh${pathname.slice(legacyPrefix.length)}`;
+    return NextResponse.redirect(url, 308);
+  }
 
   // Skip static files, Next.js internals, and API routes.
   if (

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getIntegrations, getIntegrationCategories, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getIntegrations, getIntegrationCategories, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
   title: 'Integrations',
@@ -12,7 +13,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export default async function IntegrationsPage({ params }: Props) {
   const { locale } = await params;
-  const strapiLocale = locale as StrapiLocale;
+  const strapiLocale = pathLocaleToStrapiLocale(locale);
   const [intRes, catRes] = await Promise.all([
     getIntegrations({ pagination: { pageSize: 100 }, locale: strapiLocale }),
     getIntegrationCategories({ locale: strapiLocale }),

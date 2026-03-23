@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getBlogPostBySlug, getBlogPosts, strapiImageUrl, type StrapiLocale } from '@/lib/strapi';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getBlogPostBySlug, getBlogPosts, strapiImageUrl } from '@/lib/strapi';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -17,7 +18,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = await getBlogPostBySlug(slug, locale as StrapiLocale);
+  const post = await getBlogPostBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!post) return { title: 'Post Not Found' };
   return {
     title: post.attributes.title,
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
-  const strapiLocale = locale as StrapiLocale;
+  const strapiLocale = pathLocaleToStrapiLocale(locale);
   const post = await getBlogPostBySlug(slug, strapiLocale);
   if (!post) notFound();
 
