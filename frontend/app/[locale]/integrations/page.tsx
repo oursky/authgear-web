@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getIntegrations, getIntegrationCategories, strapiImageUrl } from '@/lib/strapi';
 
@@ -14,6 +15,7 @@ type Props = { params: Promise<{ locale: string }> };
 export default async function IntegrationsPage({ params }: Props) {
   const { locale } = await params;
   const strapiLocale = pathLocaleToStrapiLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'Integrations' });
   const [intRes, catRes] = await Promise.all([
     getIntegrations({ pagination: { pageSize: 100 }, locale: strapiLocale }),
     getIntegrationCategories({ locale: strapiLocale }),
@@ -26,8 +28,8 @@ export default async function IntegrationsPage({ params }: Props) {
       <div className="section integrations">
         <div className="container-default w-container">
           <div className="top-content">
-            <h1 className="heading">Integrations</h1>
-            <p className="paragraph">Connect Authgear with your existing tools and services.</p>
+            <h1 className="heading">{t('title')}</h1>
+            <p className="paragraph">{t('subtitle')}</p>
           </div>
 
           {categories.length > 0 && (
@@ -40,7 +42,7 @@ export default async function IntegrationsPage({ params }: Props) {
 
           {integrations.length === 0 ? (
             <div className="empty-state w-dyn-empty">
-              <div>No integrations yet. Add content in the Strapi admin panel.</div>
+              <div>{t('noIntegrationsYet')}</div>
             </div>
           ) : (
             <div role="list" className="integrations-grid w-dyn-items">

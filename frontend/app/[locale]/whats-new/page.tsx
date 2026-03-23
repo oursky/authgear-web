@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getWhatsNewItems, strapiImageUrl } from '@/lib/strapi';
 
@@ -13,6 +14,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export default async function WhatsNewPage({ params }: Props) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'WhatsNew' });
   const res = await getWhatsNewItems({ pagination: { pageSize: 50 }, locale: pathLocaleToStrapiLocale(locale) });
   const items = res.data ?? [];
 
@@ -20,12 +22,12 @@ export default async function WhatsNewPage({ params }: Props) {
     <div className="page-wrapper">
       <div className="section whats-new">
         <div className="container-default w-container">
-          <h1 className="heading">What&apos;s New</h1>
-          <p className="paragraph">Latest updates, releases, and improvements from the Authgear team.</p>
+          <h1 className="heading">{t('title')}</h1>
+          <p className="paragraph">{t('subtitle')}</p>
 
           {items.length === 0 ? (
             <div className="empty-state w-dyn-empty">
-              <div>No updates yet. Add content in the Strapi admin panel.</div>
+              <div>{t('noUpdatesYet')}</div>
             </div>
           ) : (
             <div role="list" className="whats-new-list w-dyn-items">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getCustomerStories, strapiImageUrl } from '@/lib/strapi';
 
@@ -13,6 +14,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export default async function CustomerStoriesPage({ params }: Props) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'CustomerStories' });
   const res = await getCustomerStories({ pagination: { pageSize: 50 }, locale: pathLocaleToStrapiLocale(locale) });
   const stories = res.data ?? [];
 
@@ -21,13 +23,13 @@ export default async function CustomerStoriesPage({ params }: Props) {
       <div className="section">
         <div className="container-default w-container">
           <div className="top-content">
-            <h1 className="heading">Customer Stories</h1>
-            <p className="paragraph">See how companies use Authgear to power their identity and access management.</p>
+            <h1 className="heading">{t('title')}</h1>
+            <p className="paragraph">{t('subtitle')}</p>
           </div>
 
           {stories.length === 0 ? (
             <div className="empty-state w-dyn-empty">
-              <div>No customer stories yet. Add content in the Strapi admin panel.</div>
+              <div>{t('noStoriesYet')}</div>
             </div>
           ) : (
             <div role="list" className="case-study-list w-dyn-items">
@@ -65,7 +67,7 @@ export default async function CustomerStoriesPage({ params }: Props) {
                         <div className="case-study-title">{title}</div>
                         {excerpt ? <p className="case-study-featured-content-excerpt">{excerpt}</p> : null}
                       </div>
-                      <div className="case-study-item-cta">Read story →</div>
+                      <div className="case-study-item-cta">{t('readStory')}</div>
                     </Link>
                   </div>
                 );

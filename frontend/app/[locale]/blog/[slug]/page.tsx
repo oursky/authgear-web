@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
 import {
   blogPostDisplayPublishedAt,
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
   const strapiLocale = pathLocaleToStrapiLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'Blog' });
   const post = await getBlogPostBySlug(slug, strapiLocale);
   if (!post) notFound();
 
@@ -90,7 +92,7 @@ export default async function BlogPostPage({ params }: Props) {
               )}
               {date && (
                 <div className="blog-post-about-content">
-                  <div className="blog-post-about-content-label">Last updated: </div>
+                  <div className="blog-post-about-content-label">{t('lastUpdated')}</div>
                   <div className="text-block-82">{date}</div>
                 </div>
               )}
@@ -117,14 +119,14 @@ export default async function BlogPostPage({ params }: Props) {
                 <Image src="/images/blog-discoard-community2x.jpg" loading="lazy" alt="Discord Community" width={300} height={200} className="image-92" />
               </a>
               <div className="div-block-32">
-                <div>Star us on GitHub and stay updated</div>
+                <div>{t('starOnGitHub')}</div>
               </div>
             </div>
             <div className="div-block-28">
               {body ? (
                 <div className="blog-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: body }} />
               ) : (
-                <p>No content yet.</p>
+                <p>{t('noContentYet')}</p>
               )}
             </div>
           </div>
@@ -135,7 +137,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="section blog-post-latest-articles">
           <div className="container-default w-container">
             <div className="top-content blog-post-latest-artticles">
-              <div className="title blog-post-latest-articles">Latest articles</div>
+              <div className="title blog-post-latest-articles">{t('latestArticles')}</div>
             </div>
             <div role="list" className="section-blog-post-grid w-dyn-items">
               {latestPosts.map((lp) => (

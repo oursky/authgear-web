@@ -10,5 +10,35 @@
     "signupMobile": "註冊",
     "getDemo": "預約示範",
     "signupLogin": "註冊／登入"
+  },
+  "Blog": {
+    "title": "Resource Center",
+    "subtitle": "Stay updated with the latest best practices, product updates, and expert tips on building secure, seamless user experiences with Authgear.",
+    "allPosts": "All posts",
+    "all": "All",
+    "noPostsYet": "No posts yet. Add content in the Strapi admin panel.",
+    "latestArticles": "Latest articles",
+    "lastUpdated": "Last updated: ",
+    "loadingMore": "Loading more posts…",
+    "starOnGitHub": "Star us on GitHub and stay updated",
+    "noContentYet": "No content yet."
+  },
+  "CustomerStories": {
+    "title": "Customer Stories",
+    "subtitle": "See how companies use Authgear to power their identity and access management.",
+    "noStoriesYet": "No customer stories yet. Add content in the Strapi admin panel.",
+    "readStory": "Read story →",
+    "noContentYet": "No content yet."
+  },
+  "Integrations": {
+    "title": "Integrations",
+    "subtitle": "Connect Authgear with your existing tools and services.",
+    "noIntegrationsYet": "No integrations yet. Add content in the Strapi admin panel."
+  },
+  "WhatsNew": {
+    "title": "What's New",
+    "subtitle": "Latest updates, releases, and improvements from the Authgear team.",
+    "noUpdatesYet": "No updates yet. Add content in the Strapi admin panel.",
+    "noContentYet": "No content yet."
   }
 }

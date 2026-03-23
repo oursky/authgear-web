@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { type BlogPostEntry } from '@/lib/strapi';
 import { BlogPostCard } from './BlogPostCard';
 
@@ -12,6 +13,7 @@ type Props = {
 };
 
 export function BlogPostInfiniteGrid({ initialPosts, initialHasMore, locale }: Props) {
+  const t = useTranslations('Blog');
   const [posts, setPosts] = useState<BlogPostEntry[]>(initialPosts);
   const [hasMore, setHasMore] = useState(initialHasMore);
   const [loading, setLoading] = useState(false);
@@ -68,7 +70,7 @@ export function BlogPostInfiniteGrid({ initialPosts, initialHasMore, locale }: P
       )}
       {loading && (
         <div className="paragraph-17 mt-8 text-center" role="status">
-          Loading more posts…
+          {t('loadingMore')}
         </div>
       )}
     </>

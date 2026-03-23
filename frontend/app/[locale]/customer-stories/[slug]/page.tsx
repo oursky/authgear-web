@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getCustomerStories, getCustomerStoryBySlug, strapiImageUrl } from '@/lib/strapi';
 
@@ -24,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CustomerStoryPage({ params }: Props) {
   const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: 'CustomerStories' });
   const story = await getCustomerStoryBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!story) notFound();
 
@@ -54,7 +56,7 @@ export default async function CustomerStoryPage({ params }: Props) {
             {body ? (
               <div className="case-study-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: body }} />
             ) : (
-              <p>No content yet.</p>
+              <p>{t('noContentYet')}</p>
             )}
           </div>
         </div>

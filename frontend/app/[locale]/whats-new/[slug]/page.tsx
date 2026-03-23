@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { pathLocaleToStrapiLocale } from '@/lib/i18n';
 import { getWhatsNewItems, getWhatsNewItemBySlug, strapiImageUrl } from '@/lib/strapi';
 
@@ -24,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function WhatsNewItemPage({ params }: Props) {
   const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: 'WhatsNew' });
   const item = await getWhatsNewItemBySlug(slug, pathLocaleToStrapiLocale(locale));
   if (!item) notFound();
 
@@ -45,7 +47,7 @@ export default async function WhatsNewItemPage({ params }: Props) {
           {body ? (
             <div className="whats-new-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: body }} />
           ) : (
-            <p>No content yet.</p>
+            <p>{t('noContentYet')}</p>
           )}
         </div>
       </div>
