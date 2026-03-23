@@ -1,61 +1,118 @@
-# 🚀 Getting started with Strapi
+# CMS
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+This directory contains the Strapi 5 app for Authgear website content.
 
-### `develop`
+The CMS is used for collections such as:
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+- `blog-post`
+- `blog-category`
+- `customer-story`
+- `integration`
+- `integration-category`
+- `login-gallery-item`
+- `team-member`
+- `whats-new-item`
 
-```
+For everyday development, Strapi Cloud is the recommended backend. Local Strapi is still useful for schema work, testing imports, and offline development.
+
+## Run locally
+
+```bash
+cd cms
+npm install
+cp .env.example .env
 npm run develop
-# or
-yarn develop
 ```
 
-### `start`
+By default, local development uses SQLite and serves Strapi at [http://localhost:1337/admin](http://localhost:1337/admin).
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+## Frontend access
 
-```
-npm run start
-# or
-yarn start
-```
+The frontend can read content in either of these ways:
 
-### `build`
+- Enable `find` and `findOne` for the needed collections in Strapi Admin under `Settings -> Users & Permissions -> Roles -> Public`
+- Or give the frontend a read-only `STRAPI_API_TOKEN`
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+## Available scripts
 
-```
+```bash
+npm run develop
+npm run dev
 npm run build
-# or
-yarn build
+npm run start
+npm run console
+npm run deploy
+npm run upgrade
+npm run upgrade:dry
 ```
 
-## ⚙️ Deployment
+## Importing content from Webflow
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+### Webflow MCP (optional)
 
+If you use **Cursor with Webflow MCP** and a connected Webflow Designer session, you can drive Webflow-side tasks from the IDE (e.g. CMS updates, audits, publishing workflows). That stays in Webflow; it does **not** populate Strapi.
+
+To load Webflow CMS data into this Strapi app, use one of the scripts below (same as a manual Designer + API token or CSV export workflow).
+
+### Scripts
+
+Two migration scripts live in `scripts/`:
+
+### 1. Import from Webflow API
+
+Reads CMS items directly from the Webflow API and writes them into Strapi.
+
+Required environment variables:
+
+```env
+WEBFLOW_API_TOKEN=
+WEBFLOW_SITE_ID=
+STRAPI_ADMIN_TOKEN=
+STRAPI_URL=http://localhost:1337
 ```
-yarn strapi deploy
+
+Example:
+
+```bash
+node scripts/import-from-webflow-api.mjs --dry-run
+node scripts/import-from-webflow-api.mjs --collection blog-posts
 ```
 
-## 📚 Learn more
+### 2. Import from Webflow CSV export
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+Imports a single exported collection CSV into Strapi.
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+Required environment variables:
 
-## ✨ Community
+```env
+STRAPI_ADMIN_TOKEN=
+STRAPI_URL=http://localhost:1337
+```
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+Example:
 
----
+```bash
+node scripts/import-from-webflow-csv.mjs --collection blog-posts --file ./data/blog-posts.csv
+```
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+Supported collection names:
+
+- `blog-posts`
+- `blog-categories`
+- `customer-stories`
+- `integrations`
+- `integration-categories`
+- `login-gallery-items`
+- `whats-new-items`
+- `team-members`
+
+## Strapi Cloud notes
+
+- In Strapi Cloud, set the app base directory to `cms`
+- Create API tokens from Strapi Admin under `Settings -> API Tokens`
+- Point the frontend's `STRAPI_URL` and `NEXT_PUBLIC_STRAPI_URL` at your cloud project URL
+
+## Related docs
+
+- Root project overview: `../README.md`
+- Deployment details: `../DEPLOY.md`

@@ -115,18 +115,23 @@ authgear-web/
 
 ## Importing Webflow CMS data
 
-1. Export CSVs from Webflow.
-2. With Strapi reachable (Cloud or local), run `cms/scripts/import-from-webflow-csv.mjs` (see script header for env vars).
+There are two supported import paths:
+
+1. CSV import: export collection CSVs from Webflow, then run `cms/scripts/import-from-webflow-csv.mjs`.
+2. API import: pull directly from the Webflow API with `cms/scripts/import-from-webflow-api.mjs`.
+
+Both scripts are documented in `cms/README.md`.
 
 ---
 
 ## Docs
 
 - **[DEPLOY.md](./DEPLOY.md)** — Docker, env vars, SSL
-- **[STRAPI_SETUP_REVIEW.md](./STRAPI_SETUP_REVIEW.md)** — Self-hosted Strapi checklist (if you use Docker Strapi)
+- **[frontend/README.md](./frontend/README.md)** — Frontend routes, env vars, and Webflow/Strapi integration notes
+- **[cms/README.md](./cms/README.md)** — Strapi content types, local development, and Webflow import scripts
 
 ---
 
 ## License
 
-[Add your license here]
+This repository does not currently declare a license.
