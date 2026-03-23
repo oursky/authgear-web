@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
-import { getWebflowPageTitle, getWebflowPageDescription } from '@/lib/webflow-page';
-import StaticWebflowPage from '@/components/StaticWebflowPage';
+import { getTranslations } from 'next-intl/server';
+import WhyAuthgearPage from '@/components/pages/WhyAuthgearPage';
 
-export function generateMetadata(): Metadata {
-  return {
-    title: getWebflowPageTitle('why-authgear.html'),
-    description: getWebflowPageDescription('why-authgear.html'),
-  };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations({ locale: 'en', namespace: 'WhyAuthgear' });
+  return { title: t('title'), description: t('description') };
 }
 
-export default function Page() {
-  return <StaticWebflowPage htmlFile="why-authgear.html" />;
+export default async function Page() {
+  return <WhyAuthgearPage locale="en" />;
 }
