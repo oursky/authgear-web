@@ -73,5 +73,22 @@
   "Home": {
     "title": "Authgear CLOUD - Your Managed IAM Solution",
     "description": "Authgear makes it easier for developers to meet complex authentication requirements, delivering a frictionless and exceptional digital experience."
+  },
+  "About": {
+    "title": "About Us - Authgear",
+    "description": "Help developers to build better, more secure, privacy-aware software. Add secure and user friendly authentication and user management to your web & mobile apps in minutes.",
+    "heroHeading": "About Us",
+    "heroParagraph": "Authgear is the flagship product of <skymakerLink>SkyMakers</skymakerLink>. <br/>We have been serving various Enterprises and Startups in the UK, Canada, US, Hong Kong and Taiwan since 2009.<br/><br/>Our mission, is to help developers to build better, more secure, privacy-aware software with our open sources technologies.",
+    "heroImageAlt": "zoom call with authgear team",
+    "teamHeading": "The team behind Authgear",
+    "teamSubheading": "Our team work remotely from different parts of the world",
+    "joinUsButton": "Join us",
+    "partnersHeading": "Our Partners",
+    "ctaGetStartedHeading": "Get Started for free",
+    "ctaGetStartedBody": "Authgear.com is free for apps unlimited MAUs (Monthly Active Users) with Authgear branding. It is also open source and always free!",
+    "ctaGetStartedLink": "Get Started",
+    "ctaSalesHeading": "Talk with our sales team",
+    "ctaSalesBody": "If you are looking for volume discounts, custom support plans, SLA, or have a different compliance requirements, feel free to contact us!",
+    "ctaSalesLink": "Contact Us"
   }
 }

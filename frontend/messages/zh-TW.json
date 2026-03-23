@@ -73,5 +73,22 @@
   "Home": {
     "title": "Authgear CLOUD — 您的一站式身份管理方案",
     "description": "在享有企業級安全、高可用與專屬支援的 SaaS 平台上，輕鬆管理身份。Authgear Cloud 簡化身份管理，讓您專注業務成長。"
+  },
+  "About": {
+    "title": "About Us - Authgear",
+    "description": "Help developers to build better, more secure, privacy-aware software. Add secure and user friendly authentication and user management to your web & mobile apps in minutes.",
+    "heroHeading": "About Us",
+    "heroParagraph": "Authgear is the flagship product of <skymakerLink>SkyMakers</skymakerLink>. <br/>We have been serving various Enterprises and Startups in the UK, Canada, US, Hong Kong and Taiwan since 2009.<br/><br/>Our mission, is to help developers to build better, more secure, privacy-aware software with our open sources technologies.",
+    "heroImageAlt": "zoom call with authgear team",
+    "teamHeading": "The team behind Authgear",
+    "teamSubheading": "Our team work remotely from different parts of the world",
+    "joinUsButton": "Join us",
+    "partnersHeading": "Our Partners",
+    "ctaGetStartedHeading": "Get Started for free",
+    "ctaGetStartedBody": "Authgear.com is free for apps unlimited MAUs (Monthly Active Users) with Authgear branding. It is also open source and always free!",
+    "ctaGetStartedLink": "Get Started",
+    "ctaSalesHeading": "Talk with our sales team",
+    "ctaSalesBody": "If you are looking for volume discounts, custom support plans, SLA, or have a different compliance requirements, feel free to contact us!",
+    "ctaSalesLink": "Contact Us"
   }
 }
