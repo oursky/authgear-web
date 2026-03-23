@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import StaticWebflowPage from '@/components/StaticWebflowPage';
+import HomePage from '@/components/pages/HomePage';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -13,8 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function HomePage({ params }: Props) {
+export default async function HomePageRoute({ params }: Props) {
   const { locale } = await params;
-  const htmlFile = locale === 'zh-TW' ? 'zh-TW/index.html' : 'index.html';
-  return <StaticWebflowPage htmlFile={htmlFile} />;
+  return <HomePage locale={locale} />;
 }
