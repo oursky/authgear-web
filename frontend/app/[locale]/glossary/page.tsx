@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import { getWebflowPageTitle, getWebflowPageDescription } from '@/lib/webflow-page';
-import StaticWebflowPage from '@/components/StaticWebflowPage';
+import { getTranslations } from 'next-intl/server';
+import GlossaryPage from '@/components/pages/GlossaryPage';
 
-export function generateMetadata(): Metadata {
-  return {
-    title: getWebflowPageTitle('glossary.html'),
-    description: getWebflowPageDescription('glossary.html'),
-  };
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Glossary' });
+  return { title: t('title'), description: t('description') };
 }
 
-export default function Page() {
-  return <StaticWebflowPage htmlFile="glossary.html" />;
+export default async function Page({ params }: Props) {
+  const { locale } = await params;
+  return <GlossaryPage locale={locale} />;
 }
