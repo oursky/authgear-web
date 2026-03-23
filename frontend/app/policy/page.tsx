@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
-import { getWebflowPageTitle, getWebflowPageDescription } from '@/lib/webflow-page';
-import StaticWebflowPage from '@/components/StaticWebflowPage';
+import { getTranslations } from 'next-intl/server';
+import PolicyPage from '@/components/pages/PolicyPage';
 
-export function generateMetadata(): Metadata {
-  return {
-    title: getWebflowPageTitle('policy.html'),
-    description: getWebflowPageDescription('policy.html'),
-  };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations({ locale: 'en', namespace: 'Policy' });
+  return { title: t('title'), description: t('description') };
 }
 
-export default function Page() {
-  return <StaticWebflowPage htmlFile="policy.html" />;
+export default async function Page() {
+  return <PolicyPage locale="en" />;
 }
