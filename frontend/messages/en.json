@@ -90,5 +90,61 @@
     "ctaSalesHeading": "Talk with our sales team",
     "ctaSalesBody": "If you are looking for volume discounts, custom support plans, SLA, or have a different compliance requirements, feel free to contact us!",
     "ctaSalesLink": "Contact Us"
+  },
+  "Ciam": {
+    "title": "Plug and Play CIAM - Authgear",
+    "description": ""
+  },
+  "DataPrivacy": {
+    "title": "Privacy Policy - Authgear",
+    "description": ""
+  },
+  "Glossary": {
+    "title": "Glossary",
+    "description": ""
+  },
+  "MigrateToAuthgear": {
+    "title": "Migrate to Authgear: 6 Months Free, Worry-Free Migration",
+    "description": ""
+  },
+  "Once": {
+    "title": "Authgear ONCE – Own Your IAM with a Perpetual License",
+    "description": ""
+  },
+  "Policy": {
+    "title": "Acceptable Use Policy - Authgear",
+    "description": ""
+  },
+  "Promises": {
+    "title": "Authgear Promises",
+    "description": ""
+  },
+  "ScheduleDemo": {
+    "title": "Schedule Demo",
+    "description": ""
+  },
+  "Security": {
+    "title": "Security - Authgear",
+    "description": ""
+  },
+  "Sla": {
+    "title": "Service Level Agreement - Authgear",
+    "description": ""
+  },
+  "Terms": {
+    "title": "Terms of Services - Authgear",
+    "description": ""
+  },
+  "TermsEnterprise": {
+    "title": "Enterprise Subscription Terms - Authgear",
+    "description": ""
+  },
+  "WhyAuthgear": {
+    "title": "Why Authgear - Your Path to Secure and Scalable Authentication",
+    "description": ""
+  },
+  "AuthToolkit": {
+    "title": "Auth Developer Mini-Toolkit",
+    "description": ""
   }
 }
