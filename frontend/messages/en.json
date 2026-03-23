@@ -1,1 +1,14 @@
-{}
+{
+  "Navigation": {
+    "logoAlt": "Authgear Logo",
+    "products": "Products",
+    "solutions": "Solutions",
+    "resources": "Resources",
+    "developers": "Developers",
+    "pricing": "Pricing",
+    "loginMobile": "Login",
+    "signupMobile": "Signup",
+    "getDemo": "Get a Demo",
+    "signupLogin": "Signup/Login"
+  }
+}

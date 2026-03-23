@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { headers } from 'next/headers';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { localeToHtmlLang } from '@/lib/i18n';
 import { getFooterInnerHtml, getNavInnerHtml } from '@/lib/site-navigation';
 
@@ -58,6 +60,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const htmlLang = localeToHtmlLang(locale);
   const navInnerHtml = getNavInnerHtml(locale);
   const footerInnerHtml = getFooterInnerHtml(locale);
+  const messages = await getMessages();
   return (
     <html lang={htmlLang} suppressHydrationWarning>
       <head>
@@ -116,6 +119,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 `}</style>
       </head>
       <body className="bg-neutral-200">
+        <NextIntlClientProvider messages={messages}>
         {/* Navigation */}
         <div
           data-collapse="medium"
@@ -175,6 +179,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"
           strategy="beforeInteractive"
         />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

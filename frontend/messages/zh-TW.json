@@ -1,1 +1,14 @@
-{}
+{
+  "Navigation": {
+    "logoAlt": "Authgear 標誌",
+    "products": "產品",
+    "solutions": "解決方案",
+    "resources": "資源",
+    "developers": "開發者",
+    "pricing": "定價",
+    "loginMobile": "登入",
+    "signupMobile": "註冊",
+    "getDemo": "預約示範",
+    "signupLogin": "註冊／登入"
+  }
+}
