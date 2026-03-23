@@ -8,6 +8,7 @@ import {
   solutionsSideImage,
   resourcesDropdownLinks,
   developersDropdownLinks,
+  footerStrings,
 } from '@/lib/navigation-data';
 
 function linkHref(locale: string, pathOrUrl: string): string {
@@ -214,14 +215,13 @@ function escapeFooter(s: string): string {
   return escapeHtml(s);
 }
 
-/** Renders footer inner HTML from the same link set as the global footer, with locale-aware paths and zh-TW labels. */
+/** Renders footer inner HTML from the same link set as the global footer, with locale-aware paths and labels. */
 export async function getFooterInnerHtml(locale: string): Promise<string> {
-  const isZh = locale === 'zh-TW';
   const h = (path: string) => linkHref(locale, path);
-  const L = (en: string, zhTW: string) => escapeFooter(isZh ? zhTW : en);
+  const L = (key: string) => escapeFooter(footerStrings[key][locale] ?? footerStrings[key]['en'] ?? '');
 
-  const powered = isZh ? 'Authgear 由 ' : 'Authgear powered by ';
-  const poweredSuffix = isZh ? ' 提供' : '';
+  const powered = footerStrings['poweredBy'][locale] ?? footerStrings['poweredBy']['en'];
+  const poweredSuffix = footerStrings['poweredBySuffix'][locale] ?? footerStrings['poweredBySuffix']['en'];
 
   return `
     <div class="workshop-footer-separator"></div>
@@ -236,70 +236,70 @@ export async function getFooterInnerHtml(locale: string): Promise<string> {
               <a href="https://discord.gg/Kdn5vcYwAS" target="_blank" class="footer-social-media-link icon-small gray-bg w-inline-block"><img width="19" loading="lazy" alt="Discord" src="/images/authgear_footer_social_discord.svg" class="footer-social-media-icon"></a>
               <a href="https://github.com/authgear" target="_blank" class="footer-social-media-link icon-small gray-bg w-inline-block"><img loading="lazy" src="/images/authgear_footer_social_github.svg" alt="GitHub" class="footer-social-media-icon"></a>
             </div>
-            <div class="footer-certificate"><img width="144.5" loading="lazy" alt="${L('ISO 27001 Certified', 'ISO 27001 認證')}" src="/images/Authgear_footer_certificated_blue2x.png" class="certificate-img"></div>
+            <div class="footer-certificate"><img width="144.5" loading="lazy" alt="${L('isoCertAlt')}" src="/images/Authgear_footer_certificated_blue2x.png" class="certificate-img"></div>
           </div>
           <div class="footer-menu-navigation-wrapper workshop">
             <div class="footer-menu-links-wrapper workshop">
               <ul role="list" class="footer-menu-list w-list-unstyled">
-                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('Products', '產品')}</h6></li>
-                <li class="footer-menu-list-item"><a href="${h('/once')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('On your Server (ONCE)', '自建版（ONCE）')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('On the Cloud', '雲端版')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/pricing')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Pricing', '定價')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/migrate-to-authgear')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('SAML Migration', 'SAML 遷移')}</div></a></li>
+                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('productsTitle')}</h6></li>
+                <li class="footer-menu-list-item"><a href="${h('/once')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('onYourServer')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('onTheCloud')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/pricing')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('pricing')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/migrate-to-authgear')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('samlMigration')}</div></a></li>
               </ul>
               <ul role="list" class="footer-menu-list w-list-unstyled">
-                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('alternative', '產品替代方案')}</h6></li>
-                <li class="footer-menu-list-item"><a href="${h('/compare/okta-alternative')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Okta Alternative', 'Okta 替代方案')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/compare/auth0-alternative')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Auth0 Alternative', 'Auth0 替代方案')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/compare/cognito-alternative')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Cognito Alternative', 'Cognito 替代方案')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/compare/firebase-alternative')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Firebase Alternative', 'Firebase 替代方案')}</div></a></li>
+                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('alternativeTitle')}</h6></li>
+                <li class="footer-menu-list-item"><a href="${h('/compare/okta-alternative')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('oktaAlternative')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/compare/auth0-alternative')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('auth0Alternative')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/compare/cognito-alternative')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('cognitoAlternative')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/compare/firebase-alternative')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('firebaseAlternative')}</div></a></li>
               </ul>
             </div>
             <div class="footer-menu-links-wrapper workshop">
               <ul role="list" class="footer-menu-list w-list-unstyled">
-                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('developers', '開發者')}</h6></li>
-                <li class="footer-menu-list-item"><a href="https://docs.authgear.com" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Documentation', '文件')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="https://docs.authgear.com/reference/apis/oauth-2.0-and-openid-connect-oidc/userinfo" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('API Reference', 'API 參考')}</div></a></li>
+                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('developersTitle')}</h6></li>
+                <li class="footer-menu-list-item"><a href="https://docs.authgear.com" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('documentation')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="https://docs.authgear.com/reference/apis/oauth-2.0-and-openid-connect-oidc/userinfo" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('apiReference')}</div></a></li>
                 <li class="footer-menu-list-item"><a href="https://github.com/authgear" class="footer-menu-link workshop-footer-link w-inline-block"><div>GitHub</div></a></li>
-                <li class="footer-menu-list-item"><a href="https://github.com/authgear/authgear-server/discussions" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Community Forum', '社群論壇')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="https://github.com/authgear/authgear-server/discussions" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('communityForum')}</div></a></li>
                 <li class="footer-menu-list-item"><a href="https://discord.gg/Kdn5vcYwAS" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>Discord</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/integrations')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Integrations', '整合')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/integrations')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('integrations')}</div></a></li>
               </ul>
             </div>
             <div class="footer-menu-links-wrapper workshop">
               <ul role="list" class="footer-menu-list w-list-unstyled">
-                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('resources', '資源')}</h6></li>
-                <li class="footer-menu-list-item"><a href="${h('/blog')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Blog', '部落格')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/login-gallery')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Login Gallery', '登入畫廊')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/glossary')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Glossary', '名詞解釋')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/security')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Security', '安全性')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/terms')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Terms of Service', '服務條款')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/policy')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Privacy Policy', '隱私權政策')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/data-privacy')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Data Privacy', '資料隱私')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/terms-of-enterprise-license')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Enterprise Licenses', '企業授權')}</div></a></li>
+                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('resourcesTitle')}</h6></li>
+                <li class="footer-menu-list-item"><a href="${h('/blog')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('blog')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/login-gallery')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('loginGallery')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/glossary')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('glossary')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/security')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('security')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/terms')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('termsOfService')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/policy')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('privacyPolicy')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/data-privacy')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('dataPrivacy')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/terms-of-enterprise-license')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('enterpriseLicenses')}</div></a></li>
                 <li class="footer-menu-list-item"><a href="${h('/sla')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>SLA</div></a></li>
               </ul>
               <ul role="list" class="footer-menu-list w-list-unstyled">
-                <li class="footer-menu-list-item"><a href="${h('/auth-toolkit')}" class="footer-menu-title w-inline-block"><h6 class="footer-menu-title">${L('Free Tools', '免費工具')}</h6></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/oidc-discovery-endpoint')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('OIDC Discovery Explorer', 'OIDC Discovery 探索器')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/ssl-checker')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('SSL Checker', 'SSL 檢查工具')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/uuidv7-generator')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('UUID v7 Generator', 'UUID v7 產生器')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/base64-decode-encode')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Base64 Decode/Encode', 'Base64 編解碼')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/jwt-jwe-debugger')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('JWT &amp; JWE Debugger', 'JWT 與 JWE 除錯器')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/jwk-generator')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('JWK Generator', 'JWK 產生器')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/password-hash-generator')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Password Hash Generator/Verifier', '密碼雜湊產生／驗證')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/hmac-signature-generator-verifier')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('HMAC Signature Generator/Verifier', 'HMAC 簽章產生／驗證')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="https://samlsp.com/" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('SAML Testing Tool', 'SAML 測試工具')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/tools/totp-authenticator')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('TOTP Authenticator', 'TOTP 驗證器')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/auth-toolkit')}" class="footer-menu-title w-inline-block"><h6 class="footer-menu-title">${L('freeToolsTitle')}</h6></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/oidc-discovery-endpoint')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('oidcDiscovery')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/ssl-checker')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('sslChecker')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/uuidv7-generator')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('uuidv7Generator')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/base64-decode-encode')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('base64')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/jwt-jwe-debugger')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('jwtDebugger')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/jwk-generator')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('jwkGenerator')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/password-hash-generator')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('passwordHash')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/hmac-signature-generator-verifier')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('hmacSignature')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="https://samlsp.com/" target="_blank" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('samlTestingTool')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/tools/totp-authenticator')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('totpAuthenticator')}</div></a></li>
               </ul>
             </div>
             <div class="footer-menu-links-wrapper workshop">
               <ul role="list" class="footer-menu-list w-list-unstyled">
-                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('company', '公司')}</h6></li>
-                <li class="footer-menu-list-item"><a href="${h('/about')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('About Us', '關於我們')}</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/schedule-demo')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Contact Sales', '聯絡業務')}</div></a></li>
+                <li class="footer-menu-list-item"><h6 class="footer-menu-title">${L('companyTitle')}</h6></li>
+                <li class="footer-menu-list-item"><a href="${h('/about')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('aboutUs')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/schedule-demo')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('contactSales')}</div></a></li>
                 <li class="footer-menu-list-item"><a href="${h('/about')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>SkyMakers Digital</div></a></li>
-                <li class="footer-menu-list-item"><a href="${h('/promises')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('Our Promises', '我們的承諾')}</div></a></li>
+                <li class="footer-menu-list-item"><a href="${h('/promises')}" class="footer-menu-link workshop-footer-link w-inline-block"><div>${L('ourPromises')}</div></a></li>
               </ul>
             </div>
           </div>
