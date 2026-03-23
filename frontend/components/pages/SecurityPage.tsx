@@ -1,20 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-import PageScripts from '@/components/PageScripts';
-
 interface Props {
   locale: string;
 }
 
-const pageScripts: string[] = [
-  `// disable first option from dropdown
-  let selectionDropdown = document.getElementById("how-hear");
-  let selectionOptions = selectionDropdown.getElementsByTagName("option");
-  selectionOptions[0].disabled = true;`
-];
-
-export default async function SecurityPage({ locale }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Security' });
-  void t;
+export default async function SecurityPage({ locale: _locale }: Props) {
 
   return (
     <>
@@ -36,12 +24,12 @@ export default async function SecurityPage({ locale }: Props) {
                 <h3>Security Assessments and Compliance</h3>
                 <p>At Authgear, we take data security extremely seriously, being both <strong>ISO 27001</strong> and <strong>SOC 2 Type II</strong> compliant. This affirms our commitment to implementing and maintaining the highest standards of information security and operational integrity.</p>
                 <ul role="list">
-                  <li><strong>ISO 27001:</strong> Ensures Authgear&#x27;s Information Security Management System (ISMS) meets international best practices for managing sensitive company and customer information.</li>
-                  <li><strong>SOC 2 Type II:</strong> Validates Authgear&#x27;s ability to securely manage customer data, ensuring trust and privacy across critical service criteria</li>
+                  <li><strong>ISO 27001:</strong> Ensures Authgear's Information Security Management System (ISMS) meets international best practices for managing sensitive company and customer information.</li>
+                  <li><strong>SOC 2 Type II:</strong> Validates Authgear's ability to securely manage customer data, ensuring trust and privacy across critical service criteria</li>
                 </ul>
                 <p>Feel free to reach us via our <a href="https://www.authgear.com/schedule-demo" target="_blank">contact form</a> for more details on our security certifications.</p>
                 <h4><strong>Data Centers</strong></h4>
-                <p>Authgear’s physical infrastructure is hosted and managed within Google’s secure data centers around the globe and utilizes the Google Cloud Platform (GCP) technology. Independent and thorough assessments on security, privacy and compliance controls are regularly conducted by Google to ensure they are up to industry standards. In fact, Google&#x27;s data center operations have been accredited under:</p>
+                <p>Authgear’s physical infrastructure is hosted and managed within Google’s secure data centers around the globe and utilizes the Google Cloud Platform (GCP) technology. Independent and thorough assessments on security, privacy and compliance controls are regularly conducted by Google to ensure they are up to industry standards. In fact, Google's data center operations have been accredited under:</p>
                 <ul role="list">
                   <li>ISO 27001</li>
                   <li>ISO/IEC 27017</li>
@@ -116,7 +104,6 @@ export default async function SecurityPage({ locale }: Props) {
           </div>
         </div>
 
-      <PageScripts scripts={pageScripts} />
     </>
   );
 }

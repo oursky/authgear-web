@@ -1,4 +1,3 @@
-import { getTranslations } from 'next-intl/server';
 import PageScripts from '@/components/PageScripts';
 
 interface Props {
@@ -72,10 +71,7 @@ input.addEventListener('change', reset);
 input.addEventListener('keyup', reset);`
 ];
 
-export default async function ScheduleDemoPage({ locale }: Props) {
-  const t = await getTranslations({ locale, namespace: 'ScheduleDemo' });
-  void t;
-
+export default async function ScheduleDemoPage({ locale: _locale }: Props) {
   return (
     <>
       <div className="page-wrapper">

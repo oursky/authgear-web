@@ -1,4 +1,3 @@
-import { getTranslations } from 'next-intl/server';
 import PageScripts from '@/components/PageScripts';
 
 interface Props {
@@ -6,10 +5,6 @@ interface Props {
 }
 
 const pageScripts: string[] = [
-  `// disable first option from dropdown
-  let selectionDropdown = document.getElementById("how-hear");
-  let selectionOptions = selectionDropdown.getElementsByTagName("option");
-  selectionOptions[0].disabled = true;`,
   `systemTab = document.querySelectorAll(".system");
 const changeSystem = function (e, c) {
   e.preventDefault();
@@ -114,10 +109,7 @@ input.addEventListener('change', reset);
 input.addEventListener('keyup', reset);`
 ];
 
-export default async function OncePage({ locale }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Once' });
-  void t;
-
+export default async function OncePage({ locale: _locale }: Props) {
   return (
     <>
       <div className="page-wrapper">

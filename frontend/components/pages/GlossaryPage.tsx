@@ -1,20 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-import PageScripts from '@/components/PageScripts';
-
 interface Props {
   locale: string;
 }
 
-const pageScripts: string[] = [
-  `// disable first option from dropdown
-  let selectionDropdown = document.getElementById("how-hear");
-  let selectionOptions = selectionDropdown.getElementsByTagName("option");
-  selectionOptions[0].disabled = true;`
-];
-
-export default async function GlossaryPage({ locale }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Glossary' });
-  void t;
+export default async function GlossaryPage({ locale: _locale }: Props) {
 
   return (
     <>
@@ -220,7 +208,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Authgear Endpoint</div>
-                <p className="paragraph-19">Your Authgear endpoint or project endpoint is the active domain name that points to your Authgear project. The Authgear endpoint has many uses. For example, you&#x27;ll need it to connect a client application to your Authgear project or redirect users to your login and sign-up page. The easiest way to find out what your Authgear endpoint is is to navigate to Custom Domains in the Authgear Portal. Your endpoint is the domain in the row with a green Active status.</p>
+                <p className="paragraph-19">Your Authgear endpoint or project endpoint is the active domain name that points to your Authgear project. The Authgear endpoint has many uses. For example, you'll need it to connect a client application to your Authgear project or redirect users to your login and sign-up page. The easiest way to find out what your Authgear endpoint is is to navigate to Custom Domains in the Authgear Portal. Your endpoint is the domain in the row with a green Active status.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Authentication</div>
@@ -228,7 +216,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Authorization</div>
-                <p className="paragraph-19">Authorization is the process of granting or denying access to resources based on the identity of a user. For example, a user may grant a client application the authorization to their own data on Authgear, this authorization may not be used to access another user&#x27;s data.</p>
+                <p className="paragraph-19">Authorization is the process of granting or denying access to resources based on the identity of a user. For example, a user may grant a client application the authorization to their own data on Authgear, this authorization may not be used to access another user's data.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Authorization code</div>
@@ -236,7 +224,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Authorized Redirect URIs</div>
-                <p className="paragraph-19">These are the URLs that point to valid pages on the client&#x27;s application that users are redirected to after auth. Usually, this is the page where you implement the code that gets the value of the authorization code from the URL parameter and initiates token exchange with the authorization code for an access token.<br /><br />In Authgear, you can also set the page to redirect anonymous users after promotion in the Authorized Redirect URIs for your project.</p>
+                <p className="paragraph-19">These are the URLs that point to valid pages on the client's application that users are redirected to after auth. Usually, this is the page where you implement the code that gets the value of the authorization code from the URL parameter and initiates token exchange with the authorization code for an access token.<br /><br />In Authgear, you can also set the page to redirect anonymous users after promotion in the Authorized Redirect URIs for your project.</p>
               </div>
             </div>
             <div id="Glossary-B" className="w-layout-vflex glossary-container">
@@ -256,7 +244,7 @@ export default async function GlossaryPage({ locale }: Props) {
               <div className="first-letter">C</div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Claims</div>
-                <p className="paragraph-19">Claims contain details that can be used to identify a user or application. They are typically included in the authentication tokens such as JWT and can contain details like username, scope, and role.<br /><br />See this post for instructions on how to add custom fields (details) to Authgear&#x27;s JWT access token to meet your specific needs.</p>
+                <p className="paragraph-19">Claims contain details that can be used to identify a user or application. They are typically included in the authentication tokens such as JWT and can contain details like username, scope, and role.<br /><br />See this post for instructions on how to add custom fields (details) to Authgear's JWT access token to meet your specific needs.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Client ID</div>
@@ -264,7 +252,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Client Secret</div>
-                <p className="paragraph-19">The client secret is a confidential string sent together with the client ID as credentials for authenticating your client application on Authugear&#x27;s server.</p>
+                <p className="paragraph-19">The client secret is a confidential string sent together with the client ID as credentials for authenticating your client application on Authugear's server.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Cloudflare Turnstile</div>
@@ -272,7 +260,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Custom Attributes</div>
-                <p className="paragraph-19">Custom Attributes allow you to add extra fields to the user attributes. Custom attributes can help capture extra data that isn&#x27;t already included in the standard attributes.</p>
+                <p className="paragraph-19">Custom Attributes allow you to add extra fields to the user attributes. Custom attributes can help capture extra data that isn't already included in the standard attributes.</p>
               </div>
             </div>
             <div id="Glossary-F" className="w-layout-vflex glossary-container">
@@ -308,11 +296,11 @@ export default async function GlossaryPage({ locale }: Props) {
               <div className="first-letter">M</div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Magic link</div>
-                <p className="paragraph-19">Magic link, also known as Email Login Link is a type of user authentication method that uses a unique login link that&#x27;s sent to a user&#x27;s email instead of a traditional password.</p>
+                <p className="paragraph-19">Magic link, also known as Email Login Link is a type of user authentication method that uses a unique login link that's sent to a user's email instead of a traditional password.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Multi-factor authentication (MFA)</div>
-                <p className="paragraph-19">Multi-factor authentication, or MFA, is an application security measure that requires users to provide two or more factors to verify that it&#x27;s them actually trying to access their account. For example, when an application requires a user to enter their password (something they know) and an OTP sent to their phone (something they have).</p>
+                <p className="paragraph-19">Multi-factor authentication, or MFA, is an application security measure that requires users to provide two or more factors to verify that it's them actually trying to access their account. For example, when an application requires a user to enter their password (something they know) and an OTP sent to their phone (something they have).</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Machine-to-Machine Token</div>
@@ -323,7 +311,7 @@ export default async function GlossaryPage({ locale }: Props) {
               <div className="first-letter">N</div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Non-Blocking Events</div>
-                <p className="paragraph-19">Non-blocking events are hook events that don&#x27;t block the operations that trigger them. You can get notified and invoke custom logic when an event happens in Authgear.</p>
+                <p className="paragraph-19">Non-blocking events are hook events that don't block the operations that trigger them. You can get notified and invoke custom logic when an event happens in Authgear.</p>
               </div>
             </div>
             <div id="Glossary-O" className="w-layout-vflex glossary-container">
@@ -334,7 +322,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">OAuth</div>
-                <p className="paragraph-19">OAuth is an open authorization standard that makes it possible for users to securely grant third-party applications access to their profile and data without requiring their password.<br /><br />Authgear supports the OAuth 2.0 standard and you can use it to access your user&#x27;s data from your custom application.</p>
+                <p className="paragraph-19">OAuth is an open authorization standard that makes it possible for users to securely grant third-party applications access to their profile and data without requiring their password.<br /><br />Authgear supports the OAuth 2.0 standard and you can use it to access your user's data from your custom application.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">OpenID Connect (OIDC)</div>
@@ -345,7 +333,7 @@ export default async function GlossaryPage({ locale }: Props) {
               <div className="first-letter">P</div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Passkey</div>
-                <p className="paragraph-19">The use of passkeys is a modern method of passwordless login. When using passkeys, the user&#x27;s browser or operating system helps them select the current passkey associated with their account on a website or application. Passkey verifies the user using biometrics or PIN on their device and can replace traditional OTP or biometric login.</p>
+                <p className="paragraph-19">The use of passkeys is a modern method of passwordless login. When using passkeys, the user's browser or operating system helps them select the current passkey associated with their account on a website or application. Passkey verifies the user using biometrics or PIN on their device and can replace traditional OTP or biometric login.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Passwordless</div>
@@ -360,15 +348,15 @@ export default async function GlossaryPage({ locale }: Props) {
               <div className="first-letter">R</div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Role-Based Access Control (RBAC)</div>
-                <p className="paragraph-19">Role-based access control (RBAC) is a security model that manages user access to systems, applications, and data by assigning permissions based on a user&#x27;s predefined role within an organization. Instead of configuring permissions for each individual, RBAC groups users by roles—such as administrator, HR manager, or end-user—and grants access rights according to the responsibilities and requirements of those roles, simplifying administration and enhancing security by enforcing the principle of least privilege.</p>
+                <p className="paragraph-19">Role-based access control (RBAC) is a security model that manages user access to systems, applications, and data by assigning permissions based on a user's predefined role within an organization. Instead of configuring permissions for each individual, RBAC groups users by roles—such as administrator, HR manager, or end-user—and grants access rights according to the responsibilities and requirements of those roles, simplifying administration and enhancing security by enforcing the principle of least privilege.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Roles</div>
-                <p className="paragraph-19">Roles can be assigned to a user in Authgear for RBAC. Roles are returned using the <a href="#">https://authgear.com/claims/user/roles</a> attribute in Authgear&#x27;s JWT access token and UserInfo as an array.</p>
+                <p className="paragraph-19">Roles can be assigned to a user in Authgear for RBAC. Roles are returned using the <a href="#">https://authgear.com/claims/user/roles</a> attribute in Authgear's JWT access token and UserInfo as an array.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Reauthentication</div>
-                <p className="paragraph-19">Reauthentication is the process of verifying the identity of a user that&#x27;s already authenticated before they can perform sensitive operations. This process can help improve security by making sure a user doesn&#x27;t perform sensitive operations with old grants that might have been compromised.</p>
+                <p className="paragraph-19">Reauthentication is the process of verifying the identity of a user that's already authenticated before they can perform sensitive operations. This process can help improve security by making sure a user doesn't perform sensitive operations with old grants that might have been compromised.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Refresh token</div>
@@ -376,7 +364,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Roles</div>
-                <p className="paragraph-19">Roles can be used to control access to certain parts of an application or API that&#x27;s powered by Authgear. Roles are returned using the <a href="#">https://authgear.com/claims/user/roles</a> attribute in Authgear&#x27;s JWT access token and UserInfo as an array.<br /><br />The following is an example of how you can use roles. In a blog application with two roles (admin and reader), you can restrict access for editing and adding new posts to only users with the admin role. Check out our documentation on roles and groups to learn more about managing roles in Authgear.</p>
+                <p className="paragraph-19">Roles can be used to control access to certain parts of an application or API that's powered by Authgear. Roles are returned using the <a href="#">https://authgear.com/claims/user/roles</a> attribute in Authgear's JWT access token and UserInfo as an array.<br /><br />The following is an example of how you can use roles. In a blog application with two roles (admin and reader), you can restrict access for editing and adding new posts to only users with the admin role. Check out our documentation on roles and groups to learn more about managing roles in Authgear.</p>
               </div>
             </div>
             <div id="Glossary-S" className="w-layout-vflex glossary-container">
@@ -395,18 +383,18 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Social login</div>
-                <p className="paragraph-19">Authgear simplifies the process of allowing your users to sign in to your application using their existing accounts on popular social media sites like Facebook, Google, LinkedIn, Github, and Apple.<br /><br />You can enable this feature from Authentication &gt; Social / Enterprise Login in the Authgear Portal.</p>
+                <p className="paragraph-19">Authgear simplifies the process of allowing your users to sign in to your application using their existing accounts on popular social media sites like Facebook, Google, LinkedIn, Github, and Apple.<br /><br />You can enable this feature from Authentication {'>'} Social / Enterprise Login in the Authgear Portal.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">Standard Attributes</div>
-                <p className="paragraph-19">Standard Attributes consist of common user attributes such as email, phone number, name, gender, and birthday. Authgear determines the fields in Standard Attributes. You can view a full list of standard attributes under User Profile &gt; Standard Attributes.</p>
+                <p className="paragraph-19">Standard Attributes consist of common user attributes such as email, phone number, name, gender, and birthday. Authgear determines the fields in Standard Attributes. You can view a full list of standard attributes under User Profile {'>'} Standard Attributes.</p>
               </div>
             </div>
             <div id="Glossary-T" className="w-layout-vflex glossary-container">
               <div className="first-letter">T</div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">TOTP</div>
-                <p className="paragraph-19">TOTP is short for Time-based One-time Password. This is a method of two-factor authentication (2FA) that requires the user to enter a time-based single-use code that&#x27;s generated using a mobile app like Google Authenticator or Authy.<br /><br />The user will first need to register their device on the service they wish to log in to by scanning a QR code or entering a secret key from the service.</p>
+                <p className="paragraph-19">TOTP is short for Time-based One-time Password. This is a method of two-factor authentication (2FA) that requires the user to enter a time-based single-use code that's generated using a mobile app like Google Authenticator or Authy.<br /><br />The user will first need to register their device on the service they wish to log in to by scanning a QR code or entering a secret key from the service.</p>
               </div>
             </div>
             <div id="Glossary-U" className="w-layout-vflex glossary-container">
@@ -417,7 +405,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">User Deletion</div>
-                <p className="paragraph-19">User delete is the process of completely deleting a user&#x27;s account account and all their associated data. This can be scheduled or done immediately.</p>
+                <p className="paragraph-19">User delete is the process of completely deleting a user's account account and all their associated data. This can be scheduled or done immediately.</p>
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">User Settings</div>
@@ -425,7 +413,7 @@ export default async function GlossaryPage({ locale }: Props) {
               </div>
               <div className="w-layout-hflex glossary-block">
                 <div className="text-block-85">UserInfo Endpoint</div>
-                <p className="paragraph-19">The UserInfo endpoint is an HTTP endpoint in your Authgear application that your client application can send requests to on behalf of an authenticated user for their account information. This endpoint returns a JSON response with data such as the user&#x27;s email, and sub.</p>
+                <p className="paragraph-19">The UserInfo endpoint is an HTTP endpoint in your Authgear application that your client application can send requests to on behalf of an authenticated user for their account information. This endpoint returns a JSON response with data such as the user's email, and sub.</p>
               </div>
             </div>
             <div id="Glossary-W" className="w-layout-vflex glossary-container">
@@ -465,7 +453,6 @@ export default async function GlossaryPage({ locale }: Props) {
 
       </div>
 
-      <PageScripts scripts={pageScripts} />
     </>
   );
 }

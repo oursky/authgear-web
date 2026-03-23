@@ -1,20 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-import PageScripts from '@/components/PageScripts';
-
 interface Props {
   locale: string;
 }
 
-const pageScripts: string[] = [
-  `// disable first option from dropdown
-  let selectionDropdown = document.getElementById("how-hear");
-  let selectionOptions = selectionDropdown.getElementsByTagName("option");
-  selectionOptions[0].disabled = true;`
-];
-
-export default async function SlaPage({ locale }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Sla' });
-  void t;
+export default async function SlaPage({ locale: _locale }: Props) {
 
   return (
     <>
@@ -43,7 +31,7 @@ export default async function SlaPage({ locale }: Props) {
                   <li>If we fall short of our 99.95% uptime guarantee (scheduled downtime excluded), we’ll refund customers on the paid plan 10% of the amount you paid within the month Authgear was down.</li>
                 </ul>
                 <h3>Scheduled Downtime</h3>
-                <p>Occasionally, we need to perform maintenance to keep Authgear working as smoothly as possible. If scheduled downtime is necessary, we’ll give you 48 hours&#x27; advance notice. In a calendar year, there will be no more than 12 hours of scheduled downtime.</p>
+                <p>Occasionally, we need to perform maintenance to keep Authgear working as smoothly as possible. If scheduled downtime is necessary, we’ll give you 48 hours' advance notice. In a calendar year, there will be no more than 12 hours of scheduled downtime.</p>
                 <h3>Downtime</h3>
                 <p>Downtime means the hosted server of Authgear was unavailable for use excluding the period of scheduled maintenance. We use server monitoring software to monitor when Authgear is down. Downtime does not include the period of time when Authgear is not available as a result of scheduled downtime.</p>
                 <h3>Service Credit</h3>
@@ -53,7 +41,7 @@ export default async function SlaPage({ locale }: Props) {
                 <ul role="list">
                   <li>Features designated as beta, early access, free trial, limited preview, or preview</li>
                   <li>Downtime caused by any of the following:<ul role="list">
-                      <li>Factors outside of Authgear&#x27;s reasonable control</li>
+                      <li>Factors outside of Authgear's reasonable control</li>
                       <li>Force majeure events</li>
                       <li>Customer’s software or hardware or third-party software or hardware under the customer’s control, or both</li>
                       <li>Abuses or other behaviors that violate the Agreement</li>
@@ -111,7 +99,6 @@ export default async function SlaPage({ locale }: Props) {
 
         </div>
 
-      <PageScripts scripts={pageScripts} />
     </>
   );
 }

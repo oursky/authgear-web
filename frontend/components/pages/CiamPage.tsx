@@ -1,4 +1,3 @@
-import { getTranslations } from 'next-intl/server';
 import PageScripts from '@/components/PageScripts';
 
 interface Props {
@@ -6,10 +5,6 @@ interface Props {
 }
 
 const pageScripts: string[] = [
-  `// disable first option from dropdown
-  let selectionDropdown = document.getElementById("how-hear");
-  let selectionOptions = selectionDropdown.getElementsByTagName("option");
-  selectionOptions[0].disabled = true;`,
   `$(".code-block .code-snippet")
 	.each((i,ele)=>{
   	CodeMirror.fromTextArea(ele,{
@@ -41,10 +36,7 @@ $(document).ready(()=>{
 })`
 ];
 
-export default async function CiamPage({ locale }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Ciam' });
-  void t;
-
+export default async function CiamPage({ locale: _locale }: Props) {
   return (
     <>
       <div className="page-wrapper">
@@ -133,7 +125,7 @@ export default async function CiamPage({ locale }: Props) {
             <div className="container--homefeaturecard w-container">
               <div className="home-feature-card">
                 <h3 className="home-feature-card-title">Self-Service Settings</h3>
-                <p className="home-feature-card-paragraph">Prebuilt account setting page for users to change passwords, set up 2FA, revoke signed in sessions, or edit profile information, without having to contact the support team.<br /><br />Don&#x27;t have to worry about complex APIs or SDKs, just use the pre-built UI with customisable brands.</p><img sizes="(max-width: 548px) 100vw, 548px" srcSet="/images/Settings-page-p-500.png 500w, /images/Settings-page.png 548w" src="/images/Settings-page.png" alt="" className="image home-feature-card-img home-feature-card-img--profile" />
+                <p className="home-feature-card-paragraph">Prebuilt account setting page for users to change passwords, set up 2FA, revoke signed in sessions, or edit profile information, without having to contact the support team.<br /><br />Don't have to worry about complex APIs or SDKs, just use the pre-built UI with customisable brands.</p><img sizes="(max-width: 548px) 100vw, 548px" srcSet="/images/Settings-page-p-500.png 500w, /images/Settings-page.png 548w" src="/images/Settings-page.png" alt="" className="image home-feature-card-img home-feature-card-img--profile" />
               </div>
               <div className="home-feature-card home-feature-card--passwordless">
                 <h3 className="home-feature-card-title">Passwordless</h3>
@@ -145,7 +137,7 @@ export default async function CiamPage({ locale }: Props) {
               </div>
               <div className="home-feature-card home-feature-card--admin">
                 <h3 className="home-feature-card-title">Admin Portals</h3>
-                <p className="home-feature-card-paragraph">User Management for your admin or customer support to create, remove, disable or revoke users&#x27; sessions with a few clicks.<br /><br />Built-in users analytics and audit log for marketing and security purposes.</p><img alt="" src="/images/Admin-Portal.png" className="image home-feature-card-img" />
+                <p className="home-feature-card-paragraph">User Management for your admin or customer support to create, remove, disable or revoke users' sessions with a few clicks.<br /><br />Built-in users analytics and audit log for marketing and security purposes.</p><img alt="" src="/images/Admin-Portal.png" className="image home-feature-card-img" />
               </div>
             </div>
             <div className="container-default w-container"></div>
@@ -170,7 +162,7 @@ export default async function CiamPage({ locale }: Props) {
                 </div>
                 <div className="feature-wrapper"><img src="/images/passkeys.svg" alt="" className="image icon-feature" />
                   <h3 className="h3-title-small">Passkeys &amp; Biometrics</h3>
-                  <p>Don&#x27;t bother with password anymore and go Passwordless with Passkeys, SMS/Email or Biometrics.</p>
+                  <p>Don't bother with password anymore and go Passwordless with Passkeys, SMS/Email or Biometrics.</p>
                 </div>
                 <div className="feature-wrapper"><img src="/images/migration.svg" alt="" className="image icon-feature" />
                   <h3 className="h3-title-small">Azure AD/LDAP Supported</h3>
@@ -182,7 +174,7 @@ export default async function CiamPage({ locale }: Props) {
                 </div>
                 <div className="feature-wrapper"><img src="/images/session-management.svg" alt="" className="image icon-feature" />
                   <h3 className="h3-title-small">Sessions Alert and Revoke</h3>
-                  <p>Empower your users to ensure their account&#x27;s security by listing their sessions and terminate unknown one.</p>
+                  <p>Empower your users to ensure their account's security by listing their sessions and terminate unknown one.</p>
                 </div>
               </div>
             </div>

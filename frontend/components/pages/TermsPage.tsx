@@ -1,20 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-import PageScripts from '@/components/PageScripts';
-
 interface Props {
   locale: string;
 }
 
-const pageScripts: string[] = [
-  `// disable first option from dropdown
-  let selectionDropdown = document.getElementById("how-hear");
-  let selectionOptions = selectionDropdown.getElementsByTagName("option");
-  selectionOptions[0].disabled = true;`
-];
-
-export default async function TermsPage({ locale }: Props) {
-  const t = await getTranslations({ locale, namespace: 'Terms' });
-  void t;
+export default async function TermsPage({ locale: _locale }: Props) {
 
   return (
     <>
@@ -73,7 +61,6 @@ export default async function TermsPage({ locale }: Props) {
 
         </div>
 
-      <PageScripts scripts={pageScripts} />
     </>
   );
 }
