@@ -58,8 +58,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const headersList = await headers();
   const locale = headersList.get('x-locale') ?? 'en';
   const htmlLang = localeToHtmlLang(locale);
-  const navInnerHtml = getNavInnerHtml(locale);
-  const footerInnerHtml = getFooterInnerHtml(locale);
+  const navInnerHtml = await getNavInnerHtml(locale);
+  const footerInnerHtml = await getFooterInnerHtml(locale);
   const messages = await getMessages();
   return (
     <html lang={htmlLang} suppressHydrationWarning>
