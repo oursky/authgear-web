@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function PasswordlessAuthenticationPage({ locale }: Props) {
+export default function PasswordlessAuthenticationPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg">
@@ -186,7 +186,7 @@ export default function PasswordlessAuthenticationPage({ locale }: Props) {
           <div className="_2-block-flex-content footer-form">
             <div className="_2-block-flex-content-text-wrap footer-form">
               <h2 className="form-heading color-white footer-form">Ready to Ditch the Password Hassle?</h2>
-              <div className="color-cee9ff">Experience the future of authentication with Authgear&#x27;s passwordless solutions. Simplify logins, enhance security, and empower your users with effortless access.</div>
+              <div className="color-cee9ff">Experience the future of authentication with Authgear's passwordless solutions. Simplify logins, enhance security, and empower your users with effortless access.</div>
               <div className="footerform__divider-sm"></div>
               <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
             </div>

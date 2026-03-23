@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function MultiFactorAuthenticationPage({ locale }: Props) {
+export default function MultiFactorAuthenticationPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg">
@@ -28,7 +28,7 @@ export default function MultiFactorAuthenticationPage({ locale }: Props) {
       <div className="container-default-inner px-0 gap-0 pb-0">
         <div className="top-content feature-flex mb-60">
           <h2 className="title features-page-v2">What is<span className="text-highlight-gradient"> Multi-Factor Authentication (MFA)?</span></h2>
-          <p className="paragraph-large text-center features-page-v2">Multi-factor authentication (MFA) is a security method that requires users to provide two or more forms of identification to gain access to a system or account. It&#x27;s like adding an extra lock to your digital door for enhanced protection.</p>
+          <p className="paragraph-large text-center features-page-v2">Multi-factor authentication (MFA) is a security method that requires users to provide two or more forms of identification to gain access to a system or account. It's like adding an extra lock to your digital door for enhanced protection.</p>
         </div>
         <div className="features-flex-container gap-40 reverse-order">
           <div className="solution-image-block"><img src="/images/features-mfa-whatis-mfa.svg" loading="lazy" alt="" /></div>

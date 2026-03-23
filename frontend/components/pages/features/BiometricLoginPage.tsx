@@ -2,7 +2,7 @@ interface Props {
   locale: string;
 }
 
-export default function BiometricLoginPage({ locale }: Props) {
+export default function BiometricLoginPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero">

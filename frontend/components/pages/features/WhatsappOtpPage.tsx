@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function WhatsappOtpPage({ locale }: Props) {
+export default function WhatsappOtpPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg no-bg">

@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function PasskeysPage({ locale }: Props) {
+export default function PasskeysPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg">
@@ -12,7 +12,7 @@ export default function PasskeysPage({ locale }: Props) {
       <div className="split-content features-hero-left">
         <div className="featurespage__hero-titletag">Passkey Authentication</div>
         <h1 className="title features-hero-v2">Effortless Passkey Authentication - A future without password</h1>
-        <p className="features-hero-description">Secure your website and simplify user logins with Authgear&#x27;s easy-to-implement passkey authentication. Rely on the strength of passkeys backed by major tech giants while enjoying a streamlined setup process.</p>
+        <p className="features-hero-description">Secure your website and simplify user logins with Authgear's easy-to-implement passkey authentication. Rely on the strength of passkeys backed by major tech giants while enjoying a streamlined setup process.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-passkey&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
           <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
@@ -55,7 +55,7 @@ export default function PasskeysPage({ locale }: Props) {
             <div className="svg-card-image-container"><img src="/images/features-passkeys-authentication-icon-setup.svg" loading="lazy" alt="" /></div>
             <div className="svg-card-content-container text-center gap-16">
               <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Effortless Setup</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262">Integrating passkey authentication into your website is a breeze with Authgear. Simply enable the feature in your admin panel with a single click, and you&#x27;re ready to provide your users with a more secure and convenient login option.</div>
+              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262">Integrating passkey authentication into your website is a breeze with Authgear. Simply enable the feature in your admin panel with a single click, and you're ready to provide your users with a more secure and convenient login option.</div>
             </div>
           </div>
           <div id="w-node-bfb14abc-b53a-5c07-576e-745ecb79f100-c4f83b00" className="svg-card p-0 pr-24">
@@ -81,7 +81,7 @@ export default function PasskeysPage({ locale }: Props) {
     <div className="container-default">
       <div className="container-default-inner">
         <div className="top-content feature-flex">
-          <h2 className="title features-page-v2">How to Create a Passkey:<br />‍<span className="text-highlight-gradient">It&#x27;s Easier Than You Think!</span></h2>
+          <h2 className="title features-page-v2">How to Create a Passkey:<br />‍<span className="text-highlight-gradient">It's Easier Than You Think!</span></h2>
           <p className="paragraph-large text-center features-page-v2">Discover the hassle-free way to boost your online security. Passkeys offer a simple yet highly secure alternative to traditional passwords.</p>
         </div>
         <div className="tabs-pretext ibm-plex-sans">Learn how to create one in just a few steps without compromising your protection:</div>
@@ -119,7 +119,7 @@ export default function PasskeysPage({ locale }: Props) {
       <div className="container-default-inner px-0 gap-0 pt-0">
         <div className="top-content feature-flex mb-60">
           <h2 className="title features-page-v2">Revolutionize Enterprise Security<br />‍<span className="text-highlight-gradient">with Passkey Authentication</span></h2>
-          <p className="paragraph-large text-center features-page-v2">Discover how passkeys can transform your organization&#x27;s security landscape. From enhancing employee productivity to safeguarding sensitive data, explore the compelling use cases of implementing passkey authentication in corporate environments.</p>
+          <p className="paragraph-large text-center features-page-v2">Discover how passkeys can transform your organization's security landscape. From enhancing employee productivity to safeguarding sensitive data, explore the compelling use cases of implementing passkey authentication in corporate environments.</p>
         </div>
         <div className="_3-card-grid row-gap-64">
           <div id="w-node-dee47dc3-954f-ced5-581b-53cc7043db5a-c4f83b00" className="svg-card p-0 pr-24">
@@ -133,7 +133,7 @@ export default function PasskeysPage({ locale }: Props) {
             <div className="svg-card-image-container"><img src="/images/features-passkeys-security-icon-security.svg" loading="lazy" alt="" /></div>
             <div className="svg-card-content-container text-center gap-16">
               <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Strengthened Security Posture</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px">Passkeys offer superior protection against phishing attacks and credential theft, safeguarding your organization&#x27;s valuable data and intellectual property.</div>
+              <div className="svg-card-content-description inter text-align-left mobile-16px">Passkeys offer superior protection against phishing attacks and credential theft, safeguarding your organization's valuable data and intellectual property.</div>
             </div>
           </div>
           <div id="w-node-dee47dc3-954f-ced5-581b-53cc7043db6a-c4f83b00" className="svg-card p-0 pr-24">

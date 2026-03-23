@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function SingleSignOnPage({ locale }: Props) {
+export default function SingleSignOnPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg">
@@ -12,7 +12,7 @@ export default function SingleSignOnPage({ locale }: Props) {
       <div className="split-content features-hero-left">
         <div className="featurespage__hero-titletag">Single Sign On</div>
         <h1 className="title features-hero-v2">Elevate Your App with Effortless SSO Login</h1>
-        <p className="features-hero-description">Simplify user experience and boost security with Authgear&#x27;s OIDC-based SSO solution. Experience the benefits of enhanced user engagement and reduced friction.</p>
+        <p className="features-hero-description">Simplify user experience and boost security with Authgear's OIDC-based SSO solution. Experience the benefits of enhanced user engagement and reduced friction.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-sso&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
           <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
@@ -94,7 +94,7 @@ export default function SingleSignOnPage({ locale }: Props) {
             </div>
             <div className="svg-card-content-container text-center gap-6">
               <div className="svg-card-content-title inter color-2e2e2e size-18">Authorization and token issuance</div>
-              <div className="svg-card-content-description inter size-14 color-626262">Upon successful authentication, the AS issues an ID token and potentially an access token to the user&#x27;s browser.</div>
+              <div className="svg-card-content-description inter size-14 color-626262">Upon successful authentication, the AS issues an ID token and potentially an access token to the user's browser.</div>
             </div>
           </div>
           <div id="w-node-a6bbb84f-e170-1c84-5bcf-b60ebf45d0b0-e7a18d43" className="svg-card bg-eff2fc gap-16 py-24 px-32">
@@ -112,7 +112,7 @@ export default function SingleSignOnPage({ locale }: Props) {
             </div>
             <div className="svg-card-content-container text-center gap-6">
               <div className="svg-card-content-title inter color-2e2e2e size-18">Token validation and access</div>
-              <div className="svg-card-content-description inter size-14 color-626262">The RP validates the ID token to verify the user&#x27;s identity and grants access to the requested resource.</div>
+              <div className="svg-card-content-description inter size-14 color-626262">The RP validates the ID token to verify the user's identity and grants access to the requested resource.</div>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function SingleSignOnPage({ locale }: Props) {
         </div>
         <div className="_3-card-grid">
           <div id="w-node-c5d7a487-ba4d-1906-a5b6-92cdc38cf44f-e7a18d43" className="svg-card p-0 pr-24 bg-transparent">
-            <div className="svg-card-image-container"><img src="/images/features-passkeys-security-icon-employee.svg" loading="lazy" width={48} height="Auto" alt="" /></div>
+            <div className="svg-card-image-container"><img src="/images/features-passkeys-security-icon-employee.svg" loading="lazy" width={48} height="auto" alt="" /></div>
             <div className="svg-card-content-container text-center gap-16">
               <div className="svg-card-content-title left inter color-2e2e2e mobile-20px size-22">User Initiates Login</div>
               <div className="svg-card-content-description inter text-align-left mobile-16px color-626262">Simplify the login process, reduce password-related frustrations, and increase user engagement.</div>
@@ -164,7 +164,7 @@ export default function SingleSignOnPage({ locale }: Props) {
           <div className="features-text-block p-0">
             <h3 className="features-h3-dark">OIDC-Based SSO</h3>
             <div className="gradient-divider"></div>
-            <div className="color-626262 line-height-24px">Authgear&#x27;s SSO solution is built on the foundation of OpenID Connect (OIDC), an industry-standard protocol for authentication and authorization. By adhering to OIDC standards, Authgear ensures seamless integration with a wide range of applications and services.</div>
+            <div className="color-626262 line-height-24px">Authgear's SSO solution is built on the foundation of OpenID Connect (OIDC), an industry-standard protocol for authentication and authorization. By adhering to OIDC standards, Authgear ensures seamless integration with a wide range of applications and services.</div>
           </div>
         </div>
         <div className="features-flex-container gap-40">

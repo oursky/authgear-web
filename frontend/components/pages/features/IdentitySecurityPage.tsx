@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function IdentitySecurityPage({ locale }: Props) {
+export default function IdentitySecurityPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg">
@@ -12,7 +12,7 @@ export default function IdentitySecurityPage({ locale }: Props) {
       <div className="split-content features-hero-left">
         <div className="featurespage__hero-titletag">Security &amp; Threat Prevention</div>
         <h1 className="title features-hero-v2">Fortify Your Business with Unbreakable Identity Security</h1>
-        <p className="features-hero-description">Protect your business from the ever-evolving threat landscape with Authgear&#x27;s robust security features. Our comprehensive approach to identity security safeguards your user data and builds trust.</p>
+        <p className="features-hero-description">Protect your business from the ever-evolving threat landscape with Authgear's robust security features. Our comprehensive approach to identity security safeguards your user data and builds trust.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-security-threat-prevention&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
           <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
@@ -32,7 +32,7 @@ export default function IdentitySecurityPage({ locale }: Props) {
             <div className="features-card-new_image last"><img src="/images/features-securitythreat-defend-protection.svg" loading="lazy" alt="" /></div>
             <div className="features-card-new_content-wrap">
               <div className="features-card-new_content-title">Brute-Force Protection</div>
-              <div className="features-card-new_content-desc">Safeguard your user accounts from brute-force attacks with our intelligent lockout mechanisms. By limiting login attempts, we deter unauthorized access and protect your users&#x27; identities.</div>
+              <div className="features-card-new_content-desc">Safeguard your user accounts from brute-force attacks with our intelligent lockout mechanisms. By limiting login attempts, we deter unauthorized access and protect your users' identities.</div>
             </div>
           </div>
           <div id="w-node-_67d41cbe-7c2d-33d4-de63-7da22187dd0d-56ac6c01" className="features-card-new px-24 bg-transparent space-between border-0 bg-white">
@@ -149,7 +149,7 @@ export default function IdentitySecurityPage({ locale }: Props) {
           <div className="_2-block-flex-content footer-form">
             <div className="_2-block-flex-content-text-wrap footer-form">
               <h2 className="form-heading color-white footer-form">Ready to Fortify Your Business?</h2>
-              <div className="color-cee9ff">Protect your users and your brand with Authgear&#x27;s ironclad identity security. Get started today with a free trial.</div>
+              <div className="color-cee9ff">Protect your users and your brand with Authgear's ironclad identity security. Get started today with a free trial.</div>
               <div className="footerform__divider-sm"></div>
               <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
             </div>

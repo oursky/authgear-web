@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function SmsPumpingFraudPage({ locale }: Props) {
+export default function SmsPumpingFraudPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg inverse">
@@ -13,7 +13,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
         <div className="coming-soon">Coming Soon</div>
         <div className="featurespage__hero-titletag inverse">SMS Pumping Protection</div>
         <h1 className="title features-hero-v2 inverse">Protect Your Business from SMS Pumping Fraud</h1>
-        <p className="features-hero-description inverse">Safeguard your SMS authentication channels from costly fraud with Authgear&#x27;s advanced SMS Pumping Detection. Our intelligent system identifies suspicious patterns and stops attacks before they drain your budget.</p>
+        <p className="features-hero-description inverse">Safeguard your SMS authentication channels from costly fraud with Authgear's advanced SMS Pumping Detection. Our intelligent system identifies suspicious patterns and stops attacks before they drain your budget.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-sms-pumping&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
           <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale inverse w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
@@ -31,7 +31,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
         <div className="w-layout-hflex case-study-card">
           <div className="w-layout-vflex flex-block-67">
             <div className="text-block-65">The Twitter Case Study: A $60 Million Lesson</div>
-            <div className="text-block-66">In late 2022, Elon Musk revealed that Twitter was losing approximately $60 million annually due to SMS pumping fraud. The fraud was traced to 390 telecom operators that allowed bot accounts to exploit Twitter&#x27;s two-factor authentication system, generating fake SMS traffic to inflate their own revenue. This costly revelation highlights how even tech giants can fall victim to this growing threat.</div>
+            <div className="text-block-66">In late 2022, Elon Musk revealed that Twitter was losing approximately $60 million annually due to SMS pumping fraud. The fraud was traced to 390 telecom operators that allowed bot accounts to exploit Twitter's two-factor authentication system, generating fake SMS traffic to inflate their own revenue. This costly revelation highlights how even tech giants can fall victim to this growing threat.</div>
           </div><img src="/images/features-SMSfraud-X2x.jpg" loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcSet="/images/features-SMSfraud-X2x-p-500.jpg 500w, /images/features-SMSfraud-X2x-p-800.jpg 800w, /images/features-SMSfraud-X2x-p-1080.jpg 1080w, /images/features-SMSfraud-X2x.jpg 1400w" alt="" />
         </div>
       </div>
@@ -93,7 +93,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
               <div style={{height: "0px"}} className="faq2_answer">
                 <div className="margin-bottom">
                   <div className="max-width-large once-faq">
-                    <p className="referral-faq-a-2 pumping-fraud-faq-a">If you notice OTP requests coming from regions or countries where you don&#x27;t normally operate, this could signal fraudulent activity. Pay attention to successful OTP attempts from locations where you don&#x27;t have a legitimate customer base.</p>
+                    <p className="referral-faq-a-2 pumping-fraud-faq-a">If you notice OTP requests coming from regions or countries where you don't normally operate, this could signal fraudulent activity. Pay attention to successful OTP attempts from locations where you don't have a legitimate customer base.</p>
                   </div>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
               <div style={{height: "0px"}} className="faq2_answer">
                 <div className="margin-bottom">
                   <div className="max-width-large once-faq">
-                    <p className="referral-faq-a-2 pumping-fraud-faq-a">Sudden, unexplained surges in SMS traffic—especially for OTP requests—often indicate bot activity. Unless you&#x27;re running a promotion or campaign, these spikes warrant immediate investigation.</p>
+                    <p className="referral-faq-a-2 pumping-fraud-faq-a">Sudden, unexplained surges in SMS traffic—especially for OTP requests—often indicate bot activity. Unless you're running a promotion or campaign, these spikes warrant immediate investigation.</p>
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
               <div style={{height: "0px"}} className="faq2_answer">
                 <div className="margin-bottom">
                   <div className="max-width-large once-faq">
-                    <p className="referral-faq-a-2 pumping-fraud-faq-a">If you&#x27;re burning through your SMS budget faster than usual, it&#x27;s likely that SMS pumping is affecting your business. This is often the most painful symptom that finally triggers investigation.</p>
+                    <p className="referral-faq-a-2 pumping-fraud-faq-a">If you're burning through your SMS budget faster than usual, it's likely that SMS pumping is affecting your business. This is often the most painful symptom that finally triggers investigation.</p>
                   </div>
                 </div>
               </div>
@@ -159,7 +159,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
     <div className="container-default wider-container-default">
       <div className="w-layout-vflex container-default-inner px-0 gap60">
         <div className="top-content feature-flex">
-          <h2 className="title features-page-v2">Introducing Authgear&#x27;s<br />SMS Pumping Detection</h2>
+          <h2 className="title features-page-v2">Introducing Authgear's<br />SMS Pumping Detection</h2>
           <p className="paragraph-large text-center features-page-v2 margin-auto">Our advanced detection system uses machine learning algorithms to identify and block fraudulent SMS traffic before it impacts your business. Unlike basic security measures, our solution provides comprehensive protection against sophisticated SMS pumping attacks.</p>
         </div>
         <div className="w-layout-hflex sms-left-right"><img src="/images/features-SMSfraud-features-RealTime.svg" loading="lazy" alt="" className="features-card-image-radius" />
@@ -206,7 +206,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
             <div className="svg-card-image-container"><img src="/images/features-SMSfraud-why-security.svg" loading="lazy" alt="" /></div>
             <div className="svg-card-content-container text-center gap-16">
               <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Comprehensive Security Approach</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">Authgear&#x27;s SMS Pumping Detection is part of our holistic security ecosystem that includes multi-factor authentication, breached password detection, and bot protection. This integrated approach provides defense-in-depth against evolving threats.</div>
+              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">Authgear's SMS Pumping Detection is part of our holistic security ecosystem that includes multi-factor authentication, breached password detection, and bot protection. This integrated approach provides defense-in-depth against evolving threats.</div>
             </div>
           </div>
           <div id="w-node-ab065274-56a3-587d-2df4-75ff4e52d6dd-3eea4af0" className="svg-card">
@@ -220,7 +220,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
             <div className="svg-card-image-container"><img src="/images/features-SMSfraud-why-ux.svg" loading="lazy" width={48} alt="" /></div>
             <div className="svg-card-content-container text-center gap-16">
               <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">User Experience Focus</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">While enhancing security, we maintain a frictionless authentication experience for legitimate users, ensuring protection doesn&#x27;t come at the cost of usability.</div>
+              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">While enhancing security, we maintain a frictionless authentication experience for legitimate users, ensuring protection doesn't come at the cost of usability.</div>
             </div>
           </div>
           <div id="w-node-_7dcc6254-c236-0d2a-6aec-2b64a8f8b29f-3eea4af0" className="svg-card">
@@ -241,7 +241,7 @@ export default function SmsPumpingFraudPage({ locale }: Props) {
           <div className="_2-block-flex-content footer-form">
             <div className="_2-block-flex-content-text-wrap footer-form">
               <h2 className="form-heading color-white footer-form">Ready to Protect Your Business?</h2>
-              <div className="color-cee9ff">Don&#x27;t wait until SMS pumping fraud impacts your bottom line. Request a demo today for Authgear&#x27;s SMS Pumping Detection and implement this powerful protection for your business.</div>
+              <div className="color-cee9ff">Don't wait until SMS pumping fraud impacts your bottom line. Request a demo today for Authgear's SMS Pumping Detection and implement this powerful protection for your business.</div>
               <div className="footerform__divider-sm"></div>
               <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
             </div>

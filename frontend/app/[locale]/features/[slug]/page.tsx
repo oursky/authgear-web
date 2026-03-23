@@ -15,7 +15,7 @@ import MachineToMachineTokenPage from '@/components/pages/features/MachineToMach
 import MultiFactorAuthenticationPage from '@/components/pages/features/MultiFactorAuthenticationPage';
 import PasskeysPage from '@/components/pages/features/PasskeysPage';
 import PasswordlessAuthenticationPage from '@/components/pages/features/PasswordlessAuthenticationPage';
-import SelfServeSettingsPagePage from '@/components/pages/features/SelfServeSettingsPagePage';
+import SelfServeSettingsPage from '@/components/pages/features/SelfServeSettingsPage';
 import SingleSignOnPage from '@/components/pages/features/SingleSignOnPage';
 import SmsPasscodePage from '@/components/pages/features/SmsPasscodePage';
 import SmsPumpingFraudPage from '@/components/pages/features/SmsPumpingFraudPage';
@@ -37,7 +37,7 @@ const pageMap: Record<string, React.ComponentType<{ locale: string }>> = {
   'multi-factor-authentication': MultiFactorAuthenticationPage,
   passkeys: PasskeysPage,
   'passwordless-authentication': PasswordlessAuthenticationPage,
-  'self-serve-settings-page': SelfServeSettingsPagePage,
+  'self-serve-settings-page': SelfServeSettingsPage,
   'single-sign-on': SingleSignOnPage,
   'sms-passcode': SmsPasscodePage,
   'sms-pumping-fraud': SmsPumpingFraudPage,

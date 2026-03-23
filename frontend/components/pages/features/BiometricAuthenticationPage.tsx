@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function BiometricAuthenticationPage({ locale }: Props) {
+export default function BiometricAuthenticationPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg">
@@ -25,7 +25,7 @@ export default function BiometricAuthenticationPage({ locale }: Props) {
       <div className="container-default-inner px-0 row small-col">
         <div className="top-content feature-flex mb-60">
           <h2 className="title features-page-v2 gradient-silver">What is Biometric Authentication?</h2>
-          <p className="paragraph-large text-center features-page-v2 color-white"><span className="text-bold">Biometric authentication</span> is a security process that verifies a user&#x27;s identity based on their unique physical or behavioral characteristics. Instead of relying on traditional methods like passwords or PINs, biometrics leverages distinctive traits such as fingerprints, facial features, or voice patterns to confirm a person&#x27;s identity.</p>
+          <p className="paragraph-large text-center features-page-v2 color-white"><span className="text-bold">Biometric authentication</span> is a security process that verifies a user's identity based on their unique physical or behavioral characteristics. Instead of relying on traditional methods like passwords or PINs, biometrics leverages distinctive traits such as fingerprints, facial features, or voice patterns to confirm a person's identity.</p>
         </div>
         <div className="_2-card-grid gap-32 mobile-1-col">
           <div className="svg-card p-24 gap-6 transparent min-w-296px">
@@ -53,7 +53,7 @@ export default function BiometricAuthenticationPage({ locale }: Props) {
             <div className="svg-card-image-container mb-18"><img src="/images/features-biometric-whatis-access.svg" loading="lazy" alt="" /></div>
             <div className="svg-card-content-title ibm-plex-sans color-white">Streamlined Access</div>
             <div className="svg-card-content-container">
-              <div className="svg-card-content-description size-14 color-c5cae8">Biometric systems can quickly and accurately verify a user&#x27;s identity, providing efficient access to services and applications.</div>
+              <div className="svg-card-content-description size-14 color-c5cae8">Biometric systems can quickly and accurately verify a user's identity, providing efficient access to services and applications.</div>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function BiometricAuthenticationPage({ locale }: Props) {
       <div className="container-default-inner px-0 gap-0">
         <div className="top-content feature-flex mb-60">
           <h2 className="title features-page-v2">Biometric Authentication <span className="text-highlight-gradient">Methods</span></h2>
-          <p className="paragraph-large text-center features-page-v2">Biometric authentication leverages various unique physical or behavioral characteristics for user verification. Let&#x27;s focus on two of the most common and convenient methods: fingerprint authentication and facial recognition.</p>
+          <p className="paragraph-large text-center features-page-v2">Biometric authentication leverages various unique physical or behavioral characteristics for user verification. Let's focus on two of the most common and convenient methods: fingerprint authentication and facial recognition.</p>
         </div>
         <div data-current="Tab 1" data-duration-in="300" data-duration-out="100" className="tabs-rounded w-tabs">
           <div className="tabs-menu-rounded w-tab-menu">
@@ -109,7 +109,7 @@ export default function BiometricAuthenticationPage({ locale }: Props) {
             <div data-w-tab="Tab 2" className="w-tab-pane">
               <div className="tabs-rounded_top-content">
                 <h3 className="tabs-rounded_h3">Facial Authentication</h3>
-                <div>Facial authentication technology analyzes distinctive facial features to verify a person&#x27;s identity.</div>
+                <div>Facial authentication technology analyzes distinctive facial features to verify a person's identity.</div>
               </div>
               <div className="_3-card-grid">
                 <div className="svg-card px-24 gap-6 center">
@@ -154,7 +154,7 @@ export default function BiometricAuthenticationPage({ locale }: Props) {
             <div className="gradient-divider"></div>
             <div className="line-height-24px mb-24">Upon registering biometric login, a pair of cryptographic keys is created by Secure Enclave, so the private key is protected by hardware and never left the device.</div>
             <ul role="list" className="_2-block-flex-content-list">
-              <li className="_2-block-flex-content-list-item line-height-24px">The private key is securely stored on the user&#x27;s device (Secure Enclave for iOS, Hardware-backed Keystore for Android).</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">The private key is securely stored on the user's device (Secure Enclave for iOS, Hardware-backed Keystore for Android).</li>
               <li className="_2-block-flex-content-list-item line-height-24px">The public key is stored on the Authgear server.</li>
             </ul>
           </div>
@@ -165,7 +165,7 @@ export default function BiometricAuthenticationPage({ locale }: Props) {
             <h3 className="features-h3-dark">Authentication</h3>
             <div className="gradient-divider"></div>
             <ul role="list" className="_2-block-flex-content-list">
-              <li className="_2-block-flex-content-list-item line-height-24px">The user presents their biometric (fingerprint or face) to unlock the device&#x27;s private key.</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">The user presents their biometric (fingerprint or face) to unlock the device's private key.</li>
               <li className="_2-block-flex-content-list-item line-height-24px">The server sends a challenge to the devices.</li>
               <li className="_2-block-flex-content-list-item line-height-24px">The device uses the private key to sign the challenge.</li>
               <li className="_2-block-flex-content-list-item line-height-24px">The signed challenge is sent to the Authgear server as a response.</li>
@@ -257,7 +257,7 @@ export default function BiometricAuthenticationPage({ locale }: Props) {
       <div className="container-default-inner px-0 gap-0">
         <div className="top-content feature-flex mb-60">
           <h2 className="title features-page-v2">Revolutionize Enterprise Security<br />‍<span className="text-highlight-gradient">with Passkey Authentication</span></h2>
-          <p className="paragraph-large text-center features-page-v2">Discover how passkeys can transform your organization&#x27;s security landscape. From enhancing employee productivity to safeguarding sensitive data, explore the compelling use cases of implementing passkey authentication in corporate environments.</p>
+          <p className="paragraph-large text-center features-page-v2">Discover how passkeys can transform your organization's security landscape. From enhancing employee productivity to safeguarding sensitive data, explore the compelling use cases of implementing passkey authentication in corporate environments.</p>
         </div>
         <div className="_3-card-grid row-gap-64">
           <div className="svg-card p-0 gap-6 bg-transparent">
@@ -306,7 +306,7 @@ export default function BiometricAuthenticationPage({ locale }: Props) {
           <div className="_2-block-flex-content footer-form">
             <div className="_2-block-flex-content-text-wrap footer-form">
               <h2 className="form-heading color-white footer-form">Ready to Fortify Your Business?</h2>
-              <div className="color-cee9ff">Protect your users and your brand with Authgear&#x27;s ironclad identity security. Get started today with a free trial.</div>
+              <div className="color-cee9ff">Protect your users and your brand with Authgear's ironclad identity security. Get started today with a free trial.</div>
               <div className="footerform__divider-sm"></div>
               <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
             </div>

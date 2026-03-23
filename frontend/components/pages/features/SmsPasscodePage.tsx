@@ -2,7 +2,7 @@ interface Props {
   locale: string;
 }
 
-export default function SmsPasscodePage({ locale }: Props) {
+export default function SmsPasscodePage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero">

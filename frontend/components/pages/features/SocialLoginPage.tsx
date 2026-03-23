@@ -4,7 +4,7 @@ interface Props {
   locale: string;
 }
 
-export default function SocialLoginPage({ locale }: Props) {
+export default function SocialLoginPage(_props: Props) {
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg">
@@ -12,7 +12,7 @@ export default function SocialLoginPage({ locale }: Props) {
       <div className="split-content features-hero-left">
         <div className="featurespage__hero-titletag">Social Login</div>
         <h1 className="title features-hero-v2">Seamless Social Login: Boost User Engagement and Security</h1>
-        <p className="features-hero-description">Simplify user access and enhance security with Authgear&#x27;s powerful social login integration. Connect your users effortlessly while maintaining robust authentication standards.</p>
+        <p className="features-hero-description">Simplify user access and enhance security with Authgear's powerful social login integration. Connect your users effortlessly while maintaining robust authentication standards.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-social-login&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
           <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
@@ -42,13 +42,13 @@ export default function SocialLoginPage({ locale }: Props) {
           </div>
           <div id="w-node-c89a385f-4d26-bc55-bec3-2e62d7f4c486-44a84e6c" className="features__social-media-wrap">
             <div className="features__social-media-card">
-              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-facebook.svg" loading="lazy" width={32} height="Auto" alt="" className="features__social-media-image" /></div>
+              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-facebook.svg" loading="lazy" width={32} height="auto" alt="" className="features__social-media-image" /></div>
             </div>
             <div className="features-social-login-providers">Facebook</div>
           </div>
           <div id="w-node-_2f68271b-dacb-bd2d-2974-572757888469-44a84e6c" className="features__social-media-wrap">
             <div className="features__social-media-card">
-              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-github.svg" loading="lazy" width={32} height="Auto" alt="" className="features__social-media-image" /></div>
+              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-github.svg" loading="lazy" width={32} height="auto" alt="" className="features__social-media-image" /></div>
             </div>
             <div className="features-social-login-providers">GitHub</div>
           </div>
@@ -60,25 +60,25 @@ export default function SocialLoginPage({ locale }: Props) {
           </div>
           <div id="w-node-_72cd9e29-5e06-800a-5eac-650c0d6ba75e-44a84e6c" className="features__social-media-wrap">
             <div className="features__social-media-card">
-              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-microsoft.svg" loading="lazy" width={32} height="Auto" alt="" className="features__social-media-image" /></div>
+              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-microsoft.svg" loading="lazy" width={32} height="auto" alt="" className="features__social-media-image" /></div>
             </div>
             <div className="features-social-login-providers">Azure Active Directory &amp; Azure AD B2C</div>
           </div>
           <div id="w-node-_54009ab2-6275-0965-f61e-8d51e45e5bd6-44a84e6c" className="features__social-media-wrap">
             <div className="features__social-media-card">
-              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-azure.svg" loading="lazy" width={32} height="Auto" alt="" className="features__social-media-image" /></div>
+              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-azure.svg" loading="lazy" width={32} height="auto" alt="" className="features__social-media-image" /></div>
             </div>
             <div className="features-social-login-providers">Microsoft AD FS</div>
           </div>
           <div id="w-node-f53588eb-52c8-6616-a664-86d1c3654da8-44a84e6c" className="features__social-media-wrap">
             <div className="features__social-media-card">
-              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-wechat.svg" loading="lazy" width={32} height="Auto" alt="" className="features__social-media-image" /></div>
+              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-wechat.svg" loading="lazy" width={32} height="auto" alt="" className="features__social-media-image" /></div>
             </div>
             <div className="features-social-login-providers">WeChat</div>
           </div>
           <div id="w-node-_245f3883-b570-e282-c6b7-062faf7d75ad-44a84e6c" className="features__social-media-wrap">
             <div className="features__social-media-card">
-              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-line.svg" loading="lazy" width={32} height="Auto" alt="" className="features__social-media-image" /></div>
+              <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-line.svg" loading="lazy" width={32} height="auto" alt="" className="features__social-media-image" /></div>
             </div>
             <div className="features-social-login-providers">LINE<br />(Coming soon)</div>
           </div>
@@ -158,7 +158,7 @@ export default function SocialLoginPage({ locale }: Props) {
             <div className="features-card-new_image last"><img src="/images/features-sociallogin-withauthgear-brandcontrol.svg" loading="lazy" alt="" className="mw-140" /></div>
             <div className="features-card-new_content-wrap">
               <div className="features-card-new_content-title">Brand Control</div>
-              <div className="features-card-new_content-desc">Customize social login buttons to match your app&#x27;s design.</div>
+              <div className="features-card-new_content-desc">Customize social login buttons to match your app's design.</div>
             </div>
           </div>
           <div id="w-node-d78c7a69-3aab-2d61-27d8-83a488e48482-44a84e6c" className="features-card-new px-24 bg-white space-between">
@@ -191,7 +191,7 @@ export default function SocialLoginPage({ locale }: Props) {
       <div className="container-default-inner px-0">
         <div className="top-content feature-flex mb-60">
           <h2 className="title features-page-v2 gradient-silver">Skyrocket User Growth with Frictionless Social Login</h2>
-          <p className="paragraph-large text-center features-page-v2 color-white">Imagine a world where user registration is a breeze. No more lengthy forms, forgotten passwords, or sign-up frustration. Authgear&#x27;s social login makes this a reality, unlocking a surge in user growth for your business. Here&#x27;s how:</p>
+          <p className="paragraph-large text-center features-page-v2 color-white">Imagine a world where user registration is a breeze. No more lengthy forms, forgotten passwords, or sign-up frustration. Authgear's social login makes this a reality, unlocking a surge in user growth for your business. Here's how:</p>
         </div>
         <div className="_2-card-grid gap-32 mobile-1-col">
           <div className="svg-card p-24 gap-6 transparent min-w-296px">
@@ -233,7 +233,7 @@ export default function SocialLoginPage({ locale }: Props) {
           <div className="_2-block-flex-content footer-form">
             <div className="_2-block-flex-content-text-wrap footer-form">
               <h2 className="form-heading color-white footer-form">Unleash the Power of Social Login: Streamline Signups, Boost Growth</h2>
-              <div className="color-cee9ff"><span className="text-bold">Ready to ditch the signup struggle and supercharge your user base? Authgear&#x27;s social login</span> provides a seamless and secure experience that keeps users happy and coming back for more. Integrate all your favorite social login providers in minutes and unlock a new era of growth.</div>
+              <div className="color-cee9ff"><span className="text-bold">Ready to ditch the signup struggle and supercharge your user base? Authgear's social login</span> provides a seamless and secure experience that keeps users happy and coming back for more. Integrate all your favorite social login providers in minutes and unlock a new era of growth.</div>
               <div className="footerform__divider-sm"></div>
               <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
             </div>
