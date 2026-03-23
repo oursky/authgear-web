@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
-import { getWebflowPageTitle, getWebflowPageDescription } from '@/lib/webflow-page';
-import StaticWebflowPage from '@/components/StaticWebflowPage';
+import { getTranslations } from 'next-intl/server';
+import AuthToolkitPage from '@/components/pages/AuthToolkitPage';
 
-export function generateMetadata(): Metadata {
-  return {
-    title: getWebflowPageTitle('auth-toolkit.html'),
-    description: getWebflowPageDescription('auth-toolkit.html'),
-  };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations({ locale: 'en', namespace: 'AuthToolkit' });
+  return { title: t('title'), description: t('description') };
 }
 
-export default function Page() {
-  return <StaticWebflowPage htmlFile="auth-toolkit.html" />;
+export default async function Page() {
+  return <AuthToolkitPage locale="en" />;
 }
