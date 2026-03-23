@@ -218,7 +218,7 @@ export default async function OncePage({ locale: _locale }: Props) {
                   </div>
                   <div className="remember-card"><img src="/images/once_remember-software-vendor_1.svg" loading="lazy" alt="" />
                     <div className="remember-card-headlines">Full data-ownership</div>
-                    <div className="text-block-54">Self-host on your infrastructure and maintain full control of your clients&#x27; identity data. Reduce reliance on third-party providers</div>
+                    <div className="text-block-54">Self-host on your infrastructure and maintain full control of your clients' identity data. Reduce reliance on third-party providers</div>
                   </div>
                   <div className="remember-card"><img src="/images/once_remember-software-costs_1.svg" loading="lazy" alt="" />
                     <div className="remember-card-headlines">Flexible and powerful</div>
@@ -246,7 +246,7 @@ export default async function OncePage({ locale: _locale }: Props) {
                 <div id="w-node-_2add4d7f-a071-9fa7-592d-d56710479f3b-85a0aff6" className="w-layout-vflex high low">
                   <div className="w-layout-vflex"><img src="/images/once_onetimepayment-usermanagement_1.svg" loading="lazy" alt="" className="image-80" />
                     <h3 className="all-in-one-h3">Pre-built User Management Portal</h3>
-                    <div className="all-in-one-description">Manage users, roles, and permissions with an intuitive dashboard that&#x27;s ready to use out of the box.</div>
+                    <div className="all-in-one-description">Manage users, roles, and permissions with an intuitive dashboard that's ready to use out of the box.</div>
                   </div><img src="/images/once_onetimepayment-usermanagement2x.webp" loading="lazy" alt="" className="_50img" />
                 </div>
                 <div id="w-node-_2add4d7f-a071-9fa7-592d-d56710479f43-85a0aff6" className="w-layout-vflex high low">
@@ -264,7 +264,7 @@ export default async function OncePage({ locale: _locale }: Props) {
                   <div className="w-layout-blockcontainer small-teams-card w-container"><img src="/images/once_build-for-developer-costs.svg" loading="lazy" alt="" className="image-75" />
                     <div className="w-layout-blockcontainer w-container">
                       <div className="who-choose-title small-team">Eliminate Recurring Costs</div>
-                      <div className="who-choose-des">Stop passing subscription fees to your clients or absorbing them yourself. With Authgear ONCE, there&#x27;s just one upfront cost.</div>
+                      <div className="who-choose-des">Stop passing subscription fees to your clients or absorbing them yourself. With Authgear ONCE, there's just one upfront cost.</div>
                     </div>
                   </div>
                   <div className="w-layout-blockcontainer small-teams-card w-container"><img src="/images/once_build-for-developer-project_1.svg" loading="lazy" alt="" className="image-75" />
@@ -276,7 +276,7 @@ export default async function OncePage({ locale: _locale }: Props) {
                   <div className="w-layout-blockcontainer small-teams-card w-container"><img src="/images/once_build-for-developer-experience.svg" loading="lazy" alt="" className="image-75" />
                     <div className="w-layout-blockcontainer w-container">
                       <div className="who-choose-title small-team">Customizable Authentication Experience</div>
-                      <div className="who-choose-des">Tailor the login flow to match your clients&#x27; branding and specific requirements, creating a seamless user experience.</div>
+                      <div className="who-choose-des">Tailor the login flow to match your clients' branding and specific requirements, creating a seamless user experience.</div>
                     </div>
                   </div>
                 </div>

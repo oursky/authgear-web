@@ -123,7 +123,7 @@ export default async function MigrateToAuthgearPage({ locale: _locale }: Props) 
           <div>
             <div className="container-default content-center">
               <div className="container-default-inner">
-                <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-body">Here&#x27;s what <span className="color-gradient">makes our offer unbeatable</span></h2>
+                <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-body">Here's what <span className="color-gradient">makes our offer unbeatable</span></h2>
                 <div className="_2-card-grid">
                   <div className="svg-card">
                     <div className="svg-card-image-container"><img src="/images/migratetoauthgear_icon-01.svg" loading="lazy" alt="" /></div>
@@ -136,21 +136,21 @@ export default async function MigrateToAuthgearPage({ locale: _locale }: Props) 
                     <div className="svg-card-image-container"><img src="/images/migratetoauthgear_icon-02.svg" loading="lazy" alt="" /></div>
                     <div className="svg-card-content-container">
                       <div className="svg-card-content-title">Dedicated Support Throughout the Migration</div>
-                      <div className="svg-card-content-description">Our product manager (PM) and developer team will be by your side throughout the entire migration process. They&#x27;ll handle the heavy lifting, answer your questions, and ensure a smooth transition.</div>
+                      <div className="svg-card-content-description">Our product manager (PM) and developer team will be by your side throughout the entire migration process. They'll handle the heavy lifting, answer your questions, and ensure a smooth transition.</div>
                     </div>
                   </div>
                   <div className="svg-card">
                     <div className="svg-card-image-container"><img src="/images/migratetoauthgear_icon-03.svg" loading="lazy" alt="" /></div>
                     <div className="svg-card-content-container">
-                      <div className="svg-card-content-title">6-Month Extension if We Don&#x27;t Meet Your Deadline</div>
-                      <div className="svg-card-content-description">We&#x27;re confident in our migration expertise. But if, for any reason, we can&#x27;t complete your migration within 3 months, we&#x27;ll extend your free trial by an additional 6 months. That&#x27;s our commitment to your success.</div>
+                      <div className="svg-card-content-title">6-Month Extension if We Don't Meet Your Deadline</div>
+                      <div className="svg-card-content-description">We're confident in our migration expertise. But if, for any reason, we can't complete your migration within 3 months, we'll extend your free trial by an additional 6 months. That's our commitment to your success.</div>
                     </div>
                   </div>
                   <div className="svg-card">
                     <div className="svg-card-image-container"><img src="/images/migratetoauthgear_icon-04.svg" loading="lazy" alt="" /></div>
                     <div className="svg-card-content-container">
-                      <div className="svg-card-content-title">Satisfaction Guaranteed or We&#x27;ll Help You Move Out</div>
-                      <div className="svg-card-content-description">If you&#x27;re not completely satisfied with Authgear after your trial, don&#x27;t worry. We&#x27;ll help you migrate back to your old system at no additional cost. We want you to be happy, and we&#x27;re confident you&#x27;ll love the ease and security of Authgear.</div>
+                      <div className="svg-card-content-title">Satisfaction Guaranteed or We'll Help You Move Out</div>
+                      <div className="svg-card-content-description">If you're not completely satisfied with Authgear after your trial, don't worry. We'll help you migrate back to your old system at no additional cost. We want you to be happy, and we're confident you'll love the ease and security of Authgear.</div>
                     </div>
                   </div>
                 </div>
@@ -181,8 +181,8 @@ export default async function MigrateToAuthgearPage({ locale: _locale }: Props) 
                   </div>
                 </div>
                 <div className="top-content flex-column text-center">
-                  <div className="section-bottom-title mb-16">Don&#x27;t worry if your organization doesn&#x27;t currently meet these requirements!</div>
-                  <div className="top-content-description ibm-plex-sans">We&#x27;re passionate about supporting startups and early-stage businesses. We encourage you to contact us to discuss your specific needs and explore alternative solutions.</div>
+                  <div className="section-bottom-title mb-16">Don't worry if your organization doesn't currently meet these requirements!</div>
+                  <div className="top-content-description ibm-plex-sans">We're passionate about supporting startups and early-stage businesses. We encourage you to contact us to discuss your specific needs and explore alternative solutions.</div>
                 </div>
               </div>
             </div>

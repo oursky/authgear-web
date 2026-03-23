@@ -110,7 +110,7 @@ export default async function WhyAuthgearPage({ locale: _locale }: Props) {
                 <div className="why-authgear-hero-inner">
                   <div className="why-authgear hero-title">Why Authgear?</div>
                   <h1 className="why-authgear-heading">Streamline Security, Empower Users: <br />Build Faster with Authgear</h1>
-                  <p className="middle-hero-paragraph">In today&#x27;s digital world, robust security shouldn&#x27;t come at the expense of user experience or affordability. Authgear bridges the gap, offering a powerful and user-friendly CIAM solution that empowers both you and your users.</p>
+                  <p className="middle-hero-paragraph">In today's digital world, robust security shouldn't come at the expense of user experience or affordability. Authgear bridges the gap, offering a powerful and user-friendly CIAM solution that empowers both you and your users.</p>
                   <a href="https://accounts.portal.authgear.com/signup" target="_blank" className="button-primary button-white why-authgear w-button">See it for yourself</a>
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default async function WhyAuthgearPage({ locale: _locale }: Props) {
                               </li>
                               <li className="_2-block-flex-content-list-item">
                                 <div className="why-authgear-list-item-title">Enhanced Security &amp; Trust</div>
-                                <div className="why-authgear-list-item-paragraph">Empower your users with control over their login experience. Authgear&#x27;s multi-factor authentication and secure password management features provide an extra layer of protection, fostering trust and confidence.</div>
+                                <div className="why-authgear-list-item-paragraph">Empower your users with control over their login experience. Authgear's multi-factor authentication and secure password management features provide an extra layer of protection, fostering trust and confidence.</div>
                               </li>
                             </ul>
                           </div>
@@ -207,7 +207,7 @@ export default async function WhyAuthgearPage({ locale: _locale }: Props) {
                             <ul role="list" className="_2-block-flex-content-list">
                               <li className="_2-block-flex-content-list-item">
                                 <div className="why-authgear-list-item-title">Combat Evolving Threats</div>
-                                <div className="why-authgear-list-item-paragraph">Stay ahead of cybercriminals with Authgear&#x27;s robust security features. Our solution protects your user data and safeguards your business from unauthorized access and data breaches.</div>
+                                <div className="why-authgear-list-item-paragraph">Stay ahead of cybercriminals with Authgear's robust security features. Our solution protects your user data and safeguards your business from unauthorized access and data breaches.</div>
                               </li>
                               <li className="_2-block-flex-content-list-item">
                                 <div className="why-authgear-list-item-title">Simplified User Management &amp; Access Control</div>
@@ -230,7 +230,7 @@ export default async function WhyAuthgearPage({ locale: _locale }: Props) {
                             <ul role="list" className="_2-block-flex-content-list">
                               <li className="_2-block-flex-content-list-item">
                                 <div className="why-authgear-list-item-title">No-Code Integration</div>
-                                <div className="why-authgear-list-item-paragraph">Forget complex coding! Authgear&#x27;s user-friendly interface allows you to integrate secure authentication features with minimal development effort. Focus on building amazing features, not login flows.</div>
+                                <div className="why-authgear-list-item-paragraph">Forget complex coding! Authgear's user-friendly interface allows you to integrate secure authentication features with minimal development effort. Focus on building amazing features, not login flows.</div>
                               </li>
                               <li className="_2-block-flex-content-list-item">
                                 <div className="why-authgear-list-item-title">Scalable &amp; Adaptable</div>
@@ -291,7 +291,7 @@ export default async function WhyAuthgearPage({ locale: _locale }: Props) {
               <div className="container-default w-container">
                 <div className="top-text">
                   <h2 className="text-center solution-h2 mb-16">Security Built for You. Support That Cares.<br />Start Your Journey with Authgear.</h2>
-                  <p className="text-center paragraph-large solution-subheading">We don&#x27;t just offer secure CIAM solutions, we care about your success.</p>
+                  <p className="text-center paragraph-large solution-subheading">We don't just offer secure CIAM solutions, we care about your success.</p>
                 </div>
                 <div className="solution-flex-container gap-40 reverse-order">
                   <div className="solution-image-block"><img src="/images/why-authgear-startjourney_adaptable-security2x.webp" loading="lazy" alt="" /></div>
@@ -316,8 +316,8 @@ export default async function WhyAuthgearPage({ locale: _locale }: Props) {
             <div className="container-default">
               <div className="container-default-inner px-0">
                 <div className="top-content flex-column text-center">
-                  <h2 className="text-center mg-bottom-16px top-content-title">Still Unsure if You Need Authgear? Let&#x27;s Talk!</h2>
-                  <div className="top-content-description">The world of authentication can be complex, but you don&#x27;t have to navigate it alone. <br />Whether you&#x27;re unsure if you need an authentication solution at all, or simply overwhelmed by the options available, our team of experts is here to help!</div>
+                  <h2 className="text-center mg-bottom-16px top-content-title">Still Unsure if You Need Authgear? Let's Talk!</h2>
+                  <div className="top-content-description">The world of authentication can be complex, but you don't have to navigate it alone. <br />Whether you're unsure if you need an authentication solution at all, or simply overwhelmed by the options available, our team of experts is here to help!</div>
                 </div>
                 <div className="w-layout-grid feature-grid-3x1 home-cards-grid-wrap">
                   <div className="home-card hover-to-white">

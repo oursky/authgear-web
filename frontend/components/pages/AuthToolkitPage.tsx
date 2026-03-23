@@ -116,7 +116,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
                     <div className="toolkit-icon"><img src="/images/ssl-checker-icon.svg" loading="lazy" alt="" /></div>
                     <div className="color-white">SSL Checker</div>
                   </div>
-                  <p className="toolkit-description">Ceck any domain&#x27;s SSL/TLS certificate. View expiration date, issuer, subject alternative names, and full certificate chain status</p>
+                  <p className="toolkit-description">Ceck any domain's SSL/TLS certificate. View expiration date, issuer, subject alternative names, and full certificate chain status</p>
                   <a href="/tools/ssl-checker" className="toolkit-button w-inline-block">
                     <div className="toolkit-button-label">Open SSL Checker</div><img src="/images/link.svg" loading="lazy" alt="" className="image-94" />
                   </a>
@@ -126,7 +126,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
                     <div className="toolkit-icon"><img src="/images/oidc-icon.svg" loading="lazy" alt="" /></div>
                     <div className="color-white">OIDC Discovery Endpoint Explorer</div>
                   </div>
-                  <p className="toolkit-description">Fetch and inspect any OIDC provider&#x27;s .well-known/openid-configuration. View    <br />  authorization endpoints, token endpoints, JWKS, scopes, and signing algorithms.</p>
+                  <p className="toolkit-description">Fetch and inspect any OIDC provider's .well-known/openid-configuration. View    <br />  authorization endpoints, token endpoints, JWKS, scopes, and signing algorithms.</p>
                   <a href="/tools/oidc-discovery-endpoint" className="toolkit-button w-inline-block">
                     <div className="toolkit-button-label">Open SSL Checker</div><img src="/images/link.svg" loading="lazy" alt="" className="image-94" />
                   </a>
@@ -136,7 +136,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
                     <div className="toolkit-icon more-toolkit"><img src="/images/more.svg" loading="lazy" alt="" /></div>
                     <div className="color-white">More Coming Soon</div>
                   </div>
-                  <p className="toolkit-description">We&#x27;re constantly adding new authentication tools. Stay tuned for more developer resources.</p>
+                  <p className="toolkit-description">We're constantly adding new authentication tools. Stay tuned for more developer resources.</p>
                   <div className="w-layout-vflex comming-soon">
                     <div>Comming Soon</div>
                   </div>
