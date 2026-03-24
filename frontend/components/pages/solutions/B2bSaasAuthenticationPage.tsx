@@ -52,9 +52,9 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
               <div className="middle-hero-wrapper py-0 mw-1100">
                 <div className="middle-hero-inner">
                   <div className="top-label hero-title">B2B SaaS</div>
-                  <h1 className="new-heading">Fortress Your B2B SaaS Authentication:<br />Secure Access for You &amp; Every Tenant.</h1>
+                  <h1 className="new-heading">Fortress Your B2B SaaS Authentication:<br />Secure Access for You & Every Tenant.</h1>
                   <p className="middle-hero-paragraph text-787e81 size-18">Authgear empowers your SaaS authentication with robust security and effortless multi-tenancy management.<br /><span className="text-bold" >Deliver a seamless user experience for all, while safeguarding sensitive data.</span></p>
-                  <a href="https://portal.authgear.com/?utm_source=solutions-b2b-saas&amp;utm_medium=link&amp;utm_campaign=talk-with-us" target="_blank" className="button-primary button-gradient center w-button">Talk with Us</a>
+                  <a href="https://portal.authgear.com/?utm_source=solutions-b2b-saas&utm_medium=link&utm_campaign=talk-with-us" target="_blank" className="button-primary button-gradient center w-button">Talk with Us</a>
                 </div><img src="/images/b2c_ciam_kv-hero-login-box1.svg" loading="lazy" alt="" />
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
               <div className="container-default-inner px-0 pb-40">
                 <div className="top-content flex-column text-center mx-20">
                   <div className="top-content-icon"><img src="/images/b2b_saas_empower-icon.svg" loading="lazy" alt="" /></div>
-                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Empower &amp; Secure:<br />‍<span className="text-highlight-gradient" >Granular Access Control for Your B2B Clients</span></h2>
+                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Empower & Secure:<br />‍<span className="text-highlight-gradient" >Granular Access Control for Your B2B Clients</span></h2>
                   <div className="top-content-description ibm-plex-sans size-18"><span className="text-bold">SaaS identity management for multiple B2B clients with varying needs can be a complex challenge.<br /></span>Authgear solution simplifies SaaS identity and access management with granular Role-Based Access Control.</div>
                 </div>
               </div><img src="/images/b2b_saas_empower-flow.svg" loading="lazy" alt="" className="_w-full pb-80" /><img src="/images/b2b_saas_empower-flow-m.svg" loading="lazy" alt="" className="_w-full pb-80 mobile-100" />
@@ -84,7 +84,7 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
                       <div className="card-count">1</div>
                     </div>
                     <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Reduced Costs &amp; Streamlined Management</div>
+                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Reduced Costs & Streamlined Management</div>
                       <div className="svg-card-content-description size-14">Manage all your B2B clients from a single platform, eliminating the need for multiple SaaS authentication systems and reducing infrastructure and maintenance overhead.</div>
                     </div>
                   </div>
@@ -93,7 +93,7 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
                       <div className="card-count">2</div>
                     </div>
                     <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Flexibility &amp; Effortless Scalability</div>
+                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Flexibility & Effortless Scalability</div>
                       <div className="svg-card-content-description size-14">Onboard new B2B clients seamlessly and scale effortlessly as your user base grows. Authgear's multi-tenancy adapts to your evolving B2B ecosystem.</div>
                     </div>
                   </div>
@@ -102,7 +102,7 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
                       <div className="card-count">3</div>
                     </div>
                     <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Centralized Security &amp; Compliance</div>
+                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Centralized Security & Compliance</div>
                       <div className="svg-card-content-description size-14">Enforce consistent security policies and access controls across all client accounts. Simplify security management and ensure a robust security posture for your entire platform.</div>
                     </div>
                   </div>
@@ -211,7 +211,7 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
             <div className="container-default">
               <div className="container-default-inner px-0">
                 <div className="top-content flex-column text-center">
-                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e"><span className="text-highlight-gradient">Ready to Secure &amp; Scale Your B2B Ecosystem? Get Your Free Trial Today!</span></h2>
+                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e"><span className="text-highlight-gradient">Ready to Secure & Scale Your B2B Ecosystem? Get Your Free Trial Today!</span></h2>
                   <div className="top-content-description ibm-plex-sans size-18">Transform your B2B user experience and empower your business with robust security. Secure your special offer and experience the benefits of Authgear SaaS authentication firsthand.</div>
                 </div>
                 <div className="_2-card-grid gap-32 mobile-1-col">
@@ -253,7 +253,7 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
                 <div className="_2-block-flex footer-form">
                   <div className="_2-block-flex-content footer-form">
                     <div className="_2-block-flex-content-text-wrap footer-form">
-                      <h2 className="form-heading color-white footer-form">Secure, Streamline &amp; Empower Your Extended Workforce</h2>
+                      <h2 className="form-heading color-white footer-form">Secure, Streamline & Empower Your Extended Workforce</h2>
                       <div className="footerform__divider-sm"></div>
                       <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
                     </div>

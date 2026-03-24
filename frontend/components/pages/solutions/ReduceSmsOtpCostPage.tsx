@@ -154,7 +154,7 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
               <p className="features-hero-description text-white">Immediate savings with WhatsApp OTP. Long-term savings with biometric login. Both live in days.</p>
               <div className="features-hero-cta-wrapper">
                 <a href="#Saving-Calculator" className="button-primary feature-hero-btn-v2 plausible-event-name--signup-calculator w-button">Calculate My Savings</a>
-                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&amp;utm_medium=link&amp;utm_campaign=sign-up" className="features-sign-up-cta link-white plausible-event-name--signup-hero">Get Started Free →</a>
+                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&utm_medium=link&utm_campaign=sign-up" className="features-sign-up-cta link-white plausible-event-name--signup-hero">Get Started Free →</a>
               </div>
               <div className="banner-efficiency">
                 <div className="w-layout-vflex banner-efficiency-content">
@@ -402,7 +402,7 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                     <div className="svg-card-content-description m-sm">Full control, but expensive engineering time and ongoing maintenance. Biometrics and passkeys are hard to build right, and the spec keeps changing.</div>
                   </div>
                   <div className="div-block-35">
-                    <div className="svg-card-label-red">Costly &amp; slow</div>
+                    <div className="svg-card-label-red">Costly & slow</div>
                   </div>
                 </div>
                 <div className="svg-card">

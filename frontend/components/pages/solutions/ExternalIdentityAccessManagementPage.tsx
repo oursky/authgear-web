@@ -40,11 +40,11 @@ export default function ExternalIdentityAccessManagementPage(_props: Props) {
             <h2 className="solution-h2">A Single Identity and Access Management Platform to Manage Your Extended Workforce, Partners, and Non-desk Workers</h2>
             <div className="feature-grid-3x2 white">
               <div className="features-page-step"><img src="/images/self-registration.png" loading="lazy" alt="" className="image-margin" />
-                <h3 className="h3-title-small feature-h3-title">Self-Registration &amp; Approval Process</h3>
+                <h3 className="h3-title-small feature-h3-title">Self-Registration & Approval Process</h3>
                 <p>Allow contractors, agents, non-desk workers, and other external users to create their own accounts through frictionless signup process and approve their registration to avoid unauthorized access.</p>
               </div>
               <div className="features-page-step"><img src="/images/admin-portal_1.png" loading="lazy" alt="" className="image-margin" />
-                <h3 className="h3-title-small feature-h3-title">Admin Portal &amp; Self-Service Settings</h3>
+                <h3 className="h3-title-small feature-h3-title">Admin Portal & Self-Service Settings</h3>
                 <p>Help reduce the burden of your IT team with our pre-built self-service setting page. External users can reset their passwords and manage their profiles without contacting your team. Our admin portal also allows your IT support to provide the help that your users need.</p>
               </div>
               <div className="features-page-step"><img src="/images/access-control.png" loading="lazy" alt="" className="image-margin" />
@@ -52,7 +52,7 @@ export default function ExternalIdentityAccessManagementPage(_props: Props) {
                 <p>Define and enable conditional access based on their roles and responsibilities to ensure extended team users only have access to the assigned features and applications.</p>
               </div>
               <div className="features-page-step"><img src="/images/mfa-passwordless.png" loading="lazy" alt="" className="image-margin" />
-                <h3 className="h3-title-small feature-h3-title">Multi-Factor &amp; Passwordless Authentication</h3>
+                <h3 className="h3-title-small feature-h3-title">Multi-Factor & Passwordless Authentication</h3>
                 <p>Easily configure primary and secondary authentication methods without writing any codes. Authgear equips your app with a variety of authentication features including passkeys, WhatsApp OTP, social logins, biometrics, etc., to help you enhance user security and improve user experience.</p>
               </div>
               <div className="features-page-step"><img src="/images/wiam.png" loading="lazy" alt="" className="image-margin" />
@@ -112,7 +112,7 @@ export default function ExternalIdentityAccessManagementPage(_props: Props) {
                 </div>
                 <div className="accordion-item">
                   <div className="accordion-question">
-                    <h3 className="accordion-h3">Cross-Border Access to Well-Being &amp; Payroll Apps</h3><img src="/images/arrow-icon.svg" loading="lazy" alt="" className="arrow-image" />
+                    <h3 className="accordion-h3">Cross-Border Access to Well-Being & Payroll Apps</h3><img src="/images/arrow-icon.svg" loading="lazy" alt="" className="arrow-image" />
                   </div>
                   <div className="accordion-answer">
                     <p>Not all services are available in China and having two different sets of systems and directories can be quite hectic. A well-known Hong Kong-based textile and apparel manufacturer has no choice but to synchronize the information of their factory workers in mainland China with the HR system using an old LDAP server since they can’t use Microsoft AD. This is so that the workers can have access to the manufacturer’s well-being and payroll apps. They decided to integrate Authgear with their apps to automate information synchronization and better manage cross-border identity and access.</p>
@@ -126,7 +126,7 @@ export default function ExternalIdentityAccessManagementPage(_props: Props) {
         <div className="features-page-contact-us-section">
           <div className="features-page-contact-us-container w-container">
             <div className="top-content feature-flex contact-form-title">
-              <h2 className="title features-page">Centralize Identity &amp; Access Management to Stay Competitive Without Organizational and Operational Complexity</h2>
+              <h2 className="title features-page">Centralize Identity & Access Management to Stay Competitive Without Organizational and Operational Complexity</h2>
             </div>
             <div id="wf-form-Authgear-Talk-with-Us" className="w-form">
               <form id="wf-form-Authgear-Talk-with-Us" name="wf-form-Authgear-Talk-with-Us" method="post" className="contact-form">

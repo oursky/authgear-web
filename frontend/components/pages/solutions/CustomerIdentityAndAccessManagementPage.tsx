@@ -53,7 +53,7 @@ export default function CustomerIdentityAndAccessManagementPage(_props: Props) {
             <div className="solution-flex-container gap-40">
               <div className="solution-image-block"><img src="/images/ciam-2fa.jpg" loading="lazy" sizes="(max-width: 600px) 100vw, 600px" srcSet="/images/ciam-2fa-p-500.jpg 500w, /images/ciam-2fa.jpg 600w" alt="" /></div>
               <div className="solution-text-block line-height-40">
-                <h3>2FA &amp; Biometric Authentication</h3>
+                <h3>2FA & Biometric Authentication</h3>
                 <p>Enable and easily configure two-factor authentication and biometric authentication to protect your users from cyberattacks. Available secondary authentication methods include authenticator app, additional password, and OTPs via different channels.</p>
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function CustomerIdentityAndAccessManagementPage(_props: Props) {
             <div className="solution-flex-container gap-40">
               <div className="solution-image-block"><img src="/images/ciam-data-analytics.jpg" loading="lazy" sizes="100vw" srcSet="/images/ciam-data-analytics-p-500.jpg 500w, /images/ciam-data-analytics.jpg 586w" alt="" /></div>
               <div className="solution-text-block line-height-40">
-                <h3>User Analytics &amp; Audit Log</h3>
+                <h3>User Analytics & Audit Log</h3>
                 <p>Collect data that truly matters with user analytics for more personalized marketing campaigns and apply user insights to product development. Audit log also helps you look into different activities to protect your applications from cyberattacks.<br /></p>
               </div>
             </div>

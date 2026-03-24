@@ -12,11 +12,11 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
       <div className="featurespage__hero_v2 featurespage__hero_bg mt-80 enterprise-hero">
           <div className="features-hero-wrapper-new">
             <div className="split-content features-hero-left">
-              <h1 className="title features-hero-v2 text-white">Secure &amp; Cost-Effective Access for Your Frontline Workers</h1>
+              <h1 className="title features-hero-v2 text-white">Secure & Cost-Effective Access for Your Frontline Workers</h1>
               <p className="features-hero-description text-white">Managing access for a growing, diverse workforce can be complex, especially for retailers with hybrid IT environments. Existing WIAM solutions often fall short, leaving you with siloed systems, manual provisioning headaches, and security concerns.</p>
               <div className="features-hero-cta-wrapper">
                 <a href="/schedule-demo" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Get Started for Free</a>
-                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&amp;utm_medium=link&amp;utm_campaign=sign-up" className="features-sign-up-cta link-white">Free Sign-Up  <span className="text-bold">&gt;</span></a>
+                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&utm_medium=link&utm_campaign=sign-up" className="features-sign-up-cta link-white">Free Sign-Up  <span className="text-bold">{">"}</span></a>
               </div>
             </div><img className="image features-hero-image-v2" src="/images/solutions-wiam-kv2x.webp" width="624" alt="" sizes="(max-width: 767px) 100vw, 624px" srcSet="/images/solutions-wiam-kv2x-p-500.webp 500w, /images/solutions-wiam-kv2x-p-800.webp 800w, /images/solutions-wiam-kv2x-p-1080.webp 1080w, /images/solutions-wiam-kv2x.webp 1248w" />
           </div>
@@ -69,7 +69,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                 <div className="features-text-block p-0">
                   <h2 className="title features-page-v2 text-align-left">Discover Your Success Story: Explore Success Stories</h2>
                   <div className="line-height-24px mb-24">Get inspired by Authgear's real-world impact! We've helped leading companies across diverse industries streamline extended workforce access and elevate security.</div>
-                  <a href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta features-text-block-cta-left w-button">Unlock the stories -&gt;</a>
+                  <a href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta features-text-block-cta-left w-button">Unlock the stories -{">"}</a>
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
           <div className="container-default">
             <div className="container-default-inner px-0">
               <div className="top-content flex-column align-left mobile-center">
-                <h2 className="top-content-title ibm-plex-sans color-2e2e2e size-40 mobile-center">Empowering Your Extended Workforce: Tailored Access &amp; Secure Control</h2>
+                <h2 className="top-content-title ibm-plex-sans color-2e2e2e size-40 mobile-center">Empowering Your Extended Workforce: Tailored Access & Secure Control</h2>
                 <div className="top-content-description ibm-plex-sans mobile-center">Forget one-size-fits-all access solutions. Authgear builds a custom access experience for your frontline staff and contractors. Grant controlled access to authorized apps, integrate seamlessly with internal systems, ditch frustrating passwords with modern MFA like facial recognition, and empower key staff for account recovery.</div>
               </div>
               <div className="_2-card-grid">
@@ -100,7 +100,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                 <div className="svg-card">
                   <div className="svg-card-image-container"><img src="/images/b2c_ciam_usercentric-boosted.svg" loading="lazy" alt="" /></div>
                   <div className="svg-card-content-container">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Modern &amp; Convenient MFA</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Modern & Convenient MFA</div>
                     <div className="svg-card-content-description m-sm">Authgear offers diverse multi-factor authentication options like facial recognition and device-based biometric logins, perfect for frontline staff. Not only do you enhance security, but you also simplify physical presence verification and clock-in processes.</div>
                   </div>
                 </div>
@@ -126,14 +126,14 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                 <div className="svg-card px-24">
                   <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-01.svg" loading="lazy" alt="" /></div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Secure Sign-up &amp; Approval</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Secure Sign-up & Approval</div>
                     <div className="svg-card-content-description size-14 color-787e81">Frictionless registration for external users with controlled access for authorized personnel, even with their personal emails and phone numbers.</div>
                   </div>
                 </div>
                 <div className="svg-card px-24">
                   <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-02.svg" loading="lazy" alt="" /></div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Manage Yourself &amp; Get IT Help</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Manage Yourself & Get IT Help</div>
                     <div className="svg-card-content-description size-14 color-787e81">Dedicated portal for self-service tasks (password reset, profile updates) and responsive IT support.</div>
                   </div>
                 </div>
@@ -141,13 +141,13 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                   <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-03.svg" loading="lazy" alt="" /></div>
                   <div className="svg-card-content-container text-center gap-6">
                     <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Granular Access for Everyone</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Define &amp; enforce access based on roles, restricting features &amp; applications for optimal security.</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Define & enforce access based on roles, restricting features & applications for optimal security.</div>
                   </div>
                 </div>
                 <div className="svg-card px-24">
                   <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-04.svg" loading="lazy" alt="" /></div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Multi-Factor &amp; Passwordless Choices</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Multi-Factor & Passwordless Choices</div>
                     <div className="svg-card-content-description size-14 color-787e81">Choose from a variety of secure authentication options like MFA, passkeys, or even face recognition for frontline staff's physical presence.</div>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                   <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-05.svg" loading="lazy" alt="" /></div>
                   <div className="svg-card-content-container text-center gap-6">
                     <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">One System for All Identities</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Seamless integration with existing WIAM solutions like ADFS &amp; Google Workspace.</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Seamless integration with existing WIAM solutions like ADFS & Google Workspace.</div>
                   </div>
                 </div>
                 <div className="svg-card px-24">
@@ -194,7 +194,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                   <div className="solution-case-study-card-text">
                     <div className="svg-card-content-container">
                       <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">MTR Corporation Simplifies Part‑Time Hiring Login</div>
-                      <a href="https://www.authgear.com/customer-stories/hongkong-mtr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-&gt;</span></a>
+                      <a href="https://www.authgear.com/customer-stories/hongkong-mtr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-{">"}</span></a>
                     </div>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                   <div className="solution-case-study-card-text">
                     <div className="svg-card-content-container">
                       <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Global QSR Streamlines Frontline Login with Authgear</div>
-                      <a href="https://www.authgear.com/customer-stories/global-qsr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-&gt;</span></a>
+                      <a href="https://www.authgear.com/customer-stories/global-qsr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-{">"}</span></a>
                     </div>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
               <div className="_2-block-flex footer-form">
                 <div className="_2-block-flex-content footer-form">
                   <div className="_2-block-flex-content-text-wrap footer-form">
-                    <h2 className="form-heading color-white footer-form">Secure, Streamline &amp; Empower Your Extended Workforce</h2>
+                    <h2 className="form-heading color-white footer-form">Secure, Streamline & Empower Your Extended Workforce</h2>
                     <div className="footerform__divider-sm"></div>
                     <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
                   </div>

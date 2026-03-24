@@ -16,7 +16,7 @@ export default function EnterpriseSsoPage(_props: Props) {
               <p className="features-hero-description text-white">One integration to connect every app and every identity provider. <br />Ship SSO for your customers, partners, frontline, and contractors.</p>
               <div className="features-hero-cta-wrapper">
                 <a href="/schedule-demo" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Get Started for Free</a>
-                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&amp;utm_medium=link&amp;utm_campaign=sign-up" className="features-sign-up-cta link-white">Free Sign-Up  <span className="text-bold">&gt;</span></a>
+                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&utm_medium=link&utm_campaign=sign-up" className="features-sign-up-cta link-white">Free Sign-Up  <span className="text-bold">{">"}</span></a>
               </div>
             </div><img src="/images/solutions_enterprise-sso_kv.svg" alt="" className="image features-hero-image-v2" />
           </div>
@@ -127,7 +127,7 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Protocols: SAML &amp; OpenID Connect</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Protocols: SAML & OpenID Connect</div>
                     <div className="svg-card-content-description size-14 color-787e81">Integrate with existing apps based on the SAML and OIDC standard.</div>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Active Directory &amp; Entra ID integration</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Active Directory & Entra ID integration</div>
                     <div className="svg-card-content-description size-14 color-787e81">Connect via SAML, OIDC, or AD FS. Map groups to roles, sync profile attributes, and preserve source-of-truth ownership.</div>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">User lifecycle &amp; provisioning Choices</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">User lifecycle & provisioning Choices</div>
                     <div className="svg-card-content-description size-14 color-787e81">Manage users via Admin Portal or API. Sync users with HR systems to maintain single source of truth.</div>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Frontline &amp; contractor access</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Frontline & contractor access</div>
                     <div className="svg-card-content-description size-14 color-787e81">Securely onboard non-corporate users using personal email/phone. Apply simpler login for high-volume apps while keeping back‑office security strict.</div>
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Self‑serve settings &amp; admin portal</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Self‑serve settings & admin portal</div>
                     <div className="svg-card-content-description size-14 color-787e81">End users manage their profiles, passkeys, MFA, sessions, and connected accounts. Admins get search, bulk actions, audit logs, analytics.</div>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Risk &amp; bot protection</div>
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Risk & bot protection</div>
                     <div className="svg-card-content-description size-14 color-787e81">CAPTCHA, rate limits, adaptive MFA, and anomaly controls to reduce abuse and SMS pumping risk.</div>
                   </div>
                 </div>
@@ -264,7 +264,7 @@ export default function EnterpriseSsoPage(_props: Props) {
                   </div>
                   <div className="svg-card-content-container text-center gap-16">
                     <div className="svg-card-content-title left inter color-2e2e2e mobile-20px size-22">SDKs</div>
-                    <div className="svg-card-content-description inter text-align-left mobile-16px color-626262">JavaScript/TypeScript (web &amp; SPA), iOS (Swift), Android (Kotlin), React Native, Flutter,…</div>
+                    <div className="svg-card-content-description inter text-align-left mobile-16px color-626262">JavaScript/TypeScript (web & SPA), iOS (Swift), Android (Kotlin), React Native, Flutter,…</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -325,7 +325,7 @@ export default function EnterpriseSsoPage(_props: Props) {
           <div className="container-default">
             <div className="container-default-inner px-0">
               <div className="top-content flex-column text-center">
-                <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Transparent Pricing &amp; Support</h2>
+                <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Transparent Pricing & Support</h2>
               </div>
               <div className="_3-card-grid">
                 <div className="svg-card px-24">

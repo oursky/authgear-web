@@ -52,9 +52,9 @@ export default function CiamSolutionPage(_props: Props) {
               <div className="middle-hero-wrapper py-0 mw-1100">
                 <div className="middle-hero-inner">
                   <div className="top-label hero-title">B2C CIAM</div>
-                  <h1 className="new-heading">Security Shouldn't Be a Luxury.<br />You Deserve Both Convenience &amp; Protection.</h1>
+                  <h1 className="new-heading">Security Shouldn't Be a Luxury.<br />You Deserve Both Convenience & Protection.</h1>
                   <p className="middle-hero-paragraph text-787e81 size-18">Don't settle for just security. Authgear's B2C CIAM solution empowers you to take control of your online identity with a seamless and secure user experience. Enjoy the convenience of modern login options like biometrics and social logins</p>
-                  <a href="https://portal.authgear.com/?utm_source=solutions-b2c-ciam&amp;utm_medium=link&amp;utm_campaign=talk-with-us" target="_blank" className="button-primary button-gradient center w-button">Talk with Us</a>
+                  <a href="https://portal.authgear.com/?utm_source=solutions-b2c-ciam&utm_medium=link&utm_campaign=talk-with-us" target="_blank" className="button-primary button-gradient center w-button">Talk with Us</a>
                 </div><img src="/images/b2c_ciam_kv-hero-login-box1.svg" loading="lazy" alt="" />
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function CiamSolutionPage(_props: Props) {
               <div className="container-default-inner px-0">
                 <div className="top-content flex-column text-center">
                   <div className="top-content-icon"><img src="/images/b2c_ciam_one-stop-icon.svg" loading="lazy" alt="" /></div>
-                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">One-Stop Shop for Security &amp; Auth:<br /><span className="text-highlight-gradient" >Simplify with Authgear CIAM solution</span></h2>
+                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">One-Stop Shop for Security & Auth:<br /><span className="text-highlight-gradient" >Simplify with Authgear CIAM solution</span></h2>
                   <div className="top-content-description ibm-plex-sans">Authgear is your all-in-one CIAM solution for managing user authentication and securing your applications. Simplify your security stack and empower your users.</div>
                 </div>
                 <div className="grid-12 gap-36">
@@ -82,7 +82,7 @@ export default function CiamSolutionPage(_props: Props) {
                   </div>
                   <div className="features-card-new space-between">
                     <div className="features-card-new_image center"><img src="/images/b2c_ciam_one-stop-biometric.svg" loading="lazy" alt="" /></div>
-                    <div className="features-card-new_text">Biometric &amp; Passkeys</div>
+                    <div className="features-card-new_text">Biometric & Passkeys</div>
                   </div>
                   <div className="features-card-new space-between">
                     <div className="features-card-new_image center"><img src="/images/b2c_ciam_one-stop-breachedpassword.svg" loading="lazy" alt="" /></div>
@@ -202,7 +202,7 @@ export default function CiamSolutionPage(_props: Props) {
                   <div className="svg-card p-24 gap-16 transparent">
                     <div className="svg-card_title-wrap">
                       <div className="svg-card-image-container _w-32px"><img src="/images/b2c_ciam_integration-prebuilt.svg" loading="lazy" alt="" /></div>
-                      <div className="svg-card-content-title ibm-plex-sans small color-44daff">Pre-Built UI &amp; UX</div>
+                      <div className="svg-card-content-title ibm-plex-sans small color-44daff">Pre-Built UI & UX</div>
                     </div>
                     <div className="svg-card-content-container">
                       <div className="svg-card-content-description size-14 color-c5cae8">Skip the design phase and leverage Authgear's user-friendly interface, optimized for seamless login experiences and efficient user onboarding.</div>
@@ -211,7 +211,7 @@ export default function CiamSolutionPage(_props: Props) {
                   <div className="svg-card p-24 gap-16 transparent min-w-296px">
                     <div className="svg-card_title-wrap">
                       <div className="svg-card-image-container _w-32px"><img src="/images/b2c_ciam_integration-flexible.svg" loading="lazy" alt="" /></div>
-                      <div className="svg-card-content-title ibm-plex-sans small color-44daff">Flexible &amp; Adaptable</div>
+                      <div className="svg-card-content-title ibm-plex-sans small color-44daff">Flexible & Adaptable</div>
                     </div>
                     <div className="svg-card-content-container">
                       <div className="svg-card-content-description size-14 color-c5cae8">Adapts to your specific needs. Customize authentication flows, ensure compliance with industry standards, and integrate seamlessly with your existing infrastructure through robust APIs and webhooks.</div>
@@ -268,7 +268,7 @@ export default function CiamSolutionPage(_props: Props) {
                 <div className="_2-block-flex footer-form">
                   <div className="_2-block-flex-content footer-form">
                     <div className="_2-block-flex-content-text-wrap footer-form">
-                      <h2 className="form-heading color-white footer-form">All-in-one CIAM Solution for User Authentication &amp; App Security</h2>
+                      <h2 className="form-heading color-white footer-form">All-in-one CIAM Solution for User Authentication & App Security</h2>
                       <div className="footerform__divider-sm"></div>
                       <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
                     </div>
