@@ -230,5 +230,10 @@
     "scheduleDemo": "Schedule Demo",
     "talkToUs": "Talk to us",
     "readyToSwitch": "Ready to switch to Authgear?"
+  },
+  "Solutions": {
+    "startForFree": "Start for Free",
+    "getDemo": "Get a Demo",
+    "scheduleDemo": "Schedule Demo"
   }
 }

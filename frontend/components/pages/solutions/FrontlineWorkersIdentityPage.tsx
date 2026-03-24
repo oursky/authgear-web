@@ -1,0 +1,261 @@
+import PageScripts from '@/components/PageScripts';
+
+const pageScripts: string[] = [];
+
+interface Props {
+  locale: string;
+}
+
+export default function FrontlineWorkersIdentityPage(_props: Props) {
+  return (
+    <>
+      <div className="featurespage__hero_v2 featurespage__hero_bg mt-80 enterprise-hero">
+          <div className="features-hero-wrapper-new">
+            <div className="split-content features-hero-left">
+              <h1 className="title features-hero-v2 text-white">Secure &amp; Cost-Effective Access for Your Frontline Workers</h1>
+              <p className="features-hero-description text-white">Managing access for a growing, diverse workforce can be complex, especially for retailers with hybrid IT environments. Existing WIAM solutions often fall short, leaving you with siloed systems, manual provisioning headaches, and security concerns.</p>
+              <div className="features-hero-cta-wrapper">
+                <a href="/schedule-demo" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Get Started for Free</a>
+                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&amp;utm_medium=link&amp;utm_campaign=sign-up" className="features-sign-up-cta link-white">Free Sign-Up  <span className="text-bold">&gt;</span></a>
+              </div>
+            </div><img className="image features-hero-image-v2" src="/images/solutions-wiam-kv2x.webp" width="624" alt="" sizes="(max-width: 767px) 100vw, 624px" srcSet="/images/solutions-wiam-kv2x-p-500.webp 500w, /images/solutions-wiam-kv2x-p-800.webp 800w, /images/solutions-wiam-kv2x-p-1080.webp 1080w, /images/solutions-wiam-kv2x.webp 1248w" />
+          </div>
+        </div>
+        <div className="section-17">
+          <div className="container-default">
+            <div className="container-default-inner px-0">
+              <div className="top-content flex-column align-left mobile-center">
+                <h2 className="top-content-title ibm-plex-sans color-2e2e2e size-40 mobile-center">Empower Your Frontline with Secure, Streamlined Access: Authgear for Extended Workforce</h2>
+                <div className="top-content-description ibm-plex-sans mobile-center">Authgear for Extended Workforce is the answer. Our solution seamlessly integrates with your existing directory services, allowing you to:</div>
+              </div>
+              <div className="_2-card-grid">
+                <div className="svg-card">
+                  <div className="svg-card-image-container"><img src="/images/solutions-wiam-empower-staff.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Securely onboard and manage frontline staff and contractors</div>
+                    <div className="svg-card-content-description m-sm">Easily create groups and roles for provisioning, leveraging batch user creation for fast and efficient setup.</div>
+                  </div>
+                </div>
+                <div className="svg-card">
+                  <div className="svg-card-image-container"><img src="/images/solutions-wiam-empower-management.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Streamline retail frontline access management</div>
+                    <div className="svg-card-content-description m-sm">Grant and revoke access to critical systems and resources based on roles and permissions, ensuring only authorized personnel have access.</div>
+                  </div>
+                </div>
+                <div className="svg-card">
+                  <div className="svg-card-image-container"><img src="/images/solutions-wiam-empower-security.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Maintain high security standards</div>
+                    <div className="svg-card-content-description m-sm">Enforce multi-factor authentication, passwordless login, and other advanced security features to protect sensitive data.</div>
+                  </div>
+                </div>
+                <div className="svg-card">
+                  <div className="svg-card-image-container"><img src="/images/solutions-wiam-empower-save.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Save time and money</div>
+                    <div className="svg-card-content-description m-sm">Eliminate manual provisioning tasks and streamline access management processes, reducing administrative overhead and costs.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="container-default">
+            <div className="container-default-inner px-0 gap-0">
+              <div className="features-flex-container gap-40 reverse-order">
+                <div className="solution-image-block"><img src="/images/solutions-wiam-discory-customer-stories.svg" loading="lazy" alt="" /></div>
+                <div className="features-text-block p-0">
+                  <h2 className="title features-page-v2 text-align-left">Discover Your Success Story: Explore Success Stories</h2>
+                  <div className="line-height-24px mb-24">Get inspired by Authgear's real-world impact! We've helped leading companies across diverse industries streamline extended workforce access and elevate security.</div>
+                  <a href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta features-text-block-cta-left w-button">Unlock the stories -&gt;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="container-default">
+            <div className="container-default-inner px-0">
+              <div className="top-content flex-column align-left mobile-center">
+                <h2 className="top-content-title ibm-plex-sans color-2e2e2e size-40 mobile-center">Empowering Your Extended Workforce: Tailored Access &amp; Secure Control</h2>
+                <div className="top-content-description ibm-plex-sans mobile-center">Forget one-size-fits-all access solutions. Authgear builds a custom access experience for your frontline staff and contractors. Grant controlled access to authorized apps, integrate seamlessly with internal systems, ditch frustrating passwords with modern MFA like facial recognition, and empower key staff for account recovery.</div>
+              </div>
+              <div className="_2-card-grid">
+                <div className="svg-card">
+                  <div className="svg-card-image-container"><img src="/images/b2c_ciam_usercentric-journeys.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Dedicated Access for Your Extended Workforce</div>
+                    <div className="svg-card-content-description m-sm">Forget managing duplicate systems. Authgear allows you to create a separate environment for frontline staff and contractors, completely isolated from your internal company network. This means they only access the specific applications you authorize, keeping data secure and streamlining workflows.</div>
+                  </div>
+                </div>
+                <div className="svg-card">
+                  <div className="svg-card-image-container"><img src="/images/b2c_ciam_usercentric-increased.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Seamless Integrations with Flexibility</div>
+                    <div className="svg-card-content-description m-sm">Authgear seamlessly integrates with existing WIAM solutions like ADFS and Google Workspace. Your office staff can continue using their familiar logins (like Microsoft accounts or LDAP) to access applications shared with the frontline, fostering collaboration and eliminating access silos.</div>
+                  </div>
+                </div>
+                <div className="svg-card">
+                  <div className="svg-card-image-container"><img src="/images/b2c_ciam_usercentric-boosted.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Modern &amp; Convenient MFA</div>
+                    <div className="svg-card-content-description m-sm">Authgear offers diverse multi-factor authentication options like facial recognition and device-based biometric logins, perfect for frontline staff. Not only do you enhance security, but you also simplify physical presence verification and clock-in processes.</div>
+                  </div>
+                </div>
+                <div className="svg-card">
+                  <div className="svg-card-image-container"><img src="/images/b2c_ciam_usercentric-enhanced.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Empowered Account Recovery</div>
+                    <div className="svg-card-content-description m-sm">Minimize IT support headaches with designated key staff recovery. Shop managers, team leads, or security personnel can assist with forgotten passwords or lockouts, reducing dependence on your central IT team and keeping operations running smoothly.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-f3f6ff">
+          <div className="container-default">
+            <div className="container-default-inner px-0">
+              <div className="top-content flex-column text-center">
+                <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Navigate the Frontier of Workforce Access: Authgear WIAM for Extended Teams</h2>
+                <div className="top-content-description ibm-plex-sans">We equip you with the tools and expertise to secure your digital domain, empower your workforce, and unlock their full potential.</div>
+              </div>
+              <div className="_4-card-grid">
+                <div className="svg-card px-24">
+                  <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-01.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container text-center gap-6">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Secure Sign-up &amp; Approval</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Frictionless registration for external users with controlled access for authorized personnel, even with their personal emails and phone numbers.</div>
+                  </div>
+                </div>
+                <div className="svg-card px-24">
+                  <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-02.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container text-center gap-6">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Manage Yourself &amp; Get IT Help</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Dedicated portal for self-service tasks (password reset, profile updates) and responsive IT support.</div>
+                  </div>
+                </div>
+                <div className="svg-card px-24">
+                  <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-03.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container text-center gap-6">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Granular Access for Everyone</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Define &amp; enforce access based on roles, restricting features &amp; applications for optimal security.</div>
+                  </div>
+                </div>
+                <div className="svg-card px-24">
+                  <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-04.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container text-center gap-6">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Multi-Factor &amp; Passwordless Choices</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Choose from a variety of secure authentication options like MFA, passkeys, or even face recognition for frontline staff's physical presence.</div>
+                  </div>
+                </div>
+                <div className="svg-card px-24">
+                  <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-05.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container text-center gap-6">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">One System for All Identities</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Seamless integration with existing WIAM solutions like ADFS &amp; Google Workspace.</div>
+                  </div>
+                </div>
+                <div className="svg-card px-24">
+                  <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-06.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container text-center gap-6">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Bulk Accountsin a Flash</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Fast user creation with CSV upload or API and passwordless login/email invitation options.</div>
+                  </div>
+                </div>
+                <div className="svg-card px-24">
+                  <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-07.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container text-center gap-6">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Integration with HR System</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Connect directly with your existing HR system. Ensure frontline staff have the right access, effortlessly and automatically.</div>
+                  </div>
+                </div>
+                <div className="svg-card px-24">
+                  <div className="svg-card-image-container center"><img src="/images/solutions-wiam-access-08.svg" loading="lazy" alt="" /></div>
+                  <div className="svg-card-content-container text-center gap-6">
+                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Access Anywhere, Any Device</div>
+                    <div className="svg-card-content-description size-14 color-787e81">Whether desktop, mobile, or tablet, Authgear's responsive platform empowers your team to work where they need to, seamlessly.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="container-default">
+            <div className="container-default-inner px-0">
+              <div className="top-content flex-column align-left mobile-center">
+                <h2 className="top-content-title ibm-plex-sans color-2e2e2e size-40 mobile-center">Trusted by Enterprises for Frontline Workers Identity</h2>
+              </div>
+              <div className="_2-card-grid">
+                <div className="solution-case-study-card"><img src="/images/solutions-wiam-case-MTR2x.webp" loading="lazy" width="624" sizes="(max-width: 767px) 100vw, 624px" alt="" srcSet="/images/solutions-wiam-case-MTR2x-p-500.webp 500w, /images/solutions-wiam-case-MTR2x-p-800.webp 800w, /images/solutions-wiam-case-MTR2x-p-1080.webp 1080w, /images/solutions-wiam-case-MTR2x.webp 1248w" className="solution-case-study-card-thumb" />
+                  <div className="solution-case-study-card-text">
+                    <div className="svg-card-content-container">
+                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">MTR Corporation Simplifies Part‑Time Hiring Login</div>
+                      <a href="https://www.authgear.com/customer-stories/hongkong-mtr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-&gt;</span></a>
+                    </div>
+                  </div>
+                </div>
+                <div className="solution-case-study-card"><img src="/images/solutions-wiam-case-QSR2x.webp" loading="lazy" width="624" sizes="(max-width: 767px) 100vw, 624px" alt="" srcSet="/images/solutions-wiam-case-QSR2x-p-500.webp 500w, /images/solutions-wiam-case-QSR2x-p-800.webp 800w, /images/solutions-wiam-case-QSR2x-p-1080.webp 1080w, /images/solutions-wiam-case-QSR2x.webp 1248w" className="solution-case-study-card-thumb" />
+                  <div className="solution-case-study-card-text">
+                    <div className="svg-card-content-container">
+                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Global QSR Streamlines Frontline Login with Authgear</div>
+                      <a href="https://www.authgear.com/customer-stories/global-qsr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-&gt;</span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="footer-form-section form__bg-dark">
+          <div className="container-default">
+            <div className="container-default-inner px-0">
+              <div className="_2-block-flex footer-form">
+                <div className="_2-block-flex-content footer-form">
+                  <div className="_2-block-flex-content-text-wrap footer-form">
+                    <h2 className="form-heading color-white footer-form">Secure, Streamline &amp; Empower Your Extended Workforce</h2>
+                    <div className="footerform__divider-sm"></div>
+                    <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
+                  </div>
+                </div>
+                <div className="_2-block-flex-image footer-form">
+                  <div id="wf-form-Authgear-Talk-with-Us" className="form-block w-form">
+                    <form id="wf-form-Authgear-Talk-with-Us-2" name="wf-form-Authgear-Talk-with-Us-2" method="post" className="contact-form">
+                      <div className="margin-vertical margin-small"><label htmlFor="Name-5" className="getdemo-label">Full Name<span className="text-span-7">*</span></label><input className="getdemo-field w-input" maxLength={256} name="Name" placeholder="" type="text" id="Name-5" required /></div>
+                      <div className="margin-vertical margin-small"><label htmlFor="Email-6" className="getdemo-label">Work Email<span className="text-span-8">*</span></label><input className="getdemo-field w-input" maxLength={256} name="Email" placeholder="" type="email" id="Email-6" required /></div>
+                      <div className="margin-vertical margin-small"><label htmlFor="Phone-3" className="getdemo-label">Phone Number<span className="text-span-9">*</span></label><input className="getdemo-field w-input" maxLength={256} name="Phone" placeholder="" type="tel" id="Phone-3" required /><input className="text-field w-input" maxLength={256} name="Country" placeholder="" type="text" id="Country-4" required />
+                        <div className="html-embed w-embed"><span id="valid-msg" className="hide">Valid number</span>
+                          <span id="error-msg" className="hide"></span>
+                        </div>
+                      </div>
+                      <div className="margin-vertical margin-small"><label htmlFor="Company-5" className="getdemo-label">Company Name<span className="text-span-10">*</span></label><input className="getdemo-field w-input" maxLength={256} name="Company" placeholder="" type="text" id="Company-5" required /></div>
+                      <div className="margin-vertical margin-small"><label htmlFor="how-hear" className="getdemo-label">How did you hear about us?<span className="text-span-10">*</span></label><select id="how-hear" name="how-hear" required className="getdemo-field w-select">
+                          <option value="">Select one</option>
+                          <option value="organic-search">Search Engine</option>
+                          <option value="llm">AI Tools (e.g. ChatGPT, Gemini, etc)</option>
+                          <option value="github">GitHub</option>
+                          <option value="others">Others</option>
+                        </select></div>
+                      <div className="margin-vertical margin-small"><label htmlFor="Use-Case" className="getdemo-label">Anything else?<span className="text-span-10">*</span></label><textarea required placeholder="Tell us more about your project, needs, timeline" maxLength={500} id="Use-Case" name="Use-Case" className="get-demo-form-field w-input"></textarea></div>
+                      <div className="w-form-formrecaptcha g-recaptcha g-recaptcha-error g-recaptcha-disabled"></div>
+                      <div className="margin-vertical margin-medium"><input type="submit" className="getdemo-submit plausible-event-name--contact-form-submit w-button" value="Submit" /></div>
+                    </form>
+                    <div className="success-message w-form-done">
+                      <div>Thank you! Your submission has been received!</div>
+                    </div>
+                    <div className="error-message w-form-fail">
+                      <div>Oops! Something went wrong while submitting the form.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <PageScripts scripts={pageScripts} />
+    </>
+  );
+}
