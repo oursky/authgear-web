@@ -15,7 +15,7 @@ export default function AuthenticationPage(_props: Props) {
         <p className="features-hero-description text-purple">Identity platform for user authentication &amp; authorization. <br />Everything you need to ship secure, high-conversion login flows without rebuilding your app.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 featue-white-btn w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale text-white w-button">Get a Demo  <span className="text-span-23">&gt;</span></Link>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale text-white w-button">Get a Demo  <span className="text-span-23">{">"}</span></Link>
           <div className="w-layout-hflex features-hero-cta-description-weapper"><img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
             <p className="features-hero-cta-description text-purple">Free plan includes <span className="features-hero-cta-description-bold text-white">unlimited MAUs</span></p>
           </div>

@@ -16,7 +16,7 @@ export default function SmsPumpingFraudPage(_props: Props) {
         <p className="features-hero-description inverse">Safeguard your SMS authentication channels from costly fraud with Authgear's advanced SMS Pumping Detection. Our intelligent system identifies suspicious patterns and stops attacks before they drain your budget.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-sms-pumping&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale inverse w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale inverse w-button">Schedule Demo  <span className="text-span-23">{">"}</span></Link>
         </div>
       </div><img src="/images/features-SMSfraud-hero-kv.svg" alt="" className="image features-hero-image-v2" />
     </div>

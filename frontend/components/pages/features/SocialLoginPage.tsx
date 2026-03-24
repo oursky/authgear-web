@@ -15,7 +15,7 @@ export default function SocialLoginPage(_props: Props) {
         <p className="features-hero-description">Simplify user access and enhance security with Authgear's powerful social login integration. Connect your users effortlessly while maintaining robust authentication standards.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-social-login&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">{">"}</span></Link>
         </div>
       </div><img src="/images/features-securitythreat-seamless-sociallogin.svg" alt="" className="image features-hero-image-v2" />
     </div>
@@ -89,7 +89,7 @@ export default function SocialLoginPage(_props: Props) {
             <div className="features-social-login-providers">TikTok<br />(Coming Soon)</div>
           </div>
         </div>
-        <Link href="/schedule-demo" className="button-secondary insection-cta w-button">Contact us for suggestions -&gt;</Link>
+        <Link href="/schedule-demo" className="button-secondary insection-cta w-button">Contact us for suggestions -{">"}</Link>
       </div>
     </div>
   </div>

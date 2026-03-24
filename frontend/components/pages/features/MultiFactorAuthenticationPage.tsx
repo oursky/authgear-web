@@ -15,7 +15,7 @@ export default function MultiFactorAuthenticationPage(_props: Props) {
         <p className="features-hero-description">Authgear adapts MFA challenges to context so you cut account takeovers without bloating every sign-in.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Get a Demo  <span className="text-span-23">&gt;</span></Link>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Get a Demo  <span className="text-span-23">{">"}</span></Link>
           <div className="w-layout-hflex features-hero-cta-description-weapper"><img src="/images/features-hero-banner-check.svg" loading="lazy" alt="" />
             <p className="features-hero-cta-description">Free plan includes <span className="features-hero-cta-description-bold">unlimited MAUs</span></p>
           </div>

@@ -15,7 +15,7 @@ export default function BiometricAuthenticationPage(_props: Props) {
         <p className="features-hero-description">Discover how Authgear simplifies biometric authentication. Learn about the benefits, methods, and how it compares to traditional passwords. Implement effortless biometric logins today!</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-biometric&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">{">"}</span></Link>
         </div>
       </div><img src="/images/features-biometric-hero-kv.svg" alt="" className="image features-hero-image-v2" />
     </div>

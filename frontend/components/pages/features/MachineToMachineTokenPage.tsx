@@ -15,7 +15,7 @@ export default function MachineToMachineTokenPage(_props: Props) {
         <p className="features-hero-description inverse">Enable seamless service-to-service communication with short-lived, scoped access tokens.<strong> </strong>Authgear’s Machine-to-Machine (M2M) tokens let backend services, APIs, and IoT devices authenticate securely without human intervention — all powered by the industry-standard OAuth 2.0 Client Credentials Flow.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-m2m&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale inverse w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale inverse w-button">Schedule Demo  <span className="text-span-23">{">"}</span></Link>
         </div>
       </div>
       <div className="lottie-hero-banner">
@@ -206,7 +206,7 @@ export default function MachineToMachineTokenPage(_props: Props) {
               <div className="color-cee9ff">Ready to secure your APIs and backend services?<br />Sign up now and try Authgear’s M2M token authentication in minutes.</div>
               <div className="footerform__divider-sm"></div>
               <a href="https://portal.authgear.com/?utm_source=feature-m2m&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="footer-link w-inline-block">
-                <div className="color-white footer-get-started-text">Start Free with Authgear &gt;</div>
+                <div className="color-white footer-get-started-text">Start Free with Authgear {">"}</div>
               </a>
             </div>
           </div>

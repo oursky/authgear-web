@@ -15,7 +15,7 @@ export default function CustomizationPage(_props: Props) {
         <p className="features-hero-description text-purple">Craft login account experiences that are beautiful, and conversion-focused. With Authgear, you can brand our prebuilt pages in minutes.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 featue-white-btn w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale text-white w-button">Get a Demo  <span className="text-span-23">&gt;</span></Link>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale text-white w-button">Get a Demo  <span className="text-span-23">{">"}</span></Link>
           <div className="w-layout-hflex features-hero-cta-description-weapper"><img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
             <p className="features-hero-cta-description text-purple">Free plan includes <span className="features-hero-cta-description-bold text-white">unlimited MAUs</span></p>
           </div>
@@ -42,7 +42,7 @@ export default function CustomizationPage(_props: Props) {
             <div className="svg-card-content-container text-center gap-16">
               <div className="svg-card-content-title-light left inter color-2e2e2e mobile-20px">Brandable hosted pages</div>
               <div className="svg-card-content-description-light">You can tailor without rebuilding auth from scratch.</div>
-              <a href="https://docs.authgear.com/customization/built-in-ui/branding" className="card-cta-light w-button">Read Docs <span className="text-span-48">-&gt;</span></a>
+              <a href="https://docs.authgear.com/customization/built-in-ui/branding" className="card-cta-light w-button">Read Docs <span className="text-span-48">-{">"}</span></a>
             </div>
           </div>
           <div id="w-node-f12e6127-93a5-021d-1722-e55bcc913eb0-d03dbfc4" className="svg-card-dark">
@@ -60,7 +60,7 @@ export default function CustomizationPage(_props: Props) {
               <div className="svg-card-content-title-light left inter color-2e2e2e mobile-20px">Or bring your own UI</div>
               <div className="svg-card-content-description-light">Build pixel-perfect screens and drive the flow with our Authentication Flow API.</div>
             </div>
-            <a href="https://docs.authgear.com/customization/custom-ui/authentication-flow-api" className="card-cta-light w-button">Read Docs <span className="text-span-48">-&gt;</span></a>
+            <a href="https://docs.authgear.com/customization/custom-ui/authentication-flow-api" className="card-cta-light w-button">Read Docs <span className="text-span-48">-{">"}</span></a>
           </div>
         </div>
         <div className="solution-flex-container gap-40">
@@ -85,7 +85,7 @@ export default function CustomizationPage(_props: Props) {
           <div className="features-text-block p-0 gap16">
             <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">Self-serve settings page</div>
             <div className="color-626262 line-height-24px">Give users control over their profile, security, sessions, and devices in a ready-made page you can brand.</div>
-            <Link href="/features/self-serve-settings-page" className="card-cta-primary w-button">Learn More <span className="text-span-48">-&gt;</span></Link>
+            <Link href="/features/self-serve-settings-page" className="card-cta-primary w-button">Learn More <span className="text-span-48">-{">"}</span></Link>
           </div>
         </div>
         <div className="w-layout-hflex sms-left-right reverse"><img src="/images/features-customization-features-03-security2x.webp" loading="lazy" width={560} sizes="(max-width: 767px) 100vw, 560px" alt="" srcSet="/images/features-customization-features-03-security2x-p-500.webp 500w, /images/features-customization-features-03-security2x-p-800.webp 800w, /images/features-customization-features-03-security2x.webp 1120w" className="features-card-image-radius" />
@@ -116,7 +116,7 @@ export default function CustomizationPage(_props: Props) {
           <div className="features-text-block p-0 gap16">
             <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">Extensible<br /></div>
             <div className="color-626262 line-height-24px">Go beyond the defaults with Hooks and APIs, validate inputs, enrich tokens, or adapt steps dynamically in your custom UI. </div>
-            <Link href="/features/extensibility" className="card-cta-primary w-button">See Extenbility <span className="text-span-48">-&gt;</span></Link>
+            <Link href="/features/extensibility" className="card-cta-primary w-button">See Extenbility <span className="text-span-48">-{">"}</span></Link>
           </div>
         </div>
       </div>

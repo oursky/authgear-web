@@ -15,7 +15,7 @@ export default function PasskeysPage(_props: Props) {
         <p className="features-hero-description">Secure your website and simplify user logins with Authgear's easy-to-implement passkey authentication. Rely on the strength of passkeys backed by major tech giants while enjoying a streamlined setup process.</p>
         <div className="features-hero-cta-wrapper">
           <a href="https://portal.authgear.com/?utm_source=feature-passkey&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">&gt;</span></Link>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">{">"}</span></Link>
         </div>
       </div><img src="/images/passkey-hero-kv.svg" alt="" className="image features-hero-image-v2" />
     </div>
@@ -73,7 +73,7 @@ export default function PasskeysPage(_props: Props) {
             </div>
           </div>
         </div>
-        <a id="w-node-_9577349c-1c59-cca6-63b3-89fc36497b5b-c4f83b00" href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta w-button">Read the blog: Passkey vs Password: The Future of Online Security -&gt;</a>
+        <a id="w-node-_9577349c-1c59-cca6-63b3-89fc36497b5b-c4f83b00" href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta w-button">Read the blog: Passkey vs Password: The Future of Online Security -{">"}</a>
       </div>
     </div>
   </div>
