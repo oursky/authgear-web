@@ -2,11 +2,11 @@
 
 This directory contains the Authgear marketing site built with Next.js 16, React 19, and TypeScript.
 
-The site is a hybrid of:
+All pages are native React server components:
 
-- Webflow-exported page markup loaded from `../authgear-new.webflow`
-- Strapi-backed CMS content fetched through `lib/strapi.ts`
-- Localized routes under `app/[locale]` for English and Traditional Chinese
+- **Static marketing pages** — components in `components/pages/` (about, features, compare, solutions, go, events, campaign, tools, home, and more)
+- **Dynamic CMS pages** — blog posts, customer stories, integrations, etc., fetched from Strapi via `lib/strapi.ts`
+- **Localized routes** under `app/[locale]/` for English (`en`) and Traditional Chinese (`zh-TW`)
 
 ## Run locally
 
@@ -37,21 +37,24 @@ Notes:
 
 ## How the frontend is organized
 
-- `app/` contains App Router routes.
-- `app/[locale]/...` contains localized versions of the marketing pages.
-- `lib/webflow-page.ts` loads HTML from the Webflow export, strips shared wrappers, and rewrites asset and internal links.
-- `content/navigation.json` holds header navigation copy (`en` / `zh-TW`); `lib/site-navigation.ts` renders it and applies localized paths.
-- `lib/strapi.ts` fetches and normalizes Strapi 5 REST responses for the existing site components.
-- `public/` stores Webflow assets such as CSS, JS, images, and documents.
+- `app/[locale]/...` — canonical localized routes; `app/...` — thin English wrappers (redirect or re-export).
+- `components/pages/` — one component per static marketing page (or per slug group for features, compare, etc.).
+- `lib/navigation-data.ts` — typed nav/footer link data with per-locale labels; `lib/site-navigation.ts` renders it to HTML injected by the root layout.
+- `lib/strapi.ts` — fetches and normalizes Strapi 5 REST responses.
+- `lib/i18n.ts` — `LOCALES`, `localizedPath()`, locale mapping helpers.
+- `messages/` — next-intl translation files (`en.json`, `zh-TW.json`). See `messages/README.md` for how to add a locale.
+- `public/` — static assets: CSS, JS, images, documents.
 
 ## Editing content and pages
 
 Use the right source depending on the page:
 
-- Webflow-exported marketing pages: update the matching HTML file in `../authgear-new.webflow`, then verify the corresponding Next.js route.
-- Pricing (`/pricing`, `/zh-TW/pricing`): React page in `app/[locale]/pricing/page.tsx` (English is rewritten from unprefixed URLs); copy in `lib/pricing/copy-*.ts` and `components/pricing/PricingPageClient.tsx`.
-- CMS-driven collections such as blog posts, customer stories, integrations, login gallery items, team members, and what's new: update content in Strapi.
-- Locale-aware behavior lives in `lib/i18n.ts`. Default English has no URL prefix (`/blog`); Traditional Chinese uses `/zh-TW/...`. Middleware rewrites unprefixed paths to internal `/en/...` (no Accept-Language redirect, so `/` stays English). `/zh-Hant-TW/...` and legacy `/zh/...` redirect to `/zh-TW/...`.
+- **Static marketing pages** (about, features, compare, solutions, home, tools, etc.): edit the React component in `components/pages/`.
+- **Translatable strings**: edit `messages/en.json` and `messages/zh-TW.json`. Components use `getTranslations({ locale, namespace })` from next-intl.
+- **Pricing page** (`/pricing`, `/zh-TW/pricing`): copy lives in `lib/pricing/getCopy.ts`; rendered by `components/pricing/PricingPageView.tsx`.
+- **CMS-driven collections** (blog posts, customer stories, integrations, login gallery, team members, what's new): update content in Strapi.
+- **Nav / footer**: edit `lib/navigation-data.ts`.
+- **Locale routing**: default English has no URL prefix (`/blog`); Traditional Chinese uses `/zh-TW/...`. Middleware rewrites unprefixed paths to `/en/...` internally. `/zh-Hant-TW/...` and legacy `/zh/...` redirect (308) to `/zh-TW/...`.
 
 ## Available scripts
 

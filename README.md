@@ -1,6 +1,6 @@
-# Authgear Website — Webflow → Next.js + Strapi
+# Authgear Website — Next.js + Strapi
 
-This project migrates a Webflow export to **Next.js** (site) and **Strapi** (headless CMS). **Strapi Cloud** is the default for the CMS and database—you do **not** need local PostgreSQL or a local Strapi Docker service for day-to-day development with Cloud.
+This is the **Authgear marketing website**, built with **Next.js** and **Strapi** (headless CMS). **Strapi Cloud** is the default for the CMS and database—you do **not** need local PostgreSQL or a local Strapi Docker service for day-to-day development with Cloud.
 
 ## Tech stack
 
@@ -10,7 +10,7 @@ This project migrates a Webflow export to **Next.js** (site) and **Strapi** (hea
 | **CMS** | Strapi 5 ([Strapi Cloud](https://cloud.strapi.io) recommended) |
 | **Local CMS (optional)** | Strapi + SQLite (`npm run develop` in `cms/`) |
 | **Self-hosted stack (optional)** | Docker: Next.js + Nginx + Strapi + PostgreSQL |
-| **Assets** | Webflow CSS/JS/images in `frontend/public/` |
+| **Assets** | CSS/JS/images in `frontend/public/` |
 
 ---
 
@@ -104,21 +104,27 @@ The frontend expects **Strapi 5** REST responses; `frontend/lib/strapi.ts` norma
 
 ```
 authgear-web/
-├── frontend/          # Next.js site
-├── cms/               # Strapi app (content types; use with Cloud, local dev, or self-hosted Docker)
-├── nginx/             # Nginx configs (cloud = frontend-only proxy; self-hosted = Strapi routes too)
-├── docker-compose.yml              # Strapi Cloud: frontend + nginx
-└── docker-compose.selfhosted.yml   # Optional: + PostgreSQL + Strapi
+├── frontend/              # Next.js 16 / React 19 / TypeScript site
+│   ├── app/               # App Router routes (two trees: [locale]/... and thin wrappers)
+│   ├── components/pages/  # Static marketing page components (about, features, compare, etc.)
+│   ├── components/        # Shared UI components
+│   ├── lib/               # strapi.ts, i18n.ts, site-navigation.ts, navigation-data.ts, pricing/
+│   ├── messages/          # next-intl translation files (en.json, zh-TW.json)
+│   └── public/            # Static assets (CSS, JS, images, documents)
+├── cms/                   # Strapi 5 app (content types; use with Cloud, local dev, or self-hosted)
+├── nginx/                 # Nginx configs (cloud = frontend-only proxy; self-hosted = + Strapi)
+├── docker-compose.yml              # Strapi Cloud: Next.js + Nginx only
+└── docker-compose.selfhosted.yml   # Full stack: + PostgreSQL + Strapi container
 ```
 
 ---
 
-## Importing Webflow CMS data
+## Importing CMS data from Webflow
 
-There are two supported import paths:
+To seed Strapi with existing Webflow CMS content (blog posts, customer stories, etc.):
 
-1. CSV import: export collection CSVs from Webflow, then run `cms/scripts/import-from-webflow-csv.mjs`.
-2. API import: pull directly from the Webflow API with `cms/scripts/import-from-webflow-api.mjs`.
+1. **CSV import:** export collection CSVs from Webflow, then run `cms/scripts/import-from-webflow-csv.mjs`.
+2. **API import:** pull directly from the Webflow API with `cms/scripts/import-from-webflow-api.mjs`.
 
 Both scripts are documented in `cms/README.md`.
 
@@ -127,7 +133,7 @@ Both scripts are documented in `cms/README.md`.
 ## Docs
 
 - **[DEPLOY.md](./DEPLOY.md)** — Docker, env vars, SSL
-- **[frontend/README.md](./frontend/README.md)** — Frontend routes, env vars, and Webflow/Strapi integration notes
+- **[frontend/README.md](./frontend/README.md)** — Frontend routes, env vars, and page/Strapi integration notes
 - **[cms/README.md](./cms/README.md)** — Strapi content types, local development, and Webflow import scripts
 
 ---
