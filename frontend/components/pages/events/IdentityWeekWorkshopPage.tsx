@@ -312,7 +312,7 @@ export default async function IdentityWeekWorkshopPage(_props: Props) {
             <div className="_2-block_flex-left align-top">
               <div className="flex gap-24 mobile-column">
                 <div className="workshop-h2-icon"><img src="/images/Union.svg" loading="lazy" alt="" /></div>
-                <h2 className="workshop_h2">Register<br />&#8205;<span className="workshop_h2-main">Reserve <br />Your Spot</span></h2>
+                <h2 className="workshop_h2">Register<br /><span className="workshop_h2-main">Reserve <br />Your Spot</span></h2>
               </div>
               <div className="workshop-footer-form_content">Join us on October 24th for a FREE, intensive, hands-on workshop where you'll learn to implement SSO best practices with Authgear.</div>
             </div>

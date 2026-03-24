@@ -11,8 +11,8 @@ export default async function SsoSeminarPage(_props: Props) {
         <div className="w-layout-blockcontainer container-default w-container">
           <div className="container-default-inner">
             <div className="w-layout-vflex semina-hero-wrapper">
-              <h1 className="seminar-hero-h1">掌握身分認證：<br />&#8205;<span className="text-span-31">IT</span> 和系統架構師的關鍵技能 </h1>
-              <p className="semina-hero-sub">揭開 <span className="english">Auth</span> 的複雜性：<br />&#8205;<span className="english">IT</span> 和 <span className="english">System Architect</span> <span className="text-span-36">不可錯過的研討會</span></p>
+              <h1 className="seminar-hero-h1">掌握身分認證：<br /><span className="text-span-31">IT</span> 和系統架構師的關鍵技能 </h1>
+              <p className="semina-hero-sub">揭開 <span className="english">Auth</span> 的複雜性：<br /><span className="english">IT</span> 和 <span className="english">System Architect</span> <span className="text-span-36">不可錯過的研討會</span></p>
               <div className="w-layout-blockcontainer container-1443 w-container">
                 <a href="#Seminar-Register" className="button-primary home-hero new-home seminar w-button">立即報名</a>
               </div>
