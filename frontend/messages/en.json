@@ -224,5 +224,11 @@
     "getDemo": "Get a Demo",
     "scheduleDemo": "Schedule Demo",
     "freePlanDescription": "Free plan includes unlimited MAUs"
+  },
+  "Compare": {
+    "startForFree": "Start for Free",
+    "scheduleDemo": "Schedule Demo",
+    "talkToUs": "Talk to us",
+    "readyToSwitch": "Ready to switch to Authgear?"
   }
 }

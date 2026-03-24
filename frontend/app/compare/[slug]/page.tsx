@@ -1,34 +1,39 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getWebflowPageTitle, getWebflowPageDescription } from '@/lib/webflow-page';
-import StaticWebflowPage from '@/components/StaticWebflowPage';
-import path from 'path';
-import { existsSync, readdirSync } from 'fs';
+import { compareData } from '@/lib/compare/data';
 
-const WEBFLOW_DIR = path.join(process.cwd(), '..', 'authgear-new.webflow');
-const SECTION = 'compare';
-function htmlFile(slug: string) {
-  return `${SECTION}/${slug}.html`;
-}
+import Auth0AlternativePage from '@/components/pages/compare/Auth0AlternativePage';
+import CognitoAlternativePage from '@/components/pages/compare/CognitoAlternativePage';
+import FirebaseAlternativePage from '@/components/pages/compare/FirebaseAlternativePage';
+import OktaAlternativePage from '@/components/pages/compare/OktaAlternativePage';
+import type React from 'react';
+
+const pageMap: Record<string, React.ComponentType<{ locale: string }>> = {
+  'auth0-alternative': Auth0AlternativePage,
+  'cognito-alternative': CognitoAlternativePage,
+  'firebase-alternative': FirebaseAlternativePage,
+  'okta-alternative': OktaAlternativePage,
+};
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  const sectionDir = path.join(WEBFLOW_DIR, SECTION);
-  if (!existsSync(sectionDir)) return [];
-  return readdirSync(sectionDir)
-    .filter((f) => f.endsWith('.html'))
-    .map((f) => ({ slug: f.replace(/\.html$/, '') }));
+  return Object.keys(pageMap).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const data = compareData[slug];
+  if (!data) return {};
   return {
-    title: getWebflowPageTitle(htmlFile(slug)),
-    description: getWebflowPageDescription(htmlFile(slug)),
+    title: data.title,
+    description: data.description,
   };
 }
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  return <StaticWebflowPage htmlFile={htmlFile(slug)} />;
+  const PageComponent = pageMap[slug];
+  if (!PageComponent) notFound();
+  return <PageComponent locale="en" />;
 }

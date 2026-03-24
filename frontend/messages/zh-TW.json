@@ -224,5 +224,11 @@
     "getDemo": "預約示範",
     "scheduleDemo": "預約示範",
     "freePlanDescription": "免費方案包含無限 MAU"
+  },
+  "Compare": {
+    "startForFree": "免費開始",
+    "scheduleDemo": "預約示範",
+    "talkToUs": "聯絡我們",
+    "readyToSwitch": "準備好切換到 Authgear 了嗎？"
   }
 }
