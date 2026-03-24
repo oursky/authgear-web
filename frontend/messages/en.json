@@ -236,5 +236,7 @@
     "getDemo": "Get a Demo",
     "scheduleDemo": "Schedule Demo"
   },
-  "Go": {}
+  "Go": {},
+  "Events": {},
+  "Campaign": {}
 }

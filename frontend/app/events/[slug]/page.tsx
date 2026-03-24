@@ -1,34 +1,47 @@
+import { notFound } from 'next/navigation';
+import type React from 'react';
 import type { Metadata } from 'next';
-import { getWebflowPageTitle, getWebflowPageDescription } from '@/lib/webflow-page';
-import StaticWebflowPage from '@/components/StaticWebflowPage';
-import path from 'path';
-import { existsSync, readdirSync } from 'fs';
-
-const WEBFLOW_DIR = path.join(process.cwd(), '..', 'authgear-new.webflow');
-const SECTION = 'events';
-function htmlFile(slug: string) {
-  return `${SECTION}/${slug}.html`;
-}
+import IdentityWeekWorkshopPage from '@/components/pages/events/IdentityWeekWorkshopPage';
+import PromotionPage from '@/components/pages/events/PromotionPage';
+import SsoSeminarPage from '@/components/pages/events/SsoSeminarPage';
 
 type Props = { params: Promise<{ slug: string }> };
 
+const pageMap: Record<string, React.ComponentType<{ locale: string }>> = {
+  'authgear-x-identityweek-sso-workshop-archived': IdentityWeekWorkshopPage,
+  'promotion': PromotionPage,
+  'sso-how-to-seminar': SsoSeminarPage,
+};
+
+const metaMap: Record<string, { title: string; description: string }> = {
+  'authgear-x-identityweek-sso-workshop-archived': {
+    title: 'Authgear x IdentityWeek SSO Workshop',
+    description: '',
+  },
+  'promotion': {
+    title: 'Promotion',
+    description: '',
+  },
+  'sso-how-to-seminar': {
+    title: 'Authgear 掌握身分認證：IT 和系統架構師的關鍵技能',
+    description: '一場關於身分認證在現代 IT 和系統架構中關鍵作用的研討會：身分認證是驗證使用者或設備身份的過程，是網路安全的基礎。在日益複雜的科技與雲端環境中， 規劃強大的身分認證策略以保護敏感數據和防止未經授權的存取比什麼都來得重要。',
+  },
+};
+
 export async function generateStaticParams() {
-  const sectionDir = path.join(WEBFLOW_DIR, SECTION);
-  if (!existsSync(sectionDir)) return [];
-  return readdirSync(sectionDir)
-    .filter((f) => f.endsWith('.html'))
-    .map((f) => ({ slug: f.replace(/\.html$/, '') }));
+  return Object.keys(pageMap).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  return {
-    title: getWebflowPageTitle(htmlFile(slug)),
-    description: getWebflowPageDescription(htmlFile(slug)),
-  };
+  const meta = metaMap[slug];
+  if (!meta) return {};
+  return { title: meta.title, description: meta.description };
 }
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  return <StaticWebflowPage htmlFile={htmlFile(slug)} />;
+  const Component = pageMap[slug];
+  if (!Component) notFound();
+  return <Component locale="en" />;
 }

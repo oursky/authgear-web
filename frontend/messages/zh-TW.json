@@ -236,5 +236,7 @@
     "getDemo": "取得示範",
     "scheduleDemo": "預約示範"
   },
-  "Go": {}
+  "Go": {},
+  "Events": {},
+  "Campaign": {}
 }

@@ -1,34 +1,44 @@
+import { notFound } from 'next/navigation';
+import type React from 'react';
 import type { Metadata } from 'next';
-import { getWebflowPageTitle, getWebflowPageDescription } from '@/lib/webflow-page';
-import StaticWebflowPage from '@/components/StaticWebflowPage';
-import path from 'path';
-import { existsSync, readdirSync } from 'fs';
-
-const WEBFLOW_DIR = path.join(process.cwd(), '..', 'authgear-new.webflow');
-const SECTION = 'campaign';
-function htmlFile(slug: string) {
-  return `${SECTION}/${slug}.html`;
-}
+import { LOCALES } from '@/lib/i18n';
+import AuthgearOncePage from '@/components/pages/campaign/AuthgearOncePage';
+import OnceCampaignPage from '@/components/pages/campaign/OnceCampaignPage';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
+const pageMap: Record<string, React.ComponentType<{ locale: string }>> = {
+  'authgear-once': AuthgearOncePage,
+  'once': OnceCampaignPage,
+};
+
+const metaMap: Record<string, { title: string; description: string }> = {
+  'authgear-once': {
+    title: 'Authgear ONCE – Own Your IAM with a Perpetual License',
+    description: 'Take control of your identity management with Authgear ONCE. A self-hosted IAM solution with no subscriptions, complete data ownership, and developer-friendly SDKs.',
+  },
+  'once': {
+    title: 'Authgear ONCE – Own Your IAM with a Perpetual License',
+    description: 'Take control of your identity management with Authgear ONCE. A self-hosted IAM solution with no subscriptions, complete data ownership, and developer-friendly SDKs.',
+  },
+};
+
 export async function generateStaticParams() {
-  const sectionDir = path.join(WEBFLOW_DIR, SECTION);
-  if (!existsSync(sectionDir)) return [];
-  return readdirSync(sectionDir)
-    .filter((f) => f.endsWith('.html'))
-    .map((f) => ({ locale: 'en', slug: f.replace(/\.html$/, '') }));
+  return LOCALES.flatMap((locale) =>
+    Object.keys(pageMap).map((slug) => ({ locale, slug }))
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  return {
-    title: getWebflowPageTitle(htmlFile(slug)),
-    description: getWebflowPageDescription(htmlFile(slug)),
-  };
+  const meta = metaMap[slug];
+  if (!meta) return {};
+  return { title: meta.title, description: meta.description };
 }
 
 export default async function Page({ params }: Props) {
-  const { slug } = await params;
-  return <StaticWebflowPage htmlFile={htmlFile(slug)} />;
+  const { slug, locale } = await params;
+  const Component = pageMap[slug];
+  if (!Component) notFound();
+  return <Component locale={locale} />;
 }
