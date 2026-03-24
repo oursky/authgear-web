@@ -51,7 +51,7 @@ Use the right source depending on the page:
 
 - **Static marketing pages** (about, features, compare, solutions, home, tools, etc.): edit the React component in `components/pages/`.
 - **Translatable strings**: edit `messages/en.json` and `messages/zh-TW.json`. Components use `getTranslations({ locale, namespace })` from next-intl.
-- **Pricing page** (`/pricing`, `/zh-TW/pricing`): copy lives in `lib/pricing/getCopy.ts`; rendered by `components/pricing/PricingPageView.tsx`.
+- **Pricing page** (`/pricing`, `/zh-TW/pricing`): structured data (plans, comparison table, FAQ) lives in `lib/pricing/copy-en.ts`; UI strings are in `messages/en.json` under the `Pricing` namespace; rendered by `components/pricing/PricingPageView.tsx`.
 - **CMS-driven collections** (blog posts, customer stories, integrations, login gallery, team members, what's new): update content in Strapi.
 - **Nav / footer**: edit `lib/navigation-data.ts`.
 - **Locale routing**: default English has no URL prefix (`/blog`); Traditional Chinese uses `/zh-TW/...`. Middleware rewrites unprefixed paths to `/en/...` internally. `/zh-Hant-TW/...` and legacy `/zh/...` redirect (308) to `/zh-TW/...`.

@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { getPricingCopy } from '@/lib/pricing/getCopy';
+import { getTranslations } from 'next-intl/server';
 import PricingPageView from '@/components/pricing/PricingPageView';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const { meta } = await getPricingCopy(locale);
+  const t = await getTranslations({ locale, namespace: 'Pricing' });
   return {
-    title: meta.title,
-    description: meta.description,
+    title: t('metaTitle'),
+    description: t('metaDescription'),
   };
 }
 

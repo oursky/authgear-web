@@ -91,7 +91,7 @@ CONTACT_WEBHOOK_URL=
 - **Next.js 16 has breaking changes** — read `node_modules/next/dist/docs/` before writing any Next.js code. Heed deprecation notices. (See `frontend/AGENTS.md`.)
 - When editing Strapi-backed content (blog, customer stories, integrations, etc.), the source of truth is Strapi — not local files.
 - When editing static marketing pages, the source of truth is the React component in `frontend/components/pages/`.
-- Pricing page (`app/[locale]/pricing/`) copy lives in `frontend/lib/pricing/`.
+- Pricing page (`app/[locale]/pricing/`): structured data (plans, comparison table, FAQ) lives in `frontend/lib/pricing/copy-en.ts`; UI strings are in `frontend/messages/en.json` under the `Pricing` namespace.
 - `populate: '*'` is valid for Strapi 5 first-level relations; comma-separated field names for populate are **invalid** in Strapi v5 (use nested populate query strings instead).
 
 ## Webflow → Strapi Import Scripts
