@@ -1,9 +1,5 @@
 import Link from 'next/link';
-import PageScripts from '@/components/PageScripts';
 
-const pageScripts: string[] = [
-  // No functional page scripts on this page
-];
 
 interface Props {
   locale: string;
@@ -276,7 +272,6 @@ export default async function UuidV7Page(_props: Props) {
           <a href="#" className="tool-popup-close-button plausible-event-name--popup-close-click w-button">Close</a>
         </div>
       </div>
-      <PageScripts scripts={pageScripts} />
     </>
   );
 }

@@ -1,9 +1,5 @@
 import Link from 'next/link';
-import PageScripts from '@/components/PageScripts';
 
-const pageScripts: string[] = [
-  // No functional page scripts on this page
-];
 
 interface Props {
   locale: string;
@@ -21,7 +17,7 @@ export default async function PasswordHashPage(_props: Props) {
       <section>
         <div className="w-layout-blockcontainer tools-container w-container">
           <div className="w-embed w-iframe">
-            <iframe src="https://authgear.github.io/authgear-widget-password-hash/" title="JWT &amp; JWE Debugger" width="100%" height="1000px" frameBorder="0" scrolling="yes" style={{border: 'none', width: '100%', height: '1000px', minHeight: '600px'}} allow="clipboard-read; clipboard-write" allowFullScreen></iframe>
+            <iframe src="https://authgear.github.io/authgear-widget-password-hash/" title="Password Hash Generator" width="100%" height="1000px" frameBorder="0" scrolling="yes" style={{border: 'none', width: '100%', height: '1000px', minHeight: '600px'}} allow="clipboard-read; clipboard-write" allowFullScreen></iframe>
           </div>
           <div className="tools-banner-wrapper">
             <div className="div-block-33">
@@ -256,7 +252,6 @@ export default async function PasswordHashPage(_props: Props) {
           <a href="#" className="tool-popup-close-button plausible-event-name--popup-close-click w-button">Close</a>
         </div>
       </div>
-      <PageScripts scripts={pageScripts} />
     </>
   );
 }
