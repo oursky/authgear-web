@@ -1,3 +1,5 @@
+import ContactForm from '@/components/ContactForm';
+
 interface Props {
   locale: string;
 }
@@ -88,40 +90,7 @@ export default function SmsPasscodePage(_props: Props) {
       <div className="top-content feature-flex contact-form-title">
         <h2 className="title features-page">Easily Switch Your OTP and 2FA to WhatsApp Now</h2>
       </div>
-      <div className="w-form">
-        <form id="wf-form-Authgear-Talk-with-Us" name="wf-form-Authgear-Talk-with-Us" method="post" className="contact-form">
-          <div className="margin-vertical margin-small"><label htmlFor="name-2">Name</label>
-            <div className="text-field-wrapper"><input className="getdemo-field w-input" maxLength={256} name="name-2" placeholder="" type="text" id="name-2" required /></div>
-          </div>
-          <div className="margin-vertical margin-small"><label htmlFor="email-2">Email Address</label>
-            <div className="text-field-wrapper"><input className="getdemo-field w-input" maxLength={256} name="email-2" placeholder="" type="email" id="email-2" required /></div>
-          </div>
-          <div className="margin-vertical margin-small"><label htmlFor="phone-2">Phone Number (Optional)</label>
-            <div className="text-field-wrapper"><input className="getdemo-field w-input" maxLength={256} name="phone-2" placeholder="" type="tel" id="phone-2" /></div>
-          </div>
-          <div className="margin-vertical margin-small"><label htmlFor="company-2">Company</label>
-            <div className="text-field-wrapper"><input className="getdemo-field w-input" maxLength={256} name="company-2" placeholder="" type="text" id="company-2" required /></div>
-          </div>
-          <div className="margin-vertical margin-small"><label htmlFor="field">How may we help you?</label>
-            <div className="select-wrapper"><select id="Type-2" name="Type-2" className="select w-select">
-                <option value="general">General</option>
-                <option value="sales">Sales Questions</option>
-                <option value="technical-support">Technical Support</option>
-                <option value="press">Press Related</option>
-              </select></div>
-          </div>
-          <div className="margin-vertical margin-small"><label htmlFor="message-2">Leave us a message</label>
-            <div className="textarea-wrapper"><textarea placeholder="Leave us a message" maxLength={5000} id="message-2" name="message-2" required className="text-area w-input"></textarea></div>
-          </div>
-          <div className="margin-vertical margin-medium"><input type="submit" data-wait="Please wait..." className="button-primary w-button" value="Submit" /></div>
-        </form>
-        <div className="success-message w-form-done">
-          <div>Thank you! Your submission has been received!</div>
-        </div>
-        <div className="error-message w-form-fail">
-          <div>Oops! Something went wrong while submitting the form.</div>
-        </div>
-      </div>
+      <ContactForm />
     </div>
   </div>
     </>

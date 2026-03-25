@@ -1,11 +1,5 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
-import PageScripts from '@/components/PageScripts';
-
-const pageScripts: string[] = [
-  // No functional page scripts on this page
-];
-
 interface Props {
   locale: string;
 }
@@ -130,7 +124,6 @@ export default async function AboutPage({ locale }: Props) {
           <div className="divider"></div>
         </div>
       </div>
-      <PageScripts scripts={pageScripts} />
     </>
   );
 }

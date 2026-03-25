@@ -1,113 +1,6 @@
-import PageScripts from '@/components/PageScripts';
-
 interface Props {
   locale: string;
 }
-
-const pageScripts: string[] = [
-  `systemTab = document.querySelectorAll(".system");
-const changeSystem = function (e, c) {
-  e.preventDefault();
-  document
-    .querySelectorAll(".code-wrapper")
-    .forEach((pre) => pre.setAttribute("style", "z-index: 0;"));
-  document
-    .querySelector(\`.code-wrapper.\${c[2]}\`)
-    .setAttribute("style", "z-index: 1;");
-};
-systemTab.forEach((s) =>
-  s.addEventListener("click", (event) => changeSystem(event, s.classList))
-);
-$(".code-block .code-snippet")
-	.each((i,ele)=>{
-  	CodeMirror.fromTextArea(ele,{
-    	mode: "javascript",
-      lineNumbers: true,
-      theme: "material-ocean",
-      readOnly: true
-    })
-	})
-$(".section-about-app-tab-link").click((evt) => {
-    const tab = $(evt.target.closest('.section-about-app-tab-link')).attr("data-w-tab")
-    const tabPane = $(\`.section-about-app-tab-pane[data-w-tab='\${tab}']\`)
-    tabPane.each((i, pane) => {
-      $(pane).find(".CodeMirror")
-      	.each((j,cm)=>{
-          setTimeout(function(){ cm.CodeMirror.refresh(); }, 400);
-      })
-    })
-})
-let showAnnouncement = function(){
-	$(".page-wrapper").addClass("announcement")
-  $(".announcement-bar").slideDown(100)
-}
-$(document).ready(()=>{
-  const queryString = window.location.search
-  const urlParams = new URLSearchParams(queryString);
-  const from = urlParams.get("from")
-  if(from == "skygear") showAnnouncement()
-})`,
-  `const urlParams = new URLSearchParams(window.location.search);
-if(urlParams.has('email')){
-	const email = urlParams.get('email');
-	document.getElementById("Email-6").value = email;
-}
-if(urlParams.has('name')){
-	const name = urlParams.get('name');
-	document.getElementById("Name-5").value = name;
-}`,
-  `var input = document.querySelector("#Phone-3"),
-	country = document.querySelector("#Country-4"),
- 	errorMsg = document.querySelector("#error-msg"),
-    validMsg = document.querySelector("#valid-msg");
-var iti = intlTelInput(input, {
-	nationalMode: true,
-  initialCountry: "auto",
-  geoIpLookup: callback => {
-    fetch("https://ipapi.co/json")
-      .then(res => res.json())
-      .then(data => callback(data.country_code))
-      .catch(() => callback("hk"));
-  },
-  preferredCountries: [
-  	"hk",
-  	"sg",
-		"au",
-	],
-  placeholderNumberType: 'MOBILE',
-});
-window.intlTelInputGlobals.getCountryData().forEach((country) => {
-  country.name = country.name.replace(/\\(.*\\)/, "").trim();
-})
-var updateInputValue = function (event) {
-       country.value = iti.getSelectedCountryData().name;
-};
-input.addEventListener('input', updateInputValue, false);
-input.addEventListener('countrychange', updateInputValue, false);
-var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-var reset = function() {
-  input.classList.remove("error");
-  errorMsg.innerHTML = "";
-  errorMsg.classList.add("hide");
-  validMsg.classList.add("hide");
-};
-input.addEventListener('blur', function() {
-  reset();
-  if (input.value.trim()) {
-    if (iti.isValidNumber()) {
-      validMsg.classList.remove("hide");
-      input.value = iti.getNumber();
-    } else {
-      input.classList.add("error");
-      var errorCode = iti.getValidationError();
-      errorMsg.innerHTML = errorMap[errorCode];
-      errorMsg.classList.remove("hide");
-    }
-  }
-});
-input.addEventListener('change', reset);
-input.addEventListener('keyup', reset);`
-];
 
 export default async function OncePage({ locale: _locale }: Props) {
   return (
@@ -722,7 +615,6 @@ export default async function OncePage({ locale: _locale }: Props) {
 
       </div>
 
-      <PageScripts scripts={pageScripts} />
     </>
   );
 }

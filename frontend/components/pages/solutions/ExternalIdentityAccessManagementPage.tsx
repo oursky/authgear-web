@@ -1,3 +1,5 @@
+import ContactForm from '@/components/ContactForm';
+
 interface Props {
   locale: string;
 }
@@ -128,33 +130,7 @@ export default function ExternalIdentityAccessManagementPage(_props: Props) {
             <div className="top-content feature-flex contact-form-title">
               <h2 className="title features-page">Centralize Identity & Access Management to Stay Competitive Without Organizational and Operational Complexity</h2>
             </div>
-            <div id="wf-form-Authgear-Talk-with-Us" className="w-form">
-              <form id="wf-form-Authgear-Talk-with-Us" name="wf-form-Authgear-Talk-with-Us" method="post" className="contact-form">
-                <div className="margin-vertical margin-small"><label htmlFor="name-2">Name</label>
-                  <div className="text-field-wrapper"><input className="getdemo-field w-input" maxLength={256} name="Name" placeholder="" type="text" id="Name-3" required /></div>
-                </div>
-                <div className="margin-vertical margin-small"><label htmlFor="email-3">Work Email</label>
-                  <div className="text-field-wrapper"><input className="getdemo-field w-input" maxLength={256} name="Email" placeholder="" type="email" id="Email-4" required /></div>
-                </div>
-                <div className="margin-vertical margin-small"><label htmlFor="phone-2">Phone Number</label>
-                  <div className="text-field-wrapper"><input className="getdemo-field w-input" maxLength={256} name="Phone" placeholder="" type="tel" id="Phone-3" required /></div>
-                </div>
-                <div className="margin-vertical margin-small"><label htmlFor="company-2">Company Name</label>
-                  <div className="text-field-wrapper"><input className="getdemo-field w-input" maxLength={256} name="Company" placeholder="" type="text" id="Company-3" required /></div>
-                </div>
-                <div className="margin-vertical margin-small"><label htmlFor="message-2">Leave us a message</label>
-                  <div className="textarea-wrapper"><textarea placeholder="Leave us a message" maxLength={5000} id="Message-3" name="Message" required className="text-area w-input"></textarea></div>
-                </div>
-                <div className="w-form-formrecaptcha g-recaptcha g-recaptcha-error g-recaptcha-disabled"></div>
-                <div className="margin-vertical margin-medium"><input type="submit" className="button-primary plausible-event-name--contact-form-submit w-button" value="Submit" /></div>
-              </form>
-              <div className="success-message w-form-done">
-                <div>Thank you! Your submission has been received!</div>
-              </div>
-              <div className="error-message w-form-fail">
-                <div>Oops! Something went wrong while submitting the form.</div>
-              </div>
-            </div>
+            <ContactForm />
           </div>
         </div>
     </>
