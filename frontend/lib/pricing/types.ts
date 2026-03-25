@@ -1,8 +1,11 @@
 export type PricingLocaleKey = 'en' | 'zh-TW';
 
+import type { ReactNode } from 'react';
+
 export type PricingCell =
   | { kind: 'check' }
-  | { kind: 'text'; value: string; html?: boolean }
+  | { kind: 'text'; value: string }
+  | { kind: 'node'; render: (whatsappPath: string) => ReactNode }
   | { kind: 'dash' }
   | { kind: 'empty' };
 

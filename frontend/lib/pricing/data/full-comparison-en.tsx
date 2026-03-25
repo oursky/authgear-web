@@ -1,7 +1,15 @@
 import type { PricingCopy } from '../types';
-import { chk, dash, emp, txt } from '../cells';
+import { chk, dash, emp, txt, nod } from '../cells';
 
-/** Full “static” CLOUD comparison table (visible on page). */
+const smsWhatsappBusinessCell = nod((whatsappPath) => (
+  <>
+    <div className="plan-data-sub-row"><strong>SMS</strong><br />US/Canada: $0.02<br />Others: $0.1</div>
+    <div className="plan-data-sub-row"><strong>WhatsApp</strong><br /><a href={whatsappPath} className="comparison-label">See Pricing</a></div>
+    <div className="plan-data-sub-row">Or Custom Gateway</div>
+  </>
+));
+
+/** Full "static" CLOUD comparison table (visible on page). */
 export const fullComparisonEn: Pick<PricingCopy['comparison'], 'planNames' | 'rows'> = {
   planNames: ['Free', 'Developers', 'Business', 'Enterprise'],
   rows: [
@@ -9,15 +17,9 @@ export const fullComparisonEn: Pick<PricingCopy['comparison'], 'planNames' | 'ro
       label: 'SMS/WhatsApp OTP Messages',
       cells: [
         txt('Up to 100/month'),
-        txt('<strong>SMS and WhatsApp</strong><br>US/Canada: $0.02<br>Others: $0.1', true),
-        txt(
-          '<div class="plan-data-sub-row"><strong>SMS</strong><br>US/Canada: $0.02<br>Others: $0.1</div><div class="plan-data-sub-row"><strong>WhatsApp</strong><br><a href="__WHATSAPP_PRICING__" class="comparison-label">See Pricing</a></div><div class="plan-data-sub-row">Or Custom Gateway</div>',
-          true
-        ),
-        txt(
-          '<div class="plan-data-sub-row"><strong>SMS</strong><br>US/Canada: $0.02<br>Others: $0.1</div><div class="plan-data-sub-row"><strong>WhatsApp</strong><br><a href="__WHATSAPP_PRICING__" class="comparison-label">See Pricing</a></div><div class="plan-data-sub-row">Or Custom Gateway</div>',
-          true
-        ),
+        nod(() => <><strong>SMS and WhatsApp</strong><br />US/Canada: $0.02<br />Others: $0.1</>),
+        smsWhatsappBusinessCell,
+        smsWhatsappBusinessCell,
       ],
     },
     {
@@ -94,19 +96,16 @@ export const fullComparisonEn: Pick<PricingCopy['comparison'], 'planNames' | 'ro
       cells: [
         txt('All Features Included'),
         txt('All Features Included'),
-        txt('All Features Included<br><br>Bring your own<br>SMS/WhatsApp / Email Gateway', true),
-        txt(
-          'Bring your own<br>SMS/WhatsApp / Email Gateway<br><br>Tailored SLA<br><br>Private Cloud Option<br><br>Data Residency',
-          true
-        ),
+        nod(() => <>All Features Included<br /><br />Bring your own<br />SMS/WhatsApp / Email Gateway</>),
+        nod(() => <>Bring your own<br />SMS/WhatsApp / Email Gateway<br /><br />Tailored SLA<br /><br />Private Cloud Option<br /><br />Data Residency</>),
       ],
     },
     {
       label: 'Add-ons',
       cells: [
         dash,
-        txt('$100/Environment<br>$100/Applications<br>$50/Project Member', true),
-        txt('$100/Environment<br>$100/Applications<br>$50/Project Member<br><br>$50/5,000 additional MAU', true),
+        nod(() => <>$100/Environment<br />$100/Applications<br />$50/Project Member</>),
+        nod(() => <>$100/Environment<br />$100/Applications<br />$50/Project Member<br /><br />$50/5,000 additional MAU</>),
         emp,
       ],
     },

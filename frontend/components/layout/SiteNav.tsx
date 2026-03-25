@@ -15,6 +15,17 @@ function label(link: NavLink, locale: string): string {
   return link.label[locale] ?? link.label['en'] ?? '';
 }
 
+function HtmlLabel({ html }: { html: string }) {
+  const parts = html.split('<br>');
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>{i > 0 && <br />}{part}</span>
+      ))}
+    </>
+  );
+}
+
 function href(locale: string, pathOrUrl: string): string {
   if (pathOrUrl.startsWith('http')) return pathOrUrl;
   return localizedPath(locale, pathOrUrl);
@@ -54,15 +65,14 @@ function ProductColumns({ columns, locale }: { columns: NavColumn[]; locale: str
                 <div className="nav-menu-dropdown-subtitle product">
                   {col.subtitle[locale] ?? col.subtitle['en']}
                 </div>
-                {col.links.map((item, k) => (
-                  <Link key={k} href={href(locale, item.path!)} className="nav-menu-dropdown-link products w-inline-block">
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: item.html ? (item.html[locale] ?? item.html['en'] ?? '') : label(item, locale),
-                      }}
-                    />
-                  </Link>
-                ))}
+                {col.links.map((item, k) => {
+                  const rawHtml = item.html ? (item.html[locale] ?? item.html['en'] ?? '') : null;
+                  return (
+                    <Link key={k} href={href(locale, item.path!)} className="nav-menu-dropdown-link products w-inline-block">
+                      <div>{rawHtml ? <HtmlLabel html={rawHtml} /> : label(item, locale)}</div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           );

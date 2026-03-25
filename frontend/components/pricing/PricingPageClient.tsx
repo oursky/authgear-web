@@ -31,11 +31,8 @@ function CellContent({
   }
   if (cell.kind === 'dash') return <>-</>;
   if (cell.kind === 'empty') return null;
-  const html = cell.value.replace(/__WHATSAPP_PRICING__/g, whatsappPath);
-  if (cell.html) {
-    return <span dangerouslySetInnerHTML={{ __html: html }} />;
-  }
-  return <>{html}</>;
+  if (cell.kind === 'node') return <>{cell.render(whatsappPath)}</>;
+  return <>{cell.value}</>;
 }
 
 function OnceCoreValue({ value }: { value: PricingCell | string }) {
