@@ -4,7 +4,8 @@ import { headers } from 'next/headers';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { localeToHtmlLang } from '@/lib/i18n';
-import { getFooterInnerHtml, getNavInnerHtml } from '@/lib/site-navigation';
+import SiteNav from '@/components/layout/SiteNav';
+import SiteFooter from '@/components/layout/SiteFooter';
 
 export const metadata: Metadata = {
   title: { default: 'Authgear', template: '%s - Authgear' },
@@ -16,50 +17,77 @@ export const metadata: Metadata = {
   },
 };
 
-const cookieConsentHtml = `
-  <div id="consentPopup" fs-cc="banner" class="fs-cookie-popup">
-    <div class="cookie-tag">Your privacy is our priority</div>
-    <p class="cookie-paragraph">Authgear understands the importance of data privacy. In line with our <a href="/data-privacy">Privacy Policy</a>, we take your privacy seriously and are committed to being transparent about how we collect your information.<br>By clicking "Accept," you consent to the use of all cookies on our site.</p>
-    <div class="button-wrapper w-clearfix">
-      <a fs-cc="allow" href="#" class="button accept w-button">Accept</a>
-      <a fs-cc="deny" href="#" class="button deny w-button">Deny</a>
-      <a fs-cc="open-preferences" href="#" class="preferences-link">Manage settings</a>
-    </div>
-  </div>
-  <div fs-cc="preferences" class="fs-preferences-manager-wrapper">
-    <div class="preferences-container">
-      <div class="privacy-title">Preferences</div>
-      <a fs-cc="allow" href="#" class="button w-button">Accept all cookies</a>
-      <a fs-cc="close" href="#" class="close-button-2 w-inline-block"><img src="/images/np_close_25798_27313D.svg" loading="lazy" alt=""></a>
-      <div class="consents-form w-form">
-        <form method="get" class="w-clearfix">
-          <div class="grid-3">
-            <div class="text-div"><label class="cookie-tag">Essential</label><p class="paragraph-8">These items are required to enable basic website functionality.</p></div>
-            <p class="paragraph-8 bold">Always active</p>
-          </div>
-          <div class="grid-3">
-            <div class="text-div"><label class="cookie-tag">Marketing</label><p class="paragraph-8">These items are used to deliver advertising that is more relevant to you and your interests.</p></div>
-            <label class="w-checkbox"><div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox" fs-cc-checkbox="marketing" style="opacity:0;position:absolute;z-index:-1"></label>
-          </div>
-          <div class="grid-3">
-            <div class="text-div"><label class="cookie-tag">Analytics</label><p class="paragraph-8">These items help the website operator understand how its website performs.</p></div>
-            <label class="w-checkbox"><div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox" fs-cc-checkbox="analytics" style="opacity:0;position:absolute;z-index:-1"></label>
-          </div>
-          <input type="submit" fs-cc="deny" class="button deny w-button" value="Reject all cookies">
-          <input type="submit" fs-cc="submit" class="button field-wrapper w-button" value="Confirm my choices">
-        </form>
+function CookieConsent() {
+  return (
+    <>
+      <div id="consentPopup" {...{ 'fs-cc': 'banner' }} className="fs-cookie-popup">
+        <div className="cookie-tag">Your privacy is our priority</div>
+        <p className="cookie-paragraph">
+          Authgear understands the importance of data privacy. In line with our{' '}
+          <a href="/data-privacy">Privacy Policy</a>, we take your privacy seriously and are
+          committed to being transparent about how we collect your information.
+          <br />
+          By clicking &ldquo;Accept,&rdquo; you consent to the use of all cookies on our site.
+        </p>
+        <div className="button-wrapper w-clearfix">
+          <a {...{ 'fs-cc': 'allow' }} href="#" className="button accept w-button">Accept</a>
+          <a {...{ 'fs-cc': 'deny' }} href="#" className="button deny w-button">Deny</a>
+          <a {...{ 'fs-cc': 'open-preferences' }} href="#" className="preferences-link">Manage settings</a>
+        </div>
       </div>
-    </div>
-  </div>
-  <div fs-cc="manager" class="fs-manager-opener"><img src="/images/np_cookie_80793_FFFFFF.svg" loading="lazy" fs-cc="open-preferences" alt=""></div>
-`;
+      <div {...{ 'fs-cc': 'preferences' }} className="fs-preferences-manager-wrapper">
+        <div className="preferences-container">
+          <div className="privacy-title">Preferences</div>
+          <a {...{ 'fs-cc': 'allow' }} href="#" className="button w-button">Accept all cookies</a>
+          <a {...{ 'fs-cc': 'close' }} href="#" className="close-button-2 w-inline-block">
+            <img src="/images/np_close_25798_27313D.svg" loading="lazy" alt="" />
+          </a>
+          <div className="consents-form w-form">
+            <form method="get" className="w-clearfix">
+              <div className="grid-3">
+                <div className="text-div">
+                  <label className="cookie-tag">Essential</label>
+                  <p className="paragraph-8">These items are required to enable basic website functionality.</p>
+                </div>
+                <p className="paragraph-8 bold">Always active</p>
+              </div>
+              <div className="grid-3">
+                <div className="text-div">
+                  <label className="cookie-tag">Marketing</label>
+                  <p className="paragraph-8">These items are used to deliver advertising that is more relevant to you and your interests.</p>
+                </div>
+                <label className="w-checkbox">
+                  <div className="w-checkbox-input w-checkbox-input--inputType-custom checkbox" />
+                  <input type="checkbox" {...{ 'fs-cc-checkbox': 'marketing' }} style={{ opacity: 0, position: 'absolute', zIndex: -1 }} />
+                </label>
+              </div>
+              <div className="grid-3">
+                <div className="text-div">
+                  <label className="cookie-tag">Analytics</label>
+                  <p className="paragraph-8">These items help the website operator understand how its website performs.</p>
+                </div>
+                <label className="w-checkbox">
+                  <div className="w-checkbox-input w-checkbox-input--inputType-custom checkbox" />
+                  <input type="checkbox" {...{ 'fs-cc-checkbox': 'analytics' }} style={{ opacity: 0, position: 'absolute', zIndex: -1 }} />
+                </label>
+              </div>
+              <input type="submit" {...{ 'fs-cc': 'deny' }} className="button deny w-button" value="Reject all cookies" />
+              <input type="submit" {...{ 'fs-cc': 'submit' }} className="button field-wrapper w-button" value="Confirm my choices" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div {...{ 'fs-cc': 'manager' }} className="fs-manager-opener">
+        <img src="/images/np_cookie_80793_FFFFFF.svg" loading="lazy" {...{ 'fs-cc': 'open-preferences' }} alt="" />
+      </div>
+    </>
+  );
+}
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const headersList = await headers();
   const locale = headersList.get('x-locale') ?? 'en';
   const htmlLang = localeToHtmlLang(locale);
-  const navInnerHtml = await getNavInnerHtml(locale);
-  const footerInnerHtml = await getFooterInnerHtml(locale);
   const messages = await getMessages();
   return (
     <html lang={htmlLang} suppressHydrationWarning>
@@ -130,23 +158,22 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           data-w-id="60c42e91-3cdd-38fc-0e84-178975fa9b9e"
           role="banner"
           className="header event w-nav"
-          dangerouslySetInnerHTML={{ __html: navInnerHtml }}
-        />
+        >
+          <SiteNav locale={locale} />
+        </div>
 
         {/* Page content */}
         {children}
 
         {/* Footer */}
-        <footer
-          className="footer dark"
-          dangerouslySetInnerHTML={{ __html: footerInnerHtml }}
-        />
+        <footer className="footer dark">
+          <SiteFooter locale={locale} />
+        </footer>
 
         {/* Cookie consent */}
-        <div
-          className="cookies"
-          dangerouslySetInnerHTML={{ __html: cookieConsentHtml }}
-        />
+        <div className="cookies">
+          <CookieConsent />
+        </div>
 
         {/* Scripts */}
         <Script
