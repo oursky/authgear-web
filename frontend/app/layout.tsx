@@ -91,34 +91,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 .w-container{max-width:1271px;}
 /* Replaces Webflow's w-mod-touch JS snippet — disables fixed backgrounds on touch devices */
 @media (hover:none) and (pointer:coarse){*{background-attachment:scroll!important;}}
-/* Trusted-by logo marquee: Webflow IX2 animation scripts are stripped from static HTML export */
-.flex-block-85:has(.logo-marquee-viewport){width:100%;height:60px;}
-.logo-marquee-viewport{flex:1;min-width:0;width:100%;height:60px;overflow:hidden;position:relative;z-index:0;}
-.logo-marquee-track{position:relative;z-index:0;display:flex;width:max-content;animation:authgear-logo-marquee 38s linear infinite;}
-.logo-marquee-track:hover{animation-play-state:paused;}
-.logo-marquee-viewport .logos-container{position:relative!important;left:auto!important;z-index:1;height:60px;flex-shrink:0;display:flex;align-items:center;column-gap:60px;width:auto;}
-.logo-marquee-viewport .link-block-7{
-  position:absolute!important;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%)!important;
-  z-index:2;
-  opacity:0;
-  flex-shrink:0;
-  transition:opacity .25s ease!important;
-  pointer-events:none;
-}
-.logo-marquee-viewport:hover .link-block-7,
-.logo-marquee-viewport .link-block-7:hover,
-.logo-marquee-viewport .link-block-7:focus-visible{
-  opacity:1;
-  pointer-events:auto;
-}
-@keyframes authgear-logo-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){
-  .logo-marquee-track{animation:none;width:100%;justify-content:center;flex-wrap:wrap;}
-  .logo-marquee-viewport .logos-container:last-child{display:none;}
-}
 `}</style>
       </head>
       <body className="bg-neutral-200">
