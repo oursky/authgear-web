@@ -1,0 +1,76 @@
+.root {
+  width: 100%;
+  height: 60px;
+}
+
+.viewport {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.track {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.track:hover {
+  animation-play-state: paused;
+}
+
+/* Resets Webflow IX2 positioning (position:absolute, left:0) on .logos-container */
+.logosContainer {
+  position: relative !important;
+  left: auto !important;
+  z-index: 1;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  column-gap: 60px;
+  width: auto;
+}
+
+/* Overrides Webflow's position:static on .link-block-7; adds centered overlay behaviour */
+.ctaLink {
+  position: absolute !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) !important;
+  z-index: 2;
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity 0.25s ease !important;
+  pointer-events: none;
+}
+
+.viewport:hover .ctaLink,
+.ctaLink:hover,
+.ctaLink:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .logosContainer:last-child {
+    display: none;
+  }
+}
