@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import ContactForm from '@/components/ContactForm';
 import PlausibleLink from '@/components/PlausibleLink';
+import LogoMarquee from '@/components/LogoMarquee';
 
 interface Props {
   locale: string;
@@ -70,17 +71,7 @@ export default async function HomePage({ locale }: Props) {
                 <div className="home-lottie" data-animation-type="lottie" data-src="documents/data.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="7.74107409244067" data-duration="0"></div><img src="/images/hero-mobile.png" alt="" className="image home-hero sm" />
               </div>
             </div>
-            <div className="w-layout-hflex flex-block-85">
-              <div className="logo-marquee-viewport">
-                <div className="logo-marquee-track">
-                  <div className="w-layout-hflex logos-container"><img loading="lazy" src="/images/logo-CIMIC2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-HKL2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-hkpc2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-K112x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-MTR2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-outback2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-cornerstone2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-place2x.png" alt="" className="logo" /></div>
-                  <div className="w-layout-hflex logos-container"><img loading="lazy" src="/images/logo-CIMIC2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-HKL2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-hkpc2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-K112x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-MTR2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-outback2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-cornerstone2x.png" alt="" className="logo" /><img loading="lazy" src="/images/logo-place2x.png" alt="" className="logo" /></div>
-                </div>
-                <a href="/customer-stories" target="_blank" rel="noopener noreferrer" className="link-block-7 w-inline-block">
-                  <div>{t('readCustomerStory')}</div><img loading="lazy" src="/images/logo-read-story-arrow.svg" alt="" />
-                </a>
-              </div>
-            </div>
+            <LogoMarquee readStoryLabel={t('readCustomerStory')} />
             <div className="w-layout-blockcontainer container-1469 w-container"></div>
             <div className="w-layout-blockcontainer container-1469 left w-container"></div>
           </div>
