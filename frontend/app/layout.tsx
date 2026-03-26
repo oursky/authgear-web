@@ -8,6 +8,49 @@ import { localeToHtmlLang } from '@/lib/i18n';
 import SiteNav from '@/components/layout/SiteNav';
 import SiteFooter from '@/components/layout/SiteFooter';
 import PlausibleProvider from 'next-plausible';
+import {
+  PT_Sans,
+  IBM_Plex_Sans,
+  Inter,
+  Noto_Sans_TC,
+  Red_Hat_Display,
+} from 'next/font/google';
+
+const ptSans = PT_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-pt-sans',
+  display: 'swap',
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-ibm-plex-sans',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const notoSansTC = Noto_Sans_TC({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-noto-sans-tc',
+  display: 'swap',
+});
+
+const redHatDisplay = Red_Hat_Display({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-red-hat-display',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: { default: 'Authgear', template: '%s - Authgear' },
@@ -25,7 +68,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const htmlLang = localeToHtmlLang(locale);
   const messages = await getMessages();
   return (
-    <html lang={htmlLang} suppressHydrationWarning>
+    <html
+      lang={htmlLang}
+      suppressHydrationWarning
+      className={[
+        ptSans.variable,
+        ibmPlexSans.variable,
+        inter.variable,
+        notoSansTC.variable,
+        redHatDisplay.variable,
+      ].join(' ')}
+    >
       <GoogleTagManager gtmId="GTM-KTHFL6S" />
       <head>
         <meta charSet="utf-8" />
