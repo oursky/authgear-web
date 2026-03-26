@@ -17,73 +17,6 @@ export const metadata: Metadata = {
   },
 };
 
-function CookieConsent() {
-  return (
-    <>
-      <div id="consentPopup" {...{ 'fs-cc': 'banner' }} className="fs-cookie-popup">
-        <div className="cookie-tag">Your privacy is our priority</div>
-        <p className="cookie-paragraph">
-          Authgear understands the importance of data privacy. In line with our{' '}
-          <a href="/data-privacy">Privacy Policy</a>, we take your privacy seriously and are
-          committed to being transparent about how we collect your information.
-          <br />
-          By clicking &ldquo;Accept,&rdquo; you consent to the use of all cookies on our site.
-        </p>
-        <div className="button-wrapper w-clearfix">
-          <a {...{ 'fs-cc': 'allow' }} href="#" className="button accept w-button">Accept</a>
-          <a {...{ 'fs-cc': 'deny' }} href="#" className="button deny w-button">Deny</a>
-          <a {...{ 'fs-cc': 'open-preferences' }} href="#" className="preferences-link">Manage settings</a>
-        </div>
-      </div>
-      <div {...{ 'fs-cc': 'preferences' }} className="fs-preferences-manager-wrapper">
-        <div className="preferences-container">
-          <div className="privacy-title">Preferences</div>
-          <a {...{ 'fs-cc': 'allow' }} href="#" className="button w-button">Accept all cookies</a>
-          <a {...{ 'fs-cc': 'close' }} href="#" className="close-button-2 w-inline-block">
-            <img src="/images/np_close_25798_27313D.svg" loading="lazy" alt="" />
-          </a>
-          <div className="consents-form w-form">
-            <form method="get" className="w-clearfix">
-              <div className="grid-3">
-                <div className="text-div">
-                  <label className="cookie-tag">Essential</label>
-                  <p className="paragraph-8">These items are required to enable basic website functionality.</p>
-                </div>
-                <p className="paragraph-8 bold">Always active</p>
-              </div>
-              <div className="grid-3">
-                <div className="text-div">
-                  <label className="cookie-tag">Marketing</label>
-                  <p className="paragraph-8">These items are used to deliver advertising that is more relevant to you and your interests.</p>
-                </div>
-                <label className="w-checkbox">
-                  <div className="w-checkbox-input w-checkbox-input--inputType-custom checkbox" />
-                  <input type="checkbox" {...{ 'fs-cc-checkbox': 'marketing' }} style={{ opacity: 0, position: 'absolute', zIndex: -1 }} />
-                </label>
-              </div>
-              <div className="grid-3">
-                <div className="text-div">
-                  <label className="cookie-tag">Analytics</label>
-                  <p className="paragraph-8">These items help the website operator understand how its website performs.</p>
-                </div>
-                <label className="w-checkbox">
-                  <div className="w-checkbox-input w-checkbox-input--inputType-custom checkbox" />
-                  <input type="checkbox" {...{ 'fs-cc-checkbox': 'analytics' }} style={{ opacity: 0, position: 'absolute', zIndex: -1 }} />
-                </label>
-              </div>
-              <input type="submit" {...{ 'fs-cc': 'deny' }} className="button deny w-button" value="Reject all cookies" />
-              <input type="submit" {...{ 'fs-cc': 'submit' }} className="button field-wrapper w-button" value="Confirm my choices" />
-            </form>
-          </div>
-        </div>
-      </div>
-      <div {...{ 'fs-cc': 'manager' }} className="fs-manager-opener">
-        <img src="/images/np_cookie_80793_FFFFFF.svg" loading="lazy" {...{ 'fs-cc': 'open-preferences' }} alt="" />
-      </div>
-    </>
-  );
-}
-
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const headersList = await headers();
   const locale = headersList.get('x-locale') ?? 'en';
@@ -170,11 +103,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <SiteFooter locale={locale} />
         </footer>
 
-        {/* Cookie consent */}
-        <div className="cookies">
-          <CookieConsent />
-        </div>
-
         {/* Scripts */}
         <Script
           src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60658b46b03f0cf83ac1485d"
@@ -183,12 +111,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           crossOrigin="anonymous"
         />
         <Script src="/js/webflow.js" strategy="afterInteractive" />
-        <Script
-          async
-          src="https://cdn.jsdelivr.net/npm/@finsweet/cookie-consent@1/fs-cc.js"
-          data-fs-cc-mode="opt-in"
-          strategy="afterInteractive"
-        />
         <Script
           async
           src="https://plausible.io/js/pa-sIydDP09Pb5q-XyCWR6Rj.js"
