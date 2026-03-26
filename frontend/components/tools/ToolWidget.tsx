@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react';
-import Link from 'next/link';
+import PlausibleLink from '@/components/PlausibleLink';
 
 type Props = {
   src: string;
@@ -31,11 +31,11 @@ export default function ToolWidget({ src, iframeTitle, height, policy, iframeId,
         </div>
         <div className="tools-banner-wrapper">
           <div className="div-block-33">
-            <Link href="/" target="_blank" className="tools-authgear-tag plausible-event-name--tool-tag-click">
+            <PlausibleLink href="/" target="_blank" className="tools-authgear-tag" eventName="tool-tag-click">
               This tool is crafted by Authgear
-            </Link>
+            </PlausibleLink>
           </div>
-          <Link href="/" target="_blank" className="tools-banner plausible-event-name--tool-banner-click w-inline-block">
+          <PlausibleLink href="/" target="_blank" className="tools-banner w-inline-block" eventName="tool-banner-click">
             <img
               src="/images/banner2x.png"
               loading="lazy"
@@ -53,11 +53,11 @@ export default function ToolWidget({ src, iframeTitle, height, policy, iframeId,
               alt=""
               className="image-100 mobile"
             />
-          </Link>
-          <a href="https://github.com/authgear/authgear-server" target="_blank" className="tools-github-tag plausible-event-name--tool-github-tag-click w-inline-block">
+          </PlausibleLink>
+          <PlausibleLink href="https://github.com/authgear/authgear-server" target="_blank" className="tools-github-tag w-inline-block" eventName="tool-github-tag-click">
             <div className="text-block-92">Support and star us on</div>
             <img src="https://img.shields.io/github/stars/authgear/authgear-server" width="110px" alt="" />
-          </a>
+          </PlausibleLink>
         </div>
         {policy && (
           <div className="tools-policy">
