@@ -42,7 +42,7 @@ All pages are native React server components. There are two categories:
 
 ### Navigation & Footer
 
-Nav and footer HTML are generated server-side from typed data in `frontend/lib/navigation-data.ts` by `frontend/lib/site-navigation.ts` and injected in `frontend/app/layout.tsx` via `dangerouslySetInnerHTML`. Link labels support multiple locales via `link.label[locale] ?? link.label['en']`. The root layout also injects Webflow CSS, jQuery, Webflow JS, cookie consent, and analytics scripts.
+Nav and footer HTML are generated server-side from typed data in `frontend/lib/navigation-data.ts` by `frontend/lib/site-navigation.ts` and injected in `frontend/app/layout.tsx` via `dangerouslySetInnerHTML`. Link labels support multiple locales via `link.label[locale] ?? link.label['en']`. The root layout also injects Webflow CSS, jQuery, Webflow JS, and analytics scripts.
 
 ## Development Commands
 
