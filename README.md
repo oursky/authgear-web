@@ -130,18 +130,20 @@ Both scripts are documented in `cms/README.md`.
 
 ---
 
-## Claude Code skills
+## Agent skills
 
-Project-level skills live in `skills/` and are symlinked so Claude Code can find them:
+Project-level skills live in `skills/` and are symlinked into each agent's config directory:
 
 ```
 skills/                        # Source of truth (tracked in git)
 └── plausible-event-tracking/  # Plausible analytics event tracking conventions
 .claude/
-└── skills -> ../skills        # Symlink — Claude Code reads skills from here
+└── skills -> ../skills        # Claude Code
+.cursor/
+└── skills -> ../skills        # Cursor
 ```
 
-The symlink means skills are version-controlled in `skills/` while Claude Code discovers them via `.claude/skills/`. To add a new skill, create a directory under `skills/` — no symlink changes needed.
+Skills are version-controlled once in `skills/`; each agent picks them up via its own symlink. To add a new skill, create a directory under `skills/`. To support a new agent, add a symlink from its config directory: `ln -s ../skills ./<agent-dir>/skills`.
 
 ---
 
