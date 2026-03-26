@@ -1,3 +1,4 @@
+import 'normalize.css';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { headers } from 'next/headers';
@@ -84,8 +85,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="cwUTy_LBZHQ90P9sQzhKyyV2M024ukPHK2rYpvion6M" />
-        <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
-        <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
+<link href="/css/webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/authgear-new.webflow.css" rel="stylesheet" type="text/css" />
         <script
           type="text/javascript"
