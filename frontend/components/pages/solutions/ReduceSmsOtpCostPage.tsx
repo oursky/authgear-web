@@ -1,4 +1,6 @@
 import ContactForm from '@/components/ContactForm';
+import PlausibleLink from '@/components/PlausibleLink';
+import PlausibleButton from '@/components/PlausibleButton';
 
 interface Props {
   locale: string;
@@ -13,8 +15,8 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
               <h1 className="title features-hero-v2 text-white">Cut SMS OTP Costs<br />by <span className="text-span-50" >50–90%</span></h1>
               <p className="features-hero-description text-white">Immediate savings with WhatsApp OTP. Long-term savings with biometric login. Both live in days.</p>
               <div className="features-hero-cta-wrapper">
-                <a href="#Saving-Calculator" className="button-primary feature-hero-btn-v2 plausible-event-name--signup-calculator w-button">Calculate My Savings</a>
-                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&utm_medium=link&utm_campaign=sign-up" className="features-sign-up-cta link-white plausible-event-name--signup-hero">Get Started Free →</a>
+                <PlausibleLink href="#Saving-Calculator" className="button-primary feature-hero-btn-v2 w-button" eventName="signup-calculator">Calculate My Savings</PlausibleLink>
+                <PlausibleLink href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&utm_medium=link&utm_campaign=sign-up" className="features-sign-up-cta link-white" eventName="signup-hero">Get Started Free →</PlausibleLink>
               </div>
               <div className="banner-efficiency">
                 <div className="w-layout-vflex banner-efficiency-content">
@@ -157,10 +159,10 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                             <span className="ag-volume-unit">OTPs / mo</span>
                           </div>
                           <div className="ag-presets">
-                            <button className="ag-preset-btn plausible-event-name--calculator-preset">10K</button>
-                            <button className="ag-preset-btn plausible-event-name--calculator-preset active">100K</button>
-                            <button className="ag-preset-btn plausible-event-name--calculator-preset">500K</button>
-                            <button className="ag-preset-btn plausible-event-name--calculator-preset">1M</button>
+                            <PlausibleButton className="ag-preset-btn" eventName="calculator-preset">10K</PlausibleButton>
+                            <PlausibleButton className="ag-preset-btn active" eventName="calculator-preset">100K</PlausibleButton>
+                            <PlausibleButton className="ag-preset-btn" eventName="calculator-preset">500K</PlausibleButton>
+                            <PlausibleButton className="ag-preset-btn" eventName="calculator-preset">1M</PlausibleButton>
                           </div>
                         </div>
                         <div className="ag-form-group">
@@ -230,9 +232,9 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                       </div>
                     </div>
                     <div className="ag-cta-row">
-                      <a className="ag-cta-btn plausible-event-name--signup-calculator" href="https://portal.authgear.com">
+                      <PlausibleLink className="ag-cta-btn" href="https://portal.authgear.com" eventName="signup-calculator">
                         Start Saving Now — Free to Get Started →
-                      </a>
+                      </PlausibleLink>
                     </div>
                   </div>
                 </div>
