@@ -13,7 +13,7 @@ export default function ExternalIdentityAccessManagementPage(_props: Props) {
               <h1 className="title features-hero">Enterprise External Identity and Access Management</h1>
               <p className="paragraph-large">Integrate your business apps with Authgear to centralize and manage the identity and access of your extended team, including non-desk workers, contractors, agents, vendors, etc., to maximize productivity and reduce IT complexity.</p>
               <div className="features-hero-cta-wrapper">
-                <a href="https://www.authgear.com/talk-with-us" target="_blank" className="button-primary feature-hero-btn w-button">Request Demo<span className="muted"></span></a>
+                <a href="/talk-with-us" target="_blank" className="button-primary feature-hero-btn w-button">Request Demo<span className="muted"></span></a>
                 <a href="https://accounts.portal.authgear.com/signup" target="_blank" className="button-secondary feature-hero-btn w-button">Get Started</a>
               </div>
             </div>

@@ -13,7 +13,7 @@ export default function BiometricLoginPage(_props: Props) {
         <h1 className="title features-hero">Email Passcode</h1>
         <p className="paragraph-large">Easily enable WhatsApp OTP with a single click to provide a simpler and more secure for users to sign up for and log into your app.</p>
         <div className="features-hero-cta-wrapper">
-          <a href="https://www.authgear.com/talk-with-us" target="_blank" className="button-primary feature-hero-btn w-button">Request Demo<span className="muted"></span></a>
+          <a href="/talk-with-us" target="_blank" className="button-primary feature-hero-btn w-button">Request Demo<span className="muted"></span></a>
           <a href="https://accounts.portal.authgearapps.com/signup" target="_blank" className="button-secondary feature-hero-btn w-button">Get Started</a>
         </div>
       </div><img src="/images/ag-favicon256w.png" alt="" className="image features-hero" />

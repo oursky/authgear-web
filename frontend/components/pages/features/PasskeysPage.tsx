@@ -74,7 +74,7 @@ export default function PasskeysPage(_props: Props) {
             </div>
           </div>
         </div>
-        <a id="w-node-_9577349c-1c59-cca6-63b3-89fc36497b5b-c4f83b00" href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta w-button">Read the blog: Passkey vs Password: The Future of Online Security -{">"}</a>
+        <a id="w-node-_9577349c-1c59-cca6-63b3-89fc36497b5b-c4f83b00" href="/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta w-button">Read the blog: Passkey vs Password: The Future of Online Security -{">"}</a>
       </div>
     </div>
   </div>

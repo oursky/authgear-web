@@ -194,14 +194,14 @@ export default function SingleSignOnPage(_props: Props) {
         </div>
         <div className="secondary-block">
           <div className="_2-card-grid">
-            <a href="https://www.authgear.com/post/customer-sso" target="_blank" className="secondary-block-card-link bg-white w-inline-block">
+            <a href="/post/customer-sso" target="_blank" className="secondary-block-card-link bg-white w-inline-block">
               <div className="secondary-block-card-image-container"><img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" className="secondary-block-card-image" /></div>
               <div className="blog-post-link-with-desc">
                 <div className="secondary-block-card-content">What is Customer SSO and Why Should You Implement it?</div>
                 <div className="blog-post-link-desc">Learn more about the advantages of Single Sign-On for your customers and how your business can benefit from a unified login experience.</div>
               </div>
             </a>
-            <a href="https://www.authgear.com/post/oidc-vs-saml-decoding-the-sso-showdown-and-why-it-matters-for-your-business" target="_blank" className="secondary-block-card-link bg-white w-inline-block">
+            <a href="/post/oidc-vs-saml-decoding-the-sso-showdown-and-why-it-matters-for-your-business" target="_blank" className="secondary-block-card-link bg-white w-inline-block">
               <div className="secondary-block-card-image-container"><img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" className="secondary-block-card-image" /></div>
               <div className="blog-post-link-with-desc">
                 <div className="secondary-block-card-content">OIDC vs. SAML: Decoding the SSO Showdown (And Why It Matters for Your Business)</div>

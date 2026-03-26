@@ -34,7 +34,7 @@ export default function PasswordHashPage(_props: { locale: string }) {
             description: <>
               The tool generates cryptographically secure salts and lets you set length and encoding (Hex/Base64). Some deployments also add a <em>pepper</em> (site-wide server secret) that&apos;s not stored in the hash. Use peppers carefully and manage them like other secrets.
               <br />Read more:<br />
-              <a href="https://www.authgear.com/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">Password hashing &amp; salting explained</a>{'  •  '}<a href="https://www.authgear.com/post/password-hashing-how-to-pick-the-right-hashing-function" target="_blank">How to pick the right hashing function</a>
+              <a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">Password hashing &amp; salting explained</a>{'  •  '}<a href="/post/password-hashing-how-to-pick-the-right-hashing-function" target="_blank">How to pick the right hashing function</a>
             </>,
           },
         ]}

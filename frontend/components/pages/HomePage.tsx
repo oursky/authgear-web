@@ -450,13 +450,13 @@ export default async function HomePage({ locale }: Props) {
                 <div className="w-layout-vflex flex-block-87">
                   <div className="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-place2x.png" loading="lazy" alt="" className="image-95" />
                     <div className="customer-story-description">{t('storyPlaceDesc')}</div>
-                    <a href="https://www.authgear.com/customer-stories/palace" className="customer-story-link w-inline-block">
+                    <a href="/customer-stories/palace" className="customer-story-link w-inline-block">
                       <div className="text-block-87">{t('readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
                     </a>
                   </div>
                   <div className="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-HKL2x.png" loading="lazy" alt="" className="image-95" />
                     <div className="customer-story-description">{t('storyHKLDesc')}</div>
-                    <a href="https://www.authgear.com/customer-stories/hongkong-land" className="customer-story-link w-inline-block">
+                    <a href="/customer-stories/hongkong-land" className="customer-story-link w-inline-block">
                       <div className="text-block-87">{t('readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
                     </a>
                   </div>
@@ -465,13 +465,13 @@ export default async function HomePage({ locale }: Props) {
                   <div className="w-layout-vflex container-1470 no-logo">
                     <div className="customer-story-title">{t('storyFnBTitle')}</div>
                     <div className="customer-story-description">{t('storyFnBDesc')}</div>
-                    <a href="https://www.authgear.com/customer-stories/global-qsr" className="customer-story-link w-inline-block">
+                    <a href="/customer-stories/global-qsr" className="customer-story-link w-inline-block">
                       <div className="text-block-87">{t('readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
                     </a>
                   </div>
                   <div className="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-MTR2x.png" loading="lazy" alt="" className="image-95" />
                     <div className="customer-story-description">{t('storyMTRDesc')}</div>
-                    <a href="https://www.authgear.com/customer-stories/hongkong-mtr" className="customer-story-link w-inline-block">
+                    <a href="/customer-stories/hongkong-mtr" className="customer-story-link w-inline-block">
                       <div className="text-block-87">{t('readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
                     </a>
                   </div>
@@ -479,13 +479,13 @@ export default async function HomePage({ locale }: Props) {
                 <div className="w-layout-vflex flex-block-87">
                   <div className="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-Bupa2x.png" loading="lazy" alt="" className="image-95" />
                     <div className="customer-story-description">{t('storyBupaDesc')}</div>
-                    <a href="https://www.authgear.com/customer-stories/bupa" className="customer-story-link w-inline-block">
+                    <a href="/customer-stories/bupa" className="customer-story-link w-inline-block">
                       <div className="text-block-87">{t('readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
                     </a>
                   </div>
                   <div className="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-cornerstone2x.png" loading="lazy" alt="" className="image-95" />
                     <div className="customer-story-description">{t('storyCornerstoneDesc')}</div>
-                    <a href="https://www.authgear.com/customer-stories/cornerstone-technologies" className="customer-story-link w-inline-block">
+                    <a href="/customer-stories/cornerstone-technologies" className="customer-story-link w-inline-block">
                       <div className="text-block-87">{t('readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
                     </a>
                   </div>

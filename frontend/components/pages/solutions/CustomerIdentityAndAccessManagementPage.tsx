@@ -12,7 +12,7 @@ export default function CustomerIdentityAndAccessManagementPage(_props: Props) {
             <h1>Customer Identity and Access Management</h1>
             <p>More than just a portal to manage customer identity and access, Authgear helps you acquire and retain more customers with frictionless, secure customer authentication experience throughout the user journey.</p>
             <div className="features-hero-cta-wrapper">
-              <a href="https://www.authgear.com/schedule-demo" target="_blank" className="button-primary feature-hero-btn w-button">Request Demo<span className="muted"></span></a>
+              <a href="/schedule-demo" target="_blank" className="button-primary feature-hero-btn w-button">Request Demo<span className="muted"></span></a>
               <a href="https://accounts.portal.authgear.com/signup" target="_blank" className="button-secondary feature-hero-btn w-button">Get Started</a>
             </div>
           </div>

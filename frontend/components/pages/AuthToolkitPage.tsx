@@ -152,7 +152,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
               <p className="glossary-subtitle subtitle-paddings toolkit">Want the &quot;why&quot; behind the tools? Start here.</p>
             </div>
             <div className="w-layout-vflex toolkit-learn-more-container">
-              <a href="https://www.authgear.com/post/jwe-vs-jwt" target="_blank" className="link-block-6 w-inline-block">
+              <a href="/post/jwe-vs-jwt" target="_blank" className="link-block-6 w-inline-block">
                 <div className="w-layout-hflex toolkit-learn-more">
                   <div className="w-layout-hflex flex-block-83">
                     <div className="toolkit-icon more-toolkit"><img src="/images/article.svg" loading="lazy" alt="" /></div>
@@ -163,7 +163,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
                   </div>
                 </div>
               </a>
-              <a href="https://www.authgear.com/post/what-is-jwks" target="_blank" className="link-block-6 w-inline-block">
+              <a href="/post/what-is-jwks" target="_blank" className="link-block-6 w-inline-block">
                 <div className="w-layout-hflex toolkit-learn-more">
                   <div className="w-layout-hflex flex-block-83">
                     <div className="toolkit-icon more-toolkit"><img src="/images/article.svg" loading="lazy" alt="" /></div>
@@ -174,7 +174,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
                   </div>
                 </div>
               </a>
-              <a href="https://www.authgear.com/post/what-is-totp" target="_blank" className="link-block-6 w-inline-block">
+              <a href="/post/what-is-totp" target="_blank" className="link-block-6 w-inline-block">
                 <div className="w-layout-hflex toolkit-learn-more">
                   <div className="w-layout-hflex flex-block-83">
                     <div className="toolkit-icon more-toolkit"><img src="/images/article.svg" loading="lazy" alt="" /></div>
@@ -185,7 +185,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
                   </div>
                 </div>
               </a>
-              <a href="https://www.authgear.com/post/5-common-totp-mistakes" target="_blank" className="link-block-6 w-inline-block">
+              <a href="/post/5-common-totp-mistakes" target="_blank" className="link-block-6 w-inline-block">
                 <div className="w-layout-hflex toolkit-learn-more">
                   <div className="w-layout-hflex flex-block-83">
                     <div className="toolkit-icon more-toolkit"><img src="/images/article.svg" loading="lazy" alt="" /></div>
@@ -196,7 +196,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
                   </div>
                 </div>
               </a>
-              <a href="https://www.authgear.com/post/password-hashing-salting-function-and-algorithm-explained" target="_blank" className="link-block-6 w-inline-block">
+              <a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank" className="link-block-6 w-inline-block">
                 <div className="w-layout-hflex toolkit-learn-more">
                   <div className="w-layout-hflex flex-block-83">
                     <div className="toolkit-icon more-toolkit"><img src="/images/article.svg" loading="lazy" alt="" /></div>
@@ -207,7 +207,7 @@ export default async function AuthToolkitPage({ locale: _locale }: Props) {
                   </div>
                 </div>
               </a>
-              <a href="https://www.authgear.com/post/password-hashing-how-to-pick-the-right-hashing-function" target="_blank" className="link-block-6 w-inline-block">
+              <a href="/post/password-hashing-how-to-pick-the-right-hashing-function" target="_blank" className="link-block-6 w-inline-block">
                 <div className="w-layout-hflex toolkit-learn-more">
                   <div className="w-layout-hflex flex-block-83">
                     <div className="toolkit-icon more-toolkit"><img src="/images/article.svg" loading="lazy" alt="" /></div>

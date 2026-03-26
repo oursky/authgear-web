@@ -13,7 +13,7 @@ export default function SmsPasscodePage(_props: Props) {
         <h1 className="title features-hero">WhatsApp OTP</h1>
         <p className="paragraph-large">Send OTP through WhatsApp, the more cost-effective and efficient authentication method, to increase conversion rate and grow sales with more engagement.</p>
         <div className="features-hero-cta-wrapper">
-          <a href="https://www.authgear.com/talk-with-us" target="_blank" className="button-primary feature-hero-btn w-button">Request Demo<span className="muted"></span></a>
+          <a href="/talk-with-us" target="_blank" className="button-primary feature-hero-btn w-button">Request Demo<span className="muted"></span></a>
           <a href="https://accounts.portal.authgearapps.com/signup" target="_blank" className="button-secondary feature-hero-btn w-button">Get Started</a>
         </div>
       </div><img src="/images/ag-favicon256w.png" alt="" className="image features-hero" />

@@ -125,15 +125,15 @@ export default function MultiFactorAuthenticationPage(_props: Props) {
             <div className="secondary-block-subheading">Discover the different types of MFA, how they work, and how to implement a frictionless authentication experience for your users.</div>
           </div>
           <div className="_3-card-grid">
-            <a href="https://www.authgear.com/post/what-is-multi-factor-authentication-mfa" className="secondary-block-card-link bg-white w-inline-block">
+            <a href="/post/what-is-multi-factor-authentication-mfa" className="secondary-block-card-link bg-white w-inline-block">
               <div className="secondary-block-card-image-container"><img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" className="secondary-block-card-image" /></div>
               <div className="secondary-block-card-content">What Is Multi-Factor Authentication (MFA) And How Does It Work?</div>
             </a>
-            <a href="https://www.authgear.com/post/top-three-types-of-user-authentication" className="secondary-block-card-link bg-white w-inline-block">
+            <a href="/post/top-three-types-of-user-authentication" className="secondary-block-card-link bg-white w-inline-block">
               <div className="secondary-block-card-image-container"><img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" className="secondary-block-card-image" /></div>
               <div className="secondary-block-card-content">Top Three Types of User Authentication</div>
             </a>
-            <a href="https://www.authgear.com/post/frictionless-authentication#:~:text=devices%20and%20services.-,Implement%20Frictionless%20Authentication%20with%20Authgear,%2C%20business%20partners%2C%20and%20customers." className="secondary-block-card-link bg-white w-inline-block">
+            <a href="/post/frictionless-authentication#:~:text=devices%20and%20services.-,Implement%20Frictionless%20Authentication%20with%20Authgear,%2C%20business%20partners%2C%20and%20customers." className="secondary-block-card-link bg-white w-inline-block">
               <div className="secondary-block-card-image-container"><img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" className="secondary-block-card-image" /></div>
               <div className="secondary-block-card-content">Frictionless Authentication: What Is It &amp; How To Implement It?</div>
             </a>

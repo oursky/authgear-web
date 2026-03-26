@@ -67,7 +67,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                 <div className="features-text-block p-0">
                   <h2 className="title features-page-v2 text-align-left">Discover Your Success Story: Explore Success Stories</h2>
                   <div className="line-height-24px mb-24">Get inspired by Authgear's real-world impact! We've helped leading companies across diverse industries streamline extended workforce access and elevate security.</div>
-                  <a href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta features-text-block-cta-left w-button">Unlock the stories -{">"}</a>
+                  <a href="/post/passkey-vs-password-why-passkeys-are-the-future-of-security" className="button-secondary insection-cta features-text-block-cta-left w-button">Unlock the stories -{">"}</a>
                 </div>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                   <div className="solution-case-study-card-text">
                     <div className="svg-card-content-container">
                       <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">MTR Corporation Simplifies Part‑Time Hiring Login</div>
-                      <a href="https://www.authgear.com/customer-stories/hongkong-mtr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-{">"}</span></a>
+                      <a href="/customer-stories/hongkong-mtr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-{">"}</span></a>
                     </div>
                   </div>
                 </div>
@@ -200,7 +200,7 @@ export default function FrontlineWorkersIdentityPage(_props: Props) {
                   <div className="solution-case-study-card-text">
                     <div className="svg-card-content-container">
                       <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Global QSR Streamlines Frontline Login with Authgear</div>
-                      <a href="https://www.authgear.com/customer-stories/global-qsr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-{">"}</span></a>
+                      <a href="/customer-stories/global-qsr" className="card-cta-primary w-button">Unlock the stories <span className="text-span-48">-{">"}</span></a>
                     </div>
                   </div>
                 </div>

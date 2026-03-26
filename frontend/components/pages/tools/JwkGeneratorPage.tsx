@@ -64,7 +64,7 @@ export default function JwkGeneratorPage(_props: { locale: string }) {
       <ToolReadyTo />
       <ToolFaq>
         <div className="w-layout-vflex tools-faq">
-          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title={<><a href="https://www.authgear.com/post/what-is-jwks">What is a JWK</a> (JSON Web Key)?</>}>
+          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title={<><a href="/post/what-is-jwks">What is a JWK</a> (JSON Web Key)?</>}>
             <div className="tools-faq-content">A JWK is a JSON data structure that represents a cryptographic key. A JWKS (JSON Web Key Set) is an object with a <code>keys</code> array of JWKs. JWKS is the standard format used by identity providers to publish public keys at a <code>jwks_uri</code> so clients can validate JWT tokens (see RFC 7517). If you searched &quot;what is jwks&quot; or &quot;jwks uri&quot;, this is the format you need.</div>
             <ToolFaqCheckItem>Machine-friendly JSON format, easy to use across web APIs</ToolFaqCheckItem>
             <ToolFaqCheckItem>Supports all key types—symmetric and asymmetric</ToolFaqCheckItem>
