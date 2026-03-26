@@ -87,14 +87,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta name="google-site-verification" content="cwUTy_LBZHQ90P9sQzhKyyV2M024ukPHK2rYpvion6M" />
 <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/authgear-new.webflow.css" rel="stylesheet" type="text/css" />
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);`,
-          }}
-        />
         <style>{`
 .w-container{max-width:1271px;}
+/* Replaces Webflow's w-mod-touch JS snippet — disables fixed backgrounds on touch devices */
+@media (hover:none) and (pointer:coarse){*{background-attachment:scroll!important;}}
 /* Trusted-by logo marquee: Webflow IX2 animation scripts are stripped from static HTML export */
 .flex-block-85:has(.logo-marquee-viewport){width:100%;height:60px;}
 .logo-marquee-viewport{flex:1;min-width:0;width:100%;height:60px;overflow:hidden;position:relative;z-index:0;}
