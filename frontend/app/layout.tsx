@@ -6,6 +6,7 @@ import { getMessages } from 'next-intl/server';
 import { localeToHtmlLang } from '@/lib/i18n';
 import SiteNav from '@/components/layout/SiteNav';
 import SiteFooter from '@/components/layout/SiteFooter';
+import PlausibleProvider from 'next-plausible';
 
 export const metadata: Metadata = {
   title: { default: 'Authgear', template: '%s - Authgear' },
@@ -80,7 +81,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 `}</style>
       </head>
       <body className="bg-neutral-200">
-        <NextIntlClientProvider messages={messages}>
+        <PlausibleProvider domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ?? ''}>
+          <NextIntlClientProvider messages={messages}>
         {/* Navigation */}
         <div
           data-collapse="medium"
@@ -112,18 +114,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
         <Script src="/js/webflow.js" strategy="afterInteractive" />
         <Script
-          async
-          src="https://plausible.io/js/pa-sIydDP09Pb5q-XyCWR6Rj.js"
-          strategy="afterInteractive"
-        />
-        <Script
           src="https://www.googletagmanager.com/gtag/js?id=GTM-KTHFL6S"
           strategy="afterInteractive"
         />
         <Script id="gtm-init" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KTHFL6S');`}
         </Script>
-        </NextIntlClientProvider>
+          </NextIntlClientProvider>
+        </PlausibleProvider>
       </body>
     </html>
   );
