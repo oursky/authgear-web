@@ -2,6 +2,7 @@
 
 import { useState, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { usePlausible } from 'next-plausible';
 import IntlTelInput from 'intl-tel-input/react';
 import type { IntlTelInputRef } from 'intl-tel-input/react';
 import type { Iso2 } from 'intl-tel-input/data';
@@ -11,6 +12,7 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 function ContactFormInner() {
   const searchParams = useSearchParams();
+  const plausible = usePlausible();
   const [name, setName] = useState(searchParams.get('name') ?? '');
   const [email, setEmail] = useState(searchParams.get('email') ?? '');
   const [phone, setPhone] = useState('');
@@ -24,6 +26,7 @@ function ContactFormInner() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    plausible('contact-form-submit');
     if (phone && !phoneValid) return;
     setStatus('submitting');
     try {
@@ -190,7 +193,7 @@ function ContactFormInner() {
         <div className="margin-vertical margin-medium">
           <input
             type="submit"
-            className="getdemo-submit plausible-event-name--contact-form-submit w-button"
+            className="getdemo-submit w-button"
             value={status === 'submitting' ? 'Please wait...' : 'Submit'}
             disabled={status === 'submitting'}
           />
