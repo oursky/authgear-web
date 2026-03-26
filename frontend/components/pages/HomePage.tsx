@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import ContactForm from '@/components/ContactForm';
+import PlausibleLink from '@/components/PlausibleLink';
 
 interface Props {
   locale: string;
@@ -47,7 +48,7 @@ export default async function HomePage({ locale }: Props) {
                   <p className="paragraph-large home-hero text-afb7ff ibm-plex-sans new-kv-desc no-margin">{t('heroParagraph')}</p>
                 </div>
                 <div className="w-layout-hflex home-hero-cta-wrapper">
-                  <a href="https://portal.authgear.com/?utm_source=landing-page&utm_medium=link&utm_campaign=login_button" target="_blank" rel="noopener noreferrer" className="button-primary home-hero new-home radius-16 plausible-event-name--signup w-button">{t('heroCtaGetStarted')}</a>
+                  <PlausibleLink href="https://portal.authgear.com/?utm_source=landing-page&utm_medium=link&utm_campaign=login_button" target="_blank" rel="noopener noreferrer" className="button-primary home-hero new-home radius-16 w-button" eventName="signup">{t('heroCtaGetStarted')}</PlausibleLink>
                   <a href="https://docs.authgear.com/" className="developer-docs">{t('heroCtaHowToIntegrate')}</a>
                 </div>
               </div>
