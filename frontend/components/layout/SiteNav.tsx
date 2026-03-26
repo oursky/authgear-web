@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+import PlausibleLink from '@/components/PlausibleLink';
 import { localizedPath } from '@/lib/i18n';
 import {
   NavLink,
@@ -210,19 +211,21 @@ export default async function SiteNav({ locale }: { locale: string }) {
         </ul>
 
         <div className="mobile-nav-buttons">
-          <a
+          <PlausibleLink
             href="https://portal.authgear.com/"
             target="_blank"
-            className="nav-button login plausible-event-name--login mobile w-inline-block"
+            className="nav-button login mobile w-inline-block"
+            eventName="login"
           >
             <div className="text-block-32">{t('loginMobile')}</div>
-          </a>
-          <a
+          </PlausibleLink>
+          <PlausibleLink
             href="https://portal.authgear.com/"
-            className="button-primary header-button-mobile signup plausible-event-name--signup w-button"
+            className="button-primary header-button-mobile signup w-button"
+            eventName="signup"
           >
             {t('signupMobile')}
-          </a>
+          </PlausibleLink>
         </div>
       </nav>
 
@@ -233,13 +236,14 @@ export default async function SiteNav({ locale }: { locale: string }) {
         <Link href={localizedPath(locale, '/schedule-demo')} className="button-primary header-button w-button">
           {t('getDemo')}
         </Link>
-        <a
+        <PlausibleLink
           href="https://portal.authgear.com/"
           target="_blank"
-          className="nav-button login plausible-event-name--login w-inline-block"
+          className="nav-button login w-inline-block"
+          eventName="login"
         >
           <div>{t('signupLogin')}</div>
-        </a>
+        </PlausibleLink>
         <div className="menu-button w-nav-button">
           <div className="menu-button-wrapper">
             <div className="menu-button-icon">
