@@ -130,6 +130,21 @@ Both scripts are documented in `cms/README.md`.
 
 ---
 
+## Claude Code skills
+
+Project-level skills live in `skills/` and are symlinked so Claude Code can find them:
+
+```
+skills/                        # Source of truth (tracked in git)
+└── plausible-event-tracking/  # Plausible analytics event tracking conventions
+.claude/
+└── skills -> ../skills        # Symlink — Claude Code reads skills from here
+```
+
+The symlink means skills are version-controlled in `skills/` while Claude Code discovers them via `.claude/skills/`. To add a new skill, create a directory under `skills/` — no symlink changes needed.
+
+---
+
 ## Docs
 
 - **[DEPLOY.md](./DEPLOY.md)** — Docker, env vars, SSL
