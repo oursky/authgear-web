@@ -5,7 +5,7 @@ function pathnameHasZhTwPrefix(pathname: string): boolean {
   return pathname === '/zh-TW' || pathname.startsWith('/zh-TW/');
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Canonical Chinese URLs: /zh-Hant-TW/... → /zh-TW/...
