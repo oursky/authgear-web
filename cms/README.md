@@ -13,7 +13,7 @@ The CMS is used for collections such as:
 - `team-member`
 - `whats-new-item`
 
-For everyday development, Strapi Cloud is the recommended backend. Local Strapi is still useful for schema work, testing imports, and offline development.
+Use this CMS with either local Strapi or your chosen deployment target.
 
 ## Run locally
 
@@ -25,6 +25,12 @@ npm run develop
 ```
 
 By default, local development uses SQLite and serves Strapi at [http://localhost:1337/admin](http://localhost:1337/admin).
+
+Default SQLite path:
+
+`cms/data/data.db`
+
+This repository intentionally tracks `cms/data/data.db` when local CMS data needs to be versioned.
 
 ## Frontend access
 
@@ -106,13 +112,12 @@ Supported collection names:
 - `whats-new-items`
 - `team-members`
 
-## Strapi Cloud notes
+## Deployment notes
 
-- In Strapi Cloud, set the app base directory to `cms`
-- Create API tokens from Strapi Admin under `Settings -> API Tokens`
-- Point the frontend's `STRAPI_URL` and `NEXT_PUBLIC_STRAPI_URL` at your cloud project URL
+- Keep the Strapi app base directory at `cms` for monorepo deployments.
+- Create API tokens from Strapi Admin under `Settings -> API Tokens`.
+- Point the frontend's `STRAPI_URL` and `NEXT_PUBLIC_STRAPI_URL` at your active Strapi URL.
 
 ## Related docs
 
 - Root project overview: `../README.md`
-- Deployment details: `../DEPLOY.md`

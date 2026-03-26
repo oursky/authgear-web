@@ -32,7 +32,7 @@ CONTACT_WEBHOOK_URL=
 
 Notes:
 
-- For Strapi Cloud, use your cloud base URL for both `STRAPI_URL` and `NEXT_PUBLIC_STRAPI_URL`.
+- Set both `STRAPI_URL` and `NEXT_PUBLIC_STRAPI_URL` to your active Strapi base URL (local or deployed).
 - `STRAPI_API_TOKEN` can be left empty only if the Strapi Public role allows `find` and `findOne` on the collections the site reads.
 
 ## How the frontend is organized
@@ -67,4 +67,3 @@ npm run start
 ## Related docs
 
 - Root setup and deployment: `../README.md`
-- Docker and deployment details: `../DEPLOY.md`
