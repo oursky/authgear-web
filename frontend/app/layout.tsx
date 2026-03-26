@@ -87,16 +87,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
         <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/authgear-new.webflow.css" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript" />
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `WebFont.load({google:{families:["PT Sans:400,400italic,700,700italic","IBM Plex Sans:300,400,500,600,700","Inter:300,400,500,600,700","Noto Sans TC:300,400,500,600,700","Red Hat Display:300,400,500,600,700"]}});`,
-          }}
-        />
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
