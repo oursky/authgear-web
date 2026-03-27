@@ -79,8 +79,11 @@
 
 | Token | 值 | 用途 |
 |---|---|---|
-| `--ds-bg-light` | `#f5f5f5` | 淺色 Section 背景 |
+| `--ds-bg-light` | `#f5f5f5` | 淺色 Section 背景（中性灰） |
+| `--ds-bg-light-blue` | `#f3f6ff` | 淺色 Section 背景（帶藍調，與中性灰區隔；舊 Webflow `bg-f3f6ff`） |
 | `--ds-bg-light-card` | `#ffffff` | 白色卡片 |
+
+> **實作對照**：行銷站 `frontend/public/css/authgear-design-system.css` 中對應為 `--color-bg-light-blue`，並提供工具 class `.ds-bg-light-blue`。
 
 ### 2.4 文字色 Text Colours
 
@@ -209,6 +212,7 @@
 | `--ds-space-xs` | `16px` | XS | 標題與描述文字 Gap |
 | `--ds-space-s` | `24px` | S | 圖示與標籤、元素間 Gap |
 | `--ds-space-m` | `32px` | M | 區塊模組之間 Gap |
+| `--ds-space-ml` | `48px` | ML | M 與 L 之間；例如 SVG 卡上下內距、中型區塊 Padding |
 | `--ds-space-l` | `64px` | L | 大型元件區塊 Padding |
 | `--ds-space-xl` | `96px` | XL | 頁面 Section 上下 Padding |
 | `--ds-space-xxl` | `128px` | XXL | 超大 Section 間距 / 全頁 Hero 留白 |
@@ -238,10 +242,14 @@
 
 ### 6.3 卡片內距 Card Padding
 
-| Token | 值 | 適用卡片 |
-|---|---|---|
-| `--ds-layout-card-padding-lg` | `32px` | Feature Card、Stat Card |
-| `--ds-layout-card-padding-sm` | `24px` | Compact Card、Icon Card |
+規格沿用 **§5 間距階層**（`--ds-space-*`），不重複定義專用長度 token。站內實作見 `frontend/public/css/authgear-design-system.css`：
+
+| 語意 | 規格（`--ds-space-*`） | 值 | 適用卡片 | 實作 CSS 變數 |
+|---|---|---|---|---|
+| LG | `--ds-space-m` | `32px`（`2rem`） | Feature Card、Stat Card、`ds-grid-2/3` svg card 左右 | `--spacing-m` |
+| SM | `--ds-space-s` | `24px`（`1.5rem`） | Compact Card、Icon Card、`ds-grid-4` svg card 左右 | `--spacing-s` |
+
+`ds-grid` 內 SVG 卡**上下**內距為 **`--ds-space-ml`（48px）**，實作 `--spacing-ml`（`--layout-svg-card-padding-block` 引用之）。
 
 ### 6.4 卡片間距 Gutter
 
@@ -249,7 +257,7 @@
 |---|---|---|
 | `--ds-layout-card-gutter` | `24px` | 卡片網格 column / row gap |
 
-> 卡片內距與 8px 間距系統保持一致：LG = `--ds-space-m`（32px），SM = `--ds-space-s`（24px）。
+> 卡片內距與 8px 間距系統一致：以 `--spacing-m` / `--spacing-s` 對應 `--ds-space-m` / `--ds-space-s`。
 
 ---
 
@@ -607,6 +615,7 @@ pointer-events: none;
 
 /* Backgrounds — Light section */
 --ds-bg-light:               #f5f5f5;
+--ds-bg-light-blue:          #f3f6ff;
 --ds-bg-light-card:          #ffffff;
 
 /* Gradients */
@@ -654,6 +663,7 @@ pointer-events: none;
 --ds-space-xs:               16px;
 --ds-space-s:                24px;
 --ds-space-m:                32px;
+--ds-space-ml:               48px;
 --ds-space-l:                64px;
 --ds-space-xl:               96px;
 --ds-space-xxl:              128px;
@@ -675,8 +685,7 @@ pointer-events: none;
 --ds-layout-padding-lg:      64px;
 --ds-layout-padding-md:      48px;
 --ds-layout-padding-sm:      24px;
---ds-layout-card-padding-lg: 32px;
---ds-layout-card-padding-sm: 24px;
+/* 卡片內距：使用 §5 spacing，見 §6.3 — LG = --ds-space-m，SM = --ds-space-s */
 --ds-layout-card-gutter:     24px;
 ```
 
