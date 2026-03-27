@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import './authgear-design-system.css';
 import Script from 'next/script';
 import { headers } from 'next/headers';
 import { NextIntlClientProvider } from 'next-intl';
