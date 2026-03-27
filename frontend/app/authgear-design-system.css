@@ -598,6 +598,17 @@
     line-height: var(--text-body2--line-height);
     color: var(--color-text-light-muted);
   }
+
+  /*
+   * 內容置中：子層文字與直向堆疊下的區塊（圖示、按鈕等）皆水平置中。
+   * 加在卡片或區塊容器上；若父層已是 `flex` column，此 class 會維持 column 並補齊 cross-axis 置中。
+   */
+  .ds-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 @utility ds-gradient-text-dark {
@@ -706,6 +717,10 @@
   .features-flex-container.reverse-order {
     flex-direction: column;
   }
+
+  .enterprise-sso-section-dark-bg {
+    background-image: url("/images/features-passwordless-dark-color-bg_m2x.webp");
+  }
 }
 
 @media (width < 768px) {
@@ -730,6 +745,13 @@
   padding-block: var(--layout-svg-card-padding-block);
   padding-inline: var(--spacing-s);
   box-sizing: border-box;
+}
+
+/* Enterprise SSO page-specific dark section background */
+.enterprise-sso-section-dark-bg {
+  background-image: url("/images/features-passwordless-dark-color-bg2x.webp");
+  background-position: 0 0;
+  background-size: cover;
 }
 
 /*

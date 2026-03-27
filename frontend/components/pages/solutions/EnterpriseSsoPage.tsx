@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import ContactForm from '@/components/ContactForm';
 
 interface Props {
@@ -7,29 +8,47 @@ interface Props {
 export default function EnterpriseSsoPage(_props: Props) {
   return (
     <>
-      <div className="featurespage__hero_v2 featurespage__hero_bg mt-80 enterprise-hero">
-          <div className="features-hero-wrapper-new">
-            <div className="split-content features-hero-left">
-              <h1 className="title features-hero-v2 text-white">Enterprise SSO</h1>
-              <p className="features-hero-description text-white">One integration to connect every app and every identity provider. <br />Ship SSO for your customers, partners, frontline, and contractors.</p>
-              <div className="features-hero-cta-wrapper">
-                <a href="/schedule-demo" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Get Started for Free</a>
-                <a href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&utm_medium=link&utm_campaign=sign-up" className="features-sign-up-cta link-white">Free Sign-Up  <span className="text-bold">{">"}</span></a>
+      <section className="ds-hero-banner--dark">
+        <div className="ds-container ds-container--hero">
+          <div className="ds-hero-banner__row">
+            <div className="ds-hero-banner__body">
+              <h1 className="ds-hero-banner__title">Enterprise SSO</h1>
+              <p className="ds-hero-banner__description">
+                One integration to connect every app and every identity provider.
+                <br />
+                Ship SSO for your customers, partners, frontline, and contractors.
+              </p>
+              <div className="ds-hero-banner__ctas">
+                <a href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-primary">
+                  Get Started for Free
+                  <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                </a>
+                <a
+                  href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&utm_medium=link&utm_campaign=sign-up"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ds-btn ds-btn-tertiary"
+                >
+                  Free Sign-Up
+                  <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                </a>
               </div>
-            </div><img src="/images/solutions_enterprise-sso_kv.svg" alt="" className="image features-hero-image-v2" />
+            </div>
+            <img className="ds-hero-banner__media" src="/images/solutions_enterprise-sso_kv.svg" width={624} alt="" />
           </div>
         </div>
-        <div>
-          <div className="container-default">
-            <div className="container-default-inner px-0">
-              <div className="top-content flex-column align-left mobile-center">
-                <h2 className="top-content-title ibm-plex-sans color-2e2e2e size-40 mobile-center">Enterprise SSO Without the Complexity</h2>
-                <div className="top-content-description ibm-plex-sans mobile-center">Deploy enterprise SSO quickly and manage all identities through one system without changing how your apps work.</div>
-              </div>
-              <div className="_2-card-grid">
+      </section>
+      <section className="ds-section enterprise-pricing-support">
+        <div className="ds-container">
+          <div className="title-content">
+            <h2 className="heading-on-light">Enterprise SSO Without the Complexity</h2>
+            <p className="section-lede-on-light">
+              Deploy enterprise SSO quickly and manage all identities through one system without changing how your apps work.
+            </p>
+          </div>
+          <div className="ds-grid-2">
                 <div className="svg-card">
-                  <div className="svg-card-image-container">
-                    <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd" d="M35.1812 10.9197C35.7194 11.5494 35.6454 12.4962 35.0158 13.0346L29.9592 17.3583C29.3296 17.8967 28.3828 17.8227 27.8444 17.1931C27.306 16.5635 27.38 15.6166 28.0096 15.0782L33.0662 10.7545C33.6958 10.2161 34.6428 10.2901 35.1812 10.9197Z" fill="#31B7FF"></path>
                         <path fillRule="evenodd" clipRule="evenodd" d="M9.85068 12.4285C10.4101 11.8175 11.3589 11.7756 11.9699 12.335L17.761 17.6368C18.372 18.1962 18.4138 19.145 17.8544 19.7561C17.295 20.367 16.3462 20.409 15.7352 19.8495L9.94414 14.5478C9.33312 13.9884 9.29126 13.0396 9.85068 12.4285Z" fill="#31B7FF"></path>
                         <path fillRule="evenodd" clipRule="evenodd" d="M17.943 25.7422C18.5838 26.2674 18.6775 27.2124 18.1524 27.8532L14.0743 32.8292C13.5492 33.47 12.604 33.5638 11.9633 33.0386C11.3226 32.5136 11.2288 31.5684 11.7539 30.9276L15.8321 25.9516C16.3572 25.3108 17.3023 25.2172 17.943 25.7422Z" fill="#31B7FF"></path>
@@ -42,28 +61,24 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path fillRule="evenodd" clipRule="evenodd" d="M9.73245 11.9014C9.73245 11.2871 9.23445 10.7891 8.62013 10.7891C8.00581 10.7891 7.50781 11.2871 7.50781 11.9014C7.50781 12.5157 8.00581 13.0137 8.62013 13.0137C9.23445 13.0137 9.73245 12.5157 9.73245 11.9014ZM8.62013 7.78906C10.8913 7.78906 12.7325 9.63022 12.7325 11.9014C12.7325 14.1726 10.8913 16.0137 8.62013 16.0137C6.34897 16.0137 4.50781 14.1726 4.50781 11.9014C4.50781 9.63022 6.34897 7.78906 8.62013 7.78906Z" fill="#0043E0"></path>
                         <path fillRule="evenodd" clipRule="evenodd" d="M40.4922 32.003C40.4922 31.3886 39.9942 30.8906 39.3798 30.8906C38.7656 30.8906 38.2676 31.3886 38.2676 32.003C38.2676 32.6172 38.7656 33.1152 39.3798 33.1152C39.9942 33.1152 40.4922 32.6172 40.4922 32.003ZM39.3798 27.8906C41.651 27.8906 43.4922 29.7318 43.4922 32.003C43.4922 34.2742 41.651 36.1152 39.3798 36.1152C37.1086 36.1152 35.2676 34.2742 35.2676 32.003C35.2676 29.7318 37.1086 27.8906 39.3798 27.8906Z" fill="#0043E0"></path>
                       </svg></div>
-                  </div>
-                  <div className="svg-card-content-container">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">One integration, many IdPs</div>
-                    <div className="svg-card-content-description m-sm">Connect Microsoft Entra ID (Azure AD), Active Directory/AD FS, Okta, Ping, and any SAML or OpenID Connect (OIDC) provider through one unified gateway.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">One integration, many IdPs</div>
+                    <div className="ds-svg-card-description">Connect Microsoft Entra ID (Azure AD), Active Directory/AD FS, Okta, Ping, and any SAML or OpenID Connect (OIDC) provider through one unified gateway.</div>
                   </div>
                 </div>
                 <div className="svg-card">
-                  <div className="svg-card-image-container">
-                    <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M15.6529 20.0692H6.32031M15.6529 20.0692L11.8881 16.3203M15.6529 20.0692L11.8881 23.816" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M25.734 39.7536H19.0265C16.2119 39.7536 14.511 37.9272 14.3906 35.3834C14.3906 30.2058 19.9949 28.4196 28.4388 28.3594C36.8978 28.4396 42.5172 30.2258 42.487 35.3834C42.3516 37.9272 40.6608 39.7536 37.8512 39.7536H33.145" stroke="#0043E0" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round"></path>
                         <path d="M21.3535 15.3494C21.3535 19.2703 24.5319 22.4488 28.4529 22.4488C32.3737 22.4488 35.5521 19.2703 35.5521 15.3494C35.5521 11.4285 32.3737 8.25 28.4529 8.25C26.6749 8.25 25.0495 8.90362 23.8039 9.98368" stroke="#0043E0" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round"></path>
                       </svg></div>
-                  </div>
-                  <div className="svg-card-content-container">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Enterprise SSO in one sprint</div>
-                    <div className="svg-card-content-description m-sm">Hosted sign‑in and ready SDKs help you wire up OIDC/SAML quickly, without rewriting your apps.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Enterprise SSO in one sprint</div>
+                    <div className="ds-svg-card-description">Hosted sign‑in and ready SDKs help you wire up OIDC/SAML quickly, without rewriting your apps.</div>
                   </div>
                 </div>
                 <div className="svg-card">
-                  <div className="svg-card-image-container">
-                    <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M21.1816 18.0332C19.4473 18.0332 18.0391 19.4414 18.0391 21.1782V26.8134C18.0391 28.55 19.4473 29.956 21.1816 29.956H26.817C28.5536 29.956 29.9618 28.55 29.9618 26.8134V21.1782C29.9618 19.4414 28.5536 18.0332 26.817 18.0332" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M42.0003 6.00391L34.1289 13.8752" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M33.8691 6.02191L41.9969 6.00391L41.9789 14.1317" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -74,15 +89,13 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M6 41.9944L13.8713 34.123" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M14.1278 41.9789L6 41.9969L6.018 33.8691" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
-                  </div>
-                  <div className="svg-card-content-container">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">Fits your stack, not the other way around</div>
-                    <div className="svg-card-content-description m-sm">Keep your existing applications and URLs. Authgear slots in with minimal change and consistent user claims.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Fits your stack, not the other way around</div>
+                    <div className="ds-svg-card-description">Keep your existing applications and URLs. Authgear slots in with minimal change and consistent user claims.</div>
                   </div>
                 </div>
                 <div className="svg-card">
-                  <div className="svg-card-image-container">
-                    <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M18.6465 19.1914V30.3836" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M30.9051 23.41L22.4297 17.3516" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M14.6175 11.7576L9.35352 8" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -90,26 +103,25 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M18.6466 40.0002C21.3018 40.0002 23.4554 37.8468 23.4554 35.1916C23.4554 32.5364 21.3018 30.3828 18.6466 30.3828C15.9915 30.3828 13.8379 32.5364 13.8379 35.1916C13.8379 35.985 14.0302 36.7336 14.3707 37.3934" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M34.8381 30.9887C32.1829 30.9887 30.0293 28.8351 30.0293 26.1799C30.0293 23.5247 32.1829 21.3711 34.8381 21.3711C37.4933 21.3711 39.6469 23.5247 39.6469 26.1799C39.6469 26.6211 39.5873 27.0485 39.4761 27.4545M30.9393 23.4457L30.9061 23.4127" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
-                  </div>
-                  <div className="svg-card-content-container">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b">One system for all identities</div>
-                    <div className="svg-card-content-description m-sm">Serve employees, frontline staff, contractors, partners, and customers under one control plane.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">One system for all identities</div>
+                    <div className="ds-svg-card-description">Serve employees, frontline staff, contractors, partners, and customers under one control plane.</div>
                   </div>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
-        <div className="bg-f3f6ff">
-          <div className="container-default">
-            <div className="container-default-inner px-0">
-              <div className="top-content flex-column text-center">
-                <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Enterprise SSO Features Built for Real-World Identity</h2>
-                <div className="top-content-description ibm-plex-sans">Standards-based SSO with deep directory integration, flexible identity provider support, and full user lifecycle management. Authgear combines enterprise security controls, self-serve experiences, and compliance-ready operations in one platform.</div>
-              </div>
-              <div className="_4-card-grid">
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+      </section>
+      <section className="ds-section ds-bg-light-blue">
+        <div className="ds-container">
+          <div className="title-content">
+            <h2 className="heading-on-light">Enterprise SSO Features Built for Real-World Identity</h2>
+            <p className="section-lede-on-light">
+              Standards-based SSO with deep directory integration, flexible identity provider support, and full user lifecycle management. Authgear combines enterprise security controls, self-serve experiences, and compliance-ready operations in one platform.
+            </p>
+          </div>
+          <div className="ds-grid-4">
+                <div className="svg-card">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M26.4297 31.0078L27.8697 32.9714C28.2465 33.4852 28.8455 33.7888 29.4825 33.7888H35.3647" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M39.9746 31.6751C40.9202 32.7513 40.8142 34.3905 39.7378 35.3359C38.6616 36.2815 37.0226 36.1755 36.077 35.0993C35.1314 34.0231 35.2374 32.3839 36.3136 31.4383C37.39 30.4927 39.029 30.5987 39.9746 31.6751Z" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -124,13 +136,13 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M23.9927 31.2901C28.0348 31.2901 31.3116 28.0133 31.3116 23.9712C31.3116 19.9291 28.0348 16.6523 23.9927 16.6523C19.9506 16.6523 16.6738 19.9291 16.6738 23.9712C16.6738 28.0133 19.9506 31.2901 23.9927 31.2901Z" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Protocols: SAML & OpenID Connect</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Integrate with existing apps based on the SAML and OIDC standard.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Protocols: SAML & OpenID Connect</div>
+                    <div className="ds-svg-card-description">Integrate with existing apps based on the SAML and OIDC standard.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M9.43945 18.2864V15.7345C9.43945 12.257 12.2589 9.4375 15.738 9.4375H17.8239" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M38.5621 29.7109V32.2627C38.5621 35.7403 35.7427 38.5597 32.2635 38.5597H30.1777" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -142,13 +154,13 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M6.00051 26.739C6.00051 28.6379 7.53986 30.1772 9.43873 30.1772C11.3376 30.1772 12.877 28.6379 12.877 26.739C12.877 24.8401 11.3376 23.3008 9.43873 23.3008C7.53986 23.3008 6.00051 24.8401 6.00051 26.739Z" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Active Directory & Entra ID integration</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Connect via SAML, OIDC, or AD FS. Map groups to roles, sync profile attributes, and preserve source-of-truth ownership.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Active Directory & Entra ID integration</div>
+                    <div className="ds-svg-card-description">Connect via SAML, OIDC, or AD FS. Map groups to roles, sync profile attributes, and preserve source-of-truth ownership.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd" d="M35.1812 10.9197C35.7194 11.5494 35.6454 12.4962 35.0158 13.0346L29.9592 17.3583C29.3296 17.8967 28.3828 17.8227 27.8444 17.1931C27.306 16.5635 27.38 15.6166 28.0096 15.0782L33.0662 10.7545C33.6958 10.2161 34.6428 10.2901 35.1812 10.9197Z" fill="#31B7FF"></path>
                         <path fillRule="evenodd" clipRule="evenodd" d="M9.85068 12.4285C10.4101 11.8175 11.3589 11.7756 11.9699 12.335L17.761 17.6368C18.372 18.1962 18.4138 19.145 17.8544 19.7561C17.295 20.367 16.3462 20.409 15.7352 19.8495L9.94414 14.5478C9.33312 13.9884 9.29126 13.0396 9.85068 12.4285Z" fill="#31B7FF"></path>
@@ -163,26 +175,26 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path fillRule="evenodd" clipRule="evenodd" d="M40.4922 32.003C40.4922 31.3886 39.9942 30.8906 39.3798 30.8906C38.7656 30.8906 38.2676 31.3886 38.2676 32.003C38.2676 32.6172 38.7656 33.1152 39.3798 33.1152C39.9942 33.1152 40.4922 32.6172 40.4922 32.003ZM39.3798 27.8906C41.651 27.8906 43.4922 29.7318 43.4922 32.003C43.4922 34.2742 41.651 36.1152 39.3798 36.1152C37.1086 36.1152 35.2676 34.2742 35.2676 32.003C35.2676 29.7318 37.1086 27.8906 39.3798 27.8906Z" fill="#0043E0"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">One integration, multiple identity providers</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Support different IdPs for different customers or business units in the same project.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">One integration, multiple identity providers</div>
+                    <div className="ds-svg-card-description">Support different IdPs for different customers or business units in the same project.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M18.1919 20.7578C16.0047 20.7578 14.6328 22.3068 14.6328 24.498V30.4136C14.6328 32.6048 15.9989 34.1538 18.1919 34.1538H30.7296C32.9248 34.1538 34.2888 32.6048 34.2888 30.4136V24.498C34.2888 22.3068 32.9248 20.7578 30.7296 20.7578H24.4608" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M33.2554 13.8477H15.668" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M24.459 42H16.0253C10.129 42 6.46094 37.8376 6.46094 31.9472V16.0528C6.46094 10.1624 10.1466 6 16.0253 6H32.8946C38.7908 6 42.461 10.1624 42.461 16.0528V31.9472C42.461 37.8376 38.7908 42 32.8928 42H32.5336" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">User lifecycle & provisioning Choices</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Manage users via Admin Portal or API. Sync users with HR systems to maintain single source of truth.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">User lifecycle & provisioning Choices</div>
+                    <div className="ds-svg-card-description">Manage users via Admin Portal or API. Sync users with HR systems to maintain single source of truth.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M15.5644 6.56641H32.4338C38.33 6.56641 42 10.7284 42 16.6204V32.5144C42 38.4044 38.33 42.5664 32.4318 42.5664H15.5644C9.6682 42.5664 6 38.4044 6 32.5144V16.6204C6 10.7284 9.6856 6.56641 15.5644 6.56641Z" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path fillRule="evenodd" clipRule="evenodd" d="M21.4422 24.561C21.4422 26.553 19.829 28.165 17.8384 28.165C15.8476 28.165 14.2344 26.553 14.2344 24.561C14.2344 22.571 15.8476 20.957 17.8384 20.957H17.8462C19.833 20.961 21.4422 22.575 21.4422 24.561Z" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -190,26 +202,26 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M28.25 28.1704V24.5664" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Frontline & contractor access</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Securely onboard non-corporate users using personal email/phone. Apply simpler login for high-volume apps while keeping back‑office security strict.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Frontline & contractor access</div>
+                    <div className="ds-svg-card-description">Securely onboard non-corporate users using personal email/phone. Apply simpler login for high-volume apps while keeping back-office security strict.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M33.3358 29.1094V30.9248M33.3358 38.1852V40.0006M28.6152 31.8324L30.1824 32.7402M36.4894 36.3696L38.0564 37.2772M28.6152 37.2772L30.1824 36.3696M36.4894 32.7394L38.0564 31.8316M35.8996 31.9858C37.3176 33.404 37.3176 35.704 35.8996 37.1222C34.4814 38.5384 32.183 38.5384 30.7668 37.1222C29.3486 35.704 29.3486 33.404 30.7668 31.9858C32.183 30.5696 34.4814 30.5696 35.8996 31.9858Z" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M11.5449 38.4237C11.5449 34.4143 14.7082 29.4219 23.8246 29.4219" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M15.9707 15.8438C15.9707 20.175 19.4814 23.6876 23.8126 23.6876C28.1456 23.6876 31.6564 20.175 31.6564 15.8438C31.6564 11.5125 28.1456 8 23.8126 8C21.4454 8 19.3231 9.04934 17.8853 10.7082" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Self‑serve settings & admin portal</div>
-                    <div className="svg-card-content-description size-14 color-787e81">End users manage their profiles, passkeys, MFA, sessions, and connected accounts. Admins get search, bulk actions, audit logs, analytics.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Self-serve settings & admin portal</div>
+                    <div className="ds-svg-card-description">End users manage their profiles, passkeys, MFA, sessions, and connected accounts. Admins get search, bulk actions, audit logs, analytics.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M8.14844 12.1875L8.53442 14.4596C8.89042 16.5556 10.3144 18.3096 12.2904 19.0916L16.4364 20.7116" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M14.904 25.3895C12.078 25.1775 9.27 24.9035 6 26.2175" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -222,13 +234,13 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M18.7188 18.6357V15.0398C18.7188 12.1218 21.0828 9.75781 24.0008 9.75781C26.9188 9.75781 29.2828 12.1218 29.2828 15.0398V18.6357" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Risk & bot protection</div>
-                    <div className="svg-card-content-description size-14 color-787e81">CAPTCHA, rate limits, adaptive MFA, and anomaly controls to reduce abuse and SMS pumping risk.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Risk & bot protection</div>
+                    <div className="ds-svg-card-description">CAPTCHA, rate limits, adaptive MFA, and anomaly controls to reduce abuse and SMS pumping risk.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd" d="M8.82891 29.6994C8.41891 28.6354 8.13291 27.5714 7.97691 26.5354C7.81291 25.4414 6.78091 24.7054 5.70291 24.8534C4.61091 25.0194 3.85691 26.0374 4.02291 27.1294C4.22091 28.4514 4.58091 29.7994 5.09491 31.1334C5.40091 31.9274 6.15891 32.4154 6.96091 32.4154C7.20091 32.4154 7.44291 32.3734 7.67891 32.2834C8.70891 31.8874 9.22491 30.7314 8.82891 29.6994Z" fill="#31B7FF"></path>
                         <path fillRule="evenodd" clipRule="evenodd" d="M9.99566 14.457C10.5737 14.457 11.1457 14.209 11.5397 13.729C12.1337 13.005 12.8437 12.305 13.6477 11.645C14.4997 10.941 14.6217 9.68105 13.9197 8.82905C13.2177 7.97505 11.9577 7.85305 11.1037 8.55505C10.1017 9.38105 9.20966 10.265 8.45366 11.185C7.74966 12.039 7.87166 13.299 8.72566 14.001C9.09766 14.309 9.54766 14.457 9.99566 14.457Z" fill="#31B7FF"></path>
@@ -237,22 +249,20 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path fillRule="evenodd" clipRule="evenodd" d="M43.744 9.87674C43.202 8.91074 41.988 8.57074 41.022 9.10874C40.112 9.61874 39.256 10.1647 38.414 10.7207C36.284 8.30874 33.538 6.37874 30.3 5.20874C29.18 4.81474 28.014 4.51874 26.836 4.33474C25.734 4.15674 24.722 4.90674 24.548 5.99674C24.376 7.08674 25.12 8.11074 26.212 8.28274C27.15 8.43074 28.078 8.66874 28.954 8.97674C31.4 9.85874 33.486 11.2947 35.144 13.0807C29.768 17.3847 26.012 22.4048 23.628 26.2748C21.934 23.9588 19.95 21.8368 17.708 19.9447C16.866 19.2307 15.602 19.3387 14.89 20.1808C14.176 21.0248 14.284 22.2888 15.128 23.0008C17.9 25.3408 20.222 28.0668 22.034 31.1028C22.394 31.7108 23.048 32.0808 23.75 32.0808H23.8C24.522 32.0628 25.178 31.6568 25.516 31.0188C27.086 28.0728 30.992 21.6408 37.484 16.3567C39.548 20.1868 40.054 24.8368 38.464 29.2408C37.028 33.2168 34.128 36.3968 30.302 38.1928C26.476 39.9868 22.176 40.1868 18.198 38.7508C16.372 38.0908 14.7 37.1128 13.202 35.8268C12.53 35.2608 11.918 34.6368 11.386 33.9708C10.696 33.1028 9.43602 32.9648 8.57602 33.6528C7.71202 34.3408 7.57 35.5988 8.258 36.4628C8.958 37.3388 9.758 38.1588 10.614 38.8748C12.46 40.4648 14.556 41.6868 16.84 42.5108C19.04 43.3068 21.32 43.7008 23.59 43.7008C26.462 43.7008 29.324 43.0708 32 41.8148C36.794 39.5648 40.426 35.5828 42.226 30.5988C44.286 24.8948 43.55 18.8567 40.738 13.9707C41.462 13.4947 42.202 13.0307 42.976 12.5967C43.94 12.0587 44.284 10.8387 43.744 9.87674Z" fill="#0043E0"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Compliance you can trust</div>
-                    <div className="svg-card-content-description size-14 color-787e81">SOC 2, ISO 27001 and more</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Compliance you can trust</div>
+                    <div className="ds-svg-card-description">SOC 2, ISO 27001 and more</div>
                   </div>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
-        <div className="featurespage__section_dark-bg">
-          <div className="container-default">
-            <div className="container-default-inner px-0 gap-0">
-              <div className="top-content feature-flex mb-60">
-                <h2 className="title features-page-v2 color-white">Developer Experience</h2>
-              </div>
-              <div className="_3-card-grid">
+      </section>
+        <section className="ds-section enterprise-sso-section-dark-bg">
+          <div className="ds-container">
+            <div className="title-content">
+              <h2 className="heading-on-dark">Developer Experience</h2>
+            </div>
+            <div className="ds-grid-3">
                 <div className="svg-card">
                   <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -260,9 +270,9 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M19.1716 10.0234C15.1892 14.0059 14.1867 19.834 16.1644 24.7664L8.02844 32.9024C5.88374 35.049 5.9323 38.5768 8.22078 40.6556C10.3713 42.6098 13.7555 42.3146 15.8108 40.2612L19.7729 36.2982" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-16">
-                    <div className="svg-card-content-title left inter color-2e2e2e mobile-20px size-22">SDKs</div>
-                    <div className="svg-card-content-description inter text-align-left mobile-16px color-626262">JavaScript/TypeScript (web & SPA), iOS (Swift), Android (Kotlin), React Native, Flutter,…</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">SDKs</div>
+                    <div className="ds-svg-card-description">JavaScript/TypeScript (web & SPA), iOS (Swift), Android (Kotlin), React Native, Flutter,…</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -274,9 +284,9 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M28.4224 7.39782C25.9024 5.98198 22.8336 5.98198 20.3136 7.3978L9.44763 13.5026C7.74141 14.4612 7.74141 16.9326 9.44763 17.8912L20.3136 23.996C22.8336 25.4118 25.9024 25.4118 28.4224 23.996L39.2884 17.8912C40.9946 16.9326 40.9946 14.4612 39.2884 13.5026L33.8554 10.4502" stroke="#0043E0" strokeWidth="3" strokeLinecap="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-16">
-                    <div className="svg-card-content-title left inter color-2e2e2e mobile-20px size-22">Pre-built frontend UI</div>
-                    <div className="svg-card-content-description inter text-align-left mobile-16px color-626262">Easily integrate ready-to-use login and signup pages into your apps with customization to align to your brand</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Pre-built frontend UI</div>
+                    <div className="ds-svg-card-description">Easily integrate ready-to-use login and signup pages into your apps with customization to align to your brand</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -289,15 +299,14 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M6 31.9472C6 37.8376 9.67006 42 15.5663 42H32.4338C38.3318 42 42 37.8376 42 31.9472V16.0528C42 10.1624 38.3318 6 32.4356 6H15.5663C9.68756 6 6 10.1624 6 16.0528V24" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-16">
-                    <div className="svg-card-content-title left inter color-2e2e2e mobile-20px size-22">Admin API</div>
-                    <div className="svg-card-content-description inter text-align-left mobile-16px color-626262">Provision users, assign roles, and query logs programmatically</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Admin API</div>
+                    <div className="ds-svg-card-description">Provision users, assign roles, and query logs programmatically</div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
-        </div>
+        </section>
         <section>
           <div className="container-default feature-v3-container-default">
             <div className="w-layout-grid container-default-inner px-0 gap-0"></div>
@@ -319,15 +328,14 @@ export default function EnterpriseSsoPage(_props: Props) {
             </div>
           </div>
         </section>
-        <div>
-          <div className="container-default">
-            <div className="container-default-inner px-0">
-              <div className="top-content flex-column text-center">
-                <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Transparent Pricing & Support</h2>
-              </div>
-              <div className="_3-card-grid">
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+      <section className="ds-section">
+        <div className="ds-container">
+          <div className="title-content">
+            <h2 className="heading-on-light">Transparent Pricing & Support</h2>
+          </div>
+          <div className="ds-grid-3">
+                <div className="svg-card ds-center">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M13.4879 7.23047C10.9289 8.80671 8.70468 10.92 7 13.4031" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M42.9996 13.403C41.2948 10.918 39.0686 8.78718 36.4922 7.21094" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -335,13 +343,13 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M10.0371 25.7794C10.0371 17.5146 16.7353 10.8164 25 10.8164C33.2648 10.8164 39.965 17.5146 39.965 25.7794C39.965 34.0442 33.2648 40.7424 25 40.7424C19.2464 40.7424 14.252 37.496 11.7482 32.735" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">SLAs</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Uptime and response-time options for production-critical workloads.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">SLAs</div>
+                    <div className="ds-svg-card-description">Uptime and response-time options for production-critical workloads.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card ds-center">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M23.0195 41.9472C27.6721 41.9472 30.9685 42.9028 34.3019 36.6718" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M38.7036 24.4084V20.7054C38.7036 12.585 32.1206 6 23.9982 6C15.876 6 9.29297 12.585 9.29297 20.7054V24.4084" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -349,13 +357,13 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path fillRule="evenodd" clipRule="evenodd" d="M10.0715 23.8874C7.54762 25.3488 6.03564 28.3729 6.8724 31.6225C7.50676 34.0919 9.5889 36.0437 12.0913 36.5359C12.463 36.6099 12.8308 36.6527 13.1888 36.6683C15.0063 36.7461 16.3763 35.018 15.9521 33.2492L14.1365 25.6582C13.7065 23.864 11.6671 22.963 10.0715 23.8874Z" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Premium support</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Priority tickets, solution reviews, and implementation guidance.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Premium support</div>
+                    <div className="ds-svg-card-description">Priority tickets, solution reviews, and implementation guidance.</div>
                   </div>
                 </div>
-                <div className="svg-card px-24">
-                  <div className="svg-card-image-container center">
+                <div className="svg-card ds-center">
+                  <div className="svg-card-image-container">
                     <div className="icon-w48 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path d="M21.1522 9.28516H30.9374C34.2476 9.28516 36.3064 11.6203 36.3064 14.9265V27.3826C36.3064 30.6888 34.2476 33.0258 30.9356 33.0258H11.367C8.05882 33.0258 6 30.6888 6 27.3826V14.9265C6 11.6203 8.06856 9.28516 11.367 9.28516H13.8212" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                         <path d="M36.2997 14.9688H36.6403C39.9427 14.9688 41.9995 17.3097 41.9995 20.612V33.0682C41.9995 36.3724 39.9427 38.7114 36.6209 38.7114H34.8457" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -365,15 +373,14 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M30.8976 15.1797H28.5352" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   </div>
-                  <div className="svg-card-content-container text-center gap-6">
-                    <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Pricing</div>
-                    <div className="svg-card-content-description size-14 color-787e81">Develop a phased implementation plan to minimize disruptions and maximize benefits.</div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Pricing</div>
+                    <div className="ds-svg-card-description">Develop a phased implementation plan to minimize disruptions and maximize benefits.</div>
                   </div>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
+      </section>
         <div className="footer-form-section form__bg-dark">
           <div className="container-default">
             <div className="container-default-inner px-0">
