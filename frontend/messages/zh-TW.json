@@ -259,6 +259,26 @@
     "freePlanIncludes": "免費方案包含",
     "unlimitedMAUs": "無限 MAU"
   },
+  "Authorization": {
+    "heroSmallTitle": "授權管理",
+    "heroTitle": "授權與存取管理",
+    "heroDescription": "為您的使用者、團隊和產品量身打造的細粒度存取控制",
+    "freePlanIncludes": "免費方案包含",
+    "unlimitedMAUs": "無限 MAU",
+    "whyAuthgearTitleLine1": "為什麼選擇",
+    "whyAuthgearTitleLine2": "Authgear",
+    "whyAuthgearDescLine1": "隨著使用者基礎的擴大和應用程式的複雜化，管理誰可以做什麼變得至關重要。",
+    "whyAuthgearDescLine2": "角色和群組讓您從逐用戶授權轉向可擴展的模型，您只需管理角色一次，然後大規模指派。",
+    "talkToUs": "與我們聯繫",
+    "centralizedTitle": "透過角色和群組實現集中授權",
+    "rolesTitle": "角色",
+    "rolesDesc": "定義角色並直接將角色指派給使用者。角色包含在 UserInfo / JWT 聲明中，讓您的應用程式具有執行權限的上下文。",
+    "groupsTitle": "群組",
+    "groupsDesc": "建立捆綁一個或多個角色的群組。將使用者加入群組，他們將繼承該群組的角色。簡化批量權限管理。",
+    "auditTitle": "準備好接受審計",
+    "auditDesc": "在一個集中的位置管理角色/群組，並查看誰擁有什麼角色。隨著規模擴大，為治理、合規性和最小權限存取做好準備。",
+    "ctaTitle": "準備好簡化存取控制並擴展您的授權模型了嗎？"
+  },
   "AttackProtection": {
     "heroSmallTitle": "攻擊防護",
     "heroTitle": "以無懈可擊的身份安全強化您的業務",
