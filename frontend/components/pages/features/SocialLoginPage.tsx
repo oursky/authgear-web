@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import ContactForm from '@/components/ContactForm';
 
 interface Props {
@@ -6,17 +7,19 @@ interface Props {
 }
 
 export default function SocialLoginPage(_props: Props) {
+  const t = useTranslations('SocialLogin');
+  const tFeatures = useTranslations('Features');
   return (
     <>
 <div className="featurespage__hero_v2 featurespage__hero_bg">
     <div className="features-hero-wrapper-new">
       <div className="split-content features-hero-left">
-        <div className="featurespage__hero-titletag">Social Login</div>
-        <h1 className="title features-hero-v2">Seamless Social Login: Boost User Engagement and Security</h1>
-        <p className="features-hero-description">Simplify user access and enhance security with Authgear's powerful social login integration. Connect your users effortlessly while maintaining robust authentication standards.</p>
+        <div className="featurespage__hero-titletag">{t('heroSmallTitle')}</div>
+        <h1 className="title features-hero-v2">{t('heroTitle')}</h1>
+        <p className="features-hero-description">{t('heroDescription')}</p>
         <div className="features-hero-cta-wrapper">
-          <a href="https://portal.authgear.com/?utm_source=feature-social-login&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span className="text-span-23">{">"}</span></Link>
+          <a href="https://portal.authgear.com/?utm_source=feature-social-login&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">{tFeatures('startForFree')}</a>
+          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">{tFeatures('scheduleDemo')}  <span className="text-span-23">{">"}</span></Link>
         </div>
       </div><img src="/images/features-securitythreat-seamless-sociallogin.svg" alt="" className="image features-hero-image-v2" />
     </div>
@@ -25,8 +28,8 @@ export default function SocialLoginPage(_props: Props) {
     <div className="container-default">
       <div className="container-default-inner px-0">
         <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2">Built-in Support for <span className="text-highlight-gradient">Popular Social Logins</span></h2>
-          <p className="paragraph-large text-center features-page-v2">Easily enable social login with widely used providers.</p>
+          <h2 className="title features-page-v2">{t('providersTitle')}<span className="text-highlight-gradient">{t('providersTitleHighlight')}</span></h2>
+          <p className="paragraph-large text-center features-page-v2">{t('providersDescription')}</p>
         </div>
         <div className="grid-12 gap-32 tablet-2-col tablet-gap-16">
           <div id="w-node-_9d5e4572-9857-4c2e-ae81-cb4ccf9f155a-44a84e6c" className="features__social-media-wrap">
@@ -81,16 +84,16 @@ export default function SocialLoginPage(_props: Props) {
             <div className="features__social-media-card">
               <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-line.svg" loading="lazy" width={32} height="auto" alt="" className="features__social-media-image" /></div>
             </div>
-            <div className="features-social-login-providers">LINE<br />(Coming soon)</div>
+            <div className="features-social-login-providers">LINE<br />{t('lineComingSoon')}</div>
           </div>
           <div id="w-node-_1feb614c-6e26-f008-d8a5-2d6b033135d2-44a84e6c" className="features__social-media-wrap">
             <div className="features__social-media-card">
               <div className="features___social-media-logo"><img src="/images/features-sociallogin-companylogo-tiktok.svg" loading="lazy" alt="" className="features__social-media-image" /></div>
             </div>
-            <div className="features-social-login-providers">TikTok<br />(Coming Soon)</div>
+            <div className="features-social-login-providers">TikTok<br />{t('tiktokComingSoon')}</div>
           </div>
         </div>
-        <Link href="/schedule-demo" className="button-secondary insection-cta w-button">Contact us for suggestions -{">"}</Link>
+        <Link href="/schedule-demo" className="button-secondary insection-cta w-button">{t('contactForSuggestions')}</Link>
       </div>
     </div>
   </div>
@@ -98,42 +101,42 @@ export default function SocialLoginPage(_props: Props) {
     <div className="container-default">
       <div className="container-default-inner px-0 gap-0">
         <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2">Unlock the Power of <span className="text-highlight-gradient"><br />Social Media Login</span></h2>
-          <p className="paragraph-large text-center features-page-v2">Harness the advantages of social media login to streamline user experience, boost conversions, and gather valuable insights.</p>
+          <h2 className="title features-page-v2">{t('unlockTitle')}<span className="text-highlight-gradient"><br />{t('unlockTitleHighlight')}</span></h2>
+          <p className="paragraph-large text-center features-page-v2">{t('unlockDescription')}</p>
         </div>
         <div className="features-flex-container gap-40 reverse-order">
           <div className="solution-image-block"><img src="/images/features-sociallogin-unolck-socialmedia.svg" loading="lazy" alt="" /></div>
           <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">Frictionless User Experience</h3>
+            <h3 className="features-h3-dark">{t('frictionlessTitle')}</h3>
             <div className="gradient-divider"></div>
             <ul role="list" className="_2-block-flex-content-list">
-              <li className="_2-block-flex-content-list-item line-height-24px">Eliminate the need for users to create and remember new credentials</li>
-              <li className="_2-block-flex-content-list-item line-height-24px">Enable one-click access using existing social media accounts</li>
-              <li className="_2-block-flex-content-list-item line-height-24px">Reduce sign-up abandonment rates and increase user adoption</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('frictionlessItem1')}</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('frictionlessItem2')}</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('frictionlessItem3')}</li>
             </ul>
           </div>
         </div>
         <div className="features-flex-container gap-40">
           <div className="solution-image-block"><img src="/images/features-sociallogin-unolck-datacollection.svg" loading="lazy" alt="" /></div>
           <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">Enhanced Data Collection and Personalization</h3>
+            <h3 className="features-h3-dark">{t('dataCollectionTitle')}</h3>
             <div className="gradient-divider"></div>
             <ul role="list" className="_2-block-flex-content-list">
-              <li className="_2-block-flex-content-list-item line-height-24px">Gain access to rich, verified user data from social profiles</li>
-              <li className="_2-block-flex-content-list-item line-height-24px">Improve user segmentation and targeted marketing efforts</li>
-              <li className="_2-block-flex-content-list-item line-height-24px">Tailor content and services based on user preferences and interests</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('dataCollectionItem1')}</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('dataCollectionItem2')}</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('dataCollectionItem3')}</li>
             </ul>
           </div>
         </div>
         <div className="features-flex-container gap-40 reverse-order">
           <div className="solution-image-block"><img src="/images/features-sociallogin-unolck-trust.svg" loading="lazy" alt="" /></div>
           <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">Improved Security and Trust</h3>
+            <h3 className="features-h3-dark">{t('securityTitle')}</h3>
             <div className="gradient-divider"></div>
             <ul role="list" className="_2-block-flex-content-list">
-              <li className="_2-block-flex-content-list-item line-height-24px">Leverage robust authentication protocols of major social platforms</li>
-              <li className="_2-block-flex-content-list-item line-height-24px">Reduce the risk of weak or compromised passwords</li>
-              <li className="_2-block-flex-content-list-item line-height-24px">Build user trust by associating with well-known social brands</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('securityItem1')}</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('securityItem2')}</li>
+              <li className="_2-block-flex-content-list-item line-height-24px">{t('securityItem3')}</li>
             </ul>
           </div>
         </div>
@@ -144,42 +147,42 @@ export default function SocialLoginPage(_props: Props) {
     <div className="container-default">
       <div className="container-default-inner px-0 pt-0">
         <div className="top-content feature-flex mb-60 pt-60">
-          <h2 className="title features-page-v2">Simplify Social Login with Authgear: <span className="text-highlight-gradient"><br />Your One-Stop Shop</span></h2>
-          <p className="paragraph-large text-center features-page-v2">Streamline your user experience and boost signups with secure social login functionalities. Authgear acts as your central hub for integrating all the social login providers you need, eliminating the hassle of managing multiple APIs and codebases.</p>
+          <h2 className="title features-page-v2">{t('simplifyTitle')}<span className="text-highlight-gradient"><br />{t('simplifyTitleHighlight')}</span></h2>
+          <p className="paragraph-large text-center features-page-v2">{t('simplifyDescription')}</p>
         </div>
         <div className="grid-12 gap-36">
           <div id="w-node-d78c7a69-3aab-2d61-27d8-83a488e48472-44a84e6c" className="features-card-new px-24 bg-white space-between">
             <div className="features-card-new_content-wrap">
-              <div className="features-card-new_content-title">Single Integration</div>
-              <div className="features-card-new_content-desc">Forget juggling APIs. Integrate once with Authgear for all major social login providers.</div>
+              <div className="features-card-new_content-title">{t('card1Title')}</div>
+              <div className="features-card-new_content-desc">{t('card1Desc')}</div>
             </div>
             <div className="features-card-new_image"><img src="/images/features-sociallogin-withauthgear-singleintegration.svg" loading="lazy" alt="" /></div>
           </div>
           <div id="w-node-d78c7a69-3aab-2d61-27d8-83a488e4847a-44a84e6c" className="features-card-new px-24 bg-white space-between">
             <div className="features-card-new_image last"><img src="/images/features-sociallogin-withauthgear-brandcontrol.svg" loading="lazy" alt="" className="mw-140" /></div>
             <div className="features-card-new_content-wrap">
-              <div className="features-card-new_content-title">Brand Control</div>
-              <div className="features-card-new_content-desc">Customize social login buttons to match your app's design.</div>
+              <div className="features-card-new_content-title">{t('card2Title')}</div>
+              <div className="features-card-new_content-desc">{t('card2Desc')}</div>
             </div>
           </div>
           <div id="w-node-d78c7a69-3aab-2d61-27d8-83a488e48482-44a84e6c" className="features-card-new px-24 bg-white space-between">
             <div className="features-card-new_content-wrap">
-              <div className="features-card-new_content-title">Top Security</div>
-              <div className="features-card-new_content-desc">Rigorous security measures safeguard user data during social login.</div>
+              <div className="features-card-new_content-title">{t('card3Title')}</div>
+              <div className="features-card-new_content-desc">{t('card3Desc')}</div>
             </div>
             <div className="features-card-new_image"><img src="/images/features-sociallogin-withauthgear-topsecurity.svg" loading="lazy" alt="" /></div>
           </div>
           <div id="w-node-d78c7a69-3aab-2d61-27d8-83a488e4848a-44a84e6c" className="features-card-new px-24 bg-white space-between">
             <div className="features-card-new_content-wrap">
-              <div className="features-card-new_content-title">Easy Setup</div>
-              <div className="features-card-new_content-desc">Effortless implementation withwell-documented API and SDKs.</div>
+              <div className="features-card-new_content-title">{t('card4Title')}</div>
+              <div className="features-card-new_content-desc">{t('card4Desc')}</div>
             </div>
             <div className="features-card-new_image"><img src="/images/features-sociallogin-withauthgear-easysetup.svg" loading="lazy" alt="" /></div>
           </div>
           <div id="w-node-d78c7a69-3aab-2d61-27d8-83a488e48492-44a84e6c" className="features-card-new px-24 bg-white space-between">
             <div className="features-card-new_content-wrap">
-              <div className="features-card-new_content-title">Seamless Scaling</div>
-              <div className="features-card-new_content-desc">Scales with your business to ensure a smooth social login experience.</div>
+              <div className="features-card-new_content-title">{t('card5Title')}</div>
+              <div className="features-card-new_content-desc">{t('card5Desc')}</div>
             </div>
             <div className="features-card-new_image"><img src="/images/features-sociallogin-withauthgear-seamless.svg" loading="lazy" alt="" /></div>
           </div>
@@ -191,36 +194,36 @@ export default function SocialLoginPage(_props: Props) {
     <div className="container-default">
       <div className="container-default-inner px-0">
         <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2 gradient-silver">Skyrocket User Growth with Frictionless Social Login</h2>
-          <p className="paragraph-large text-center features-page-v2 color-white">Imagine a world where user registration is a breeze. No more lengthy forms, forgotten passwords, or sign-up frustration. Authgear's social login makes this a reality, unlocking a surge in user growth for your business. Here's how:</p>
+          <h2 className="title features-page-v2 gradient-silver">{t('growthTitle')}</h2>
+          <p className="paragraph-large text-center features-page-v2 color-white">{t('growthDescription')}</p>
         </div>
         <div className="_2-card-grid gap-32 mobile-1-col">
           <div className="svg-card p-24 gap-6 transparent min-w-296px">
             <div className="svg-card-image-container mb-18"><img src="/images/features-sociallogin-growth-reduced.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-title ibm-plex-sans color-white">Reduced Friction</div>
+            <div className="svg-card-content-title ibm-plex-sans color-white">{t('growth1Title')}</div>
             <div className="svg-card-content-container">
-              <div className="svg-card-content-description size-18 color-c5cae8">Social login eliminates the need for lengthy registration forms. Users can sign up in seconds using their existing social media credentials, leading to significantly higher signup completion rates.</div>
+              <div className="svg-card-content-description size-18 color-c5cae8">{t('growth1Desc')}</div>
             </div>
           </div>
           <div className="svg-card p-24 gap-6 transparent min-w-296px">
             <div className="svg-card-image-container mb-18"><img src="/images/features-sociallogin-growth-ux.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-title ibm-plex-sans color-white">Improved User Experience</div>
+            <div className="svg-card-content-title ibm-plex-sans color-white">{t('growth2Title')}</div>
             <div className="svg-card-content-container">
-              <div className="svg-card-content-description size-18 color-c5cae8">A familiar and convenient social login process creates a positive first impression for your users. This fosters trust and encourages them to explore your offerings further.</div>
+              <div className="svg-card-content-description size-18 color-c5cae8">{t('growth2Desc')}</div>
             </div>
           </div>
           <div className="svg-card p-24 gap-6 transparent min-w-296px">
             <div className="svg-card-image-container mb-18"><img src="/images/features-sociallogin-growth-increased.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-title ibm-plex-sans color-white">Increased Conversions</div>
+            <div className="svg-card-content-title ibm-plex-sans color-white">{t('growth3Title')}</div>
             <div className="svg-card-content-container">
-              <div className="svg-card-content-description size-18 color-c5cae8">By streamlining the registration process, social login removes a significant barrier to conversion. More users will complete signups, translating to a direct boost in your user base.</div>
+              <div className="svg-card-content-description size-18 color-c5cae8">{t('growth3Desc')}</div>
             </div>
           </div>
           <div className="svg-card p-24 gap-6 transparent min-w-296px">
             <div className="svg-card-image-container mb-18"><img src="/images/features-sociallogin-growth-brand.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-title ibm-plex-sans color-white">Enhanced Brand Loyalty</div>
+            <div className="svg-card-content-title ibm-plex-sans color-white">{t('growth4Title')}</div>
             <div className="svg-card-content-container">
-              <div className="svg-card-content-description size-18 color-c5cae8">A smooth and secure social login experience reflects positively on your brand. Users appreciate the convenience and are more likely to return and engage with your platform.</div>
+              <div className="svg-card-content-description size-18 color-c5cae8">{t('growth4Desc')}</div>
             </div>
           </div>
         </div>
@@ -233,10 +236,10 @@ export default function SocialLoginPage(_props: Props) {
         <div className="_2-block-flex footer-form">
           <div className="_2-block-flex-content footer-form">
             <div className="_2-block-flex-content-text-wrap footer-form">
-              <h2 className="form-heading color-white footer-form">Unleash the Power of Social Login: Streamline Signups, Boost Growth</h2>
-              <div className="color-cee9ff"><span className="text-bold">Ready to ditch the signup struggle and supercharge your user base? Authgear's social login</span> provides a seamless and secure experience that keeps users happy and coming back for more. Integrate all your favorite social login providers in minutes and unlock a new era of growth.</div>
+              <h2 className="form-heading color-white footer-form">{t('ctaTitle')}</h2>
+              <div className="color-cee9ff"><span className="text-bold">{t('ctaDescBold')}</span>{t('ctaDescRest')}</div>
               <div className="footerform__divider-sm"></div>
-              <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
+              <div className="color-white footer-get-started-text">{t('ctaGetStarted')}</div>
             </div>
           </div>
           <div className="_2-block-flex-image footer-form">
