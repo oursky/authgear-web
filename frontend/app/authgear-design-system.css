@@ -1,0 +1,893 @@
+@import 'tailwindcss';
+
+/* Authgear Design System — tokens, components, Tailwind (PostCSS when imported from app/layout) */
+@source "../components/**/*.{js,ts,jsx,tsx}";
+@source "./**/*.{js,ts,jsx,tsx}";
+
+@theme {
+  --font-sans: "IBM Plex Sans", sans-serif;
+
+  /* Brand Colors */
+  --color-primary-50: #ecf6ff;
+  --color-primary-100: #d4e9ff;
+  --color-primary-200: #b2d9ff;
+  --color-primary-300: #7dc3ff;
+  --color-primary-400: #40a2ff;
+  --color-primary-500: #147cff;
+  --color-primary-600: #0060ff;
+  --color-primary-700: #0053ff;
+  --color-primary-800: #0043e0;
+  --color-primary-900: #0839a0;
+  --color-primary-950: #0a2461;
+
+  /* Background / Text / Border tokens */
+  --color-bg-deep: #111010;
+  --color-bg-card: rgba(28, 28, 28, 0.88);
+  --color-bg-card-hover: rgba(95, 101, 235, 0.15);
+  --color-bg-light: #f5f5f5;
+  --color-bg-light-card: #ffffff;
+  /* 淺色 Section：帶藍調的底（對應舊 Webflow `bg-f3f6ff`） */
+  --color-bg-light-blue: #f3f6ff;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #afb7ff;
+  --color-text-muted: rgba(175, 183, 255, 0.5);
+  --color-text-light-primary: #2e2e2e;
+  --color-text-light-secondary: #626262;
+  --color-text-light-muted: #8e8e8e;
+
+  --color-border-default: #8c8c8c;
+  --color-border-card: rgba(255, 255, 255, 0.63);
+  --color-border-subtle: #1e256f;
+  --color-border-light: #dce5ff;
+  --color-border-light-subtle: #edebe9;
+
+  --color-glow-blue: rgba(11, 100, 233, 0.3);
+  --color-glow-purple: rgba(122, 46, 255, 0.3);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(109.457deg, rgb(8, 23, 118) 0%, rgb(152, 66, 255) 101.99%);
+  --gradient-card: linear-gradient(to bottom, rgba(28, 28, 28, 0.88), rgba(63, 63, 63, 0.6));
+  --gradient-card-alt: linear-gradient(-42deg, rgba(157, 161, 255, 0.8) 0%, rgba(95, 101, 235, 0.8) 46%, rgba(0, 9, 103, 0.8) 94%);
+  --gradient-text-dark: linear-gradient(to top, #ecf4ff 0.4%, #94beff 40.3%);
+  --gradient-text-light: linear-gradient(0deg, rgb(2, 86, 202) 0.4%, rgb(185, 212, 255) 40.3%);
+  --gradient-accent: linear-gradient(91.3155deg, rgb(57, 28, 233) 0.41044%, rgb(49, 183, 255) 99.673%);
+  --gradient-icon-blue: linear-gradient(139.6deg, rgb(146, 150, 255) 0%, rgb(30, 37, 111) 100%);
+  --gradient-icon-green: linear-gradient(139.6deg, rgb(101, 255, 132) 0%, rgb(5, 116, 95) 100%);
+  --gradient-icon-purple: linear-gradient(139.6deg, rgb(37, 164, 255) 0%, rgb(88, 0, 147) 100%);
+  --gradient-icon-avatar: linear-gradient(135deg, #391ce9 0%, #31b7ff 100%);
+  --gradient-neon: linear-gradient(149deg, rgba(255, 131, 251, 0.98) 0%, rgb(122, 46, 255) 50%, rgba(79, 229, 255, 0.95) 100%);
+
+  /* Radius (1rem = 16px) */
+  --radius-product: 0.5rem;
+  --radius-icon: 1rem;
+  --radius-card: 1.5rem;
+  --radius-section: 2rem;
+  --radius-pill: 4.5rem;
+
+  /* Spacing（對照 design/Authgear-DesignSystem.md §5 `--ds-space-*`；1rem = 16px） */
+  --spacing-xxs: 0.5rem;
+  --spacing-xs: 1rem;
+  --spacing-s: 1.5rem; /* ds-space-s；卡片內距 SM（24px） */
+  --spacing-m: 2rem; /* ds-space-m；卡片內距 LG（32px） */
+  --spacing-ml: 3rem; /* ds-space-ml（48px） */
+  --spacing-l: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-xxl: 8rem;
+
+  /* Typography */
+  --text-h1: 3.75rem;
+  --text-h1--line-height: 4.5rem;
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 3.25rem;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.875rem;
+  --text-label: 1.25rem;
+  --text-label--line-height: 1.75rem;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.75rem;
+  --text-body2: 1rem;
+  --text-body2--line-height: 1.5rem;
+
+  /* Layout */
+  --container-7xl: 80rem;
+  --layout-padding-xl: 5rem;
+  --layout-padding-lg: 1.5rem;
+  --layout-padding-md: 1.5rem;
+  --layout-padding-sm: 1.5rem;
+  --layout-max-width-wide: 90rem;
+  /* SVG card（ds-grid 內）上下內距 = ds-space-ml */
+  --layout-svg-card-padding-block: var(--spacing-ml);
+  --layout-card-gutter: 1.5rem;
+  --title-content-max-width: 48rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    /* Typography (runtime tokens) */
+    --font-sans: "IBM Plex Sans", sans-serif;
+    --text-h1: 3.75rem;
+    --text-h1--line-height: 4.5rem;
+    --text-h2: 2.5rem;
+    --text-h2--line-height: 3.25rem;
+    --text-h3: 1.5rem;
+    --text-h3--line-height: 1.875rem;
+    --text-label: 1.25rem;
+    --text-label--line-height: 1.75rem;
+    --text-body: 1.125rem;
+    --text-body--line-height: 1.75rem;
+    --text-body2: 1rem;
+    --text-body2--line-height: 1.5rem;
+
+    /* Layout (runtime tokens) */
+    --container-7xl: 80rem;
+    --layout-padding-xl: 5rem;
+    --layout-padding-lg: 1.5rem;
+    --layout-padding-md: 1.5rem;
+    --layout-padding-sm: 1.5rem;
+    --layout-svg-card-padding-block: var(--spacing-ml);
+    --layout-card-gutter: 1.5rem;
+    --layout-max-width-wide: 90rem;
+    --title-content-max-width: 48rem;
+
+    /* Spacing used by components */
+    --spacing-xxs: 0.5rem;
+    --spacing-xs: 1rem;
+    --spacing-s: 1.5rem;
+    --spacing-m: 2rem;
+    --spacing-ml: 3rem;
+    --spacing-l: 4rem;
+    --spacing-xl: 6rem;
+
+    /* Dark section surfaces + text (runtime) — 對照 §2 / §4.3 */
+    --color-bg-deep: #111010;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #afb7ff;
+
+    /* Light section surfaces (runtime) */
+    --color-bg-light-blue: #f3f6ff;
+
+    /* Light text colors (runtime tokens) — 淺色 Section 對照 design/Authgear-DesignSystem.md §4.4 */
+    --color-text-light-primary: #2e2e2e;
+    --color-text-light-secondary: #626262;
+    --color-text-light-muted: #8e8e8e;
+
+    /* Font weight (runtime tokens) — 對照 §4.2 */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+
+    --icon-size-md: 3rem;
+
+    /*
+     * 全站 `.header.event` 為 `position: fixed`（見 webflow），不佔文件流高度。
+     * 首屏區塊若只用 padding-top，前段會畫在導覽列「下面」— 小螢幕時甚至會與標題重疊。
+     * 對齊 `.container-header` min-height: 80px（= 5rem @ 16px）。
+     */
+    --layout-fixed-header-height: 5rem;
+
+    /* 深色 KV banner 底圖（`.ds-hero-banner--dark`）；淺色 banner 用 `.ds-hero-banner--light` 或另設圖片 token */
+    --image-hero-banner-bg: url("/images/solutions_enterprise-sso_kv-bg2x.webp");
+    /* Hero 右圖：各斷點 max-width 上限（單一 src，由 CSS 縮放） */
+    --hero-banner-media-max-sm: 31.25rem;
+    --hero-banner-media-max-lg: 28rem;
+    /* XL 勿大於 ~512px，避免大螢幕圖片欄搶光版面 */
+    --hero-banner-media-max-xl: 32rem;
+    /* 佔列寬比例（與 max-width 並用） */
+    --hero-banner-media-basis-lg: 38%;
+    --hero-banner-media-basis-xl: 40%;
+    /* Hero 左欄文案區最大寬 */
+    --hero-banner-body-max-width: 43rem;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-deep);
+    color: var(--color-text-primary);
+  }
+}
+
+@layer components {
+  .ds-section {
+    width: 100%;
+  }
+
+  /* 淺藍灰 Section 底 — 使用 token `--color-bg-light-blue` */
+  .ds-bg-light-blue {
+    background-color: var(--color-bg-light-blue);
+  }
+
+  /*
+   * 行銷 KV banner 底層（整段背景行為集中在 DS，避免依賴 Tailwind bg-*）
+   * --dark：深色圖稿 WebP（`--image-hero-banner-bg`）+ cover／居中／不重複
+   * --light：淺色純色底；若日後要淺色底圖可再加 token 並比照 --dark 補 background-size/position
+   */
+  .ds-hero-banner--dark {
+    background-image: var(--image-hero-banner-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* 固定導覽高度 + 設計留白：避免 padding 前段被 nav 蓋住；下方仍保留 §5 `--spacing-xl`（96px）等效空間 */
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+    padding-bottom: var(--spacing-l);
+  }
+
+  @media (width < 768px) {
+    .ds-hero-banner--dark {
+      padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+      padding-bottom: 2.5rem; /* 對應 Tailwind `pb-10` */
+    }
+  }
+
+  .ds-hero-banner--light {
+    background-color: var(--color-bg-light-blue);
+  }
+
+  .ds-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--layout-padding-xl);
+  }
+
+  .ds-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xxs);
+    border-radius: var(--radius-icon);
+    border: 0;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: all 180ms ease;
+    cursor: pointer;
+  }
+
+  .ds-btn-primary {
+    background: var(--gradient-accent);
+    color: var(--color-text-primary);
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  .ds-btn-secondary {
+    background: #fff;
+    color: var(--color-primary-800);
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  .ds-btn-tertiary {
+    background: transparent;
+    color: var(--color-text-primary);
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-regular);
+    line-height: 1.3333333; /* §9.1 Tertiary：18px / 24px */
+  }
+
+  .ds-btn-tertiary:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* §9.1 尾端箭頭（Heroicons / 18px）：hover 右移 4px */
+  .ds-btn__icon-arrow {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    transition: transform 180ms ease;
+  }
+
+  .ds-btn:hover .ds-btn__icon-arrow {
+    transform: translateX(4px);
+  }
+
+  .ds-btn-ghost {
+    background: transparent;
+    color: var(--color-text-secondary);
+    padding: 0.8125rem 1.5rem;
+    gap: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .ds-card {
+    border-radius: var(--radius-card);
+    border: 0.09375rem solid var(--color-border-default);
+    background: var(--gradient-card-alt);
+    backdrop-filter: blur(0.75rem);
+    padding: var(--spacing-m);
+    color: var(--color-text-primary);
+  }
+
+  .ds-card-light {
+    border-radius: var(--radius-card);
+    border: 0.0625rem solid #e0e0e0;
+    background: var(--color-bg-light-card);
+    box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
+    color: var(--color-text-light-primary);
+    padding: var(--spacing-m);
+  }
+
+  .ds-icon-box {
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: var(--radius-icon);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-icon-blue);
+  }
+
+  .ds-grid-2,
+  .ds-grid-3,
+  .ds-grid-4 {
+    display: grid;
+    width: 100%;
+    margin-inline: auto;
+    column-gap: var(--layout-card-gutter);
+    row-gap: var(--layout-card-gutter);
+  }
+
+  .ds-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ds-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ds-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .ds-container {
+    max-width: var(--layout-max-width-wide);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    padding-left: var(--layout-padding-lg);
+    padding-right: var(--layout-padding-lg);
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .ds-container > .top-content {
+    margin: 0;
+  }
+
+  /* 雙欄／非置中區塊：在 flex column + align-items:center 的 container 內拉滿寬 */
+  .ds-container > .ds-split {
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Webflow `_2-card-grid` 置於 `ds-container` 內時拉滿寬（與 `.ds-split` 相同理由） */
+  .ds-container > ._2-card-grid {
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /*
+   * Hero KV：垂直內距由外層 `section` 負責；與其他區塊共用 `max-width` + 水平 padding token。
+   */
+  .ds-container.ds-container--hero {
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: stretch;
+  }
+
+  .ds-container.ds-container--hero > .ds-hero-banner__row {
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+  }
+
+  @media (width >= 1024px) {
+    .ds-container.ds-container--hero > .ds-hero-banner__row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  /* Hero 左欄：標題 + 內文 + CTA 直向堆疊；LG+ 橫排時勿被圖片欄壓縮 */
+  .ds-hero-banner__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-s);
+    width: 100%;
+    min-width: 0;
+    max-width: min(100%, var(--hero-banner-body-max-width));
+  }
+
+  @media (width >= 1024px) {
+    .ds-hero-banner__row > .ds-hero-banner__body {
+      width: auto;
+      flex-shrink: 0;
+    }
+  }
+
+  /*
+   * Hero 右圖：單一 `src`，響應式由 CSS（width % + max-width token）；`height: auto` 維持比例。
+   */
+  .ds-hero-banner__media {
+    display: block;
+    height: auto;
+    width: 100%;
+    max-width: min(100%, var(--hero-banner-media-max-sm));
+    flex-shrink: 0;
+    margin-inline: auto;
+  }
+
+  @media (width >= 1024px) {
+    .ds-container.ds-container--hero > .ds-hero-banner__row > .ds-hero-banner__media {
+      margin-inline: 0;
+      width: var(--hero-banner-media-basis-lg);
+      max-width: var(--hero-banner-media-max-lg);
+      flex: 0 0 auto;
+      min-width: 0;
+    }
+  }
+
+  @media (width >= 1280px) {
+    .ds-container.ds-container--hero > .ds-hero-banner__row > .ds-hero-banner__media {
+      width: var(--hero-banner-media-basis-xl);
+      max-width: var(--hero-banner-media-max-xl);
+      /* 勿 flex-grow：否則與文案欄搶寬，圖片會被拉到近 1000px */
+      flex: 0 0 auto;
+    }
+  }
+
+  /*
+   * 圖左 + 右欄垂直堆疊（圖 / 標題+內文+CTA）
+   * 寫在 DS 內，勿依賴 Tailwind utility：此檔在 public/ 靜態載入，不會掃描 TSX 產生 flex-* class。
+   */
+  .ds-split-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-l);
+    width: 100%;
+  }
+
+  @media (width >= 1024px) {
+    .ds-split-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* 右圖左文：DOM 仍建議「圖 → 文」，桌面用 row-reverse 對調視覺；小螢幕維持上圖下文 */
+    .ds-split-row.ds-split-row--reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .ds-split-row__media {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  @media (width >= 1024px) {
+    .ds-split-row__media {
+      max-width: 45%;
+    }
+  }
+
+  .ds-split-row__img {
+    display: block;
+    margin-inline: auto;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (width >= 1024px) {
+    .ds-split-row__img {
+      margin-inline: 0;
+    }
+  }
+
+  .ds-split-row__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    text-align: left;
+    width: 100%;
+    min-width: 0;
+  }
+
+  @media (width >= 1024px) {
+    .ds-split-row__body {
+      max-width: 55%;
+    }
+  }
+
+  .ds-split-row__body > :where(h2, p) {
+    margin: 0;
+  }
+
+  .ds-split-row__body > a {
+    align-self: flex-start;
+  }
+
+  /* SVG card 圖示固定 3rem（--icon-size-md） */
+  .ds-container > .ds-grid-2 > .svg-card > img,
+  .ds-container > .ds-grid-3 > .svg-card > img,
+  .ds-container > .ds-grid-4 > .svg-card > img {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .ds-container > .ds-grid-2 > .svg-card > img {
+    align-self: flex-start;
+  }
+
+  /* ds-grid-2 / 3：gap；padding 見檔案底部 unlayered（需蓋過 Webflow `.svg-card`） */
+  .ds-container > .ds-grid-2 > .svg-card,
+  .ds-container > .ds-grid-3 > .svg-card {
+    gap: var(--spacing-s);
+  }
+
+  .ds-svg-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .ds-container > .ds-grid-2 > .svg-card > .svg-card-content-title,
+  .ds-container > .ds-grid-2 > .svg-card > .svg-card-content-description {
+    margin: 0;
+  }
+
+  .ds-svg-card-title {
+    margin: 0;
+    color: var(--color-text-light-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+    font-weight: 600;
+  }
+
+  .ds-svg-card-description {
+    margin: 0;
+    color: var(--color-text-light-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-weight: 400;
+  }
+
+  /* ds-grid-4：版面／底色；padding 見檔案底部 unlayered（需蓋過 Webflow `.svg-card`） */
+  .ds-container > .ds-grid-4 > .svg-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-bg-light-card);
+    border-radius: var(--radius-card);
+    gap: var(--spacing-xs);
+  }
+
+  .ds-container > .ds-grid-4 .ds-svg-card-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ds-container > .ds-grid-4 .ds-svg-card-title {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .ds-container > .ds-grid-4 .ds-svg-card-description {
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+    color: var(--color-text-light-muted);
+  }
+}
+
+@utility ds-gradient-text-dark {
+  background-image: var(--gradient-text-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility ds-gradient-text-light {
+  background-image: var(--gradient-text-light);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility ds-hero-bg {
+  background-image: var(--gradient-hero);
+}
+
+@utility ds-glow-blue {
+  background: var(--color-glow-blue);
+  filter: blur(3.75rem);
+  opacity: 0.35;
+  border-radius: 9999rem;
+}
+
+@utility ds-glow-purple {
+  background: var(--color-glow-purple);
+  filter: blur(3.75rem);
+  opacity: 0.35;
+  border-radius: 9999rem;
+}
+
+@utility ds-product-modal {
+  border-radius: 1.25rem;
+  background: rgba(0, 0, 0, 0.33);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(0.84375rem);
+  padding: 1.25rem;
+  gap: 0.625rem;
+}
+
+@media (width < 1280px) {
+  .ds-container {
+    width: 100%;
+    padding-inline: var(--layout-padding-lg);
+  }
+}
+
+@media (width < 1024px) {
+  .ds-container {
+    width: 100%;
+    padding-inline: var(--layout-padding-md);
+  }
+
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width < 768px) {
+  .ds-container {
+    width: 100%;
+    padding-inline: var(--layout-padding-sm);
+  }
+
+  .ds-grid-2,
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+ * `.features-flex-container` — 圖文左右分欄（unlayered，覆蓋 Webflow 同名規則）
+ * 精簡：以標準 `gap` 取代 flex 上的 `grid-*-gap`；區塊外距由版面／`ds-container` 等處理。
+ * 修飾符：`.gap-40`（欄距 40px = spacing-m + spacing-xxs）、`.reverse-order`（桌面主軸反轉）
+ */
+.features-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-m);
+  margin: 0;
+  max-width: none;
+}
+
+.features-flex-container.gap-40 {
+  gap: calc(var(--spacing-m) + var(--spacing-xxs));
+  margin: 0;
+}
+
+.features-flex-container.reverse-order {
+  flex-direction: row-reverse;
+}
+
+@media (width < 992px) {
+  .features-flex-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .features-flex-container.reverse-order {
+    flex-direction: column;
+  }
+}
+
+@media (width < 768px) {
+  .features-flex-container.gap-40.reverse-order.reverse-again,
+  .features-flex-container.gap-40.reverse-again {
+    flex-direction: column-reverse;
+  }
+}
+
+/*
+ * SVG card padding in ds-grids: Webflow `authgear-new.webflow.css` has unlayered `.svg-card { padding: 48px 32px }`,
+ * which wins over `@layer components`. Set padding here (unlayered) so tokens apply.
+ */
+.ds-container > .ds-grid-2 > .svg-card,
+.ds-container > .ds-grid-3 > .svg-card {
+  padding-block: var(--layout-svg-card-padding-block);
+  padding-inline: var(--spacing-m);
+  box-sizing: border-box;
+}
+
+.ds-container > .ds-grid-4 > .svg-card {
+  padding-block: var(--layout-svg-card-padding-block);
+  padding-inline: var(--spacing-s);
+  box-sizing: border-box;
+}
+
+/*
+ * Hero KV 主標題（深色底）：使用 H1 type tokens；須 unlayered 以覆蓋 Webflow 全域 `h1`。
+ */
+h1.ds-hero-banner__title {
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-h1);
+  line-height: var(--text-h1--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  letter-spacing: normal;
+  text-align: left;
+}
+
+/*
+ * Hero KV 說明（深色底）：與 `section-lede-on-dark` 相同 body／色票（§4.3 正文 `--color-text-secondary`），靠左。
+ */
+p.ds-hero-banner__description {
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  text-align: left;
+}
+
+.ds-hero-banner__ctas {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: var(--spacing-s);
+}
+
+/*
+ * Webflow 全域 `a { text-decoration: underline; color: … }` 為 unlayered，會蓋過 `@layer` 內 `.ds-btn`。
+ */
+a.ds-btn {
+  font-family: var(--font-sans);
+  text-decoration: none;
+}
+
+a.ds-btn-primary,
+a.ds-btn-primary:hover {
+  color: var(--color-text-primary);
+}
+
+a.ds-btn-tertiary,
+a.ds-btn-tertiary:hover {
+  color: var(--color-text-primary);
+}
+
+a.ds-btn-secondary,
+a.ds-btn-secondary:hover {
+  color: var(--color-primary-800);
+}
+
+/* Webflow 全域 `h3` 為 unlayered；案例卡標題需與 `.ds-svg-card-title` token 一致 */
+h3.ds-svg-card-title {
+  margin: 0;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h3);
+  line-height: var(--text-h3--line-height);
+  font-weight: 600;
+}
+
+/*
+ * Title stack + semantic heading/lede: MUST stay outside @layer (Webflow global `h2` is unlayered).
+ * Use `heading-on-light` / `heading-on-dark` on h2 — do not style bare h2 here.
+ */
+.ds-container > .title-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+  max-width: var(--title-content-max-width);
+  margin-inline: auto;
+  align-items: center;
+  text-align: center;
+}
+
+/* Light section: H2 token + light title color (--color-text-light-primary) */
+.ds-container > .title-content > h2.heading-on-light {
+  margin: 0;
+  margin-bottom: 0;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Dark section / hero-style: swap class on the h2 */
+.ds-container > .title-content > h2.heading-on-dark {
+  margin: 0;
+  margin-bottom: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Intro copy under section title — light section */
+.ds-container > .title-content > p.section-lede-on-light {
+  margin: 0;
+  color: var(--color-text-light-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Intro copy under section title — dark section */
+.ds-container > .title-content > p.section-lede-on-dark {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  text-align: center;
+  max-width: 100%;
+}
+
+/* 圖文分欄右欄：與 title-content 相同 token，改為靠左（非置中區塊） */
+.ds-split-row__body > h2.heading-on-light {
+  margin: 0;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: left;
+  max-width: 100%;
+}
+
+.ds-split-row__body > p.section-lede-on-light {
+  margin: 0;
+  color: var(--color-text-light-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  text-align: left;
+  max-width: 100%;
+}
