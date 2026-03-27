@@ -33,15 +33,6 @@ Use the **same base URL** for both unless you intentionally split internal vs pu
 
 ### Run the website locally
 
-To run both the CMS and frontend dev servers together from the project root:
-
-```bash
-npm install        # installs concurrently
-npm run dev        # starts CMS (port 1337) + frontend (port 3000) in parallel
-```
-
-Or run them separately:
-
 ```bash
 cd frontend
 npm install
