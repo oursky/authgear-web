@@ -11,6 +11,8 @@ import {
   resourcesDropdownLinks,
   developersDropdownLinks,
 } from '@/lib/navigation-data';
+import { DevelopersNavIcon, ResourcesNavIcon } from '@/components/layout/ResourcesDevelopersNavIcons';
+import { SolutionsNavIcon } from '@/components/layout/SolutionsNavIcons';
 
 function label(link: NavLink, locale: string): string {
   return link.label[locale] ?? link.label['en'] ?? '';
@@ -148,6 +150,9 @@ export default async function SiteNav({ locale }: { locale: string }) {
               <div className="nav-menu-dropdown-column-links">
                 {solutionsDropdownLinks.map((item, i) => (
                   <Link key={i} href={href(locale, item.path!)} className="nav-menu-dropdown-link w-inline-block">
+                    <div className="w-embed nav-dropdown-icon-embed">
+                      <SolutionsNavIcon path={item.path!} />
+                    </div>
                     <div>{label(item, locale)}</div>
                   </Link>
                 ))}
@@ -176,6 +181,9 @@ export default async function SiteNav({ locale }: { locale: string }) {
             <div className="nav-menu-dropdown-column no-gap">
               {resourcesDropdownLinks.map((item, i) => (
                 <Link key={i} href={href(locale, item.path!)} className="nav-menu-dropdown-link w-inline-block">
+                  <div className="w-embed nav-dropdown-icon-embed">
+                    <ResourcesNavIcon path={item.path!} />
+                  </div>
                   <div>{label(item, locale)}</div>
                 </Link>
               ))}
@@ -194,6 +202,9 @@ export default async function SiteNav({ locale }: { locale: string }) {
               <div className="nav-menu-dropdown-column-links">
                 {developersDropdownLinks.map((item, i) => (
                   <Link key={i} href={item.href ?? href(locale, item.path!)} className="nav-menu-dropdown-link w-inline-block">
+                    <div className="w-embed nav-dropdown-icon-embed">
+                      <DevelopersNavIcon path={item.path} href={item.href} />
+                    </div>
                     <div>{label(item, locale)}</div>
                   </Link>
                 ))}

@@ -42,6 +42,12 @@
   --color-border-light: #dce5ff;
   --color-border-light-subtle: #edebe9;
 
+  /* Negative / warning accents（SMS cost「問題」卡圖示與標籤） */
+  --color-negative-50: #ffe1e1;
+  --color-negative-400: #ff6868;
+  --color-negative-600: #df4c47;
+  --color-negative-700: #be2a2a;
+
   --color-glow-blue: rgba(11, 100, 233, 0.3);
   --color-glow-purple: rgba(122, 46, 255, 0.3);
 
@@ -153,6 +159,11 @@
     --color-text-light-primary: #2e2e2e;
     --color-text-light-secondary: #626262;
     --color-text-light-muted: #8e8e8e;
+
+    --color-negative-50: #ffe1e1;
+    --color-negative-400: #ff6868;
+    --color-negative-600: #df4c47;
+    --color-negative-700: #be2a2a;
 
     /* Font weight (runtime tokens) — 對照 §4.2 */
     --font-weight-regular: 400;
@@ -368,11 +379,22 @@
     max-width: 100%;
   }
 
-  /* Webflow `_2-card-grid` 置於 `ds-container` 內時拉滿寬（與 `.ds-split` 相同理由） */
-  .ds-container > ._2-card-grid {
+  /* Webflow `_2-card-grid` / `_3-card-grid` 與 DS `ds-grid-*`：置於 `ds-container` 內時拉滿寬（與 `.ds-split` 相同理由） */
+  .ds-container > ._2-card-grid,
+  .ds-container > ._3-card-grid,
+  .ds-container > .ds-grid-2,
+  .ds-container > .ds-grid-3,
+  .ds-container > .ds-grid-4,
+  .ds-container > .w-embed.w-script {
     align-self: stretch;
     width: 100%;
     max-width: 100%;
+  }
+
+  /* SMS calculator：拉滿欄寬但保留元件內 `max-width: 900px` */
+  .ds-container > .ag-calc {
+    align-self: stretch;
+    width: 100%;
   }
 
   /*
@@ -448,6 +470,54 @@
       /* 勿 flex-grow：否則與文案欄搶寬，圖片會被拉到近 1000px */
       flex: 0 0 auto;
     }
+  }
+
+  .ds-hero-banner__title-accent {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  /*
+   * Hero 下方三欄數字（如 SMS cost：%／國家／0 surprise bills）
+   */
+  .ds-hero-banner__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-s);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (width < 768px) {
+    .ds-hero-banner__stats {
+      gap: var(--spacing-xs);
+    }
+  }
+
+  .ds-hero-banner__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.375rem;
+    min-width: 0;
+  }
+
+  .ds-hero-banner__stat-value {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    line-height: 1.25;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .ds-hero-banner__stat-label {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    font-weight: var(--font-weight-regular);
+    text-align: left;
   }
 
   /*
@@ -569,6 +639,35 @@
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
     font-weight: 400;
+  }
+
+  /*
+   * 「問題／限制」類 SVG 卡：紅系圖示底與底部標籤（token：`--color-negative-*`）
+   */
+  .ds-svg-card-icon-wrap--negative {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 1rem;
+    background-color: var(--color-negative-50);
+  }
+
+  .ds-svg-card-badge--negative {
+    display: inline-block;
+    align-self: flex-start;
+    margin: 0;
+    padding: 0.25rem 1rem;
+    border-radius: 0.75rem;
+    background-color: var(--color-negative-50);
+    color: var(--color-negative-600);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: var(--font-weight-medium);
   }
 
   /* ds-grid-4：版面／底色；padding 見檔案底部 unlayered（需蓋過 Webflow `.svg-card`） */
@@ -717,10 +816,6 @@
   .features-flex-container.reverse-order {
     flex-direction: column;
   }
-
-  .enterprise-sso-section-dark-bg {
-    background-image: url("/images/features-passwordless-dark-color-bg_m2x.webp");
-  }
 }
 
 @media (width < 768px) {
@@ -747,11 +842,23 @@
   box-sizing: border-box;
 }
 
-/* Enterprise SSO page-specific dark section background */
-.enterprise-sso-section-dark-bg {
+/*
+ * Enterprise SSO — Developer Experience 等深色底區塊。
+ * 使用 `section.ds-section...` 提高 specificity，避免被 Webflow／工具類覆蓋；
+ * `background-color` 作為圖片載入前的底色，與 `--color-bg-deep` 一致。
+ */
+section.ds-section.enterprise-sso-section-dark-bg {
+  background-color: var(--color-bg-deep);
   background-image: url("/images/features-passwordless-dark-color-bg2x.webp");
   background-position: 0 0;
   background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (width < 992px) {
+  section.ds-section.enterprise-sso-section-dark-bg {
+    background-image: url("/images/features-passwordless-dark-color-bg_m2x.webp");
+  }
 }
 
 /*
@@ -824,6 +931,31 @@ h3.ds-svg-card-title {
 }
 
 /*
+ * 淺色底 SVG 卡用 `h3.ds-svg-card-title`；深色底變體（`.svg-card-alternative`）用 div + `--on-dark`。
+ * 須 unlayered：Webflow 全域 `body`／字級會蓋過 `@layer components` 內同名 class。
+ * 字級／行高與 `.ds-svg-card-title` / `.ds-svg-card-description` 一致；色票為 §4.3 深色區。
+ */
+.ds-container > .ds-grid-2 > .svg-card.svg-card-alternative .ds-svg-card-title--on-dark,
+.ds-container > .ds-grid-3 > .svg-card.svg-card-alternative .ds-svg-card-title--on-dark {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h3);
+  line-height: var(--text-h3--line-height);
+  font-weight: 600;
+}
+
+.ds-container > .ds-grid-2 > .svg-card.svg-card-alternative .ds-svg-card-description--on-dark,
+.ds-container > .ds-grid-3 > .svg-card.svg-card-alternative .ds-svg-card-description--on-dark {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: 400;
+}
+
+/*
  * Title stack + semantic heading/lede: MUST stay outside @layer (Webflow global `h2` is unlayered).
  * Use `heading-on-light` / `heading-on-dark` on h2 — do not style bare h2 here.
  */
@@ -839,6 +971,27 @@ h3.ds-svg-card-title {
 }
 
 /* Light section: H2 token + light title color (--color-text-light-primary) */
+/*
+ * Section kicker / eyebrow（小標）：品牌主色 `--color-primary-800`，與圖示／連結主藍一致。
+ * 置於 `title-content` 時由父層 `text-align: center` 繼承；置於 `top-content` 等則 `text-align: inherit`。
+ */
+.ds-section-eyebrow {
+  margin: 0;
+  color: var(--color-primary-800);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: inherit;
+}
+
+/* 深色 Section 小標：與 `section-lede-on-dark` 同色票（§4.3 `--color-text-secondary`） */
+.ds-section-eyebrow.ds-section-eyebrow--on-dark {
+  color: var(--color-text-secondary);
+}
+
 .ds-container > .title-content > h2.heading-on-light {
   margin: 0;
   margin-bottom: 0;
@@ -912,4 +1065,19 @@ h3.ds-svg-card-title {
   font-weight: var(--font-weight-regular);
   text-align: left;
   max-width: 100%;
+}
+
+/*
+ * 導覽下拉（Solutions / Resources / Developers）：連結前 24×24 icon
+ * （`SiteNav` + `SolutionsNavIcons.tsx` + `ResourcesDevelopersNavIcons.tsx`）
+ */
+.nav-dropdown-icon-embed,
+.nav-solutions-icon-embed {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: inherit;
 }
