@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
-import type { PricingCell, PricingCopy } from '@/lib/pricing/types';
+import type { PricingCell, PricingCopy, PricingNodeVariant } from '@/lib/pricing/types';
 
 type Props = {
   copy: PricingCopy;
@@ -19,6 +19,94 @@ function resolveHref(href: string, contactPath: string): string {
   return href;
 }
 
+function NodeVariantCell({ variant, whatsappPath }: { variant: PricingNodeVariant; whatsappPath: string }) {
+  switch (variant) {
+    case 'smsWhatsappBusiness':
+      return (
+        <>
+          <div className="plan-data-sub-row">
+            <strong>SMS</strong>
+            <br />
+            US/Canada: $0.02
+            <br />
+            Others: $0.1
+          </div>
+          <div className="plan-data-sub-row">
+            <strong>WhatsApp</strong>
+            <br />
+            <a href={whatsappPath} className="comparison-label">
+              See Pricing
+            </a>
+          </div>
+          <div className="plan-data-sub-row">Or Custom Gateway</div>
+        </>
+      );
+    case 'smsWhatsappDevelopers':
+      return (
+        <>
+          <strong>SMS and WhatsApp</strong>
+          <br />
+          US/Canada: $0.02
+          <br />
+          Others: $0.1
+        </>
+      );
+    case 'othersBusiness':
+      return (
+        <>
+          All Features Included
+          <br />
+          <br />
+          Bring your own
+          <br />
+          SMS/WhatsApp / Email Gateway
+        </>
+      );
+    case 'othersEnterprise':
+      return (
+        <>
+          Bring your own
+          <br />
+          SMS/WhatsApp / Email Gateway
+          <br />
+          <br />
+          Tailored SLA
+          <br />
+          <br />
+          Private Cloud Option
+          <br />
+          <br />
+          Data Residency
+        </>
+      );
+    case 'addonsDevelopers':
+      return (
+        <>
+          $100/Environment
+          <br />
+          $100/Applications
+          <br />
+          $50/Project Member
+        </>
+      );
+    case 'addonsBusiness':
+      return (
+        <>
+          $100/Environment
+          <br />
+          $100/Applications
+          <br />
+          $50/Project Member
+          <br />
+          <br />
+          $50/5,000 additional MAU
+        </>
+      );
+    default:
+      return null;
+  }
+}
+
 function CellContent({
   cell,
   whatsappPath,
@@ -31,7 +119,9 @@ function CellContent({
   }
   if (cell.kind === 'dash') return <>-</>;
   if (cell.kind === 'empty') return null;
-  if (cell.kind === 'node') return <>{cell.render(whatsappPath)}</>;
+  if (cell.kind === 'nodeVariant') {
+    return <NodeVariantCell variant={cell.variant} whatsappPath={whatsappPath} />;
+  }
   return <>{cell.value}</>;
 }
 
