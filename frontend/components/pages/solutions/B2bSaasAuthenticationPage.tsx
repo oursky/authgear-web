@@ -268,13 +268,11 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
                       Benefit from industry-leading security features and ensure robust protection for your B2B ecosystem.
                     </div>
                   </div>
-                </div>
-                <div className="svg-card">
-                  <img src="/images/b2b_saas_freetrial-experience.svg" loading="lazy" alt="" />
-                  <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Improved User Experience</div>
-                    <div className="ds-svg-card-description">
-                      Deliver a frictionless and secure login experience for both your B2B clients and their users.
+                  <div className="svg-card p-32 row">
+                    <div className="svg-card-image-container center _w-full mobile-left"><img src="/images/b2b_saas_freetrial-experience.svg" loading="lazy" alt="" /></div>
+                    <div className="svg-card-content-container gap-6 vertical-center">
+                      <div className="svg-card-content-title ibm-plex-sans small">Improved User Experience</div>
+                      <div className="svg-card-content-description size-14 color-787e81">Deliver a frictionless and secure login experience for both your B2Bclients and their users.</div>
                     </div>
                   </div>
                 </div>
