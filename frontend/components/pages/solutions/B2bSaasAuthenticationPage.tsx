@@ -208,7 +208,7 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
                     <div className="svg-card-image-container center _w-full mobile-left"><img src="/images/b2b_saas_freetrial-experience.svg" loading="lazy" alt="" /></div>
                     <div className="svg-card-content-container gap-6 vertical-center">
                       <div className="svg-card-content-title ibm-plex-sans small">Improved User Experience</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Deliver a frictionless and secure login experience for both your B2B clients and their users.</div>
+                      <div className="svg-card-content-description size-14 color-787e81">Deliver a frictionless and secure login experience for both your B2Bclients and their users.</div>
                     </div>
                   </div>
                 </div>
