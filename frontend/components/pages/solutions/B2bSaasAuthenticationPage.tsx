@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import ContactForm from '@/components/ContactForm';
 
 interface Props {
@@ -7,214 +8,279 @@ interface Props {
 export default function B2bSaasAuthenticationPage(_props: Props) {
   return (
     <>
-      <div className="announcement-bar">
-          <div className="container-default w-container">
-            <div className="text-center">
-              <div className="announcement-message">📢 <strong className="announcement-message-bold">Skygear Auth</strong> is now <strong className="announcement-message-bold">Authgear</strong></div>
+          <section className="ds-hero-banner--white">
+            <div className="ds-container ds-container--hero-white">
+              <div className="ds-hero-banner__stack">
+                <div className="ds-section-eyebrow">B2B SaaS</div>
+                <h1 className="ds-hero-banner__title">
+                  Fortress Your B2B SaaS Authentication:
+                  <br />
+                  Secure Access for You & Every Tenant.
+                </h1>
+                <p className="ds-hero-banner__description">
+                  Authgear empowers your SaaS authentication with robust security and effortless multi-tenancy management.
+                  <br />
+                  <span className="text-bold">
+                    Deliver a seamless user experience for all, while safeguarding sensitive data.
+                  </span>
+                </p>
+                <div className="ds-hero-banner__ctas">
+                  <a
+                    href="https://portal.authgear.com/?utm_source=solutions-b2b-saas&utm_medium=link&utm_campaign=talk-with-us"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="ds-btn ds-btn-primary"
+                  >
+                    Talk with Us
+                    <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                  </a>
+                </div>
+              </div>
+              <img
+                src="/images/b2c_ciam_kv-hero-login-box1.svg"
+                loading="lazy"
+                alt=""
+                width={1152}
+                className="ds-hero-banner__media ds-hero-banner__media--bottom"
+              />
             </div>
-          </div>
-        </div>
-        <div className="page-wrapper">
-          <div className="section solutions-hero pb-0">
+          </section>
+          <section className="ds-section">
+            <div className="ds-container">
+              <div className="title-content">
+                <h2 className="heading-on-light">
+                  Empower & Secure:
+                  <br />
+                  Granular Access Control for Your B2B Clients
+                </h2>
+                <p className="section-lede-on-light">
+                  SaaS identity management for multiple B2B clients with varying needs can be a complex challenge. Authgear solution simplifies SaaS identity and access management with granular Role-Based Access Control.
+                </p>
+              </div>
+            </div>
             <div className="container-full-general">
-              <div className="middle-hero-wrapper py-0 mw-1100">
-                <div className="middle-hero-inner">
-                  <div className="top-label hero-title">B2B SaaS</div>
-                  <h1 className="new-heading">Fortress Your B2B SaaS Authentication:<br />Secure Access for You & Every Tenant.</h1>
-                  <p className="middle-hero-paragraph text-787e81 size-18">Authgear empowers your SaaS authentication with robust security and effortless multi-tenancy management.<br /><span className="text-bold" >Deliver a seamless user experience for all, while safeguarding sensitive data.</span></p>
-                  <a href="https://portal.authgear.com/?utm_source=solutions-b2b-saas&utm_medium=link&utm_campaign=talk-with-us" target="_blank" className="button-primary button-gradient center w-button">Talk with Us</a>
-                </div><img src="/images/b2c_ciam_kv-hero-login-box1.svg" loading="lazy" alt="" />
+              <img src="/images/b2b_saas_empower-flow.svg" loading="lazy" alt="" className="_w-full pb-80" />
+              <img src="/images/b2b_saas_empower-flow-m.svg" loading="lazy" alt="" className="_w-full pb-80 mobile-100" />
+            </div>
+          </section>
+          <section className="ds-section">
+            <div className="ds-container">
+              <div className="title-content">
+                <h2 className="heading-on-light">
+                  Seamless Multi-Tenancy with
+                  <br />
+                  Authgear SaaS authentication
+                </h2>
+                <p className="section-lede-on-light">
+                  Scale effortlessly and deliver a secure experience for all your enterprise clients
+                  <br />
+                  with Authgear&apos;s robust multi-tenancy support.
+                </p>
               </div>
-            </div>
-          </div>
-          <div>
-            <div className="container-full-general">
-              <div className="container-default-inner px-0 pb-40">
-                <div className="top-content flex-column text-center mx-20">
-                  <div className="top-content-icon"><img src="/images/b2b_saas_empower-icon.svg" loading="lazy" alt="" /></div>
-                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Empower & Secure:<br />‍<span className="text-highlight-gradient" >Granular Access Control for Your B2B Clients</span></h2>
-                  <div className="top-content-description ibm-plex-sans size-18"><span className="text-bold">SaaS identity management for multiple B2B clients with varying needs can be a complex challenge.<br /></span>Authgear solution simplifies SaaS identity and access management with granular Role-Based Access Control.</div>
-                </div>
-              </div><img src="/images/b2b_saas_empower-flow.svg" loading="lazy" alt="" className="_w-full pb-80" /><img src="/images/b2b_saas_empower-flow-m.svg" loading="lazy" alt="" className="_w-full pb-80 mobile-100" />
-            </div>
-          </div>
-          <div>
-            <div className="container-default">
-              <div className="container-default-inner px-0">
-                <div className="top-content flex-column text-center">
-                  <div className="top-content-icon mobile-center"><img src="/images/b2c_ciam_usercentric-icon.svg" loading="lazy" alt="" /></div>
-                  <h2 className="top-content-title ibm-plex-sans color-2e2e2e size-40 mobile-center">Seamless Multi-Tenancy with<br />‍<span className="text-highlight-gradient" >Authgear SaaS authentication</span></h2>
-                  <div className="top-content-description ibm-plex-sans mobile-center size-18">Scale effortlessly and deliver a secure experience for all your enterprise clients <br />with Authgear's robust multi-tenancy support.</div>
-                </div>
-                <div className="_3-card-grid gap-0">
-                  <div className="svg-card p-0 bg-transparent with-divider first">
-                    <div className="svg-card-image-container center">
-                      <div className="card-count">1</div>
-                    </div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Reduced Costs & Streamlined Management</div>
-                      <div className="svg-card-content-description size-14">Manage all your B2B clients from a single platform, eliminating the need for multiple SaaS authentication systems and reducing infrastructure and maintenance overhead.</div>
+              <div className="ds-grid-3 b2b-saas-multitenancy-step-cards">
+                <div className="svg-card">
+                  <div className="b2b-saas-multitenancy-step-cards__step" aria-hidden>
+                    1
+                  </div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Reduced Costs & Streamlined Management</div>
+                    <div className="ds-svg-card-description">
+                      Manage all your B2B clients from a single platform, eliminating the need for multiple SaaS authentication systems and reducing infrastructure and maintenance overhead.
                     </div>
                   </div>
-                  <div className="svg-card p-0 bg-transparent with-divider">
-                    <div className="svg-card-image-container center">
-                      <div className="card-count">2</div>
-                    </div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Flexibility & Effortless Scalability</div>
-                      <div className="svg-card-content-description size-14">Onboard new B2B clients seamlessly and scale effortlessly as your user base grows. Authgear's multi-tenancy adapts to your evolving B2B ecosystem.</div>
+                </div>
+                <div className="svg-card">
+                  <div className="b2b-saas-multitenancy-step-cards__step" aria-hidden>
+                    2
+                  </div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Flexibility & Effortless Scalability</div>
+                    <div className="ds-svg-card-description">
+                      Onboard new B2B clients seamlessly and scale effortlessly as your user base grows. Authgear&apos;s multi-tenancy adapts to your evolving B2B ecosystem.
                     </div>
                   </div>
-                  <div className="svg-card p-0 bg-transparent with-divider last">
-                    <div className="svg-card-image-container center">
-                      <div className="card-count">3</div>
-                    </div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Centralized Security & Compliance</div>
-                      <div className="svg-card-content-description size-14">Enforce consistent security policies and access controls across all client accounts. Simplify security management and ensure a robust security posture for your entire platform.</div>
+                </div>
+                <div className="svg-card">
+                  <div className="b2b-saas-multitenancy-step-cards__step" aria-hidden>
+                    3
+                  </div>
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Centralized Security & Compliance</div>
+                    <div className="ds-svg-card-description">
+                      Enforce consistent security policies and access controls across all client accounts. Simplify security management and ensure a robust security posture for your entire platform.
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="bg-f3f6ff">
-            <div className="container-default">
-              <div className="container-default-inner px-0">
-                <div className="top-content flex-column text-center">
-                  <div className="top-content-icon"><img src="/images/b2b-saas-why-title.svg" loading="lazy" alt="" /></div>
-                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e">Why Authgear for<span className="text-highlight-gradient"><br />B2B SaaS</span></h2>
-                </div>
-                <div className="_3-card-grid">
-                  <div className="svg-card px-24">
-                    <div className="svg-card-image-container center"><img src="/images/b2b-saas-why-adminpanel.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Admin Portal</div>
-                      <div className="svg-card-content-description size-14 color-787e81">A powerful management dashboard that lets your team handle users, roles, sessions, audits, and security policies without writing code.</div>
-                    </div>
-                  </div>
-                  <div className="svg-card px-24">
-                    <div className="svg-card-image-container center"><img src="/images/b2b-saas-why-sso.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">SSO for multi-apps</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Provide a seamless login experience across your entire product suite. So your customers can sign in once and move between apps effortlessly.</div>
-                    </div>
-                  </div>
-                  <div className="svg-card px-24">
-                    <div className="svg-card-image-container center"><img src="/images/b2b-saas-why-roles.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Roles and Groups</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Define granular permissions and group-based access models that return roles directly in ID and access tokens. Make authorization clean, maintainable, and consistent across all your services.</div>
+          </section>
+          <section className="ds-section ds-bg-light-blue">
+            <div className="ds-container">
+              <div className="title-content">
+                <h2 className="heading-on-light">
+                  Why Authgear for B2B SaaS
+                </h2>
+              </div>
+              <div className="ds-grid-3">
+                <div className="svg-card">
+                  <img src="/images/b2b-saas-why-adminpanel.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Admin Portal</div>
+                    <div className="ds-svg-card-description">
+                      A powerful management dashboard that lets your team handle users, roles, sessions, audits, and security policies without writing code.
                     </div>
                   </div>
                 </div>
-                <div className="_3-card-grid">
-                  <div className="svg-card px-24">
-                    <div className="svg-card-image-container center"><img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Customized Login</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Deliver a login experience that matches your brand. Fully customizable templates, domains, and localization ensure your authentication feels native to your SaaS.</div>
+                <div className="svg-card">
+                  <img src="/images/b2b-saas-why-sso.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">SSO for multi-apps</div>
+                    <div className="ds-svg-card-description">
+                      Provide a seamless login experience across your entire product suite. So your customers can sign in once and move between apps effortlessly.
                     </div>
                   </div>
-                  <div className="svg-card px-24">
-                    <div className="svg-card-image-container center"><img src="/images/b2b-saas-why-integration.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Easy integration</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Integrate quickly with modern SDKs for web and mobile, Admin APIs for automation, and flexible hooks for custom logic. Ship faster without reinventing authentication infrastructure.</div>
+                </div>
+                <div className="svg-card">
+                  <img src="/images/b2b-saas-why-roles.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Roles and Groups</div>
+                    <div className="ds-svg-card-description">
+                      Define granular permissions and group-based access models that return roles directly in ID and access tokens. Make authorization clean, maintainable, and consistent across all your services.
                     </div>
                   </div>
-                  <div className="svg-card px-24">
-                    <div className="svg-card-image-container center"><img src="/images/b2b-saas-why-security.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container text-center gap-6">
-                      <div className="svg-card-content-title ibm-plex-sans color-2b2b2b small">Advanced security features</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Enterprise-grade protection out of the box: Passkeys, MFA, bot protection, rate limits, account lockout, and monitoring tools to safeguard your users and meet compliance requirements with minimal engineering effort.</div>
+                </div>
+                <div className="svg-card">
+                  <img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Customized Login</div>
+                    <div className="ds-svg-card-description">
+                      Deliver a login experience that matches your brand. Fully customizable templates, domains, and localization ensure your authentication feels native to your SaaS.
+                    </div>
+                  </div>
+                </div>
+                <div className="svg-card">
+                  <img src="/images/b2b-saas-why-integration.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Easy integration</div>
+                    <div className="ds-svg-card-description">
+                      Integrate quickly with modern SDKs for web and mobile, Admin APIs for automation, and flexible hooks for custom logic. Ship faster without reinventing authentication infrastructure.
+                    </div>
+                  </div>
+                </div>
+                <div className="svg-card">
+                  <img src="/images/b2b-saas-why-security.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Advanced security features</div>
+                    <div className="ds-svg-card-description">
+                      Enterprise-grade protection out of the box: Passkeys, MFA, bot protection, rate limits, account lockout, and monitoring tools to safeguard your users and meet compliance requirements with minimal engineering effort.
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div>
-            <div className="container-default">
-              <div className="container-default-inner px-0">
-                <div className="top-content flex-column align-left mobile-center">
-                  <div className="top-content-icon mobile-center"><img src="/images/b2b_saas_granular-control-icon.svg" loading="lazy" alt="" /></div>
-                  <h2 className="top-content-title mg-bottom-16px ibm-plex-sans color-2e2e2e size-40">Granular Control, Unmatched Security: <span className="text-highlight-gradient">Empower Your B2B Defenses</span></h2>
-                  <div className="top-content-description ibm-plex-sans size-18">Stop juggling complex logins and security concerns. Authgear CIAM solution empowers you to take control of your online identity with features designed to reduce user friction and drive user growth.</div>
+          </section>
+          <section className="ds-section">
+            <div className="ds-container">
+              <div className="title-content">
+                <h2 className="heading-on-light">
+                  Granular Control, Unmatched Security:
+                  <br />
+                  Empower Your B2B Defenses
+                </h2>
+                <p className="section-lede-on-light">
+                  Stop juggling complex logins and security concerns. Authgear CIAM solution empowers you to take control of your online identity with features designed to reduce user friction and drive user growth.
+                </p>
+              </div>
+              <div className="b2b-saas-granular-defense-cards">
+                <div className="svg-card">
+                  <img src="/images/b2b_saas_granular-control-domain.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Enhanced Protection by Domain</div>
+                    <div className="ds-svg-card-description">
+                      Utilize registration locking by domain to restrict account creation from specific email domains known for malicious activity.
+                    </div>
+                  </div>
                 </div>
-                <div className="grid-12 gap-36 mobile-bg-white">
-                  <div className="features-card-new px-24 bg-transparent border-0 bg-white">
-                    <div className="features-card-new_image"><img src="/images/b2b_saas_granular-control-domain.svg" loading="lazy" alt="" /></div>
-                    <div className="features-card-new_content-wrap">
-                      <div className="features-card-new_content-title">Enhanced Protection by Domain</div>
-                      <div className="features-card-new_content-desc">Utilize registration locking by domain to restrict account creation from specific email domains known for malicious activity.</div>
+                <div className="svg-card">
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Customizable Security with Captcha</div>
+                    <div className="ds-svg-card-description">
+                      Implement Captcha challenges to prevent automated bot attacks and safeguard your B2B client&apos;s login processes.
                     </div>
                   </div>
-                  <div className="features-card-new px-24 bg-transparent space-between border-0 bg-white">
-                    <div className="features-card-new_image last"><img src="/images/b2b_saas_granular-control-captcha.svg" loading="lazy" alt="" className="mw-140 md-120" /></div>
-                    <div className="features-card-new_content-wrap">
-                      <div className="features-card-new_content-title">Customizable Security with Captcha</div>
-                      <div className="features-card-new_content-desc">Implement Captcha challenges to prevent automated bot attacks and safeguard your B2B client's login processes.</div>
+                  <img src="/images/b2b_saas_granular-control-captcha.svg" loading="lazy" alt="" />
+                </div>
+                <div className="svg-card">
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Prevent Impossible Travel</div>
+                    <div className="ds-svg-card-description">
+                      Leverage Authgear&apos;s impossible travel calculations to detect and block login attempts originating from geographically improbable locations, thwarting potential account takeover attempts.
                     </div>
                   </div>
-                  <div className="features-card-new px-24 bg-transparent space-between border-0 bg-white">
-                    <div className="features-card-new_image last"><img src="/images/b2b_saas_granular-control-travel.svg" loading="lazy" alt="" className="mw-140 md-120" /></div>
-                    <div className="features-card-new_content-wrap">
-                      <div className="features-card-new_content-title">Prevent Impossible Travel</div>
-                      <div className="features-card-new_content-desc">Leverage Authgear's impossible travel calculations to detect and block login attempts originating from geographically improbable locations, thwarting potential account takeover attempts.</div>
-                    </div>
-                  </div>
-                  <div className="features-card-new px-24 bg-transparent border-0 bg-white">
-                    <div className="features-card-new_image"><img src="/images/b2b_saas_granular-control-IPACLs.svg" loading="lazy" alt="" /></div>
-                    <div className="features-card-new_content-wrap">
-                      <div className="features-card-new_content-title">Granular Access Control with IP Blocklist</div>
-                      <div className="features-card-new_content-desc">Define IP Access Control Lists (ACLs) to restrict access to your B2B client's application based on authorized IP addresses, adding an extra layer of security.</div>
+                  <img src="/images/b2b_saas_granular-control-travel.svg" loading="lazy" alt="" />
+                </div>
+                <div className="svg-card">
+                  <img src="/images/b2b_saas_granular-control-IPACLs.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Granular Access Control with IP Blocklist</div>
+                    <div className="ds-svg-card-description">
+                      Define IP Access Control Lists (ACLs) to restrict access to your B2B client&apos;s application based on authorized IP addresses, adding an extra layer of security.
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div>
-            <div className="container-default">
-              <div className="container-default-inner px-0">
-                <div className="top-content flex-column text-center">
-                  <h2 className="text-center mg-bottom-16px top-content-title ibm-plex-sans color-2e2e2e"><span className="text-highlight-gradient">Ready to Secure & Scale Your B2B Ecosystem? Get Your Free Trial Today!</span></h2>
-                  <div className="top-content-description ibm-plex-sans size-18">Transform your B2B user experience and empower your business with robust security. Secure your special offer and experience the benefits of Authgear SaaS authentication firsthand.</div>
+          </section>
+          <section className="ds-section">
+            <div className="ds-container">
+              <div className="title-content">
+                <h2 className="heading-on-light">
+                  Ready to Secure & Scale Your B2B Ecosystem? Get Your Free Trial Today!
+                </h2>
+                <p className="section-lede-on-light">
+                  Transform your B2B user experience and empower your business with robust security. Secure your special offer and experience the benefits of Authgear SaaS authentication firsthand.
+                </p>
+              </div>
+              <div className="ds-grid-2">
+                <div className="svg-card">
+                  <img src="/images/b2b_saas_freetrial-support.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Free Trial with Expert Support</div>
+                    <div className="ds-svg-card-description">
+                      Sign up for a free trial and explore all the features that Authgear has to offer. Our dedicated team will be there to guide you through the entire process, ensuring a smooth onboarding experience.
+                    </div>
+                  </div>
                 </div>
-                <div className="_2-card-grid gap-32 mobile-1-col">
-                  <div className="svg-card p-32 row">
-                    <div className="svg-card-image-container center _w-full mobile-left"><img src="/images/b2b_saas_freetrial-support.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container gap-6 vertical-center">
-                      <div className="svg-card-content-title ibm-plex-sans small">Free Trial with Expert Support</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Sign up for a free trial and explore all the features that Authgear has to offer. Our dedicated team will be there to guide you through the entire process, ensuring a smooth onboarding experience.</div>
+                <div className="svg-card">
+                  <img src="/images/b2b_saas_freetrial-reduce.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Reduced Costs</div>
+                    <div className="ds-svg-card-description">
+                      Streamline operations and potentially reduce infrastructure and development costs associated with managing multiple SaaS authentication systems.
                     </div>
                   </div>
-                  <div className="svg-card p-32 row">
-                    <div className="svg-card-image-container center _w-full mobile-left"><img src="/images/b2b_saas_freetrial-reduce.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container gap-6 vertical-center">
-                      <div className="svg-card-content-title ibm-plex-sans small">Reduced Costs</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Streamline operations and potentially reduce infrastructure and development costs associated with managing multiple SaaS authentication systems.</div>
+                </div>
+                <div className="svg-card">
+                  <img src="/images/b2b_saas_freetrial-security.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Enhanced Security</div>
+                    <div className="ds-svg-card-description">
+                      Benefit from industry-leading security features and ensure robust protection for your B2B ecosystem.
                     </div>
                   </div>
-                  <div className="svg-card p-32 row">
-                    <div className="svg-card-image-container center _w-full mobile-left"><img src="/images/b2b_saas_freetrial-security.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container gap-6 vertical-center">
-                      <div className="svg-card-content-title ibm-plex-sans small">Enhanced Security</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Benefit from industry-leading security features and ensure robust protection for your B2B ecosystem.</div>
-                    </div>
-                  </div>
-                  <div className="svg-card p-32 row">
-                    <div className="svg-card-image-container center _w-full mobile-left"><img src="/images/b2b_saas_freetrial-experience.svg" loading="lazy" alt="" /></div>
-                    <div className="svg-card-content-container gap-6 vertical-center">
-                      <div className="svg-card-content-title ibm-plex-sans small">Improved User Experience</div>
-                      <div className="svg-card-content-description size-14 color-787e81">Deliver a frictionless and secure login experience for both your B2B clients and their users.</div>
+                </div>
+                <div className="svg-card">
+                  <img src="/images/b2b_saas_freetrial-experience.svg" loading="lazy" alt="" />
+                  <div className="ds-svg-card-content">
+                    <div className="ds-svg-card-title">Improved User Experience</div>
+                    <div className="ds-svg-card-description">
+                      Deliver a frictionless and secure login experience for both your B2B clients and their users.
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
           <div className="footer-form-section form__bg-dark">
             <div className="container-default">
               <div className="container-default-inner px-0">
@@ -233,7 +299,6 @@ export default function B2bSaasAuthenticationPage(_props: Props) {
               </div>
             </div>
           </div>
-        </div>
     </>
   );
 }

@@ -1,13 +1,16 @@
 import type { PricingCopy } from '../types';
-import { chk, dash, emp, txt, nod } from '../cells';
-
-const smsWhatsappBusinessCell = nod((whatsappPath) => (
-  <>
-    <div className="plan-data-sub-row"><strong>SMS</strong><br />US/Canada: $0.02<br />Others: $0.1</div>
-    <div className="plan-data-sub-row"><strong>WhatsApp</strong><br /><a href={whatsappPath} className="comparison-label">See Pricing</a></div>
-    <div className="plan-data-sub-row">Or Custom Gateway</div>
-  </>
-));
+import {
+  chk,
+  dash,
+  emp,
+  txt,
+  smsWhatsappBusiness,
+  smsWhatsappDevelopers,
+  othersBusiness,
+  othersEnterprise,
+  addonsDevelopers,
+  addonsBusiness,
+} from '../cells';
 
 /** Full "static" CLOUD comparison table (visible on page). */
 export const fullComparisonEn: Pick<PricingCopy['comparison'], 'planNames' | 'rows'> = {
@@ -17,9 +20,9 @@ export const fullComparisonEn: Pick<PricingCopy['comparison'], 'planNames' | 'ro
       label: 'SMS/WhatsApp OTP Messages',
       cells: [
         txt('Up to 100/month'),
-        nod(() => <><strong>SMS and WhatsApp</strong><br />US/Canada: $0.02<br />Others: $0.1</>),
-        smsWhatsappBusinessCell,
-        smsWhatsappBusinessCell,
+        smsWhatsappDevelopers,
+        smsWhatsappBusiness,
+        smsWhatsappBusiness,
       ],
     },
     {
@@ -96,16 +99,16 @@ export const fullComparisonEn: Pick<PricingCopy['comparison'], 'planNames' | 'ro
       cells: [
         txt('All Features Included'),
         txt('All Features Included'),
-        nod(() => <>All Features Included<br /><br />Bring your own<br />SMS/WhatsApp / Email Gateway</>),
-        nod(() => <>Bring your own<br />SMS/WhatsApp / Email Gateway<br /><br />Tailored SLA<br /><br />Private Cloud Option<br /><br />Data Residency</>),
+        othersBusiness,
+        othersEnterprise,
       ],
     },
     {
       label: 'Add-ons',
       cells: [
         dash,
-        nod(() => <>$100/Environment<br />$100/Applications<br />$50/Project Member</>),
-        nod(() => <>$100/Environment<br />$100/Applications<br />$50/Project Member<br /><br />$50/5,000 additional MAU</>),
+        addonsDevelopers,
+        addonsBusiness,
         emp,
       ],
     },

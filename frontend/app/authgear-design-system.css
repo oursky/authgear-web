@@ -106,6 +106,9 @@
   --layout-svg-card-padding-block: var(--spacing-ml);
   --layout-card-gutter: 1.5rem;
   --title-content-max-width: 48rem;
+  --hero-banner-white-media-max: 72rem;
+  /* 白色單欄 KV 文案欄寬（寬於一般 hero 左欄 `--hero-banner-body-max-width`） */
+  --hero-banner-white-stack-max-width: 56rem;
 }
 
 @layer base {
@@ -191,6 +194,9 @@
     --hero-banner-media-basis-xl: 40%;
     /* Hero 左欄文案區最大寬 */
     --hero-banner-body-max-width: 43rem;
+    /* `.ds-hero-banner--white` 底部大圖最大寬（單欄置中 KV） */
+    --hero-banner-white-media-max: 72rem;
+    --hero-banner-white-stack-max-width: 56rem;
   }
 
   body {
@@ -234,6 +240,44 @@
 
   .ds-hero-banner--light {
     background-color: var(--color-bg-light-blue);
+  }
+
+  /*
+   * 白色行銷 KV（單欄置中、無背景圖／漸層）：文案置中堆疊，大圖靠區塊底部、可拉寬。
+   * 與 `.ds-hero-banner--dark`（左文右圖）並列；可於多頁共用。
+   */
+  .ds-hero-banner--white {
+    background-color: var(--color-bg-light-card);
+    background-image: none;
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+    padding-bottom: 0;
+  }
+
+  @media (width < 768px) {
+    .ds-hero-banner--white {
+      padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+    }
+  }
+
+  .ds-hero-banner--white .ds-hero-banner__stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: min(100%, var(--hero-banner-white-stack-max-width));
+    gap: var(--spacing-s);
+  }
+
+  .ds-hero-banner--white .ds-hero-banner__media--bottom {
+    display: block;
+    width: auto;
+    max-width: var(--hero-banner-white-media-max);
+    height: auto;
+    margin-top: 0;
+    margin-inline: auto;
+    margin-bottom: 0;
+    flex-shrink: 0;
   }
 
   .ds-container {
@@ -385,6 +429,9 @@
   .ds-container > .ds-grid-2,
   .ds-container > .ds-grid-3,
   .ds-container > .ds-grid-4,
+  .ds-container > .b2b-saas-granular-defense-cards,
+  .ds-container > .grid-12,
+  .ds-container > .grid,
   .ds-container > .w-embed.w-script {
     align-self: stretch;
     width: 100%;
@@ -404,6 +451,21 @@
     padding-top: 0;
     padding-bottom: 0;
     align-items: stretch;
+  }
+
+  /* 白色單欄 KV：與一般 `ds-container` 區隔，無上下大內距、子項垂直堆疊置中 */
+  .ds-container.ds-container--hero-white {
+    padding-top: 0;
+    padding-bottom: 0;
+    gap: 0;
+    align-items: center;
+    align-self: stretch;
+    width: 100%;
+    max-width: var(--layout-max-width-wide);
+  }
+
+  .ds-container.ds-container--hero-white > .ds-hero-banner__media.ds-hero-banner__media--bottom {
+    align-self: center;
   }
 
   .ds-container.ds-container--hero > .ds-hero-banner__row {
@@ -830,7 +892,8 @@
  * which wins over `@layer components`. Set padding here (unlayered) so tokens apply.
  */
 .ds-container > .ds-grid-2 > .svg-card,
-.ds-container > .ds-grid-3 > .svg-card {
+.ds-container > .ds-grid-3 > .svg-card,
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card {
   padding-block: var(--layout-svg-card-padding-block);
   padding-inline: var(--spacing-m);
   box-sizing: border-box;
@@ -862,6 +925,244 @@ section.ds-section.enterprise-sso-section-dark-bg {
 }
 
 /*
+ * B2C CIAM solution — 深色底整合／開發者區塊（規則比照 `enterprise-sso-section-dark-bg`）。
+ * 背景圖與舊 Webflow `.bg-gradient` 一致；無獨立 mobile 資產時窄螢幕沿用同一張。
+ */
+section.ds-section.b2c-ciam-solution-section-dark-bg {
+  background-color: var(--color-bg-deep);
+  background-image: url("/images/b2c_ciam_integration-bg2x.webp");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*
+ * 半透明漸層卡（對齊舊 Webflow `.features-card-new.px-24.bg-transparent-gradient`）。
+ * 僅負責表面：加在 `.svg-card` 上，例如 `className="svg-card svg-card-glass"`。
+ */
+.svg-card.svg-card-glass {
+  background-color: transparent;
+  background-image: linear-gradient(118deg, #54545445 1.43%, #fff3 51.5% 66.68%);
+  border: 0;
+  border-radius: 1.25rem;
+}
+
+/*
+ * CIAM Frictionless（淡藍區）：`ciam-frictionless-feature-cards` 內大圖 svg 卡。
+ * 覆蓋 Webflow `.svg-card` 預設 padding；插圖不套用 `ds-grid-2` 之 3rem 圖示規則。
+ * 此區專用小字：標題 18px（1.125rem）、內文 16px（1rem）。
+ */
+.ciam-frictionless-feature-cards > .svg-card {
+  padding: var(--spacing-m);
+  border-radius: var(--radius-card);
+  gap: var(--spacing-s);
+  border: 0.0625rem solid #e0e0e0;
+  box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
+  background-color: var(--color-bg-light-card);
+}
+
+.ciam-frictionless-feature-cards > .svg-card > img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.ciam-frictionless-feature-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.ciam-frictionless-feature-cards > .svg-card .ds-svg-card-description {
+  font-size: 1rem;
+  line-height: var(--text-body2--line-height);
+}
+
+/*
+ * CIAM One-Stop Shop 五卡：插圖非 3rem 圖示規則；標題 18px（1.125rem）；圖文置中。
+ */
+.ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card .ds-svg-card-content {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 8rem;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+/* 五卡三欄：最後一列兩張置中（6 欄網格，第 2–3、4–5 軌） */
+@media (width >= 1024px) {
+  .ds-container > .ds-grid-3.ciam-one-stop-feature-cards {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card:nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  .ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+
+/*
+ * B2B SaaS solutions — Multi-tenancy 三卡（僅 B2bSaasAuthenticationPage）：序號 1–3（區塊尺寸同 DS 圖示 `--icon-size-md` / 48px；字 16px；底 `--color-bg-light-blue`）；標題 1.125rem、內文 1rem（對齊 CIAM One-Stop 五卡）。
+ */
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.b2b-saas-multitenancy-step-cards__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  padding: 0;
+  border-radius: var(--radius-icon);
+  background-color: var(--color-bg-light-blue);
+  color: var(--color-primary-800);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card .ds-svg-card-content {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card .ds-svg-card-description {
+  font-size: 1rem;
+  line-height: var(--text-body2--line-height);
+}
+
+/*
+ * B2B SaaS solutions — Granular defense 四卡（僅 B2bSaasAuthenticationPage）：
+ * — 卡面對齊 CIAM One-Stop（標題 1.125rem、內文 1rem；插圖高度依素材）
+ * — lg+：Bento 1–2–1（左 Captcha 通高、中 Domain+IP、右 Travel 通高）；小螢幕單欄依 DOM 順序
+ */
+.ds-container > .b2b-saas-granular-defense-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-card-gutter);
+}
+
+@media (width >= 1024px) {
+  .ds-container > .b2b-saas-granular-defense-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    align-items: stretch;
+    gap: var(--layout-card-gutter);
+  }
+
+  /* DOM: 1 Domain, 2 Captcha, 3 Travel, 4 IP */
+  .ds-container > .b2b-saas-granular-defense-cards > .svg-card:nth-child(1) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .ds-container > .b2b-saas-granular-defense-cards > .svg-card:nth-child(2) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .ds-container > .b2b-saas-granular-defense-cards > .svg-card:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .ds-container > .b2b-saas-granular-defense-cards > .svg-card:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-s);
+  text-align: left;
+  height: 100%;
+  min-height: 0;
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card .ds-svg-card-content {
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card .ds-svg-card-description {
+  font-size: 1rem;
+  line-height: var(--text-body2--line-height);
+}
+
+/* CIAM 深色底玻璃卡：標題／內文改為淺色（對齊舊 `color-white` / `color-bcddff`） */
+section.ds-section.b2c-ciam-solution-section-dark-bg .ds-container > .ds-grid-2 > .svg-card.svg-card-glass .ds-svg-card-title,
+section.ds-section.b2c-ciam-solution-section-dark-bg .ds-container > .ds-grid-3 > .svg-card.svg-card-glass .ds-svg-card-title {
+  color: var(--color-text-primary);
+}
+
+section.ds-section.b2c-ciam-solution-section-dark-bg .ds-container > .ds-grid-2 > .svg-card.svg-card-glass .ds-svg-card-description,
+section.ds-section.b2c-ciam-solution-section-dark-bg .ds-container > .ds-grid-3 > .svg-card.svg-card-glass .ds-svg-card-description {
+  color: #bcddff;
+}
+
+/*
  * Hero KV 主標題（深色底）：使用 H1 type tokens；須 unlayered 以覆蓋 Webflow 全域 `h1`。
  */
 h1.ds-hero-banner__title {
@@ -888,6 +1189,21 @@ p.ds-hero-banner__description {
   font-weight: var(--font-weight-regular);
   color: var(--color-text-secondary);
   text-align: left;
+}
+
+/* 白色單欄 KV：主副標為淺色區字色、置中 */
+.ds-hero-banner--white h1.ds-hero-banner__title {
+  color: var(--color-text-light-primary);
+  text-align: center;
+}
+
+.ds-hero-banner--white p.ds-hero-banner__description {
+  color: var(--color-text-light-secondary);
+  text-align: center;
+}
+
+.ds-hero-banner--white .ds-hero-banner__ctas {
+  justify-content: center;
 }
 
 .ds-hero-banner__ctas {
@@ -1043,6 +1359,11 @@ h3.ds-svg-card-title {
   max-width: 100%;
 }
 
+/* 同一深色區 `ds-container` 內第二組標題（接在卡片網格後） */
+.ds-container > .title-content.ds-title-content--after-block {
+  margin-top: var(--spacing-xl);
+}
+
 /* 圖文分欄右欄：與 title-content 相同 token，改為靠左（非置中區塊） */
 .ds-split-row__body > h2.heading-on-light {
   margin: 0;
@@ -1080,4 +1401,22 @@ h3.ds-svg-card-title {
   width: 1.5rem;
   height: 1.5rem;
   color: inherit;
+}
+
+/*
+ * Footer（SiteFooter）：社群連結橫排；`.footer-social-media-links-wrapper` 在 Webflow 無獨立 flex 時易呈直向堆疊。
+ */
+.footer-social-media-links-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-social-media-links-wrapper .footer-social-media-link {
+  margin-right: 0;
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
 }
