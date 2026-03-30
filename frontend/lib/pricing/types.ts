@@ -1,11 +1,18 @@
 export type PricingLocaleKey = 'en' | 'zh-TW';
 
-import type { ReactNode } from 'react';
+/** Rich comparison cells — rendered in `PricingPageClient` (must be serializable; no functions). */
+export type PricingNodeVariant =
+  | 'smsWhatsappBusiness'
+  | 'smsWhatsappDevelopers'
+  | 'othersBusiness'
+  | 'othersEnterprise'
+  | 'addonsDevelopers'
+  | 'addonsBusiness';
 
 export type PricingCell =
   | { kind: 'check' }
   | { kind: 'text'; value: string }
-  | { kind: 'node'; render: (whatsappPath: string) => ReactNode }
+  | { kind: 'nodeVariant'; variant: PricingNodeVariant }
   | { kind: 'dash' }
   | { kind: 'empty' };
 
