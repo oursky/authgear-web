@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
@@ -10,144 +11,241 @@ export default function AttackProtectionPage(_props: Props) {
   const tFeatures = useTranslations('Features');
   return (
     <>
-<div className="featurespage__hero_v2 featurespage__hero_bg no-bg">
-    <div className="features-hero-wrapper-new inner-bg">
-      <div className="split-content features-hero-left">
-        <div className="feature-small-title">{t('heroSmallTitle')}</div>
-        <h1 className="title features-hero-v2 text-white">{t('heroTitle')}</h1>
-        <p className="features-hero-description text-purple">{t('heroDescription')}</p>
-        <div className="features-hero-cta-wrapper">
-          <a href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 featue-white-btn w-button">{tFeatures('startForFree')}</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale text-white w-button">{tFeatures('getDemo')}  -{`>`}</Link>
-          <div className="w-layout-hflex features-hero-cta-description-weapper"><img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
-            <p className="features-hero-cta-description text-purple">{t('freePlanIncludes')} <span className="features-hero-cta-description-bold text-white">{t('unlimitedMAUs')}</span></p>
+  <section className="ds-hero-banner--gradient">
+    <div className="ds-container ds-container--gradient-hero-shell">
+      <div className="ds-hero-banner--gradient__inner">
+        <div className="ds-container ds-container--hero">
+        <div className="ds-hero-banner__row">
+          <div className="ds-hero-banner__body">
+            <p className="ds-section-eyebrow ds-section-eyebrow--on-dark">{t('heroSmallTitle')}</p>
+            <h1 className="ds-hero-banner__title">{t('heroTitle')}</h1>
+            <p className="ds-hero-banner__description">{t('heroDescription')}</p>
+            <div className="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                className="ds-btn ds-btn-primary"
+              >
+                {tFeatures('startForFree')}
+                <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+              </a>
+              <Link href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-tertiary">
+                {tFeatures('getDemo')}
+                <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+              </Link>
+            </div>
+            <div className="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p className="ds-hero-banner__footnote-copy">
+                {t('freePlanIncludes')} <strong>{t('unlimitedMAUs')}</strong>
+              </p>
+            </div>
           </div>
+          <img
+            className="ds-hero-banner__media"
+            src="/images/features-attackprotection-banner-kv2x.webp"
+            srcSet="/images/features-attackprotection-banner-kv2x-p-500.webp 500w, /images/features-attackprotection-banner-kv2x-p-800.webp 800w, /images/features-attackprotection-banner-kv2x-p-1080.webp 1080w, /images/features-attackprotection-banner-kv2x.webp 1244w"
+            sizes="(max-width: 767px) 100vw, 738px"
+            width={738}
+            alt=""
+          />
         </div>
-      </div><img src="/images/features-attackprotection-banner-kv2x.webp" sizes="(max-width: 767px) 100vw, 738px" width={738} alt="" srcSet="/images/features-attackprotection-banner-kv2x-p-500.webp 500w, /images/features-attackprotection-banner-kv2x-p-800.webp 800w, /images/features-attackprotection-banner-kv2x-p-1080.webp 1080w, /images/features-attackprotection-banner-kv2x.webp 1244w" className="image features-hero-image-v2" />
+        </div>
+      </div>
     </div>
-  </div>
-  <section>
-    <div className="container-default">
-      <div className="container-default-inner">
-        <div className="features-flex-container gap-40">
-          <div className="solution-image-block"><img src="/images/features-attackprotection-features-01-square.svg" loading="lazy" width={624} alt="" className="image-radius-24" /></div>
-          <div className="features-text-block p-0">
-            <h2 className="title features-page-v2 features-page-v3 in-tab">{t('feature1Title')}</h2>
-            <div className="color-626262 line-height-24px">{t('feature1Description')}</div>
+  </section>
+  <section className="ds-section">
+    <div className="ds-container ds-container--split-stack">
+      <div className="ds-split ds-split-row">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-attackprotection-features-01-square.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h2 className="heading-on-light">{t('feature1Title')}</h2>
+          <p className="section-lede-on-light">{t('feature1Description')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--reverse">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-attackprotection-features-02-square.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h2 className="heading-on-light">{t('feature2Title')}</h2>
+          <p className="section-lede-on-light">{t('feature2Description')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-attackprotection-features-03-square.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h2 className="heading-on-light">{t('feature3Title')}</h2>
+          <p className="section-lede-on-light">{t('feature3Description')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--reverse">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-attackprotection-features-04-square.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h2 className="heading-on-light">{t('feature4Title')}</h2>
+          <p className="section-lede-on-light">{t('feature4Description')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-attackprotection-features-05-square.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h2 className="heading-on-light">{t('feature5Title')}</h2>
+          <p className="section-lede-on-light">{t('feature5Description')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--reverse">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-attackprotection-features-06-square.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h2 className="heading-on-light">{t('feature6Title')}</h2>
+          <p className="section-lede-on-light">{t('feature6Description')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-attackprotection-features-07-square.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h2 className="heading-on-light">{t('feature7Title')}</h2>
+          <p className="section-lede-on-light">{t('feature7Description')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--reverse">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-attackprotection-features-08-square.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h2 className="heading-on-light">{t('feature8Title')}</h2>
+          <p className="section-lede-on-light">{t('feature8Description')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section className="ds-section ds-bg-light-blue">
+    <div className="ds-container">
+      <div className="title-content">
+        <h2 className="heading-on-light">{t('valuesSectionTitle')}</h2>
+      </div>
+      <div className="ds-grid-2">
+        <div className="svg-card">
+          <img src="/images/features-attackprotection-values-01.svg" loading="lazy" alt="" />
+          <div className="ds-svg-card-content">
+            <div className="ds-svg-card-description">{t('value1')}</div>
           </div>
         </div>
-        <div className="features-flex-container gap-40 reverse-order">
-          <div className="solution-image-block"><img src="/images/features-attackprotection-features-02-square.svg" loading="lazy" width={624} alt="" className="image-radius-24" /></div>
-          <div className="features-text-block p-0">
-            <h2 className="title features-page-v2 features-page-v3 in-tab">{t('feature2Title')}</h2>
-            <div className="color-626262 line-height-24px">{t('feature2Description')}</div>
+        <div className="svg-card">
+          <img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" />
+          <div className="ds-svg-card-content">
+            <div className="ds-svg-card-description">{t('value2')}</div>
           </div>
         </div>
-        <div className="features-flex-container gap-40">
-          <div className="solution-image-block"><img src="/images/features-attackprotection-features-03-square.svg" loading="lazy" width={624} alt="" className="image-radius-24" /></div>
-          <div className="features-text-block p-0">
-            <h2 className="title features-page-v2 features-page-v3 in-tab">{t('feature3Title')}</h2>
-            <div className="color-626262 line-height-24px">{t('feature3Description')}</div>
+        <div className="svg-card">
+          <img src="/images/features-attackprotection-values-03.svg" loading="lazy" alt="" />
+          <div className="ds-svg-card-content">
+            <div className="ds-svg-card-description">{t('value3')}</div>
           </div>
         </div>
-        <div className="features-flex-container gap-40 reverse-order">
-          <div className="solution-image-block"><img src="/images/features-attackprotection-features-04-square.svg" loading="lazy" width={624} alt="" className="image-radius-24" /></div>
-          <div className="features-text-block p-0">
-            <h2 className="title features-page-v2 features-page-v3 in-tab">{t('feature4Title')}</h2>
-            <div className="color-626262 line-height-24px">{t('feature4Description')}</div>
-          </div>
-        </div>
-        <div className="features-flex-container gap-40">
-          <div className="solution-image-block"><img src="/images/features-attackprotection-features-05-square.svg" loading="lazy" width={624} alt="" className="image-radius-24" /></div>
-          <div className="features-text-block p-0">
-            <h2 className="title features-page-v2 features-page-v3 in-tab">{t('feature5Title')}</h2>
-            <div className="color-626262 line-height-24px">{t('feature5Description')}</div>
-          </div>
-        </div>
-        <div className="features-flex-container gap-40 reverse-order">
-          <div className="solution-image-block"><img src="/images/features-attackprotection-features-06-square.svg" loading="lazy" width={624} alt="" className="image-radius-24" /></div>
-          <div className="features-text-block p-0">
-            <h2 className="title features-page-v2 features-page-v3 in-tab">{t('feature6Title')}</h2>
-            <div className="color-626262 line-height-24px">{t('feature6Description')}</div>
-          </div>
-        </div>
-        <div className="features-flex-container gap-40">
-          <div className="solution-image-block"><img src="/images/features-attackprotection-features-07-square.svg" loading="lazy" width={624} alt="" className="image-radius-24" /></div>
-          <div className="features-text-block p-0">
-            <h2 className="title features-page-v2 features-page-v3 in-tab">{t('feature7Title')}</h2>
-            <div className="color-626262 line-height-24px">{t('feature7Description')}</div>
-          </div>
-        </div>
-        <div className="features-flex-container gap-40 reverse-order">
-          <div className="solution-image-block"><img src="/images/features-attackprotection-features-08-square.svg" loading="lazy" width={624} alt="" className="image-radius-24" /></div>
-          <div className="features-text-block p-0">
-            <h2 className="title features-page-v2 features-page-v3 in-tab">{t('feature8Title')}</h2>
-            <div className="color-626262 line-height-24px">{t('feature8Description')}</div>
+        <div className="svg-card">
+          <img src="/images/features-attackprotection-values-04.svg" loading="lazy" alt="" />
+          <div className="ds-svg-card-content">
+            <div className="ds-svg-card-description">{t('value4')}</div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <div>
-    <div className="container-default">
-      <div className="container-default-inner px-0 gap-0">
-        <div className="top-content feature-flex mb-60 top-content-title-only">
-          <h2 className="title features-page-v2">{t('valuesSectionTitle')}</h2>
-        </div>
-        <div className="_2-card-grid gap-32 mb-40 _2-rows">
-          <div id="w-node-d5c85166-0bd7-a9e6-ceea-f77a366e551a-5516fc99" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-attackprotection-values-01.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t('value1')}</div>
-            </div>
-          </div>
-          <div id="w-node-d5c85166-0bd7-a9e6-ceea-f77a366e5522-5516fc99" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t('value2')}</div>
-            </div>
-          </div>
-          <div id="w-node-d5c85166-0bd7-a9e6-ceea-f77a366e552a-5516fc99" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-attackprotection-values-03.svg" loading="lazy" width={48} alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t('value3')}</div>
-            </div>
-          </div>
-          <div id="w-node-d5c85166-0bd7-a9e6-ceea-f77a366e5532-5516fc99" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-attackprotection-values-04.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t('value4')}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <section>
-    <div className="container-default wider-container-default">
-      <div className="container-default-inner px-0 gap-0 pb-0"></div>
-      <div className="w-layout-hflex features-attack-protection">
-        <div className="split-content-right-only">
-          <p className="features-attack-protection-built-for-title">{t('builtForTitle')}</p>
-          <p className="features-attack-protection-built-for-description">{t('builtForDescription')}</p>
+  <section className="ds-section attack-protection-built-for">
+    <div className="ds-container">
+      <div className="attack-protection-built-for__surface">
+        <div className="attack-protection-built-for__content">
+          <h2 className="heading-on-dark">{t('builtForTitle')}</h2>
+          <p className="section-lede-on-dark">{t('builtForDescription')}</p>
         </div>
       </div>
     </div>
   </section>
-  <section className="footer-section-none-form">
-    <div className="w-layout-blockcontainer container-default w-container">
-      <div className="footer-section-none-form-content-wrap">
-        <div className="footer-section-none-form-content">
-          <h2 className="footer-section-none-form-title">{t('ctaTitle')}</h2>
-          <div className="text-block-46">{t('ctaDescription')}</div>
-        </div>
-        <div className="footer-section-none-form-cta-wrap">
-          <a href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="footer-section-none-form-button w-button">{tFeatures('startForFree')}</a>
-          <Link href="/schedule-demo" className="footer-section-none-form-button inverse w-button">{tFeatures('getDemo')}</Link>
-        </div>
-        <div className="w-layout-hflex footer-section-none-form-description-weapper"><img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
-          <p className="footer-section-none-form-cta-description">{t('freePlanIncludes')} <span className="text-span-45">{t('unlimitedMAUs')}</span></p>
-        </div>
+  <section className="ds-section ds-footer-cta-section">
+    <div className="ds-container">
+      <div className="title-content">
+        <h2 className="heading-on-dark">{t('ctaTitle')}</h2>
+        <p className="section-lede-on-dark">{t('ctaDescription')}</p>
+      </div>
+      <div className="ds-footer-cta__actions">
+        <a
+          href="https://portal.authgear.com/?utm_source=feature-attack-protection&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+          target="_blank"
+          rel="noreferrer"
+          className="ds-btn ds-btn-primary"
+        >
+          {tFeatures('startForFree')}
+        </a>
+        <Link href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-outline-light">
+          {tFeatures('getDemo')}
+        </Link>
+      </div>
+      <div className="ds-footer-cta__footnote">
+        <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+        <p className="ds-footer-cta__footnote-copy">
+          {t('freePlanIncludes')} <strong>{t('unlimitedMAUs')}</strong>
+        </p>
       </div>
     </div>
   </section>

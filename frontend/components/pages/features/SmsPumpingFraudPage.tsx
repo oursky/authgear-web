@@ -1,6 +1,8 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import ContactForm from '@/components/ContactForm';
+import SmsPumpingWarningFaqItem from '@/components/pages/features/SmsPumpingWarningFaqItem';
 
 interface Props {
   locale: string;
@@ -11,233 +13,321 @@ export default function SmsPumpingFraudPage(_props: Props) {
   const tFeatures = useTranslations('Features');
   return (
     <>
-<div className="featurespage__hero_v2 featurespage__hero_bg inverse">
-    <div className="features-hero-wrapper-new">
-      <div className="split-content features-hero-left">
-        <div className="coming-soon">{t('comingSoon')}</div>
-        <div className="featurespage__hero-titletag inverse">{t('heroSmallTitle')}</div>
-        <h1 className="title features-hero-v2 inverse">{t('heroTitle')}</h1>
-        <p className="features-hero-description inverse">{t('heroDescription')}</p>
-        <div className="features-hero-cta-wrapper">
-          <a href="https://portal.authgear.com/?utm_source=feature-sms-pumping&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">{tFeatures('startForFree')}</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale inverse w-button">{tFeatures('scheduleDemo')}  <span className="text-span-23">{">"}</span></Link>
+      <section className="ds-hero-banner--dark">
+        <div className="ds-container ds-container--hero">
+          <div className="ds-hero-banner__row">
+            <div className="ds-hero-banner__body">
+              <p className="ds-coming-soon-label">{t('comingSoon')}</p>
+              <p className="ds-section-eyebrow ds-section-eyebrow--on-dark">{t('heroSmallTitle')}</p>
+              <h1 className="ds-hero-banner__title">{t('heroTitle')}</h1>
+              <p className="ds-hero-banner__description">{t('heroDescription')}</p>
+              <div className="ds-hero-banner__ctas">
+                <a
+                  href="https://portal.authgear.com/?utm_source=feature-sms-pumping&utm_medium=link&utm_campaign=start-for-free"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ds-btn ds-btn-primary"
+                >
+                  {tFeatures('startForFree')}
+                  <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                </a>
+                <Link href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-tertiary">
+                  {tFeatures('scheduleDemo')}
+                  <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                </Link>
+              </div>
+            </div>
+            <img
+              className="ds-hero-banner__media"
+              src="/images/features-SMSfraud-hero-kv.svg"
+              width={624}
+              alt=""
+            />
+          </div>
         </div>
-      </div><img src="/images/features-SMSfraud-hero-kv.svg" alt="" className="image features-hero-image-v2" />
-    </div>
-  </div>
-  <div className="bg-f9f9fb">
-    <div className="container-default wider-container-default">
-      <div className="container-default-inner px-0 gap-0 pb-0">
-        <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2">{t('threatTitle')}</h2>
-          <p className="paragraph-large text-center features-page-v2 margin-auto">{t('threatDescription')}</p>
+      </section>
+  <section className="ds-section ds-bg-white">
+    <div className="ds-container ds-container--max-callout">
+      <div className="title-content">
+        <h2 className="heading-on-light">{t('threatTitle')}</h2>
+        <p className="section-lede-on-light">{t('threatDescription')}</p>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--flush">
+        <div className="ds-split-row__body ds-split-row__body--surface-card">
+          <h4 className="heading-on-light">{t('caseStudyTitle')}</h4>
+          <p className="section-lede-on-light">{t('caseStudyDescription')}</p>
         </div>
-        <div className="w-layout-hflex case-study-card">
-          <div className="w-layout-vflex flex-block-67">
-            <div className="text-block-65">{t('caseStudyTitle')}</div>
-            <div className="text-block-66">{t('caseStudyDescription')}</div>
-          </div><img src="/images/features-SMSfraud-X2x.jpg" loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcSet="/images/features-SMSfraud-X2x-p-500.jpg 500w, /images/features-SMSfraud-X2x-p-800.jpg 800w, /images/features-SMSfraud-X2x-p-1080.jpg 1080w, /images/features-SMSfraud-X2x.jpg 1400w" alt="" />
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-SMSfraud-X2x.jpg"
+            loading="lazy"
+            sizes="(max-width: 1400px) 100vw, 1400px"
+            srcSet="/images/features-SMSfraud-X2x-p-500.jpg 500w, /images/features-SMSfraud-X2x-p-800.jpg 800w, /images/features-SMSfraud-X2x-p-1080.jpg 1080w, /images/features-SMSfraud-X2x.jpg 1400w"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
         </div>
       </div>
     </div>
-  </div>
-  <div>
-    <div className="container-default wider-container-default">
-      <div className="container-default-inner px-0 gap-0 pb-0">
-        <div className="top-content feature-flex">
-          <h2 className="title features-page-v2">{t('devastateTitle')}<br />{t('devastateTitleLine2')}</h2>
-        </div>
-        <div className="features-flex-container gap-40 reverse-order reverse-again">
-          <div className="solution-image-block"><img src="/images/features-SMSfraud-how-FinancialDrain.svg" loading="lazy" alt="" /></div>
-          <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">{t('financialDrainTitle')}</h3>
-            <div className="gradient-divider"></div>
-            <div className="color-626262 line-height-24px">{t('financialDrainDesc')}</div>
+  </section>
+  <section className="ds-section ds-bg-white">
+    <div className="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+      <div className="title-content">
+        <h2 className="heading-on-light">
+          {t('devastateTitle')}
+          <br />
+          {t('devastateTitleLine2')}
+        </h2>
+      </div>
+      <div className="ds-split-stack__rows">
+        <div className="ds-split ds-split-row ds-split-row--reverse">
+          <div className="ds-split-row__media">
+            <img
+              src="/images/features-SMSfraud-how-FinancialDrain.svg"
+              loading="lazy"
+              width={624}
+              alt=""
+              className="ds-split-row__img"
+            />
+          </div>
+          <div className="ds-split-row__body">
+            <h3 className="heading-on-light">{t('financialDrainTitle')}</h3>
+            <p className="section-lede-on-light">{t('financialDrainDesc')}</p>
           </div>
         </div>
-        <div className="features-flex-container gap-40 reverse-again">
-          <div className="solution-image-block"><img src="/images/features-SMSfraud-how-OperationalDisruption.svg" loading="lazy" alt="" /></div>
-          <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">{t('operationalTitle')}</h3>
-            <div className="gradient-divider"></div>
-            <div className="color-626262 line-height-24px">{t('operationalDesc')}</div>
-            <ul role="list" className="_2-block-flex-content-list">
-              <li className="_2-block-flex-content-list-item line-height-24px with-subcontent cross-icon">{t('listItem1')}<br /><span className="list-subcontent">{t('listItem1Sub')}</span></li>
-              <li className="_2-block-flex-content-list-item line-height-24px with-subcontent cross-icon">{t('listItem2')}<br /><span className="list-subcontent">{t('listItem2Sub')}</span></li>
-              <li className="_2-block-flex-content-list-item line-height-24px with-subcontent cross-icon">{t('listItem3')}<br /><span className="list-subcontent">{t('listItem3Sub')}</span></li>
-              <li className="_2-block-flex-content-list-item line-height-24px with-subcontent cross-icon">{t('listItem4')}<br /><span className="list-subcontent">{t('listItem4Sub')}</span></li>
+        <div className="ds-split ds-split-row">
+          <div className="ds-split-row__media">
+            <img
+              src="/images/features-SMSfraud-how-OperationalDisruption.svg"
+              loading="lazy"
+              width={624}
+              alt=""
+              className="ds-split-row__img"
+            />
+          </div>
+          <div className="ds-split-row__body">
+            <h3 className="heading-on-light">{t('operationalTitle')}</h3>
+            <p className="section-lede-on-light">{t('operationalDesc')}</p>
+            <ul role="list" className="ds-stacked-list">
+              <li className="ds-stacked-list__item">
+                <span className="ds-stacked-list__lead">{t('listItem1')}</span>
+                <span className="ds-stacked-list__sub">{t('listItem1Sub')}</span>
+              </li>
+              <li className="ds-stacked-list__item">
+                <span className="ds-stacked-list__lead">{t('listItem2')}</span>
+                <span className="ds-stacked-list__sub">{t('listItem2Sub')}</span>
+              </li>
+              <li className="ds-stacked-list__item">
+                <span className="ds-stacked-list__lead">{t('listItem3')}</span>
+                <span className="ds-stacked-list__sub">{t('listItem3Sub')}</span>
+              </li>
+              <li className="ds-stacked-list__item">
+                <span className="ds-stacked-list__lead">{t('listItem4')}</span>
+                <span className="ds-stacked-list__sub">{t('listItem4Sub')}</span>
+              </li>
             </ul>
           </div>
         </div>
-        <div className="features-flex-container gap-40 reverse-order reverse-again">
-          <div className="solution-image-block"><img src="/images/features-SMSfraud-how-ReputationDamage.svg" loading="lazy" alt="" /></div>
-          <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">{t('reputationTitle')}</h3>
-            <div className="gradient-divider"></div>
-            <div className="color-626262 line-height-24px">{t('reputationDesc')}</div>
+        <div className="ds-split ds-split-row ds-split-row--reverse">
+          <div className="ds-split-row__media">
+            <img
+              src="/images/features-SMSfraud-how-ReputationDamage.svg"
+              loading="lazy"
+              width={624}
+              alt=""
+              className="ds-split-row__img"
+            />
+          </div>
+          <div className="ds-split-row__body">
+            <h3 className="heading-on-light">{t('reputationTitle')}</h3>
+            <p className="section-lede-on-light">{t('reputationDesc')}</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div>
-    <div className="container-default wider-container-default">
-      <div className="container-default-inner px-0 gap-0 pb-0">
-        <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2">{t('warningSectionTitle')}<br />{t('warningSectionTitleLine2')}</h2>
-          <p className="paragraph-large text-center features-page-v2">{t('warningSectionDesc')}</p>
-        </div>
-        <div className="w-layout-hflex flex-block-68"><img src="/images/features-SMSfraud-WaringSigns.svg" loading="lazy" alt="" />
-          <div className="faq2_component-2 _1060">
-            <div className="faq2_accordion-2">
-              <div className="faq2_question-2 first pumping-fraud-faq">
-                <div className="div-block-18"><img loading="lazy" src="/images/arrow-icon.svg" alt="" className="faq2_icon-2 nospin" /></div>
-                <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('warning1Title')}</div><img src="/images/features-SMSfraud-WaringSigns-icon-geographic.svg" loading="lazy" width={48} height={48} alt="" className="sms-signs-icon" />
-              </div>
-              <div style={{height: "0px"}} className="faq2_answer">
-                <div className="margin-bottom">
-                  <div className="max-width-large once-faq">
-                    <p className="referral-faq-a-2 pumping-fraud-faq-a">{t('warning1Desc')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="faq2_accordion-2 margin-top-32">
-              <div className="faq2_question-2 first pumping-fraud-faq">
-                <div className="div-block-18"><img loading="lazy" src="/images/arrow-icon.svg" alt="" className="faq2_icon-2 nospin" /></div>
-                <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('warning2Title')}</div><img src="/images/features-SMSfraud-WaringSigns-icon-traffic.svg" loading="lazy" alt="" className="sms-signs-icon" />
-              </div>
-              <div style={{height: "0px"}} className="faq2_answer">
-                <div className="margin-bottom">
-                  <div className="max-width-large once-faq">
-                    <p className="referral-faq-a-2 pumping-fraud-faq-a">{t('warning2Desc')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="faq2_accordion-2 margin-top-32">
-              <div className="faq2_question-2 first pumping-fraud-faq">
-                <div className="div-block-18"><img loading="lazy" src="/images/arrow-icon.svg" alt="" className="faq2_icon-2 nospin" /></div>
-                <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('warning3Title')}</div><img src="/images/features-SMSfraud-WaringSigns-icon-number.svg" loading="lazy" alt="" className="sms-signs-icon" />
-              </div>
-              <div style={{height: "0px"}} className="faq2_answer">
-                <div className="margin-bottom">
-                  <div className="max-width-large once-faq">
-                    <p className="referral-faq-a-2 pumping-fraud-faq-a">{t('warning3Desc')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="faq2_accordion-2 margin-top-32">
-              <div className="faq2_question-2 first pumping-fraud-faq">
-                <div className="div-block-18"><img loading="lazy" src="/images/arrow-icon.svg" alt="" className="faq2_icon-2 nospin" /></div>
-                <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('warning4Title')}</div><img src="/images/features-SMSfraud-WaringSigns-icon-conversion.svg" loading="lazy" alt="" className="sms-signs-icon" />
-              </div>
-              <div style={{height: "0px"}} className="faq2_answer">
-                <div className="margin-bottom">
-                  <div className="max-width-large once-faq">
-                    <p className="referral-faq-a-2 pumping-fraud-faq-a">{t('warning4Desc')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="faq2_accordion-2 margin-top-32">
-              <div className="faq2_question-2 first pumping-fraud-faq">
-                <div className="div-block-18"><img loading="lazy" src="/images/arrow-icon.svg" alt="" className="faq2_icon-2 nospin" /></div>
-                <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('warning5Title')}</div><img src="/images/features-SMSfraud-WaringSigns-icon-budget.svg" loading="lazy" alt="" className="sms-signs-icon" />
-              </div>
-              <div style={{height: "0px"}} className="faq2_answer">
-                <div className="margin-bottom">
-                  <div className="max-width-large once-faq">
-                    <p className="referral-faq-a-2 pumping-fraud-faq-a">{t('warning5Desc')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+  </section>
+  <section className="ds-section ds-bg-white">
+    <div className="ds-container">
+      <div className="title-content">
+        <h2 className="heading-on-light">
+          {t('warningSectionTitle')}
+          <br />
+          {t('warningSectionTitleLine2')}
+        </h2>
+        <p className="section-lede-on-light">{t('warningSectionDesc')}</p>
+      </div>
+      <div className="ds-sms-warning-signs__surface">
+        <div className="ds-sms-warning-signs__layout">
+          <div className="ds-sms-warning-signs__illustration">
+            <img
+              src="/images/features-SMSfraud-WaringSigns.svg"
+              loading="lazy"
+              alt=""
+              className="ds-sms-warning-signs__illustration-img"
+            />
+          </div>
+          <div className="ds-sms-warning-signs__faq">
+            <SmsPumpingWarningFaqItem
+              title={t('warning1Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-geographic.svg"
+              description={t('warning1Desc')}
+            />
+            <SmsPumpingWarningFaqItem
+              title={t('warning2Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-traffic.svg"
+              description={t('warning2Desc')}
+            />
+            <SmsPumpingWarningFaqItem
+              title={t('warning3Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-number.svg"
+              description={t('warning3Desc')}
+            />
+            <SmsPumpingWarningFaqItem
+              title={t('warning4Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-conversion.svg"
+              description={t('warning4Desc')}
+            />
+            <SmsPumpingWarningFaqItem
+              title={t('warning5Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-budget.svg"
+              description={t('warning5Desc')}
+            />
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div className="bg-f3f6ff">
-    <div className="container-default wider-container-default">
-      <div className="w-layout-vflex container-default-inner px-0 gap60">
-        <div className="top-content feature-flex">
-          <h2 className="title features-page-v2">{t('solutionTitle')}<br />{t('solutionTitleLine2')}</h2>
-          <p className="paragraph-large text-center features-page-v2 margin-auto">{t('solutionDesc')}</p>
+  </section>
+  <section className="ds-section ds-bg-light-blue">
+    <div className="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+      <div className="title-content">
+        <h2 className="heading-on-light">
+          {t('solutionTitle')}
+          <br />
+          {t('solutionTitleLine2')}
+        </h2>
+        <p className="section-lede-on-light">{t('solutionDesc')}</p>
+      </div>
+      <div className="ds-split-stack__rows">
+      <div className="ds-split ds-split-row ds-split-row--surface-light">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-SMSfraud-features-RealTime.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
         </div>
-        <div className="w-layout-hflex sms-left-right"><img src="/images/features-SMSfraud-features-RealTime.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('feature1Title')}</div>
-            <div className="color-626262 line-height-24px">{t('feature1Desc')}</div>
+        <div className="ds-split-row__body">
+          <h3 className="heading-on-light">{t('feature1Title')}</h3>
+          <p className="section-lede-on-light">{t('feature1Desc')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-SMSfraud-features-IntelligentPatternRecognition.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h3 className="heading-on-light">{t('feature2Title')}</h3>
+          <p className="section-lede-on-light">{t('feature2Desc')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--surface-light">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-SMSfraud-features-AutomatedThreatResponse.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h3 className="heading-on-light">{t('feature3Title')}</h3>
+          <p className="section-lede-on-light">{t('feature3Desc')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-SMSfraud-features-CustomizableSecurityPolicies.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h3 className="heading-on-light">{t('feature4Title')}</h3>
+          <p className="section-lede-on-light">{t('feature4Desc')}</p>
+        </div>
+      </div>
+      <div className="ds-split ds-split-row ds-split-row--surface-light">
+        <div className="ds-split-row__media">
+          <img
+            src="/images/features-SMSfraud-features-DetailedAnalyticsDashboard.svg"
+            loading="lazy"
+            width={624}
+            alt=""
+            className="ds-split-row__img"
+          />
+        </div>
+        <div className="ds-split-row__body">
+          <h3 className="heading-on-light">{t('feature5Title')}</h3>
+          <p className="section-lede-on-light">{t('feature5Desc')}</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <section className="ds-section ds-bg-light-blue">
+    <div className="ds-container">
+      <div className="title-content">
+        <h2 className="heading-on-light">
+          {t('whyTitle')}
+          <br />
+          {t('whyTitleLine2')}
+        </h2>
+      </div>
+      <div className="ds-grid-2">
+        <div className="svg-card">
+          <img src="/images/features-SMSfraud-why-security.svg" loading="lazy" alt="" />
+          <div className="ds-svg-card-content">
+            <div className="ds-svg-card-title">{t('why1Title')}</div>
+            <div className="ds-svg-card-description">{t('why1Desc')}</div>
           </div>
         </div>
-        <div className="w-layout-hflex sms-left-right reverse"><img src="/images/features-SMSfraud-features-IntelligentPatternRecognition.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('feature2Title')}</div>
-            <div className="color-626262 line-height-24px">{t('feature2Desc')}</div>
+        <div className="svg-card">
+          <img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" />
+          <div className="ds-svg-card-content">
+            <div className="ds-svg-card-title">{t('why2Title')}</div>
+            <div className="ds-svg-card-description">{t('why2Desc')}</div>
           </div>
         </div>
-        <div className="w-layout-hflex sms-left-right"><img src="/images/features-SMSfraud-features-AutomatedThreatResponse.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('feature3Title')}</div>
-            <div className="color-626262 line-height-24px">{t('feature3Desc')}</div>
+        <div className="svg-card">
+          <img src="/images/features-SMSfraud-why-ux.svg" loading="lazy" width={48} alt="" />
+          <div className="ds-svg-card-content">
+            <div className="ds-svg-card-title">{t('why3Title')}</div>
+            <div className="ds-svg-card-description">{t('why3Desc')}</div>
           </div>
         </div>
-        <div className="w-layout-hflex sms-left-right reverse"><img src="/images/features-SMSfraud-features-CustomizableSecurityPolicies.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('feature4Title')}</div>
-            <div className="color-626262 line-height-24px">{t('feature4Desc')}</div>
-          </div>
-        </div>
-        <div className="w-layout-hflex sms-left-right"><img src="/images/features-SMSfraud-features-DetailedAnalyticsDashboard.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('feature5Title')}</div>
-            <div className="color-626262 line-height-24px">{t('feature5Desc')}</div>
+        <div className="svg-card">
+          <img src="/images/features-SMSfraud-WaringSigns-icon-budget.svg" loading="lazy" alt="" />
+          <div className="ds-svg-card-content">
+            <div className="ds-svg-card-title">{t('why4Title')}</div>
+            <div className="ds-svg-card-description">{t('why4Desc')}</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div className="bg-f3f6ff">
-    <div className="container-default">
-      <div className="container-default-inner px-0 gap-0">
-        <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2">{t('whyTitle')}<br />{t('whyTitleLine2')}</h2>
-        </div>
-        <div className="_2-card-grid gap-32 mb-40 _2-rows">
-          <div id="w-node-ab065274-56a3-587d-2df4-75ff4e52d6d5-3eea4af0" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-SMSfraud-why-security.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('why1Title')}</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t('why1Desc')}</div>
-            </div>
-          </div>
-          <div id="w-node-ab065274-56a3-587d-2df4-75ff4e52d6dd-3eea4af0" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('why2Title')}</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t('why2Desc')}</div>
-            </div>
-          </div>
-          <div id="w-node-f3362fce-81ce-e37b-862e-afd3f1ab873a-3eea4af0" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-SMSfraud-why-ux.svg" loading="lazy" width={48} alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('why3Title')}</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t('why3Desc')}</div>
-            </div>
-          </div>
-          <div id="w-node-_7dcc6254-c236-0d2a-6aec-2b64a8f8b29f-3eea4af0" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-SMSfraud-WaringSigns-icon-budget.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('why4Title')}</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t('why4Desc')}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
   <div className="footer-form-section form__bg-dark">
     <div className="container-default">
       <div className="container-default-inner px-0">
