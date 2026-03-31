@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
@@ -10,77 +11,160 @@ export default function AuthorizationPage(_props: Props) {
   const tFeatures = useTranslations('Features');
   return (
     <>
-<div className="featurespage__hero_v2 featurespage__hero_bg no-bg">
-    <div className="features-hero-wrapper-new inner-bg">
-      <div className="split-content features-hero-left">
-        <div className="feature-small-title">{t('heroSmallTitle')}</div>
-        <h1 className="title features-hero-v2 text-white">{t('heroTitle')}</h1>
-        <p className="features-hero-description text-purple">{t('heroDescription')}</p>
-        <div className="features-hero-cta-wrapper">
-          <a href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 featue-white-btn w-button">{tFeatures('startForFree')}</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale text-white w-button">{tFeatures('getDemo')}  <span className="text-span-23">{">"}</span></Link>
-          <div className="w-layout-hflex features-hero-cta-description-weapper"><img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
-            <p className="features-hero-cta-description text-purple">{t('freePlanIncludes')} <span className="features-hero-cta-description-bold text-white">{t('unlimitedMAUs')}</span></p>
+  <section className="ds-hero-banner--gradient">
+    <div className="ds-container ds-container--gradient-hero-shell">
+      <div className="ds-hero-banner--gradient__inner">
+        <div className="ds-container ds-container--hero">
+        <div className="ds-hero-banner__row">
+          <div className="ds-hero-banner__body">
+            <p className="ds-section-eyebrow ds-section-eyebrow--on-dark">{t('heroSmallTitle')}</p>
+            <h1 className="ds-hero-banner__title">{t('heroTitle')}</h1>
+            <p className="ds-hero-banner__description">{t('heroDescription')}</p>
+            <div className="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-authorization&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                className="ds-btn ds-btn-primary"
+              >
+                {tFeatures('startForFree')}
+                <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+              </a>
+              <Link href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-tertiary">
+                {tFeatures('getDemo')}
+                <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+              </Link>
+            </div>
+            <div className="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p className="ds-hero-banner__footnote-copy">
+                {t('freePlanIncludes')} <strong>{t('unlimitedMAUs')}</strong>
+              </p>
+            </div>
           </div>
+          <img
+            className="ds-hero-banner__media"
+            src="/images/features-authorization-hero-banner2x.webp"
+            srcSet="/images/features-authorization-hero-banner2x-p-500.webp 500w, /images/features-authorization-hero-banner2x-p-800.webp 800w, /images/features-authorization-hero-banner2x-p-1080.webp 1080w, /images/features-authorization-hero-banner2x.webp 1244w"
+            sizes="(max-width: 767px) 100vw, 738px"
+            width={738}
+            alt=""
+          />
         </div>
-      </div><img src="/images/features-authorization-hero-banner2x.webp" srcSet="/images/features-authorization-hero-banner2x-p-500.webp 500w, /images/features-authorization-hero-banner2x-p-800.webp 800w, /images/features-authorization-hero-banner2x-p-1080.webp 1080w, /images/features-authorization-hero-banner2x.webp 1244w" width={738} sizes="(max-width: 767px) 100vw, 738px" alt="" className="image features-hero-image-v2" />
+        </div>
+      </div>
     </div>
-  </div>
-  <section>
-    <div className="container-default wider-container-default">
-      <div className="container-default-inner px-0 gap-0 pb-0"></div>
-      <div className="w-layout-hflex features-callout-card">
-        <h1 className="title features-hero-v2 inverse nomargin">{t('whyAuthgearTitleLine1')}<br />{t('whyAuthgearTitleLine2')}</h1>
-        <div className="split-content features-hero-left nomargin">
-          <p className="features-hero-description inverse">{t('whyAuthgearDescLine1')}<br />{t('whyAuthgearDescLine2')}</p>
-          <div className="features-hero-cta-wrapper in-ready-to-switch">
-            <Link href="/schedule-demo" target="_blank" className="button-primary feature-hero-btn-v2 nomargin w-button">{t('talkToUs')}</Link>
-            <a href="https://accounts.portal.authgear.com/signup" target="_blank" className="button-secondary feature-hero-btn-v2 noscale button-secondary-with-boarder inverse w-button">{tFeatures('startForFree')}</a>
+  </section>
+  <section className="ds-section">
+    <div className="ds-container">
+      <div className="ds-feature-callout">
+        <div className="ds-feature-callout__title">
+          <h2 className="heading-on-dark">
+            {t('whyAuthgearTitleLine1')}
+            <br />
+            {t('whyAuthgearTitleLine2')}
+          </h2>
+        </div>
+        <div className="ds-feature-callout__body">
+          <p className="section-lede-on-dark">
+            {t('whyAuthgearDescLine1')}
+            <br />
+            {t('whyAuthgearDescLine2')}
+          </p>
+          <div className="ds-feature-callout__ctas">
+            <Link href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-primary">
+              {t('talkToUs')}
+            </Link>
+            <a
+              href="https://accounts.portal.authgear.com/signup"
+              target="_blank"
+              rel="noreferrer"
+              className="ds-btn ds-btn-outline-light"
+            >
+              {tFeatures('startForFree')}
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <div className="bg-f3f6ff bg-f9f9fb">
-    <div className="container-default wider-container-default">
-      <div className="w-layout-vflex container-default-inner px-0 gap60">
-        <div className="top-content feature-flex">
-          <h2 className="title features-page-v2">{t('centralizedTitle')}</h2>
-        </div>
-        <div className="w-layout-hflex sms-left-right"><img src="/images/features-authorization-content-roles.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('rolesTitle')}</div>
-            <div className="color-626262 line-height-24px">{t('rolesDesc')}</div>
+  <section className="ds-section ds-bg-light-blue">
+    <div className="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+      <div className="title-content">
+        <h2 className="heading-on-light">{t('centralizedTitle')}</h2>
+      </div>
+      <div className="ds-split-stack__rows">
+        <div className="ds-split ds-split-row ds-split-row--surface-light">
+          <div className="ds-split-row__media">
+            <img
+              src="/images/features-authorization-content-roles.svg"
+              loading="lazy"
+              width={624}
+              alt=""
+              className="ds-split-row__img"
+            />
+          </div>
+          <div className="ds-split-row__body">
+            <h3 className="heading-on-light">{t('rolesTitle')}</h3>
+            <p className="section-lede-on-light">{t('rolesDesc')}</p>
           </div>
         </div>
-        <div className="w-layout-hflex sms-left-right reverse"><img src="/images/features-authorization-content-groups.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('groupsTitle')}</div>
-            <div className="color-626262 line-height-24px">{t('groupsDesc')}</div>
+        <div className="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+          <div className="ds-split-row__media">
+            <img
+              src="/images/features-authorization-content-groups.svg"
+              loading="lazy"
+              width={624}
+              alt=""
+              className="ds-split-row__img"
+            />
+          </div>
+          <div className="ds-split-row__body">
+            <h3 className="heading-on-light">{t('groupsTitle')}</h3>
+            <p className="section-lede-on-light">{t('groupsDesc')}</p>
           </div>
         </div>
-        <div className="w-layout-hflex sms-left-right"><img src="/images/features-authorization-content-audit.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">{t('auditTitle')}</div>
-            <div className="color-626262 line-height-24px">{t('auditDesc')}</div>
+        <div className="ds-split ds-split-row ds-split-row--surface-light">
+          <div className="ds-split-row__media">
+            <img
+              src="/images/features-authorization-content-audit.svg"
+              loading="lazy"
+              width={624}
+              alt=""
+              className="ds-split-row__img"
+            />
+          </div>
+          <div className="ds-split-row__body">
+            <h3 className="heading-on-light">{t('auditTitle')}</h3>
+            <p className="section-lede-on-light">{t('auditDesc')}</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <section className="footer-section-none-form">
-    <div className="w-layout-blockcontainer container-default w-container">
-      <div className="footer-section-none-form-content-wrap">
-        <div className="footer-section-none-form-content">
-          <h2 className="footer-section-none-form-title">{t('ctaTitle')}</h2>
-        </div>
-        <div className="footer-section-none-form-cta-wrap">
-          <a href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="footer-section-none-form-button w-button">{tFeatures('startForFree')}</a>
-          <Link href="/schedule-demo" className="footer-section-none-form-button inverse w-button">{tFeatures('getDemo')}</Link>
-        </div>
-        <div className="w-layout-hflex footer-section-none-form-description-weapper"><img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
-          <p className="footer-section-none-form-cta-description">{t('freePlanIncludes')} <span className="text-span-45">{t('unlimitedMAUs')}</span></p>
-        </div>
+  </section>
+  <section className="ds-section ds-footer-cta-section">
+    <div className="ds-container">
+      <div className="title-content">
+        <h2 className="heading-on-dark">{t('ctaTitle')}</h2>
+      </div>
+      <div className="ds-footer-cta__actions">
+        <a
+          href="https://portal.authgear.com/?utm_source=feature-authorization&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+          target="_blank"
+          rel="noreferrer"
+          className="ds-btn ds-btn-primary"
+        >
+          {tFeatures('startForFree')}
+        </a>
+        <Link href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-outline-light">
+          {tFeatures('getDemo')}
+        </Link>
+      </div>
+      <div className="ds-footer-cta__footnote">
+        <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+        <p className="ds-footer-cta__footnote-copy">
+          {t('freePlanIncludes')} <strong>{t('unlimitedMAUs')}</strong>
+        </p>
       </div>
     </div>
   </section>

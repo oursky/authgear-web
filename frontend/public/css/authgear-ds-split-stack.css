@@ -1,0 +1,31 @@
+/*
+ * 載入順序須在 webflow.css / authgear-new.webflow.css **之後**（見 app/layout.tsx）。
+ * 否則後載的 Webflow 會蓋掉 design-system 內 @layer／較早載入的規則，導致 split 列黏在一起、標題與首列間距過大。
+ */
+.ds-container.ds-container--split-stack.ds-container--split-stack--title-gap-m {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: var(--spacing-m) !important;
+}
+
+.ds-container.ds-container--split-stack.ds-container--split-stack--title-gap-m > .title-content {
+  margin-block-end: 0 !important;
+}
+
+.ds-container.ds-container--split-stack.ds-container--split-stack--title-gap-m > .ds-split-stack__rows {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--spacing-xl) !important;
+  align-self: stretch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/*
+ * Webflow 常對 `div` 等設 margin；flex 的 `gap` 會與子項 margin 疊加，間距會大於單純 `--spacing-xl`。
+ */
+.ds-container.ds-container--split-stack.ds-container--split-stack--title-gap-m > .ds-split-stack__rows > .ds-split {
+  margin: 0 !important;
+}

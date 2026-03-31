@@ -88,6 +88,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta name="google-site-verification" content="cwUTy_LBZHQ90P9sQzhKyyV2M024ukPHK2rYpvion6M" />
 <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/authgear-new.webflow.css" rel="stylesheet" type="text/css" />
+        <link href="/css/authgear-ds-split-stack.css" rel="stylesheet" type="text/css" />
         <style>{`
 .w-container{max-width:1271px;}
 /* Replaces Webflow's w-mod-touch JS snippet — disables fixed backgrounds on touch devices */
