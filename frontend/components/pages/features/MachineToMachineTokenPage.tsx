@@ -1,4 +1,6 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import ContactForm from '@/components/ContactForm';
 
 interface Props {
@@ -6,208 +8,251 @@ interface Props {
 }
 
 export default function MachineToMachineTokenPage(_props: Props) {
+  const t = useTranslations('MachineToMachineToken');
+  const tFeatures = useTranslations('Features');
   return (
     <>
-<div className="featurespage__hero_v2 featurespage__hero_bg inverse">
-    <div className="features-hero-wrapper-new">
-      <div className="split-content features-hero-left">
-        <div className="featurespage__hero-titletag inverse">Machine-to-Machine Token</div>
-        <h1 className="title features-hero-v2 inverse">Secure Machine-to-Machine (M2M) Authentication with Authgear</h1>
-        <p className="features-hero-description inverse">Enable seamless service-to-service communication with short-lived, scoped access tokens.<strong> </strong>Authgear’s Machine-to-Machine (M2M) tokens let backend services, APIs, and IoT devices authenticate securely without human intervention — all powered by the industry-standard OAuth 2.0 Client Credentials Flow.</p>
-        <div className="features-hero-cta-wrapper">
-          <a href="https://portal.authgear.com/?utm_source=feature-m2m&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale inverse w-button">Schedule Demo  <span className="text-span-23">{">"}</span></Link>
-        </div>
-      </div>
-      <div className="lottie-hero-banner">
-        <div className="lottie-hero-animation" data-animation-type="lottie" data-src="../documents/features-M2M-hero-kv.json" data-loop="0" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="0"></div>
-      </div>
-    </div>
-  </div>
-  <div className="m2m-empower-dark">
-    <div className="container-default wider-container-default">
-      <div className="container-default-inner px-0 gap-0 pb-0">
-        <div className="top-content feature-flex">
-          <h2 className="title-light features-page-v2">What is Machine-to-Machine (M2M) Authentication?</h2>
-          <div className="centered-container">
-            <p className="color-white text-center">Machine-to-machine (M2M) authentication is the process of allowing two applications or services to communicate securely without a user present. <br />Instead of passwords or API keys, each service uses its own Client ID and Client Secret to request a short-lived access token.This ensures secure, auditable, and revocable service-to-service authentication, widely used in backend integrations, microservices, and IoT systems.</p>
-            <a href="https://docs.authgear.com/get-started/m2m-applications" target="_blank" className="gallery-button gallery-page-button w-button">Read our docs</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="bg-f9f9fb">
-    <div className="container-default">
-      <div className="container-default-inner px-0 gap-0">
-        <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2">Benefits of using M2M tokens</h2>
-        </div>
-        <div className="_3-card-grid">
-          <div id="w-node-_6b3e18e8-0e3a-dfe6-0b3f-4dd97161ad6d-40064312" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-selfserve-cx-security.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Improved Security</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">Uses short-lived, revocable tokens instead of long-term static credentials.</div>
+      <section className="ds-hero-banner--dark">
+        <div className="ds-container ds-container--hero">
+          <div className="ds-hero-banner__row">
+            <div className="ds-hero-banner__body">
+              <p className="ds-section-eyebrow ds-section-eyebrow--on-dark">{t('heroSmallTitle')}</p>
+              <h1 className="ds-hero-banner__title">{t('heroTitle')}</h1>
+              <p className="ds-hero-banner__description">{t('heroDescription')}</p>
+              <div className="ds-hero-banner__ctas">
+                <a
+                  href="https://portal.authgear.com/?utm_source=feature-m2m&utm_medium=link&utm_campaign=start-for-free"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ds-btn ds-btn-secondary"
+                >
+                  {tFeatures('startForFree')}
+                  <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                </a>
+                <Link href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-tertiary">
+                  {tFeatures('scheduleDemo')}
+                  <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                </Link>
+              </div>
             </div>
-          </div>
-          <div id="w-node-_51a5bd21-d5d2-7350-de31-ab29eb4abb3a-40064312" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-M2M-benefits-automated.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Fully Automated</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">Enables systems to authenticate without human input.</div>
-            </div>
-          </div>
-          <div id="w-node-_931c3212-78e9-ce11-0812-273d9b3cead5-40064312" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-M2M-benefits-accesscontrol.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Fine-Grained Access Control</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">Limit machine access to only the necessary resources.</div>
-            </div>
-          </div>
-          <div id="w-node-_6b3e18e8-0e3a-dfe6-0b3f-4dd97161ad75-40064312" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-M2M-benefits-scalable.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Highly Scalable</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">Handles a large fleet of devices or services and requests with ease.</div>
-            </div>
-          </div>
-          <div id="w-node-_6b3e18e8-0e3a-dfe6-0b3f-4dd97161ad7d-40064312" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-M2M-benefits-comliance.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Regulatory Compliance and Auditability</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">Tracks when and how machines access resources.</div>
-            </div>
-          </div>
-          <div id="w-node-_6b3e18e8-0e3a-dfe6-0b3f-4dd97161ad85-40064312" className="svg-card">
-            <div className="svg-card-image-container"><img src="/images/features-M2M-benefits-tools.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">Industry Standard Protocols</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">Compatible with established frameworks like OAuth 2.0 and JWT.</div>
+            <div className="ds-hero-banner__media">
+              <div
+                className="lottie-hero-animation"
+                data-animation-type="lottie"
+                data-src="/documents/features-M2M-hero-kv.json"
+                data-loop="0"
+                data-direction="1"
+                data-autoplay="1"
+                data-is-ix2-target="0"
+                data-renderer="svg"
+                data-default-duration="0"
+              />
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div className="container-default wider-container-default">
-      <div className="container-default-inner px-0 gap-0 pb-0">
-        <div className="top-content feature-flex">
-          <h2 className="title features-page-v2">Common Use Cases</h2>
-        </div>
-        <div className="features-flex-container gap-40 reverse-order reverse-again">
-          <div className="solution-image-block"><img src="/images/features-M2M-usercase-backends.svg" loading="lazy" alt="" /></div>
-          <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">Application Backends</h3>
-            <div className="gradient-divider"></div>
-            <div className="color-626262 line-height-24px">Securely transfer data, logs, or files between internal and external services.</div>
+      </section>
+      <section className="ds-section mm-empower-section-bg">
+        <div className="ds-container">
+          <div className="title-content">
+            <h2 className="heading-on-dark">{t('whatIsTitle')}</h2>
+            <p className="section-lede-on-dark">{t('whatIsDesc')}</p>
+            <a
+              href="https://docs.authgear.com/get-started/m2m-applications"
+              target="_blank"
+              rel="noreferrer"
+              className="ds-btn ds-btn-outline-light"
+            >
+              {t('whatIsReadDocs')}
+            </a>
           </div>
         </div>
-        <div className="features-flex-container gap-40 reverse-again">
-          <div className="solution-image-block"><img src="/images/features-M2M-usercase-clitools.svg" loading="lazy" alt="" /></div>
-          <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">CLI Tools</h3>
-            <div className="gradient-divider"></div>
-            <div className="color-626262 line-height-24px">Let command-line tools securely access APIs using short-lived, scoped tokens.</div>
+      </section>
+      <section className="ds-section ds-bg-light-blue">
+        <div className="ds-container">
+          <div className="title-content">
+            <h2 className="heading-on-light">{t('benefitsTitle')}</h2>
+          </div>
+          <div className="ds-grid-3">
+            <div className="svg-card">
+              <img src="/images/features-selfserve-cx-security.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('benefit1Title')}</div>
+                <div className="ds-svg-card-description">{t('benefit1Desc')}</div>
+              </div>
+            </div>
+            <div className="svg-card">
+              <img src="/images/features-M2M-benefits-automated.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('benefit2Title')}</div>
+                <div className="ds-svg-card-description">{t('benefit2Desc')}</div>
+              </div>
+            </div>
+            <div className="svg-card">
+              <img src="/images/features-M2M-benefits-accesscontrol.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('benefit3Title')}</div>
+                <div className="ds-svg-card-description">{t('benefit3Desc')}</div>
+              </div>
+            </div>
+            <div className="svg-card">
+              <img src="/images/features-M2M-benefits-scalable.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('benefit4Title')}</div>
+                <div className="ds-svg-card-description">{t('benefit4Desc')}</div>
+              </div>
+            </div>
+            <div className="svg-card">
+              <img src="/images/features-M2M-benefits-comliance.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('benefit5Title')}</div>
+                <div className="ds-svg-card-description">{t('benefit5Desc')}</div>
+              </div>
+            </div>
+            <div className="svg-card">
+              <img src="/images/features-M2M-benefits-tools.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('benefit6Title')}</div>
+                <div className="ds-svg-card-description">{t('benefit6Desc')}</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="features-flex-container gap-40 reverse-order reverse-again">
-          <div className="solution-image-block"><img src="/images/features-M2M-usercase-scheduled.svg" loading="lazy" alt="" /></div>
-          <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">Scheduled Jobs &amp; Daemons</h3>
-            <div className="gradient-divider"></div>
-            <div className="color-626262 line-height-24px">Authorize cronjobs, job schedulers, and background workers to interact with APIs safely and efficiently.</div>
+      </section>
+      <section className="ds-section ds-bg-white">
+        <div className="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+          <div className="title-content">
+            <h2 className="heading-on-light">{t('useCasesTitle')}</h2>
+          </div>
+          <div className="ds-split-stack__rows">
+            <div className="ds-split ds-split-row">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-usercase-backends.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('useCase1Title')}</h3>
+                <p className="section-lede-on-light">{t('useCase1Desc')}</p>
+              </div>
+            </div>
+            <div className="ds-split ds-split-row ds-split-row--reverse">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-usercase-clitools.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('useCase2Title')}</h3>
+                <p className="section-lede-on-light">{t('useCase2Desc')}</p>
+              </div>
+            </div>
+            <div className="ds-split ds-split-row">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-usercase-scheduled.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('useCase3Title')}</h3>
+                <p className="section-lede-on-light">{t('useCase3Desc')}</p>
+              </div>
+            </div>
+            <div className="ds-split ds-split-row ds-split-row--reverse">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-usercase-iot.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('useCase4Title')}</h3>
+                <p className="section-lede-on-light">{t('useCase4Desc')}</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="features-flex-container gap-40 reverse-again">
-          <div className="solution-image-block"><img src="/images/features-M2M-usercase-iot.svg" loading="lazy" alt="" /></div>
-          <div className="features-text-block p-0">
-            <h3 className="features-h3-dark">IoT Devices</h3>
-            <div className="gradient-divider"></div>
-            <div className="color-626262 line-height-24px">Enable smart devices to send data to your cloud services automatically for telemetry or commands, with each device authenticated and scoped individually.</div>
+      </section>
+      <section className="ds-section ds-bg-light-blue">
+        <div className="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+          <div className="title-content">
+            <h2 className="heading-on-light">{t('howItWorksTitle')}</h2>
+          </div>
+          <div className="ds-split-stack__rows">
+            <div className="ds-split ds-split-row ds-split-row--surface-light">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-how-register-resources.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('howStep1Title')}</h3>
+                <p className="section-lede-on-light">{t('howStep1Desc')}</p>
+              </div>
+            </div>
+            <div className="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-how-register-application.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('howStep2Title')}</h3>
+                <p className="section-lede-on-light">{t('howStep2Desc')}</p>
+              </div>
+            </div>
+            <div className="ds-split ds-split-row ds-split-row--surface-light">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-how-obtain.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('howStep3Title')}</h3>
+                <p className="section-lede-on-light">{t('howStep3Desc')}</p>
+              </div>
+            </div>
+            <div className="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-how-token.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('howStep4Title')}</h3>
+                <p className="section-lede-on-light">{t('howStep4Desc1')}<code>{t('howStep4Code')}</code>{t('howStep4Desc2')}</p>
+              </div>
+            </div>
+            <div className="ds-split ds-split-row ds-split-row--surface-light">
+              <div className="ds-split-row__media">
+                <img src="/images/features-M2M-how-access-api.svg" loading="lazy" width={624} alt="" className="ds-split-row__img" />
+              </div>
+              <div className="ds-split-row__body">
+                <h3 className="heading-on-light">{t('howStep5Title')}</h3>
+                <p className="section-lede-on-light">{t('howStep5Desc')}</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div className="bg-f3f6ff bg-f9f9fb">
-    <div className="container-default wider-container-default">
-      <div className="w-layout-vflex container-default-inner px-0 gap60">
-        <div className="top-content feature-flex">
-          <h2 className="title features-page-v2">How it Works</h2>
-        </div>
-        <div className="w-layout-hflex sms-left-right"><img src="/images/features-M2M-how-register-resources.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">Register Your Resources</div>
-            <div className="color-626262 line-height-24px">Add APIs to Authgear and define the scopes (permissions) for each of them</div>
+      </section>
+      <section className="ds-section ds-bg-light-blue">
+        <div className="ds-container">
+          <div className="title-content">
+            <h2 className="heading-on-light">{t('faqTitle')}</h2>
+          </div>
+          <div className="ds-faq">
+            <div className="ds-faq__item">
+              <h4 className="ds-faq__question">{t('faq1Question')}</h4>
+              <p className="ds-faq__answer">{t('faq1AnswerPre')}<strong>{t('faq1AnswerBold')}</strong>{t('faq1AnswerPost')}</p>
+            </div>
+            <div className="ds-faq__item">
+              <h4 className="ds-faq__question">{t('faq2Question')}</h4>
+              <p className="ds-faq__answer">{t('faq2AnswerPre')}<strong>{t('faq2AnswerBold')}</strong>{t('faq2AnswerPost')}</p>
+            </div>
+            <div className="ds-faq__item">
+              <h4 className="ds-faq__question">{t('faq3Question')}</h4>
+              <p className="ds-faq__answer">{t('faq3Answer')}</p>
+            </div>
+            <div className="ds-faq__item">
+              <h4 className="ds-faq__question">{t('faq4Question')}</h4>
+              <p className="ds-faq__answer">{t('faq4AnswerPre')}<strong>{t('faq4AnswerBold')}</strong>{t('faq4AnswerPost')}</p>
+            </div>
           </div>
         </div>
-        <div className="w-layout-hflex sms-left-right reverse"><img src="/images/features-M2M-how-register-application.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">Register Your Application</div>
-            <div className="color-626262 line-height-24px">Create a client application for each backend, device, or tool that needs API access. Assign the resources and scopes available to the service</div>
-          </div>
-        </div>
-        <div className="w-layout-hflex sms-left-right"><img src="/images/features-M2M-how-obtain.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">Obtain Credentials</div>
-            <div className="color-626262 line-height-24px">Each application receives a unique client ID and secret</div>
-          </div>
-        </div>
-        <div className="w-layout-hflex sms-left-right reverse"><img src="/images/features-M2M-how-token.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">Request a Token</div>
-            <div className="color-626262 line-height-24px">The application authenticates with Authgear using the <code>/oauth/token</code> endpoint, and receives a short-lived access token, containing only the scopes you’ve assigned.</div>
-          </div>
-        </div>
-        <div className="w-layout-hflex sms-left-right"><img src="/images/features-M2M-how-access-api.svg" loading="lazy" alt="" className="features-card-image-radius" />
-          <div className="features-text-block p-0 gap16">
-            <div className="faq-accordion-question referral-faq-q pumping-fraud-faq">Access Protected APIs</div>
-            <div className="color-626262 line-height-24px">The service uses the bearer token in the Authorization header to call your APIs</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <section className="bg-f3f6ff">
-    <div className="container-default">
-      <div className="container-default-inner px-0 gap-0 pb-0">
-        <div className="top-content feature-flex">
-          <h2 className="title features-page-v2">Frequently Asked Questions (FAQ)</h2>
-        </div>
-        <div className="tools-step">
-          <div className="w-layout-vflex tools-step-card">
-            <div className="tools-step-title">What is machine-to-machine (M2M) authentication?</div>
-            <p>M2M authentication is a method that allows services or applications to securely communicate without user credentials. Instead, services exchange <strong>M2M tokens</strong> (short-lived access tokens) via the OAuth Client Credentials Flow.</p>
-          </div>
-          <div className="w-layout-vflex tools-step-card">
-            <div className="tools-step-title">How does the OAuth Client Credentials Flow work?</div>
-            <p>The Client Credentials Flow issues an access token directly to a machine or service (not a user). A service authenticates using its <strong>Client ID and Secret</strong> and receives a JWT token it can use to access protected APIs.</p>
-          </div>
-          <div className="w-layout-vflex tools-step-card">
-            <div className="tools-step-title">Why use M2M tokens instead of API keys?</div>
-            <p>M2M tokens are short-lived, scoped, and revocable. Unlike static API keys, they improve security by limiting exposure and allowing fine-grained access control.</p>
-          </div>
-          <div className="w-layout-vflex tools-step-card">
-            <div className="tools-step-title">Can I use M2M authentication for microservices?</div>
-            <p>Yes. M2M authentication is commonly used for <strong>microservice-to-microservice communication</strong>, ensuring secure backend API calls without embedding static secrets.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
   <div className="footer-form-section form__bg-dark">
     <div className="container-default">
       <div className="container-default-inner px-0">
         <div className="_2-block-flex footer-form">
           <div className="_2-block-flex-content footer-form">
             <div className="_2-block-flex-content-text-wrap footer-form">
-              <h2 className="form-heading color-white footer-form">Get Started with Machine-to-Machine Tokens</h2>
-              <div className="color-cee9ff">Ready to secure your APIs and backend services?<br />Sign up now and try Authgear’s M2M token authentication in minutes.</div>
+              <h2 className="form-heading color-white footer-form">{t('ctaTitle')}</h2>
+              <div className="color-cee9ff">{t('ctaDesc')}</div>
               <div className="footerform__divider-sm"></div>
               <a href="https://portal.authgear.com/?utm_source=feature-m2m&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="footer-link w-inline-block">
-                <div className="color-white footer-get-started-text">Start Free with Authgear {">"}</div>
+                <div className="color-white footer-get-started-text">{t('ctaLink')} &gt;</div>
               </a>
             </div>
           </div>

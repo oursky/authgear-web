@@ -26,7 +26,7 @@ export default function SmsPumpingFraudPage(_props: Props) {
                   href="https://portal.authgear.com/?utm_source=feature-sms-pumping&utm_medium=link&utm_campaign=start-for-free"
                   target="_blank"
                   rel="noreferrer"
-                  className="ds-btn ds-btn-primary"
+                  className="ds-btn ds-btn-secondary"
                 >
                   {tFeatures('startForFree')}
                   <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
@@ -46,7 +46,7 @@ export default function SmsPumpingFraudPage(_props: Props) {
           </div>
         </div>
       </section>
-  <section className="ds-section ds-bg-white">
+  <section className="ds-section">
     <div className="ds-container ds-container--max-callout">
       <div className="title-content">
         <h2 className="heading-on-light">{t('threatTitle')}</h2>

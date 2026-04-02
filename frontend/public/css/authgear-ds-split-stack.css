@@ -29,3 +29,43 @@
 .ds-container.ds-container--split-stack.ds-container--split-stack--title-gap-m > .ds-split-stack__rows > .ds-split {
   margin: 0 !important;
 }
+
+/*
+ * 深色底圖文分欄（如 Passwordless 紫色區）：與 DS `heading-on-dark`／`section-lede-on-dark` token 一致。
+ * Webflow `authgear-new.webflow.css` 內全域 `h2 { color: var(--primary-1); font-size: 42px; … }` 後載會覆寫 bundle，
+ * 故寫在此檔並用 !important（本檔在 layout 中載入於 Webflow 之後）。
+ */
+.ds-split-row__body > h2.heading-on-dark {
+  margin: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h2) !important;
+  line-height: var(--text-h2--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+  letter-spacing: normal !important;
+  text-align: left !important;
+  max-width: 100% !important;
+}
+
+.ds-split-row__body > h3.heading-on-dark {
+  margin: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h3) !important;
+  line-height: var(--text-h3--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: normal !important;
+  text-align: left !important;
+  max-width: 100% !important;
+}
+
+.ds-split-row__body > p.section-lede-on-dark {
+  margin: 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+  text-align: left !important;
+  max-width: 100% !important;
+}
