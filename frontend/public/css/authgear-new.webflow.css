@@ -16759,6 +16759,14 @@ figcaption {
   color: #fff;
 }
 
+.tab-switcher.cloud-tab.active-tab > div svg path {
+  fill: #fff;
+}
+
+.tab-switcher.once-tab.active-tab > div svg path {
+  stroke: #fff;
+}
+
 .once.pricing-info {
   display: none;
 }
