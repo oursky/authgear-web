@@ -1,14 +1,16 @@
 import { getTranslations } from 'next-intl/server';
 import { localizedPath } from '@/lib/i18n';
 import { pricingCopyEn } from '@/lib/pricing/copy-en';
+import { pricingCopyZhTW } from '@/lib/pricing/copy-zh-TW';
 import PricingPageClient from './PricingPageClient';
 
 export default async function PricingPageView({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: 'Pricing' });
+  const baseCopy = locale === 'zh-TW' ? pricingCopyZhTW : pricingCopyEn;
   const contactPath = localizedPath(locale, '/schedule-demo');
   const whatsappPath = localizedPath(locale, '/features/whatsapp-otp');
   const copy = {
-    ...pricingCopyEn,
+    ...baseCopy,
     meta: {
       title: t('metaTitle'),
       description: t('metaDescription'),
@@ -18,7 +20,7 @@ export default async function PricingPageView({ locale }: { locale: string }) {
       once: t('tabOnce'),
     },
     cloud: {
-      ...pricingCopyEn.cloud,
+      ...baseCopy.cloud,
       titleLine1: t('cloudTitleLine1'),
       titleHighlight: t('cloudTitleHighlight'),
       titleLine2: t('cloudTitleLine2'),
@@ -30,7 +32,7 @@ export default async function PricingPageView({ locale }: { locale: string }) {
       fullPlanTitle: t('cloudFullPlanTitle'),
     },
     once: {
-      ...pricingCopyEn.once,
+      ...baseCopy.once,
       titleLine1: t('onceTitleLine1'),
       titleHighlight: t('onceTitleHighlight'),
       titleLine2: t('onceTitleLine2'),
@@ -40,13 +42,13 @@ export default async function PricingPageView({ locale }: { locale: string }) {
       enterpriseContactSuffix: t('onceEnterpriseContactSuffix'),
     },
     cta: {
-      ...pricingCopyEn.cta,
+      ...baseCopy.cta,
       title: t('ctaTitle'),
       subtitle: t('ctaSubtitle'),
       button: t('ctaButton'),
     },
     faq: {
-      ...pricingCopyEn.faq,
+      ...baseCopy.faq,
       heading: t('faqHeading'),
     },
   };
