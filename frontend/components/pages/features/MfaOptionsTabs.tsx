@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const TAB_IMAGE_SRC = [
+const DEFAULT_IMAGE_SOURCES = [
   '/images/features-mfa-options-totp.svg',
   '/images/features-mfa-options-password.svg',
   '/images/features-mfa-options-magiclink.svg',
@@ -11,14 +11,21 @@ const TAB_IMAGE_SRC = [
 
 type Props = {
   tabLabels: readonly [string, string, string, string];
+  /** 預設為 MFA 四張插圖；Passkeys「如何建立金鑰」等頁可傳入自訂路徑。 */
+  imageSources?: readonly [string, string, string, string];
+  ariaLabel?: string;
 };
 
-export default function MfaOptionsTabs({ tabLabels }: Props) {
+export default function MfaOptionsTabs({
+  tabLabels,
+  imageSources = DEFAULT_IMAGE_SOURCES,
+  ariaLabel = 'MFA options',
+}: Props) {
   const [active, setActive] = useState(0);
 
   return (
     <div className="ds-mfa-options">
-      <div className="ds-mfa-options__tablist" role="tablist" aria-label="MFA options">
+      <div className="ds-mfa-options__tablist" role="tablist" aria-label={ariaLabel}>
         {tabLabels.map((label, i) => (
           <button
             key={`mfa-tab-${i}`}
@@ -36,7 +43,7 @@ export default function MfaOptionsTabs({ tabLabels }: Props) {
         ))}
       </div>
       <div className="ds-mfa-options__panels">
-        {TAB_IMAGE_SRC.map((src, i) => (
+        {imageSources.map((src, i) => (
           <div
             key={src}
             id={`mfa-tab-panel-${i}`}

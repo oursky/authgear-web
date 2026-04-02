@@ -12,9 +12,7 @@ import SiteFooter from '@/components/layout/SiteFooter';
 import PlausibleProvider from 'next-plausible';
 import {
   PT_Sans,
-  IBM_Plex_Sans,
   Inter,
-  Noto_Sans_TC,
   Red_Hat_Display,
 } from 'next/font/google';
 
@@ -26,24 +24,10 @@ const ptSans = PT_Sans({
   display: 'swap',
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-ibm-plex-sans',
-  display: 'swap',
-});
-
 const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-inter',
-  display: 'swap',
-});
-
-const notoSansTC = Noto_Sans_TC({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-noto-sans-tc',
   display: 'swap',
 });
 
@@ -75,9 +59,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       suppressHydrationWarning
       className={[
         ptSans.variable,
-        ibmPlexSans.variable,
         inter.variable,
-        notoSansTC.variable,
         redHatDisplay.variable,
       ].join(' ')}
     >
@@ -86,6 +68,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="cwUTy_LBZHQ90P9sQzhKyyV2M024ukPHK2rYpvion6M" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/authgear-new.webflow.css" rel="stylesheet" type="text/css" />
         <link href="/css/authgear-ds-split-stack.css" rel="stylesheet" type="text/css" />

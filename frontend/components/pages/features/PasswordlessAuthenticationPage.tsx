@@ -1,6 +1,8 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import ContactForm from '@/components/ContactForm';
+import PasswordlessChallengeFlipCard from '@/components/features/PasswordlessChallengeFlipCard';
 
 interface Props {
   locale: string;
@@ -11,197 +13,260 @@ export default function PasswordlessAuthenticationPage(_props: Props) {
   const tFeatures = useTranslations('Features');
   return (
     <>
-<div className="featurespage__hero_v2 featurespage__hero_bg">
-    <div className="features-hero-wrapper-new">
-      <div className="w-layout-hflex split-content features-hero-left">
-        <div className="featurespage__hero-titletag">{t('heroSmallTitle')}</div>
-        <h1 className="title features-hero-v2">{t('heroTitle')}</h1>
-        <p className="features-hero-description">{t('heroDescription')}</p>
-        <div className="features-hero-cta-wrapper">
-          <a href="https://portal.authgear.com/?utm_source=feature-passwordless&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" className="button-primary feature-hero-btn-v2 w-button">{tFeatures('startForFree')}</a>
-          <Link href="/schedule-demo" target="_blank" className="button-secondary feature-hero-btn-v2 noscale w-button">{tFeatures('scheduleDemo')}  <span className="text-span-23">{">"}</span></Link>
-        </div>
-      </div><img src="/images/features-passwordless-hero-kv.svg" alt="" className="image features-hero-image-v2" />
-    </div>
-  </div>
-  <div>
-    <div className="container-default">
-      <div className="container-default-inner px-0 gap-0">
-        <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2">{t('ditchTitle')}<br />{t('ditchTitleLine2')}<span className="text-highlight-gradient">{t('ditchTitleHighlight')}</span></h2>
-          <p className="paragraph-large text-center features-page-v2">{t('ditchDescription')}</p>
-        </div>
-        <div className="_3-card-grid">
-          <div id="w-node-_74c657f8-1d5c-c4de-f8d4-2c0614c18db6-e43d3961" className="svg-card p-0 pr-24">
-            <div className="svg-card-image-container"><img src="/images/features-passwordless-ditch-icon-security.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('card1Title')}</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px">{t('card1Desc')}</div>
-            </div>
-          </div>
-          <div id="w-node-b37ec1cc-d3a6-1ae9-a99a-0953f54852a2-e43d3961" className="svg-card p-0 pr-24">
-            <div className="svg-card-image-container"><img src="/images/features-passwordless-ditch-icon-ux.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('card2Title')}</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px">{t('card2Desc')}</div>
-            </div>
-          </div>
-          <div id="w-node-adaca765-6ce8-1ba3-96bb-6b5d5e91799f-e43d3961" className="svg-card p-0 pr-24">
-            <div className="svg-card-image-container"><img src="/images/features-passwordless-ditch-icon-convenience.svg" loading="lazy" alt="" /></div>
-            <div className="svg-card-content-container text-center gap-16">
-              <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('card3Title')}</div>
-              <div className="svg-card-content-description inter text-align-left mobile-16px">{t('card3Desc')}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="featurespage__section_dark-bg">
-    <div className="container-default w-container">
-      <div className="solution-flex-container gap-40 reverse-order">
-        <div className="solution-image-block"><img src="/images/features-passwordless-social-login.svg" loading="lazy" alt="" /></div>
-        <div className="features-text-block line-height-40 p-0">
-          <h3 className="features-page-h3 white">{t('socialLoginTitle')} <br /><span className="gray-gradient">{t('socialLoginTitleHighlight')}</span></h3>
-          <p className="feature-content inverse">{t('socialLoginDesc')}</p>
-          <Link href="/features/social-login" className="feature-white-button w-button">{t('exploreSocialLogin')}</Link>
-        </div>
-      </div>
-      <div className="solution-flex-container gap-40">
-        <div className="solution-image-block"><img src="/images/features-passwordless-passkey.svg" loading="lazy" alt="" /></div>
-        <div className="features-text-block line-height-40 p-0">
-          <h3 className="features-page-h3 white">{t('passkeysTitle')}<br /><span className="gray-gradient">{t('passkeysTitleHighlight')}</span></h3>
-          <p className="feature-content inverse">{t('passkeysDesc')}</p>
-          <Link href="/features/passkeys" className="feature-white-button w-button">{t('discoverPasskeys')}</Link>
-        </div>
-      </div>
-      <div className="solution-flex-container gap-40 reverse-order">
-        <div className="solution-image-block"><img src="/images/features-passwordless-biometric.svg" loading="lazy" alt="" /></div>
-        <div className="features-text-block line-height-40 p-0">
-          <h3 className="features-page-h3 white"><span className="gray-gradient">{t('biometricTitle')}<br />{t('biometricTitleHighlight')}</span></h3>
-          <p className="feature-content inverse">{t('biometricDesc')}</p>
-          <Link href="/features/biometric-authentication" className="feature-white-button w-button">{t('biometricLogin')}</Link>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div className="container-default">
-      <div className="container-default-inner px-0 gap-0">
-        <div className="card-full radius-48px p-60 bg-blue bg-radial-gradient-blue">
-          <div className="_2-block-flex">
-            <div className="_2-block_flex-left basis-60">
-              <div className="_2-block-flex-content max-w-none">
-                <h2 className="features-h2 gray-gradient mb-0 mobile-26px">{t('magicLinkTitle')}</h2>
-                <div className="features_card-full-description color-cee9ff">{t('magicLinkDesc')}</div>
+      <section className="ds-hero-banner--gradient">
+        <div className="ds-container ds-container--gradient-hero-shell">
+          <div className="ds-hero-banner--gradient__inner">
+            <div className="ds-container ds-container--hero">
+              <div className="ds-hero-banner__row">
+                <div className="ds-hero-banner__body">
+                  <p className="ds-section-eyebrow ds-section-eyebrow--on-dark">{t('heroSmallTitle')}</p>
+                  <h1 className="ds-hero-banner__title">{t('heroTitle')}</h1>
+                  <p className="ds-hero-banner__description">{t('heroDescription')}</p>
+                  <div className="ds-hero-banner__ctas">
+                    <a
+                      href="https://portal.authgear.com/?utm_source=feature-passwordless&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ds-btn ds-btn-secondary"
+                    >
+                      {tFeatures('startForFree')}
+                      <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                    </a>
+                    <Link href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-tertiary">
+                      {tFeatures('getDemo')}
+                      <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
+                    </Link>
+                  </div>
+                  <div className="ds-hero-banner__footnote">
+                    <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+                    <p className="ds-hero-banner__footnote-copy">
+                      {t('freePlanIncludes')} <strong>{t('unlimitedMAUs')}</strong>
+                    </p>
+                  </div>
+                </div>
+                <img
+                  className="ds-hero-banner__media"
+                  src="/images/features-passwordless-hero-kv.svg"
+                  width={738}
+                  alt=""
+                />
               </div>
             </div>
-            <div>
-              <div className="_2-block-flex-image"><img src="/images/seamless-logins_login-box.png" loading="lazy" width={684} sizes="(max-width: 767px) 100vw, 684px" alt="" srcSet="/images/seamless-logins_login-box-p-500.png 500w, /images/seamless-logins_login-box-p-800.png 800w, /images/seamless-logins_login-box-p-1080.png 1080w, /images/seamless-logins_login-box.png 1368w" /></div>
+          </div>
+        </div>
+      </section>
+      <section className="ds-section ds-bg-light-blue">
+        <div className="ds-container">
+          <div className="title-content">
+            <h2 className="heading-on-light">
+              {t('ditchTitle')}
+              <br />
+              {t('ditchTitleLine2')}
+              {t('ditchTitleHighlight')}
+            </h2>
+            <p className="section-lede-on-light">{t('ditchDescription')}</p>
+          </div>
+          <div className="ds-grid-3">
+            <div className="svg-card">
+              <img src="/images/features-passwordless-ditch-icon-security.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('card1Title')}</div>
+                <div className="ds-svg-card-description">{t('card1Desc')}</div>
+              </div>
+            </div>
+            <div className="svg-card">
+              <img src="/images/features-passwordless-ditch-icon-ux.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('card2Title')}</div>
+                <div className="ds-svg-card-description">{t('card2Desc')}</div>
+              </div>
+            </div>
+            <div className="svg-card">
+              <img src="/images/features-passwordless-ditch-icon-convenience.svg" loading="lazy" alt="" />
+              <div className="ds-svg-card-content">
+                <div className="ds-svg-card-title">{t('card3Title')}</div>
+                <div className="ds-svg-card-description">{t('card3Desc')}</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div className="otp">
-    <div className="container-default otp">
-      <div className="container-default-inner px-0 gap-0 otp">
-        <div className="top-content feature-flex otp">
-          <h2 className="title features-page-v2 left-align">{t('challengesOtpTitle')}<br />{t('challengesOtpSubtitle')}</h2>
-          <p className="paragraph-large text-center features-page-v2 left-align">{t('challengesOtpDesc')}</p>
+      </section>
+      {/* Single section: One-Click Convenience (Social Login) through Seamlessly Secure (Biometric Login) */}
+      <section
+        className="ds-section passwordless-section-dark-bg"
+        aria-label={t('sectionConvenienceToBiometricAriaLabel')}
+      >
+        <div className="ds-container ds-container--split-stack">
+          <div className="ds-split ds-split-row ds-split-row--reverse">
+            <div className="ds-split-row__media">
+              <img
+                src="/images/features-passwordless-social-login.svg"
+                loading="lazy"
+                width={624}
+                alt=""
+                className="ds-split-row__img"
+              />
+            </div>
+            <div className="ds-split-row__body">
+              <h2 className="heading-on-dark">
+                {t('socialLoginTitle')}
+                <br />
+                {t('socialLoginTitleHighlight')}
+              </h2>
+              <p className="section-lede-on-dark">{t('socialLoginDesc')}</p>
+              <Link href="/features/social-login" className="ds-btn ds-btn-outline-light">
+                {t('exploreSocialLogin')}
+              </Link>
+            </div>
+          </div>
+          <div className="ds-split ds-split-row">
+            <div className="ds-split-row__media">
+              <img
+                src="/images/features-passwordless-passkey.svg"
+                loading="lazy"
+                width={624}
+                alt=""
+                className="ds-split-row__img"
+              />
+            </div>
+            <div className="ds-split-row__body">
+              <h2 className="heading-on-dark">
+                {t('passkeysTitle')}
+                <br />
+                {t('passkeysTitleHighlight')}
+              </h2>
+              <p className="section-lede-on-dark">{t('passkeysDesc')}</p>
+              <Link href="/features/passkeys" className="ds-btn ds-btn-outline-light">
+                {t('discoverPasskeys')}
+              </Link>
+            </div>
+          </div>
+          <div className="ds-split ds-split-row ds-split-row--reverse">
+            <div className="ds-split-row__media">
+              <img
+                src="/images/features-passwordless-biometric.svg"
+                loading="lazy"
+                width={624}
+                alt=""
+                className="ds-split-row__img"
+              />
+            </div>
+            <div className="ds-split-row__body">
+              <h2 className="heading-on-dark">
+                {t('biometricTitle')}
+                <br />
+                {t('biometricTitleHighlight')}
+              </h2>
+              <p className="section-lede-on-dark">{t('biometricDesc')}</p>
+              <Link href="/features/biometric-authentication" className="ds-btn ds-btn-outline-light">
+                {t('biometricLogin')}
+              </Link>
+            </div>
+          </div>
         </div>
-      </div><img src="/images/features-passwordless-otp-whatsapp.svg" loading="lazy" alt="" />
-    </div>
-  </div>
-  <div>
-    <div className="container-default">
-      <div className="container-default-inner px-0 gap-0">
-        <div className="top-content feature-flex mb-60">
-          <h2 className="title features-page-v2">{t('challengesTitle')}<br />{t('challengesTitleLine2')}<span className="text-highlight-gradient">{t('challengesTitleHighlight')}</span>{t('challengesTitleEnd')}</h2>
-          <p className="paragraph-large text-center features-page-v2">{t('challengesDescription')}</p>
+      </section>
+      <section className="ds-section">
+        <div className="ds-container">
+          <div className="ds-feature-callout ds-feature-callout--cta-accent">
+            <div className="ds-feature-callout__title">
+              <h2 className="heading-on-dark">{t('magicLinkTitle')}</h2>
+              <p className="section-lede-on-dark">{t('magicLinkDesc')}</p>
+            </div>
+            <div className="ds-feature-callout__body">
+              <div className="ds-feature-callout__media">
+                <img
+                  src="/images/seamless-logins_login-box.png"
+                  srcSet="/images/seamless-logins_login-box-p-500.png 500w, /images/seamless-logins_login-box-p-800.png 800w, /images/seamless-logins_login-box-p-1080.png 1080w, /images/seamless-logins_login-box.png 1368w"
+                  sizes="(max-width: 767px) 100vw, 684px"
+                  width={684}
+                  loading="lazy"
+                  alt=""
+                  className="ds-feature-callout__media-img"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="_3-card-grid">
-          <div className="flip-card">
-            <div id="w-node-_00cfbc02-babb-5e85-058e-e310d1fa3fab-e43d3961" className="svg-card-front px-24 pb-24 relative drop-shadow space-between">
-              <div className="flip-card-content-wrap">
-                <div className="svg-card-image-container"><img src="/images/features-passwordless-challenges-icon-integrations.svg" loading="lazy" alt="" /></div>
-                <div className="svg-card-content-container text-center gap-6">
-                  <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('challenge1Front')}</div>
-                  <div className="svg-card-content-description inter text-align-left mobile-16px">{t('challenge1FrontDesc')}</div>
+      </section>
+      <section className="ds-section">
+        <div className="ds-container ds-container--split-stack">
+          <div className="ds-split ds-split-row ds-split-row--reverse">
+            <div className="ds-split-row__media">
+              <img
+                src="/images/features-passwordless-otp-whatsapp.svg"
+                loading="lazy"
+                width={624}
+                alt=""
+                className="ds-split-row__img"
+              />
+            </div>
+            <div className="ds-split-row__body">
+              <h2 className="heading-on-light">
+                {t('challengesOtpTitle')}
+                <br />
+                {t('challengesOtpSubtitle')}
+              </h2>
+              <p className="section-lede-on-light">{t('challengesOtpDesc')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="ds-section ds-bg-white">
+        <div className="ds-container">
+          <div className="title-content">
+            <h2 className="heading-on-light">
+              {t('challengesTitle')}
+              <br />
+              {t('challengesTitleLine2')}
+              {t('challengesTitleHighlight')}
+              {t('challengesTitleEnd')}
+            </h2>
+            <p className="section-lede-on-light">{t('challengesDescription')}</p>
+          </div>
+          <div className="ds-grid-3">
+            <PasswordlessChallengeFlipCard
+              webflowNodeId="w-node-_00cfbc02-babb-5e85-058e-e310d1fa3fab-e43d3961"
+              frontIconSrc="/images/features-passwordless-challenges-icon-integrations.svg"
+              frontTitle={t('challenge1Front')}
+              frontDesc={t('challenge1FrontDesc')}
+              backText={t('challenge1Back')}
+            />
+            <PasswordlessChallengeFlipCard
+              webflowNodeId="w-node-_00cfbc02-babb-5e85-058e-e310d1fa3fbd-e43d3961"
+              frontIconSrc="/images/features-passwordless-challenges-icon-training.svg"
+              frontTitle={t('challenge2Front')}
+              frontDesc={t('challenge2FrontDesc')}
+              backText={t('challenge2Back')}
+            />
+            <PasswordlessChallengeFlipCard
+              webflowNodeId="w-node-_00cfbc02-babb-5e85-058e-e310d1fa3fcf-e43d3961"
+              frontIconSrc="/images/features-passwordless-challenges-icon-balance.svg"
+              frontTitle={t('challenge3Front')}
+              frontDesc={t('challenge3FrontDesc')}
+              backText={t('challenge3Back')}
+            />
+          </div>
+        </div>
+      </section>
+      <div className="footer-form-section form__bg-dark">
+        <div className="container-default">
+          <div className="container-default-inner px-0">
+            <div className="_2-block-flex footer-form">
+              <div className="_2-block-flex-content footer-form">
+                <div className="_2-block-flex-content-text-wrap footer-form">
+                  <h2 className="form-heading color-white footer-form">{t('ctaTitle')}</h2>
+                  <div className="color-cee9ff">{t('ctaDesc')}</div>
+                  <div className="footerform__divider-sm"></div>
+                  <div className="color-white footer-get-started-text">{t('ctaGetStarted')}</div>
                 </div>
               </div>
-              <div className="flip-card-toggle-wrap"><img src="/images/features-passwordless-challenges-icon-plus.svg" loading="lazy" alt="" /></div>
-            </div>
-            <div className="svg-card-back px-24 pb-24 relative drop-shadow passkeys-card-back">
-              <div className="svg-card-content-container text-center gap-6 mb-50">
-                <div className="svg-card-content-description text-align-left mobile-16px passkeys-card-back">{t('challenge1Back')}</div>
+              <div className="_2-block-flex-image footer-form">
+                <ContactForm />
               </div>
-              <div className="flip-card-toggle-wrap"><img src="/images/features-passwordless-challenges-icon-close.svg" loading="lazy" alt="" /></div>
-            </div>
-          </div>
-          <div className="flip-card">
-            <div id="w-node-_00cfbc02-babb-5e85-058e-e310d1fa3fbd-e43d3961" className="svg-card-front px-24 pb-24 relative drop-shadow space-between">
-              <div className="flip-card-content-wrap">
-                <div className="svg-card-image-container"><img src="/images/features-passwordless-challenges-icon-training.svg" loading="lazy" alt="" /></div>
-                <div className="svg-card-content-container text-center gap-6">
-                  <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('challenge2Front')}</div>
-                  <div className="svg-card-content-description inter text-align-left mobile-16px">{t('challenge2FrontDesc')}</div>
-                </div>
-              </div>
-              <div className="flip-card-toggle-wrap"><img src="/images/features-passwordless-challenges-icon-plus.svg" loading="lazy" alt="" /></div>
-            </div>
-            <div className="svg-card-back px-24 pb-24 relative drop-shadow passkeys-card-back">
-              <div className="svg-card-content-container text-center gap-6 mb-50">
-                <div className="svg-card-content-description text-align-left mobile-16px passkeys-card-back">{t('challenge2Back')}</div>
-              </div>
-              <div className="flip-card-toggle-wrap"><img src="/images/features-passwordless-challenges-icon-close.svg" loading="lazy" alt="" /></div>
-            </div>
-          </div>
-          <div className="flip-card">
-            <div id="w-node-_00cfbc02-babb-5e85-058e-e310d1fa3fcf-e43d3961" className="svg-card-front px-24 pb-24 relative drop-shadow space-between">
-              <div className="flip-card-content-wrap">
-                <div className="svg-card-image-container"><img src="/images/features-passwordless-challenges-icon-balance.svg" loading="lazy" alt="" /></div>
-                <div className="svg-card-content-container text-center gap-6">
-                  <div className="svg-card-content-title left inter color-2e2e2e mobile-20px">{t('challenge3Front')}</div>
-                  <div className="svg-card-content-description inter text-align-left mobile-16px">{t('challenge3FrontDesc')}</div>
-                </div>
-              </div>
-              <div className="flip-card-toggle-wrap"><img src="/images/features-passwordless-challenges-icon-plus.svg" loading="lazy" alt="" /></div>
-            </div>
-            <div className="svg-card-back px-24 pb-24 relative drop-shadow passkeys-card-back">
-              <div className="svg-card-content-container text-center gap-6 mb-50">
-                <div className="svg-card-content-description text-align-left mobile-16px passkeys-card-back">{t('challenge3Back')}</div>
-              </div>
-              <div className="flip-card-toggle-wrap"><img src="/images/features-passwordless-challenges-icon-close.svg" loading="lazy" alt="" /></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div>
-    <div className="container-default w-container"></div>
-  </div>
-  <div className="footer-form-section form__bg-dark">
-    <div className="container-default">
-      <div className="container-default-inner px-0">
-        <div className="_2-block-flex footer-form">
-          <div className="_2-block-flex-content footer-form">
-            <div className="_2-block-flex-content-text-wrap footer-form">
-              <h2 className="form-heading color-white footer-form">{t('ctaTitle')}</h2>
-              <div className="color-cee9ff">{t('ctaDesc')}</div>
-              <div className="footerform__divider-sm"></div>
-              <div className="color-white footer-get-started-text">{t('ctaGetStarted')}</div>
-            </div>
-          </div>
-          <div className="_2-block-flex-image footer-form">
-            <ContactForm />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
     </>
   );
 }
