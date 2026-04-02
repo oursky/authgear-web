@@ -44,7 +44,6 @@ export const productsDropdownColumns: NavColumn[] = [
     links: [
       { path: '/features/user-management', label: { en: 'User Management', 'zh-TW': '使用者管理' } },
       { path: '/features/self-serve-settings-page', label: { en: 'Self-serve Settings', 'zh-TW': '自助設定' } },
-      { path: '/migrate-to-authgear', label: { en: 'SAML', 'zh-TW': 'SAML' } },
     ],
   },
   {
