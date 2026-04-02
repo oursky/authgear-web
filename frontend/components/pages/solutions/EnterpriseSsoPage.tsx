@@ -1,26 +1,28 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import ContactForm from '@/components/ContactForm';
+import { useTranslations } from 'next-intl';
 
 interface Props {
   locale: string;
 }
 
 export default function EnterpriseSsoPage(_props: Props) {
+  const t = useTranslations('EnterpriseSso');
   return (
     <>
       <section className="ds-hero-banner--dark">
         <div className="ds-container ds-container--hero">
           <div className="ds-hero-banner__row">
             <div className="ds-hero-banner__body">
-              <h1 className="ds-hero-banner__title">Enterprise SSO</h1>
+              <h1 className="ds-hero-banner__title">{t('heroTitle')}</h1>
               <p className="ds-hero-banner__description">
-                One integration to connect every app and every identity provider.
+                {t('heroDescLine1')}
                 <br />
-                Ship SSO for your customers, partners, frontline, and contractors.
+                {t('heroDescLine2')}
               </p>
               <div className="ds-hero-banner__ctas">
-                <a href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-primary">
-                  Get Started for Free
+                <a href="/schedule-demo" target="_blank" rel="noreferrer" className="ds-btn ds-btn-secondary">
+                  {t('heroCta1')}
                   <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
                 </a>
                 <a
@@ -29,7 +31,7 @@ export default function EnterpriseSsoPage(_props: Props) {
                   rel="noreferrer"
                   className="ds-btn ds-btn-tertiary"
                 >
-                  Free Sign-Up
+                  {t('heroCta2')}
                   <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
                 </a>
               </div>
@@ -41,9 +43,9 @@ export default function EnterpriseSsoPage(_props: Props) {
       <section className="ds-section enterprise-pricing-support">
         <div className="ds-container">
           <div className="title-content">
-            <h2 className="heading-on-light">Enterprise SSO Without the Complexity</h2>
+            <h2 className="heading-on-light">{t('withoutComplexityTitle')}</h2>
             <p className="section-lede-on-light">
-              Deploy enterprise SSO quickly and manage all identities through one system without changing how your apps work.
+              {t('withoutComplexityDesc')}
             </p>
           </div>
           <div className="ds-grid-2">
@@ -62,8 +64,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path fillRule="evenodd" clipRule="evenodd" d="M40.4922 32.003C40.4922 31.3886 39.9942 30.8906 39.3798 30.8906C38.7656 30.8906 38.2676 31.3886 38.2676 32.003C38.2676 32.6172 38.7656 33.1152 39.3798 33.1152C39.9942 33.1152 40.4922 32.6172 40.4922 32.003ZM39.3798 27.8906C41.651 27.8906 43.4922 29.7318 43.4922 32.003C43.4922 34.2742 41.651 36.1152 39.3798 36.1152C37.1086 36.1152 35.2676 34.2742 35.2676 32.003C35.2676 29.7318 37.1086 27.8906 39.3798 27.8906Z" fill="#0043E0"></path>
                       </svg></div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">One integration, many IdPs</div>
-                    <div className="ds-svg-card-description">Connect Microsoft Entra ID (Azure AD), Active Directory/AD FS, Okta, Ping, and any SAML or OpenID Connect (OIDC) provider through one unified gateway.</div>
+                    <div className="ds-svg-card-title">{t('complexity1Title')}</div>
+                    <div className="ds-svg-card-description">{t('complexity1Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -73,8 +75,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M21.3535 15.3494C21.3535 19.2703 24.5319 22.4488 28.4529 22.4488C32.3737 22.4488 35.5521 19.2703 35.5521 15.3494C35.5521 11.4285 32.3737 8.25 28.4529 8.25C26.6749 8.25 25.0495 8.90362 23.8039 9.98368" stroke="#0043E0" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round"></path>
                       </svg></div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Enterprise SSO in one sprint</div>
-                    <div className="ds-svg-card-description">Hosted sign‑in and ready SDKs help you wire up OIDC/SAML quickly, without rewriting your apps.</div>
+                    <div className="ds-svg-card-title">{t('complexity2Title')}</div>
+                    <div className="ds-svg-card-description">{t('complexity2Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -90,8 +92,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M14.1278 41.9789L6 41.9969L6.018 33.8691" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Fits your stack, not the other way around</div>
-                    <div className="ds-svg-card-description">Keep your existing applications and URLs. Authgear slots in with minimal change and consistent user claims.</div>
+                    <div className="ds-svg-card-title">{t('complexity3Title')}</div>
+                    <div className="ds-svg-card-description">{t('complexity3Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -104,8 +106,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                         <path d="M34.8381 30.9887C32.1829 30.9887 30.0293 28.8351 30.0293 26.1799C30.0293 23.5247 32.1829 21.3711 34.8381 21.3711C37.4933 21.3711 39.6469 23.5247 39.6469 26.1799C39.6469 26.6211 39.5873 27.0485 39.4761 27.4545M30.9393 23.4457L30.9061 23.4127" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg></div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">One system for all identities</div>
-                    <div className="ds-svg-card-description">Serve employees, frontline staff, contractors, partners, and customers under one control plane.</div>
+                    <div className="ds-svg-card-title">{t('complexity4Title')}</div>
+                    <div className="ds-svg-card-description">{t('complexity4Desc')}</div>
                   </div>
                 </div>
           </div>
@@ -114,9 +116,9 @@ export default function EnterpriseSsoPage(_props: Props) {
       <section className="ds-section ds-bg-light-blue">
         <div className="ds-container">
           <div className="title-content">
-            <h2 className="heading-on-light">Enterprise SSO Features Built for Real-World Identity</h2>
+            <h2 className="heading-on-light">{t('featuresTitle')}</h2>
             <p className="section-lede-on-light">
-              Standards-based SSO with deep directory integration, flexible identity provider support, and full user lifecycle management. Authgear combines enterprise security controls, self-serve experiences, and compliance-ready operations in one platform.
+              {t('featuresDesc')}
             </p>
           </div>
           <div className="ds-grid-4">
@@ -137,8 +139,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Protocols: SAML & OpenID Connect</div>
-                    <div className="ds-svg-card-description">Integrate with existing apps based on the SAML and OIDC standard.</div>
+                    <div className="ds-svg-card-title">{t('feature1Title')}</div>
+                    <div className="ds-svg-card-description">{t('feature1Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -155,8 +157,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Active Directory & Entra ID integration</div>
-                    <div className="ds-svg-card-description">Connect via SAML, OIDC, or AD FS. Map groups to roles, sync profile attributes, and preserve source-of-truth ownership.</div>
+                    <div className="ds-svg-card-title">{t('feature2Title')}</div>
+                    <div className="ds-svg-card-description">{t('feature2Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -176,8 +178,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">One integration, multiple identity providers</div>
-                    <div className="ds-svg-card-description">Support different IdPs for different customers or business units in the same project.</div>
+                    <div className="ds-svg-card-title">{t('feature3Title')}</div>
+                    <div className="ds-svg-card-description">{t('feature3Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -189,8 +191,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">User lifecycle & provisioning Choices</div>
-                    <div className="ds-svg-card-description">Manage users via Admin Portal or API. Sync users with HR systems to maintain single source of truth.</div>
+                    <div className="ds-svg-card-title">{t('feature4Title')}</div>
+                    <div className="ds-svg-card-description">{t('feature4Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -203,8 +205,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Frontline & contractor access</div>
-                    <div className="ds-svg-card-description">Securely onboard non-corporate users using personal email/phone. Apply simpler login for high-volume apps while keeping back-office security strict.</div>
+                    <div className="ds-svg-card-title">{t('feature5Title')}</div>
+                    <div className="ds-svg-card-description">{t('feature5Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -216,8 +218,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Self-serve settings & admin portal</div>
-                    <div className="ds-svg-card-description">End users manage their profiles, passkeys, MFA, sessions, and connected accounts. Admins get search, bulk actions, audit logs, analytics.</div>
+                    <div className="ds-svg-card-title">{t('feature6Title')}</div>
+                    <div className="ds-svg-card-description">{t('feature6Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -235,8 +237,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Risk & bot protection</div>
-                    <div className="ds-svg-card-description">CAPTCHA, rate limits, adaptive MFA, and anomaly controls to reduce abuse and SMS pumping risk.</div>
+                    <div className="ds-svg-card-title">{t('feature7Title')}</div>
+                    <div className="ds-svg-card-description">{t('feature7Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -250,8 +252,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Compliance you can trust</div>
-                    <div className="ds-svg-card-description">SOC 2, ISO 27001 and more</div>
+                    <div className="ds-svg-card-title">{t('feature8Title')}</div>
+                    <div className="ds-svg-card-description">{t('feature8Desc')}</div>
                   </div>
                 </div>
           </div>
@@ -260,7 +262,7 @@ export default function EnterpriseSsoPage(_props: Props) {
         <section className="ds-section enterprise-sso-section-dark-bg">
           <div className="ds-container">
             <div className="title-content">
-              <h2 className="heading-on-dark">Developer Experience</h2>
+              <h2 className="heading-on-dark">{t('devTitle')}</h2>
             </div>
             <div className="ds-grid-3">
                 <div className="svg-card">
@@ -271,8 +273,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">SDKs</div>
-                    <div className="ds-svg-card-description">JavaScript/TypeScript (web & SPA), iOS (Swift), Android (Kotlin), React Native, Flutter,…</div>
+                    <div className="ds-svg-card-title">{t('dev1Title')}</div>
+                    <div className="ds-svg-card-description">{t('dev1Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -285,8 +287,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Pre-built frontend UI</div>
-                    <div className="ds-svg-card-description">Easily integrate ready-to-use login and signup pages into your apps with customization to align to your brand</div>
+                    <div className="ds-svg-card-title">{t('dev2Title')}</div>
+                    <div className="ds-svg-card-description">{t('dev2Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card">
@@ -300,8 +302,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Admin API</div>
-                    <div className="ds-svg-card-description">Provision users, assign roles, and query logs programmatically</div>
+                    <div className="ds-svg-card-title">{t('dev3Title')}</div>
+                    <div className="ds-svg-card-description">{t('dev3Desc')}</div>
                   </div>
                 </div>
             </div>
@@ -310,14 +312,14 @@ export default function EnterpriseSsoPage(_props: Props) {
         <section>
           <div className="container-default feature-v3-container-default">
             <div className="w-layout-grid container-default-inner px-0 gap-0"></div>
-            <h2 className="title features-page-v2 features-page-v3">Enterprise SSO for Your Extended Workforce</h2>
+            <h2 className="title features-page-v2 features-page-v3">{t('workforceTitle')}</h2>
             <div className="collection-list-wrapper-8 w-dyn-list">
               <div role="list" className="collection-list-7 w-dyn-items">
                 <div role="listitem" className="collection-item-5 w-dyn-item"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" className="image-102 w-dyn-bind-empty" />
                   <div className="w-layout-vflex flex-block-95">
                     <div className="text-block-98 w-dyn-bind-empty"></div>
                     <a href="#" className="link-block-10 w-inline-block">
-                      <div>See Case Studies</div><img src="/images/Arrow-RIght-SM---Iconly-Pro.svg" loading="lazy" alt="" />
+                      <div>{t('workforceCta')}</div><img src="/images/Arrow-RIght-SM---Iconly-Pro.svg" loading="lazy" alt="" />
                     </a>
                   </div>
                 </div>
@@ -331,7 +333,7 @@ export default function EnterpriseSsoPage(_props: Props) {
       <section className="ds-section">
         <div className="ds-container">
           <div className="title-content">
-            <h2 className="heading-on-light">Transparent Pricing & Support</h2>
+            <h2 className="heading-on-light">{t('pricingTitle')}</h2>
           </div>
           <div className="ds-grid-3">
                 <div className="svg-card ds-center">
@@ -344,8 +346,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">SLAs</div>
-                    <div className="ds-svg-card-description">Uptime and response-time options for production-critical workloads.</div>
+                    <div className="ds-svg-card-title">{t('pricing1Title')}</div>
+                    <div className="ds-svg-card-description">{t('pricing1Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card ds-center">
@@ -358,8 +360,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Premium support</div>
-                    <div className="ds-svg-card-description">Priority tickets, solution reviews, and implementation guidance.</div>
+                    <div className="ds-svg-card-title">{t('pricing2Title')}</div>
+                    <div className="ds-svg-card-description">{t('pricing2Desc')}</div>
                   </div>
                 </div>
                 <div className="svg-card ds-center">
@@ -374,8 +376,8 @@ export default function EnterpriseSsoPage(_props: Props) {
                       </svg></div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Pricing</div>
-                    <div className="ds-svg-card-description">Develop a phased implementation plan to minimize disruptions and maximize benefits.</div>
+                    <div className="ds-svg-card-title">{t('pricing3Title')}</div>
+                    <div className="ds-svg-card-description">{t('pricing3Desc')}</div>
                   </div>
                 </div>
           </div>
@@ -387,9 +389,9 @@ export default function EnterpriseSsoPage(_props: Props) {
               <div className="_2-block-flex footer-form">
                 <div className="_2-block-flex-content footer-form">
                   <div className="_2-block-flex-content-text-wrap footer-form">
-                    <h2 className="form-heading color-white footer-form">Ready to unify SSO across every applications?</h2>
+                    <h2 className="form-heading color-white footer-form">{t('footerTitle')}</h2>
                     <div className="footerform__divider-sm"></div>
-                    <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
+                    <div className="color-white footer-get-started-text">{t('footerGetStarted')}</div>
                   </div>
                 </div>
                 <div className="_2-block-flex-image footer-form">
