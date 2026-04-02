@@ -2,6 +2,7 @@
 
 import PlausibleButton from '@/components/PlausibleButton';
 import PlausibleLink from '@/components/PlausibleLink';
+import { useTranslations } from 'next-intl';
 import type { CSSProperties } from 'react';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import './AgSmsCalculator.css';
@@ -23,6 +24,7 @@ const PRESETS = [
 const hkDefault = AG_DATA.find((d) => d.iso === 'HK')!;
 
 export default function SmsCostCalculator() {
+  const t = useTranslations('SmsCostCalculator');
   const [selectedCountry, setSelectedCountry] = useState<AgCountryRow>(hkDefault);
   const [searchQuery, setSearchQuery] = useState(hkDefault.country);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -90,20 +92,20 @@ export default function SmsCostCalculator() {
       <div className="ag-card">
         <div className="ag-body">
           <div className="ag-inputs">
-            <p className="ag-col-title">Your Details</p>
+            <p className="ag-col-title">{t('inputsTitle')}</p>
 
             <div className="ag-form-group">
               <label className="ag-label" htmlFor="ag-country-search">
-                Country / Market
+                {t('countryLabel')}
               </label>
               <div className="ag-country-wrap" id="ag-country-wrap">
                 <input
                   type="text"
                   id="ag-country-search"
                   className="ag-country-input"
-                  placeholder="Search country…"
+                  placeholder={t('countryPlaceholder')}
                   autoComplete="off"
-                  aria-label="Search country"
+                  aria-label={t('countryAriaLabel')}
                   value={searchQuery}
                   onChange={(e) => {
                     setSearchQuery(e.target.value);
@@ -120,7 +122,7 @@ export default function SmsCostCalculator() {
                 <div className={`ag-dropdown${dropdownOpen ? ' open' : ''}`} id="ag-dropdown">
                   {noResults ? (
                     <div className="ag-option" style={{ color: '#8888aa' }}>
-                      No results
+                      {t('countryNoResults')}
                     </div>
                   ) : mergeLists ? (
                     [...popular, ...others].map((item) => (
@@ -176,7 +178,7 @@ export default function SmsCostCalculator() {
 
             <div className="ag-form-group">
               <label className="ag-label" htmlFor="ag-volume-input">
-                Monthly OTP Volume
+                {t('volumeLabel')}
               </label>
               <div className="ag-volume-wrap">
                 <input
@@ -188,7 +190,7 @@ export default function SmsCostCalculator() {
                   max={100000000}
                   onChange={(e) => setVolume(parseInt(e.target.value, 10) || 0)}
                 />
-                <span className="ag-volume-unit">OTPs / mo</span>
+                <span className="ag-volume-unit">{t('volumeUnit')}</span>
               </div>
               <div className="ag-presets">
                 {PRESETS.map((p) => (
@@ -206,7 +208,7 @@ export default function SmsCostCalculator() {
             </div>
 
             <div className="ag-form-group">
-              <label className="ag-label">WhatsApp Adoption Rate</label>
+              <label className="ag-label">{t('waLabel')}</label>
               <div className="ag-slider-wrap">
                 <input
                   type="range"
@@ -222,11 +224,11 @@ export default function SmsCostCalculator() {
                   {waPct}%
                 </span>
               </div>
-              <p className="ag-hint">Users without WhatsApp automatically receive SMS fallback</p>
+              <p className="ag-hint">{t('waHint')}</p>
             </div>
 
             <div className="ag-form-group">
-              <label className="ag-label">SMS Pumping Attack Rate</label>
+              <label className="ag-label">{t('pumpLabel')}</label>
               <div className="ag-slider-wrap">
                 <input
                   type="range"
@@ -242,14 +244,11 @@ export default function SmsCostCalculator() {
                   {pumpPct}%
                 </span>
               </div>
-              <p className="ag-hint">
-                Estimated % of your SMS volume from fraudulent attacks. Authgear&apos;s Fraud Protection blocks ~20% of
-                these.
-              </p>
+              <p className="ag-hint">{t('pumpHint')}</p>
             </div>
 
             <div className="ag-form-group">
-              <label className="ag-label">Biometric Login Adoption Rate in 6 month+</label>
+              <label className="ag-label">{t('bioLabel')}</label>
               <div className="ag-slider-wrap">
                 <input
                   type="range"
@@ -265,27 +264,27 @@ export default function SmsCostCalculator() {
                   {bioPct}%
                 </span>
               </div>
-              <p className="ag-hint">Returning users who switch to biometric / passkey login — no OTP sent</p>
+              <p className="ag-hint">{t('bioHint')}</p>
             </div>
           </div>
 
           <div className="ag-outputs">
-            <p className="ag-col-title">Your Projected Savings</p>
+            <p className="ag-col-title">{t('outputsTitle')}</p>
 
             <div className="ag-annual-box">
-              <div className="ag-annual-label">Annual Savings</div>
+              <div className="ag-annual-label">{t('annualSavingsLabel')}</div>
               <div className="ag-annual-val" id="ag-out-annual">
                 {fmt(outputs.annualSavings)}
               </div>
               <div className="ag-annual-sub" id="ag-out-annual-pct">
-                {outputs.savingsPct.toFixed(0)}% savings vs. SMS-only
+                {t('annualSavingsPct', { pct: outputs.savingsPct.toFixed(0) })}
               </div>
             </div>
 
             <div className="ag-bar-wrap">
               <div className="ag-bar-labels">
                 <span>0%</span>
-                <span id="ag-bar-pct-label">{outputs.savingsPct.toFixed(0)}% saved</span>
+                <span id="ag-bar-pct-label">{t('barSavedLabel', { pct: outputs.savingsPct.toFixed(0) })}</span>
                 <span>100%</span>
               </div>
               <div className="ag-bar-track">
@@ -298,36 +297,36 @@ export default function SmsCostCalculator() {
             </div>
 
             <div className="ag-output-row">
-              <span className="ag-output-label">Current SMS cost / mo</span>
+              <span className="ag-output-label">{t('currentSmsCostLabel')}</span>
               <span className="ag-output-val" id="ag-out-sms">
-                {fmt(outputs.smsCost)}/mo
+                {t('valuePerMonth', { value: fmt(outputs.smsCost) })}
               </span>
             </div>
             <div className="ag-output-row">
-              <span className="ag-output-label">With Authgear / mo</span>
+              <span className="ag-output-label">{t('withAuthgearLabel')}</span>
               <div style={{ textAlign: 'right' }}>
                 <div className="ag-output-val" id="ag-out-wa">
-                  {fmt(outputs.blendedCost)}/mo
+                  {t('valuePerMonth', { value: fmt(outputs.blendedCost) })}
                 </div>
                 <div style={{ fontSize: '20px', fontWeight: 700, color: '#27ae60' }} id="ag-out-monthly-sub">
-                  saving {fmt(outputs.savings)} / mo
+                  {t('savingPerMonth', { amount: fmt(outputs.savings) })}
                 </div>
               </div>
             </div>
             <div className="ag-output-row">
               <span className="ag-output-label">
-                Month 6+ Cost
+                {t('month6CostLabel')}
                 <br />
                 <span style={{ fontSize: '11px', fontWeight: 400, color: '#8888aa' }} id="ag-out-projected-sub">
-                  After {outputs.bioPctRounded}% biometric adoption
+                  {t('afterBioAdoption', { pct: outputs.bioPctRounded })}
                 </span>
               </span>
               <div style={{ textAlign: 'right' }}>
                 <div className="ag-output-val" id="ag-out-projected">
-                  {fmt(outputs.projectedCost)}/mo
+                  {t('valuePerMonth', { value: fmt(outputs.projectedCost) })}
                 </div>
                 <div style={{ fontSize: '20px', fontWeight: 700, color: '#27ae60' }} id="ag-out-projected-saving-sub">
-                  saving {fmt(outputs.projectedSavings)} / mo
+                  {t('savingPerMonth', { amount: fmt(outputs.projectedSavings) })}
                 </div>
               </div>
             </div>
@@ -336,7 +335,7 @@ export default function SmsCostCalculator() {
 
         <div className="ag-cta-row">
           <PlausibleLink className="ag-cta-btn" href="https://portal.authgear.com" eventName="signup-calculator">
-            Start Saving Now — Free to Get Started →
+            {t('ctaButton')}
           </PlausibleLink>
         </div>
       </div>

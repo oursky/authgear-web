@@ -3,12 +3,14 @@ import ContactForm from '@/components/ContactForm';
 import PlausibleLink from '@/components/PlausibleLink';
 import LogoMarquee from '@/components/LogoMarquee';
 import SmsCostCalculator from '@/components/sms-calculator/SmsCostCalculator';
+import { useTranslations } from 'next-intl';
 
 interface Props {
   locale: string;
 }
 
 export default function ReduceSmsOtpCostPage(_props: Props) {
+  const t = useTranslations('ReduceSmsOtpCost');
   return (
     <>
       <section className="ds-hero-banner--dark">
@@ -16,16 +18,16 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
           <div className="ds-hero-banner__row">
             <div className="ds-hero-banner__body">
               <h1 className="ds-hero-banner__title">
-                Cut SMS OTP Costs
+                {t('heroTitle')}
                 <br />
-                by <span className="ds-hero-banner__title-accent">50–90%</span>
+                {t('heroTitleBy')} <span className="ds-hero-banner__title-accent">{t('heroTitleAccent')}</span>
               </h1>
               <p className="ds-hero-banner__description">
-                Immediate savings with WhatsApp OTP. Long-term savings with biometric login. Both live in days.
+                {t('heroDescription')}
               </p>
               <div className="ds-hero-banner__ctas">
-                <PlausibleLink href="#Saving-Calculator" className="ds-btn ds-btn-primary" eventName="signup-calculator">
-                  Calculate My Savings
+                <PlausibleLink href="#Saving-Calculator" className="ds-btn ds-btn-secondary" eventName="signup-calculator">
+                  {t('heroCta1')}
                   <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
                 </PlausibleLink>
                 <PlausibleLink
@@ -35,30 +37,27 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Get Started Free
+                  {t('heroCta2')}
                   <ArrowRightIcon className="ds-btn__icon-arrow" aria-hidden />
                 </PlausibleLink>
               </div>
               <div className="ds-hero-banner__stats">
                 <div className="ds-hero-banner__stat">
-                  <div className="ds-hero-banner__stat-value">87%</div>
+                  <div className="ds-hero-banner__stat-value">{t('heroStat1Value')}</div>
                   <p className="ds-hero-banner__stat-label">
-                    Average savings <br />
-                    worldwide
+                    {t('heroStat1Label')}
                   </p>
                 </div>
                 <div className="ds-hero-banner__stat">
-                  <div className="ds-hero-banner__stat-value">219</div>
+                  <div className="ds-hero-banner__stat-value">{t('heroStat2Value')}</div>
                   <p className="ds-hero-banner__stat-label">
-                    Countries <br />
-                    covered
+                    {t('heroStat2Label')}
                   </p>
                 </div>
                 <div className="ds-hero-banner__stat">
-                  <div className="ds-hero-banner__stat-value">0</div>
+                  <div className="ds-hero-banner__stat-value">{t('heroStat3Value')}</div>
                   <p className="ds-hero-banner__stat-label">
-                    Fraud surprise <br />
-                    bills
+                    {t('heroStat3Label')}
                   </p>
                 </div>
               </div>
@@ -77,10 +76,10 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
       <section className="ds-section">
         <div className="ds-container">
           <div className="title-content">
-            <div className="ds-section-eyebrow">Why Authgear</div>
-            <h2 className="heading-on-light">The complete solution that scales<br /> with you</h2>
+            <div className="ds-section-eyebrow">{t('whyEyebrow')}</div>
+            <h2 className="heading-on-light">{t('whyTitle')}</h2>
             <p className="section-lede-on-light">
-              Not just cheaper OTPs: a full identity platform that cuts costs while improving security and UX.
+              {t('whyDesc')}
             </p>
           </div>
           <div className="ds-grid-3">
@@ -92,9 +91,9 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                       </svg>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Immediate Cost Reduction of Up to 90%</div>
+                    <div className="ds-svg-card-title">{t('why1Title')}</div>
                     <div className="ds-svg-card-description">
-                      WhatsApp OTP with automatic SMS fallback. WhatsApp costs a fraction of SMS. Users with WhatsApp get their code there. Everyone else gets SMS. No friction, instant savings.
+                      {t('why1Desc')}
                     </div>
                   </div>
                 </div>
@@ -106,9 +105,9 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                       </svg>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Costs Shrink Every Month with Biometrics</div>
+                    <div className="ds-svg-card-title">{t('why2Title')}</div>
                     <div className="ds-svg-card-description">
-                      Mobile biometric login and passkeys mean returning users authenticate with face or fingerprint. No OTP sent. The longer your users stay, the fewer OTPs you send.
+                      {t('why2Desc')}
                     </div>
                   </div>
                 </div>
@@ -120,9 +119,9 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                       </svg>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">No Surprise Fraud Bills</div>
+                    <div className="ds-svg-card-title">{t('why3Title')}</div>
                     <div className="ds-svg-card-description">
-                      SMS pumping attacks can generate thousands of fraudulent OTPs overnight. Authgear's device fingerprinting and risk-scoring block them before they hit your bill.
+                      {t('why3Desc')}
                     </div>
                   </div>
                 </div>
@@ -138,9 +137,9 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                       </svg>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Single Sign-On Across Your Apps</div>
+                    <div className="ds-svg-card-title">{t('why4Title')}</div>
                     <div className="ds-svg-card-description">
-                      Users log in once and stay logged in across all your properties. Launch companion apps without login friction. One identity, one consent, one customer view.
+                      {t('why4Desc')}
                     </div>
                   </div>
                 </div>
@@ -153,9 +152,9 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                       </svg>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Enterprise-Grade Security Out of the Box</div>
+                    <div className="ds-svg-card-title">{t('why5Title')}</div>
                     <div className="ds-svg-card-description">
-                      User audit logs, account lockout, rate limiting, breach detection, and OWASP best practices, already built and maintained by us. Your team ships features instead.
+                      {t('why5Desc')}
                     </div>
                   </div>
                 </div>
@@ -169,10 +168,9 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                       </svg>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title--on-dark">Works in 219 Countries</div>
+                    <div className="ds-svg-card-title--on-dark">{t('why6Title')}</div>
                     <div className="ds-svg-card-description--on-dark">
-                      WhatsApp has 2+ billion users globally. 215 of 219 markets show savings, from 33% in Germany to 94%
-                      in Egypt and 93% in Nigeria. Your global expansion doesn&apos;t have to cost more.
+                      {t('why6Desc')}
                     </div>
                   </div>
                 </div>
@@ -182,10 +180,10 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
         <section id="Saving-Calculator" className="ds-section">
           <div className="ds-container">
             <div className="title-content">
-              <div className="ds-section-eyebrow">Savings Calculator</div>
-              <h2 className="heading-on-light">See your savings in real time</h2>
+              <div className="ds-section-eyebrow">{t('calculatorEyebrow')}</div>
+              <h2 className="heading-on-light">{t('calculatorTitle')}</h2>
               <p className="section-lede-on-light">
-                Adjust the inputs below to calculate your projected cost reduction using real Twilio SMS pricing data.
+                {t('calculatorDesc')}
               </p>
             </div>
             <SmsCostCalculator />
@@ -194,12 +192,12 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
         <section className="ds-section">
           <div className="ds-container">
             <div className="title-content">
-              <div className="ds-section-eyebrow">The Problem</div>
-              <h2 className="heading-on-light">Your current options fall short</h2>
+              <div className="ds-section-eyebrow">{t('problemEyebrow')}</div>
+              <h2 className="heading-on-light">{t('problemTitle')}</h2>
               <p className="section-lede-on-light">
-                SMS OTP is a tax on growth. Every new user costs you money.
+                {t('problemDescLine1')}
                 <br />
-                The obvious fixes don&apos;t actually solve it.
+                {t('problemDescLine2')}
               </p>
             </div>
             <div className="ds-grid-3">
@@ -213,12 +211,12 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                     </div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Build In-House</div>
+                    <div className="ds-svg-card-title">{t('problem1Title')}</div>
                     <div className="ds-svg-card-description">
-                      Full control, but expensive engineering time and ongoing maintenance. Biometrics and passkeys are hard to build right, and the spec keeps changing.
+                      {t('problem1Desc')}
                     </div>
                   </div>
-                  <div className="ds-svg-card-badge--negative">Costly & slow</div>
+                  <div className="ds-svg-card-badge--negative">{t('problem1Badge')}</div>
                 </div>
                 <div className="svg-card">
                   <div className="svg-card-image-container">
@@ -230,12 +228,12 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                     </div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Switch to a Cheaper SMS Gateway</div>
+                    <div className="ds-svg-card-title">{t('problem2Title')}</div>
                     <div className="ds-svg-card-description">
-                      Simple swap of API keys, but you still pay per OTP. Costs still scale linearly with users. No fraud protection, and cheaper gateways often have worse delivery rates.
+                      {t('problem2Desc')}
                     </div>
                   </div>
-                  <div className="ds-svg-card-badge--negative">Still scales with growth</div>
+                  <div className="ds-svg-card-badge--negative">{t('problem2Badge')}</div>
                 </div>
                 <div className="svg-card">
                   <div className="svg-card-image-container">
@@ -248,12 +246,12 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
                     </div>
                   </div>
                   <div className="ds-svg-card-content">
-                    <div className="ds-svg-card-title">Add a Security Product</div>
+                    <div className="ds-svg-card-title">{t('problem3Title')}</div>
                     <div className="ds-svg-card-description">
-                      Bot and fraud protection, but high cost, separate from auth, and more integration work. Often overkill for SMS abuse specifically.
+                      {t('problem3Desc')}
                     </div>
                   </div>
-                  <div className="ds-svg-card-badge--negative">High cost, more complexity</div>
+                  <div className="ds-svg-card-badge--negative">{t('problem3Badge')}</div>
                 </div>
             </div>
           </div>
@@ -261,10 +259,10 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
         <section className="ds-section bg-0e0f28">
           <div className="ds-container w-container">
             <div className="title-content">
-              <div className="ds-section-eyebrow ds-section-eyebrow--on-dark">TRUSTED BY</div>
-              <h2 className="heading-on-dark">Chosen by enterprises across industries</h2>
+              <div className="ds-section-eyebrow ds-section-eyebrow--on-dark">{t('trustedEyebrow')}</div>
+              <h2 className="heading-on-dark">{t('trustedTitle')}</h2>
               <p className="section-lede-on-dark">
-                From transport infrastructure to global hospitality. Teams that can&apos;t afford downtime or surprise bills rely on Authgear.
+                {t('trustedDesc')}
               </p>
             </div>
             <div className="images-wrapper home-hero">
@@ -283,9 +281,9 @@ export default function ReduceSmsOtpCostPage(_props: Props) {
               <div className="_2-block-flex footer-form">
                 <div className="_2-block-flex-content footer-form">
                   <div className="_2-block-flex-content-text-wrap footer-form">
-                    <h2 className="form-heading color-white footer-form">Ready to cut your SMS costs?</h2>
+                    <h2 className="form-heading color-white footer-form">{t('footerTitle')}</h2>
                     <div className="footerform__divider-sm"></div>
-                    <div className="color-white footer-get-started-text">Get started today! Free trials available.</div>
+                    <div className="color-white footer-get-started-text">{t('footerGetStarted')}</div>
                   </div>
                 </div>
                 <div className="_2-block-flex-image footer-form">
