@@ -62,8 +62,8 @@ const FIELD_MAPS = {
     'Name': 'title',
     'Slug': 'slug',
     'Case Study Excerpt': 'excerpt',
-    'Case Study Rich Text': 'body',
-    'Company Name': 'companyName',
+    'Case Study Rich Text': 'content',
+    'Company Name': 'companyIndustry',
   },
   'integrations': {
     'Name': 'name',

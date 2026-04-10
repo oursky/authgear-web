@@ -284,8 +284,8 @@ const COLLECTION_CONFIGS = {
       { webflow: 'name', strapi: 'title', type: 'text' },
       { webflow: 'slug', strapi: 'slug', type: 'text' },
       { webflow: 'excerpt', strapi: 'excerpt', type: 'text' },
-      { webflow: 'content', strapi: 'body', type: 'richtext' },
-      { webflow: 'customer-name', strapi: 'companyName', type: 'text' },
+      { webflow: 'content', strapi: 'content', type: 'richtext' },
+      { webflow: 'customer-name', strapi: 'companyIndustry', type: 'text' },
     ],
     imageFields: [
       { webflow: 'logo', strapi: 'companyLogo' },

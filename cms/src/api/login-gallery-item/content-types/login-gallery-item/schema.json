@@ -4,35 +4,114 @@
   "info": {
     "singularName": "login-gallery-item",
     "pluralName": "login-gallery-items",
-    "displayName": "Login Gallery Item"
+    "displayName": "Login Gallery"
   },
-  "options": { "draftAndPublish": true },
-  "pluginOptions": { "i18n": { "localized": true } },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
-      "pluginOptions": { "i18n": { "localized": true } }
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     },
     "slug": {
       "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "targetField": "title",
-      "required": true,
-      "pluginOptions": { "i18n": { "localized": false } }
+      "required": true
     },
-    "description": {
-      "type": "text",
-      "pluginOptions": { "i18n": { "localized": true } }
-    },
-    "body": {
-      "type": "richtext",
-      "pluginOptions": { "i18n": { "localized": true } }
-    },
-    "previewImage": {
+    "mainImage": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "multiple": false,
-      "allowedTypes": ["images"],
-      "pluginOptions": { "i18n": { "localized": false } }
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "industry": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "socialLogin": {
+      "type": "customField",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
+      "options": [
+        "LinkedIn",
+        "GitHub",
+        "Apple",
+        "Google",
+        "Microsoft"
+      ]
+    },
+    "loginMethodsTech": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "cms.login-and-tech",
+      "repeatable": false
+    },
+    "webImage": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mobileImage": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
