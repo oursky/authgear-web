@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import type { BlocksContent } from '@strapi/blocks-react-renderer';
 import { notFound } from 'next/navigation';
-import { getLoginGalleryItems, getLoginGalleryItemBySlug, strapiImageUrl } from '@/lib/strapi';
+import { getTranslations } from 'next-intl/server';
+import LoginGalleryDetailLayout, {
+  buildLoginGalleryDetailLabels,
+} from '@/components/login-gallery/LoginGalleryDetailLayout';
+import { DEFAULT_LOCALE, localizedPath } from '@/lib/i18n';
+import {
+  getLoginGalleryItems,
+  getLoginGalleryItemBySlug,
+  type LoginGalleryItem,
+} from '@/lib/strapi';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -21,31 +30,47 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const item = await getLoginGalleryItemBySlug(slug);
   if (!item) return { title: 'Gallery Item Not Found' };
-  return { title: item.attributes.title, description: item.attributes.description };
+  const { title, industry, description, excerpt } = item.attributes as LoginGalleryItem & {
+    excerpt?: string | null;
+  };
+  const desc = [industry, description, excerpt].find((s) => s && String(s).trim()) ?? undefined;
+  return { title, description: desc };
 }
 
 export default async function LoginGalleryItemPage({ params }: Props) {
   const { slug } = await params;
+  const t = await getTranslations({ locale: DEFAULT_LOCALE, namespace: 'LoginGalleryDetail' });
   const item = await getLoginGalleryItemBySlug(slug);
   if (!item) notFound();
 
-  const { title, description, body, previewImage } = item.attributes;
-  const imgUrl = strapiImageUrl(previewImage);
+  const attrs = item.attributes;
+  const {
+    title,
+    content,
+    body,
+    webImage,
+    mobileImage,
+    mainImage,
+    industry,
+    socialLogin,
+    loginMethodsTech,
+  } = attrs;
+
+  const labels = buildLoginGalleryDetailLabels((key) => t(key));
 
   return (
-    <div className="page-wrapper">
-      <div className="section login-gallery-detail">
-        <div className="container-default w-container">
-          {imgUrl && (
-            <Image src={imgUrl} alt={title} width={1200} height={800} style={{ width: '100%', height: 'auto' }} />
-          )}
-          <h1>{title}</h1>
-          {description && <p className="paragraph">{description}</p>}
-          {body && (
-            <div className="login-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: body }} />
-          )}
-        </div>
-      </div>
-    </div>
+    <LoginGalleryDetailLayout
+      galleryIndexHref={localizedPath(DEFAULT_LOCALE, '/login-gallery')}
+      title={title}
+      content={content as BlocksContent | null | undefined}
+      bodyHtml={body}
+      webImage={webImage}
+      mobileImage={mobileImage}
+      mainImage={mainImage}
+      industry={industry}
+      socialLogin={socialLogin}
+      loginMethodsTech={loginMethodsTech}
+      labels={labels}
+    />
   );
 }

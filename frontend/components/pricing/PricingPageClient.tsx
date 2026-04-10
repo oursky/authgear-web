@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import type { PricingCell, PricingCopy, PricingNodeVariant } from '@/lib/pricing/types';
 
 type Props = {
@@ -17,6 +17,43 @@ type Props = {
 function resolveHref(href: string, contactPath: string): string {
   if (href === '__CONTACT__') return contactPath;
   return href;
+}
+
+function PricingFaqItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  const baseId = useId();
+  const triggerId = `${baseId}-trigger`;
+  const panelId = `${baseId}-panel`;
+
+  return (
+    <div className="ds-pricing-faq__accordion">
+      <button
+        type="button"
+        id={triggerId}
+        className="ds-pricing-faq__summary"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => setOpen((o) => !o)}
+      >
+        <span className="ds-pricing-faq__icon" aria-hidden />
+        <span className="ds-pricing-faq__question">{question}</span>
+      </button>
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={triggerId}
+        aria-hidden={!open}
+        className="ds-pricing-faq__panel"
+        style={{ gridTemplateRows: open ? '1fr' : '0fr' }}
+      >
+        <div className="ds-pricing-faq__panel-inner">
+          <div className="ds-pricing-faq__answer">
+            <p>{answer}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function NodeVariantCell({
@@ -441,24 +478,15 @@ export default function PricingPageClient({ copy, locale, contactPath, whatsappP
         </div>
       </section>
 
-      <section className="bg-black">
-        <div className="w-layout-blockcontainer container-default faq w-container">
-          <div className="faq-heading">{copy.faq.heading}</div>
-          <div className="w-layout-grid workshop-faq">
-            <div className="faq2_component-2">
-              {copy.faq.items.map((item) => (
-                <details key={item.q} className="faq2_accordion-2 margin-top">
-                  <summary className="faq2_question-2 first cursor-pointer list-none">
-                    <div className="faq-accordion-question referral-faq-q">{item.q}</div>
-                  </summary>
-                  <div className="faq2_answer">
-                    <div className="margin-bottom">
-                      <p className="referral-faq-a-2">{item.a}</p>
-                    </div>
-                  </div>
-                </details>
-              ))}
-            </div>
+      <section className="ds-pricing-faq-section" aria-labelledby="pricing-faq-heading">
+        <div className="ds-pricing-faq">
+          <h2 id="pricing-faq-heading" className="ds-pricing-faq__heading">
+            {copy.faq.heading}
+          </h2>
+          <div className="ds-pricing-faq__list">
+            {copy.faq.items.map((item) => (
+              <PricingFaqItem key={item.q} question={item.q} answer={item.a} />
+            ))}
           </div>
         </div>
       </section>

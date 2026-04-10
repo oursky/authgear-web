@@ -45,7 +45,7 @@ export default async function WhatsNewItemPage({ params }: Props) {
             <Image src={imgUrl} alt={title} width={1200} height={600} style={{ width: '100%', height: 'auto' }} />
           )}
           {body ? (
-            <div className="whats-new-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: body }} />
+            <div className="ds-richtext-prose whats-new-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: body }} />
           ) : (
             <p>{t('noContentYet')}</p>
           )}

@@ -115,16 +115,32 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="container-default w-container">
           <div className="w-layout-grid blog-content">
             <div className="div-block-29">
-              <a href="https://discord.gg/Kdn5vcYwAS" target="_blank" rel="noreferrer" className="link-block-4 w-inline-block">
-                <Image src="/images/blog-discoard-community2x.jpg" loading="lazy" alt="Discord Community" width={300} height={200} className="image-92" />
+              <a href="https://discord.gg/Kdn5vcYwAS" target="_blank" rel="noreferrer" className="link-block-4 w-inline-block blog-discord-promo">
+                <Image
+                  src="/images/blog-discoard-community2x.jpg"
+                  loading="lazy"
+                  alt="Discord Community"
+                  width={600}
+                  height={400}
+                  sizes="(max-width: 991px) 100vw, 30vw"
+                  className="image-92 blog-discord-promo__img"
+                />
               </a>
-              <div className="div-block-32">
+              <div className="blog-github-star-cta">
                 <div>{t('starOnGitHub')}</div>
+                <iframe
+                  src="https://ghbtns.com/github-btn.html?user=authgear&repo=authgear-server&type=star&count=true&size=large"
+                  frameBorder={0}
+                  scrolling="no"
+                  width={150}
+                  height={30}
+                  title="GitHub"
+                />
               </div>
             </div>
             <div className="div-block-28">
               {body ? (
-                <div className="blog-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: body }} />
+                <div className="ds-richtext-prose blog-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: body }} />
               ) : (
                 <p>{t('noContentYet')}</p>
               )}

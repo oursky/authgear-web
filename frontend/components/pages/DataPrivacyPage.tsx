@@ -20,7 +20,7 @@ export default async function DataPrivacyPage({ locale: _locale }: Props) {
           <div className="section">
             <div className="container-default w-container"></div>
             <div className="container-medium-761px">
-              <div className="rich-text w-richtext">
+              <div className="ds-richtext-prose rich-text w-richtext">
                 <h4><strong>Who we are</strong>‍</h4>
                 <p>When we refer to “Authgear,” “we,” or “us” in this policy, we mean SkyMakers Digital Limited, which controls the information Authgear collects when you use Authgear's Services. Authgear owns and operates a number of websites.<br />‍<br />This Privacy Policy applies to our customers, prospective customers, our customers’ customers/users and visitors to <a href="/">www.authgear.com</a>, an authentication as a service owned by Authgear. We refer to Authgear and its related services as “Services” in this policy.<strong>‍</strong></p>
                 <h4>What information we collect about you?</h4>

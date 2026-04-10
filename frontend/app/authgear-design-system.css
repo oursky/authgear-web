@@ -22,6 +22,8 @@
 
   /* Background / Text / Border tokens */
   --color-bg-deep: #111010;
+  /* Login Gallery 輪播外層（Web/Mobile 切換＋截圖＋圓點同一容器） */
+  --color-login-gallery-carousel-surface: #232337;
   --color-bg-card: rgba(28, 28, 28, 0.88);
   --color-bg-card-hover: rgba(95, 101, 235, 0.15);
   --color-bg-light: #f5f5f5;
@@ -180,6 +182,7 @@
 
     /* Dark section surfaces + text (runtime) — 對照 §2 / §4.3 */
     --color-bg-deep: #111010;
+    --color-login-gallery-carousel-surface: #232337;
     --color-text-primary: #ffffff;
     --color-text-secondary: #afb7ff;
 
@@ -435,6 +438,86 @@
     .ds-hero-banner--white {
       padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
     }
+  }
+
+  /*
+   * Customer story 單篇頂部：Strapi `coverImage` 全寬 + 標題。
+   * 全站 `.header.event` 為 `position: fixed`（見本檔 `--layout-fixed-header-height` 註解）。
+   * 底圖若自區塊頂 `inset: 0` 會從文件頂端算起，視覺上被 nav 遮掉一段；媒體與遮罩改為自
+   * `top: var(--layout-fixed-header-height)` 起算。上緣帶狀區用與無圖時相同的深色底銜接 nav。
+   * 內距節奏對齊 `.ds-hero-banner--dark`（LG+／SM 斷點）。
+   */
+  .ds-customer-story-hero {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    min-height: min(32vw, 300px);
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+    padding-bottom: var(--spacing-ml);
+    overflow: hidden;
+    background-color: #1a1a1a;
+  }
+
+  @media (width < 768px) {
+    .ds-customer-story-hero {
+      padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+      padding-bottom: var(--spacing-s);
+    }
+  }
+
+  .ds-customer-story-hero__media {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--layout-fixed-header-height);
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .ds-customer-story-hero__img {
+    object-fit: cover;
+  }
+
+  .ds-customer-story-hero__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--layout-fixed-header-height);
+    bottom: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  .ds-customer-story-hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: left;
+  }
+
+  /*
+   * 文案區：與其他 KV 相同使用 `ds-container`（max-width + `padding-inline: --layout-padding-lg`，對應舊 Webflow `container-default` 左右 24px）。
+   * `--hero` 去掉上下大內距；此頁單欄左對齊，覆寫預設 `align-items: stretch`。
+   */
+  .ds-customer-story-hero .ds-container.ds-container--hero {
+    align-items: flex-start;
+  }
+
+  /* 主標＋小標依內容寬度收合；上限與 `.title-content` 相同（`--title-content-max-width` = 48rem） */
+  .ds-customer-story-hero__intro {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    max-width: min(100%, var(--title-content-max-width));
+    padding-block: var(--spacing-l); /* §5 ds-space-l = 4rem */
+    text-align: left;
+  }
+
+  .ds-customer-story-hero__intro .ds-hero-banner__title {
+    max-width: 100%;
   }
 
   .ds-hero-banner--white .ds-hero-banner__stack {
@@ -2184,6 +2267,17 @@ h1.ds-hero-banner__title {
   }
 }
 
+/* Customer story 頂部 banner：維持 `ds-hero-banner__title` 字族／字重／色票，字級改為 H2 tokens */
+.ds-customer-story-hero h1.ds-hero-banner__title {
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+}
+
+/* Banner 小標：沿用 `ds-section-eyebrow`，覆寫為主色白字（非 `--on-dark` 預設之 secondary） */
+.ds-customer-story-hero .ds-section-eyebrow.ds-section-eyebrow--on-dark {
+  color: var(--color-text-primary);
+}
+
 /*
  * Hero KV 說明（深色底）：與 `section-lede-on-dark` 相同 body／色票（§4.3 正文 `--color-text-secondary`），靠左。
  */
@@ -2312,6 +2406,16 @@ a.ds-btn-subtle:hover {
 
 a.ds-btn-subtle:hover {
   color: var(--color-primary-700);
+}
+
+a.ds-login-gallery-index-card,
+a.ds-login-gallery-index-card:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.ds-login-gallery-index-card .ds-login-gallery-index-card__title {
+  color: var(--color-text-primary);
 }
 
 /*
@@ -2518,6 +2622,7 @@ h3.ds-svg-card-title {
   letter-spacing: 0.04em;
 }
 
+.ds-container > .title-content > h1.heading-on-light,
 .ds-container > .title-content > h2.heading-on-light {
   margin: 0;
   margin-bottom: 0;
@@ -2770,6 +2875,233 @@ h3.ds-svg-card-title {
   width: 1.5rem;
   height: 1.5rem;
   color: inherit;
+}
+
+/*
+ * Footer bottom bar：分隔線 + 版權 + 法律連結 + 語言選單（參考 Okta footer）
+ * 容器對齊 Webflow `.container-default.w-container`（max-width: 1271px）
+ */
+.ds-footer-bottom-bar-wrapper {
+  max-width: 1271px;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+.ds-footer-bottom-bar-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+  margin-bottom: 1.25rem;
+}
+
+.ds-footer-bottom-bar {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem 1.5rem;
+  padding-bottom: 2rem;
+}
+
+/* 桌面：單列 — 左僅版權、右為 policy + 語言（勿換行，否則右側塊會掉到中間） */
+@media (width >= 640px) {
+  .ds-footer-bottom-bar {
+    flex-wrap: nowrap;
+  }
+}
+
+.ds-footer-bottom-bar__copyright-wrap {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+/*
+ * 右欄佔滿剩餘寬度 + flex-end：policy 連結與語言選單一律貼齊右緣
+ *（僅 space-between + shrink 寬的 end 時，連結視覺上容易像留在中左）
+ */
+.ds-footer-bottom-bar__end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem 1.25rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ds-footer-bottom-bar__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem 0.75rem;
+  text-align: right;
+}
+
+/* Webflow 全域 `a { text-decoration: underline }` 等 — 維持無底線、不過度伸長 */
+.footer.dark a.ds-footer-bottom-bar__link {
+  flex-shrink: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ds-footer-bottom-bar__copyright {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ds-footer-bottom-bar__sep {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  user-select: none;
+}
+
+.ds-footer-bottom-bar__link {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.ds-footer-bottom-bar__link:hover {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+@media (width < 640px) {
+  .ds-footer-bottom-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .ds-footer-bottom-bar__copyright-wrap {
+    align-self: flex-start;
+  }
+
+  .ds-footer-bottom-bar__end {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .ds-footer-bottom-bar__links {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 0.5rem;
+  }
+
+  .ds-footer-bottom-bar__links .ds-footer-bottom-bar__sep {
+    display: none;
+  }
+
+  .ds-footer-lang-switcher__dropdown {
+    left: 0;
+    right: auto;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Footer language switcher：pill 形按鈕 + 向上彈出選單
+   ─────────────────────────────────────────────────────────────────*/
+.ds-footer-lang-switcher {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ds-footer-lang-switcher__btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.375rem 0.875rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.ds-footer-lang-switcher__btn:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.ds-footer-lang-switcher__btn:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 2px;
+}
+
+.ds-footer-lang-switcher__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.ds-footer-lang-switcher__chevron {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.ds-footer-lang-switcher__chevron--open {
+  transform: rotate(180deg);
+}
+
+.ds-footer-lang-switcher__dropdown {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 10.5rem;
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0.375rem;
+  z-index: 100;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+
+.ds-footer-lang-switcher__option {
+  display: block;
+  padding: 0.5rem 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.ds-footer-lang-switcher__option:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  text-decoration: none;
+}
+
+.ds-footer-lang-switcher__option--active {
+  color: #fff;
+  font-weight: 500;
 }
 
 /*
@@ -3278,4 +3610,1181 @@ button.ds-pill-tabs__tab[type='button'].ds-pill-tabs__tab--active {
   font-weight: var(--font-weight-regular);
   color: var(--color-text-light-secondary);
   margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ds-pricing-faq：定價頁黑底 FAQ（雙欄：左標題、右 accordion；勿併用 w-container）
+   ─────────────────────────────────────────────────────────────────*/
+
+.ds-pricing-faq-section {
+  background-color: #000;
+  color: #fff;
+}
+
+.ds-pricing-faq {
+  box-sizing: border-box;
+  max-width: 1271px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--spacing-xl) var(--layout-padding-lg);
+  display: grid;
+  grid-template-columns: minmax(0, 32%) minmax(0, 1fr);
+  column-gap: 3.75rem;
+  row-gap: 2.5rem;
+  align-items: start;
+}
+
+.ds-pricing-faq__heading {
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-semibold);
+  color: #fff;
+  margin: 0;
+}
+
+.ds-pricing-faq__list {
+  min-width: 0;
+  width: 100%;
+}
+
+.ds-pricing-faq__accordion {
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+.ds-pricing-faq__accordion:first-of-type {
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+button.ds-pricing-faq__summary {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: var(--spacing-s) 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-medium);
+}
+
+button.ds-pricing-faq__summary:focus-visible {
+  outline: 0.125rem solid var(--color-primary-500);
+  outline-offset: 0.125rem;
+  border-radius: var(--radius-product);
+}
+
+.ds-pricing-faq__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-regular);
+  line-height: 1;
+}
+
+.ds-pricing-faq__icon::before {
+  content: '+';
+}
+
+button.ds-pricing-faq__summary[aria-expanded='true'] .ds-pricing-faq__icon::before {
+  content: '\2212';
+}
+
+.ds-pricing-faq__question {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+}
+
+.ds-pricing-faq__panel {
+  display: grid;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.ds-pricing-faq__panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ds-pricing-faq__answer {
+  padding: 0 0 var(--spacing-s) 2.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-pricing-faq__panel {
+    transition: none;
+  }
+}
+
+.ds-pricing-faq__answer p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-regular);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (width < 992px) {
+  .ds-pricing-faq {
+    grid-template-columns: 1fr;
+    row-gap: var(--spacing-m);
+    padding-top: var(--spacing-l);
+    padding-bottom: var(--spacing-l);
+  }
+}
+
+/*
+ * Customer story 內文：左欄 meta + 右欄 body。
+ * 對齊舊站 case study（約 1 : 2.7、側欄框線、sticky），色票／間距改為 DS token。
+ */
+.ds-customer-story-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-ml);
+  width: 100%;
+  align-items: start;
+}
+
+@media (width >= 992px) {
+  .ds-customer-story-body {
+    /* 比照 Webflow `.case-study-post-body`：窄側欄 + 主文欄（~1 : 2.7） */
+    grid-template-columns: minmax(15rem, 25rem) minmax(0, 2.7fr);
+    gap: 3.75rem; /* ~60px */
+  }
+}
+
+.ds-customer-story-body__sidebar {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-customer-story-body__logo-wrap {
+  margin-bottom: var(--spacing-m);
+  width: 100%;
+}
+
+.ds-customer-story-body__logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 3rem;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (width >= 992px) {
+  .ds-customer-story-body__sidebar {
+    position: sticky;
+    top: calc(var(--layout-fixed-header-height) + var(--spacing-s));
+    align-self: flex-start;
+    max-width: 25.3125rem; /* ~405px */
+    padding-right: var(--spacing-m);
+    border-right: 0.0625rem solid var(--color-border-light-subtle);
+  }
+}
+
+.ds-customer-story-body__meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  margin: 0;
+  width: 100%;
+}
+
+.ds-customer-story-body__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.ds-customer-story-body__meta dt {
+  margin: 0;
+}
+
+.ds-customer-story-body__label {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: 1;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-light-secondary);
+}
+
+.ds-customer-story-body__value {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-light-primary);
+}
+
+.ds-customer-story-body__value--plain {
+  font-weight: var(--font-weight-regular);
+}
+
+.ds-customer-story-body__dd {
+  margin: 0;
+}
+
+.ds-customer-story-body__chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-customer-story-body__chip {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 0.0625rem solid var(--color-border-light-subtle);
+  background-color: var(--color-bg-light-card);
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-medium);
+}
+
+.ds-customer-story-body__main {
+  min-width: 0;
+}
+
+.ds-customer-story-body__main .ds-richtext-prose {
+  max-width: min(100%, 48rem);
+}
+
+/* 右欄：Strapi metric1–3；數字 48px（3rem）medium、說明 16px（`--text-body2`），欄距 §5 spacing */
+.ds-customer-story-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--spacing-ml);
+  row-gap: var(--spacing-m);
+  width: 100%;
+  margin: 0 0 var(--spacing-ml) 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width >= 992px) {
+  .ds-customer-story-metrics {
+    column-gap: var(--spacing-xl);
+  }
+}
+
+@media (width < 768px) {
+  .ds-customer-story-metrics {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}
+
+.ds-customer-story-metrics__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  min-width: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.ds-customer-story-metrics__num {
+  font-family: var(--font-sans);
+  font-size: 3rem;
+  line-height: 3.25rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-light-primary);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-customer-story-metrics__text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-light-secondary);
+  text-align: left;
+  max-width: 100%;
+}
+
+@media (width < 992px) {
+  .ds-customer-story-body__sidebar {
+    padding-bottom: var(--spacing-m);
+    border-bottom: 0.0625rem solid var(--color-border-light-subtle);
+  }
+}
+
+/*
+ * Customer Stories 集結頁：置中 `title-content` + `heading-on-light` / `section-lede-on-light`，白底；主內容用 `ds-container`（與 Login Gallery 集結頁網格段相同節奏）。
+ */
+.ds-customer-stories-index {
+  width: 100%;
+}
+
+.ds-customer-stories-index__header {
+  padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+  padding-bottom: var(--spacing-l);
+}
+
+.ds-customer-stories-index__header > .ds-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  gap: 0;
+}
+
+@media (width < 768px) {
+  .ds-customer-stories-index__header {
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+    padding-bottom: var(--spacing-l);
+  }
+}
+
+.ds-customer-stories-index .ds-container > .title-content {
+  gap: var(--spacing-s);
+}
+
+.ds-customer-stories-index__main {
+  padding-bottom: var(--spacing-xl);
+}
+
+/* 主內容區 `ds-container`：不重複預設大上下 padding（由 section／`__main` 負責）；網格拉滿寬 */
+.ds-customer-stories-index__main > .ds-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  align-items: stretch;
+  gap: 0;
+}
+
+.ds-customer-stories-index__main > .ds-container > .case-study-list,
+.ds-customer-stories-index__main > .ds-container > .empty-state {
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ds-customer-stories-index .case-study-list {
+  gap: var(--spacing-m);
+}
+
+/*
+ * Login Gallery 集結頁：外層 `section.ds-section.ds-login-gallery-index`，底色與單篇 `.ds-login-gallery-page` 一致（`--color-bg-deep`）。
+ */
+.ds-login-gallery-index {
+  width: 100%;
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-primary);
+}
+
+/*
+ * 固定導覽（`--layout-fixed-header-height`）不佔流；須自頂加算，否則標題會貼在 nav 下方。
+ * 節奏對齊 `.ds-hero-banner--dark`／`.ds-hero-banner--white`。
+ */
+.ds-login-gallery-index__hero {
+  padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+  padding-bottom: var(--spacing-s);
+}
+
+@media (width < 768px) {
+  .ds-login-gallery-index__hero {
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+  }
+}
+
+.ds-login-gallery-index__hero-inner {
+  display: flex;
+  max-width: min(100%, var(--title-content-max-width));
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-s);
+  margin-inline: auto;
+  text-align: center;
+}
+
+/*
+ * 集結頁專用小標：28px（1.75rem）、CTA Accent 漸層（`--gradient-accent`）；僅此頁使用。
+ */
+.ds-login-gallery-index__eyebrow {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+  background-image: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ds-login-gallery-index__hero-inner .ds-login-gallery-index__eyebrow {
+  margin: 0;
+}
+
+.ds-login-gallery-index__hero-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.ds-login-gallery-index__hero-title-line {
+  display: block;
+}
+
+.ds-login-gallery-index__hero-lede {
+  margin: 0;
+  max-width: 40rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+}
+
+.ds-login-gallery-index__hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-m);
+}
+
+.ds-login-gallery-index__grid-section .ds-container {
+  align-items: stretch;
+}
+
+.ds-login-gallery-index__grid {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-l);
+  align-self: stretch;
+}
+
+@media (width >= 640px) {
+  .ds-login-gallery-index__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1024px) {
+  .ds-login-gallery-index__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ds-login-gallery-index__grid-item {
+  min-width: 0;
+}
+
+.ds-login-gallery-index__empty {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+}
+
+/*
+ * 集結頁卡片：深色圓角外框 + 內縮截圖；標題在框外下方（白字、左對齊）。
+ */
+.ds-login-gallery-index-card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ds-login-gallery-index-card:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.25rem;
+  border-radius: var(--radius-card);
+}
+
+.ds-login-gallery-index-card__frame {
+  box-sizing: border-box;
+  width: 100%;
+  padding-block: 2.5rem;
+  padding-inline: 2rem;
+  border-radius: 2rem;
+  background-color: var(--color-login-gallery-carousel-surface);
+  transition:
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+@media (width < 768px) {
+  .ds-login-gallery-index-card__frame {
+    padding-block: var(--spacing-m);
+    padding-inline: 2rem;
+  }
+}
+
+.ds-login-gallery-index-card:hover .ds-login-gallery-index-card__frame {
+  box-shadow: 0 0.75rem 2.5rem rgba(0, 0, 0, 0.45);
+}
+
+.ds-login-gallery-index-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #0f0f14;
+}
+
+.ds-login-gallery-index-card__img {
+  object-fit: cover;
+}
+
+.ds-login-gallery-index-card__placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #2a2a38 0%, #14141c 100%);
+}
+
+.ds-login-gallery-index-card__title {
+  margin: var(--spacing-xs) 0 0 0;
+  align-self: flex-start;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-h4);
+  line-height: var(--text-h4--line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-align: left;
+}
+
+/*
+ * Login Gallery 單篇：`ds-section.ds-login-gallery-page` 為全頁區塊；各段為 `ds-container.ds-login-gallery-page__container`。
+ * `authgear-ds-split-stack.css` 內有底色／容器覆寫（後載於 Webflow，含 !important）。
+ * 對齊 production：https://www.authgear.com/login-gallery/jooca-tech
+ */
+.ds-login-gallery-page {
+  width: 100%;
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-primary);
+}
+
+.ds-login-gallery-page__header {
+  padding-top: var(--spacing-xl);
+}
+
+/* Eyebrow：18px（`--text-body`）／Light Muted；返回總覽連結 */
+.ds-login-gallery-page__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  color: var(--color-text-light-muted);
+  text-decoration: none;
+}
+
+.ds-login-gallery-page__eyebrow:hover {
+  color: var(--color-text-secondary);
+}
+
+.ds-login-gallery-page__eyebrow:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.125rem;
+}
+
+.ds-login-gallery-page__eyebrow svg {
+  flex-shrink: 0;
+}
+
+.ds-login-gallery-page__title {
+  margin: var(--spacing-xs) 0 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.ds-login-gallery-page__content {
+  padding-top: 0;
+  padding-bottom: var(--spacing-xl);
+  background-color: var(--color-bg-deep);
+}
+
+/* ── Carousel ─────────────────────────────────────────────────── */
+.ds-login-gallery-carousel {
+  width: 100%;
+}
+
+/* Web/Mobile 切換、截圖區、圓點同一視覺容器（底色 #232337） */
+.ds-login-gallery-carousel__surface {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-m);
+  padding: var(--spacing-m);
+  border-radius: var(--radius-section);
+  background-color: var(--color-login-gallery-carousel-surface);
+}
+
+.ds-login-gallery-carousel__surface--empty {
+  min-height: 14rem;
+  justify-content: center;
+}
+
+.ds-login-gallery-carousel__placeholder {
+  width: 100%;
+  min-height: 10rem;
+  border-radius: var(--radius-card);
+  border: 0.0625rem dashed rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.ds-login-gallery-carousel__switch {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0.25rem;
+  gap: 0.25rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+}
+
+.ds-login-gallery-carousel__switch-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+button.ds-login-gallery-carousel__switch-btn[type='button'] {
+  appearance: none;
+  margin: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-body2--line-height);
+  color: var(--color-text-secondary);
+  background: transparent;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+button.ds-login-gallery-carousel__switch-btn[type='button']:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+/* Design System：Card Alt Gradient（與 `.svg-card-alternative` 同色票） */
+button.ds-login-gallery-carousel__switch-btn[type='button'][aria-pressed='true'] {
+  background: var(--gradient-card-alt);
+  color: var(--color-text-primary);
+}
+
+button.ds-login-gallery-carousel__switch-btn[type='button']:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.125rem;
+}
+
+.ds-login-gallery-carousel__viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: min(70vh, 40rem);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: transparent;
+}
+
+.ds-login-gallery-carousel__viewport--swipe {
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.ds-login-gallery-carousel__viewport--swipe:active {
+  cursor: grabbing;
+}
+
+.ds-login-gallery-carousel__track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  background: transparent;
+}
+
+.ds-login-gallery-carousel__slide {
+  position: relative;
+  flex-shrink: 0;
+  height: 100%;
+  min-width: 0;
+}
+
+.ds-login-gallery-carousel__img {
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+.ds-login-gallery-carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-product);
+  cursor: pointer;
+  color: var(--color-text-primary);
+  background: rgba(17, 16, 16, 0.65);
+  backdrop-filter: blur(6px);
+  transition: background-color 160ms ease;
+}
+
+.ds-login-gallery-carousel__nav:hover {
+  background: rgba(17, 16, 16, 0.85);
+}
+
+.ds-login-gallery-carousel__nav:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.125rem;
+}
+
+.ds-login-gallery-carousel__nav--prev {
+  left: var(--spacing-s);
+}
+
+.ds-login-gallery-carousel__nav--next {
+  right: var(--spacing-s);
+}
+
+.ds-login-gallery-carousel__nav-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ds-login-gallery-carousel__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+button.ds-login-gallery-carousel__dot[type='button'] {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.28);
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+button.ds-login-gallery-carousel__dot[type='button'][data-active='true'] {
+  background: #ffffff;
+  transform: scale(1.15);
+}
+
+button.ds-login-gallery-carousel__dot[type='button']:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.125rem;
+}
+
+/* ── Body：主文（左）／側欄（右），與 customer story 欄寬比例類似但順序相反 ─── */
+.ds-login-gallery-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-ml);
+  width: 100%;
+  align-items: start;
+}
+
+@media (width >= 992px) {
+  .ds-login-gallery-body {
+    grid-template-columns: minmax(0, 2.7fr) minmax(15rem, 28rem);
+    gap: 3.75rem;
+  }
+}
+
+.ds-login-gallery-body__main {
+  order: 1;
+  min-width: 0;
+}
+
+.ds-login-gallery-body__main .ds-richtext-prose {
+  max-width: min(100%, 48rem);
+}
+
+/*
+ * Login Gallery CMS 長文：`StrapiBlocksContent`／legacy body 使用 `ds-richtext-prose--on-dark ds-login-gallery-richtext`（專用容器類，不依賴 Webflow `w-richtext`）。
+ * 此為樣式主檔；`public/css/authgear-ds-split-stack.css` 內有同選擇器覆寫（後載於 Webflow），修改時請兩處同步。
+ * 使用 `!important` 以抗衡 `authgear-new.webflow.css` 全域標題／段落規則。
+ */
+/* 取代 Webflow `.w-richtext` 容器的 clearfix／清單 containment（僅 Login Gallery） */
+.ds-login-gallery-richtext:before,
+.ds-login-gallery-richtext:after {
+  content: ' ';
+  display: table;
+}
+
+.ds-login-gallery-richtext:after {
+  clear: both;
+}
+
+.ds-login-gallery-richtext ol,
+.ds-login-gallery-richtext ul {
+  overflow: hidden;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext {
+  font-family: var(--font-sans) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h1 {
+  margin: var(--spacing-xl) 0 var(--spacing-s) 0 !important;
+  padding: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h3-svg-card) !important;
+  line-height: var(--text-h3-svg-card--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: normal !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h1:first-child {
+  margin-top: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h2 {
+  margin: var(--spacing-l) 0 var(--spacing-s) 0 !important;
+  padding: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h3-svg-card) !important;
+  line-height: var(--text-h3-svg-card--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: normal !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h2:first-child {
+  margin-top: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h3 {
+  margin: var(--spacing-l) 0 var(--spacing-xs) 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h4) !important;
+  line-height: var(--text-h4--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h4 {
+  margin: var(--spacing-m) 0 var(--spacing-xxs) 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 無序清單：勾選圖示（與 `authgear-ds-split-stack.css` Login Gallery 段同步） */
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul > li {
+  position: relative !important;
+  padding-left: 2rem !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul > li::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0.2em !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M9.37525%2017.8127C9.11925%2017.8127%208.86325%2017.7147%208.66825%2017.5197L4.29325%2013.1448C3.90225%2012.7538%203.90225%2012.1217%204.29325%2011.7308C4.68425%2011.3398%205.31625%2011.3398%205.70725%2011.7308L9.37525%2015.3988L18.2932%206.48075C18.6842%206.08975%2019.3162%206.08975%2019.7072%206.48075C20.0982%206.87175%2020.0982%207.50375%2019.7072%207.89475L10.0822%2017.5197C9.88725%2017.7147%209.63125%2017.8127%209.37525%2017.8127Z%22%20fill%3D%22%230065FF%22%2F%3E%3C%2Fsvg%3E')
+    no-repeat center / contain !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ol {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding-left: 1.5rem !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li {
+  margin: 0 0 var(--spacing-xxs) 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li > ul {
+  margin-top: var(--spacing-xxs) !important;
+  margin-bottom: 0 !important;
+  margin-left: 0.25rem !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li > ol {
+  margin-top: var(--spacing-xxs) !important;
+  margin-bottom: 0 !important;
+  list-style-type: lower-alpha !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext a {
+  color: var(--color-primary-300) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.125rem !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext a:hover {
+  color: var(--color-primary-200) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext strong {
+  color: var(--color-text-primary) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext blockquote {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding: var(--spacing-m) !important;
+  border-radius: var(--radius-section) !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Login Gallery 主文：內文段落／清單／引用 #b0b0b0（標題 h1–h4、strong 仍為上方 token） */
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext blockquote {
+  color: #b0b0b0 !important;
+}
+
+.ds-login-gallery-body__empty {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  color: var(--color-text-secondary);
+}
+
+.ds-login-gallery-body__sidebar {
+  order: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width >= 992px) {
+  .ds-login-gallery-body__sidebar {
+    position: sticky;
+    top: calc(var(--layout-fixed-header-height) + var(--spacing-s));
+    align-self: flex-start;
+    padding-left: var(--spacing-m);
+    max-width: 28rem;
+  }
+}
+
+.ds-login-gallery-body__meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  margin: 0;
+  width: 100%;
+}
+
+.ds-login-gallery-body__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.ds-login-gallery-body__meta dt {
+  margin: 0;
+}
+
+.ds-login-gallery-body__label {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: 1;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.ds-login-gallery-body__value {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.ds-login-gallery-body__value--plain {
+  font-weight: var(--font-weight-regular);
+}
+
+.ds-login-gallery-body__dd {
+  margin: 0;
+}
+
+.ds-login-gallery-body__chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-login-gallery-body__chip {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-medium);
+}
+
+@media (width < 992px) {
+  .ds-login-gallery-body__sidebar {
+    padding-bottom: var(--spacing-m);
+    border-bottom: none;
+  }
+}
+
+/* Strapi Blocks 內嵌圖 */
+.ds-strapi-blocks-figure {
+  margin: 0 0 var(--spacing-m) 0;
+}
+
+.ds-strapi-blocks-figure__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-product);
+}
+
+/* Blog post sidebar — Discord 圖（右欄滿寬） */
+a.blog-discord-promo {
+  display: block;
+  width: 100%;
+}
+
+.blog-discord-promo__img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+/* Blog post sidebar — GitHub star CTA (light gray card, centered) */
+.blog-github-star-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+  padding: 32px 20px;
+  text-align: center;
+  background-color: #eeeeee;
+  border-radius: 24px;
+}
+
+.blog-github-star-cta iframe {
+  display: block;
+  margin: 0.75rem 0 0;
+  border: 0;
+  color-scheme: light;
 }

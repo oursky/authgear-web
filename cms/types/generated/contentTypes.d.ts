@@ -572,13 +572,13 @@ export interface ApiCustomerStoryCustomerStory
     };
   };
   attributes: {
-    body: Schema.Attribute.RichText &
+    companyIndustry: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    companyInfoLines: Schema.Attribute.Text &
+    companyLocation: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -590,7 +590,7 @@ export interface ApiCustomerStoryCustomerStory
           localized: false;
         };
       }>;
-    companyName: Schema.Attribute.String &
+    content: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -616,9 +616,57 @@ export interface ApiCustomerStoryCustomerStory
       'oneToMany',
       'api::customer-story.customer-story'
     >;
+    loginMethodsTech: Schema.Attribute.Component<'cms.login-and-tech', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metric1_num: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    metric1_Text: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metric2_num: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    metric2_Text: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metric3_num: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    metric3_Text: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    thumbnail: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -764,7 +812,7 @@ export interface ApiLoginGalleryItemLoginGalleryItem
   extends Struct.CollectionTypeSchema {
   collectionName: 'login_gallery_items';
   info: {
-    displayName: 'Login Gallery Item';
+    displayName: 'Login Gallery';
     pluralName: 'login-gallery-items';
     singularName: 'login-gallery-item';
   };
@@ -777,7 +825,7 @@ export interface ApiLoginGalleryItemLoginGalleryItem
     };
   };
   attributes: {
-    body: Schema.Attribute.RichText &
+    content: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -786,7 +834,7 @@ export interface ApiLoginGalleryItemLoginGalleryItem
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
+    industry: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -797,7 +845,19 @@ export interface ApiLoginGalleryItemLoginGalleryItem
       'oneToMany',
       'api::login-gallery-item.login-gallery-item'
     >;
-    previewImage: Schema.Attribute.Media<'images'> &
+    loginMethodsTech: Schema.Attribute.Component<'cms.login-and-tech', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mainImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    mobileImage: Schema.Attribute.Media<'images', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -811,6 +871,17 @@ export interface ApiLoginGalleryItemLoginGalleryItem
           localized: false;
         };
       }>;
+    socialLogin: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['LinkedIn', 'GitHub', 'Apple', 'Google', 'Microsoft']
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'[]'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -821,6 +892,12 @@ export interface ApiLoginGalleryItemLoginGalleryItem
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    webImage: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
   };
 }
 

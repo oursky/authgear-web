@@ -1,6 +1,7 @@
 /*
  * 載入順序須在 webflow.css / authgear-new.webflow.css **之後**（見 app/layout.tsx）。
  * 否則後載的 Webflow 會蓋掉 design-system 內 @layer／較早載入的規則，導致 split 列黏在一起、標題與首列間距過大。
+ * 另：淺色底 `.ds-richtext-prose.w-richtext` 仍在本檔；Login Gallery 深色長文（`--on-dark` + `ds-login-gallery-richtext`）已定義於 `app/authgear-design-system.css`。
  */
 .ds-container.ds-container--split-stack.ds-container--split-stack--title-gap-m {
   display: flex !important;
@@ -68,4 +69,404 @@
   font-weight: var(--font-weight-regular) !important;
   text-align: left !important;
   max-width: 100% !important;
+}
+
+/*
+ * CMS 長文（Strapi / Webflow richtext）— 與 case study、blog、What’s New、Login Gallery 等共用。
+ * 編輯規範：文章內章節主標請用 h2；次標 h3、h4；無序清單 ul（圓點）、有序清單 ol（數字）。
+ * 視覺參考：https://www.authgear.com/customer-stories/global-qsr
+ * 須寫在本檔（載入於 authgear-new.webflow.css 之後），否則 Webflow 會覆寫 bundle 內規則。
+ */
+.ds-richtext-prose.w-richtext {
+  font-family: var(--font-sans) !important;
+  color: var(--color-text-light-secondary) !important;
+}
+
+/* 文章內主章節（對應頁面上「At a glance」「The Challenge」等區塊層級） */
+.ds-richtext-prose.w-richtext h2 {
+  margin: var(--spacing-xl) 0 var(--spacing-s) 0 !important;
+  padding: 0 !important;
+  color: var(--color-text-light-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h3-svg-card) !important;
+  line-height: var(--text-h3-svg-card--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: normal !important;
+}
+
+.ds-richtext-prose.w-richtext h2:first-child {
+  margin-top: 0 !important;
+}
+
+.ds-richtext-prose.w-richtext h3 {
+  margin: var(--spacing-l) 0 var(--spacing-xs) 0 !important;
+  color: var(--color-text-light-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h4) !important;
+  line-height: var(--text-h4--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.w-richtext h4 {
+  margin: var(--spacing-m) 0 var(--spacing-xxs) 0 !important;
+  color: var(--color-text-light-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.w-richtext p {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  color: var(--color-text-light-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.ds-richtext-prose.w-richtext p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 無序：圓點；有序：數字 — 與參考頁條列一致 */
+.ds-richtext-prose.w-richtext ul {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding-left: 1.5rem !important;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+.ds-richtext-prose.w-richtext ol {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding-left: 1.5rem !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+}
+
+.ds-richtext-prose.w-richtext li {
+  margin: 0 0 var(--spacing-xxs) 0 !important;
+  color: var(--color-text-light-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.ds-richtext-prose.w-richtext li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.ds-richtext-prose.w-richtext li > ul {
+  margin-top: var(--spacing-xxs) !important;
+  margin-bottom: 0 !important;
+  list-style-type: circle !important;
+}
+
+.ds-richtext-prose.w-richtext li > ol {
+  margin-top: var(--spacing-xxs) !important;
+  margin-bottom: 0 !important;
+  list-style-type: lower-alpha !important;
+}
+
+.ds-richtext-prose.w-richtext a {
+  color: var(--color-primary-800) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.125rem !important;
+}
+
+.ds-richtext-prose.w-richtext a:hover {
+  color: var(--color-primary-600) !important;
+}
+
+.ds-richtext-prose.w-richtext strong {
+  color: var(--color-text-light-primary) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.w-richtext blockquote {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding: var(--spacing-m) !important;
+  border-radius: var(--radius-section) !important;
+  color: var(--color-text-light-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  background-color: var(--color-neutral-200) !important;
+}
+
+/*
+ * Login Gallery 深色長文（`--on-dark.ds-login-gallery-richtext`）— 選擇器與屬性須與 `app/authgear-design-system.css` 內同段 **同步**。
+ * 本檔在 `authgear-new.webflow.css` 之後載入，確保 `!important` 能蓋過 Webflow。
+ */
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext {
+  font-family: var(--font-sans) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h1 {
+  margin: var(--spacing-xl) 0 var(--spacing-s) 0 !important;
+  padding: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h3-svg-card) !important;
+  line-height: var(--text-h3-svg-card--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: normal !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h1:first-child {
+  margin-top: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h2 {
+  margin: var(--spacing-l) 0 var(--spacing-s) 0 !important;
+  padding: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h3-svg-card) !important;
+  line-height: var(--text-h3-svg-card--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: normal !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h2:first-child {
+  margin-top: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h3 {
+  margin: var(--spacing-l) 0 var(--spacing-xs) 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h4) !important;
+  line-height: var(--text-h4--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h4 {
+  margin: var(--spacing-m) 0 var(--spacing-xxs) 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul > li {
+  position: relative !important;
+  padding-left: 2rem !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul > li::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0.2em !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M9.37525%2017.8127C9.11925%2017.8127%208.86325%2017.7147%208.66825%2017.5197L4.29325%2013.1448C3.90225%2012.7538%203.90225%2012.1217%204.29325%2011.7308C4.68425%2011.3398%205.31625%2011.3398%205.70725%2011.7308L9.37525%2015.3988L18.2932%206.48075C18.6842%206.08975%2019.3162%206.08975%2019.7072%206.48075C20.0982%206.87175%2020.0982%207.50375%2019.7072%207.89475L10.0822%2017.5197C9.88725%2017.7147%209.63125%2017.8127%209.37525%2017.8127Z%22%20fill%3D%22%230065FF%22%2F%3E%3C%2Fsvg%3E')
+    no-repeat center / contain !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ol {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding-left: 1.5rem !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li {
+  margin: 0 0 var(--spacing-xxs) 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li > ul {
+  margin-top: var(--spacing-xxs) !important;
+  margin-bottom: 0 !important;
+  margin-left: 0.25rem !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li > ol {
+  margin-top: var(--spacing-xxs) !important;
+  margin-bottom: 0 !important;
+  list-style-type: lower-alpha !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext a {
+  color: var(--color-primary-300) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.125rem !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext a:hover {
+  color: var(--color-primary-200) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext strong {
+  color: var(--color-text-primary) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext blockquote {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding: var(--spacing-m) !important;
+  border-radius: var(--radius-section) !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext blockquote {
+  color: #b0b0b0 !important;
+}
+
+/*
+ * Login Gallery 單篇：design-system bundle 早於 Webflow 載入，未加 !important 的 display／底色會被蓋掉。
+ * 本檔在 authgear-new.webflow.css 之後載入（見 app/layout.tsx）。
+ */
+.ds-login-gallery-page {
+  background-color: var(--color-bg-deep) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.ds-login-gallery-index {
+  background-color: var(--color-bg-deep) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.ds-login-gallery-index .ds-login-gallery-index__hero-title {
+  color: var(--color-text-primary) !important;
+}
+
+.ds-login-gallery-index .ds-login-gallery-index__hero-lede {
+  color: var(--color-text-primary) !important;
+}
+
+.ds-login-gallery-page .ds-login-gallery-page__title {
+  color: var(--color-text-primary) !important;
+}
+
+.ds-login-gallery-page .ds-section-eyebrow.ds-section-eyebrow--on-dark {
+  color: var(--color-text-light-muted) !important;
+}
+
+.ds-login-gallery-page .ds-section-eyebrow.ds-section-eyebrow--on-dark:hover {
+  color: var(--color-text-secondary) !important;
+}
+
+/* 集結頁小標：漸層字（與 `--gradient-accent`）；避免 Webflow 蓋掉字級／顏色 */
+.ds-login-gallery-index .ds-login-gallery-index__eyebrow {
+  font-size: 1.75rem !important;
+  line-height: 2.125rem !important;
+  background-image: var(--gradient-accent) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.ds-login-gallery-index .ds-login-gallery-index-card__frame {
+  background-color: var(--color-login-gallery-carousel-surface) !important;
+}
+
+.ds-login-gallery-index a.ds-login-gallery-index-card .ds-login-gallery-index-card__title {
+  color: var(--color-text-primary) !important;
+}
+
+.ds-login-gallery-page .ds-container.ds-login-gallery-page__container {
+  display: block !important;
+  padding-top: var(--spacing-ml) !important;
+  padding-bottom: var(--spacing-ml) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.ds-login-gallery-page__header .ds-login-gallery-page__container {
+  padding-top: var(--spacing-xl) !important;
+}
+
+.ds-login-gallery-page__content.ds-login-gallery-page__content--split {
+  padding-top: 0 !important;
+  padding-bottom: var(--spacing-xl) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.ds-login-gallery-page .ds-login-gallery-body {
+  display: grid !important;
+  width: 100% !important;
+  grid-template-columns: 1fr !important;
+  gap: var(--spacing-ml) !important;
+  align-items: start !important;
+}
+
+@media (min-width: 992px) {
+  .ds-login-gallery-page .ds-login-gallery-body {
+    grid-template-columns: minmax(0, 2.7fr) minmax(15rem, 28rem) !important;
+    gap: 3.75rem !important;
+  }
+
+  .ds-login-gallery-page .ds-login-gallery-body__sidebar {
+    position: sticky !important;
+    top: calc(var(--layout-fixed-header-height) + var(--spacing-s)) !important;
+    align-self: flex-start !important;
+    padding-left: var(--spacing-m) !important;
+    max-width: 28rem !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Design System — Card Alt Gradient（與 `@theme --gradient-card-alt` / `.svg-card-alternative` 一致） */
+.ds-login-gallery-body__sidebar-card {
+  width: 100%;
+  padding: var(--spacing-m) !important;
+  border-radius: var(--radius-section) !important;
+  border: none !important;
+  background: var(--gradient-card-alt) !important;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.35) !important;
+}
+
+@media (width < 992px) {
+  .ds-login-gallery-page .ds-login-gallery-body__sidebar {
+    padding-bottom: var(--spacing-m) !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
 }

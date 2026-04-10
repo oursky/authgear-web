@@ -20,7 +20,7 @@ export default async function PromisesPage({ locale: _locale }: Props) {
           <div className="section">
             <div className="container-default w-container"></div>
             <div className="container-medium-761px">
-              <div className="rich-text w-richtext">
+              <div className="ds-richtext-prose rich-text w-richtext">
                 <ol  role="list">
                   <li>You own your code and data, not us.</li>
                   <li>We won’t lock you in from other vendors.</li>

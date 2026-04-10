@@ -233,7 +233,7 @@ export default function AttackProtectionPage(_props: Props) {
           href="https://portal.authgear.com/?utm_source=feature-attack-protection&amp;utm_medium=link&amp;utm_campaign=start-for-free"
           target="_blank"
           rel="noreferrer"
-          className="ds-btn ds-btn-primary"
+          className="ds-btn ds-btn-secondary"
         >
           {tFeatures('startForFree')}
         </a>
