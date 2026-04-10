@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import { LOCALES } from '@/lib/i18n';
 import { compareData } from '@/lib/compare/data';
 
@@ -25,7 +26,14 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (slug === 'okta-alternative') {
+    const t = await getTranslations({ locale, namespace: 'OktaAlternative' });
+    return {
+      title: t('metaTitle'),
+      description: t('metaDescription'),
+    };
+  }
   const data = compareData[slug];
   if (!data) return {};
   return {
