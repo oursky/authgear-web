@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { localizedPath } from '@/lib/i18n';
 import { footerStrings } from '@/lib/navigation-data';
+import FooterLanguageSwitcher from './FooterLanguageSwitcher';
 
 function lp(locale: string, path: string) {
   return localizedPath(locale, path);
@@ -237,36 +238,6 @@ export default function SiteFooter({ locale }: { locale: string }) {
                       <div>{L('glossary', locale)}</div>
                     </Link>
                   </li>
-                  <li className="footer-menu-list-item">
-                    <Link href={lp(locale, '/security')} className="footer-menu-link workshop-footer-link w-inline-block">
-                      <div>{L('security', locale)}</div>
-                    </Link>
-                  </li>
-                  <li className="footer-menu-list-item">
-                    <Link href={lp(locale, '/terms')} className="footer-menu-link workshop-footer-link w-inline-block">
-                      <div>{L('termsOfService', locale)}</div>
-                    </Link>
-                  </li>
-                  <li className="footer-menu-list-item">
-                    <Link href={lp(locale, '/policy')} className="footer-menu-link workshop-footer-link w-inline-block">
-                      <div>{L('privacyPolicy', locale)}</div>
-                    </Link>
-                  </li>
-                  <li className="footer-menu-list-item">
-                    <Link href={lp(locale, '/data-privacy')} className="footer-menu-link workshop-footer-link w-inline-block">
-                      <div>{L('dataPrivacy', locale)}</div>
-                    </Link>
-                  </li>
-                  <li className="footer-menu-list-item">
-                    <Link href={lp(locale, '/terms-of-enterprise-license')} className="footer-menu-link workshop-footer-link w-inline-block">
-                      <div>{L('enterpriseLicenses', locale)}</div>
-                    </Link>
-                  </li>
-                  <li className="footer-menu-list-item">
-                    <Link href={lp(locale, '/sla')} className="footer-menu-link workshop-footer-link w-inline-block">
-                      <div>SLA</div>
-                    </Link>
-                  </li>
                 </ul>
                 <ul role="list" className="footer-menu-list w-list-unstyled">
                   <li className="footer-menu-list-item">
@@ -356,6 +327,44 @@ export default function SiteFooter({ locale }: { locale: string }) {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="ds-footer-bottom-bar-wrapper">
+        <div className="ds-footer-bottom-bar-divider" />
+        <div className="ds-footer-bottom-bar">
+          <div className="ds-footer-bottom-bar__copyright-wrap">
+            <span className="ds-footer-bottom-bar__copyright">
+              © {new Date().getFullYear()} {L('copyright', locale)}
+            </span>
+          </div>
+          <div className="ds-footer-bottom-bar__end">
+            <div className="ds-footer-bottom-bar__links">
+              <Link href={lp(locale, '/terms')} className="ds-footer-bottom-bar__link">
+                {L('termsOfService', locale)}
+              </Link>
+              <span className="ds-footer-bottom-bar__sep" aria-hidden>·</span>
+              <Link href={lp(locale, '/policy')} className="ds-footer-bottom-bar__link">
+                {L('privacyPolicy', locale)}
+              </Link>
+              <span className="ds-footer-bottom-bar__sep" aria-hidden>·</span>
+              <Link href={lp(locale, '/data-privacy')} className="ds-footer-bottom-bar__link">
+                {L('dataPrivacy', locale)}
+              </Link>
+              <span className="ds-footer-bottom-bar__sep" aria-hidden>·</span>
+              <Link href={lp(locale, '/security')} className="ds-footer-bottom-bar__link">
+                {L('security', locale)}
+              </Link>
+              <span className="ds-footer-bottom-bar__sep" aria-hidden>·</span>
+              <Link href={lp(locale, '/terms-of-enterprise-license')} className="ds-footer-bottom-bar__link">
+                {L('enterpriseLicenses', locale)}
+              </Link>
+              <span className="ds-footer-bottom-bar__sep" aria-hidden>·</span>
+              <Link href={lp(locale, '/sla')} className="ds-footer-bottom-bar__link">
+                {L('sla', locale)}
+              </Link>
+            </div>
+            <FooterLanguageSwitcher locale={locale} />
           </div>
         </div>
       </div>
