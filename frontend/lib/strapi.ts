@@ -207,6 +207,68 @@ export function strapiImageUrl(image: StrapiImage | { url?: string } | null | un
   return url.startsWith('http') ? url : `${base}${url}`;
 }
 
+function strapiMediaItemToSlide(item: unknown): { src: string; alt: string } | null {
+  if (item == null || typeof item !== 'object') return null;
+  const readAlt = (o: Record<string, unknown>): string =>
+    typeof o.alternativeText === 'string' ? o.alternativeText : '';
+
+  const candidates: unknown[] = [item];
+  const o = item as Record<string, unknown>;
+  if (o.attributes && typeof o.attributes === 'object') candidates.push(o.attributes);
+  if (o.data != null) {
+    if (Array.isArray(o.data)) {
+      for (const el of o.data) candidates.push(el);
+    } else {
+      candidates.push(o.data);
+      const d = o.data as Record<string, unknown>;
+      if (d.attributes && typeof d.attributes === 'object') candidates.push(d.attributes);
+    }
+  }
+
+  for (const c of candidates) {
+    if (!c || typeof c !== 'object') continue;
+    const rec = c as Record<string, unknown>;
+    const src = strapiImageUrl(rec as StrapiImage);
+    if (src) return { src, alt: readAlt(rec) };
+  }
+  return null;
+}
+
+/** 單一 media 欄位 → 一張 slide（`mainImage` 等）。 */
+export function strapiSingleMediaToSlide(media: unknown): { src: string; alt: string } | null {
+  if (media == null) return null;
+  if (Array.isArray(media)) {
+    return media.length > 0 ? strapiMediaItemToSlide(media[0]) : null;
+  }
+  if (typeof media === 'object' && 'data' in media) {
+    const d = (media as { data: unknown }).data;
+    if (Array.isArray(d) && d.length > 0) return strapiMediaItemToSlide(d[0]);
+    if (d != null && typeof d === 'object') return strapiMediaItemToSlide(d);
+  }
+  return strapiMediaItemToSlide(media);
+}
+
+/** Strapi 5 multi-upload、`{ data: [...] }`、巢狀 `attributes` → 輪播用 slides。 */
+export function strapiMediaListToSlides(
+  media: unknown
+): Array<{ src: string; alt: string }> {
+  if (media == null) return [];
+  let items: unknown[] = [];
+  if (Array.isArray(media)) {
+    items = media;
+  } else if (typeof media === 'object') {
+    const d = (media as { data?: unknown }).data;
+    if (Array.isArray(d)) items = d;
+    else if (d != null && typeof d === 'object') items = [d];
+  }
+  const out: Array<{ src: string; alt: string }> = [];
+  for (const item of items) {
+    const slide = strapiMediaItemToSlide(item);
+    if (slide) out.push(slide);
+  }
+  return out;
+}
+
 // ── Blog Posts ────────────────────────────────────────────────────────────────
 export type BlogPost = {
   title: string;
@@ -368,12 +430,67 @@ export type CustomerStory = {
   title: string;
   slug: string;
   excerpt: string;
-  body: string;
+  /** Strapi Blocks JSON (`content` field); legacy HTML string still accepted in UI. */
+  content?: unknown;
+  companyIndustry?: string;
   companyLogo: StrapiImage;
+  thumbnail: StrapiImage;
   coverImage: StrapiImage;
-  companyInfoLines: string;
+  companyLocation?: string;
+  /** Component `cms.login-and-tech`: `methodsDetail` + `technicalDetails` multi-selects */
+  loginMethodsTech?: unknown;
+  metric1_num?: string;
+  metric1_Text?: string;
+  metric2_num?: string;
+  metric2_Text?: string;
+  metric3_num?: string;
+  metric3_Text?: string;
   publishedAt: string;
 };
+
+/** Unwrap customer story `loginMethodsTech` component (flat Strapi 5 or `{ data: { attributes } }` after normalize). */
+export function strapiLoginMethodsTechFields(loginMethodsTech: unknown): {
+  methodsDetail: unknown;
+  technicalDetails: unknown;
+} {
+  if (loginMethodsTech == null || loginMethodsTech === '') {
+    return { methodsDetail: undefined, technicalDetails: undefined };
+  }
+  const root = loginMethodsTech as Record<string, unknown>;
+  let inner: Record<string, unknown> = root;
+  if (root.data != null && typeof root.data === 'object') {
+    const d = root.data as Record<string, unknown>;
+    inner =
+      d.attributes != null && typeof d.attributes === 'object'
+        ? (d.attributes as Record<string, unknown>)
+        : d;
+  }
+  return {
+    methodsDetail: inner.methodsDetail,
+    technicalDetails: inner.technicalDetails,
+  };
+}
+
+/** Strapi `multi-select` custom field → label strings (array, JSON string, or empty). */
+export function strapiMultiSelectToStrings(value: unknown): string[] {
+  if (value == null || value === '') return [];
+  if (Array.isArray(value)) {
+    return value.filter((x): x is string => typeof x === 'string' && x.trim().length > 0);
+  }
+  if (typeof value === 'string') {
+    const s = value.trim();
+    if (!s || s === '[]') return [];
+    try {
+      const p = JSON.parse(s) as unknown;
+      if (Array.isArray(p)) {
+        return p.filter((x): x is string => typeof x === 'string' && x.trim().length > 0);
+      }
+    } catch {
+      return s ? [s] : [];
+    }
+  }
+  return [];
+}
 
 export async function getCustomerStories(options: FetchOptions = {}) {
   return strapiGet<StrapiListResponse<CustomerStory>>('customer-stories', {
@@ -431,9 +548,19 @@ export async function getIntegrationCategories(options: FetchOptions = {}) {
 export type LoginGalleryItem = {
   title: string;
   slug: string;
-  description: string;
-  previewImage: StrapiImage;
-  body: string;
+  /** Card / OG image (Strapi field `mainImage`). */
+  mainImage?: StrapiImage;
+  /** Strapi Blocks JSON (`content` field). */
+  content?: unknown;
+  industry?: string | null;
+  socialLogin?: unknown;
+  loginMethodsTech?: unknown;
+  webImage?: unknown;
+  mobileImage?: unknown;
+  /** Legacy Webflow import fields (optional). */
+  description?: string | null;
+  previewImage?: StrapiImage;
+  body?: string | null;
 };
 
 export async function getLoginGalleryItems(options: FetchOptions = {}) {
@@ -443,9 +570,14 @@ export async function getLoginGalleryItems(options: FetchOptions = {}) {
   });
 }
 
+/** Strapi 5：多圖＋ component 需明確 populate，避免 REST 只回 id、輪播變空。 */
+const LOGIN_GALLERY_ITEM_POPULATE =
+  'populate[mainImage]=true&populate[webImage]=true&populate[mobileImage]=true&populate[loginMethodsTech]=true';
+
 export async function getLoginGalleryItemBySlug(slug: string, locale?: StrapiLocale) {
   const res = await strapiGet<StrapiListResponse<LoginGalleryItem>>('login-gallery-items', {
     populate: '*',
+    populateQuery: LOGIN_GALLERY_ITEM_POPULATE,
     filters: { slug: { $eq: slug } },
     locale,
   });
