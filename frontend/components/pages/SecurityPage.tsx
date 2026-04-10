@@ -20,7 +20,7 @@ export default async function SecurityPage({ locale: _locale }: Props) {
           <div className="section">
             <div className="container-default w-container"></div>
             <div className="container-medium-761px">
-              <div className="rich-text w-richtext">
+              <div className="ds-richtext-prose rich-text w-richtext">
                 <h3>Security Assessments and Compliance</h3>
                 <p>At Authgear, we take data security extremely seriously, being both <strong>ISO 27001</strong> and <strong>SOC 2 Type II</strong> compliant. This affirms our commitment to implementing and maintaining the highest standards of information security and operational integrity.</p>
                 <ul role="list">

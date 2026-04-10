@@ -20,7 +20,7 @@ export default async function PolicyPage({ locale: _locale }: Props) {
           <div className="section">
             <div className="container-default w-container"></div>
             <div className="container-medium-761px">
-              <div className="rich-text w-richtext">
+              <div className="ds-richtext-prose rich-text w-richtext">
                 <p>Your use of the Service is subject to this Acceptable Use Policy. If you are found to be in violation of our policies at any given time and as determined by Authgear in its sole discretion, we may warn you or suspend or terminate your account. Please note that we may change our Acceptable Use Policy at any time. Pursuant to the <a href="/terms">Terms</a>, it is your responsibility to keep up-to-date with and adhere to the policies posted here. All capitalized terms used herein have the meanings stated in the Terms, unless stated otherwise.</p>
                 <h3>Prohibited Content</h3>
                 <p>The Content displayed and/or processed through your Application or other web site utilizing the Service shall not contain any of the following types of content:</p>

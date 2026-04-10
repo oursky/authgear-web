@@ -20,7 +20,7 @@ export default async function SlaPage({ locale: _locale }: Props) {
           <div className="section">
             <div className="container-default w-container"></div>
             <div className="container-medium-761px">
-              <div className="rich-text w-richtext">
+              <div className="ds-richtext-prose rich-text w-richtext">
                 <p>We understand that service interruptions hinder productivity and disrupt your operation.<br />We’ve set a high bar for service uptime because we believe that you should be able to depend on Authgear and run your business without hassles.</p>
                 <h3>The Basics</h3>
                 <p>Our paid plan SLA guarantees a 99.95% monthly uptime, excluding scheduled downtimes described below.<br /><br />Authgear also promises these to our users:</p>
