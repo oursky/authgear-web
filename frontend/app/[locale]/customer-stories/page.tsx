@@ -7,7 +7,8 @@ import { getCustomerStories, strapiImageUrl } from '@/lib/strapi';
 
 export const metadata: Metadata = {
   title: 'Customer Stories',
-  description: 'See how companies use Authgear to power their identity and access management.',
+  description:
+    "Power ambitious teams to build faster. Authgear's drop-in authentication handles the hard security work while your developers ship what matters.",
 };
 
 type Props = { params: Promise<{ locale: string }> };
@@ -20,62 +21,63 @@ export default async function CustomerStoriesPage({ params }: Props) {
 
   return (
     <div className="page-wrapper">
-      <div className="section">
-        <div className="container-default w-container">
-          <div className="top-content">
-            <h1 className="heading">{t('title')}</h1>
-            <p className="paragraph">{t('subtitle')}</p>
+      <section className="ds-section ds-bg-white ds-customer-stories-index">
+        <header className="ds-customer-stories-index__header">
+          <div className="ds-container">
+            <div className="title-content">
+              <h1 className="heading-on-light">{t('title')}</h1>
+              <p className="section-lede-on-light">{t('subtitle')}</p>
+            </div>
           </div>
+        </header>
 
-          {stories.length === 0 ? (
-            <div className="empty-state w-dyn-empty">
-              <div>{t('noStoriesYet')}</div>
-            </div>
-          ) : (
-            <div role="list" className="case-study-list w-dyn-items">
-              {stories.map((story) => {
-                const { title, slug, excerpt, companyLogo, coverImage } = story.attributes;
-                const logoUrl = strapiImageUrl(companyLogo);
-                const coverUrl = strapiImageUrl(coverImage);
-                return (
-                  <div key={story.id} role="listitem" className="case-study-item-wrap w-dyn-item">
-                    <Link
-                      href={localizedPath(locale, `/customer-stories/${slug}`)}
-                      className="case-study-featured-image-wrap w-inline-block"
-                    >
-                      {coverUrl ? (
-                        <Image
-                          src={coverUrl}
-                          alt={title}
-                          width={600}
-                          height={400}
-                          className="case-study-featured-image"
-                          style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
-                        />
-                      ) : (
-                        <div className="case-study-featured-image w-dyn-bind-empty" aria-hidden />
-                      )}
-                    </Link>
-                    <Link
-                      href={localizedPath(locale, `/customer-stories/${slug}`)}
-                      className="case-study-content-wrap w-inline-block"
-                    >
-                      {logoUrl ? (
-                        <Image src={logoUrl} alt="" width={200} height={64} className="image company-logo" style={{ maxHeight: 48, width: 'auto', height: 'auto' }} />
-                      ) : null}
-                      <div className="case-study-featured-content-top">
-                        <div className="case-study-title">{title}</div>
-                        {excerpt ? <p className="case-study-featured-content-excerpt">{excerpt}</p> : null}
-                      </div>
-                      <div className="case-study-item-cta">{t('readStory')}</div>
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
-          )}
+        <div className="ds-customer-stories-index__main">
+          <div className="ds-container">
+            {stories.length === 0 ? (
+              <div className="empty-state w-dyn-empty">
+                <div>{t('noStoriesYet')}</div>
+              </div>
+            ) : (
+              <div role="list" className="case-study-list w-dyn-items">
+                {stories.map((story) => {
+                  const { title, slug, thumbnail } = story.attributes;
+                  const coverUrl = strapiImageUrl(thumbnail);
+                  return (
+                    <div key={story.id} role="listitem" className="case-study-item-wrap w-dyn-item">
+                      <Link
+                        href={localizedPath(locale, `/customer-stories/${slug}`)}
+                        className="case-study-featured-image-wrap w-inline-block"
+                      >
+                        {coverUrl ? (
+                          <Image
+                            src={coverUrl}
+                            alt={title}
+                            width={600}
+                            height={400}
+                            className="case-study-featured-image"
+                            style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                          />
+                        ) : (
+                          <div className="case-study-featured-image w-dyn-bind-empty" aria-hidden />
+                        )}
+                      </Link>
+                      <Link
+                        href={localizedPath(locale, `/customer-stories/${slug}`)}
+                        className="case-study-content-wrap w-inline-block"
+                      >
+                        <div className="case-study-featured-content-top">
+                          <div className="case-study-title">{title}</div>
+                        </div>
+                        <div className="case-study-item-cta">{t('readStory')}</div>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
