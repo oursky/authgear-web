@@ -1,25 +1,30 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { TOOLS } from '@/lib/tools/tools-registry';
 
 type Props = { currentSlug?: string };
 
 export default function MoreDevTools({ currentSlug }: Props) {
+  const t = useTranslations('Tools');
   return (
     <section>
       <div className="container-default more-dev-tool">
-        <h2 className="title features-page-v2 more-dev-tool">More Developer Tools</h2>
+        <h2 className="title features-page-v2 more-dev-tool">{t('common.moreDevToolsHeading')}</h2>
         <div className="container-default-inner px-0 gap-0">
           <div className="w-layout-hflex _4-card-grid">
             {TOOLS.map((tool) => {
               const isCurrent = tool.slug === currentSlug;
               const cls = `more-tools w-inline-block${isCurrent ? ' w--current' : ''}`;
+              const label = t(`registry.${tool.slug}.label` as Parameters<typeof t>[0]);
               const inner = (
                 <>
                   <div className="svg-card-image-container">
                     <img loading="lazy" src={tool.icon} alt="" />
                   </div>
                   <div className="svg-card-content-container text-center gap-16">
-                    <div className="tools-svg-card-content-title left inter color-2e2e2e mobile-20px">{tool.label}</div>
+                    <div className="tools-svg-card-content-title left inter color-2e2e2e mobile-20px">{label}</div>
                   </div>
                   <img loading="lazy" src="/images/arrow-icon.svg" alt="" className="image-99" />
                 </>

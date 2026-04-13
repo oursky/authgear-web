@@ -22,10 +22,22 @@ export async function generateStaticParams() {
   return Object.keys(pageMap).map((slug) => ({ slug }));
 }
 
+const compareNamespaceBySlug = {
+  'auth0-alternative': 'Auth0Alternative',
+  'cognito-alternative': 'CognitoAlternative',
+  'firebase-alternative': 'FirebaseAlternative',
+  'okta-alternative': 'OktaAlternative',
+} as const;
+
+type CompareI18nSlug = keyof typeof compareNamespaceBySlug;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  if (slug === 'okta-alternative') {
-    const t = await getTranslations({ locale: 'en', namespace: 'OktaAlternative' });
+  if (slug in compareNamespaceBySlug) {
+    const t = await getTranslations({
+      locale: 'en',
+      namespace: compareNamespaceBySlug[slug as CompareI18nSlug],
+    });
     return {
       title: t('metaTitle'),
       description: t('metaDescription'),

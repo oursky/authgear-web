@@ -1,3 +1,6 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import ToolHero from '@/components/tools/ToolHero';
 import ToolWidget from '@/components/tools/ToolWidget';
 import MoreDevTools from '@/components/tools/MoreDevTools';
@@ -48,51 +51,70 @@ function OidcIcon3() {
 }
 
 export default function OidcDiscoveryPage(_props: { locale: string }) {
+  const t = useTranslations('Tools.oidc');
+  const policy = (
+    <>
+      {t('policyLine1')}
+      <br />
+      {t('policyLine2')}
+    </>
+  );
   return (
     <>
-      <ToolHero
-        title="OpenID Connect Discovery Explorer"
-        description="Enter any OIDC issuer URL to fetch its discovery endpoint. Instantly inspect the full .well-known/openid-configuration endpoints, supported scopes, signing algorithms, and JWKS, no login required."
-      />
+      <ToolHero title={t('heroTitle')} description={t('heroDescription')} />
       <ToolWidget
         src="https://authgear.github.io/discovery-endpoint-explorer/"
-        iframeTitle="OIDC Discover Endpoint Explorer"
+        iframeTitle={t('iframeTitle')}
         height="800px"
-        policy={<>Your data security is our top priority. Everything runs locally in your browser.<br />The tool fetches the discovery document directly from the OIDC provider using your browser. Authgear never sees or logs your requests.</>}
+        policy={policy}
       />
       <MoreDevTools />
       <ToolFeatureCards
         gridClass="_3-card-grid"
         cards={[
-          { icon: <OidcIcon1 />, title: 'OpenID Configuration Fetching', description: <>Automatically fetch the OpenID Connect discovery document from<br />/.well-known/openid-configuration based on the issuer URL you provide.</> },
-          { icon: <OidcIcon2 />, title: 'Key Endpoints Summary', description: 'Quickly view essential endpoints and identifiers, including the issuer, authorization endpoint, token endpoint, JWKS URI, and other commonly used configuration fields.' },
-          { icon: <OidcIcon3 />, title: 'JSON Discovery Output', description: <>Inspect the full discovery document in a syntax-highlighted JSON view.<br />Easily copy the entire response or individual fields for debugging or documentation.</> },
+          {
+            icon: <OidcIcon1 />,
+            title: t('card1Title'),
+            description: t('card1Desc'),
+          },
+          {
+            icon: <OidcIcon2 />,
+            title: t('card2Title'),
+            description: t('card2Desc'),
+          },
+          {
+            icon: <OidcIcon3 />,
+            title: t('card3Title'),
+            description: t('card3Desc'),
+          },
         ]}
       />
       <ToolHowItWorks
         steps={[
-          { step: 'Step 1.', title: <>Enter the Discovery URL (for example: <strong>https://accounts.google.com/.well-known/openid-configuration</strong> or <strong>https://project.authgear.cloud/.well-known/openid-configuration</strong>) and click Fetch.</> },
-          { step: 'Step 2.', title: 'Review the parsed metadata, core endpoints, and provider capabilities.' },
-          { step: 'Step 3.', title: 'Copy individual fields with one click, inspect raw JSON, or see the JWKS.' },
+          { step: t('s1Label'), title: t('s1Title'), items: [] },
+          { step: t('s2Label'), title: t('s2Title'), items: [] },
+          { step: t('s3Label'), title: t('s3Title'), items: [] },
         ]}
       />
       <ToolReadyTo />
       <ToolFaq>
         <div className="w-layout-vflex tools-faq">
-          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title="What is the discovery endpoint in OIDC?">
-            <div className="tools-faq-content">The OIDC discovery endpoint is a standardized URL at <span className="code-label">{'{issuer}'}/.well-known/openid-configuration</span> that returns a JSON document describing the provider&apos;s configuration. It lists the authorization endpoint, token endpoint, JWKS URI, supported scopes, response types, signing algorithms, and other capabilities. Clients can use it to configure themselves automatically without hardcoding endpoint URLs.</div>
+          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title={t('faq1Title')}>
+            <div className="tools-faq-content">{t('faq1Body')}</div>
           </ToolFaqCard>
-          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title="Do all OIDC providers support discovery?">
-            <div className="tools-faq-content">Most modern, compliant OIDC providers support discovery. It is required by the OpenID Connect specification for providers that want to support automatic client configuration. Some older or proprietary identity systems may not expose a <span className="code-label">/.well-known/openid-configuration</span> endpoint — in that case, you&apos;ll need to configure endpoints manually. If a fetch in this tool fails, the provider either doesn&apos;t support discovery or has access restrictions on the endpoint.</div>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq2Title')}>
+            <div className="tools-faq-content">{t('faq2Body')}</div>
           </ToolFaqCard>
-          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title="What is the actual OpenID discovery URL?">
-            <div className="tools-faq-content">The discovery URL format is <span className="code-label">{'{issuer}'}/.well-known/openid-configuration</span>, where {'{issuer}'} is the base URL of your OpenID Connect provider. <br />For example: Google uses <span className="code-label">https://accounts.google.com/.well-known/openid-configuration</span>, Okta uses <span className="code-label">{'https://{yourOktaDomain}/.well-known/openid-configuration'}</span>, and Authgear uses <span className="code-label">{'https://{your-project}.authgear.cloud/.well-known/openid-configuration'}</span>. Enter any issuer URL above and this tool will fetch it automatically.</div>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq3Title')}>
+            <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>
+              {t('faq3Body')}
+            </div>
           </ToolFaqCard>
-          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title="What is a discovery endpoint?">
-            <div className="tools-faq-content">A discovery endpoint is a well-known URL that a service exposes to describe its capabilities and configuration. In OpenID Connect, the discovery endpoint follows the path <span className="code-label">/.well-known/openid-configuration</span> (defined in RFC 8414). It allows client applications to dynamically discover the provider&apos;s endpoints and supported features without manual configuration.</div>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq4Title')}>
+            <div className="tools-faq-content">{t('faq4Body')}</div>
           </ToolFaqCard>
-          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title="Do OIDC providers from the same vendor (Okta, Azure, Keycloak) have different discovery URLs?">
-            <div className="tools-faq-content">Yes. The discovery URL format is consistent (/.well-known/openid-configuration), but the base issuer URL differs. For Azure AD, it&apos;s typically &quot;{'https://login.microsoftonline.com/{tenant-id}/v2.0'}&quot;. For Keycloak, it&apos;s &quot;{'https://{host}/realms/{realm}'}&quot;. For Okta, it&apos;s &quot;{'https://{yourOktaDomain}'}&quot;. Enter the issuer URL for your provider above and the tool resolves the full discovery URL automatically.</div>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq5Title')}>
+            <div className="tools-faq-content">{t('faq5Body')}</div>
           </ToolFaqCard>
         </div>
       </ToolFaq>

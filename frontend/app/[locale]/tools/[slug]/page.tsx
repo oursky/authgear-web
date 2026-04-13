@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import { LOCALES } from '@/lib/i18n';
+import { TOOL_SLUG_PREFIX } from '@/lib/tools/toolSlugPrefix';
 import type React from 'react';
 
 import Base64Page from '@/components/pages/tools/Base64Page';
@@ -25,54 +27,6 @@ const pageMap: Record<string, React.ComponentType<{ locale: string }>> = {
   'uuidv7-generator': UuidV7Page,
 };
 
-const metaMap: Record<string, { title: string; description: string }> = {
-  'base64-decode-encode': {
-    title: 'Base64 Decode and Encode | Authgear',
-    description:
-      'Encode or decode Base64 with precise charset control. A developer-friendly tool for inspecting raw data, converting payloads, and debugging encoding issues.',
-  },
-  'hmac-signature-generator-verifier': {
-    title: 'HMAC Signature Generator/Verifier',
-    description:
-      'Free HMAC generator and verifier by Authgear: Create and check HMAC signatures online using SHA-256, SHA-512, and more. All operations happen securely in-browser with no data leaving your device',
-  },
-  'jwk-generator': {
-    title: 'JWK Generator — PEM to JWK, JWK to PEM & JWKS Generator | Authgear',
-    description:
-      'PEM → JWK, JWK → PEM, or generate keys and download JWKS. Choose kid, alg, and use (sig/enc). Browser-only, no signup.',
-  },
-  'jwt-jwe-debugger': {
-    title: 'JWT & JWE Debugger — Decode, Verify, Encrypt & Decrypt | Authgear',
-    description:
-      'Decode and verify JWTs, encrypt to JWE, decrypt JWEs, and inspect claims. JWT debugger for developers — supports jwk/jwks, signature verification, and encryption.',
-  },
-  'oidc-discovery-endpoint': {
-    title: 'OIDC Discovery Endpoint Explorer | Authgear',
-    description:
-      "Fetch and inspect any OIDC provider's .well-known/openid-configuration. View authorization endpoints, token endpoints, JWKS, scopes, and signing algorithms.",
-  },
-  'password-hash-generator': {
-    title: 'Password Hash Generator and Verifier',
-    description:
-      'Free Password Hash Generator & Verifier. Create/verify Argon2id, bcrypt, scrypt, PBKDF2 hashes with salts, presets, and live timing, entirely client-side.',
-  },
-  'ssl-checker': {
-    title: 'SSL Checker — Free SSL Certificate Checker | Authgear',
-    description:
-      'Free SSL checker tool. Instantly inspect SSL/TLS certificate details, verify the certificate chain, and check expiration dates for any domain.',
-  },
-  'totp-authenticator': {
-    title: 'TOTP Authenticator — Online TOTP Generator & Tester',
-    description:
-      'Generate TOTP codes (RFC 6238) online with customizable algorithm (SHA-1/256/512) and digit length (6/8) save up to 10 apps.',
-  },
-  'uuidv7-generator': {
-    title: 'UUID v7 Generator & Timestamp Extractor — Free Online Tool (RFC 9562)',
-    description:
-      'Generate, inspect, and copy UUID v7 values in your browser. Choose a timestamp (ISO or Unix), batch-generate multiple IDs, decode field segments, and extract timestamps from existing UUIDv7 strings.',
-  },
-};
-
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateStaticParams() {
@@ -82,10 +36,14 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const meta = metaMap[slug];
-  if (!meta) return {};
-  return { title: meta.title, description: meta.description };
+  const { locale, slug } = await params;
+  const prefix = TOOL_SLUG_PREFIX[slug];
+  if (!prefix) return {};
+  const t = await getTranslations({ locale, namespace: 'Tools' });
+  return {
+    title: t(`${prefix}.metaTitle` as never),
+    description: t(`${prefix}.metaDescription` as never),
+  };
 }
 
 export default async function Page({ params }: Props) {

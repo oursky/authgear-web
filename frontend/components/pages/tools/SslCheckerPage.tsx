@@ -1,3 +1,6 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import ToolHero from '@/components/tools/ToolHero';
 import ToolWidget from '@/components/tools/ToolWidget';
 import MoreDevTools from '@/components/tools/MoreDevTools';
@@ -48,15 +51,13 @@ function SslIcon3() {
 }
 
 export default function SslCheckerPage(_props: { locale: string }) {
+  const t = useTranslations('Tools.ssl');
   return (
     <>
-      <ToolHero
-        title="Free SSL Checker"
-        description="Enter any domain to instantly check its SSL/TLS certificate. View expiration date, issuer, subject alternative names (SANs), and full certificate chain status — no login required."
-      />
+      <ToolHero title={t('heroTitle')} description={t('heroDescription')} />
       <ToolWidget
         src="https://authgear-widget-ssl-cert-inspector.vercel.app/"
-        iframeTitle="SSL Certificate Inspector"
+        iframeTitle={t('iframeTitle')}
         height="800px"
         iframeId="ssl-checker-iframe"
       />
@@ -64,37 +65,54 @@ export default function SslCheckerPage(_props: { locale: string }) {
       <ToolFeatureCards
         gridClass="_3-card-grid"
         cards={[
-          { icon: <SslIcon1 />, title: 'Certificate Details Inspection', description: 'View detailed SSL certificate information for any HTTPS domain, including subject, issuer, validity period, subject alternative names (SANs), fingerprints, and other technical attributes.' },
-          { icon: <SslIcon2 />, title: 'Certificate Chain Status', description: 'Verify whether the certificate chain is complete and trusted. Quickly check chain validity, trusted root status, and the total number of certificates in the chain.' },
-          { icon: <SslIcon3 />, title: 'Certificate Chain Visualization', description: 'Inspect the full certificate hierarchy from the leaf certificate (your domain) through intermediate certificates to the root certificate authority.' },
+          {
+            icon: <SslIcon1 />,
+            title: t('card1Title'),
+            description: t('card1Desc'),
+          },
+          {
+            icon: <SslIcon2 />,
+            title: t('card2Title'),
+            description: t('card2Desc'),
+          },
+          {
+            icon: <SslIcon3 />,
+            title: t('card3Title'),
+            description: t('card3Desc'),
+          },
         ]}
       />
       <ToolHowItWorks
         steps={[
-          { step: 'Step 1.', title: <>Enter a website URL (for example: <span className="text-span-49">https://www.authgear.com/</span>) and click Inspect.</> },
-          { step: 'Step 2.', title: 'Retrieve certificate information. The tool connects to the server and fetches the SSL/TLS certificate presented by the website.' },
-          { step: 'Step 3.', title: 'Review certificate details and chain. The results display certificate metadata, chain status, and the full certificate hierarchy.' },
+          { step: t('s1Label'), title: t('s1Title'), items: [] },
+          { step: t('s2Label'), title: t('s2Title'), items: [] },
+          { step: t('s3Label'), title: t('s3Title'), items: [] },
         ]}
       />
-      <ToolReadyTo
-        title="Ready to Add HTTPS and Authentication to Your App?"
-        subtitle="Authgear is an authentication platform that handles login, MFA, SSO, and session management for your app, so your team doesn't have to build it from scratch."
-      />
+      <ToolReadyTo title={t('readyTitle')} subtitle={t('readySubtitle')} />
       <ToolFaq>
         <div className="w-layout-vflex tools-faq">
-          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title="What Is an SSL Certificate?">
-            <div className="tools-faq-content">An SSL certificate (more accurately a TLS certificate — SSL is the older name that stuck) enables encrypted HTTPS communication between a user&apos;s browser and a web server. It does two things:<br /><br /><strong>Encryption</strong> — scrambles data in transit so it can&apos;t be read by anyone intercepting the connection.<br /><br /><strong>Identity verification</strong> — proves that the server you&apos;re connecting to is actually who it claims to be, not an impostor. Certificates are issued by Certificate Authorities (CAs) — trusted third parties like Let&apos;s Encrypt, DigiCert, and Sectigo. When your browser connects to a site, it checks that the certificate was issued by a CA it trusts, the domain matches, and the certificate hasn&apos;t expired.</div>
-            <div className="tools-faq-content"><strong>Types of SSL/TLS certificates:<br /><br /></strong><strong>DV (Domain Validated) <br /></strong>Confirms domain ownership only. Fast and cheap (Let&apos;s Encrypt is DV). Suitable for most sites.<br /><br /><strong>OV (Organization Validated)</strong> <br />Verifies the organization behind the domain. Common for business sites.<br /><br /><strong>EV (Extended Validation)</strong> <br />The highest level; requires rigorous identity checks. Used by banks and large enterprises.</div>
+          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title={t('faq1Title')}>
+            <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>
+              {t('faq1Body')}
+            </div>
+            <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>
+              {t('faq1MetaBody')}
+            </div>
           </ToolFaqCard>
-          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title="What Is a Certificate Chain?">
-            <div className="tools-faq-content">A certificate chain is a sequence of certificates that links your website&apos;s certificate back to a root Certificate Authority (CA) that browsers trust. The chain has three levels:<br /><br /><strong>Leaf certificate</strong> (your site&apos;s certificate) — issued directly to your domain.<br /><br /><strong>Intermediate certificate(s)</strong> — issued by the root CA to an intermediate CA, which then issues certificates to websites. This keeps the root CA offline and protected.<br /><br /><strong>Root certificate</strong> — self-signed by a trusted CA. Pre-installed in browsers and operating systems.<br /><br /><strong>Why does this matter?</strong> <br />If the intermediate certificate is missing from the server&apos;s configuration, browsers can&apos;t verify the chain and will show a security error — even if your leaf certificate is perfectly valid. This is one of the most common SSL configuration mistakes. Our checker visualizes the full chain so you can spot gaps instantly.</div>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq2Title')}>
+            <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>
+              {t('faq2Body')}
+            </div>
           </ToolFaqCard>
-          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title="How long do SSL certificates last?">
-            <div className="tools-faq-content">Let&apos;s Encrypt certificates expire every 90 days (auto-renewing). Paid CA certificates typically last 1–2 years. Since September 2020, the maximum validity period for publicly trusted certificates is 398 days. Apple and Google are pushing toward 90-day maximums industry-wide.<br /><br /><strong>What happens when an SSL certificate expires?</strong> <br /><br />Browsers immediately show a &quot;Your connection is not private&quot; error and block users from reaching the site. This is why monitoring expiry dates matters.</div>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq3Title')}>
+            <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>
+              {t('faq3Body')}
+            </div>
           </ToolFaqCard>
-          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title="SSL vs TLS — What's the Difference?">
-            <div className="tools-faq-content">SSL (Secure Sockets Layer) is the original protocol, now deprecated. All versions of SSL have known security vulnerabilities. TLS (Transport Layer Security) is its successor and what all modern HTTPS connections actually use — TLS 1.2 and TLS 1.3.</div>
-            <div className="tools-faq-content">The term &quot;SSL certificate&quot; is still widely used, but technically every certificate in use today is a TLS certificate. When people say &quot;SSL checker&quot;, they mean checking the TLS certificate on a server. This tool checks both — it reports the TLS version negotiated and the certificate details.</div>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq4Title')}>
+            <div className="tools-faq-content">{t('faq4Body')}</div>
+            <div className="tools-faq-content">{t('faq4Body2')}</div>
           </ToolFaqCard>
         </div>
       </ToolFaq>

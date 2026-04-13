@@ -1,13 +1,14 @@
 .root {
   width: 100%;
-  height: 60px;
+  min-height: 60px;
 }
 
 .viewport {
   flex: 1;
   min-width: 0;
   width: 100%;
-  height: 60px;
+  min-height: 60px;
+  padding-bottom: 3rem;
   overflow: hidden;
   position: relative;
   z-index: 0;
@@ -18,6 +19,7 @@
   z-index: 0;
   display: flex;
   width: max-content;
+  will-change: transform;
   animation: marquee 38s linear infinite;
 }
 
@@ -25,17 +27,24 @@
   animation-play-state: paused;
 }
 
-/* Resets Webflow IX2 positioning (position:absolute, left:0) on .logos-container */
-.logosContainer {
-  position: relative !important;
-  left: auto !important;
-  z-index: 1;
-  height: 60px;
-  flex-shrink: 0;
+/*
+ * Single flex row: [logo … logo] × 2 with uniform gap — translateX(-50%) lines up
+ * exactly at the duplicate boundary (no seam jump). Do not use Webflow’s
+ * `.logos-container` here (it uses position:absolute and breaks width).
+ */
+.logosStrip {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   column-gap: 60px;
-  width: auto;
+  height: 60px;
+  width: max-content;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .duplicateLogo {
+    display: none !important;
+  }
 }
 
 /* Overrides Webflow's position:static on .link-block-7; adds centered overlay behaviour */
@@ -67,10 +76,15 @@
   .track {
     animation: none;
     width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
+    max-width: 100%;
   }
-  .logosContainer:last-child {
-    display: none;
+
+  .logosStrip {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    row-gap: 1rem;
   }
 }

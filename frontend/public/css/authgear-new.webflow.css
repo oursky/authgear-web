@@ -9064,6 +9064,10 @@ figcaption {
   display: flex;
 }
 
+.home-card-wrap.home-card-content.text-center {
+  align-items: center;
+}
+
 .home-card-title {
   color: #0b63e9;
   font-size: 24px;

@@ -1,3 +1,7 @@
+'use client';
+
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import ToolHero from '@/components/tools/ToolHero';
 import ToolWidget from '@/components/tools/ToolWidget';
 import MoreDevTools from '@/components/tools/MoreDevTools';
@@ -59,59 +63,89 @@ function UuidIcon4() {
 }
 
 export default function UuidV7Page(_props: { locale: string }) {
+  const t = useTranslations('Tools.uuidV7');
+  const policy = (
+    <>
+      {t('policyLine1')}
+      <br />
+      {t('policyLine2')}
+    </>
+  );
+  const faq1Body = (
+    <>
+      {t('faq1BodyBefore')}
+      <Link href={t('faq1Href')} target="_blank" rel="noreferrer">
+        {t('faq1LinkText')}
+      </Link>
+      {t('faq1BodyAfter')}
+    </>
+  );
   return (
     <>
-      <ToolHero
-        title="UUID v7 Generator & Timestamp Extractor (RFC 9562)"
-        description="Generate and inspect UUID v7 values directly in your browser."
-      />
+      <ToolHero title={t('heroTitle')} description={t('heroDescription')} />
       <ToolWidget
         src="https://authgear.github.io/authgear-widget-uuid-v7-generator/"
-        iframeTitle="UUIDv7 Generator & Timestamp Extractor (RFC 9562)"
+        iframeTitle={t('iframeTitle')}
         height="800px"
-        policy={<>Your data security is our top priority. Everything runs locally in your browser.<br />This tool does not store or send any data outside of your device</>}
+        policy={policy}
       />
       <MoreDevTools currentSlug="uuidv7-generator" />
       <ToolFeatureCards
         cards={[
-          { icon: <UuidIcon1 />, title: 'Multiple UUID v7 Values', description: 'Generate up to 10 UUID v7 values at a time. This is useful for testing, seeding data, or validating ordering behavior.' },
-          { icon: <UuidIcon2 />, title: 'Flexible Timestamp Modes', description: 'Choose how the timestamp is generated. You can use the current time or set a custom timestamp to generate UUIDs for a specific moment.' },
-          { icon: <UuidIcon3 />, title: 'Built-in UUID Inspector', description: 'Each generated UUID includes an inspector that displays structured details such as the embedded Unix timestamp, UUID version, and variant information.' },
-          { icon: <UuidIcon4 />, title: 'Timestamp Extraction Tool', description: 'Extract the Unix timestamp from an existing UUID v7 to verify creation time and debug time-based ordering.' },
+          {
+            icon: <UuidIcon1 />,
+            title: t('card1Title'),
+            description: t('card1Desc'),
+          },
+          {
+            icon: <UuidIcon2 />,
+            title: t('card2Title'),
+            description: t('card2Desc'),
+          },
+          {
+            icon: <UuidIcon3 />,
+            title: t('card3Title'),
+            description: t('card3Desc'),
+          },
+          {
+            icon: <UuidIcon4 />,
+            title: t('card4Title'),
+            description: t('card4Desc'),
+          },
         ]}
       />
       <ToolHowItWorks
         steps={[
-          { step: 'Step 1.', title: 'Choose how many IDs to generate (1–10).' },
-          { step: 'Step 2.', title: 'Select a timestamp mode: Now or Set a time (ISO 8601 UTC, Unix).' },
-          { step: 'Step 3.', title: 'Click Generate UUIDs.' },
-          { step: 'Step 4.', title: 'Copy any value with one click, or Copy All.' },
-          { step: 'Step 5.', title: 'Read the color-coded inspector to understand each field.' },
-          { step: 'Step 6.', title: 'Switch to Timestamp extraction tool to decode an existing UUID v7.' },
+          { step: t('s1Label'), title: t('s1Title'), items: [] },
+          { step: t('s2Label'), title: t('s2Title'), items: [] },
+          { step: t('s3Label'), title: t('s3Title'), items: [] },
+          { step: t('s4Label'), title: t('s4Title'), items: [] },
+          { step: t('s5Label'), title: t('s5Title'), items: [] },
+          { step: t('s6Label'), title: t('s6Title'), items: [] },
         ]}
       />
       <ToolReadyTo />
       <ToolFaq>
         <div className="w-layout-vflex tools-faq">
-          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title="What is UUID v7?">
-            <div className="tools-faq-content">UUID v7 is a 128-bit identifier defined in <a href="https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7" target="_blank">RFC 9562</a>. It embeds a 48-bit Unix timestamp in milliseconds, followed by a 4-bit version marker (7), a 12-bit random/sequence segment, a 2-bit variant (RFC 4122), and a 62-bit random segment. The time component yields mostly monotonic, time-ordered IDs that sort well while retaining strong randomness.</div>
+          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title={t('faq1Title')}>
+            <div className="tools-faq-content">{faq1Body}</div>
           </ToolFaqCard>
-          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title="Common uses">
-            <ToolFaqCheckItem><strong>Database keys:</strong> time-ordered inserts with good index locality.</ToolFaqCheckItem>
-            <ToolFaqCheckItem><strong>Event IDs:</strong> sortable by creation time without extra columns.</ToolFaqCheckItem>
-            <ToolFaqCheckItem><strong>Log correlation:</strong> embedded millisecond timestamp for triage.</ToolFaqCheckItem>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq2Title')}>
+            <ToolFaqCheckItem>{t('faq2b1')}</ToolFaqCheckItem>
+            <ToolFaqCheckItem>{t('faq2b2')}</ToolFaqCheckItem>
+            <ToolFaqCheckItem>{t('faq2b3')}</ToolFaqCheckItem>
           </ToolFaqCard>
         </div>
-        <ToolFaqBestPractices icon="/images/tools-qa-best-practice.svg" title="Why Use UUID v7 Instead of UUID v4?">
-          <div className="tools-faq-content">UUID v4 is fully random and does not preserve creation order. UUID v7 improves database write performance and index locality by generating identifiers that are roughly sorted by time.</div>
+        <ToolFaqBestPractices icon="/images/tools-qa-best-practice.svg" title={t('bpTitle')}>
+          <div className="tools-faq-content">{t('bpBody')}</div>
         </ToolFaqBestPractices>
         <div className="w-layout-vflex tools-faq-1-grid">
           <div className="w-layout-hflex tools-faq-card">
             <div className="w-layout-hflex flex-block-78">
               <img src="/images/tools-uuid.svg" loading="lazy" alt="" className="image-93" />
               <div className="w-layout-hflex flex-block-79">
-                <h2 className="tools-faq-title">Is UUID v7 globally unique?</h2>
-                <div className="tools-faq-content">UUIDs are designed for extremely low collision probability when generated correctly. v7 combines a timestamp with large random sections to maintain that property.</div>
+                <h2 className="tools-faq-title">{t('gridTitle')}</h2>
+                <div className="tools-faq-content">{t('gridBody')}</div>
               </div>
             </div>
           </div>

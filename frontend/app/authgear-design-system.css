@@ -2901,7 +2901,7 @@ h3.ds-svg-card-title {
   align-items: center;
   justify-content: flex-start;
   gap: 0.75rem 1.5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
 }
 
 /* 桌面：單列 — 左僅版權、右為 policy + 語言（勿換行，否則右側塊會掉到中間） */
@@ -3619,6 +3619,12 @@ button.ds-pill-tabs__tab[type='button'].ds-pill-tabs__tab--active {
 .ds-pricing-faq-section {
   background-color: #000;
   color: #fff;
+}
+
+/* ONCE /once：FAQ 放在 `.once-last-container` 直下（非 `container-default.once`）時橫向滿版。 */
+.once-last-container > .ds-pricing-faq-section {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ds-pricing-faq {
@@ -4787,4 +4793,11 @@ a.blog-discord-promo {
   margin: 0.75rem 0 0;
   border: 0;
   color-scheme: light;
+}
+
+/* ONCE SDK logo marquee: Webflow `.flex-block-47` is height:60px + overflow:hidden — clips padded area below logos */
+.once-sdk-logo-marquee.flex-block-47 {
+  height: auto;
+  min-height: 60px;
+  overflow: visible;
 }

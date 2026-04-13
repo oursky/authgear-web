@@ -470,3 +470,431 @@
     padding-left: 0 !important;
   }
 }
+
+/*
+ * ONCE /once — `.flex-block-59` 雙欄 `grid-template-columns: 1fr 1fr` 等同 minmax(auto,1fr)，
+ * 欄位 min-content 過大時會把另一欄（框架 + code）推出容器。改為 minmax(0,1fr) 並讓欄可縮。
+ * 在 768px+ 套用（Webflow 在 ≤767px 已覆寫為單欄 `grid-template-columns: 1fr`）。
+ */
+@media screen and (min-width: 768px) {
+  .flex-block-59 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  /* 第三個子元素（Logo 跑馬燈）預設會落在第 2 列第 1 欄，看起來像卡在左欄裡；改為跨滿兩欄。 */
+  .flex-block-59 > .once-sdk-logo-marquee {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/*
+ * SDK 區：`.flex-block-59` 為最外層格線框；Webflow 在 ≤767px 用 `grid-template-columns: 1fr`
+ * 等同 `minmax(auto,1fr)`，左欄 `flex-block-60` 的 min-content 會撐寬整格 → 內容看似「超出外框」。
+ * 單欄改為 `minmax(0,1fr)`，並對外層 clip、左欄 max-width:100%，把內容包在框內。
+ */
+.flex-block-59:has(.once-sdk-framework-grid) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+.flex-block-59:has(.once-sdk-framework-grid) > .flex-block-60.w-layout-vflex {
+  align-items: stretch !important;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+@media screen and (max-width: 767px) {
+  .flex-block-59:has(.once-sdk-framework-grid) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/*
+ * ONCE — SDK 區外層：Grid/Flex 子項預設 min-width:auto，長文與 framework 列會把整頁撐出視窗。
+ */
+.container-default-inner.once-container-bottom.once-container-top.once-container-60-gap {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.once-inner-container {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.flex-block-59 {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.flex-block-59 > .flex-block-60 {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.container-default-inner.once-container-bottom.once-container-top.once-container-60-gap .once-subtitle,
+.flex-block-60 .once-subtitle,
+.flex-block-60 .who-choose-des {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+/*
+ * ONCE /once — 「SDKs for Modern Frameworks」程式碼區：Grid 子項預設 min-width:auto，
+ * 會被 white-space:pre 的長行撐破視窗寬度；限制在欄內並讓 pre 橫向捲動。
+ */
+.once-sdk-framework-grid {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/*
+ * `w-layout-vflex` 預設 `align-items: flex-start`，子項在交叉軸不延展。
+ * `.grid-15` 會變成以 max-content 寬度排版（整排 pill 同一列寬），撐破父層 → 與視窗不同寬。
+ * 改為 stretch，讓 `width:100%` 的 pill 列真正吃滿欄寬，flex-wrap 才能換行。
+ */
+.once-sdk-framework-grid .flex-block-46.w-layout-vflex {
+  align-items: stretch !important;
+}
+
+.once-sdk-framework-grid .grid-15 {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* SDK 區：副標在 `once-inner-container` 外層的裸 div，需一併 clamp */
+.container-default-inner.once-container-bottom.once-container-top.once-container-60-gap:has(.once-sdk-framework-grid) {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+.container-default-inner.once-container-bottom.once-container-top.once-container-60-gap:has(.once-sdk-framework-grid)
+  > div:first-of-type {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.once-inner-container:has(.once-sdk-framework-grid) {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/*
+ * 左欄 bullet 為 `w-layout-hflex` 橫向 flex + 預設 nowrap，長文會把整列撐出視窗。
+ * 讓文字區可縮並在欄內換行。
+ */
+.flex-block-59:has(.once-sdk-framework-grid) .flex-block-62.w-layout-hflex {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.flex-block-59:has(.once-sdk-framework-grid) .flex-block-62 .who-choose-des {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/*
+ * SDK 左欄 CTA：與 hero 共用 `.home-hero-cta-wrapper.once-cta-wrapper`，Webflow ≤991px 會設成 `flex-flow: column`。
+ * 只在此區塊改回橫向，讓 See docs 與 5-Minute Guide 同一列。
+ */
+.flex-block-59:has(.once-sdk-framework-grid) .flex-block-60 .home-hero-cta-wrapper.once-cta-wrapper {
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 16px 24px;
+}
+
+.flex-block-59:has(.once-sdk-framework-grid) .flex-block-60 .home-hero-cta-wrapper.once-cta-wrapper .link-block._5-min {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+/*
+ * Webflow ≤767px 對 `.once-special-button` 設 `margin-right: auto`（hero 用），在橫向 CTA 裡會吃掉中間空間 → See docs 右側巨大留白。
+ * SDK 左欄改為 0，間距只留 `gap`。
+ */
+.flex-block-59:has(.once-sdk-framework-grid) .flex-block-60 .button-primary.home-hero.new-home.radius-16.once-special-button {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: auto !important;
+  flex: 0 0 auto;
+}
+
+/* Keep iOS + Android pills on one row (parent `.grid-15` is flex-wrap; narrow widths split them). */
+.once-sdk-framework-grid .once-sdk-native-pills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+/* Webflow 固定寬度過窄，標籤會在括號前換行；加寬並禁止換行以維持單行。 */
+.once-sdk-framework-grid .system.ios .system-name,
+.once-sdk-framework-grid .system.android .system-name {
+  white-space: nowrap;
+}
+
+.once-sdk-framework-grid .system.ios {
+  min-width: 142px;
+}
+
+.once-sdk-framework-grid .system.android {
+  min-width: 220px;
+}
+
+/*
+ * `min-width` 只加寬外層 `.system`（紫色邊框漸層），`.system-inner` 仍是 `width:auto`，
+ * 內容區較窄時右側會露出紫色。讓內層鋪滿外框即可。
+ */
+.once-sdk-framework-grid .system.ios .system-inner,
+.once-sdk-framework-grid .system.android .system-inner {
+  inset: 0;
+}
+
+.once-sdk-framework-grid .code-outer,
+.once-sdk-framework-grid .code-inner,
+.once-sdk-framework-grid .code-div {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 用欄寬約束即可；45vw 會在 ≤991px 蓋掉 Webflow 的 code-outer max-width:none，且與按鈕列寬度不一致 */
+.once-sdk-framework-grid .code-outer {
+  max-width: 100% !important;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.once-sdk-framework-grid .code-inner {
+  overflow: hidden;
+  max-width: 100% !important;
+  width: 100%;
+}
+
+/*
+ * 程式碼在 `.code-wrapper`（absolute）內；捲動發生在 `pre` / 本層，必須把寬度鎖在父層，
+ * 否則長行會撐寬整條絕對定位鏈，看起來比視窗還寬。
+ */
+.once-sdk-framework-grid .code-div {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: auto;
+}
+
+.once-sdk-framework-grid .code-wrapper {
+  left: 0 !important;
+  right: 0 !important;
+  top: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Framework 列：欄寬不足時橫向捲動，避免把整頁撐開（全斷點） */
+.once-sdk-framework-grid .grid-15 {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+/* Framework 列：≥992px 橫向捲動兜底（桌面欄不夠寬時） */
+@media screen and (min-width: 992px) {
+  .once-sdk-framework-grid .grid-15 {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/*
+ * ≤991px（MD + SM）：Webflow 只在 ≤767px 把 `.grid-14.gap-20` 設成 `flex-flow: column`，
+ * 768–991px 仍為 `w-layout-hflex` 橫向，framework 列 + code block 並排在右欄 → 必溢出。
+ * 在此斷點強制直向堆疊（與官網小螢幕行為一致），並約束子項寬度。
+ */
+@media screen and (max-width: 991px) {
+  .once-sdk-framework-grid.w-layout-hflex {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .once-sdk-framework-grid {
+    align-items: stretch;
+  }
+
+  .once-sdk-framework-grid > .flex-block-46 {
+    flex: 0 1 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    align-self: stretch;
+  }
+
+  .once-sdk-framework-grid > .code-outer {
+    flex: 0 1 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    align-self: stretch;
+  }
+
+  .once-sdk-framework-grid .grid-15 {
+    justify-content: center;
+    flex-wrap: wrap !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 解除 iOS / Android 同列鎖定，讓它們依 flex-wrap 自然排列 */
+  .once-sdk-framework-grid .once-sdk-native-pills {
+    display: contents;
+  }
+}
+
+.once-sdk-framework-grid .code.w-code-block {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ONCE OnceSdkCode — 行號 + 程式分行（取代 Webflow span 串） */
+.once-sdk-framework-grid pre.once-sdk-code-pre {
+  height: auto !important;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: min(50vh, 420px);
+  overflow-x: auto;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.once-sdk-framework-grid .once-sdk-code {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.once-sdk-framework-grid .once-sdk-code-row {
+  display: grid;
+  grid-template-columns: 2.75em minmax(0, 1fr);
+  column-gap: 1em;
+  align-items: start;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace;
+  font-size: inherit;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.once-sdk-framework-grid .once-sdk-code-ln {
+  text-align: right;
+  color: #8a8a8a;
+  user-select: none;
+  padding-right: 0.25em;
+}
+
+.once-sdk-framework-grid .once-sdk-code-line-text {
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
+  color: #f8f8f2;
+}
+
+.once-sdk-framework-grid .once-sdk-code-plain {
+  color: #f8f8f2;
+}
+
+.once-sdk-framework-grid .once-sdk-code-kw {
+  color: #dcc6e0;
+}
+
+.once-sdk-framework-grid .once-sdk-code-str {
+  color: #abe338;
+}
+
+.once-sdk-framework-grid .once-sdk-code-comment {
+  color: #d4d0ab;
+}
+
+/*
+ * ONCE /once — ≤767px：Webflow `w-layout-vflex` / 橫向 bullet 易把寬度撐成 max-content，
+ * 加上殘留寬元素時整頁會水平溢出。用 clip 截斷（不建立可捲動的 page-wrapper），
+ * 並讓主內容區與 `.w-container` 鏈條吃滿視窗寬。
+ */
+@media screen and (max-width: 767px) {
+  .page-wrapper.once-banner {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .page-wrapper.once-banner .container-default-inner,
+  .page-wrapper.once-banner .container-default.once {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .page-wrapper.once-banner .once-inner-container.w-layout-blockcontainer {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* 標題區副標（在 once-inner-container 外） */
+  .container-default-inner.once-container-60-gap:has(.once-sdk-framework-grid) .once-subtitle {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .container-default-inner.once-container-60-gap:has(.once-sdk-framework-grid) .once-subtitle.left {
+    max-width: 100%;
+  }
+}

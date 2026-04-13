@@ -1,4 +1,7 @@
+'use client';
+
 import type { CSSProperties, ReactNode } from 'react';
+import { useTranslations } from 'next-intl';
 import PlausibleLink from '@/components/PlausibleLink';
 
 type Props = {
@@ -11,6 +14,7 @@ type Props = {
 };
 
 export default function ToolWidget({ src, iframeTitle, height, policy, iframeId, iframeStyle }: Props) {
+  const t = useTranslations('Tools.common');
   const defaultStyle: CSSProperties = { border: 'none', width: '100%', height, minHeight: '600px' };
   return (
     <section>
@@ -32,7 +36,7 @@ export default function ToolWidget({ src, iframeTitle, height, policy, iframeId,
         <div className="tools-banner-wrapper">
           <div className="div-block-33">
             <PlausibleLink href="/" target="_blank" className="tools-authgear-tag" eventName="tool-tag-click">
-              This tool is crafted by Authgear
+              {t('craftedByTag')}
             </PlausibleLink>
           </div>
           <PlausibleLink href="/" target="_blank" className="tools-banner w-inline-block" eventName="tool-banner-click">
@@ -55,7 +59,7 @@ export default function ToolWidget({ src, iframeTitle, height, policy, iframeId,
             />
           </PlausibleLink>
           <PlausibleLink href="https://github.com/authgear/authgear-server" target="_blank" className="tools-github-tag w-inline-block" eventName="tool-github-tag-click">
-            <div className="text-block-92">Support and star us on</div>
+            <div className="text-block-92">{t('supportStarUs')}</div>
             <img src="https://img.shields.io/github/stars/authgear/authgear-server" width="110px" alt="" />
           </PlausibleLink>
         </div>

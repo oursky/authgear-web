@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useId, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { PricingCell, PricingCopy, PricingNodeVariant } from '@/lib/pricing/types';
+import { PricingFaqItem } from '@/components/pricing/PricingFaqAccordion';
 
 type Props = {
   copy: PricingCopy;
@@ -17,43 +18,6 @@ type Props = {
 function resolveHref(href: string, contactPath: string): string {
   if (href === '__CONTACT__') return contactPath;
   return href;
-}
-
-function PricingFaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-  const baseId = useId();
-  const triggerId = `${baseId}-trigger`;
-  const panelId = `${baseId}-panel`;
-
-  return (
-    <div className="ds-pricing-faq__accordion">
-      <button
-        type="button"
-        id={triggerId}
-        className="ds-pricing-faq__summary"
-        aria-expanded={open}
-        aria-controls={panelId}
-        onClick={() => setOpen((o) => !o)}
-      >
-        <span className="ds-pricing-faq__icon" aria-hidden />
-        <span className="ds-pricing-faq__question">{question}</span>
-      </button>
-      <div
-        id={panelId}
-        role="region"
-        aria-labelledby={triggerId}
-        aria-hidden={!open}
-        className="ds-pricing-faq__panel"
-        style={{ gridTemplateRows: open ? '1fr' : '0fr' }}
-      >
-        <div className="ds-pricing-faq__panel-inner">
-          <div className="ds-pricing-faq__answer">
-            <p>{answer}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 }
 
 function NodeVariantCell({
