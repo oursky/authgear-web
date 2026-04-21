@@ -1,0 +1,300 @@
+---
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<div class="page-wrapper">
+  <section class="ds-hero-banner--white">
+    <div class="ds-container ds-container--hero-white">
+      <div class="ds-hero-banner__stack">
+        <div class="ds-section-eyebrow">{t(locale, 'CiamSolution.eyebrow')}</div>
+        <h1 class="ds-hero-banner__title">
+          {t(locale, 'CiamSolution.heroTitleLine1')}<br />
+          {t(locale, 'CiamSolution.heroTitleLine2')}
+        </h1>
+        <p class="ds-hero-banner__description">
+          {t(locale, 'CiamSolution.heroDescription')}
+        </p>
+        <div class="ds-hero-banner__ctas">
+          <a
+            href="https://portal.authgear.com/?utm_source=solutions-b2c-ciam&utm_medium=link&utm_campaign=talk-with-us"
+            target="_blank"
+            rel="noreferrer"
+            class="ds-btn ds-btn-primary"
+          >
+            {t(locale, 'CiamSolution.heroCta')}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <img
+        src="/images/b2c_ciam_kv-hero-login-box1.svg"
+        loading="lazy"
+        alt=""
+        width={1152}
+        class="ds-hero-banner__media ds-hero-banner__media--bottom"
+      />
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'CiamSolution.oneStopTitleLine1')}<br />
+          {t(locale, 'CiamSolution.oneStopTitleLine2')}
+        </h2>
+        <p class="section-lede-on-light">
+          {t(locale, 'CiamSolution.oneStopDesc')}
+        </p>
+      </div>
+      <div class="ds-grid-3 ciam-one-stop-feature-cards">
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_one-stop-sso.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.oneStop1')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_one-stop-passwordless.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.oneStop2')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_one-stop-mfa.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.oneStop3')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_one-stop-biometric.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.oneStop4')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_one-stop-breachedpassword.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.oneStop5')}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'CiamSolution.frictionlessTitle')}
+        </h2>
+        <p class="section-lede-on-light">
+          {t(locale, 'CiamSolution.frictionlessDesc')}
+        </p>
+      </div>
+      <div class="ciam-frictionless-feature-cards grid w-full grid-cols-1 gap-6 self-stretch lg:grid-cols-3 lg:grid-rows-2 lg:gap-6">
+        <div class="svg-card lg:col-start-1 lg:row-start-1">
+          <img src="/images/b2c_ciam_empowers-passwordmanagement.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.frictionless1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.frictionless1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card lg:col-start-1 lg:row-start-2">
+          <img src="/images/b2c_ciam_empowers-reducelogin.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.frictionless2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.frictionless2Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card justify-between lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:h-full lg:min-h-0">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.frictionless3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.frictionless3Desc')}
+            </div>
+          </div>
+          <img src="/images/b2c_ciam_empowers-modernlogin.svg" loading="lazy" alt="" class="mw-140 mx-auto" />
+        </div>
+        <div class="svg-card lg:col-start-3 lg:row-start-1">
+          <img src="/images/b2c_ciam_empowers-registration.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.frictionless4Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.frictionless4Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card lg:col-start-3 lg:row-start-2">
+          <img src="/images/b2c_ciam_empowers-mfa.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.frictionless5Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.frictionless5Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">{t(locale, 'CiamSolution.userCentricTitle')}</h2>
+        <p class="section-lede-on-light">
+          {t(locale, 'CiamSolution.userCentricDesc')}
+        </p>
+      </div>
+      <div class="ds-grid-2">
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_usercentric-journeys.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.userCentric1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.userCentric1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_usercentric-increased.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.userCentric2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.userCentric2Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_usercentric-boosted.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.userCentric3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.userCentric3Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_usercentric-enhanced.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.userCentric4Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.userCentric4Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section b2c-ciam-solution-section-dark-bg">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-dark">
+          {t(locale, 'CiamSolution.devTitle')}
+        </h2>
+        <p class="section-lede-on-dark">
+          {t(locale, 'CiamSolution.devDesc')}
+        </p>
+      </div>
+      <div class="ds-grid-2">
+        <div class="svg-card svg-card-glass">
+          <img src="/images/b2c_ciam_integration-nocode.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.dev1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.dev1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card svg-card-glass">
+          <img src="/images/b2c_ciam_integration-prebuilt.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.dev2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.dev2Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card svg-card-glass">
+          <img src="/images/b2c_ciam_integration-flexible.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.dev3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.dev3Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card svg-card-glass">
+          <img src="/images/b2c_ciam_integration-security.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.dev4Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.dev4Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="title-content ds-title-content--after-block">
+        <h2 class="heading-on-dark">
+          {t(locale, 'CiamSolution.frictionlessTitle')}
+        </h2>
+        <p class="section-lede-on-dark">
+          {t(locale, 'CiamSolution.frictionlessDesc')}
+        </p>
+      </div>
+      <div class="ds-grid-3">
+        <div class="svg-card svg-card-glass">
+          <img src="/images/b2c_ciam_development-innovation.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.devBenefit1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.devBenefit1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card svg-card-glass">
+          <img src="/images/b2c_ciam_development-reduce.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.devBenefit2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.devBenefit2Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card svg-card-glass">
+          <img src="/images/b2c_ciam_development-experience.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'CiamSolution.devBenefit3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'CiamSolution.devBenefit3Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="footer-form-section form__bg-dark">
+    <div class="container-default">
+      <div class="container-default-inner px-0">
+        <div class="_2-block-flex footer-form">
+          <div class="_2-block-flex-content footer-form">
+            <div class="_2-block-flex-content-text-wrap footer-form">
+              <h2 class="form-heading color-white footer-form">{t(locale, 'CiamSolution.footerTitle')}</h2>
+              <div class="footerform__divider-sm"></div>
+              <div class="color-white footer-get-started-text">{t(locale, 'CiamSolution.footerGetStarted')}</div>
+            </div>
+          </div>
+          <div class="_2-block-flex-image footer-form">
+            <ContactForm client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
