@@ -1,4 +1,5 @@
 ---
+import { t } from '@/i18n';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
@@ -8,9 +9,9 @@ const { locale } = Astro.props;
       <div class="ds-container ds-container--hero">
         <div class="ds-hero-banner__row">
           <div class="ds-hero-banner__body">
-            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">Authorization</p>
-            <h1 class="ds-hero-banner__title">Authorization and access management</h1>
-            <p class="ds-hero-banner__description">Fine-grained access control built for your users, teams and products</p>
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'Authorization.heroSmallTitle')}</p>
+            <h1 class="ds-hero-banner__title">{t(locale, 'Authorization.heroTitle')}</h1>
+            <p class="ds-hero-banner__description">{t(locale, 'Authorization.heroDescription')}</p>
             <div class="ds-hero-banner__ctas">
               <a
                 href="https://portal.authgear.com/?utm_source=feature-authorization&amp;utm_medium=link&amp;utm_campaign=start-for-free"
@@ -18,13 +19,13 @@ const { locale } = Astro.props;
                 rel="noreferrer"
                 class="ds-btn ds-btn-secondary"
               >
-                Start for Free
+                {t(locale, 'Features.startForFree')}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
               </a>
               <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
-                Get a Demo
+                {t(locale, 'Features.getDemo')}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
@@ -33,7 +34,7 @@ const { locale } = Astro.props;
             <div class="ds-hero-banner__footnote">
               <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
               <p class="ds-hero-banner__footnote-copy">
-                Free plan includes <strong>unlimited MAUs</strong>
+                {t(locale, 'Authorization.freePlanIncludes')} <strong>{t(locale, 'Authorization.unlimitedMAUs')}</strong>
               </p>
             </div>
           </div>
@@ -55,18 +56,20 @@ const { locale } = Astro.props;
     <div class="ds-feature-callout">
       <div class="ds-feature-callout__title">
         <h2 class="heading-on-dark">
-          Why<br />
-          Authgear
+          {t(locale, 'Authorization.whyAuthgearTitleLine1')}
+          <br />
+          {t(locale, 'Authorization.whyAuthgearTitleLine2')}
         </h2>
       </div>
       <div class="ds-feature-callout__body">
         <p class="section-lede-on-dark">
-          With growing user bases and complex apps, managing who can do what is critical.<br />
-          Roles &amp; Groups let you shift from per-user permissions to a scalable model where you manage roles once, then assign at scale.
+          {t(locale, 'Authorization.whyAuthgearDescLine1')}
+          <br />
+          {t(locale, 'Authorization.whyAuthgearDescLine2')}
         </p>
         <div class="ds-feature-callout__ctas">
           <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-primary">
-            Talk to us
+            {t(locale, 'Authorization.talkToUs')}
           </a>
           <a
             href="https://accounts.portal.authgear.com/signup"
@@ -74,7 +77,7 @@ const { locale } = Astro.props;
             rel="noreferrer"
             class="ds-btn ds-btn-outline-light"
           >
-            Start for Free
+            {t(locale, 'Features.startForFree')}
           </a>
         </div>
       </div>
@@ -84,7 +87,7 @@ const { locale } = Astro.props;
 <section class="ds-section ds-bg-light-blue">
   <div class="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
     <div class="title-content">
-      <h2 class="heading-on-light">Centralized Authorization with Roles and Groups</h2>
+      <h2 class="heading-on-light">{t(locale, 'Authorization.centralizedTitle')}</h2>
     </div>
     <div class="ds-split-stack__rows">
       <div class="ds-split ds-split-row ds-split-row--surface-light">
@@ -98,8 +101,8 @@ const { locale } = Astro.props;
           />
         </div>
         <div class="ds-split-row__body">
-          <h3 class="heading-on-light">Roles</h3>
-          <p class="section-lede-on-light">Define roles and assign roles to users directly. Roles are included in UserInfo / JWT claims so your app has the context to enforce permissions.</p>
+          <h3 class="heading-on-light">{t(locale, 'Authorization.rolesTitle')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'Authorization.rolesDesc')}</p>
         </div>
       </div>
       <div class="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
@@ -113,8 +116,8 @@ const { locale } = Astro.props;
           />
         </div>
         <div class="ds-split-row__body">
-          <h3 class="heading-on-light">Groups</h3>
-          <p class="section-lede-on-light">Create groups that bundle one or more roles. Add users to groups; they inherit the roles of that group. Simplifies bulk-permission management.</p>
+          <h3 class="heading-on-light">{t(locale, 'Authorization.groupsTitle')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'Authorization.groupsDesc')}</p>
         </div>
       </div>
       <div class="ds-split ds-split-row ds-split-row--surface-light">
@@ -128,8 +131,8 @@ const { locale } = Astro.props;
           />
         </div>
         <div class="ds-split-row__body">
-          <h3 class="heading-on-light">Audit-ready</h3>
-          <p class="section-lede-on-light">Manage roles/groups and see who has what role in a central place. Position for governance, compliance and least-privilege access as you scale.</p>
+          <h3 class="heading-on-light">{t(locale, 'Authorization.auditTitle')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'Authorization.auditDesc')}</p>
         </div>
       </div>
     </div>
@@ -138,7 +141,7 @@ const { locale } = Astro.props;
 <section class="ds-section ds-footer-cta-section">
   <div class="ds-container">
     <div class="title-content">
-      <h2 class="heading-on-dark">Ready to simplify access control and scale your authorization model?</h2>
+      <h2 class="heading-on-dark">{t(locale, 'Authorization.ctaTitle')}</h2>
     </div>
     <div class="ds-footer-cta__actions">
       <a
@@ -147,16 +150,16 @@ const { locale } = Astro.props;
         rel="noreferrer"
         class="ds-btn ds-btn-secondary"
       >
-        Start for Free
+        {t(locale, 'Features.startForFree')}
       </a>
       <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
-        Get a Demo
+        {t(locale, 'Features.getDemo')}
       </a>
     </div>
     <div class="ds-footer-cta__footnote">
       <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
       <p class="ds-footer-cta__footnote-copy">
-        Free plan includes <strong>unlimited MAUs</strong>
+        {t(locale, 'Authorization.freePlanIncludes')} <strong>{t(locale, 'Authorization.unlimitedMAUs')}</strong>
       </p>
     </div>
   </div>
