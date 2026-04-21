@@ -9,7 +9,7 @@ test.describe('/api/contact', () => {
         Company: 'Example Co',
         'how-hear': 'organic-search',
       },
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Origin: 'http://localhost' },
     });
     expect(resp.status()).toBe(200);
     expect(await resp.json()).toEqual({ success: true });
@@ -18,7 +18,7 @@ test.describe('/api/contact', () => {
   test('POST missing Name returns 400', async ({ request }) => {
     const resp = await request.post('/api/contact', {
       data: { Email: 'x@y.z' },
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Origin: 'http://localhost' },
     });
     expect(resp.status()).toBe(400);
   });
@@ -26,7 +26,7 @@ test.describe('/api/contact', () => {
   test('POST missing Email returns 400', async ({ request }) => {
     const resp = await request.post('/api/contact', {
       data: { Name: 'X' },
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Origin: 'http://localhost' },
     });
     expect(resp.status()).toBe(400);
   });
@@ -34,7 +34,7 @@ test.describe('/api/contact', () => {
   test('POST with unsupported content-type returns 415', async ({ request }) => {
     const resp = await request.post('/api/contact', {
       data: 'plain text',
-      headers: { 'Content-Type': 'text/plain' },
+      headers: { 'Content-Type': 'text/plain', Origin: 'http://localhost' },
     });
     expect(resp.status()).toBe(415);
   });
@@ -47,6 +47,7 @@ test.describe('/api/contact', () => {
         Company: 'Example',
         'how-hear': 'github',
       },
+      headers: { Origin: 'http://localhost' },
     });
     expect(resp.status()).toBe(200);
   });
