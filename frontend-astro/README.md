@@ -33,7 +33,9 @@ npm test                          # playwright — smoke tests (home + redirects
 - [x] Phase 1 — Foundation
 - [x] Phase 2a — Core islands + home parity (ContactForm, LogoMarquee, /api/contact)
 - [x] Phase 2b — Simple static marketing pages (~13 pages)
-- [ ] Phase 2c — Dynamic subtrees (features, solutions, compare — ~33 pages)
+- [x] Phase 2c-1 — Compare subtree + dynamic route pattern (4 pages)
+- [ ] Phase 2c-2 — Solutions subtree (7 pages)
+- [ ] Phase 2c-3 — Features subtree + tab islands (22 pages + 3 islands)
 - [ ] Phase 2d — Tools subtree + SMS calculator
 - [ ] Phase 2e — Once page + Pricing page
 - [ ] Phase 3 — CMS-backed pages (blog, customer stories, etc.)
