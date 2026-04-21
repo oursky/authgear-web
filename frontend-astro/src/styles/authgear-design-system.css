@@ -1,0 +1,4803 @@
+@import 'tailwindcss';
+
+/* Authgear Design System — tokens, components, Tailwind (PostCSS when imported from app/layout) */
+@source "../components/**/*.{js,ts,jsx,tsx}";
+@source "./**/*.{js,ts,jsx,tsx}";
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Noto Sans TC", sans-serif;
+
+  /* Brand Colors */
+  --color-primary-50: #ecf6ff;
+  --color-primary-100: #d4e9ff;
+  --color-primary-200: #b2d9ff;
+  --color-primary-300: #7dc3ff;
+  --color-primary-400: #40a2ff;
+  --color-primary-500: #147cff;
+  --color-primary-600: #0060ff;
+  --color-primary-700: #0053ff;
+  --color-primary-800: #0043e0;
+  --color-primary-900: #0839a0;
+  --color-primary-950: #0a2461;
+
+  /* Background / Text / Border tokens */
+  --color-bg-deep: #111010;
+  /* Login Gallery 輪播外層（Web/Mobile 切換＋截圖＋圓點同一容器） */
+  --color-login-gallery-carousel-surface: #232337;
+  --color-bg-card: rgba(28, 28, 28, 0.88);
+  --color-bg-card-hover: rgba(95, 101, 235, 0.15);
+  --color-bg-light: #f5f5f5;
+  --color-bg-light-card: #ffffff;
+  /* 淺色 Section：帶藍調的底（對應舊 Webflow `bg-f3f6ff`） */
+  --color-bg-light-blue: #f3f6ff;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #afb7ff;
+  --color-text-muted: rgba(175, 183, 255, 0.5);
+  --color-text-light-primary: #2e2e2e;
+  --color-text-light-secondary: #626262;
+  --color-text-light-muted: #8e8e8e;
+
+  --color-border-default: #8c8c8c;
+  --color-border-card: rgba(255, 255, 255, 0.63);
+  --color-border-subtle: #1e256f;
+  --color-border-light: #dce5ff;
+  --color-border-light-subtle: #edebe9;
+
+  /* Neutral（對齊舊 Webflow `--neutral-*`；SMS Warning signs 等淺底） */
+  --color-neutral-200: #f9fbfb;
+
+  /* Negative / warning accents（SMS cost「問題」卡圖示與標籤） */
+  --color-negative-50: #ffe1e1;
+  --color-negative-400: #ff6868;
+  --color-negative-600: #df4c47;
+  --color-negative-700: #be2a2a;
+
+  --color-glow-blue: rgba(11, 100, 233, 0.3);
+  --color-glow-purple: rgba(122, 46, 255, 0.3);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(109.457deg, rgb(8, 23, 118) 0%, rgb(152, 66, 255) 101.99%);
+  --gradient-card: linear-gradient(to bottom, rgba(28, 28, 28, 0.88), rgba(63, 63, 63, 0.6));
+  --gradient-card-alt: linear-gradient(-42deg, rgba(157, 161, 255, 0.8) 0%, rgba(95, 101, 235, 0.8) 46%, rgba(0, 9, 103, 0.8) 94%);
+  --gradient-text-dark: linear-gradient(to top, #ecf4ff 0.4%, #94beff 40.3%);
+  --gradient-text-light: linear-gradient(0deg, rgb(2, 86, 202) 0.4%, rgb(185, 212, 255) 40.3%);
+  --gradient-accent: linear-gradient(91.3155deg, rgb(57, 28, 233) 0.41044%, rgb(49, 183, 255) 99.673%);
+  --gradient-icon-blue: linear-gradient(139.6deg, rgb(146, 150, 255) 0%, rgb(30, 37, 111) 100%);
+  --gradient-icon-green: linear-gradient(139.6deg, rgb(101, 255, 132) 0%, rgb(5, 116, 95) 100%);
+  --gradient-icon-purple: linear-gradient(139.6deg, rgb(37, 164, 255) 0%, rgb(88, 0, 147) 100%);
+  --gradient-icon-avatar: linear-gradient(135deg, #391ce9 0%, #31b7ff 100%);
+  --gradient-neon: linear-gradient(149deg, rgba(255, 131, 251, 0.98) 0%, rgb(122, 46, 255) 50%, rgba(79, 229, 255, 0.95) 100%);
+
+  /* Radius (1rem = 16px) */
+  --radius-product: 0.5rem;
+  --radius-icon: 1rem;
+  --radius-card: 1.5rem;
+  /* Section／大區塊圓角 — 48px（3rem @ 16px root） */
+  --radius-section: 3rem;
+  --radius-pill: 4.5rem;
+
+  /* Spacing（對照 design/Authgear-DesignSystem.md §5 `--ds-space-*`；1rem = 16px） */
+  --spacing-xxs: 0.5rem;
+  --spacing-xs: 1rem;
+  --spacing-s: 1.5rem; /* ds-space-s；卡片內距 SM（24px） */
+  --spacing-m: 2rem; /* ds-space-m；卡片內距 LG（32px） */
+  --spacing-ml: 3rem; /* ds-space-ml（48px） */
+  --spacing-l: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-xxl: 8rem;
+
+  /* Typography */
+  --text-h1: 3.75rem;
+  --text-h1--line-height: 4.5rem;
+  /* Hero H1 — SM（<768px）：32px（2rem @ 16px root） */
+  --text-h1-sm: 2rem;
+  --text-h1-sm--line-height: 2.5rem;
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 3.25rem;
+  /* H3 — 32px（2rem @ 16px root） */
+  --text-h3: 2rem;
+  --text-h3--line-height: 2.5rem;
+  /* SVG 卡標題（語意 h3）：24px — 與一般區塊 `h3`（`--text-h3`）分開 */
+  --text-h3-svg-card: 1.5rem;
+  --text-h3-svg-card--line-height: 1.875rem;
+  /* H4 — 20px（1.25rem @ 16px）；小於 `--text-h3-svg-card`（24px） */
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.75rem;
+  --text-label: 1.25rem;
+  --text-label--line-height: 1.75rem;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.75rem;
+  --text-body2: 1rem;
+  --text-body2--line-height: 1.5rem;
+
+  /* Layout */
+  --container-7xl: 80rem;
+  --layout-padding-xl: 5rem;
+  --layout-padding-lg: 1.5rem;
+  --layout-padding-md: 1.5rem;
+  --layout-padding-sm: 1.5rem;
+  --layout-max-width-wide: 90rem;
+  --ds-feature-callout-max-width: 75rem;
+  /* SVG card（ds-grid 內）上下內距 = ds-space-ml */
+  --layout-svg-card-padding-block: var(--spacing-ml);
+  --layout-card-gutter: 1.5rem;
+  --title-content-max-width: 48rem;
+  --hero-banner-white-media-max: 72rem;
+  /* 白色單欄 KV 文案欄寬（寬於一般 hero 左欄 `--hero-banner-body-max-width`） */
+  --hero-banner-white-stack-max-width: 56rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    /* Typography (runtime tokens) */
+    --font-sans: "IBM Plex Sans", "Noto Sans TC", sans-serif;
+    --text-h1: 3.75rem;
+    --text-h1--line-height: 4.5rem;
+    --text-h1-sm: 2rem;
+    --text-h1-sm--line-height: 2.5rem;
+    --text-h2: 2.5rem;
+    --text-h2--line-height: 3.25rem;
+    --text-h3: 2rem;
+    --text-h3--line-height: 2.5rem;
+    --text-h3-svg-card: 1.5rem;
+    --text-h3-svg-card--line-height: 1.875rem;
+    --text-h4: 1.25rem;
+    --text-h4--line-height: 1.75rem;
+    --text-label: 1.25rem;
+    --text-label--line-height: 1.75rem;
+    --text-body: 1.125rem;
+    --text-body--line-height: 1.75rem;
+    --text-body2: 1rem;
+    --text-body2--line-height: 1.5rem;
+
+    /* Layout (runtime tokens) */
+    --container-7xl: 80rem;
+    --layout-padding-xl: 5rem;
+    --layout-padding-lg: 1.5rem;
+    --layout-padding-md: 1.5rem;
+    --layout-padding-sm: 1.5rem;
+    --layout-svg-card-padding-block: var(--spacing-ml);
+    --layout-card-gutter: 1.5rem;
+    --layout-max-width-wide: 90rem;
+    --title-content-max-width: 48rem;
+
+    /* Spacing used by components */
+    --spacing-xxs: 0.5rem;
+    --spacing-xs: 1rem;
+    --spacing-s: 1.5rem;
+    --spacing-m: 2rem;
+    --spacing-ml: 3rem;
+    --spacing-l: 4rem;
+    --spacing-xl: 6rem;
+
+    /* Radius（runtime tokens；與 @theme 對齊；1rem = 16px） */
+    --radius-product: 0.5rem;
+    --radius-icon: 1rem;
+    --radius-card: 1.5rem;
+    --radius-section: 3rem;
+    --radius-pill: 4.5rem;
+
+    /* Dark section surfaces + text (runtime) — 對照 §2 / §4.3 */
+    --color-bg-deep: #111010;
+    --color-login-gallery-carousel-surface: #232337;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #afb7ff;
+
+    /* Light section surfaces (runtime) */
+    --color-bg-light-blue: #f3f6ff;
+    --color-neutral-200: #fbfbfb;
+
+    /* Light text colors (runtime tokens) — 淺色 Section 對照 design/Authgear-DesignSystem.md §4.4 */
+    --color-text-light-primary: #2e2e2e;
+    --color-text-light-secondary: #626262;
+    --color-text-light-muted: #8e8e8e;
+
+    --color-negative-50: #ffe1e1;
+    --color-negative-400: #ff6868;
+    --color-negative-600: #df4c47;
+    --color-negative-700: #be2a2a;
+
+    /* Font weight (runtime tokens) — 對照 §4.2 */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+
+    --icon-size-md: 3rem;
+
+    /*
+     * 全站 `.header.event` 為 `position: fixed`（見 webflow），不佔文件流高度。
+     * 首屏區塊若只用 padding-top，前段會畫在導覽列「下面」— 小螢幕時甚至會與標題重疊。
+     * 對齊 `.container-header` min-height: 80px（= 5rem @ 16px）。
+     */
+    --layout-fixed-header-height: 5rem;
+
+    /* 深色 KV banner 底圖（`.ds-hero-banner--dark`）；淺色 banner 用 `.ds-hero-banner--light` 或另設圖片 token */
+    --image-hero-banner-bg: url("/images/solutions_enterprise-sso_kv-bg2x.webp");
+    /* Hero 右圖：各斷點 max-width 上限（單一 src，由 CSS 縮放） */
+    --hero-banner-media-max-sm: 31.25rem;
+    --hero-banner-media-max-lg: 28rem;
+    /* XL 勿大於 ~512px，避免大螢幕圖片欄搶光版面 */
+    --hero-banner-media-max-xl: 32rem;
+    /* 佔列寬比例（與 max-width 並用） */
+    --hero-banner-media-basis-lg: 38%;
+    --hero-banner-media-basis-xl: 40%;
+    /* Hero 左欄文案區最大寬 */
+    --hero-banner-body-max-width: 43rem;
+    /* LG（1024–1279）與右圖並排時，避免 43rem + 圖欄超出容器而裁切右圖 */
+    --hero-banner-body-max-width-lg: 35rem;
+    /* `.ds-hero-banner--white` 底部大圖最大寬（單欄置中 KV） */
+    --hero-banner-white-media-max: 72rem;
+    --hero-banner-white-stack-max-width: 56rem;
+    /* SM 以下／Hero 左右內距 — 24px（`--spacing-s` = §5 ds-space-s） */
+    --hero-banner-padding-inline-sm: var(--spacing-s);
+    /* SM 以下／漸層 KV 外層 shell（`--gradient-hero-shell`）左右 — 16px（`--spacing-xs` = §5） */
+    --hero-banner-shell-padding-inline-sm: var(--spacing-xs);
+    /* `ds-feature-callout` 最大寬 — 小於 `--layout-max-width-wide`（90rem），置中不滿版 */
+    --ds-feature-callout-max-width: 75rem;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-deep);
+    color: var(--color-text-primary);
+  }
+}
+
+@layer components {
+  .ds-section {
+    width: 100%;
+  }
+
+  /* 淺藍灰 Section 底 — 使用 token `--color-bg-light-blue` */
+  .ds-bg-light-blue {
+    background-color: var(--color-bg-light-blue);
+  }
+
+  /* 白底 Section — 使用 token `--color-bg-light-card`（與 `ds-bg-light-blue` 同層級） */
+  .ds-bg-white {
+    background-color: var(--color-bg-light-card);
+  }
+
+  /*
+   * 頁尾 CTA 區塊底圖（舊 Webflow `footer-section-none-form` — `features-footer-noneform2x.webp`）
+   */
+  .ds-footer-cta-section {
+    background-color: var(--color-bg-deep);
+    background-image: url("/images/features-footer-noneform2x.webp");
+    background-position: 70% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media (width < 768px) {
+    .ds-footer-cta-section {
+      background-position: 50% 0;
+    }
+  }
+
+  /* 覆寫一般 `ds-container` 的 `align-items: center`，讓標題／CTA／註解區塊靠左對齊 */
+  .ds-footer-cta-section .ds-container {
+    align-items: stretch;
+    /* 區塊內子項垂直間距 24px（`--spacing-s`） */
+    gap: var(--spacing-s);
+  }
+
+  /*
+   * Attack Protection 頁專用：「Built for …」全寬底圖 + 右側文案（見 `AttackProtectionPage.tsx`）
+   */
+  .attack-protection-built-for {
+    width: 100%;
+  }
+
+  .attack-protection-built-for__surface {
+    --attack-protection-built-for-bg: url("/images/features-attackprotection-builtfor2x.webp");
+    --attack-protection-built-for-bg-mobile: url("/images/features-attackprotection-builtfor-m2x.webp");
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: var(--radius-section);
+    background-color: var(--color-bg-deep);
+    background-image: var(--attack-protection-built-for-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: var(--spacing-ml) var(--spacing-m);
+  }
+
+  @media (width >= 768px) {
+    .attack-protection-built-for__surface {
+      padding: 5rem;
+    }
+  }
+
+  @media (width < 768px) {
+    .attack-protection-built-for__surface {
+      background-image: var(--attack-protection-built-for-bg-mobile);
+      background-position: 0 100%;
+      padding-bottom: var(--spacing-xl);
+      padding-inline: var(--layout-padding-sm);
+    }
+  }
+
+  .attack-protection-built-for__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    width: 100%;
+    max-width: min(100%, 37.25rem);
+    margin-inline: auto 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  @media (width < 768px) {
+    .attack-protection-built-for__content {
+      max-width: 100%;
+      margin-inline: 0;
+    }
+  }
+
+  /*
+   * 行銷 KV banner 底層（整段背景行為集中在 DS，避免依賴 Tailwind bg-*）
+   * --dark：深色圖稿 WebP（`--image-hero-banner-bg`）+ cover／居中／不重複
+   * --light：淺色純色底；若日後要淺色底圖可再加 token 並比照 --dark 補 background-size/position
+   */
+  .ds-hero-banner--dark {
+    background-image: var(--image-hero-banner-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* 固定導覽高度 + 設計留白：避免 padding 前段被 nav 蓋住；下方仍保留 §5 `--spacing-xl`（96px）等效空間 */
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+    padding-bottom: var(--spacing-l);
+  }
+
+  @media (width < 768px) {
+    .ds-hero-banner--dark {
+      padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+      padding-bottom: 2.5rem; /* 對應 Tailwind `pb-10` */
+    }
+  }
+
+  /*
+   * 漸層圓角 KV：`--gradient-hero`；左右與下方 `ds-container` 對齊：外層用 `ds-container.ds-container--gradient-hero-shell`（同 max-width + padding-inline token）。
+   */
+  .ds-hero-banner--gradient {
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+    padding-bottom: var(--spacing-l);
+  }
+
+  @media (width < 768px) {
+    .ds-hero-banner--gradient {
+      padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+      padding-bottom: 2.5rem;
+    }
+  }
+
+  .ds-container.ds-container--gradient-hero-shell {
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: stretch;
+    align-self: stretch;
+    width: 100%;
+  }
+
+  .ds-hero-banner--gradient__inner {
+    width: 100%;
+    border-radius: var(--radius-section);
+    background: var(--gradient-hero);
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-block: var(--spacing-xl);
+    /* 左右：`--spacing-m`（MD／LG）；XL 見 `≥ 1280px`；SM 見 `< 768px` */
+    padding-inline: var(--spacing-m);
+  }
+
+  @media (width >= 1280px) {
+    .ds-hero-banner--gradient__inner {
+      padding-inline: var(--spacing-l);
+    }
+  }
+
+  @media (width < 768px) {
+    .ds-hero-banner--gradient__inner {
+      padding-block: var(--spacing-ml);
+      padding-inline: var(--hero-banner-padding-inline-xs);
+    }
+  }
+
+  .ds-hero-banner--gradient__inner > .ds-container.ds-container--hero {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-inline: 0;
+    width: 100%;
+    max-width: 100%;
+    align-items: stretch;
+  }
+
+  .ds-hero-banner--light {
+    background-color: var(--color-bg-light-blue);
+  }
+
+  /*
+   * 白色行銷 KV（單欄置中、無背景圖／漸層）：文案置中堆疊，大圖靠區塊底部、可拉寬。
+   * 與 `.ds-hero-banner--dark`（左文右圖）並列；可於多頁共用。
+   */
+  .ds-hero-banner--white {
+    background-color: var(--color-bg-light-card);
+    background-image: none;
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+    padding-bottom: 0;
+  }
+
+  @media (width < 768px) {
+    .ds-hero-banner--white {
+      padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+    }
+  }
+
+  /*
+   * Customer story 單篇頂部：Strapi `coverImage` 全寬 + 標題。
+   * 全站 `.header.event` 為 `position: fixed`（見本檔 `--layout-fixed-header-height` 註解）。
+   * 底圖若自區塊頂 `inset: 0` 會從文件頂端算起，視覺上被 nav 遮掉一段；媒體與遮罩改為自
+   * `top: var(--layout-fixed-header-height)` 起算。上緣帶狀區用與無圖時相同的深色底銜接 nav。
+   * 內距節奏對齊 `.ds-hero-banner--dark`（LG+／SM 斷點）。
+   */
+  .ds-customer-story-hero {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    min-height: min(32vw, 300px);
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+    padding-bottom: var(--spacing-ml);
+    overflow: hidden;
+    background-color: #1a1a1a;
+  }
+
+  @media (width < 768px) {
+    .ds-customer-story-hero {
+      padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+      padding-bottom: var(--spacing-s);
+    }
+  }
+
+  .ds-customer-story-hero__media {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--layout-fixed-header-height);
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .ds-customer-story-hero__img {
+    object-fit: cover;
+  }
+
+  .ds-customer-story-hero__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--layout-fixed-header-height);
+    bottom: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  .ds-customer-story-hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: left;
+  }
+
+  /*
+   * 文案區：與其他 KV 相同使用 `ds-container`（max-width + `padding-inline: --layout-padding-lg`，對應舊 Webflow `container-default` 左右 24px）。
+   * `--hero` 去掉上下大內距；此頁單欄左對齊，覆寫預設 `align-items: stretch`。
+   */
+  .ds-customer-story-hero .ds-container.ds-container--hero {
+    align-items: flex-start;
+  }
+
+  /* 主標＋小標依內容寬度收合；上限與 `.title-content` 相同（`--title-content-max-width` = 48rem） */
+  .ds-customer-story-hero__intro {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    max-width: min(100%, var(--title-content-max-width));
+    padding-block: var(--spacing-l); /* §5 ds-space-l = 4rem */
+    text-align: left;
+  }
+
+  .ds-customer-story-hero__intro .ds-hero-banner__title {
+    max-width: 100%;
+  }
+
+  .ds-hero-banner--white .ds-hero-banner__stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: min(100%, var(--hero-banner-white-stack-max-width));
+    gap: var(--spacing-s);
+  }
+
+  .ds-hero-banner--white .ds-hero-banner__media--bottom {
+    display: block;
+    width: auto;
+    max-width: var(--hero-banner-white-media-max);
+    height: auto;
+    margin-top: 0;
+    margin-inline: auto;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .ds-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--layout-padding-xl);
+  }
+
+  .ds-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xxs);
+    border-radius: var(--radius-icon);
+    border: 0;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: all 180ms ease;
+    cursor: pointer;
+  }
+
+  .ds-btn-primary {
+    background: var(--gradient-accent);
+    color: var(--color-text-primary);
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  /* Secondary：純白底 + 深色字（與 Primary 漸層區隔） */
+  .ds-btn-secondary {
+    background-color: #ffffff;
+    background-image: none;
+    color: var(--color-text-light-primary);
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  .ds-btn-secondary:hover {
+    background-color: var(--color-bg-light);
+    background-image: none;
+    color: var(--color-text-light-primary);
+  }
+
+  /* 深色底／漸層上：白字 + 白框線、透明底（如 `ds-feature-callout` 次 CTA） */
+  .ds-btn-outline-light {
+    background: transparent;
+    color: var(--color-text-primary);
+    border: 0.0625rem solid #fff;
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  .ds-btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+  }
+
+  .ds-btn-tertiary {
+    background: transparent;
+    color: var(--color-text-primary);
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-regular);
+    line-height: 1.3333333; /* §9.1 Tertiary：18px / 24px */
+  }
+
+  .ds-btn-tertiary:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* §9.1 尾端箭頭（Heroicons / 18px）：hover 右移 4px */
+  .ds-btn__icon-arrow {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    transition: transform 180ms ease;
+  }
+
+  .ds-btn:hover .ds-btn__icon-arrow {
+    transform: translateX(4px);
+  }
+
+  .ds-btn-ghost {
+    background: transparent;
+    color: var(--color-text-secondary);
+    padding: 0.8125rem 1.5rem;
+    gap: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  /* 第四種按鈕：淺底頁面用，primary blue 文字 + 灰框線、透明底 */
+  .ds-btn-subtle {
+    background: transparent;
+    color: var(--color-primary-600);
+    border: 0.0625rem solid var(--color-border-light-subtle);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .ds-btn-subtle:hover {
+    background: var(--color-primary-50);
+    border-color: var(--color-primary-200);
+    color: var(--color-primary-700);
+  }
+
+  /*
+   * 通用 16:9 影片嵌入容器（YouTube / Vimeo iframe embed）。
+   * 用法：`<div className="ds-video-embed"><iframe … /></div>`
+   */
+  .ds-video-embed {
+    position: relative;
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+    margin-inline: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .ds-video-embed > iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .ds-card {
+    border-radius: var(--radius-card);
+    border: 0.09375rem solid var(--color-border-default);
+    background: var(--gradient-card-alt);
+    backdrop-filter: blur(0.75rem);
+    padding: var(--spacing-m);
+    color: var(--color-text-primary);
+  }
+
+  .ds-card-light {
+    border-radius: var(--radius-card);
+    border: 0.0625rem solid #e0e0e0;
+    background: var(--color-bg-light-card);
+    box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
+    color: var(--color-text-light-primary);
+    padding: var(--spacing-m);
+  }
+
+  .ds-icon-box {
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: var(--radius-icon);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-icon-blue);
+  }
+
+  .ds-grid-2,
+  .ds-grid-3,
+  .ds-grid-4 {
+    display: grid;
+    width: 100%;
+    margin-inline: auto;
+    column-gap: var(--layout-card-gutter);
+    row-gap: var(--layout-card-gutter);
+  }
+
+  .ds-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ds-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ds-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .ds-container {
+    max-width: var(--layout-max-width-wide);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    padding-left: var(--layout-padding-lg);
+    padding-right: var(--layout-padding-lg);
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  /* 與 `ds-feature-callout` 同寬（`--ds-feature-callout-max-width`），置中不滿版 */
+  .ds-container.ds-container--max-callout {
+    max-width: var(--ds-feature-callout-max-width);
+  }
+
+  /* 多個 `ds-split` 垂直堆疊：子項間距 96px（`--spacing-xl`） */
+  .ds-container.ds-container--split-stack {
+    gap: var(--spacing-xl);
+  }
+
+  /*
+   * `title-content` + `ds-split-stack__rows` 的標題／列間距見檔案底部 **unlayered**
+   *（Webflow 後載 + cascade layer 會讓 @layer 內 `gap`／`display:flex` 失效）。
+   */
+
+  .ds-container > .top-content {
+    margin: 0;
+  }
+
+  /* 雙欄／非置中區塊：在 flex column + align-items:center 的 container 內拉滿寬 */
+  .ds-container > .ds-split {
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ds-container > .attack-protection-built-for__surface {
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Webflow `_2-card-grid` / `_3-card-grid` 與 DS `ds-grid-*`：置於 `ds-container` 內時拉滿寬（與 `.ds-split` 相同理由） */
+  .ds-container > ._2-card-grid,
+  .ds-container > ._3-card-grid,
+  .ds-container > .ds-grid-2,
+  .ds-container > .ds-grid-3,
+  .ds-container > .ds-grid-4,
+  .ds-container > .social-login-providers-row,
+  .ds-container > .social-login-providers-cta,
+  .ds-container > .whatsapp-otp-checks,
+  .ds-container > .ciam-frictionless-feature-cards,
+  .ds-container > .social-login-simplify-feature-cards,
+  .ds-container > .b2b-saas-granular-defense-cards,
+  .ds-container > .grid-12,
+  .ds-container > .grid,
+  .ds-container > .w-embed.w-script {
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* SMS calculator：拉滿欄寬但保留元件內 `max-width: 900px` */
+  .ds-container > .ag-calc {
+    align-self: stretch;
+    width: 100%;
+  }
+
+  /*
+   * Hero KV：垂直內距由外層 `section` 負責；與其他區塊共用 `max-width` + 水平 padding token。
+   */
+  .ds-container.ds-container--hero {
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: stretch;
+  }
+
+  /* 白色單欄 KV：與一般 `ds-container` 區隔，無上下大內距、子項垂直堆疊置中 */
+  .ds-container.ds-container--hero-white {
+    padding-top: 0;
+    padding-bottom: 0;
+    gap: 0;
+    align-items: center;
+    align-self: stretch;
+    width: 100%;
+    max-width: var(--layout-max-width-wide);
+  }
+
+  .ds-container.ds-container--hero-white > .ds-hero-banner__media.ds-hero-banner__media--bottom {
+    align-self: center;
+  }
+
+  .ds-container.ds-container--hero > .ds-hero-banner__row {
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+  }
+
+  @media (width >= 1024px) {
+    .ds-container.ds-container--hero > .ds-hero-banner__row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      min-width: 0;
+    }
+  }
+
+  /* Hero 左欄：標題 + 內文 + CTA 直向堆疊；LG+ 橫排時勿被圖片欄壓縮 */
+  .ds-hero-banner__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-s);
+    width: 100%;
+    min-width: 0;
+    max-width: min(100%, var(--hero-banner-body-max-width));
+  }
+
+  @media (width >= 1024px) {
+    .ds-hero-banner__row > .ds-hero-banner__body {
+      width: auto;
+      flex: 0 1 auto;
+      min-width: 0;
+    }
+  }
+
+  @media (width >= 1024px) and (width < 1280px) {
+    .ds-hero-banner__row > .ds-hero-banner__body {
+      max-width: min(100%, var(--hero-banner-body-max-width-lg));
+    }
+  }
+
+  /*
+   * Hero 右圖：單一 `src`，響應式由 CSS（width % + max-width token）；`height: auto` 維持比例。
+   */
+  .ds-hero-banner__media {
+    display: block;
+    height: auto;
+    width: 100%;
+    max-width: min(100%, var(--hero-banner-media-max-sm));
+    flex-shrink: 0;
+    margin-inline: auto;
+  }
+
+  @media (width >= 1024px) {
+    .ds-container.ds-container--hero > .ds-hero-banner__row > .ds-hero-banner__media {
+      margin-inline: 0;
+      width: var(--hero-banner-media-basis-lg);
+      max-width: var(--hero-banner-media-max-lg);
+      flex: 0 0 auto;
+      min-width: 0;
+    }
+  }
+
+  @media (width >= 1280px) {
+    .ds-container.ds-container--hero > .ds-hero-banner__row > .ds-hero-banner__media {
+      width: var(--hero-banner-media-basis-xl);
+      max-width: var(--hero-banner-media-max-xl);
+      /* 勿 flex-grow：否則與文案欄搶寬，圖片會被拉到近 1000px */
+      flex: 0 0 auto;
+    }
+  }
+
+  .ds-hero-banner__title-accent {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  /*
+   * Hero 下方三欄數字（如 SMS cost：%／國家／0 surprise bills）
+   */
+  .ds-hero-banner__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-s);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (width < 768px) {
+    .ds-hero-banner__stats {
+      gap: var(--spacing-xs);
+    }
+  }
+
+  .ds-hero-banner__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.375rem;
+    min-width: 0;
+  }
+
+  .ds-hero-banner__stat-value {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    line-height: 1.25;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .ds-hero-banner__stat-label {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    font-weight: var(--font-weight-regular);
+    text-align: left;
+  }
+
+  /*
+   * 圖左 + 右欄垂直堆疊（圖 / 標題+內文+CTA）
+   * 寫在 DS 內，勿依賴 Tailwind utility：此檔在 public/ 靜態載入，不會掃描 TSX 產生 flex-* class。
+   */
+  .ds-split-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-l);
+    width: 100%;
+  }
+
+  @media (width >= 1024px) {
+    .ds-split-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* 新聞／案例條：左右緊貼，不靠 `space-between` 在中間留白 */
+    .ds-split-row.ds-split-row--flush {
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+
+    /* 右圖左文：DOM 仍建議「圖 → 文」，桌面用 row-reverse 對調視覺；小螢幕維持上圖下文 */
+    .ds-split-row.ds-split-row--reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  /* 新聞／案例條：欄與欄之間無 gap（仍保留 body 內文 own gap） */
+  .ds-split-row.ds-split-row--flush {
+    gap: 0;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  @media (width >= 1024px) {
+    /* 右圖略寬於預設 45%／55% */
+    .ds-split-row.ds-split-row--flush > .ds-split-row__body {
+      flex: 1 1 48%;
+      max-width: none;
+      min-width: 0;
+    }
+
+    .ds-split-row.ds-split-row--flush > .ds-split-row__media {
+      flex: 1 1 52%;
+      max-width: none;
+      min-width: 0;
+      align-self: stretch;
+      display: flex;
+    }
+
+    .ds-split-row.ds-split-row--flush .ds-split-row__img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+    }
+  }
+
+  /* 圓角由 flush 外框裁切，子項不再各自圓角 */
+  .ds-split-row.ds-split-row--flush .ds-split-row__body.ds-split-row__body--surface-card {
+    border-radius: 0;
+  }
+
+  .ds-split-row.ds-split-row--flush .ds-split-row__img {
+    border-radius: 0;
+  }
+
+  .ds-split-row__media {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  @media (width >= 1024px) {
+    .ds-split-row__media {
+      max-width: 45%;
+    }
+  }
+
+  .ds-split-row__img {
+    display: block;
+    margin-inline: auto;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    /* 對齊舊 `image-radius-24`（24px）；`--radius-card` = 1.5rem @ 16px root */
+    border-radius: var(--radius-card);
+  }
+
+  @media (width >= 1024px) {
+    .ds-split-row__img {
+      margin-inline: 0;
+    }
+  }
+
+  .ds-split-row__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    text-align: left;
+    width: 100%;
+    min-width: 0;
+  }
+
+  @media (width >= 1024px) {
+    .ds-split-row__body {
+      max-width: 55%;
+    }
+  }
+
+  .ds-split-row__body > :where(h2, h3, h4, p) {
+    margin: 0;
+  }
+
+  .ds-split-row__body > a {
+    align-self: flex-start;
+  }
+
+  /* 左欄文案區：白底卡片（如 SMS Pumping threat case study）；內距 `--spacing-m`，標題與內文間距 `--spacing-xs` */
+  .ds-split-row__body.ds-split-row__body--surface-card {
+    box-sizing: border-box;
+    background-color: var(--color-bg-light-card);
+    border-radius: var(--radius-card);
+    padding: var(--spacing-m);
+    gap: var(--spacing-xs);
+  }
+
+  /*
+   * 圖文左右分欄白底區塊 — 用於淺色 Section（如 `ds-bg-light-blue`）上，與頁面底對比。
+   * 加在 `ds-split ds-split-row` 上，與 `ds-split-row--reverse` 可並用。
+   */
+  .ds-split-row.ds-split-row--surface-light {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--color-bg-light-card);
+    border-radius: var(--radius-card);
+    border: none;
+    box-shadow: none;
+    padding: var(--spacing-ml);
+  }
+
+  @media (width < 768px) {
+    .ds-split-row.ds-split-row--surface-light {
+      padding: var(--spacing-s);
+    }
+  }
+
+  /*
+   * 深色雙欄「Why／Challenge」類區塊（舊 Webflow `features-callout-card`）：左標題、右說明 + CTA；
+   * 右欄亦可僅放圖（`ds-feature-callout__media`），例如 Passwordless 魔法連結 KV。
+   */
+  .ds-container > .ds-feature-callout {
+    align-self: center;
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+  }
+
+  .ds-feature-callout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-l);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: var(--spacing-m);
+    border-radius: var(--radius-section);
+    background: linear-gradient(342deg, #592fff, #202342 74%);
+    align-items: start;
+  }
+
+  @media (width >= 1024px) {
+    .ds-feature-callout {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+      gap: var(--spacing-xl);
+      padding: var(--layout-padding-xl);
+    }
+  }
+
+  /* CTA Accent 漸層（`--gradient-accent`）；預設 callout 仍為紫→深藍 `linear-gradient(342deg, …)` */
+  .ds-feature-callout.ds-feature-callout--cta-accent {
+    background: var(--gradient-accent);
+  }
+
+  .ds-feature-callout__title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    min-width: 0;
+  }
+
+  /* 標題／內文字級見檔案底部 unlayered（Webflow 全域 `h2`／`p` 會蓋過 @layer） */
+
+  .ds-feature-callout__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    min-width: 0;
+  }
+
+  .ds-feature-callout__ctas {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: var(--spacing-s);
+  }
+
+  .ds-feature-callout__media {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ds-feature-callout__media-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /*
+   * 頁尾／區塊底部 CTA：置於 `ds-container` 內與 `title-content` 同層；
+   * 預設置中；`ds-footer-cta-section` 內改為靠左（見下方 modifier）。
+   */
+  .ds-container > .ds-footer-cta__actions {
+    align-self: center;
+  }
+
+  .ds-footer-cta-section .ds-container > .ds-footer-cta__actions {
+    align-self: stretch;
+  }
+
+  .ds-container > .ds-footer-cta__footnote {
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ds-footer-cta__actions {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-s);
+  }
+
+  .ds-footer-cta-section .ds-footer-cta__actions {
+    justify-content: flex-start;
+  }
+
+  .ds-footer-cta__footnote {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xxs);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ds-footer-cta-section .ds-footer-cta__footnote {
+    justify-content: flex-start;
+  }
+
+  .ds-footer-cta__footnote img {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: auto;
+  }
+
+  /* SVG card 圖示固定 3rem（--icon-size-md） */
+  .ds-container > .ds-grid-2 > .svg-card > img,
+  .ds-container > .ds-grid-3 > .svg-card > img,
+  .ds-container > .ds-grid-4 > .svg-card > img {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .ds-container > .ds-grid-2 > .svg-card > img {
+    align-self: flex-start;
+  }
+
+  /* ds-grid-2 / 3：gap；padding 見檔案底部 unlayered（需蓋過 Webflow `.svg-card`） */
+  .ds-container > .ds-grid-2 > .svg-card,
+  .ds-container > .ds-grid-3 > .svg-card {
+    gap: var(--spacing-s);
+  }
+
+  .ds-svg-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .ds-container > .ds-grid-2 > .svg-card > .svg-card-content-title,
+  .ds-container > .ds-grid-2 > .svg-card > .svg-card-content-description {
+    margin: 0;
+  }
+
+  .ds-svg-card-title {
+    margin: 0;
+    color: var(--color-text-light-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-h3-svg-card);
+    line-height: var(--text-h3-svg-card--line-height);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .ds-svg-card-description {
+    margin: 0;
+    color: var(--color-text-light-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-weight: 400;
+  }
+
+  /*
+   * 「問題／限制」類 SVG 卡：紅系圖示底與底部標籤（token：`--color-negative-*`）
+   */
+  .ds-svg-card-icon-wrap--negative {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 1rem;
+    background-color: var(--color-negative-50);
+  }
+
+  .ds-svg-card-badge--negative {
+    display: inline-block;
+    align-self: flex-start;
+    margin: 0;
+    padding: 0.25rem 1rem;
+    border-radius: 0.75rem;
+    background-color: var(--color-negative-50);
+    color: var(--color-negative-600);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* ds-grid-4：版面／底色；padding 見檔案底部 unlayered（需蓋過 Webflow `.svg-card`） */
+  .ds-container > .ds-grid-4 > .svg-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-bg-light-card);
+    border-radius: var(--radius-card);
+    gap: var(--spacing-xs);
+  }
+
+  .ds-container > .ds-grid-4 .ds-svg-card-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ds-container > .ds-grid-4 .ds-svg-card-title {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .ds-container > .ds-grid-4 .ds-svg-card-description {
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+    color: var(--color-text-light-muted);
+  }
+
+  /*
+   * 內容置中：子層文字與直向堆疊下的區塊（圖示、按鈕等）皆水平置中。
+   * 加在卡片或區塊容器上；若父層已是 `flex` column，此 class 會維持 column 並補齊 cross-axis 置中。
+   */
+  .ds-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /*
+   * SMS Pumping Fraud —「Detecting … Warning signs」：`--color-neutral-200` 圓角卡 + 雙欄（圖／FAQ）
+   */
+  .ds-sms-warning-signs__surface {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+    background-color: var(--color-neutral-200);
+    border-radius: 2rem;
+    padding: var(--spacing-ml);
+  }
+
+  .ds-sms-warning-signs__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--spacing-l);
+    width: 100%;
+  }
+
+  .ds-sms-warning-signs__illustration {
+    min-width: 0;
+  }
+
+  .ds-sms-warning-signs__illustration-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .ds-sms-warning-signs__faq {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+  }
+
+  @media (width < 1024px) {
+    .ds-sms-warning-signs__layout {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-m);
+    }
+  }
+
+}
+
+@utility ds-gradient-text-dark {
+  background-image: var(--gradient-text-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility ds-gradient-text-light {
+  background-image: var(--gradient-text-light);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility ds-hero-bg {
+  background-image: var(--gradient-hero);
+}
+
+@utility ds-glow-blue {
+  background: var(--color-glow-blue);
+  filter: blur(3.75rem);
+  opacity: 0.35;
+  border-radius: 9999rem;
+}
+
+@utility ds-glow-purple {
+  background: var(--color-glow-purple);
+  filter: blur(3.75rem);
+  opacity: 0.35;
+  border-radius: 9999rem;
+}
+
+@utility ds-product-modal {
+  border-radius: 1.25rem;
+  background: rgba(0, 0, 0, 0.33);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(0.84375rem);
+  padding: 1.25rem;
+  gap: 0.625rem;
+}
+
+@media (width < 1280px) {
+  .ds-container {
+    width: 100%;
+    padding-inline: var(--layout-padding-lg);
+  }
+}
+
+@media (width < 1024px) {
+  .ds-container {
+    width: 100%;
+    padding-inline: var(--layout-padding-md);
+  }
+
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width < 768px) {
+  .ds-container {
+    width: 100%;
+    padding-inline: var(--layout-padding-sm);
+  }
+
+  /* Hero KV：一般 container 用 24px；漸層外層 shell 用 16px（見 `--hero-banner-shell-padding-inline-sm`） */
+  .ds-container.ds-container--hero,
+  .ds-container.ds-container--hero-white {
+    padding-inline: var(--hero-banner-padding-inline-sm);
+  }
+
+  .ds-container.ds-container--gradient-hero-shell {
+    padding-inline: var(--hero-banner-shell-padding-inline-sm);
+  }
+
+  .ds-grid-2,
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+ * `.features-flex-container` — 圖文左右分欄（unlayered，覆蓋 Webflow 同名規則）
+ * 精簡：以標準 `gap` 取代 flex 上的 `grid-*-gap`；區塊外距由版面／`ds-container` 等處理。
+ * 修飾符：`.gap-40`（欄距 40px = spacing-m + spacing-xxs）、`.reverse-order`（桌面主軸反轉）
+ */
+.features-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-m);
+  margin: 0;
+  max-width: none;
+}
+
+.features-flex-container.gap-40 {
+  gap: calc(var(--spacing-m) + var(--spacing-xxs));
+  margin: 0;
+}
+
+.features-flex-container.reverse-order {
+  flex-direction: row-reverse;
+}
+
+@media (width < 992px) {
+  .features-flex-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .features-flex-container.reverse-order {
+    flex-direction: column;
+  }
+}
+
+@media (width < 768px) {
+  .features-flex-container.gap-40.reverse-order.reverse-again,
+  .features-flex-container.gap-40.reverse-again {
+    flex-direction: column-reverse;
+  }
+}
+
+/*
+ * SVG card padding in ds-grids: Webflow `authgear-new.webflow.css` has unlayered `.svg-card { padding: 48px 32px }`,
+ * which wins over `@layer components`. Set padding here (unlayered) so tokens apply.
+ */
+.ds-container > .ds-grid-2 > .svg-card,
+.ds-container > .ds-grid-3 > .svg-card,
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card {
+  padding-block: var(--layout-svg-card-padding-block);
+  padding-inline: var(--spacing-m);
+  box-sizing: border-box;
+}
+
+.ds-container > .ds-grid-4 > .svg-card {
+  padding-block: var(--layout-svg-card-padding-block);
+  padding-inline: var(--spacing-s);
+  box-sizing: border-box;
+}
+
+/*
+ * MFA feature page — Deep Dive：三欄文章連結（`svg-card` + `ds-svg-card--resource-link`）
+ * 左圖右文；覆蓋 `ds-grid-* > .svg-card > img` 圖示尺寸。
+ */
+.ds-container > .ds-grid-3 > a.svg-card.ds-svg-card--resource-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  color: var(--color-primary-600);
+  border: 0.0625rem solid var(--color-border-light);
+  border-radius: var(--radius-card);
+  background-color: var(--color-bg-light-card);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ds-container > .ds-grid-3 > a.svg-card.ds-svg-card--resource-link:hover,
+.ds-container > .ds-grid-3 > a.svg-card.ds-svg-card--resource-link:visited {
+  color: var(--color-primary-600);
+  text-decoration: none;
+}
+
+.ds-container > .ds-grid-3 > a.svg-card.ds-svg-card--resource-link:hover {
+  border-color: rgba(11, 100, 233, 0.22);
+  box-shadow: 0 1.3125rem 2.5rem rgba(11, 100, 233, 0.26);
+}
+
+.ds-container > .ds-grid-3 > a.svg-card.ds-svg-card--resource-link:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+.ds-container > .ds-grid-3 > a.svg-card.ds-svg-card--resource-link > img {
+  width: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+  object-fit: contain;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.ds-container > .ds-grid-3 > a.svg-card.ds-svg-card--resource-link .ds-svg-card-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+}
+
+.ds-container > .ds-grid-3 > a.svg-card.ds-svg-card--resource-link .ds-svg-card-title {
+  margin: 0;
+  color: var(--color-primary-600);
+  /* 18px — 與 `--text-body`（1.125rem）一致 */
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+
+/*
+ * 全幅深色底 + 底圖區塊（用法同 `b2c-ciam-solution-section-dark-bg`：`section.ds-section` + 單一語意 class）。
+ *
+ * Enterprise SSO — `features-passwordless-dark-color-bg*.webp`（與舊 Webflow `.featurespage__section_dark-bg` 相同資產）。
+ * Passwordless — 同一套紫色底圖；勿與 B2C 區塊共用 class（B2C 為 `b2c_ciam_integration-bg2x.webp`）。
+ *
+ * 勿合併成逗號選擇器：Tailwind v4 在 dev 編譯時可能只保留第一個 class。
+ */
+section.ds-section.enterprise-sso-section-dark-bg {
+  background-color: var(--color-bg-deep);
+  background-image: url("/images/features-passwordless-dark-color-bg2x.webp");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section.ds-section.passwordless-section-dark-bg {
+  background-color: var(--color-bg-deep);
+  background-image: url("/images/features-passwordless-dark-color-bg2x.webp");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (width < 992px) {
+  section.ds-section.enterprise-sso-section-dark-bg {
+    background-image: url("/images/features-passwordless-dark-color-bg_m2x.webp");
+  }
+
+  section.ds-section.passwordless-section-dark-bg {
+    background-image: url("/images/features-passwordless-dark-color-bg_m2x.webp");
+  }
+}
+
+/*
+ * Passkeys 影片區塊 — 深色底圖（桌面版 `features-passkeys-videos-bg2x.webp`，手機版 `features-passkeys-videos-bg-m2x.webp`）。
+ * 背景規則比照 `enterprise-sso-section-dark-bg`；獨立 class 以便日後替換圖片而不影響其他區塊。
+ */
+section.ds-section.passkeys-video-section-bg {
+  background-color: var(--color-bg-deep);
+  background-image: url("/images/features-passkeys-videos-bg2x.webp");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*
+ * Migrate to Authgear Hero Banner 背景圖（桌面版 `migratetoauthgear_kv-bg2x.webp`，手機版 `migratetoauthgear_kv-bg-m2x.webp`）
+ */
+section.ds-hero-banner--dark.migrate-to-authgear-hero-bg {
+  background-image: url("/images/migratetoauthgear_kv-bg2x.webp");
+  background-position: 0 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+@media (width < 768px) {
+  section.ds-hero-banner--dark.migrate-to-authgear-hero-bg {
+    background-image: url("/images/migratetoauthgear_kv-bg-m2x.webp");
+  }
+}
+
+@media (width < 992px) {
+  section.ds-section.passkeys-video-section-bg {
+    background-image: url("/images/features-passkeys-videos-bg-m2x.webp");
+  }
+}
+
+/* M2M — What is M2M Authentication? 區塊背景圖 */
+section.ds-section.mm-empower-section-bg {
+  background-color: var(--color-bg-deep);
+  background-image: url("/images/features-M2M-empower-bg2x.jpg");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (width < 768px) {
+  section.ds-section.mm-empower-section-bg {
+    background-image: url("/images/features-M2M-empower-bg2x-p-800.jpg");
+  }
+}
+
+/*
+ * Authentication 頁 — Developer Experience：背景僅在圓角 surface 內（置中、不拉滿整個 viewport 寬），與全幅 `enterprise-sso-section-dark-bg` 區隔。
+ */
+section.ds-section.authentication-dev-experience-section {
+  background: transparent;
+}
+
+.ds-container > .authentication-dev-experience-section__surface {
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--radius-section);
+  background-color: var(--color-bg-deep);
+  background-image: url("/images/features-authentication-developers2x.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Callout：直向 `--spacing-l`（ds-space-l）× 橫向 `--spacing-ml`（ds-space-ml，48px） */
+  padding: var(--spacing-l) var(--spacing-ml);
+}
+
+/* 左欄標題 + 右欄雙卡（與 `.ds-container > .title-content` 同層級時不同：標題在 surface 內，需補齊 `heading-on-dark` token） */
+.authentication-dev-experience-section__layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  width: 100%;
+}
+
+@media (width >= 768px) {
+  .authentication-dev-experience-section__layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--spacing-xl);
+  }
+}
+
+.authentication-dev-experience-section__surface .authentication-dev-experience-section__title-col.title-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-inline: 0;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+@media (width >= 768px) {
+  .authentication-dev-experience-section__surface .authentication-dev-experience-section__title-col.title-content {
+    max-width: min(100%, 22rem);
+  }
+}
+
+.authentication-dev-experience-section__surface .authentication-dev-experience-section__title-col.title-content > h2.heading-on-dark {
+  margin: 0;
+  margin-bottom: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: left;
+  max-width: 100%;
+}
+
+.authentication-dev-experience-section__cards-col {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+.authentication-dev-experience-section__surface .ds-grid-2 {
+  width: 100%;
+}
+
+/* 與 `.ds-container > .ds-grid-2 > .svg-card` 相同 padding（此處 grid 在 surface 內，非 container 直接子層） */
+.authentication-dev-experience-section__surface .ds-grid-2 > .svg-card {
+  padding-block: var(--layout-svg-card-padding-block);
+  padding-inline: var(--spacing-m);
+  box-sizing: border-box;
+}
+
+/*
+ * Social Login —「Built-in Support for Popular Social Logins」
+ * Grid：無橫向捲動。LG+ 十欄一排；SM／MD（<1024px）五欄兩列、較小卡與圖示。
+ */
+.ds-container > .social-login-providers-row {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  align-self: stretch;
+  box-sizing: border-box;
+  padding-block: var(--spacing-xxs);
+  gap: var(--spacing-s);
+  align-items: start;
+  justify-items: stretch;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+@media (width < 1024px) {
+  .ds-container > .social-login-providers-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--spacing-xs);
+  }
+}
+
+.social-login-providers-row > .social-login-provider-tile {
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xxs);
+}
+
+.social-login-provider-tile__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+  padding: var(--spacing-m);
+  border-radius: var(--radius-card);
+  border: 0.0425rem solid #e5e5e5;
+  background-color: var(--color-bg-light-card);
+  transition: box-shadow 0.25s ease;
+}
+
+@media (width < 1024px) {
+  .social-login-provider-tile__card {
+    padding: var(--spacing-s);
+    border-radius: var(--radius-icon);
+  }
+}
+
+.social-login-provider-tile__card:hover {
+  box-shadow: 0 0.125rem 0.96875rem 0.375rem rgba(11, 99, 233, 0.35);
+}
+
+.social-login-provider-tile__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-login-provider-tile__logo img {
+  width: 2rem;
+  height: auto;
+  display: block;
+}
+
+@media (width < 1024px) {
+  .social-login-provider-tile__logo img {
+    width: 1.5rem;
+  }
+}
+
+.social-login-provider-tile__label {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--color-text-light-muted);
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.social-login-providers-cta {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/*
+ * WhatsApp OTP feature —「How it works」三步驟（取代 Webflow `card-image-rounded`）。
+ */
+.whatsapp-otp-how-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  align-items: stretch;
+  min-width: 0;
+}
+
+.whatsapp-otp-how-step__figure {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background-color: var(--color-bg-light-card);
+  align-self: stretch;
+}
+
+.whatsapp-otp-how-step__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.whatsapp-otp-how-step .ds-svg-card-content {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.whatsapp-otp-how-step .ds-svg-card-title {
+  text-align: left;
+}
+
+/*
+ * WhatsApp OTP — 檢核重點（與 `ds-split-row__body > ul.ds-body-bullet-list` 視覺一致）。
+ */
+.whatsapp-otp-checks__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.whatsapp-otp-checks__list > li {
+  margin: 0;
+  padding-left: 1.875rem;
+  background-image: url("/images/Frame-235.svg");
+  background-position: 0 0.125rem;
+  background-repeat: no-repeat;
+  background-size: 1.625rem 1.625rem;
+  color: var(--color-text-light-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+}
+
+.whatsapp-otp-checks__list > li strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+/*
+ * B2C CIAM solution — 深色底整合／開發者區塊（規則比照 `enterprise-sso-section-dark-bg`）。
+ * 背景圖與舊 Webflow `.bg-gradient` 一致；無獨立 mobile 資產時窄螢幕沿用同一張。
+ */
+section.ds-section.b2c-ciam-solution-section-dark-bg {
+  background-color: var(--color-bg-deep);
+  background-image: url("/images/b2c_ciam_integration-bg2x.webp");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*
+ * 半透明漸層卡（對齊舊 Webflow `.features-card-new.px-24.bg-transparent-gradient`）。
+ * 僅負責表面：加在 `.svg-card` 上，例如 `className="svg-card svg-card-glass"`。
+ */
+.svg-card.svg-card-glass {
+  background-color: transparent;
+  background-image: linear-gradient(118deg, #54545445 1.43%, #fff3 51.5% 66.68%);
+  border: 0;
+  border-radius: 1.25rem;
+}
+
+/*
+ * CIAM Frictionless（淡藍區）／Social Login「Simplify」五卡：大圖 svg 卡、bento 排版。
+ * 覆蓋 Webflow `.svg-card` 預設 padding；插圖不套用 `ds-grid-2` 之 3rem 圖示規則。
+ * 此區專用小字：標題 18px（1.125rem）、內文 16px（1rem）。
+ */
+.ciam-frictionless-feature-cards > .svg-card,
+.social-login-simplify-feature-cards > .svg-card {
+  padding: var(--spacing-m);
+  border-radius: var(--radius-card);
+  gap: var(--spacing-s);
+  border: 0.0625rem solid #e0e0e0;
+  box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
+  background-color: var(--color-bg-light-card);
+}
+
+.ciam-frictionless-feature-cards > .svg-card > img,
+.social-login-simplify-feature-cards > .svg-card > img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.ciam-frictionless-feature-cards > .svg-card .ds-svg-card-title,
+.social-login-simplify-feature-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.ciam-frictionless-feature-cards > .svg-card .ds-svg-card-description,
+.social-login-simplify-feature-cards > .svg-card .ds-svg-card-description {
+  font-size: 1rem;
+  line-height: var(--text-body2--line-height);
+}
+
+/*
+ * CIAM One-Stop Shop 五卡：插圖非 3rem 圖示規則；標題 18px（1.125rem）；圖文置中。
+ */
+.ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card .ds-svg-card-content {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 8rem;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+/* 五卡三欄：最後一列兩張置中（6 欄網格，第 2–3、4–5 軌） */
+@media (width >= 1024px) {
+  .ds-container > .ds-grid-3.ciam-one-stop-feature-cards {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card:nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  .ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .ds-container > .ds-grid-3.ciam-one-stop-feature-cards > .svg-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+
+/*
+ * Passkeys —「Revolutionize Enterprise Security…」五卡：比照 CIAM One-Stop 置中與最後一列兩張置中。
+ */
+.ds-container > .ds-grid-3.passkeys-enterprise-cards > .svg-card {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-container > .ds-grid-3.passkeys-enterprise-cards > .svg-card .ds-svg-card-content {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-container > .ds-grid-3.passkeys-enterprise-cards > .svg-card .svg-card-image-container img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.ds-container > .ds-grid-3.passkeys-enterprise-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@media (width >= 1024px) {
+  .ds-container > .ds-grid-3.passkeys-enterprise-cards {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .ds-container > .ds-grid-3.passkeys-enterprise-cards > .svg-card:nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  .ds-container > .ds-grid-3.passkeys-enterprise-cards > .svg-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .ds-container > .ds-grid-3.passkeys-enterprise-cards > .svg-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+
+/*
+ * B2B SaaS solutions — Multi-tenancy 三卡（僅 B2bSaasAuthenticationPage）：序號 1–3（區塊尺寸同 DS 圖示 `--icon-size-md` / 48px；字 16px；底 `--color-bg-light-blue`）；標題 1.125rem、內文 1rem（對齊 CIAM One-Stop 五卡）。
+ */
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/*
+ * 序號須掛在完整選擇器上（unlayered + 高 specificity），避免只寫 BEM 修飾符時被 Webflow 全域蓋掉；
+ * token 加 fallback，避免 `--icon-size-md` 等未注入時寬高為 0。
+ */
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card > .b2b-saas-multitenancy-step-cards__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: var(--icon-size-md, 3rem);
+  min-width: var(--icon-size-md, 3rem);
+  height: var(--icon-size-md, 3rem);
+  min-height: var(--icon-size-md, 3rem);
+  padding: 0;
+  border-radius: var(--radius-icon, 1rem);
+  background-color: var(--color-bg-light-blue, #f3f6ff);
+  color: var(--color-primary-800, #0043e0);
+  font-family: var(--font-sans, 'IBM Plex Sans', 'Noto Sans TC', sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card .ds-svg-card-content {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.ds-container > .ds-grid-3.b2b-saas-multitenancy-step-cards > .svg-card .ds-svg-card-description {
+  font-size: 1rem;
+  line-height: var(--text-body2--line-height);
+}
+
+/*
+ * B2B SaaS solutions — Granular defense 四卡（僅 B2bSaasAuthenticationPage）：
+ * — 卡面對齊 CIAM One-Stop（標題 1.125rem、內文 1rem；插圖高度依素材）
+ * — lg+：Bento 1–2–1（左 Captcha 通高、中 Domain+IP、右 Travel 通高）；小螢幕單欄依 DOM 順序
+ */
+.ds-container > .b2b-saas-granular-defense-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-card-gutter);
+}
+
+@media (width >= 1024px) {
+  .ds-container > .b2b-saas-granular-defense-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    align-items: stretch;
+    gap: var(--layout-card-gutter);
+  }
+
+  /* DOM: 1 Domain, 2 Captcha, 3 Travel, 4 IP */
+  .ds-container > .b2b-saas-granular-defense-cards > .svg-card:nth-child(1) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .ds-container > .b2b-saas-granular-defense-cards > .svg-card:nth-child(2) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .ds-container > .b2b-saas-granular-defense-cards > .svg-card:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .ds-container > .b2b-saas-granular-defense-cards > .svg-card:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-s);
+  text-align: left;
+  height: 100%;
+  min-height: 0;
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card .ds-svg-card-content {
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card .ds-svg-card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.ds-container > .b2b-saas-granular-defense-cards > .svg-card .ds-svg-card-description {
+  font-size: 1rem;
+  line-height: var(--text-body2--line-height);
+}
+
+/* CIAM 深色底玻璃卡：標題／內文改為淺色（對齊舊 `color-white` / `color-bcddff`） */
+section.ds-section.b2c-ciam-solution-section-dark-bg .ds-container > .ds-grid-2 > .svg-card.svg-card-glass .ds-svg-card-title,
+section.ds-section.b2c-ciam-solution-section-dark-bg .ds-container > .ds-grid-3 > .svg-card.svg-card-glass .ds-svg-card-title,
+section.ds-section.passwordless-section-dark-bg .ds-container > .ds-grid-2 > .svg-card.svg-card-glass .ds-svg-card-title,
+section.ds-section.passwordless-section-dark-bg .ds-container > .ds-grid-3 > .svg-card.svg-card-glass .ds-svg-card-title {
+  color: var(--color-text-primary);
+}
+
+section.ds-section.b2c-ciam-solution-section-dark-bg .ds-container > .ds-grid-2 > .svg-card.svg-card-glass .ds-svg-card-description,
+section.ds-section.b2c-ciam-solution-section-dark-bg .ds-container > .ds-grid-3 > .svg-card.svg-card-glass .ds-svg-card-description,
+section.ds-section.passwordless-section-dark-bg .ds-container > .ds-grid-2 > .svg-card.svg-card-glass .ds-svg-card-description,
+section.ds-section.passwordless-section-dark-bg .ds-container > .ds-grid-3 > .svg-card.svg-card-glass .ds-svg-card-description {
+  color: #bcddff;
+}
+
+/*
+ * svg-card-deep：深色漸層卡（用於深色底區塊如 mm-empower-section-bg）。
+ * 加在 `.svg-card` 上，例如 `className="svg-card svg-card-deep"`。
+ */
+.svg-card.svg-card-deep {
+  background: linear-gradient(135deg, #2d2d42, #202329);
+  border: 0;
+  border-radius: var(--radius-card);
+}
+
+.svg-card.svg-card-deep .ds-svg-card-title {
+  color: var(--color-text-primary);
+}
+
+.svg-card.svg-card-deep .ds-svg-card-description {
+  color: #bcddff;
+}
+
+.svg-card.svg-card-deep a.ds-btn {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  border-radius: var(--radius-icon);
+  border: 0;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.3333333;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.svg-card.svg-card-deep a.ds-btn-tertiary {
+  background: transparent;
+  color: var(--color-text-primary);
+}
+
+.svg-card.svg-card-deep a.ds-btn-tertiary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-primary);
+}
+
+/*
+ * Hero KV 主標題（深色底）：使用 H1 type tokens；須 unlayered 以覆蓋 Webflow 全域 `h1`。
+ */
+h1.ds-hero-banner__title {
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-h1);
+  line-height: var(--text-h1--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  letter-spacing: normal;
+  text-align: left;
+}
+
+@media (width < 768px) {
+  h1.ds-hero-banner__title {
+    font-size: var(--text-h1-sm);
+    line-height: var(--text-h1-sm--line-height);
+  }
+}
+
+/* Customer story 頂部 banner：維持 `ds-hero-banner__title` 字族／字重／色票，字級改為 H2 tokens */
+.ds-customer-story-hero h1.ds-hero-banner__title {
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+}
+
+/* Banner 小標：沿用 `ds-section-eyebrow`，覆寫為主色白字（非 `--on-dark` 預設之 secondary） */
+.ds-customer-story-hero .ds-section-eyebrow.ds-section-eyebrow--on-dark {
+  color: var(--color-text-primary);
+}
+
+/*
+ * Hero KV 說明（深色底）：與 `section-lede-on-dark` 相同 body／色票（§4.3 正文 `--color-text-secondary`），靠左。
+ */
+p.ds-hero-banner__description {
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  text-align: left;
+}
+
+/* 白色單欄 KV：主副標為淺色區字色、置中 */
+.ds-hero-banner--white h1.ds-hero-banner__title {
+  color: var(--color-text-light-primary);
+  text-align: center;
+}
+
+.ds-hero-banner--white p.ds-hero-banner__description {
+  color: var(--color-text-light-secondary);
+  text-align: center;
+}
+
+.ds-hero-banner--white .ds-hero-banner__ctas {
+  justify-content: center;
+}
+
+.ds-hero-banner__ctas {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: var(--spacing-s);
+}
+
+/* 漸層／深色 KV 底部補充列（圖示 + 內文） */
+.ds-hero-banner__footnote {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  width: 100%;
+  max-width: 100%;
+}
+
+.ds-hero-banner__footnote img {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: auto;
+}
+
+.ds-hero-banner__footnote-copy {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.ds-hero-banner__footnote-copy strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* 頁尾 CTA 註解列 — Webflow `p` 為 unlayered */
+.ds-footer-cta__footnote-copy {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.ds-footer-cta__footnote-copy strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.ds-footer-cta-section .ds-footer-cta__footnote-copy {
+  text-align: left;
+}
+
+/*
+ * Webflow 全域 `a { text-decoration: underline; color: … }` 為 unlayered，會蓋過 `@layer` 內 `.ds-btn`。
+ */
+a.ds-btn {
+  font-family: var(--font-sans);
+  text-decoration: none;
+}
+
+a.ds-btn-primary,
+a.ds-btn-primary:hover {
+  color: var(--color-text-primary);
+}
+
+a.ds-btn-tertiary,
+a.ds-btn-tertiary:hover {
+  color: var(--color-text-primary);
+}
+
+a.ds-btn-secondary {
+  background-color: #ffffff;
+  background-image: none;
+  color: var(--color-text-light-primary);
+}
+
+a.ds-btn-secondary:hover {
+  background-color: var(--color-bg-light);
+  background-image: none;
+  color: var(--color-text-light-primary);
+}
+
+a.ds-btn-outline-light,
+a.ds-btn-outline-light:hover {
+  color: var(--color-text-primary);
+}
+
+a.ds-btn-subtle,
+a.ds-btn-subtle:hover {
+  color: var(--color-primary-600);
+}
+
+a.ds-btn-subtle:hover {
+  color: var(--color-primary-700);
+}
+
+a.ds-login-gallery-index-card,
+a.ds-login-gallery-index-card:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.ds-login-gallery-index-card .ds-login-gallery-index-card__title {
+  color: var(--color-text-primary);
+}
+
+/*
+ * `ds-feature-callout`：Webflow 全域 `h2`／`p` 為 unlayered，會蓋過 `@layer components` 內字級與色票。
+ * CTA 的 `background`／`display`／`padding` 等同屬 layered `.ds-btn`，在部分情況下需在此補齊。
+ * `ds-footer-cta__actions` 內按鈕同此。
+ */
+.ds-feature-callout__title > h2.heading-on-dark {
+  margin: 0;
+  text-align: left;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  max-width: 100%;
+}
+
+@media (width < 768px) {
+  .ds-feature-callout__title > h2.heading-on-dark {
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+  }
+}
+
+.ds-feature-callout__body > p.section-lede-on-dark,
+.ds-feature-callout__title > p.section-lede-on-dark {
+  margin: 0;
+  text-align: left;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  max-width: 100%;
+}
+
+.ds-feature-callout a.ds-btn,
+.ds-footer-cta__actions a.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  border-radius: var(--radius-icon);
+  border: 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  padding: 0.875rem 2rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.ds-feature-callout a.ds-btn-primary,
+.ds-footer-cta__actions a.ds-btn-primary {
+  background: var(--gradient-accent);
+  color: var(--color-text-primary);
+}
+
+.ds-feature-callout a.ds-btn-secondary,
+.ds-footer-cta__actions a.ds-btn-secondary {
+  background-color: #ffffff;
+  background-image: none;
+  color: var(--color-text-light-primary);
+  border: 0;
+}
+
+.ds-feature-callout a.ds-btn-secondary:hover,
+.ds-footer-cta__actions a.ds-btn-secondary:hover {
+  background-color: var(--color-bg-light);
+  background-image: none;
+  color: var(--color-text-light-primary);
+}
+
+.ds-feature-callout a.ds-btn-outline-light,
+.ds-footer-cta__actions a.ds-btn-outline-light {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 0.0625rem solid #fff;
+}
+
+.ds-feature-callout a.ds-btn-primary:hover,
+.ds-footer-cta__actions a.ds-btn-primary:hover {
+  color: var(--color-text-primary);
+}
+
+.ds-feature-callout a.ds-btn-outline-light:hover,
+.ds-footer-cta__actions a.ds-btn-outline-light:hover {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Webflow 全域 `h3` 為 unlayered；案例卡標題需與 `.ds-svg-card-title`（`--text-h3-svg-card`）一致 */
+h3.ds-svg-card-title {
+  margin: 0;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h3-svg-card);
+  line-height: var(--text-h3-svg-card--line-height);
+  font-weight: var(--font-weight-medium);
+}
+
+/*
+ * 淺色底 SVG 卡用 `h3.ds-svg-card-title`；深色底變體（`.svg-card-alternative`）用 div + `--on-dark`。
+ * 須 unlayered：Webflow 全域 `body`／字級會蓋過 `@layer components` 內同名 class。
+ * 字級／行高與 `.ds-svg-card-title` / `.ds-svg-card-description` 一致；色票為 §4.3 深色區。
+ */
+.ds-container > .ds-grid-2 > .svg-card.svg-card-alternative .ds-svg-card-title--on-dark,
+.ds-container > .ds-grid-3 > .svg-card.svg-card-alternative .ds-svg-card-title--on-dark {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h3-svg-card);
+  line-height: var(--text-h3-svg-card--line-height);
+  font-weight: var(--font-weight-medium);
+}
+
+.ds-container > .ds-grid-2 > .svg-card.svg-card-alternative .ds-svg-card-description--on-dark,
+.ds-container > .ds-grid-3 > .svg-card.svg-card-alternative .ds-svg-card-description--on-dark {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: 400;
+}
+
+/*
+ * Title stack + semantic heading/lede: MUST stay outside @layer (Webflow global `h2` is unlayered).
+ * Use `heading-on-light` / `heading-on-dark` on h2 — do not style bare h2 here.
+ */
+.ds-container > .title-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+  max-width: var(--title-content-max-width);
+  margin-inline: auto;
+  align-items: center;
+  text-align: center;
+}
+
+/* Light section: H2 token + light title color (--color-text-light-primary) */
+/*
+ * Section kicker / eyebrow（小標）：品牌主色 `--color-primary-800`，與圖示／連結主藍一致。
+ * 置於 `title-content` 時由父層 `text-align: center` 繼承；置於 `top-content` 等則 `text-align: inherit`。
+ */
+.ds-section-eyebrow {
+  margin: 0;
+  color: var(--color-primary-800);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: inherit;
+}
+
+/* 深色 Section 小標：與 `section-lede-on-dark` 同色票（§4.3 `--color-text-secondary`） */
+.ds-section-eyebrow.ds-section-eyebrow--on-dark {
+  color: var(--color-text-secondary);
+}
+
+/*
+ * Hero／深底區塊：Coming Soon 膠囊標籤（對應舊 Webflow `.coming-soon`；與 eyebrow 小標分離）
+ */
+
+/*
+ * 淺色背景：Coming Soon 膠囊標籤（用於 surface-light / white 卡片內）
+ */
+.ds-coming-soon-badge {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg-light-blue);
+  color: var(--color-text-light-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
+.ds-coming-soon-label {
+  margin: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--radius-pill);
+  background-color: rgba(0, 0, 0, 0.24);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ds-container > .title-content > h1.heading-on-light,
+.ds-container > .title-content > h2.heading-on-light {
+  margin: 0;
+  margin-bottom: 0;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Dark section / hero-style: swap class on the h2 */
+.ds-container > .title-content > h2.heading-on-dark {
+  margin: 0;
+  margin-bottom: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* 頁尾 CTA 底圖區：標題 stack 與 h2 靠左（舊 Webflow 區塊為左對齊） */
+.ds-footer-cta-section .ds-container > .title-content {
+  margin-inline: 0;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ds-footer-cta-section .ds-container > .title-content > h2.heading-on-dark {
+  text-align: left;
+}
+
+.ds-footer-cta-section .ds-container > .title-content > p.section-lede-on-dark {
+  text-align: left;
+}
+
+/* Intro copy under section title — light section */
+.ds-container > .title-content > p.section-lede-on-light {
+  margin: 0;
+  color: var(--color-text-light-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Intro copy under section title — dark section */
+.ds-container > .title-content > p.section-lede-on-dark {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  text-align: center;
+  max-width: 100%;
+}
+
+/* 同一深色區 `ds-container` 內第二組標題（接在卡片網格後） */
+.ds-container > .title-content.ds-title-content--after-block {
+  margin-top: var(--spacing-xl);
+}
+
+/* 圖文分欄右欄：區塊主標（h2）— `--text-h2` */
+.ds-split-row__body > h2.heading-on-light {
+  margin: 0;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: left;
+  max-width: 100%;
+}
+
+/* 圖文分欄右欄：區塊次標（h3）— `--text-h3` + medium（SVG 卡標題用 `--text-h3-svg-card`） */
+.ds-split-row__body > h3.heading-on-light {
+  margin: 0;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h3);
+  line-height: var(--text-h3--line-height);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: normal;
+  text-align: left;
+  max-width: 100%;
+}
+
+/* 區塊內更小標題（如案例小標）— 語意 `h4`；字級為 `--text-h4`（20px），非 `--text-h3`（32px） */
+.ds-split-row__body > h4.heading-on-light {
+  margin: 0;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h4);
+  line-height: var(--text-h4--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: left;
+  max-width: 100%;
+}
+
+.ds-split-row__body > p.section-lede-on-light {
+  margin: 0;
+  color: var(--color-text-light-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  text-align: left;
+  max-width: 100%;
+}
+
+/*
+ * 圖文分欄右欄 — 深色底 `heading-on-dark`／`section-lede-on-dark`：見 `public/css/authgear-ds-split-stack.css`
+ *（須在 Webflow **之後**載入，否則全域 `h2`／`p` 會蓋過此檔內較早的 bundle）。
+ */
+
+/*
+ * 圖文分欄右欄：主標 + 副標堆疊清單（左側 icon，如 SMS Pumping「Operational Disruption」）
+ * 取代 Webflow `_2-block-flex-content-list` / `cross-icon` / `list-subcontent`。
+ */
+.ds-split-row__body > ul.ds-stacked-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+}
+
+.ds-split-row__body > ul.ds-stacked-list > li.ds-stacked-list__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  padding-left: 1.875rem;
+  background-image: url("/images/features-SMSfraud-how-icon-x.svg");
+  background-position: 0 -1px;
+  background-repeat: no-repeat;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  min-width: 0;
+}
+
+.ds-split-row__body > ul.ds-stacked-list .ds-stacked-list__lead {
+  margin: 0;
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+}
+
+.ds-split-row__body > ul.ds-stacked-list .ds-stacked-list__sub {
+  margin: 0;
+  color: var(--color-text-light-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+}
+
+@media (width < 768px) {
+  .ds-split-row__body > ul.ds-stacked-list > li.ds-stacked-list__item {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
+
+  .ds-split-row__body > ul.ds-stacked-list .ds-stacked-list__lead,
+  .ds-split-row__body > ul.ds-stacked-list .ds-stacked-list__sub {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
+}
+
+/*
+ * 圖文分欄右欄：項目清單（Social Login「Unlock …」等）
+ * 藍色勾勾圖示對齊舊 Webflow `._2-block-flex-content-list-item`（`/images/Frame-235.svg`）
+ */
+.ds-split-row__body > ul.ds-body-bullet-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  color: var(--color-text-light-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+}
+
+.ds-split-row__body > ul.ds-body-bullet-list > li {
+  margin: 0;
+  padding-left: 1.875rem;
+  background-image: url("/images/Frame-235.svg");
+  background-position: 0 0.125rem;
+  background-repeat: no-repeat;
+  background-size: 1.625rem 1.625rem;
+}
+
+/* Attack Protection Built for：底圖為深色，與 `title-content` 深色 token 相同，靠左 */
+.attack-protection-built-for__content > h2.heading-on-dark {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  text-align: left;
+  max-width: 100%;
+}
+
+.attack-protection-built-for__content > p.section-lede-on-dark {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  text-align: left;
+  max-width: 100%;
+}
+
+/*
+ * 導覽下拉（Solutions / Resources / Developers）：連結前 24×24 icon
+ * （`SiteNav` + `SolutionsNavIcons.tsx` + `ResourcesDevelopersNavIcons.tsx`）
+ */
+.nav-dropdown-icon-embed,
+.nav-solutions-icon-embed {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: inherit;
+}
+
+/*
+ * Footer bottom bar：分隔線 + 版權 + 法律連結 + 語言選單（參考 Okta footer）
+ * 容器對齊 Webflow `.container-default.w-container`（max-width: 1271px）
+ */
+.ds-footer-bottom-bar-wrapper {
+  max-width: 1271px;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+.ds-footer-bottom-bar-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+  margin-bottom: 1.25rem;
+}
+
+.ds-footer-bottom-bar {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem 1.5rem;
+  padding-bottom: 5rem;
+}
+
+/* 桌面：單列 — 左僅版權、右為 policy + 語言（勿換行，否則右側塊會掉到中間） */
+@media (width >= 640px) {
+  .ds-footer-bottom-bar {
+    flex-wrap: nowrap;
+  }
+}
+
+.ds-footer-bottom-bar__copyright-wrap {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+/*
+ * 右欄佔滿剩餘寬度 + flex-end：policy 連結與語言選單一律貼齊右緣
+ *（僅 space-between + shrink 寬的 end 時，連結視覺上容易像留在中左）
+ */
+.ds-footer-bottom-bar__end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem 1.25rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ds-footer-bottom-bar__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem 0.75rem;
+  text-align: right;
+}
+
+/* Webflow 全域 `a { text-decoration: underline }` 等 — 維持無底線、不過度伸長 */
+.footer.dark a.ds-footer-bottom-bar__link {
+  flex-shrink: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ds-footer-bottom-bar__copyright {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ds-footer-bottom-bar__sep {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  user-select: none;
+}
+
+.ds-footer-bottom-bar__link {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.ds-footer-bottom-bar__link:hover {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+@media (width < 640px) {
+  .ds-footer-bottom-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .ds-footer-bottom-bar__copyright-wrap {
+    align-self: flex-start;
+  }
+
+  .ds-footer-bottom-bar__end {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .ds-footer-bottom-bar__links {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 0.5rem;
+  }
+
+  .ds-footer-bottom-bar__links .ds-footer-bottom-bar__sep {
+    display: none;
+  }
+
+  .ds-footer-lang-switcher__dropdown {
+    left: 0;
+    right: auto;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Footer language switcher：pill 形按鈕 + 向上彈出選單
+   ─────────────────────────────────────────────────────────────────*/
+.ds-footer-lang-switcher {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ds-footer-lang-switcher__btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.375rem 0.875rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.ds-footer-lang-switcher__btn:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.ds-footer-lang-switcher__btn:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 2px;
+}
+
+.ds-footer-lang-switcher__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.ds-footer-lang-switcher__chevron {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.ds-footer-lang-switcher__chevron--open {
+  transform: rotate(180deg);
+}
+
+.ds-footer-lang-switcher__dropdown {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 10.5rem;
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0.375rem;
+  z-index: 100;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+
+.ds-footer-lang-switcher__option {
+  display: block;
+  padding: 0.5rem 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.ds-footer-lang-switcher__option:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  text-decoration: none;
+}
+
+.ds-footer-lang-switcher__option--active {
+  color: #fff;
+  font-weight: 500;
+}
+
+/*
+ * Footer（SiteFooter）：社群連結橫排；`.footer-social-media-links-wrapper` 在 Webflow 無獨立 flex 時易呈直向堆疊。
+ */
+.footer-social-media-links-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-social-media-links-wrapper .footer-social-media-link {
+  margin-right: 0;
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+}
+
+/*
+ * FAQ：`details` + `summary`（如 Pricing）— 隱藏預設 disclosure 三角。
+ */
+details.faq2_accordion-2 > summary {
+  list-style: none;
+}
+
+details.faq2_accordion-2 > summary::-webkit-details-marker {
+  display: none;
+}
+
+/*
+ * SMS Pumping「Warning signs」FAQ 列：`<button>`、展開動畫（grid 0fr→1fr）、字級／邊線 token 化。
+ */
+.ds-sms-warning-faq__item {
+  border-bottom: 0.0625rem solid #e1e1e1;
+}
+
+button.ds-sms-warning-faq__trigger {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: var(--spacing-s) 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--color-text-light-primary);
+  text-align: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ds-sms-warning-faq__item:first-child .ds-sms-warning-faq__trigger {
+  padding-top: 0;
+}
+
+button.ds-sms-warning-faq__trigger:focus-visible {
+  outline: 0.125rem solid var(--color-primary-600);
+  outline-offset: 0.125rem;
+  border-radius: var(--radius-product);
+}
+
+.ds-sms-warning-faq__chevron-wrap {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.ds-sms-warning-faq__chevron {
+  display: block;
+  width: 2rem;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.ds-sms-warning-faq__chevron.ds-sms-warning-faq__chevron--open {
+  transform: rotate(180deg);
+}
+
+.ds-sms-warning-faq__item-title {
+  margin: 0;
+  margin-right: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-h3-svg-card);
+  line-height: var(--text-h3-svg-card--line-height);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+}
+
+.ds-sms-warning-faq__topic-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}
+
+.ds-sms-warning-faq__answer {
+  padding-bottom: var(--spacing-xs);
+}
+
+.ds-sms-warning-faq__answer-text {
+  margin: 0;
+  padding-top: 0.4375rem;
+  color: var(--color-text-light-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+}
+
+.ds-sms-warning-faq__panel {
+  display: grid;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.ds-sms-warning-faq__panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-sms-warning-faq__panel,
+  .ds-sms-warning-faq__chevron {
+    transition: none;
+  }
+}
+
+/*
+ * Split stack + title gap：實際樣式在 `public/css/authgear-ds-split-stack.css`，於 layout 中接在 Webflow 之後載入。
+ */
+
+/*
+ * MFA feature page — 左欄選項（實線左框）+ 右欄插圖（`MfaOptionsTabs.tsx`；Passkeys 頁面重用並傳入 `imageSources`）
+ * 須寫在 @layer 外：`layout` 中 Webflow 後載的 `button,[type=button]{border:0}` 為未分層，會蓋過 @layer components；
+ * `button.ds-mfa-options__tab[type="button"]` 提高 specificity。左欄項目間距用 `tablist` 的 `gap`，避免 margin 被未分層 reset 影響。
+ */
+.ds-container > .ds-mfa-options {
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ds-mfa-options {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0;
+  font-family: var(--font-sans);
+}
+
+.ds-mfa-options__tablist {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
+  min-width: 0;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--spacing-s);
+}
+
+button.ds-mfa-options__tab[type='button'] {
+  appearance: none;
+  font: inherit;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  box-sizing: border-box;
+  border: none;
+  border-left: 3px solid #bababa;
+  padding: 0 var(--spacing-m) 0;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+
+button.ds-mfa-options__tab[type='button']:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+button.ds-mfa-options__tab[type='button'].ds-mfa-options__tab--active {
+  border-left-color: #0b63e9;
+}
+
+.ds-mfa-options__tab-label {
+  margin: 0;
+  color: #bababa;
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-sans);
+}
+
+button.ds-mfa-options__tab[type='button'].ds-mfa-options__tab--active .ds-mfa-options__tab-label {
+  color: #0b63e9;
+}
+
+.ds-mfa-options__panels {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  flex: 1 1 50%;
+  min-width: 0;
+  margin-left: 2.5rem;
+  align-self: center;
+}
+
+.ds-mfa-options__panel {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.ds-mfa-options__panel--active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.ds-mfa-options__panel img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (width < 768px) {
+  .ds-mfa-options {
+    flex-flow: column nowrap;
+  }
+
+  .ds-mfa-options__tablist {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
+  .ds-mfa-options__panels {
+    order: -1;
+    margin-left: 0;
+    margin-bottom: var(--spacing-s);
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-mfa-options__panel {
+    transition-duration: 0.12s;
+  }
+}
+
+/*
+ * ds-pill-tabs：圓角漸層 Tab 選單（淺底頁面用）。
+ * 用法：ds-pill-tabs > ds-pill-tabs__bar (tablist) + ds-pill-tabs__panels > ds-pill-tabs__panel
+ * 須寫在 @layer 外：Webflow 後載的 `button,[type=button]{border:0}` 未分層，會蓋過 @layer；
+ * `button.ds-pill-tabs__tab[type="button"]` 提高 specificity。
+ */
+.ds-pill-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  gap: var(--spacing-m);
+  font-family: var(--font-sans);
+}
+
+.ds-pill-tabs__bar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  width: fit-content;
+  margin-inline: auto;
+  background: var(--gradient-accent);
+  border-radius: 999px;
+  padding: 0.25rem;
+  gap: 0;
+}
+
+button.ds-pill-tabs__tab[type='button'] {
+  appearance: none;
+  font: inherit;
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.625rem 1.25rem;
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  transition: background-color 180ms ease, color 180ms ease;
+  white-space: nowrap;
+}
+
+button.ds-pill-tabs__tab[type='button']:focus-visible {
+  outline: 0.125rem solid var(--color-primary-600);
+  outline-offset: 0.125rem;
+}
+
+button.ds-pill-tabs__tab[type='button'].ds-pill-tabs__tab--active {
+  background: #fff;
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-medium);
+}
+
+.ds-pill-tabs__panels {
+  width: 100%;
+}
+
+.ds-pill-tabs__panel {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+.ds-pill-tabs__panel--active {
+  display: flex;
+}
+
+.ds-pill-tabs__panel-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-xs);
+}
+
+/* Webflow 全域 h4／p 後載，需 unlayered override */
+.ds-pill-tabs__panel-header > h4.heading-on-light {
+  margin: 0 !important;
+  color: var(--color-text-light-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h4) !important;
+  line-height: var(--text-h4--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+  letter-spacing: normal !important;
+  text-align: center !important;
+  max-width: 100% !important;
+}
+
+.ds-pill-tabs__panel-header > p.section-lede-on-light {
+  margin: 0 !important;
+  color: var(--color-text-light-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+  text-align: center !important;
+  max-width: 100% !important;
+}
+
+/* ds-pill-tabs panel 內的 svg-card 圖示 — 不在 ds-container 直接子項，需獨立補規則 */
+.ds-pill-tabs__panel .ds-grid-3 > .svg-card > img {
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ds-compare-table：三欄比較表格（淺底 Section 使用）
+   用法：
+     <div class="ds-compare-table-wrapper">
+       <table class="ds-compare-table">
+         <thead><tr><th>…</th>…</tr></thead>
+         <tbody><tr><td>…</td>…</tr></tbody>
+       </table>
+     </div>
+   ─────────────────────────────────────────────────────────────────*/
+
+/* 橫向捲動容器（小螢幕保護） */
+.ds-compare-table-wrapper {
+  width: 100%;
+  max-width: var(--ds-feature-callout-max-width);
+  margin-inline: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ds-compare-table {
+  width: 100%;
+  border-collapse: separate;
+  /* 欄與欄之間水平間距（標題與資料列對齊） */
+  border-spacing: 0.5rem 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+}
+
+/* Header row */
+.ds-compare-table thead th {
+  background-color: var(--color-bg-light-blue);
+  color: var(--color-text-light-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  text-align: left;
+  padding: 0.75rem 1.5rem;
+  border: none;
+}
+
+.ds-compare-table thead th:first-child {
+  border-radius: 0.75rem 0 0 0;
+}
+
+.ds-compare-table thead th:last-child {
+  border-radius: 0 0.75rem 0 0;
+}
+
+/* Data rows */
+.ds-compare-table tbody td {
+  padding: 1.125rem 1.5rem;
+  color: var(--color-text-light-secondary);
+  vertical-align: top;
+  border-bottom: 0.0625rem solid var(--color-border-light-subtle);
+}
+
+/* Feature label column — slightly stronger weight */
+.ds-compare-table tbody td:first-child {
+  color: var(--color-text-light-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Remove bottom border on last row */
+.ds-compare-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Mobile: hide "Feature" label column, show only 2-column grid */
+@media (width < 768px) {
+  .ds-compare-table thead th:first-child,
+  .ds-compare-table tbody td:first-child {
+    display: none;
+  }
+
+  .ds-compare-table thead th:nth-child(2) {
+    border-radius: 0.75rem 0 0 0;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ds-faq：靜態 FAQ 卡片列表（淺底 Section 使用）
+   用法：
+     <div class="ds-faq">
+       <div class="ds-faq__item">
+         <h3 class="ds-faq__question">Question</h3>
+         <p class="ds-faq__answer">Answer</p>
+       </div>
+     </div>
+   ─────────────────────────────────────────────────────────────────*/
+
+.ds-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: var(--ds-feature-callout-max-width);
+  margin-inline: auto;
+}
+
+.ds-faq__item {
+  background-color: #fff;
+  border-radius: var(--radius-card);
+  border: 0.0625rem solid var(--color-border-light-subtle);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ds-faq__question {
+  font-family: var(--font-sans);
+  font-size: var(--text-h4);
+  line-height: var(--text-h4--line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-light-primary);
+  margin: 0;
+}
+
+.ds-faq__answer {
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-light-secondary);
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ds-pricing-faq：定價頁黑底 FAQ（雙欄：左標題、右 accordion；勿併用 w-container）
+   ─────────────────────────────────────────────────────────────────*/
+
+.ds-pricing-faq-section {
+  background-color: #000;
+  color: #fff;
+}
+
+/* ONCE /once：FAQ 放在 `.once-last-container` 直下（非 `container-default.once`）時橫向滿版。 */
+.once-last-container > .ds-pricing-faq-section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ds-pricing-faq {
+  box-sizing: border-box;
+  max-width: 1271px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--spacing-xl) var(--layout-padding-lg);
+  display: grid;
+  grid-template-columns: minmax(0, 32%) minmax(0, 1fr);
+  column-gap: 3.75rem;
+  row-gap: 2.5rem;
+  align-items: start;
+}
+
+.ds-pricing-faq__heading {
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-semibold);
+  color: #fff;
+  margin: 0;
+}
+
+.ds-pricing-faq__list {
+  min-width: 0;
+  width: 100%;
+}
+
+.ds-pricing-faq__accordion {
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+.ds-pricing-faq__accordion:first-of-type {
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+button.ds-pricing-faq__summary {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: var(--spacing-s) 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-medium);
+}
+
+button.ds-pricing-faq__summary:focus-visible {
+  outline: 0.125rem solid var(--color-primary-500);
+  outline-offset: 0.125rem;
+  border-radius: var(--radius-product);
+}
+
+.ds-pricing-faq__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-regular);
+  line-height: 1;
+}
+
+.ds-pricing-faq__icon::before {
+  content: '+';
+}
+
+button.ds-pricing-faq__summary[aria-expanded='true'] .ds-pricing-faq__icon::before {
+  content: '\2212';
+}
+
+.ds-pricing-faq__question {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+}
+
+.ds-pricing-faq__panel {
+  display: grid;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.ds-pricing-faq__panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ds-pricing-faq__answer {
+  padding: 0 0 var(--spacing-s) 2.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-pricing-faq__panel {
+    transition: none;
+  }
+}
+
+.ds-pricing-faq__answer p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-regular);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (width < 992px) {
+  .ds-pricing-faq {
+    grid-template-columns: 1fr;
+    row-gap: var(--spacing-m);
+    padding-top: var(--spacing-l);
+    padding-bottom: var(--spacing-l);
+  }
+}
+
+/*
+ * Customer story 內文：左欄 meta + 右欄 body。
+ * 對齊舊站 case study（約 1 : 2.7、側欄框線、sticky），色票／間距改為 DS token。
+ */
+.ds-customer-story-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-ml);
+  width: 100%;
+  align-items: start;
+}
+
+@media (width >= 992px) {
+  .ds-customer-story-body {
+    /* 比照 Webflow `.case-study-post-body`：窄側欄 + 主文欄（~1 : 2.7） */
+    grid-template-columns: minmax(15rem, 25rem) minmax(0, 2.7fr);
+    gap: 3.75rem; /* ~60px */
+  }
+}
+
+.ds-customer-story-body__sidebar {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-customer-story-body__logo-wrap {
+  margin-bottom: var(--spacing-m);
+  width: 100%;
+}
+
+.ds-customer-story-body__logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 3rem;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (width >= 992px) {
+  .ds-customer-story-body__sidebar {
+    position: sticky;
+    top: calc(var(--layout-fixed-header-height) + var(--spacing-s));
+    align-self: flex-start;
+    max-width: 25.3125rem; /* ~405px */
+    padding-right: var(--spacing-m);
+    border-right: 0.0625rem solid var(--color-border-light-subtle);
+  }
+}
+
+.ds-customer-story-body__meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  margin: 0;
+  width: 100%;
+}
+
+.ds-customer-story-body__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.ds-customer-story-body__meta dt {
+  margin: 0;
+}
+
+.ds-customer-story-body__label {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: 1;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-light-secondary);
+}
+
+.ds-customer-story-body__value {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-light-primary);
+}
+
+.ds-customer-story-body__value--plain {
+  font-weight: var(--font-weight-regular);
+}
+
+.ds-customer-story-body__dd {
+  margin: 0;
+}
+
+.ds-customer-story-body__chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-customer-story-body__chip {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 0.0625rem solid var(--color-border-light-subtle);
+  background-color: var(--color-bg-light-card);
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-medium);
+}
+
+.ds-customer-story-body__main {
+  min-width: 0;
+}
+
+.ds-customer-story-body__main .ds-richtext-prose {
+  max-width: min(100%, 48rem);
+}
+
+/* 右欄：Strapi metric1–3；數字 48px（3rem）medium、說明 16px（`--text-body2`），欄距 §5 spacing */
+.ds-customer-story-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--spacing-ml);
+  row-gap: var(--spacing-m);
+  width: 100%;
+  margin: 0 0 var(--spacing-ml) 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width >= 992px) {
+  .ds-customer-story-metrics {
+    column-gap: var(--spacing-xl);
+  }
+}
+
+@media (width < 768px) {
+  .ds-customer-story-metrics {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}
+
+.ds-customer-story-metrics__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  min-width: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.ds-customer-story-metrics__num {
+  font-family: var(--font-sans);
+  font-size: 3rem;
+  line-height: 3.25rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-light-primary);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-customer-story-metrics__text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-light-secondary);
+  text-align: left;
+  max-width: 100%;
+}
+
+@media (width < 992px) {
+  .ds-customer-story-body__sidebar {
+    padding-bottom: var(--spacing-m);
+    border-bottom: 0.0625rem solid var(--color-border-light-subtle);
+  }
+}
+
+/*
+ * Customer Stories 集結頁：置中 `title-content` + `heading-on-light` / `section-lede-on-light`，白底；主內容用 `ds-container`（與 Login Gallery 集結頁網格段相同節奏）。
+ */
+.ds-customer-stories-index {
+  width: 100%;
+}
+
+.ds-customer-stories-index__header {
+  padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+  padding-bottom: var(--spacing-l);
+}
+
+.ds-customer-stories-index__header > .ds-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  gap: 0;
+}
+
+@media (width < 768px) {
+  .ds-customer-stories-index__header {
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+    padding-bottom: var(--spacing-l);
+  }
+}
+
+.ds-customer-stories-index .ds-container > .title-content {
+  gap: var(--spacing-s);
+}
+
+.ds-customer-stories-index__main {
+  padding-bottom: var(--spacing-xl);
+}
+
+/* 主內容區 `ds-container`：不重複預設大上下 padding（由 section／`__main` 負責）；網格拉滿寬 */
+.ds-customer-stories-index__main > .ds-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  align-items: stretch;
+  gap: 0;
+}
+
+.ds-customer-stories-index__main > .ds-container > .case-study-list,
+.ds-customer-stories-index__main > .ds-container > .empty-state {
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ds-customer-stories-index .case-study-list {
+  gap: var(--spacing-m);
+}
+
+/*
+ * Login Gallery 集結頁：外層 `section.ds-section.ds-login-gallery-index`，底色與單篇 `.ds-login-gallery-page` 一致（`--color-bg-deep`）。
+ */
+.ds-login-gallery-index {
+  width: 100%;
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-primary);
+}
+
+/*
+ * 固定導覽（`--layout-fixed-header-height`）不佔流；須自頂加算，否則標題會貼在 nav 下方。
+ * 節奏對齊 `.ds-hero-banner--dark`／`.ds-hero-banner--white`。
+ */
+.ds-login-gallery-index__hero {
+  padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-l));
+  padding-bottom: var(--spacing-s);
+}
+
+@media (width < 768px) {
+  .ds-login-gallery-index__hero {
+    padding-top: calc(var(--layout-fixed-header-height) + var(--spacing-ml));
+  }
+}
+
+.ds-login-gallery-index__hero-inner {
+  display: flex;
+  max-width: min(100%, var(--title-content-max-width));
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-s);
+  margin-inline: auto;
+  text-align: center;
+}
+
+/*
+ * 集結頁專用小標：28px（1.75rem）、CTA Accent 漸層（`--gradient-accent`）；僅此頁使用。
+ */
+.ds-login-gallery-index__eyebrow {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+  background-image: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ds-login-gallery-index__hero-inner .ds-login-gallery-index__eyebrow {
+  margin: 0;
+}
+
+.ds-login-gallery-index__hero-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.ds-login-gallery-index__hero-title-line {
+  display: block;
+}
+
+.ds-login-gallery-index__hero-lede {
+  margin: 0;
+  max-width: 40rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+}
+
+.ds-login-gallery-index__hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-m);
+}
+
+.ds-login-gallery-index__grid-section .ds-container {
+  align-items: stretch;
+}
+
+.ds-login-gallery-index__grid {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-l);
+  align-self: stretch;
+}
+
+@media (width >= 640px) {
+  .ds-login-gallery-index__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1024px) {
+  .ds-login-gallery-index__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ds-login-gallery-index__grid-item {
+  min-width: 0;
+}
+
+.ds-login-gallery-index__empty {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+}
+
+/*
+ * 集結頁卡片：深色圓角外框 + 內縮截圖；標題在框外下方（白字、左對齊）。
+ */
+.ds-login-gallery-index-card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ds-login-gallery-index-card:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.25rem;
+  border-radius: var(--radius-card);
+}
+
+.ds-login-gallery-index-card__frame {
+  box-sizing: border-box;
+  width: 100%;
+  padding-block: 2.5rem;
+  padding-inline: 2rem;
+  border-radius: 2rem;
+  background-color: var(--color-login-gallery-carousel-surface);
+  transition:
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+@media (width < 768px) {
+  .ds-login-gallery-index-card__frame {
+    padding-block: var(--spacing-m);
+    padding-inline: 2rem;
+  }
+}
+
+.ds-login-gallery-index-card:hover .ds-login-gallery-index-card__frame {
+  box-shadow: 0 0.75rem 2.5rem rgba(0, 0, 0, 0.45);
+}
+
+.ds-login-gallery-index-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #0f0f14;
+}
+
+.ds-login-gallery-index-card__img {
+  object-fit: cover;
+}
+
+.ds-login-gallery-index-card__placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #2a2a38 0%, #14141c 100%);
+}
+
+.ds-login-gallery-index-card__title {
+  margin: var(--spacing-xs) 0 0 0;
+  align-self: flex-start;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-h4);
+  line-height: var(--text-h4--line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-align: left;
+}
+
+/*
+ * Login Gallery 單篇：`ds-section.ds-login-gallery-page` 為全頁區塊；各段為 `ds-container.ds-login-gallery-page__container`。
+ * `authgear-ds-split-stack.css` 內有底色／容器覆寫（後載於 Webflow，含 !important）。
+ * 對齊 production：https://www.authgear.com/login-gallery/jooca-tech
+ */
+.ds-login-gallery-page {
+  width: 100%;
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-primary);
+}
+
+.ds-login-gallery-page__header {
+  padding-top: var(--spacing-xl);
+}
+
+/* Eyebrow：18px（`--text-body`）／Light Muted；返回總覽連結 */
+.ds-login-gallery-page__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  color: var(--color-text-light-muted);
+  text-decoration: none;
+}
+
+.ds-login-gallery-page__eyebrow:hover {
+  color: var(--color-text-secondary);
+}
+
+.ds-login-gallery-page__eyebrow:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.125rem;
+}
+
+.ds-login-gallery-page__eyebrow svg {
+  flex-shrink: 0;
+}
+
+.ds-login-gallery-page__title {
+  margin: var(--spacing-xs) 0 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.ds-login-gallery-page__content {
+  padding-top: 0;
+  padding-bottom: var(--spacing-xl);
+  background-color: var(--color-bg-deep);
+}
+
+/* ── Carousel ─────────────────────────────────────────────────── */
+.ds-login-gallery-carousel {
+  width: 100%;
+}
+
+/* Web/Mobile 切換、截圖區、圓點同一視覺容器（底色 #232337） */
+.ds-login-gallery-carousel__surface {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-m);
+  padding: var(--spacing-m);
+  border-radius: var(--radius-section);
+  background-color: var(--color-login-gallery-carousel-surface);
+}
+
+.ds-login-gallery-carousel__surface--empty {
+  min-height: 14rem;
+  justify-content: center;
+}
+
+.ds-login-gallery-carousel__placeholder {
+  width: 100%;
+  min-height: 10rem;
+  border-radius: var(--radius-card);
+  border: 0.0625rem dashed rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.ds-login-gallery-carousel__switch {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0.25rem;
+  gap: 0.25rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+}
+
+.ds-login-gallery-carousel__switch-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+button.ds-login-gallery-carousel__switch-btn[type='button'] {
+  appearance: none;
+  margin: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-body2--line-height);
+  color: var(--color-text-secondary);
+  background: transparent;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+button.ds-login-gallery-carousel__switch-btn[type='button']:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+/* Design System：Card Alt Gradient（與 `.svg-card-alternative` 同色票） */
+button.ds-login-gallery-carousel__switch-btn[type='button'][aria-pressed='true'] {
+  background: var(--gradient-card-alt);
+  color: var(--color-text-primary);
+}
+
+button.ds-login-gallery-carousel__switch-btn[type='button']:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.125rem;
+}
+
+.ds-login-gallery-carousel__viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: min(70vh, 40rem);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: transparent;
+}
+
+.ds-login-gallery-carousel__viewport--swipe {
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.ds-login-gallery-carousel__viewport--swipe:active {
+  cursor: grabbing;
+}
+
+.ds-login-gallery-carousel__track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  background: transparent;
+}
+
+.ds-login-gallery-carousel__slide {
+  position: relative;
+  flex-shrink: 0;
+  height: 100%;
+  min-width: 0;
+}
+
+.ds-login-gallery-carousel__img {
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+.ds-login-gallery-carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-product);
+  cursor: pointer;
+  color: var(--color-text-primary);
+  background: rgba(17, 16, 16, 0.65);
+  backdrop-filter: blur(6px);
+  transition: background-color 160ms ease;
+}
+
+.ds-login-gallery-carousel__nav:hover {
+  background: rgba(17, 16, 16, 0.85);
+}
+
+.ds-login-gallery-carousel__nav:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.125rem;
+}
+
+.ds-login-gallery-carousel__nav--prev {
+  left: var(--spacing-s);
+}
+
+.ds-login-gallery-carousel__nav--next {
+  right: var(--spacing-s);
+}
+
+.ds-login-gallery-carousel__nav-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ds-login-gallery-carousel__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+button.ds-login-gallery-carousel__dot[type='button'] {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.28);
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+button.ds-login-gallery-carousel__dot[type='button'][data-active='true'] {
+  background: #ffffff;
+  transform: scale(1.15);
+}
+
+button.ds-login-gallery-carousel__dot[type='button']:focus-visible {
+  outline: 0.125rem solid var(--color-primary-400);
+  outline-offset: 0.125rem;
+}
+
+/* ── Body：主文（左）／側欄（右），與 customer story 欄寬比例類似但順序相反 ─── */
+.ds-login-gallery-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-ml);
+  width: 100%;
+  align-items: start;
+}
+
+@media (width >= 992px) {
+  .ds-login-gallery-body {
+    grid-template-columns: minmax(0, 2.7fr) minmax(15rem, 28rem);
+    gap: 3.75rem;
+  }
+}
+
+.ds-login-gallery-body__main {
+  order: 1;
+  min-width: 0;
+}
+
+.ds-login-gallery-body__main .ds-richtext-prose {
+  max-width: min(100%, 48rem);
+}
+
+/*
+ * Login Gallery CMS 長文：`StrapiBlocksContent`／legacy body 使用 `ds-richtext-prose--on-dark ds-login-gallery-richtext`（專用容器類，不依賴 Webflow `w-richtext`）。
+ * 此為樣式主檔；`public/css/authgear-ds-split-stack.css` 內有同選擇器覆寫（後載於 Webflow），修改時請兩處同步。
+ * 使用 `!important` 以抗衡 `authgear-new.webflow.css` 全域標題／段落規則。
+ */
+/* 取代 Webflow `.w-richtext` 容器的 clearfix／清單 containment（僅 Login Gallery） */
+.ds-login-gallery-richtext:before,
+.ds-login-gallery-richtext:after {
+  content: ' ';
+  display: table;
+}
+
+.ds-login-gallery-richtext:after {
+  clear: both;
+}
+
+.ds-login-gallery-richtext ol,
+.ds-login-gallery-richtext ul {
+  overflow: hidden;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext {
+  font-family: var(--font-sans) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h1 {
+  margin: var(--spacing-xl) 0 var(--spacing-s) 0 !important;
+  padding: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h3-svg-card) !important;
+  line-height: var(--text-h3-svg-card--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: normal !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h1:first-child {
+  margin-top: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h2 {
+  margin: var(--spacing-l) 0 var(--spacing-s) 0 !important;
+  padding: 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h3-svg-card) !important;
+  line-height: var(--text-h3-svg-card--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: normal !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h2:first-child {
+  margin-top: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h3 {
+  margin: var(--spacing-l) 0 var(--spacing-xs) 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-h4) !important;
+  line-height: var(--text-h4--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext h4 {
+  margin: var(--spacing-m) 0 var(--spacing-xxs) 0 !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 無序清單：勾選圖示（與 `authgear-ds-split-stack.css` Login Gallery 段同步） */
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul > li {
+  position: relative !important;
+  padding-left: 2rem !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ul > li::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0.2em !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M9.37525%2017.8127C9.11925%2017.8127%208.86325%2017.7147%208.66825%2017.5197L4.29325%2013.1448C3.90225%2012.7538%203.90225%2012.1217%204.29325%2011.7308C4.68425%2011.3398%205.31625%2011.3398%205.70725%2011.7308L9.37525%2015.3988L18.2932%206.48075C18.6842%206.08975%2019.3162%206.08975%2019.7072%206.48075C20.0982%206.87175%2020.0982%207.50375%2019.7072%207.89475L10.0822%2017.5197C9.88725%2017.7147%209.63125%2017.8127%209.37525%2017.8127Z%22%20fill%3D%22%230065FF%22%2F%3E%3C%2Fsvg%3E')
+    no-repeat center / contain !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext ol {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding-left: 1.5rem !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li {
+  margin: 0 0 var(--spacing-xxs) 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li > ul {
+  margin-top: var(--spacing-xxs) !important;
+  margin-bottom: 0 !important;
+  margin-left: 0.25rem !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li > ol {
+  margin-top: var(--spacing-xxs) !important;
+  margin-bottom: 0 !important;
+  list-style-type: lower-alpha !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext a {
+  color: var(--color-primary-300) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.125rem !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext a:hover {
+  color: var(--color-primary-200) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext strong {
+  color: var(--color-text-primary) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext blockquote {
+  margin: 0 0 var(--spacing-m) 0 !important;
+  padding: var(--spacing-m) !important;
+  border-radius: var(--radius-section) !important;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-body) !important;
+  line-height: var(--text-body--line-height) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Login Gallery 主文：內文段落／清單／引用 #b0b0b0（標題 h1–h4、strong 仍為上方 token） */
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext p,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext li,
+.ds-login-gallery-body__main .ds-richtext-prose.ds-richtext-prose--on-dark.ds-login-gallery-richtext blockquote {
+  color: #b0b0b0 !important;
+}
+
+.ds-login-gallery-body__empty {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  color: var(--color-text-secondary);
+}
+
+.ds-login-gallery-body__sidebar {
+  order: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width >= 992px) {
+  .ds-login-gallery-body__sidebar {
+    position: sticky;
+    top: calc(var(--layout-fixed-header-height) + var(--spacing-s));
+    align-self: flex-start;
+    padding-left: var(--spacing-m);
+    max-width: 28rem;
+  }
+}
+
+.ds-login-gallery-body__meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  margin: 0;
+  width: 100%;
+}
+
+.ds-login-gallery-body__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.ds-login-gallery-body__meta dt {
+  margin: 0;
+}
+
+.ds-login-gallery-body__label {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: 1;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.ds-login-gallery-body__value {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.ds-login-gallery-body__value--plain {
+  font-weight: var(--font-weight-regular);
+}
+
+.ds-login-gallery-body__dd {
+  margin: 0;
+}
+
+.ds-login-gallery-body__chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-login-gallery-body__chip {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body2);
+  line-height: var(--text-body2--line-height);
+  font-weight: var(--font-weight-medium);
+}
+
+@media (width < 992px) {
+  .ds-login-gallery-body__sidebar {
+    padding-bottom: var(--spacing-m);
+    border-bottom: none;
+  }
+}
+
+/* Strapi Blocks 內嵌圖 */
+.ds-strapi-blocks-figure {
+  margin: 0 0 var(--spacing-m) 0;
+}
+
+.ds-strapi-blocks-figure__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-product);
+}
+
+/* Blog post sidebar — Discord 圖（右欄滿寬） */
+a.blog-discord-promo {
+  display: block;
+  width: 100%;
+}
+
+.blog-discord-promo__img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+/* Blog post sidebar — GitHub star CTA (light gray card, centered) */
+.blog-github-star-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+  padding: 32px 20px;
+  text-align: center;
+  background-color: #eeeeee;
+  border-radius: 24px;
+}
+
+.blog-github-star-cta iframe {
+  display: block;
+  margin: 0.75rem 0 0;
+  border: 0;
+  color-scheme: light;
+}
+
+/* ONCE SDK logo marquee: Webflow `.flex-block-47` is height:60px + overflow:hidden — clips padded area below logos */
+.once-sdk-logo-marquee.flex-block-47 {
+  height: auto;
+  min-height: 60px;
+  overflow: visible;
+}
