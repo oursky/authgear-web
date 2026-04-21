@@ -1,6 +1,8 @@
 ---
 import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+import LogoMarquee from '@/components/islands/LogoMarquee';
 
 interface Props { locale: string }
 const { locale } = Astro.props;
@@ -72,7 +74,11 @@ function tRich(locale: string, key: string): string {
           <div class="home-lottie" data-animation-type="lottie" data-src="documents/data.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="7.74107409244067" data-duration="0"></div><img src="/images/hero-mobile.png" alt="" class="image home-hero sm" />
         </div>
       </div>
-      <div data-placeholder="LogoMarquee"></div>
+      <LogoMarquee
+        client:idle
+        customerStoriesHref={localizedPath(locale, '/customer-stories')}
+        readStoryLabel={t(locale, 'Home.readCustomerStory')}
+      />
       <div class="w-layout-blockcontainer container-1469 w-container"></div>
       <div class="w-layout-blockcontainer container-1469 left w-container"></div>
     </div>
@@ -509,7 +515,7 @@ function tRich(locale: string, key: string): string {
             </div>
           </div>
           <div class="_2-block-flex-image footer-form">
-            <div data-placeholder="ContactForm" data-locale={locale}></div>
+            <ContactForm client:load />
           </div>
         </div>
       </div>
