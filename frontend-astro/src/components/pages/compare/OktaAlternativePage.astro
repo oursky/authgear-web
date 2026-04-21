@@ -1,0 +1,188 @@
+---
+import { t } from '@/i18n';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+---
+
+<>
+  <div class="featurespage__hero_v2 featurespage__hero_bg vs-page">
+    <div class="features-hero-wrapper-new gap140">
+      <div class="split-content features-hero-left vs-mobile">
+        <h1 class="title features-hero-v2 vs-mobile">{t(locale, 'OktaAlternative.heroTitle')}</h1>
+        <p class="features-hero-description">{t(locale, 'OktaAlternative.heroDescription')}</p>
+        <div class="features-hero-cta-wrapper vs-mobile">
+          <a href="https://accounts.portal.authgear.com/signup" target="_blank" class="button-primary feature-hero-btn-v2 vs-mobile w-button">
+            {t(locale, 'Features.startForFree')}
+          </a>
+          <a href="/schedule-demo" target="_blank" class="button-secondary feature-hero-btn-v2 noscale button-secondary-with-boarder w-button">
+            {t(locale, 'Features.scheduleDemo')}
+          </a>
+        </div>
+      </div>
+      <img class="image features-hero-image-v2 _300max" src="/images/compare_kv-Okta2x.webp" alt="" sizes="(max-width: 600px) 100vw, 600px" srcSet="/images/compare_kv-Okta2x-p-500.webp 500w, /images/compare_kv-Okta2x.webp 600w" />
+    </div>
+  </div>
+  <div>
+    <div class="container-default wider-container-default logo-section">
+      <div class="container-default-inner px-0 gap-0 pb-0"></div>
+      <img src="/images/compare_logo-Bupa-gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo-CIMIC-gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo-HML-gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo_hkpc_gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo-k11-gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo-MTR-gray2x.png" loading="lazy" alt="" class="image-86" />
+    </div>
+  </div>
+  <div>
+    <div class="container-default wider-container-default">
+      <div class="container-default-inner px-0 gap-0 pb-0">
+        <div class="top-content feature-flex">
+          <h2 class="title features-page-v2">{t(locale, 'OktaAlternative.whyChooseTitle')}</h2>
+        </div>
+      </div>
+      <div class="w-layout-hflex flex-block-71">
+        <div class="svg-card gray-card">
+          <div class="svg-card-image-container"><img src="/images/compare_why-pricing.svg" loading="lazy" alt="" /></div>
+          <div class="svg-card-content-container text-center gap-16">
+            <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'OktaAlternative.card1Title')}</div>
+            <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'OktaAlternative.card1Description')}</div>
+          </div>
+        </div>
+        <div class="svg-card gray-card">
+          <div class="svg-card-image-container"><img src="/images/compare_why-custom.svg" loading="lazy" alt="" /></div>
+          <div class="svg-card-content-container text-center gap-16">
+            <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'OktaAlternative.card2Title')}</div>
+            <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'OktaAlternative.card2Description')}</div>
+          </div>
+        </div>
+        <div class="svg-card gray-card">
+          <div class="svg-card-image-container"><img src="/images/compare_why-growth.svg" loading="lazy" alt="" /></div>
+          <div class="svg-card-content-container text-center gap-16">
+            <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'OktaAlternative.card3Title')}</div>
+            <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'OktaAlternative.card3Description')}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-f9f9fb">
+    <div class="container-default">
+      <div class="container-default-inner px-0 gap-0">
+        <div class="_2-card-grid gap-32 mb-40 _2-rows">
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-authentication.svg" loading="lazy" alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'OktaAlternative.feature1Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'OktaAlternative.feature1Description')}</div>
+            </div>
+          </div>
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-developer.svg" loading="lazy" alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'OktaAlternative.feature2Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'OktaAlternative.feature2Description')}</div>
+            </div>
+          </div>
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-flow.svg" loading="lazy" width={48} alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'OktaAlternative.feature3Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'OktaAlternative.feature3Description')}</div>
+            </div>
+          </div>
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-support.svg" loading="lazy" alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'OktaAlternative.feature4Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'OktaAlternative.feature4Description')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="container-default wider-container-default">
+      <div class="container-default-inner px-0 gap-0 pb-0">
+        <div class="top-content feature-flex">
+          <h2 class="title features-page-v2">{t(locale, 'OktaAlternative.compareTitle')}</h2>
+        </div>
+        <div class="div-block-25">
+          <div class="w-layout-grid table-header">
+            <div class="w-layout-blockcontainer w-container"></div>
+            <img src="/images/compare_table-Authgear.svg" loading="lazy" alt="" />
+            <div class="okta">{t(locale, 'OktaAlternative.competitorName')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tableScalingTitle')}</div>
+            <div class="table-text">{t(locale, 'OktaAlternative.tableScalingAuthgear')}</div>
+            <div class="table-text">{t(locale, 'OktaAlternative.tableScalingOkta')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tablePhoneTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-false.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tableWhatsappTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-false.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tableMfaTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <div class="table-text">{t(locale, 'OktaAlternative.tableMfaOktaNote')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tableSocialTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-check-gray.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tableSsoTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-check-gray.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tableBrandingTitle')}</div>
+            <div class="table-text">{t(locale, 'OktaAlternative.tableBrandingAuthgear')}</div>
+            <div class="table-text dash">{t(locale, 'OktaAlternative.tableDash')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tableEmailTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-false.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content last-row">
+            <div class="table-text title">{t(locale, 'OktaAlternative.tableDiscordTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-false.svg" loading="lazy" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="container-default wider-container-default">
+      <div class="container-default-inner px-0 gap-0 pb-0"></div>
+      <div class="w-layout-hflex ready-to-switch">
+        <h1 class="title features-hero-v2 inverse nomargin">{t(locale, 'Compare.readyToSwitch')}</h1>
+        <div class="split-content features-hero-left nomargin">
+          <p class="features-hero-description inverse">{t(locale, 'OktaAlternative.ctaMigrateDescription')}</p>
+          <div class="features-hero-cta-wrapper in-ready-to-switch">
+            <a href="/schedule-demo" target="_blank" class="button-primary feature-hero-btn-v2 nomargin w-button">
+              {t(locale, 'Compare.talkToUs')}
+            </a>
+            <a href="https://accounts.portal.authgear.com/signup" target="_blank" class="button-secondary feature-hero-btn-v2 noscale button-secondary-with-boarder inverse w-button">
+              {t(locale, 'Features.startForFree')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</>
