@@ -1,0 +1,133 @@
+---
+import { t } from '@/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+
+<section class="ds-hero-banner--dark">
+  <div class="ds-container ds-container--hero">
+    <div class="ds-hero-banner__row">
+      <div class="ds-hero-banner__body">
+        <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'MigrateToAuthgear.heroSmallTitle')}</p>
+        <h1 class="ds-hero-banner__title">{t(locale, 'MigrateToAuthgear.heroTitle')}</h1>
+        <p class="ds-hero-banner__description">{t(locale, 'MigrateToAuthgear.heroDescription')}</p>
+        <div class="ds-hero-banner__ctas">
+          <a
+            href="https://portal.authgear.com/?utm_source=migrate-to-authgear&utm_medium=link&utm_campaign=start-for-free"
+            target="_blank"
+            rel="noreferrer"
+            class="ds-btn ds-btn-secondary"
+          >
+            {t(locale, 'MigrateToAuthgear.ctaGetStarted')}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+            {t(locale, 'MigrateToAuthgear.ctaScheduleDemo')}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <img
+        class="ds-hero-banner__media"
+        src="/images/migratetoauthgear_kv2x.webp"
+        srcset="/images/migratetoauthgear_kv2x-p-500.webp 500w, /images/migratetoauthgear_kv2x-p-800.webp 800w, /images/migratetoauthgear_kv2x-p-1080.webp 1080w, /images/migratetoauthgear_kv2x.webp 1300w"
+        sizes="(max-width: 1300px) 100vw, 1300px"
+        width={738}
+        alt=""
+      />
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'MigrateToAuthgear.whyTitle')} <span class="ds-hero-banner__title-accent">{t(locale, 'MigrateToAuthgear.whyTitleAccent')}</span>
+      </h2>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card">
+        <img src="/images/migratetoauthgear_icon-01.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MigrateToAuthgear.card1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MigrateToAuthgear.card1Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/migratetoauthgear_icon-02.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MigrateToAuthgear.card2Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MigrateToAuthgear.card2Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/migratetoauthgear_icon-03.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MigrateToAuthgear.card3Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MigrateToAuthgear.card3Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/migratetoauthgear_icon-04.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MigrateToAuthgear.card4Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MigrateToAuthgear.card4Desc')}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'MigrateToAuthgear.whoTitle')}</h2>
+      <p class="section-lede-on-light">{t(locale, 'MigrateToAuthgear.whoDesc')}</p>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card">
+        <img src="/images/migratetoauthgear_who-icon-mau.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MigrateToAuthgear.who1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MigrateToAuthgear.who1Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/migratetoauthgear_who-icon-enterprise.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MigrateToAuthgear.who2Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MigrateToAuthgear.who2Desc')}</div>
+        </div>
+      </div>
+    </div>
+    <div class="title-content">
+      <p class="section-lede-on-light"><strong>{t(locale, 'MigrateToAuthgear.whoNote')}</strong></p>
+      <p class="section-lede-on-light">{t(locale, 'MigrateToAuthgear.whoNoteDesc')}</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer-form-section new-bg">
+  <div class="container-default">
+    <div class="container-default-inner">
+      <div class="_2-block-flex footer-form bg-white radius-24px p-60">
+        <div class="_2-block-flex-content footer-form">
+          <div class="_2-block-flex-content-text-wrap footer-form">
+            <h2 class="form-heading footer-form ibm-plex-sans color-000">Ready to Migrate to a <span class="color-gradient">Seamless &amp; Secure Authentication System?</span></h2>
+            <div class="form-description ibm-plex-sans">Tell us a little about yourself and your migration needs.Our team will be in touch to answer your questions and get you started.</div>
+          </div>
+        </div>
+        <div class="_2-block-flex-image footer-form">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import MigrateToAuthgearPage from '@/components/pages/MigrateToAuthgearPage.astro';
+const locale = 'zh-TW';
+const title = t(locale, 'MigrateToAuthgear.title');
+const description = t(locale, 'MigrateToAuthgear.description');
+---
+<BaseLayout locale={locale} title={title} description={description}>
+  <MigrateToAuthgearPage locale={locale} />
+</BaseLayout>
