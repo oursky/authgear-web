@@ -27,6 +27,14 @@ function href(pathOrUrl: string): string {
   return localizedPath(locale, pathOrUrl);
 }
 
+function renderProductColumn(col: NavColumn) {
+  const simple = col as { subtitle: Record<string, string>; links: NavLink[] };
+  return {
+    subtitle: simple.subtitle[locale] ?? simple.subtitle['en'],
+    links: simple.links,
+  };
+}
+
 const sideHref = href(solutionsSideImage.path);
 const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?? '';
 ---
@@ -104,15 +112,15 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
               }
 
               {/* Simple column — col.type is undefined */}
-              const simple = col as { subtitle: Record<string, string>; links: NavLink[] };
+              const simpleData = renderProductColumn(col);
               return (
                 <div class="nav-menu-dropdown-column">
                   <div class="nav-menu-dropdown-column">
                     <div class="nav-menu-dropdown-subtitle">
-                      {simple.subtitle[locale] ?? simple.subtitle['en']}
+                      {simpleData.subtitle}
                     </div>
                     <div class="nav-menu-dropdown-column-links">
-                      {simple.links.map((item) => (
+                      {simpleData.links.map((item) => (
                         <a href={href(item.path!)} class="nav-menu-dropdown-link w-inline-block">
                           <div>{label(item)}</div>
                         </a>
