@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import SlaPage from '@/components/pages/SlaPage.astro';
+
+const locale = 'en';
+const title = t(locale, 'Sla.title');
+const description = t(locale, 'Sla.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <SlaPage locale={locale} />
+</BaseLayout>
