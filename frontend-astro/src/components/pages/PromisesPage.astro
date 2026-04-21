@@ -1,0 +1,72 @@
+---
+import { t } from '@/i18n';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+---
+
+<>
+  <div class="page-wrapper">
+    <div class="inner-page-hero">
+      <div class="container-medium-761px">
+        <div class="text-center">
+          <div class="color-white">
+            <h1 class="color-white">Ours Promises</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container-default w-container"></div>
+      <div class="container-medium-761px">
+        <div class="ds-richtext-prose rich-text w-richtext">
+          <ol role="list">
+            <li>You own your code and data, not us.</li>
+            <li>We won't lock you in from other vendors.</li>
+            <li>We will do everything we can to achieve 100% uptime.</li>
+            <li>We will never achieve 100% uptime, but when we fall short, we'll explain why and how we'll do better next time.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="section cta">
+      <div class="container-default w-container">
+        <div class="cta-wrapper">
+          <div class="animation-div">
+            <a href="/pricing" class="split-content cta-left w-inline-block">
+              <h2 class="title cta-split-content-left">Get Started for free</h2>
+              <p class="paragraph cta-split-content-left">Authgear.com is free for apps unlimited MAUs (Monthly Active Users) with Authgear branding. It is also open source and always free!</p>
+              <div class="link-wrapper white">
+                <div>Get Started</div>
+                <div class="underline-wrapper white">
+                  <div class="underline white"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="animation-div">
+            <a href="/schedule-demo" class="split-content cta-right w-inline-block">
+              <h2 class="title cta-split-content-right">Talk with our sales team</h2>
+              <p class="paragraph cta-split-content-right">If you are looking for volume discounts, custom support plans, SLA, or have a different compliance requirements, feel free to contact us!</p>
+              <div class="link-wrapper cta-right">
+                <div>Contact Us</div>
+                <div class="underline-wrapper">
+                  <div class="underline"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-default w-container">
+      <div class="divider"></div>
+    </div>
+  </div>
+</>

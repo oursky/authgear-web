@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import PromisesPage from '@/components/pages/PromisesPage.astro';
+
+const locale = 'zh-TW';
+const title = t(locale, 'Promises.title');
+const description = t(locale, 'Promises.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <PromisesPage locale={locale} />
+</BaseLayout>
