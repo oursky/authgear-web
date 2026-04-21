@@ -1,0 +1,92 @@
+---
+import ContactForm from '@/components/islands/ContactForm';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<div class="featurespage__hero">
+    <div class="features-hero-wrapper">
+      <div class="split-content integrations-hero-left">
+        <h1 class="title features-hero">Email Passcode</h1>
+        <p class="paragraph-large">Easily enable WhatsApp OTP with a single click to provide a simpler and more secure for users to sign up for and log into your app.</p>
+        <div class="features-hero-cta-wrapper">
+          <a href="/talk-with-us" target="_blank" class="button-primary feature-hero-btn w-button">Request Demo<span class="muted"></span></a>
+          <a href="https://accounts.portal.authgearapps.com/signup" target="_blank" class="button-secondary feature-hero-btn w-button">Get Started</a>
+        </div>
+      </div><img src="/images/ag-favicon256w.png" alt="" class="image features-hero" />
+    </div>
+  </div>
+  <div class="section features-page">
+    <div class="container-default w-container">
+      <div class="top-content feature-flex">
+        <h2 class="title features-page">Increase App Conversion Rate with Simple 3-step WhatsApp OTP</h2>
+        <p class="paragraph-large text-center features-page">Passwordless authentication refers to any authentication method that does not require passwords to verify users' identities. Common passwordless authentication methods include biometrics, one-time password (OTP), and magic link.</p>
+        <div class="features-page-steps">
+          <div class="features-page-step">
+            <h5>Step 1</h5>
+            <p>User enter the phone number they used to register WhatsApp</p>
+          </div>
+          <div class="features-page-step">
+            <h5>Step 2</h5>
+            <p>User enter the phone number they used to register WhatsApp</p>
+          </div>
+          <div class="features-page-step">
+            <h5>Step 3</h5>
+            <p>User enter the phone number they used to register WhatsApp</p>
+          </div>
+        </div>
+      </div>
+      <div class="features-page-card-wrapper">
+        <div class="features-page-card">
+          <h3 class="h3-title-small">Leverage WhatsApp Drip Campaign to Boost Sales</h3>
+          <p>After your users sign up via WhatsApp OTP, you can then perform automated campaigns, or drip campaigns, through WhatsApp, which is proven to be much more effective than SMS or emails.</p>
+          <div class="features-page-card-points">
+            <div class="features-page-card-point"><img src="/images/biometrics.svg" loading="lazy" alt="" class="features-page-point-img" />
+              <p class="paragraph-small"><span>50% higher Response Rates</span></p>
+            </div>
+            <div class="features-page-card-point"><img src="/images/biometrics.svg" loading="lazy" alt="" class="features-page-point-img" />
+              <p class="paragraph-small"><span>70% Click Through Rates (CTR)</span></p>
+            </div>
+            <div class="features-page-card-point"><img src="/images/biometrics.svg" loading="lazy" alt="" class="features-page-point-img" />
+              <p class="paragraph-small"><span>Messages Read within 3 Seconds</span></p>
+            </div>
+            <div class="features-page-card-point"><img src="/images/biometrics.svg" loading="lazy" alt="" class="features-page-point-img" />
+              <p class="paragraph-small"><span>Save Manpower Cost by 25%</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="features-page-card image"><img src="/images/features-pwless-1.svg" loading="lazy" alt="" class="features-page-list-image" /></div>
+      </div>
+      <div class="features-page-card-wrapper alternative-order">
+        <div class="features-page-card image"><img src="/images/features-pwless-2.svg" loading="lazy" alt="" class="features-page-list-image" /></div>
+        <div class="features-page-card">
+          <h3 class="h3-title-small">Spend Less Per Message on WhatsApp</h3>
+          <p>Authgear's user-initiated WhatsApp OTP allows you to</p>
+          <ul role="list">
+            <li>Authenticate users for free<br /></li>
+            <li>Enjoy lower cost per conversation compared to SMS</li>
+            <li>Deliver marketing messages with lower costs</li>
+          </ul>
+        </div>
+      </div>
+      <div class="features-page-card-wrapper">
+        <div class="features-page-card">
+          <h3 class="h3-title-small">Enhance Security While Improving User Experience</h3>
+          <p>No need to find the balance between security and user experience. OTP sent via WhatsApp provides a simpler login and re-authentication process for users while enhancing security with end-to-end encryption and passwordless authentication.</p>
+        </div><img src="/images/features-pwless-3.svg" loading="lazy" alt="" class="features-page-list-image" />
+      </div>
+    </div>
+    <div class="features-page-perks-grid-wrapper">
+      <div class="top-content feature-flex">
+        <h2 class="title features-page">Leverage The Most Popular Messenger App Across The Globe</h2>
+        <p class="paragraph-large text-center features-page">WhatsApp has approximately 2 billion monthly active users, making it the most popular global mobile messenger app. Furthermore, it is free from the international deliverability issues of SMS. Send OTPs with the messenger service your users are familiar with to verify transactions and logins, providing smoother user experience and increasing customer retention.Users can still verify through SMS if they do not use WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+  <div class="features-page-contact-us-section">
+    <div class="features-page-contact-us-container w-container">
+      <div class="top-content feature-flex contact-form-title">
+        <h2 class="title features-page">Easily Switch Your OTP and 2FA to WhatsApp Now</h2>
+      </div>
+      <ContactForm client:load />
+    </div>
+  </div>
