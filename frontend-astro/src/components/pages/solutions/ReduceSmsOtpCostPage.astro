@@ -3,6 +3,7 @@ import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
 import ContactForm from '@/components/islands/ContactForm';
 import LogoMarquee from '@/components/islands/LogoMarquee';
+import SmsCostCalculator from '@/components/islands/sms-calculator/SmsCostCalculator';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
@@ -179,7 +180,7 @@ const { locale } = Astro.props;
           {t(locale, 'ReduceSmsOtpCost.calculatorDesc')}
         </p>
       </div>
-      <div data-placeholder="SmsCostCalculator" aria-label="SMS cost calculator (pending port — Phase 2d)"></div>
+      <SmsCostCalculator client:visible locale={locale} />
     </div>
   </section>
   <section class="ds-section">
