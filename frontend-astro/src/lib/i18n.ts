@@ -1,5 +1,4 @@
-// TODO(Task 4): restore `import type { StrapiLocale } from './strapi';` once strapi.ts lands
-type StrapiLocale = 'en' | 'zh-Hant-TW';
+import type { StrapiLocale } from './strapi';
 
 /**
  * Supported locales. Default (`en`) is served at unprefixed URLs (`/pricing`);
