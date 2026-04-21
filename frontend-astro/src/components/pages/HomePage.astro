@@ -1,0 +1,518 @@
+---
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+
+interface Props { locale: string }
+const { locale } = Astro.props;
+
+function tRich(locale: string, key: string): string {
+  const raw = t(locale, key);
+  return raw
+    .replace(/<gradient>([\s\S]*?)<\/gradient>/g, '<span class="once-gradient">$1</span>')
+    .replace(/<br><\/br>/g, '<br>')
+    .replace(/<br\s*\/>/g, '<br>');
+}
+---
+
+<div class="page-wrapper">
+  <!-- Hero Section -->
+  <div class="section home-hero dark banner-for-slide not-in-slide">
+    <div class="container-1440 home-mobile-banner">
+      <div class="home-hero-wrapper">
+        <div class="container-medium-908px home-hero">
+          <div class="w-layout-blockcontainer product-switch-outer w-container">
+            <div class="w-layout-hflex product-switch">
+              <div class="w-layout-hflex flex-block-66 active">
+                <div class="code-embed-4 w-embed"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.53093 4.98208C6.93198 3.67788 8.86593 3 11.0358 3H21.632C23.8031 3 25.7368 3.68155 27.1373 4.98691C28.5456 6.29955 29.3337 8.16888 29.3337 10.3761V16.4332C29.3337 16.9855 28.886 17.4332 28.3337 17.4332C27.7815 17.4332 27.3337 16.9855 27.3337 16.4332V10.3761C27.3337 8.66433 26.7345 7.34559 25.7736 6.44992C24.8049 5.54699 23.3877 5 21.632 5H11.0358C9.2787 5 7.86176 5.54481 6.89364 6.44599C5.93362 7.33964 5.33398 8.65784 5.33398 10.3761V21.6211C5.33398 23.3401 5.9337 24.6589 6.89381 25.5531C7.86194 26.4547 9.27885 26.9997 11.0358 26.9997H12.2578C12.8101 26.9997 13.2578 27.4475 13.2578 27.9997C13.2578 28.552 12.8101 28.9997 12.2578 28.9997H11.0358C8.86578 28.9997 6.9318 28.3215 5.53077 27.0167C4.1217 25.7045 3.33398 23.834 3.33398 21.6211V10.3761C3.33398 8.16369 4.12178 6.29381 5.53093 4.98208Z" fill="#fff" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.36523 16C3.36523 15.4477 3.81294 15 4.36523 15H16.6272C17.1794 15 17.6272 15.4477 17.6272 16C17.6272 16.5523 17.1794 17 16.6272 17H4.36523C3.81294 17 3.36523 16.5523 3.36523 16Z" fill="#fff" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.15039 21.5131C9.15039 20.9608 9.59811 20.5131 10.1504 20.5131H10.847C11.3993 20.5131 11.847 20.9608 11.847 21.5131C11.847 22.0653 11.3993 22.5131 10.847 22.5131H10.1504C9.59811 22.5131 9.15039 22.0653 9.15039 21.5131Z" fill="#fff" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.15039 10.487C9.15039 9.93469 9.59811 9.48697 10.1504 9.48697H10.847C11.3993 9.48697 11.847 9.93469 11.847 10.487C11.847 11.0393 11.3993 11.487 10.847 11.487H10.1504C9.59811 11.487 9.15039 11.0393 9.15039 10.487ZM15.4683 10.487C15.4683 9.93469 15.916 9.48697 16.4683 9.48697H22.5136C23.0659 9.48697 23.5136 9.93469 23.5136 10.487C23.5136 11.0393 23.0659 11.487 22.5136 11.487H16.4683C15.916 11.487 15.4683 11.0393 15.4683 10.487Z" fill="#fff" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.417 19.7139C19.1082 18.8004 20.2219 18.0703 21.7978 18.0703C23.3736 18.0703 24.4872 18.8004 25.1786 19.7139C25.604 20.276 25.8731 20.9097 26.0107 21.4937C26.6736 21.6397 27.2874 21.9484 27.7838 22.4223C28.5026 23.1085 28.9079 24.0776 28.9079 25.2064C28.9079 26.7509 27.9916 28.0855 26.6684 28.6837C26.6551 28.6897 26.6415 28.6955 26.6279 28.7009C26.0868 28.9173 25.5487 28.9995 25.12 28.9995H18.4702C18.037 28.9995 17.5003 28.9131 16.9662 28.6968C16.9539 28.6917 16.9416 28.6865 16.9296 28.6811C15.6088 28.084 14.6875 26.7536 14.6875 25.2064C14.6875 24.0776 15.0928 23.1085 15.8118 22.4223C16.3082 21.9484 16.9219 21.6397 17.5847 21.4937C17.7223 20.9097 17.9915 20.276 18.417 19.7139Z" fill="#fff" />
+                  </svg></div>
+                <div class="text-block-63 active">{t(locale, 'Home.productSwitchCloud')}</div>
+              </div>
+              <a href={localizedPath(locale, '/once')} class="flex-block-66 w-inline-block">
+                <div class="code-embed-4 w-embed"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 27.8844H24.7477C26.6535 27.8844 28 26.6921 28 24.7904V21.8831C28 19.9748 26.6535 18.7891 24.7477 18.7891H7.25232C5.3466 18.7891 4 19.9748 4 21.8831V24.7904C4 26.6973 5.3466 27.8844 7.25232 27.8844H11.6262" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M21.7129 27.875V22.1902" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M8.7832 23.3385H10.0818" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M16 4.11459H7.25232C5.3466 4.11459 4 5.30681 4 7.20865V10.1159C4 12.0229 5.3466 13.2099 7.25232 13.2099H24.7477C26.6535 13.2099 28 12.0229 28 10.1159V7.20865C28 5.30162 26.6535 4.11459 24.7477 4.11459H20.3739" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M21.7129 13.2095V8.00259" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M8.7832 8.66147H10.0818" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg></div>
+                <div class="text-block-63">{t(locale, 'Home.productSwitchServer')}</div>
+              </a>
+            </div>
+          </div>
+          <div class="w-layout-vflex flex-block-55"><img src="/images/Auhtgear_bannerlogo_CLOUD.svg" loading="lazy" width="361" alt="" class="image-79" />
+            <h1 class="heading herotag text-white ibm-plex-sans cloud-h1">{t(locale, 'Home.heroHeading')}</h1>
+            <p class="paragraph-large home-hero text-afb7ff ibm-plex-sans new-kv-desc no-margin">{t(locale, 'Home.heroParagraph')}</p>
+          </div>
+          <div class="w-layout-hflex home-hero-cta-wrapper">
+            <a href="https://portal.authgear.com/?utm_source=landing-page&utm_medium=link&utm_campaign=login_button" target="_blank" rel="noopener noreferrer" class="button-primary home-hero new-home radius-16 w-button plausible-event-name--signup">{t(locale, 'Home.heroCtaGetStarted')}</a>
+            <a href="https://docs.authgear.com/" class="developer-docs">{t(locale, 'Home.heroCtaHowToIntegrate')}</a>
+          </div>
+        </div>
+        <div class="home-hero-img-wrapper"><img src="/images/home_kv_ui2x.webp" loading="lazy" width="683" sizes="(max-width: 767px) 100vw, 683px" alt="" srcset="/images/home_kv_ui2x-p-500.webp 500w, /images/home_kv_ui2x-p-800.webp 800w, /images/home_kv_ui2x-p-1080.webp 1080w, /images/home_kv_ui2x.webp 1366w" class="image-9" /></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trusted By Section -->
+  <section class="bg-0e0f28">
+    <div class="container-default flex-center gap20 padding48 w-container">
+      <div class="w-layout-vflex flex-block-56">
+        <div class="w-layout-vflex flex-block-57">
+          <p class="paragraph-large home-hero text-afb7ff ibm-plex-sans new-kv-desc no-margin text-center trused-by">{t(locale, 'Home.trustedBy')}</p>
+        </div>
+      </div>
+      <div class="images-wrapper home-hero">
+        <div class="image-wrapper home-hero">
+          <div class="home-lottie" data-animation-type="lottie" data-src="documents/data.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="7.74107409244067" data-duration="0"></div><img src="/images/hero-mobile.png" alt="" class="image home-hero sm" />
+        </div>
+      </div>
+      <div data-placeholder="LogoMarquee"></div>
+      <div class="w-layout-blockcontainer container-1469 w-container"></div>
+      <div class="w-layout-blockcontainer container-1469 left w-container"></div>
+    </div>
+  </section>
+
+  <!-- Secure Every User Journey / CIAM Solutions -->
+  <div class="bg-0e0f28">
+    <div class="container-default">
+      <div class="container-default-inner">
+        <div class="top-content flex-column text-center">
+          <h2 class="cloud-h2" set:html={tRich(locale, 'Home.ciamHeading')}></h2>
+          <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.ciamSubheading')}</div>
+        </div>
+        <div class="w-layout-grid feature-grid-3x1 home-cards-grid-wrap">
+          <a href="/solutions/ciam-solution" class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
+            <div class="home-card-wrap home-card-content">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15118)" stroke="url(#paint1_h_15118)" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M41.5 37.5V44.5C41.5 46.432 39.934 48 38 48H22C20.066 48 18.5 46.432 18.5 44.5V37.5C18.5 34.98 19.5 32.564 21.282 30.782C23.064 29 25.48 28 28 28H32C34.52 28 36.936 29 38.718 30.782C40.5 32.564 41.5 34.98 41.5 37.5Z" fill="url(#paint2_h_15118)" />
+                    <path d="M30 27C34.1421 27 37.5 23.6421 37.5 19.5C37.5 15.3579 34.1421 12 30 12C25.8579 12 22.5 15.3579 22.5 19.5C22.5 23.6421 25.8579 27 30 27Z" fill="url(#paint3_h_15118)" />
+                    <path d="M45 27C47.7614 27 50 24.7614 50 22C50 19.2386 47.7614 17 45 17C42.2386 17 40 19.2386 40 22C40 24.7614 42.2386 27 45 27Z" fill="url(#paint4_h_15118)" />
+                    <path d="M15 27C17.7614 27 20 24.7614 20 22C20 19.2386 17.7614 17 15 17C12.2386 17 10 19.2386 10 22C10 24.7614 12.2386 27 15 27Z" fill="url(#paint5_h_15118)" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.522 45H12C11.072 45 10.182 44.632 9.526 43.974C8.868 43.318 8.5 42.428 8.5 41.5V33.5C8.5 32.042 9.08 30.642 10.11 29.61C11.142 28.58 12.542 28 14 28H16C17.396 28 18.738 28.532 19.756 29.482C17.67 31.628 16.5 34.504 16.5 37.5V44.5C16.5 44.668 16.508 44.836 16.522 45Z" fill="url(#paint6_h_15118)" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M40.2439 29.482C41.2619 28.532 42.6039 28 43.9999 28H45.9999C47.4579 28 48.8579 28.58 49.8899 29.61C50.9199 30.642 51.4999 32.042 51.4999 33.5V41.5C51.4999 42.428 51.1319 43.318 50.4739 43.974C49.8179 44.632 48.9279 45 47.9999 45H43.4779C43.4919 44.836 43.4999 44.668 43.4999 44.5V37.5C43.4999 34.504 42.3299 31.628 40.2439 29.482Z" fill="url(#paint7_h_15118)" />
+                    <defs>
+                      <linearGradient id="paint0_h_15118" x1="4.5" y1="-1.62902e-07" x2="58.8397" y2="64.369" gradientUnits="userSpaceOnUse"><stop stop-color="#9296FF" /><stop offset="1" stop-color="#1E256F" /></linearGradient>
+                      <linearGradient id="paint1_h_15118" x1="4.5" y1="-1.62902e-07" x2="58.8397" y2="64.369" gradientUnits="userSpaceOnUse"><stop stop-color="#1E256F" /><stop offset="1" stop-color="#9296FF" /></linearGradient>
+                      <linearGradient id="paint2_h_15118" x1="30.0157" y1="28" x2="30.7335" y2="47.9911" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C6C9FF" /></linearGradient>
+                      <linearGradient id="paint3_h_15118" x1="30.0102" y1="12" x2="30.6291" y2="26.9871" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C6C9FF" /></linearGradient>
+                      <linearGradient id="paint4_h_15118" x1="45.0068" y1="17" x2="45.4194" y2="26.9914" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C6C9FF" /></linearGradient>
+                      <linearGradient id="paint5_h_15118" x1="15.0068" y1="17" x2="15.4194" y2="26.9914" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C6C9FF" /></linearGradient>
+                      <linearGradient id="paint6_h_15118" x1="14.1357" y1="28" x2="15.1927" y2="44.9484" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C6C9FF" /></linearGradient>
+                      <linearGradient id="paint7_h_15118" x1="45.8796" y1="28" x2="46.9366" y2="44.9484" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C6C9FF" /></linearGradient>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text dark hover-to-white">{t(locale, 'Home.ciamCard1Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text dark hover-to-cee9ff">{t(locale, 'Home.ciamCard1Desc')}</div>
+              </div>
+            </div>
+            <div class="home-card-arrow hover-to-white w-embed"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_h_a)"><path d="M18 0C8.07497 0 0 8.07497 0 18C0 27.925 8.07497 36 18 36C27.925 36 36 27.925 36 18C36 8.07497 27.925 0 18 0ZM18 33.75C9.31528 33.75 2.25 26.6847 2.25 18C2.25 9.31528 9.31528 2.25 18 2.25C26.6847 2.25 33.75 9.31528 33.75 18C33.75 26.6847 26.6847 33.75 18 33.75ZM25.5454 17.2046C25.985 17.6442 25.985 18.3561 25.5454 18.7954L19.9204 24.4204C19.7007 24.64 19.4127 24.75 19.125 24.75C18.8373 24.75 18.5493 24.64 18.3296 24.4204C17.89 23.9808 17.89 23.2689 18.3296 22.8296L22.0343 19.125H11.25C10.6287 19.125 10.125 18.6218 10.125 18C10.125 17.3782 10.6287 16.875 11.25 16.875H22.0343L18.3296 13.1704C17.89 12.7308 17.89 12.0189 18.3296 11.5796C18.7692 11.1403 19.4811 11.14 19.9204 11.5796L25.5454 17.2046Z" fill="currentColor" /></g><defs><clipPath id="clip_h_a"><rect width="36" height="36" fill="white" /></clipPath></defs></svg></div>
+          </a>
+          <a href="/solutions/frontline-workers-identity" class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
+            <div class="home-card-wrap home-card-content">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15136)" stroke="url(#paint1_h_15136)" />
+                    <path d="M52 44C52 44.5304 51.7893 45.0391 51.4142 45.4142C51.0391 45.7893 50.5304 46 50 46H26C25.4696 46 24.9609 45.7893 24.5858 45.4142C24.2107 45.0391 24 44.5304 24 44C24 40.8174 25.2643 37.7652 27.5147 35.5147C29.7652 33.2643 32.8174 32 36 32H40C43.1826 32 46.2348 33.2643 48.4853 35.5147C50.7357 37.7652 52 40.8174 52 44ZM38 14C36.4177 14 34.871 14.4692 33.5554 15.3482C32.2398 16.2273 31.2145 17.4767 30.609 18.9385C30.0035 20.4003 29.845 22.0089 30.1537 23.5607C30.4624 25.1126 31.2243 26.538 32.3431 27.6569C33.462 28.7757 34.8874 29.5376 36.4393 29.8463C37.9911 30.155 39.5997 29.9965 41.0615 29.391C42.5233 28.7855 43.7727 27.7602 44.6518 26.4446C45.5308 25.129 46 23.5823 46 22C46 19.8783 45.1571 17.8434 43.6569 16.3431C42.1566 14.8429 40.1217 14 38 14ZM20 14C18.4177 14 16.871 14.4692 15.5554 15.3482C14.2398 16.2273 13.2145 17.4767 12.609 18.9385C12.0035 20.4003 11.845 22.0089 12.1537 23.5607C12.4624 25.1126 13.2243 26.538 14.3431 27.6569C15.462 28.7757 16.8874 29.5376 18.4393 29.8463C19.9911 30.155 21.5997 29.9965 23.0615 29.391C24.5233 28.7855 25.7727 27.7602 26.6518 26.4446C27.5308 25.129 28 23.5823 28 22C28 19.8783 27.1571 17.8434 25.6569 16.3431C24.1566 14.8429 22.1217 14 20 14ZM20 44C19.997 41.8992 20.4109 39.8187 21.2177 37.879C22.0245 35.9393 23.2081 34.179 24.7 32.7C23.4791 32.239 22.185 32.0019 20.88 32H19.12C16.1724 32.0053 13.3471 33.1786 11.2628 35.2628C9.17855 37.3471 8.00529 40.1724 8 43.12V44C8 44.5304 8.21071 45.0391 8.58579 45.4142C8.96086 45.7893 9.46957 46 10 46H20.36C20.1272 45.3587 20.0054 44.6823 20 44Z" fill="url(#paint2_h_15136)" />
+                    <defs>
+                      <linearGradient id="paint0_h_15136" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#65FF84" /><stop offset="1" stop-color="#05745F" /></linearGradient>
+                      <linearGradient id="paint1_h_15136" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#05745F" /><stop offset="1" stop-color="#65FF84" /></linearGradient>
+                      <linearGradient id="paint2_h_15136" x1="30.03" y1="14" x2="30.991" y2="45.9982" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#98FFE2" /></linearGradient>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text dark hover-to-white">{t(locale, 'Home.ciamCard2Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text dark hover-to-cee9ff">{t(locale, 'Home.ciamCard2Desc')}</div>
+              </div>
+            </div>
+            <div class="home-card-arrow hover-to-white w-embed"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_h_b)"><path d="M18 0C8.07497 0 0 8.07497 0 18C0 27.925 8.07497 36 18 36C27.925 36 36 27.925 36 18C36 8.07497 27.925 0 18 0ZM18 33.75C9.31528 33.75 2.25 26.6847 2.25 18C2.25 9.31528 9.31528 2.25 18 2.25C26.6847 2.25 33.75 9.31528 33.75 18C33.75 26.6847 26.6847 33.75 18 33.75ZM25.5454 17.2046C25.985 17.6442 25.985 18.3561 25.5454 18.7954L19.9204 24.4204C19.7007 24.64 19.4127 24.75 19.125 24.75C18.8373 24.75 18.5493 24.64 18.3296 24.4204C17.89 23.9808 17.89 23.2689 18.3296 22.8296L22.0343 19.125H11.25C10.6287 19.125 10.125 18.6218 10.125 18C10.125 17.3782 10.6287 16.875 11.25 16.875H22.0343L18.3296 13.1704C17.89 12.7308 17.89 12.0189 18.3296 11.5796C18.7692 11.1403 19.4811 11.14 19.9204 11.5796L25.5454 17.2046Z" fill="currentColor" /></g><defs><clipPath id="clip_h_b"><rect width="36" height="36" fill="white" /></clipPath></defs></svg></div>
+          </a>
+          <a href="/solutions/b2b-saas-authentication" class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
+            <div class="home-card-wrap home-card-content">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15148)" stroke="url(#paint1_h_15148)" />
+                    <path d="M24 10.5H15C12.5147 10.5 10.5 12.5147 10.5 15V24C10.5 26.4853 12.5147 28.5 15 28.5H24C26.4853 28.5 28.5 26.4853 28.5 24V15C28.5 12.5147 26.4853 10.5 24 10.5Z" fill="url(#paint2_h_15148)" />
+                    <path d="M45 10.5H36C33.5147 10.5 31.5 12.5147 31.5 15V24C31.5 26.4853 33.5147 28.5 36 28.5H45C47.4853 28.5 49.5 26.4853 49.5 24V15C49.5 12.5147 47.4853 10.5 45 10.5Z" fill="url(#paint3_h_15148)" />
+                    <path d="M24 31.5H15C12.5147 31.5 10.5 33.5147 10.5 36V45C10.5 47.4853 12.5147 49.5 15 49.5H24C26.4853 49.5 28.5 47.4853 28.5 45V36C28.5 33.5147 26.4853 31.5 24 31.5Z" fill="url(#paint4_h_15148)" />
+                    <path d="M40.5 49.5C45.4706 49.5 49.5 45.4706 49.5 40.5C49.5 35.5294 45.4706 31.5 40.5 31.5C35.5294 31.5 31.5 35.5294 31.5 40.5C31.5 45.4706 35.5294 49.5 40.5 49.5Z" fill="url(#paint5_h_15148)" />
+                    <defs>
+                      <linearGradient id="paint0_h_15148" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#25A4FF" /><stop offset="1" stop-color="#580093" /></linearGradient>
+                      <linearGradient id="paint1_h_15148" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#580093" /><stop offset="1" stop-color="#25A4FF" /></linearGradient>
+                      <linearGradient id="paint2_h_15148" x1="19.5" y1="10.5" x2="19.5" y2="28.5" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#7CA6FF" /></linearGradient>
+                      <linearGradient id="paint3_h_15148" x1="40.5" y1="10.5" x2="40.5" y2="28.5" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#7CA6FF" /></linearGradient>
+                      <linearGradient id="paint4_h_15148" x1="19.5" y1="31.5" x2="19.5" y2="49.5" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#7CA6FF" /></linearGradient>
+                      <linearGradient id="paint5_h_15148" x1="40.5" y1="31.5" x2="40.5" y2="49.5" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#7CA6FF" /></linearGradient>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text dark hover-to-white">{t(locale, 'Home.ciamCard3Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text dark hover-to-cee9ff">{t(locale, 'Home.ciamCard3Desc')}</div>
+              </div>
+            </div>
+            <div class="home-card-arrow hover-to-white w-embed"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_h_c)"><path d="M18 0C8.07497 0 0 8.07497 0 18C0 27.925 8.07497 36 18 36C27.925 36 36 27.925 36 18C36 8.07497 27.925 0 18 0ZM18 33.75C9.31528 33.75 2.25 26.6847 2.25 18C2.25 9.31528 9.31528 2.25 18 2.25C26.6847 2.25 33.75 9.31528 33.75 18C33.75 26.6847 26.6847 33.75 18 33.75ZM25.5454 17.2046C25.985 17.6442 25.985 18.3561 25.5454 18.7954L19.9204 24.4204C19.7007 24.64 19.4127 24.75 19.125 24.75C18.8373 24.75 18.5493 24.64 18.3296 24.4204C17.89 23.9808 17.89 23.2689 18.3296 22.8296L22.0343 19.125H11.25C10.6287 19.125 10.125 18.6218 10.125 18C10.125 17.3782 10.6287 16.875 11.25 16.875H22.0343L18.3296 13.1704C17.89 12.7308 17.89 12.0189 18.3296 11.5796C18.7692 11.1403 19.4811 11.14 19.9204 11.5796L25.5454 17.2046Z" fill="currentColor" /></g><defs><clipPath id="clip_h_c"><rect width="36" height="36" fill="white" /></clipPath></defs></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Streamline Security and Growth -->
+  <div class="bg-0e0f28">
+    <div class="container-default">
+      <div class="container-default-inner">
+        <div class="top-content flex-column text-center">
+          <h2 class="cloud-h2" set:html={tRich(locale, 'Home.growthHeading')}></h2>
+          <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.growthSubheading')}</div>
+        </div>
+        <div class="home-feature-cards-v2_wrap">
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29c78-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_growth-with-authgear_empower-users.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-60 height-100" />
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.growthCard1Title')}</h5>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.growthCard1Desc')}</div>
+            </div>
+          </div>
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29c7f-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_growth-with-authgear_integration.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-60 height-100" />
+            <div>
+              <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+                <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.growthCard2Title')}</h5>
+                <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.growthCard2Desc')}</div>
+              </div>
+            </div>
+          </div>
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29c87-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_growth-with-authgear_security.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-60 height-100" />
+            <div>
+              <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+                <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.growthCard3Title')}</h5>
+                <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.growthCard3Desc')}</div>
+              </div>
+            </div>
+          </div>
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29c8f-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_growth-with-authgear_built-all-business.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-60 height-100" />
+            <div>
+              <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+                <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.growthCard4Title')}</h5>
+                <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.growthCard4Desc')}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Microservices Architecture -->
+  <div>
+    <div class="container-default">
+      <div class="container-default-inner">
+        <div class="top-content flex-column text-center">
+          <h2 class="cloud-h2 dark-cloud-h2" set:html={tRich(locale, 'Home.microservicesHeading')}></h2>
+          <div class="top-content-description ibm-plex-sans">{t(locale, 'Home.microservicesSubheading')}</div>
+        </div>
+        <div class="home-feature-cards-v2_wrap gap-32">
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29cd1-19df57f8" class="home-card radius-48 bg-diagonal-gradient-dark content-center">
+            <div class="home-card-wrap home-card-content">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15168)" stroke="url(#paint1_h_15168)" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M51.022 33.7279C46.5911 33.7279 44.368 39.0958 47.501 42.2287C47.6383 42.3659 47.7472 42.5289 47.8215 42.7082C47.8958 42.8876 47.934 43.0798 47.934 43.274C47.934 43.4681 47.8958 43.6603 47.8215 43.8397C47.7472 44.0191 47.6383 44.182 47.501 44.3193L44.319 47.5013C44.0417 47.7785 43.6657 47.9343 43.2737 47.9343C42.8816 47.9343 42.5056 47.7785 42.2284 47.5013C39.0955 44.3684 33.7276 46.5915 33.7276 51.0224C33.7275 51.4143 33.5718 51.7901 33.2947 52.0671C33.0176 52.3442 32.6419 52.4999 32.25 52.5H27.75C27.5559 52.5 27.3637 52.4618 27.1844 52.3875C27.0051 52.3133 26.8421 52.2044 26.7049 52.0671C26.5676 51.9299 26.4588 51.767 26.3845 51.5876C26.3102 51.4083 26.272 51.2161 26.272 51.022C26.272 46.5857 20.9081 44.3641 17.7712 47.501C17.494 47.7782 17.118 47.9339 16.7259 47.9339C16.3339 47.9339 15.9579 47.7782 15.6806 47.501L12.499 44.3189C12.2218 44.0417 12.0661 43.6657 12.0661 43.2736C12.0661 42.8815 12.2218 42.5055 12.499 42.2283C15.632 39.0954 13.4089 33.7275 8.97797 33.7275C8.58606 33.7275 8.21019 33.5719 7.93303 33.2948C7.65586 33.0177 7.5001 32.6419 7.5 32.25V27.75C7.49999 27.5559 7.53821 27.3637 7.61248 27.1844C7.68675 27.0051 7.79562 26.8421 7.93286 26.7049C8.0701 26.5676 8.23304 26.4588 8.41236 26.3845C8.59168 26.3102 8.78388 26.272 8.97797 26.272C13.4089 26.272 15.632 20.9041 12.499 17.7712C12.2218 17.494 12.0661 17.118 12.0661 16.7259C12.0661 16.3339 12.2218 15.9579 12.499 15.6806L15.6811 12.4986C15.8184 12.3613 15.9813 12.2524 16.1607 12.1781C16.34 12.1038 16.5323 12.0655 16.7264 12.0655C16.9205 12.0655 17.1128 12.1038 17.2921 12.1781C17.4715 12.2524 17.6345 12.3613 17.7717 12.4986C20.9046 15.6315 26.2725 13.4084 26.2725 8.9775C26.2726 8.58567 26.4283 8.20992 26.7054 7.93286C26.9824 7.6558 27.3582 7.5001 27.75 7.5H32.25C32.4441 7.49999 32.6363 7.53821 32.8156 7.61248C32.9949 7.68675 33.1579 7.79562 33.2951 7.93286C33.4324 8.0701 33.5412 8.23304 33.6155 8.41236C33.6898 8.59168 33.728 8.78388 33.728 8.97797C33.728 13.4089 39.0959 15.632 42.2288 12.499C42.366 12.3618 42.529 12.2529 42.7083 12.1786C42.8877 12.1043 43.0799 12.066 43.2741 12.066C43.4682 12.066 43.6604 12.1043 43.8398 12.1786C44.0191 12.2529 44.1821 12.3618 44.3194 12.499L47.5013 15.6811C47.6386 15.8184 47.7475 15.9813 47.8218 16.1607C47.8961 16.34 47.9344 16.5323 47.9344 16.7264C47.9344 16.9205 47.8961 17.1128 47.8218 17.2921C47.7475 17.4715 47.6386 17.6345 47.5013 17.7717C44.3684 20.9046 46.5915 26.2725 51.0224 26.2725C51.4143 26.2726 51.79 26.4283 52.0671 26.7053C52.3442 26.9824 52.4999 27.3582 52.5 27.75V32.25C52.5 32.4441 52.4618 32.6363 52.3875 32.8156C52.3133 32.9949 52.2044 33.1579 52.0671 33.2951C51.9299 33.4324 51.767 33.5412 51.5876 33.6155C51.4083 33.6898 51.2161 33.728 51.022 33.728V33.7279ZM43.778 29.9958C43.7771 27.2709 42.9684 24.6075 41.4539 22.3423C39.9395 20.0771 37.7873 18.3118 35.2697 17.2696C32.752 16.2274 29.9819 15.9552 27.3095 16.4873C24.6371 17.0194 22.1825 18.3319 20.256 20.259C18.3296 22.186 17.0177 24.6411 16.4865 27.3136C15.9552 29.9862 16.2283 32.7562 17.2712 35.2736C18.3142 37.7909 20.0801 39.9425 22.3458 41.4563C24.6115 42.97 27.2752 43.778 30 43.778C31.8097 43.778 33.6017 43.4214 35.2736 42.7288C36.9455 42.0361 38.4645 41.0208 39.744 39.741C41.0234 38.4611 42.0382 36.9418 42.7304 35.2697C43.4225 33.5976 43.7785 31.8055 43.778 29.9958ZM25.3389 25.8C25.3388 26.722 25.6121 27.6233 26.1243 28.3899C26.6364 29.1565 27.3644 29.7541 28.2161 30.1069C29.0679 30.4598 30.0052 30.5522 30.9094 30.3724C31.8137 30.1926 32.6443 29.7486 33.2963 29.0967C33.9482 28.4448 34.3922 27.6142 34.5721 26.71C34.7519 25.8057 34.6596 24.8685 34.3068 24.0167C33.9539 23.1649 33.3564 22.4369 32.5898 21.9247C31.8232 21.4125 30.922 21.1392 30 21.1392C28.7639 21.1392 27.5784 21.6303 26.7043 22.5043C25.8302 23.3784 25.339 24.5639 25.3389 25.8ZM30 33.1475C28.1418 33.1471 26.3196 33.66 24.7345 34.6298C23.1493 35.5996 21.863 36.9884 21.0173 38.6431C22.1804 39.8518 23.5753 40.8134 25.1188 41.4702C26.6622 42.127 28.3223 42.4655 29.9997 42.4655C31.6771 42.4655 33.3372 42.127 34.8807 41.4702C36.4241 40.8134 37.8191 39.8518 38.9821 38.6431C38.1366 36.9884 36.8504 35.5996 35.2653 34.6298C33.6803 33.66 31.8582 33.147 30 33.1475Z" fill="url(#paint2_h_15168)" />
+                    <defs>
+                      <linearGradient id="paint0_h_15168" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#FF88DB" stop-opacity="0.93" /><stop offset="1" stop-color="#BF0030" /></linearGradient>
+                      <linearGradient id="paint1_h_15168" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#BF0030" /><stop offset="1" stop-color="#FF88DB" stop-opacity="0.93" /></linearGradient>
+                      <linearGradient id="paint2_h_15168" x1="30" y1="7.5" x2="30" y2="52.5" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#FFAED2" /></linearGradient>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text text-white">{t(locale, 'Home.microCard1Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text text-cee9ff">{t(locale, 'Home.microCard1Desc')}</div>
+              </div>
+            </div>
+          </div>
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29cdb-19df57f8" class="home-card radius-48 bg-diagonal-gradient-dark content-center">
+            <div class="home-card-wrap home-card-content">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15178)" stroke="url(#paint1_h_15178)" />
+                    <g clip-path="url(#clip0_h_15178)">
+                      <path d="M30 21.6667C25.8666 21.6667 22.5 25.025 22.5 29.1667C22.5 32.2663 24.3932 34.9347 27.0834 36.0756V37.9834L24.6584 40.4167L27.5751 43.3333L26.2499 44.6501V46.6919L29.6166 50.0001L32.9166 46.6919V36.0757C35.6067 34.9348 37.4999 32.2663 37.4999 29.1668C37.4999 25.025 34.1333 21.6667 30 21.6667ZM30 28.3309C29.0795 28.3309 28.3333 27.5847 28.3333 26.6643C28.3333 25.7437 29.0795 24.9977 30 24.9977C30.9205 24.9977 31.6666 25.7437 31.6666 26.6643C31.6666 27.5847 30.9205 28.3309 30 28.3309Z" fill="url(#paint2_h_15178)" />
+                      <path d="M44.325 22.8584C44.6834 21.7082 44.8251 20.5166 44.7584 19.2916C44.4583 14.2082 40.15 10.0416 35.15 10H35.075C31.0334 10 27.4334 12.5917 26.0167 16.3583C24.5334 15.125 22.625 14.5333 20.6834 14.7251C17.9083 15 15.5 16.9417 14.5333 19.675C14.1 20.8917 13.9917 22.1417 14.2166 23.4C11.6666 24.6584 10 27.3166 10 30.2333C10 34.4417 13.1583 37.5 17.5 37.5H25.2119L25.4166 37.2947V37.1034C22.6001 35.4774 20.8333 32.4712 20.8333 29.1664C20.8333 24.1119 24.9455 19.9997 30 19.9997C35.0546 19.9997 39.1667 24.1119 39.1667 29.1664C39.1667 32.4713 37.4 35.4775 34.5834 37.1035V37.5001H42.5C46.8417 37.5001 50 34.4418 50 30.2334C50 26.6667 47.625 23.6667 44.325 22.8584Z" fill="url(#paint3_h_15178)" />
+                    </g>
+                    <defs>
+                      <linearGradient id="paint0_h_15178" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#65FF84" /><stop offset="1" stop-color="#05745F" /></linearGradient>
+                      <linearGradient id="paint1_h_15178" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#05745F" /><stop offset="1" stop-color="#65FF84" /></linearGradient>
+                      <linearGradient id="paint2_h_15178" x1="30" y1="21.6667" x2="30" y2="50.0001" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C9FFD5" /></linearGradient>
+                      <linearGradient id="paint3_h_15178" x1="30" y1="10" x2="30" y2="37.5001" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C9FFD5" /></linearGradient>
+                      <clipPath id="clip0_h_15178"><rect width="40" height="40" fill="white" transform="translate(10 10)" /></clipPath>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text text-white">{t(locale, 'Home.microCard2Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text text-cee9ff">{t(locale, 'Home.microCard2Desc')}</div>
+              </div>
+            </div>
+          </div>
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29ce5-19df57f8" class="home-card radius-48 bg-diagonal-gradient-dark content-center">
+            <div class="home-card-wrap home-card-content">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15194)" stroke="url(#paint1_h_15194)" />
+                    <path d="M12.1774 20.4828C9.84976 18.1551 9.84976 14.3835 12.1774 12.0582C14.5026 9.73059 18.2743 9.73059 20.6019 12.0582C22.9296 14.3835 22.9296 18.1551 20.6019 20.4828C18.2743 22.808 14.5026 22.808 12.1774 20.4828ZM18.6417 29.9839C18.6417 28.7074 17.607 27.6725 16.3304 27.6725C15.0538 27.6725 14.0214 28.7073 14.0214 29.9839C14.0214 31.2606 15.0561 32.293 16.3304 32.293C17.6047 32.293 18.6417 31.2582 18.6417 29.9839ZM41.4482 29.9839C41.4482 31.2582 42.4829 32.293 43.7572 32.293C45.0315 32.293 46.0685 31.2582 46.0685 29.9839C46.0685 28.7097 45.0338 27.6725 43.7572 27.6725C42.4806 27.6725 41.4482 28.7073 41.4482 29.9839ZM47.9125 20.4828C50.2401 18.1551 50.2401 14.3835 47.9125 12.0582C45.5872 9.73059 41.8132 9.73059 39.488 12.0582C37.1603 14.3835 37.1603 18.1551 39.488 20.4828C41.8132 22.808 45.5872 22.808 47.9125 20.4828ZM30.0449 18.5807C31.3215 18.5807 32.354 17.546 32.354 16.2694C32.354 14.9928 31.3215 13.9604 30.0449 13.9604C28.7684 13.9604 27.7336 14.9951 27.7336 16.2694C27.7336 17.5437 28.7684 18.5807 30.0449 18.5807ZM12.096 39.4595C9.75673 41.7988 9.75673 45.5937 12.096 47.9329C14.4353 50.2722 18.2279 50.2722 20.5671 47.9329C22.9063 45.5937 22.9063 41.7987 20.5671 39.4595C18.2279 37.1203 14.4352 37.1203 12.096 39.4595ZM30.0449 41.3872C28.7684 41.3872 27.7336 42.4196 27.7336 43.6962C27.7336 44.9728 28.7684 46.0076 30.0449 46.0076C31.3215 46.0076 32.354 44.9729 32.354 43.6962C32.354 42.4195 31.3215 41.3872 30.0449 41.3872ZM39.5857 39.5246C37.2813 41.8289 37.2813 45.5634 39.5857 47.8677C41.89 50.1721 45.6268 50.1721 47.9288 47.8677C50.2332 45.5634 50.2332 41.8289 47.9288 39.5246C45.6268 37.2202 41.89 37.2202 39.5857 39.5246ZM27.3314 16.9693C27.2221 16.5438 27.2127 16.0926 27.3081 15.6624L22.8086 15.6438C22.8529 16.1112 22.8482 16.4855 22.804 16.9507L27.3314 16.9693ZM15.6769 37.2458C16.1141 37.2016 16.5489 37.2016 16.9861 37.2458V32.7092C16.5559 32.8115 16.1071 32.8115 15.6769 32.7092V37.2458ZM37.3952 43.073L32.7725 43.0544C32.8725 43.4823 32.8725 43.9334 32.7678 44.3612L37.4022 44.3798C37.3557 43.945 37.3534 43.5079 37.3952 43.073ZM44.4153 27.2587V22.6802C43.9781 22.729 43.5386 22.7314 43.1014 22.6919V27.2587C43.5316 27.154 43.9851 27.154 44.4153 27.2587ZM35.9628 36.8296L38.7973 39.6641C39.0554 39.3456 39.4042 38.9944 39.7251 38.7363L35.9628 34.974V36.8295L35.9628 36.8296ZM21.3646 20.3758C21.0833 20.7153 20.774 21.0176 20.4299 21.2966L25.8013 26.668C25.8013 26.2099 25.7804 25.2612 25.8245 24.8357L21.3646 20.3757L21.3646 20.3758ZM34.2887 26.6681L39.6601 21.2967C39.316 21.02 39.0067 20.7153 38.7253 20.3759L34.2655 24.8358C34.3097 25.2613 34.2887 26.2101 34.2887 26.6682V26.6681ZM21.3554 39.5991L24.1248 36.8296V34.9741L20.4276 38.6713C20.7671 38.948 21.0787 39.2596 21.3554 39.5991ZM26.2943 27.1332H28.6941V25.2776C28.6941 24.5359 29.3033 23.929 30.045 23.929C30.7868 23.929 31.3937 24.5358 31.3937 25.2776V27.1332H33.7957V25.2776C33.7957 23.2151 32.1075 21.5269 30.045 21.5269C27.9825 21.5269 26.2943 23.2151 26.2943 25.2776V27.1332ZM30.7426 33.165C31.3867 32.7256 31.4704 31.8117 30.9217 31.263C30.1427 30.484 28.8057 31.0374 28.8057 32.1396C28.8057 32.5442 29.008 32.9372 29.3359 33.1581C29.5242 33.2791 29.6103 33.5162 29.5335 33.7348L29.0103 35.2067H31.0798C30.91 34.7277 30.7426 34.2021 30.5566 33.7348C30.4845 33.5302 30.5543 33.2929 30.7426 33.165ZM34.7003 38.4807H25.3898C24.9643 38.4807 24.6178 38.1342 24.6178 37.7087V28.3982C24.6178 27.9726 24.9643 27.6262 25.3898 27.6262H34.7003C35.1258 27.6262 35.4723 27.9727 35.4723 28.3982V37.7087C35.4723 38.1342 35.1258 38.4807 34.7003 38.4807ZM31.5984 33.7301C31.7635 33.5696 31.903 33.3813 32.0123 33.1767C32.7913 31.7024 31.7193 29.9143 30.0451 29.9143C29.4313 29.9143 28.8755 30.1631 28.4732 30.5677C27.592 31.4466 27.6082 32.8674 28.4918 33.7301L27.8617 35.5042C27.7199 35.8623 27.9803 36.1902 28.3128 36.1902H31.7496C32.0984 36.1902 32.3611 35.8762 32.2402 35.5344L31.5984 33.7301Z" fill="url(#paint2_h_15194)" />
+                    <defs>
+                      <linearGradient id="paint0_h_15194" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#96D3FF" /><stop offset="1" stop-color="#001EB7" /></linearGradient>
+                      <linearGradient id="paint1_h_15194" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#001EB7" /><stop offset="1" stop-color="#96D3FF" /></linearGradient>
+                      <linearGradient id="paint2_h_15194" x1="29.9999" y1="10.3125" x2="29.9999" y2="49.6873" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#AFC9FF" /></linearGradient>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text text-white">{t(locale, 'Home.microCard3Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text text-cee9ff">{t(locale, 'Home.microCard3Desc')}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zero Trust Foundation -->
+  <div>
+    <div class="container-default">
+      <div class="container-default-inner">
+        <div class="top-content flex-column text-center">
+          <h2 class="cloud-h2 dark-cloud-h2" set:html={tRich(locale, 'Home.zeroTrustHeading')}></h2>
+          <div class="top-content-description">{t(locale, 'Home.zeroTrustSubheading')}</div>
+        </div>
+        <div class="w-layout-grid feature-grid-3x1 home-cards-grid-wrap transparent">
+          <div class="home-card transparent px-24 py-0">
+            <div class="home-card-wrap home-card-content text-center ibm-plex-sans">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg center w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15204)" stroke="url(#paint1_h_15204)" />
+                    <path d="M38.6133 27.457H36.1523V26.2266C36.1523 22.8343 33.3922 20.0742 30 20.0742C26.6078 20.0742 23.8477 22.8343 23.8477 26.2266V27.457H21.3867V37.4648H38.6133V27.457ZM33.6914 27.457H31.2305V32.3789H28.7695V27.457H26.3086V26.2266C26.3086 24.191 27.9645 22.5352 30 22.5352C32.0355 22.5352 33.6914 24.191 33.6914 26.2266V27.457Z" fill="url(#paint2_h_15204)" />
+                    <path d="M11.543 39.9258C11.543 41.9613 13.1989 43.6172 15.2344 43.6172C16.227 43.6172 17.1256 43.2188 17.7896 42.5792L26.3538 46.8613C26.3357 47.0095 26.3086 47.1554 26.3086 47.3086C26.3086 49.3441 27.9645 51 30 51C32.0355 51 33.6914 49.3441 33.6914 47.3086C33.6914 47.1554 33.6643 47.0095 33.6462 46.8613L42.2104 42.5792C42.8744 43.2188 43.773 43.6172 44.7656 43.6172C46.8011 43.6172 48.457 41.9613 48.457 39.9258C48.457 38.3237 47.4252 36.9707 45.9961 36.461V23.539C47.4252 23.0293 48.457 21.6763 48.457 20.0742C48.457 18.0387 46.8011 16.3828 44.7656 16.3828C43.773 16.3828 42.8744 16.7812 42.2104 17.4208L33.6462 13.1387C33.6643 12.9905 33.6914 12.8446 33.6914 12.6914C33.6914 10.6559 32.0355 9 30 9C27.9645 9 26.3086 10.6559 26.3086 12.6914C26.3086 12.8446 26.3357 12.9905 26.3538 13.1387L17.7896 17.4208C17.1256 16.7812 16.227 16.3828 15.2344 16.3828C13.1989 16.3828 11.543 18.0387 11.543 20.0742C11.543 21.6763 12.5748 23.0293 14.0039 23.539V36.461C12.5748 36.9707 11.543 38.3237 11.543 39.9258ZM16.4648 23.539C17.894 23.0293 18.9258 21.6763 18.9258 20.0742C18.9258 19.921 18.8987 19.7751 18.8806 19.6269L27.4447 15.3449C28.1088 15.9845 29.0073 16.3828 30 16.3828C30.9927 16.3828 31.8912 15.9845 32.5553 15.3449L41.1194 19.6269C41.1013 19.7751 41.0742 19.921 41.0742 20.0742C41.0742 21.6763 42.106 23.0293 43.5352 23.539V36.461C42.106 36.9707 41.0742 38.3237 41.0742 39.9258C41.0742 40.079 41.1013 40.2249 41.1194 40.3731L32.5553 44.6551C31.8912 44.0155 30.9927 43.6172 30 43.6172C29.0073 43.6172 28.1088 44.0155 27.4447 44.6551L18.8806 40.3731C18.8987 40.2249 18.9258 40.079 18.9258 39.9258C18.9258 38.3237 17.894 36.9707 16.4648 36.461V23.539Z" fill="url(#paint3_h_15204)" />
+                    <defs>
+                      <linearGradient id="paint0_h_15204" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#37CDC0" /><stop offset="1" stop-color="#114647" /></linearGradient>
+                      <linearGradient id="paint1_h_15204" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#114647" /><stop offset="1" stop-color="#37CDC0" /></linearGradient>
+                      <linearGradient id="paint2_h_15204" x1="30" y1="20.0742" x2="30" y2="37.4648" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#B1EAE5" /></linearGradient>
+                      <linearGradient id="paint3_h_15204" x1="30" y1="9" x2="30" y2="51" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#B1EAE5" /></linearGradient>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text color-2e2e2e">{t(locale, 'Home.zeroTrustCard1Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text color-626262 line-height-24">{t(locale, 'Home.zeroTrustCard1Desc')}</div>
+              </div>
+            </div>
+          </div>
+          <div class="home-card transparent px-24 py-0">
+            <div class="home-card-wrap home-card-content text-center ibm-plex-sans">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg center w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15215)" stroke="url(#paint1_h_15215)" />
+                    <g clip-path="url(#clip0_h_15215)">
+                      <path d="M30 20.375C31.933 20.375 33.5 18.808 33.5 16.875C33.5 14.942 31.933 13.375 30 13.375C28.067 13.375 26.5 14.942 26.5 16.875C26.5 18.808 28.067 20.375 30 20.375Z" fill="url(#paint2_h_15215)" />
+                      <path d="M17.5487 26.5L24.9862 27.1746C26.3406 27.2908 27.3794 28.4263 27.3749 29.7856V31.7981C27.3754 32.4546 27.2522 33.1053 27.0118 33.7161L22.7864 44.4786C22.6319 44.7624 22.6464 45.1082 22.824 45.3781C23.0016 45.6479 23.3135 45.798 23.6352 45.7683C23.9569 45.7387 24.2361 45.5342 24.3614 45.2364L28.3917 35.4504C28.6597 34.8009 29.293 34.3773 29.9956 34.3773C30.6981 34.3773 31.3314 34.8009 31.5994 35.4504L35.641 45.2609C35.7369 45.463 35.9076 45.6199 36.1171 45.6984C36.4486 45.8242 36.8232 45.7375 37.0657 45.4788C37.3082 45.2202 37.3707 44.8408 37.2239 44.518L32.9881 33.7161C32.7478 33.1049 32.6246 32.454 32.6249 31.7973V29.7848C32.619 28.4247 33.6578 27.2878 35.0128 27.1711L42.4389 26.5C42.6726 26.4853 42.8907 26.3774 43.0443 26.2006C43.1979 26.0239 43.2742 25.7929 43.2562 25.5594C43.2408 25.3274 43.1331 25.1112 42.9571 24.9591C42.7812 24.807 42.5517 24.7317 42.3199 24.75L33.1385 25.5743C32.7745 25.6081 32.4097 25.625 32.0439 25.625H27.9559C27.5902 25.625 27.2253 25.6087 26.8613 25.576L17.6721 24.75C17.1888 24.7159 16.7694 25.0801 16.7354 25.5633C16.7013 26.0466 17.0654 26.4659 17.5487 26.5Z" fill="url(#paint3_h_15215)" />
+                      <path d="M30 51C41.598 51 51 41.598 51 30C51 18.402 41.598 9 30 9C18.402 9 9 18.402 9 30C9.0135 41.5924 18.4076 50.9865 30 51ZM30 11.625C32.8995 11.625 35.25 13.9755 35.25 16.875C35.25 19.7745 32.8995 22.125 30 22.125C27.1005 22.125 24.75 19.7745 24.75 16.875C24.7529 13.9767 27.1017 11.6279 30 11.625ZM17.8139 23.007L27.0171 23.833C27.3292 23.861 27.6422 23.875 27.956 23.875H32.044C32.3573 23.875 32.6702 23.861 32.9829 23.833L42.1704 23.0079H42.1844C43.63 22.8977 44.8913 23.9803 45.0014 25.4259C45.1116 26.8716 44.029 28.1328 42.5834 28.243L35.1695 28.9159C34.7189 28.9566 34.3737 29.3341 34.3733 29.7865V31.799C34.373 32.2368 34.455 32.6707 34.6147 33.0782L38.8401 43.8408C39.3857 45.1592 38.7782 46.672 37.4723 47.2469C36.1664 47.8219 34.6404 47.2484 34.0364 45.9556L29.9851 36.1145L25.975 45.925C25.6053 46.7982 24.7935 47.4041 23.8513 47.5102C22.9091 47.6162 21.9829 47.2059 21.4284 46.4367C20.8739 45.6676 20.7773 44.6592 21.1756 43.7988L25.3861 33.0747C25.545 32.6676 25.626 32.2343 25.625 31.7973V29.7847C25.6246 29.3323 25.2793 28.9548 24.8288 28.9141L17.4 28.2412C15.9546 28.1277 14.8749 26.8639 14.9885 25.4185C15.1021 23.9731 16.3659 22.8934 17.8112 23.007H17.8139Z" fill="url(#paint4_h_15215)" />
+                    </g>
+                    <defs>
+                      <linearGradient id="paint0_h_15215" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#65FF84" /><stop offset="1" stop-color="#05745F" /></linearGradient>
+                      <linearGradient id="paint1_h_15215" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#02A789" /><stop offset="1" stop-color="#65FF84" /></linearGradient>
+                      <linearGradient id="paint2_h_15215" x1="30" y1="13.375" x2="30" y2="20.375" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C9FFD5" /></linearGradient>
+                      <linearGradient id="paint3_h_15215" x1="29.996" y1="24.7473" x2="29.996" y2="45.772" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C9FFD5" /></linearGradient>
+                      <linearGradient id="paint4_h_15215" x1="30" y1="9" x2="30" y2="51" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#C9FFD5" /></linearGradient>
+                      <clipPath id="clip0_h_15215"><rect width="42" height="42" fill="white" transform="translate(9 9)" /></clipPath>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text color-2e2e2e">{t(locale, 'Home.zeroTrustCard2Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text color-626262 line-height-24">{t(locale, 'Home.zeroTrustCard2Desc')}</div>
+              </div>
+            </div>
+          </div>
+          <div class="home-card transparent px-24 py-0">
+            <div class="home-card-wrap home-card-content text-center ibm-plex-sans">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg center w-embed"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_h_15227)" stroke="url(#paint1_h_15227)" />
+                    <g clip-path="url(#clip0_h_15227)">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M33.1625 50H13.2813C12.4113 49.999 11.5773 49.653 10.9622 49.0378C10.347 48.4227 10.001 47.5887 10 46.7188V21.0781C9.99871 20.6489 10.0822 20.2236 10.2458 19.8268C10.4094 19.4299 10.6498 19.0693 10.9531 18.7656L18.7 10.9688C19.3174 10.3507 20.1545 10.0024 21.0281 10H39.8438C40.7137 10.001 41.5477 10.347 42.1629 10.9622C42.778 11.5773 43.124 12.4113 43.125 13.2812V26.1531C43.1243 26.2174 43.1106 26.2809 43.0846 26.3397C43.0586 26.3986 43.021 26.4515 42.9739 26.4954C42.9269 26.5392 42.8714 26.573 42.8109 26.5948C42.7504 26.6165 42.6861 26.6257 42.6219 26.6219C38.5222 26.2606 34.3406 29.4088 34.5875 34.6813C34.5869 34.7531 34.57 34.824 34.5381 34.8884C34.5061 34.9528 34.46 35.0091 34.4031 35.0531C34.0027 35.3581 33.6787 35.7521 33.4569 36.2039C33.2351 36.6557 33.1214 37.1529 33.125 37.6562V47.6562C33.1259 48.2327 33.279 48.7986 33.5688 49.2969C33.609 49.3683 33.63 49.449 33.6295 49.531C33.6291 49.6129 33.6073 49.6934 33.5663 49.7644C33.5253 49.8354 33.4665 49.8944 33.3957 49.9357C33.3249 49.9771 33.2445 49.9992 33.1625 50ZM38.2623 14.5123C38.1744 14.6002 38.125 14.7194 38.125 14.8438V18.9062C38.125 19.0306 38.1744 19.1498 38.2623 19.2377C38.3502 19.3256 38.4694 19.375 38.5938 19.375C38.7181 19.375 38.8373 19.3256 38.9252 19.2377C39.0131 19.1498 39.0625 19.0306 39.0625 18.9062V14.8438C39.0625 14.7194 39.0131 14.6002 38.9252 14.5123C38.8373 14.4244 38.7181 14.375 38.5938 14.375C38.4694 14.375 38.3502 14.4244 38.2623 14.5123ZM48.5331 33.9587C48.5375 34.1268 48.5375 34.8256 48.5375 35.4859C48.9693 35.6615 49.339 35.9617 49.5995 36.3482C49.8599 36.7347 49.9994 37.1901 50 37.6562V47.6562C49.9993 48.2776 49.7522 48.8734 49.3128 49.3128C48.8734 49.7521 48.2776 49.9993 47.6562 50H36.4062C35.7849 49.9993 35.1891 49.7521 34.7497 49.3128C34.3103 48.8734 34.0632 48.2776 34.0625 47.6562V37.6562C34.0631 37.1901 34.2026 36.7347 34.463 36.3482C34.7235 35.9617 35.0932 35.6615 35.525 35.4859C35.525 34.87 35.5256 34.2381 35.5278 34.1006C35.7425 25.42 48.1959 25.2753 48.5331 33.9587ZM40.6521 46.1599C40.7775 46.2192 40.9144 46.25 41.0531 46.25H43.0094C43.148 46.25 43.285 46.2192 43.4103 46.1599C43.5357 46.1006 43.6463 46.0142 43.7342 45.907C43.8222 45.7998 43.8852 45.6744 43.9189 45.5398C43.9525 45.4053 43.9559 45.265 43.9287 45.129L43.2909 41.9415C43.2501 41.7009 43.2886 41.4536 43.4006 41.2368C43.5447 40.9949 43.6221 40.7191 43.6249 40.4375C43.6278 40.156 43.556 39.8787 43.4168 39.6339C43.2777 39.3891 43.0761 39.1855 42.8328 39.0439C42.5894 38.9023 42.3128 38.8277 42.0312 38.8277C41.7497 38.8277 41.4731 38.9023 41.2297 39.0439C40.9864 39.1855 40.7848 39.3891 40.6457 39.6339C40.5065 39.8787 40.4347 40.156 40.4376 40.4375C40.4404 40.7191 40.5178 40.9949 40.6619 41.2368C40.7738 41.4535 40.8123 41.7007 40.7716 41.9412L40.1338 45.1287C40.1066 45.2647 40.1099 45.4051 40.1435 45.5396C40.1771 45.6742 40.2402 45.7996 40.3281 45.9069C40.4161 46.0141 40.5267 46.1005 40.6521 46.1599ZM38.965 34.1562C38.9622 34.2737 38.9622 34.7812 38.9622 35.3125L45.1 35.3134C45.1 34.7331 45.0994 34.1678 45.0966 34.0393C44.9963 29.809 39.0081 29.9375 38.965 34.1562Z" fill="url(#paint2_h_15227)" />
+                    </g>
+                    <defs>
+                      <linearGradient id="paint0_h_15227" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC4C5" stop-opacity="0.93" /><stop offset="1" stop-color="#B5002D" /></linearGradient>
+                      <linearGradient id="paint1_h_15227" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#B5002D" /><stop offset="1" stop-color="#FFC4C5" stop-opacity="0.93" /></linearGradient>
+                      <linearGradient id="paint2_h_15227" x1="25.7143" y1="10" x2="26.1905" y2="50" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#FFAEB9" /></linearGradient>
+                      <clipPath id="clip0_h_15227"><rect width="40" height="40" fill="white" transform="translate(10 10)" /></clipPath>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text color-2e2e2e">{t(locale, 'Home.zeroTrustCard3Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text color-626262 line-height-24">{t(locale, 'Home.zeroTrustCard3Desc')}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security Should Not Slow You Down -->
+  <div class="bg-0e0f28">
+    <div class="container-default py-80 flex-column">
+      <div class="top-content flex-column text-center center">
+        <h2 class="cloud-h2" set:html={tRich(locale, 'Home.buildFasterHeading')}></h2>
+        <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.buildFasterSubheading')}</div>
+      </div>
+      <div class="home-feature-cards-v2_wrap">
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d23-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_threats.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
+          <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+            <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard1Title')}</h5>
+            <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard1Desc')}</div>
+          </div>
+        </div>
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d2a-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_user-trust.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
+          <div>
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard2Title')}</h5>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard2Desc')}</div>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d32-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_user-management.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
+          <div>
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard3Title')}</h5>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard3Desc')}</div>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d3a-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_user-experience.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
+          <div>
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard4Title')}</h5>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard4Desc')}</div>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d42-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_flexibility.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
+          <div>
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h5 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard5Title')}</h5>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard5Desc')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Enterprises Trust / Customer Stories -->
+  <div class="bg-image-customer-story">
+    <div class="container-default">
+      <div class="container-default-inner">
+        <div class="top-content flex-column text-center">
+          <h2 class="cloud-h2" set:html={tRich(locale, 'Home.enterpriseTrustHeading')}></h2>
+          <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.enterpriseTrustSubheading')}</div>
+        </div>
+        <div class="w-layout-hflex flex-block-86">
+          <div class="w-layout-vflex flex-block-87">
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-place2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyPlaceDesc')}</div>
+              <a href="/customer-stories/palace" class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-HKL2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyHKLDesc')}</div>
+              <a href="/customer-stories/hongkong-land" class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="w-layout-vflex flex-block-87">
+            <div class="w-layout-vflex container-1470 no-logo">
+              <div class="customer-story-title">{t(locale, 'Home.storyFnBTitle')}</div>
+              <div class="customer-story-description">{t(locale, 'Home.storyFnBDesc')}</div>
+              <a href="/customer-stories/global-qsr" class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-MTR2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyMTRDesc')}</div>
+              <a href="/customer-stories/hongkong-mtr" class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="w-layout-vflex flex-block-87">
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-Bupa2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyBupaDesc')}</div>
+              <a href="/customer-stories/bupa" class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-cornerstone2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyCornerstoneDesc')}</div>
+              <a href="/customer-stories/cornerstone-technologies" class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="footer-form-section form__bg-dark">
+    <div class="container-default">
+      <div class="container-default-inner px-0">
+        <div class="_2-block-flex footer-form">
+          <div class="_2-block-flex-content footer-form">
+            <div class="_2-block-flex-content-text-wrap footer-form">
+              <h2 class="form-heading color-white footer-form">{t(locale, 'Home.formHeading')}</h2>
+              <div class="footerform__divider-sm"></div>
+              <div class="color-white footer-get-started-text">{t(locale, 'Home.formSubheading')}</div>
+            </div>
+          </div>
+          <div class="_2-block-flex-image footer-form">
+            <div data-placeholder="ContactForm" data-locale={locale}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
