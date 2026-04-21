@@ -1,0 +1,195 @@
+---
+import { t } from '@/i18n';
+import MfaOptionsTabs from '@/components/islands/MfaOptionsTabs';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<section class="ds-hero-banner--gradient">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero">
+        <div class="ds-hero-banner__row">
+          <div class="ds-hero-banner__body">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'MultiFactorAuthentication.heroSmallTitle')}</p>
+            <h1 class="ds-hero-banner__title">{t(locale, 'MultiFactorAuthentication.heroTitle')}</h1>
+            <p class="ds-hero-banner__description">{t(locale, 'MultiFactorAuthentication.heroDescription')}</p>
+            <div class="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                class="ds-btn ds-btn-secondary"
+              >
+                {t(locale, 'Features.startForFree')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+                {t(locale, 'Features.getDemo')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+            <div class="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p class="ds-hero-banner__footnote-copy">
+                {t(locale, 'MultiFactorAuthentication.freePlanIncludes')} <strong>{t(locale, 'MultiFactorAuthentication.unlimitedMAUs')}</strong>
+              </p>
+            </div>
+          </div>
+          <img
+            class="ds-hero-banner__media"
+            src="/images/features-mfa-hero-kv.svg"
+            width="624"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'MultiFactorAuthentication.whatIsTitle')}{t(locale, 'MultiFactorAuthentication.whatIsTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-light">{t(locale, 'MultiFactorAuthentication.whatIsDescription')}</p>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-mfa-whatis-mfa.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h3 class="heading-on-light">{t(locale, 'MultiFactorAuthentication.adaptiveMfaTitle')}</h3>
+        <p class="section-lede-on-light">{t(locale, 'MultiFactorAuthentication.adaptiveMfaDescription')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'MultiFactorAuthentication.mfaOptionsTitle')}
+        <br />
+        {t(locale, 'MultiFactorAuthentication.mfaOptionsTitleHighlight')}
+      </h2>
+    </div>
+    <MfaOptionsTabs
+      client:visible
+      tabLabels={[
+        t(locale, 'MultiFactorAuthentication.tab1'),
+        t(locale, 'MultiFactorAuthentication.tab2'),
+        t(locale, 'MultiFactorAuthentication.tab3'),
+        t(locale, 'MultiFactorAuthentication.tab4'),
+      ] as [string, string, string, string]}
+    />
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'MultiFactorAuthentication.uxTitle')}
+        <br />
+        {t(locale, 'MultiFactorAuthentication.uxTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-light">{t(locale, 'MultiFactorAuthentication.uxDescription')}</p>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card">
+        <img src="/images/features-mfa-ux-simple-01.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <p class="ds-svg-card-description">{t(locale, 'MultiFactorAuthentication.ux1')}</p>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-mfa-ux-simple-02.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <p class="ds-svg-card-description">{t(locale, 'MultiFactorAuthentication.ux2')}</p>
+        </div>
+      </div>
+    </div>
+    <div class="title-content ds-title-content--after-block">
+      <h2 class="heading-on-light">{t(locale, 'MultiFactorAuthentication.devSectionTitle')}</h2>
+      <p class="section-lede-on-light">{t(locale, 'MultiFactorAuthentication.devDescription')}</p>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card">
+        <img src="/images/features-mfa-ux-developer-01.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <p class="ds-svg-card-description">{t(locale, 'MultiFactorAuthentication.dev1')}</p>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-mfa-ux-developer-02.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <p class="ds-svg-card-description">{t(locale, 'MultiFactorAuthentication.dev2')}</p>
+        </div>
+      </div>
+    </div>
+    <div class="title-content ds-title-content--after-block">
+      <h2 class="heading-on-light">{t(locale, 'MultiFactorAuthentication.deepDiveTitle')}</h2>
+      <p class="section-lede-on-light">{t(locale, 'MultiFactorAuthentication.deepDiveDescription')}</p>
+    </div>
+    <div class="ds-grid-3">
+      <a href="/post/what-is-multi-factor-authentication-mfa" class="svg-card ds-svg-card--resource-link">
+        <img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <p class="ds-svg-card-title">{t(locale, 'MultiFactorAuthentication.article1')}</p>
+        </div>
+      </a>
+      <a href="/post/top-three-types-of-user-authentication" class="svg-card ds-svg-card--resource-link">
+        <img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <p class="ds-svg-card-title">{t(locale, 'MultiFactorAuthentication.article2')}</p>
+        </div>
+      </a>
+      <a
+        href="/post/frictionless-authentication#:~:text=devices%20and%20services.-,Implement%20Frictionless%20Authentication%20with%20Authgear,%2C%20business%20partners%2C%20and%20customers."
+        class="svg-card ds-svg-card--resource-link"
+      >
+        <img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <p class="ds-svg-card-title">{t(locale, 'MultiFactorAuthentication.article3')}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-footer-cta-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{t(locale, 'MultiFactorAuthentication.ctaTitle')}</h2>
+      <p class="section-lede-on-dark">{t(locale, 'MultiFactorAuthentication.ctaDescription')}</p>
+    </div>
+    <div class="ds-footer-cta__actions">
+      <a
+        href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+        target="_blank"
+        rel="noreferrer"
+        class="ds-btn ds-btn-secondary"
+      >
+        {t(locale, 'Features.startForFree')}
+      </a>
+      <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+        {t(locale, 'Features.getDemo')}
+      </a>
+    </div>
+    <div class="ds-footer-cta__footnote">
+      <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+      <p class="ds-footer-cta__footnote-copy">
+        {t(locale, 'MultiFactorAuthentication.freePlanIncludes')} <strong>{t(locale, 'MultiFactorAuthentication.unlimitedMAUs')}</strong>
+      </p>
+    </div>
+  </div>
+</section>
