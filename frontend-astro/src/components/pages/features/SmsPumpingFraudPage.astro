@@ -1,0 +1,304 @@
+---
+import { t } from '@/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+import SmsPumpingWarningFaqItem from '@/components/islands/SmsPumpingWarningFaqItem';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<div class="page-wrapper">
+  <!-- Section 1: Hero -->
+  <section class="ds-hero-banner--dark">
+    <div class="ds-container ds-container--hero">
+      <div class="ds-hero-banner__row">
+        <div class="ds-hero-banner__body">
+          <p class="ds-coming-soon-label">{t(locale, 'SmsPumpingFraud.comingSoon')}</p>
+          <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'SmsPumpingFraud.heroSmallTitle')}</p>
+          <h1 class="ds-hero-banner__title">{t(locale, 'SmsPumpingFraud.heroTitle')}</h1>
+          <p class="ds-hero-banner__description">{t(locale, 'SmsPumpingFraud.heroDescription')}</p>
+          <div class="ds-hero-banner__ctas">
+            <a
+              href="https://portal.authgear.com/?utm_source=feature-sms-pumping&utm_medium=link&utm_campaign=start-for-free"
+              target="_blank"
+              rel="noreferrer"
+              class="ds-btn ds-btn-secondary"
+            >
+              {t(locale, 'Features.startForFree')}
+              <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+            <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+              {t(locale, 'Features.scheduleDemo')}
+              <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
+        </div>
+        <img
+          class="ds-hero-banner__media"
+          src="/images/features-SMSfraud-hero-kv.svg"
+          width={624}
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Threat -->
+  <section class="ds-section">
+    <div class="ds-container ds-container--max-callout">
+      <div class="title-content">
+        <h2 class="heading-on-light">{t(locale, 'SmsPumpingFraud.threatTitle')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.threatDescription')}</p>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--flush">
+        <div class="ds-split-row__body ds-split-row__body--surface-card">
+          <h4 class="heading-on-light">{t(locale, 'SmsPumpingFraud.caseStudyTitle')}</h4>
+          <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.caseStudyDescription')}</p>
+        </div>
+        <div class="ds-split-row__media">
+          <img
+            src="/images/features-SMSfraud-X2x.jpg"
+            loading="lazy"
+            sizes="(max-width: 1400px) 100vw, 1400px"
+            srcset="/images/features-SMSfraud-X2x-p-500.jpg 500w, /images/features-SMSfraud-X2x-p-800.jpg 800w, /images/features-SMSfraud-X2x-p-1080.jpg 1080w, /images/features-SMSfraud-X2x.jpg 1400w"
+            width={624}
+            alt=""
+            class="ds-split-row__img"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Devastate -->
+  <section class="ds-section ds-bg-white">
+    <div class="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'SmsPumpingFraud.devastateTitle')}<br />
+          {t(locale, 'SmsPumpingFraud.devastateTitleLine2')}
+        </h2>
+      </div>
+      <div class="ds-split-stack__rows">
+        <div class="ds-split ds-split-row ds-split-row--reverse">
+          <div class="ds-split-row__media">
+            <img src="/images/features-SMSfraud-how-FinancialDrain.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+          </div>
+          <div class="ds-split-row__body">
+            <h3 class="heading-on-light">{t(locale, 'SmsPumpingFraud.financialDrainTitle')}</h3>
+            <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.financialDrainDesc')}</p>
+          </div>
+        </div>
+        <div class="ds-split ds-split-row">
+          <div class="ds-split-row__media">
+            <img src="/images/features-SMSfraud-how-OperationalDisruption.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+          </div>
+          <div class="ds-split-row__body">
+            <h3 class="heading-on-light">{t(locale, 'SmsPumpingFraud.operationalTitle')}</h3>
+            <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.operationalDesc')}</p>
+            <ul role="list" class="ds-stacked-list">
+              <li class="ds-stacked-list__item">
+                <span class="ds-stacked-list__lead">{t(locale, 'SmsPumpingFraud.listItem1')}</span>
+                <span class="ds-stacked-list__sub">{t(locale, 'SmsPumpingFraud.listItem1Sub')}</span>
+              </li>
+              <li class="ds-stacked-list__item">
+                <span class="ds-stacked-list__lead">{t(locale, 'SmsPumpingFraud.listItem2')}</span>
+                <span class="ds-stacked-list__sub">{t(locale, 'SmsPumpingFraud.listItem2Sub')}</span>
+              </li>
+              <li class="ds-stacked-list__item">
+                <span class="ds-stacked-list__lead">{t(locale, 'SmsPumpingFraud.listItem3')}</span>
+                <span class="ds-stacked-list__sub">{t(locale, 'SmsPumpingFraud.listItem3Sub')}</span>
+              </li>
+              <li class="ds-stacked-list__item">
+                <span class="ds-stacked-list__lead">{t(locale, 'SmsPumpingFraud.listItem4')}</span>
+                <span class="ds-stacked-list__sub">{t(locale, 'SmsPumpingFraud.listItem4Sub')}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="ds-split ds-split-row ds-split-row--reverse">
+          <div class="ds-split-row__media">
+            <img src="/images/features-SMSfraud-how-ReputationDamage.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+          </div>
+          <div class="ds-split-row__body">
+            <h3 class="heading-on-light">{t(locale, 'SmsPumpingFraud.reputationTitle')}</h3>
+            <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.reputationDesc')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Warning Signs -->
+  <section class="ds-section ds-bg-white">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'SmsPumpingFraud.warningSectionTitle')}<br />
+          {t(locale, 'SmsPumpingFraud.warningSectionTitleLine2')}
+        </h2>
+        <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.warningSectionDesc')}</p>
+      </div>
+      <div class="ds-sms-warning-signs__surface">
+        <div class="ds-sms-warning-signs__layout">
+          <div class="ds-sms-warning-signs__illustration">
+            <img src="/images/features-SMSfraud-WaringSigns.svg" loading="lazy" alt="" class="ds-sms-warning-signs__illustration-img" />
+          </div>
+          <div class="ds-sms-warning-signs__faq">
+            <SmsPumpingWarningFaqItem
+              client:visible
+              title={t(locale, 'SmsPumpingFraud.warning1Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-geographic.svg"
+              description={t(locale, 'SmsPumpingFraud.warning1Desc')}
+            />
+            <SmsPumpingWarningFaqItem
+              client:visible
+              title={t(locale, 'SmsPumpingFraud.warning2Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-traffic.svg"
+              description={t(locale, 'SmsPumpingFraud.warning2Desc')}
+            />
+            <SmsPumpingWarningFaqItem
+              client:visible
+              title={t(locale, 'SmsPumpingFraud.warning3Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-number.svg"
+              description={t(locale, 'SmsPumpingFraud.warning3Desc')}
+            />
+            <SmsPumpingWarningFaqItem
+              client:visible
+              title={t(locale, 'SmsPumpingFraud.warning4Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-conversion.svg"
+              description={t(locale, 'SmsPumpingFraud.warning4Desc')}
+            />
+            <SmsPumpingWarningFaqItem
+              client:visible
+              title={t(locale, 'SmsPumpingFraud.warning5Title')}
+              iconSrc="/images/features-SMSfraud-WaringSigns-icon-budget.svg"
+              description={t(locale, 'SmsPumpingFraud.warning5Desc')}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Solution / Features -->
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'SmsPumpingFraud.solutionTitle')}<br />
+          {t(locale, 'SmsPumpingFraud.solutionTitleLine2')}
+        </h2>
+        <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.solutionDesc')}</p>
+      </div>
+      <div class="ds-split-stack__rows">
+        <div class="ds-split ds-split-row ds-split-row--surface-light">
+          <div class="ds-split-row__media">
+            <img src="/images/features-SMSfraud-features-RealTime.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+          </div>
+          <div class="ds-split-row__body">
+            <h3 class="heading-on-light">{t(locale, 'SmsPumpingFraud.feature1Title')}</h3>
+            <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.feature1Desc')}</p>
+          </div>
+        </div>
+        <div class="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+          <div class="ds-split-row__media">
+            <img src="/images/features-SMSfraud-features-IntelligentPatternRecognition.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+          </div>
+          <div class="ds-split-row__body">
+            <h3 class="heading-on-light">{t(locale, 'SmsPumpingFraud.feature2Title')}</h3>
+            <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.feature2Desc')}</p>
+          </div>
+        </div>
+        <div class="ds-split ds-split-row ds-split-row--surface-light">
+          <div class="ds-split-row__media">
+            <img src="/images/features-SMSfraud-features-AutomatedThreatResponse.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+          </div>
+          <div class="ds-split-row__body">
+            <h3 class="heading-on-light">{t(locale, 'SmsPumpingFraud.feature3Title')}</h3>
+            <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.feature3Desc')}</p>
+          </div>
+        </div>
+        <div class="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+          <div class="ds-split-row__media">
+            <img src="/images/features-SMSfraud-features-CustomizableSecurityPolicies.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+          </div>
+          <div class="ds-split-row__body">
+            <h3 class="heading-on-light">{t(locale, 'SmsPumpingFraud.feature4Title')}</h3>
+            <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.feature4Desc')}</p>
+          </div>
+        </div>
+        <div class="ds-split ds-split-row ds-split-row--surface-light">
+          <div class="ds-split-row__media">
+            <img src="/images/features-SMSfraud-features-DetailedAnalyticsDashboard.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+          </div>
+          <div class="ds-split-row__body">
+            <h3 class="heading-on-light">{t(locale, 'SmsPumpingFraud.feature5Title')}</h3>
+            <p class="section-lede-on-light">{t(locale, 'SmsPumpingFraud.feature5Desc')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Why Authgear -->
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'SmsPumpingFraud.whyTitle')}<br />
+          {t(locale, 'SmsPumpingFraud.whyTitleLine2')}
+        </h2>
+      </div>
+      <div class="ds-grid-2">
+        <div class="svg-card">
+          <img src="/images/features-SMSfraud-why-security.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'SmsPumpingFraud.why1Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'SmsPumpingFraud.why1Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'SmsPumpingFraud.why2Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'SmsPumpingFraud.why2Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/features-SMSfraud-why-ux.svg" loading="lazy" width={48} alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'SmsPumpingFraud.why3Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'SmsPumpingFraud.why3Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/features-SMSfraud-WaringSigns-icon-budget.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'SmsPumpingFraud.why4Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'SmsPumpingFraud.why4Desc')}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: CTA / Contact Form -->
+  <div class="footer-form-section form__bg-dark">
+    <div class="container-default">
+      <div class="container-default-inner px-0">
+        <div class="_2-block-flex footer-form">
+          <div class="_2-block-flex-content footer-form">
+            <div class="_2-block-flex-content-text-wrap footer-form">
+              <h2 class="form-heading color-white footer-form">{t(locale, 'SmsPumpingFraud.ctaTitle')}</h2>
+              <div class="color-cee9ff">{t(locale, 'SmsPumpingFraud.ctaDesc')}</div>
+              <div class="footerform__divider-sm"></div>
+              <div class="color-white footer-get-started-text">{t(locale, 'SmsPumpingFraud.ctaGetStarted')}</div>
+            </div>
+          </div>
+          <div class="_2-block-flex-image footer-form">
+            <ContactForm client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
