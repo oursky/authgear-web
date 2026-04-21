@@ -2,7 +2,7 @@
 
 Proposed architecture for migrating the Authgear marketing website from Next.js 16 to Astro 5. Strapi remains the CMS; editors keep their existing admin UI. This doc describes the target state, not a migration plan.
 
-**Migration status (2026-04-21):** Phase 1 foundation shipped on branch `migration/nextjs-to-astro`. See `docs/superpowers/plans/2026-04-21-astro-migration-foundation.md`. Phase 2 plan (static pages) pending.
+**Migration status (2026-04-21):** Phases 1 + 2a shipped on branch `migration/nextjs-to-astro`. Home page reaches full parity with Next.js (islands hydrated, form submits end-to-end). Phase 2b (simple static pages) plan pending. See `docs/superpowers/plans/`.
 
 ## Stack
 

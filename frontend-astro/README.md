@@ -30,7 +30,11 @@ npm test                          # playwright — smoke tests (home + redirects
 
 ## Phase status
 
-- [x] Phase 1 — Foundation (home page renders in en + zh-TW, smoke tests pass)
-- [ ] Phase 2 — Port remaining static marketing pages (~30 pages)
-- [ ] Phase 3 — Port CMS-backed pages (blog, customer stories, integrations, login gallery, what's new) + API routes
-- [ ] Phase 4 — Fly.io deployment + cutover from `frontend/`
+- [x] Phase 1 — Foundation
+- [x] Phase 2a — Core islands + home parity (ContactForm, LogoMarquee, /api/contact)
+- [ ] Phase 2b — Simple static marketing pages (~13 pages)
+- [ ] Phase 2c — Dynamic subtrees (features, solutions, compare — ~33 pages)
+- [ ] Phase 2d — Tools subtree + SMS calculator
+- [ ] Phase 2e — Once page + Pricing page
+- [ ] Phase 3 — CMS-backed pages (blog, customer stories, etc.)
+- [ ] Phase 4 — Fly.io deployment + cutover
