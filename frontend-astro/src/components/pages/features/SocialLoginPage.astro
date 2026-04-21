@@ -1,0 +1,273 @@
+---
+import { t } from '@/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+interface Props { locale: string }
+const { locale } = Astro.props;
+
+const socialLoginProviderTiles = [
+  { src: '/images/features-sociallogin-companylogo-apple.svg', label: 'Apple' },
+  { src: '/images/features-sociallogin-companylogo-google.svg', label: 'Google' },
+  { src: '/images/features-sociallogin-companylogo-facebook.svg', label: 'Facebook' },
+  { src: '/images/features-sociallogin-companylogo-github.svg', label: 'GitHub' },
+  { src: '/images/features-sociallogin-companylogo-linkedin.svg', label: 'LinkedIn' },
+  { src: '/images/features-sociallogin-companylogo-microsoft.svg', label: 'Azure Active Directory & Azure AD B2C' },
+  { src: '/images/features-sociallogin-companylogo-azure.svg', label: 'Microsoft AD FS' },
+  { src: '/images/features-sociallogin-companylogo-wechat.svg', label: 'WeChat' },
+  { src: '/images/features-sociallogin-companylogo-line.svg', label: `LINE<br>${t(locale, 'SocialLogin.lineComingSoon')}` },
+  { src: '/images/features-sociallogin-companylogo-tiktok.svg', label: `TikTok<br>${t(locale, 'SocialLogin.tiktokComingSoon')}` },
+];
+---
+<section class="ds-hero-banner--gradient">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero">
+        <div class="ds-hero-banner__row">
+          <div class="ds-hero-banner__body">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'SocialLogin.heroSmallTitle')}</p>
+            <h1 class="ds-hero-banner__title">{t(locale, 'SocialLogin.heroTitle')}</h1>
+            <p class="ds-hero-banner__description">{t(locale, 'SocialLogin.heroDescription')}</p>
+            <div class="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-social-login&utm_medium=link&utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                class="ds-btn ds-btn-secondary"
+              >
+                {t(locale, 'Features.startForFree')}
+                <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+                {t(locale, 'Features.getDemo')}
+                <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+            <div class="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p class="ds-hero-banner__footnote-copy">
+                {t(locale, 'SocialLogin.freePlanIncludes')} <strong>{t(locale, 'SocialLogin.unlimitedMAUs')}</strong>
+              </p>
+            </div>
+          </div>
+          <img
+            class="ds-hero-banner__media"
+            src="/images/features-securitythreat-seamless-sociallogin.svg"
+            width="738"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'SocialLogin.providersTitle')}<br />
+        {t(locale, 'SocialLogin.providersTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-light">{t(locale, 'SocialLogin.providersDescription')}</p>
+    </div>
+    <div class="social-login-providers-row">
+      {socialLoginProviderTiles.map((item) => (
+        <div class="social-login-provider-tile">
+          <div class="social-login-provider-tile__card">
+            <div class="social-login-provider-tile__logo">
+              <img src={item.src} loading="lazy" width="32" height="auto" alt="" />
+            </div>
+          </div>
+          <p class="social-login-provider-tile__label" set:html={item.label} />
+        </div>
+      ))}
+    </div>
+    <div class="social-login-providers-cta">
+      <a href="/schedule-demo" class="ds-btn ds-btn-subtle">
+        {t(locale, 'SocialLogin.contactForSuggestions')}
+        <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <div class="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'SocialLogin.unlockTitle')}<br />
+        {t(locale, 'SocialLogin.unlockTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-light">{t(locale, 'SocialLogin.unlockDescription')}</p>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-sociallogin-unolck-socialmedia.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h3 class="heading-on-light">{t(locale, 'SocialLogin.frictionlessTitle')}</h3>
+        <ul role="list" class="ds-body-bullet-list">
+          <li>{t(locale, 'SocialLogin.frictionlessItem1')}</li>
+          <li>{t(locale, 'SocialLogin.frictionlessItem2')}</li>
+          <li>{t(locale, 'SocialLogin.frictionlessItem3')}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-sociallogin-unolck-datacollection.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h3 class="heading-on-light">{t(locale, 'SocialLogin.dataCollectionTitle')}</h3>
+        <ul role="list" class="ds-body-bullet-list">
+          <li>{t(locale, 'SocialLogin.dataCollectionItem1')}</li>
+          <li>{t(locale, 'SocialLogin.dataCollectionItem2')}</li>
+          <li>{t(locale, 'SocialLogin.dataCollectionItem3')}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-sociallogin-unolck-trust.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h3 class="heading-on-light">{t(locale, 'SocialLogin.securityTitle')}</h3>
+        <ul role="list" class="ds-body-bullet-list">
+          <li>{t(locale, 'SocialLogin.securityItem1')}</li>
+          <li>{t(locale, 'SocialLogin.securityItem2')}</li>
+          <li>{t(locale, 'SocialLogin.securityItem3')}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'SocialLogin.simplifyTitle')}<br />
+        {t(locale, 'SocialLogin.simplifyTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-light">{t(locale, 'SocialLogin.simplifyDescription')}</p>
+    </div>
+    <div class="social-login-simplify-feature-cards grid w-full grid-cols-1 gap-6 self-stretch lg:grid-cols-3 lg:grid-rows-2 lg:gap-6">
+      <div class="svg-card lg:col-start-1 lg:row-start-1">
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card1Desc')}</div>
+        </div>
+        <img src="/images/features-sociallogin-withauthgear-singleintegration.svg" loading="lazy" alt="" />
+      </div>
+      <div class="svg-card lg:col-start-1 lg:row-start-2">
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card4Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card4Desc')}</div>
+        </div>
+        <img src="/images/features-sociallogin-withauthgear-easysetup.svg" loading="lazy" alt="" />
+      </div>
+      <div class="svg-card justify-between lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:h-full lg:min-h-0">
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card2Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card2Desc')}</div>
+        </div>
+        <img
+          src="/images/features-sociallogin-withauthgear-brandcontrol.svg"
+          loading="lazy"
+          alt=""
+          class="mw-140 mx-auto"
+        />
+      </div>
+      <div class="svg-card lg:col-start-3 lg:row-start-1">
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card3Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card3Desc')}</div>
+        </div>
+        <img src="/images/features-sociallogin-withauthgear-topsecurity.svg" loading="lazy" alt="" />
+      </div>
+      <div class="svg-card lg:col-start-3 lg:row-start-2">
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card5Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card5Desc')}</div>
+        </div>
+        <img src="/images/features-sociallogin-withauthgear-seamless.svg" loading="lazy" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section b2c-ciam-solution-section-dark-bg">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{t(locale, 'SocialLogin.growthTitle')}</h2>
+      <p class="section-lede-on-dark">{t(locale, 'SocialLogin.growthDescription')}</p>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card svg-card-glass">
+        <img src="/images/features-sociallogin-growth-reduced.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.growth1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.growth1Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card svg-card-glass">
+        <img src="/images/features-sociallogin-growth-ux.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.growth2Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.growth2Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card svg-card-glass">
+        <img src="/images/features-sociallogin-growth-increased.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.growth3Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.growth3Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card svg-card-glass">
+        <img src="/images/features-sociallogin-growth-brand.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.growth4Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.growth4Desc')}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer-form-section form__bg-dark">
+  <div class="container-default">
+    <div class="container-default-inner px-0">
+      <div class="_2-block-flex footer-form">
+        <div class="_2-block-flex-content footer-form">
+          <div class="_2-block-flex-content-text-wrap footer-form">
+            <h2 class="form-heading color-white footer-form">{t(locale, 'SocialLogin.ctaTitle')}</h2>
+            <div class="color-cee9ff"><span class="text-bold">{t(locale, 'SocialLogin.ctaDescBold')}</span>{t(locale, 'SocialLogin.ctaDescRest')}</div>
+            <div class="footerform__divider-sm"></div>
+            <div class="color-white footer-get-started-text">{t(locale, 'SocialLogin.ctaGetStarted')}</div>
+          </div>
+        </div>
+        <div class="_2-block-flex-image footer-form">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
