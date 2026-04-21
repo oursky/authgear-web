@@ -1,0 +1,58 @@
+import { test, expect } from '@playwright/test';
+
+test.describe('/api/contact', () => {
+  test('POST with valid JSON returns 200 {success:true}', async ({ request }) => {
+    const resp = await request.post('/api/contact', {
+      data: {
+        Name: 'Test User',
+        Email: 'test@example.com',
+        Company: 'Example Co',
+        'how-hear': 'organic-search',
+      },
+      headers: { 'Content-Type': 'application/json' },
+    });
+    expect(resp.status()).toBe(200);
+    expect(await resp.json()).toEqual({ success: true });
+  });
+
+  test('POST missing Name returns 400', async ({ request }) => {
+    const resp = await request.post('/api/contact', {
+      data: { Email: 'x@y.z' },
+      headers: { 'Content-Type': 'application/json' },
+    });
+    expect(resp.status()).toBe(400);
+  });
+
+  test('POST missing Email returns 400', async ({ request }) => {
+    const resp = await request.post('/api/contact', {
+      data: { Name: 'X' },
+      headers: { 'Content-Type': 'application/json' },
+    });
+    expect(resp.status()).toBe(400);
+  });
+
+  test('POST with unsupported content-type returns 415', async ({ request }) => {
+    const resp = await request.post('/api/contact', {
+      data: 'plain text',
+      headers: { 'Content-Type': 'text/plain' },
+    });
+    expect(resp.status()).toBe(415);
+  });
+
+  test('POST with form-urlencoded returns 200', async ({ request }) => {
+    const resp = await request.post('/api/contact', {
+      form: {
+        Name: 'Form User',
+        Email: 'form@example.com',
+        Company: 'Example',
+        'how-hear': 'github',
+      },
+    });
+    expect(resp.status()).toBe(200);
+  });
+
+  test('GET returns 405', async ({ request }) => {
+    const resp = await request.get('/api/contact');
+    expect(resp.status()).toBe(405);
+  });
+});
