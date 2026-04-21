@@ -32,10 +32,15 @@ test.describe('Phase 2c-2: solutions/[slug] — zh-TW', () => {
   }
 });
 
-test('reduce-sms-otp-cost has SmsCostCalculator stub (Phase 2d pending)', async ({ page }) => {
+test('reduce-sms-otp-cost: SmsCostCalculator island hydrates', async ({ page }) => {
   await page.goto('/solutions/reduce-sms-otp-cost');
-  const stub = page.locator('[data-placeholder="SmsCostCalculator"]');
-  await expect(stub).toHaveCount(1);
+  // Scroll into view — client:visible requires viewport intersection
+  const slider = page.locator('input[type="range"]').first();
+  await slider.scrollIntoViewIfNeeded();
+  await expect(slider).toBeVisible();
+  // No placeholder stub should remain
+  const stubs = page.locator('[data-placeholder="SmsCostCalculator"]');
+  await expect(stubs).toHaveCount(0);
 });
 
 test('ContactForm hydrates on /solutions/enterprise-sso', async ({ page }) => {
