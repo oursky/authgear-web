@@ -1,3 +1,22 @@
 @import 'tailwindcss';
 @import 'normalize.css';
 @import './authgear-design-system.css';
+
+/* Footer compliance text + passkey pledge badge alignment */
+.footer-certificate {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-passkey-pledge-link {
+  display: inline-block;
+  line-height: 0;
+}
+.footer-compliance-text {
+  margin-top: 12px;
+  color: #b7b9c3;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 320px;
+}

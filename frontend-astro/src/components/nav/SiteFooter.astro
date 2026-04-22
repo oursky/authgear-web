@@ -118,7 +118,23 @@ const poweredSuffix = L('poweredBySuffix');
               src="/images/Authgear_footer_certificated_blue2x.png"
               class="certificate-img"
             />
+            <a
+              href="https://fidoalliance.org/passkeypledge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-passkey-pledge-link"
+              aria-label={L('passkeyPledgeAlt')}
+            >
+              <img
+                width="144.5"
+                loading="lazy"
+                alt={L('passkeyPledgeAlt')}
+                src="/images/PasskeyPledge_color.png"
+                class="certificate-img"
+              />
+            </a>
           </div>
+          <p class="footer-compliance-text">{L('complianceText')}</p>
         </div>
 
         <div class="footer-menu-navigation-wrapper workshop">
@@ -351,11 +367,11 @@ const poweredSuffix = L('poweredBySuffix');
           </a>
           <span class="ds-footer-bottom-bar__sep" aria-hidden="true">·</span>
           <a href={lp('/policy')} class="ds-footer-bottom-bar__link">
-            {L('privacyPolicy')}
+            {L('acceptableUsePolicy')}
           </a>
           <span class="ds-footer-bottom-bar__sep" aria-hidden="true">·</span>
           <a href={lp('/data-privacy')} class="ds-footer-bottom-bar__link">
-            {L('dataPrivacy')}
+            {L('privacyPolicy')}
           </a>
           <span class="ds-footer-bottom-bar__sep" aria-hidden="true">·</span>
           <a href={lp('/security')} class="ds-footer-bottom-bar__link">
