@@ -2,7 +2,7 @@
 
 Proposed architecture for migrating the Authgear marketing website from Next.js 16 to Astro 5. Strapi remains the CMS; editors keep their existing admin UI. This doc describes the target state, not a migration plan.
 
-**Migration status (2026-04-21):** Phases 1 + 2a + 2b + 2c + 2d-1 shipped on branch `migration/nextjs-to-astro`. Home + 13 static + 4 compare + 7 solutions + 19 features live in both locales. SMS Cost Calculator island now hydrates on `/solutions/reduce-sms-otp-cost` (no more placeholders remain in Phase 2c-2 output). Phase 2d-2 (tools subtree) plan pending.
+**Migration status (2026-04-22):** Phases 1 + 2a + 2b + 2c + 2d shipped on branch `migration/nextjs-to-astro`. Home + 13 static + 4 compare + 7 solutions + 19 features + 9 tools pages live in both locales. All interactive islands (ContactForm, LogoMarquee, 3 feature tabs, SmsCostCalculator, 9 full-page tool islands) hydrate. Phase 2e (Once + Pricing) plan pending.
 
 ## Stack
 
