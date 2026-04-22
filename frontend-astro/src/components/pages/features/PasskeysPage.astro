@@ -1,0 +1,226 @@
+---
+import { t } from '@/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+import MfaOptionsTabs from '@/components/islands/MfaOptionsTabs';
+interface Props { locale: string }
+const { locale } = Astro.props;
+
+const PASSKEYS_ENTERPRISE_CARDS = [
+  {
+    img: '/images/features-passkeys-security-icon-employee.svg',
+    titleKey: 'enterprise1Title',
+    descKey: 'enterprise1Desc',
+  },
+  {
+    img: '/images/features-passkeys-security-icon-security.svg',
+    titleKey: 'enterprise2Title',
+    descKey: 'enterprise2Desc',
+  },
+  {
+    img: '/images/features-passkeys-security-icon-management.svg',
+    titleKey: 'enterprise3Title',
+    descKey: 'enterprise3Desc',
+  },
+  {
+    img: '/images/features-passkeys-security-icon-compilance.svg',
+    titleKey: 'enterprise4Title',
+    descKey: 'enterprise4Desc',
+  },
+  {
+    img: '/images/features-passkeys-security-icon-cost.svg',
+    titleKey: 'enterprise5Title',
+    descKey: 'enterprise5Desc',
+  },
+] as const;
+
+const PASSKEYS_HOW_TO_IMAGES = [
+  '/images/features-passkeys-howtocreate-01-01.svg',
+  '/images/features-passkeys-howtocreate-02-01.svg',
+  '/images/features-passkeys-howtocreate-03-01.svg',
+  '/images/features-passkeys-howtocreate-04-01.svg',
+] as const;
+---
+<section class="ds-hero-banner--gradient">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero">
+        <div class="ds-hero-banner__row">
+          <div class="ds-hero-banner__body">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'Passkeys.heroSmallTitle')}</p>
+            <h1 class="ds-hero-banner__title">{t(locale, 'Passkeys.heroTitle')}</h1>
+            <p class="ds-hero-banner__description">{t(locale, 'Passkeys.heroDescription')}</p>
+            <div class="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-passkey&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                class="ds-btn ds-btn-secondary"
+              >
+                {t(locale, 'Features.startForFree')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+                {t(locale, 'Features.scheduleDemo')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+            <div class="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p class="ds-hero-banner__footnote-copy">
+                {t(locale, 'Passkeys.freePlanIncludes')} <strong>{t(locale, 'Passkeys.unlimitedMAUs')}</strong>
+              </p>
+            </div>
+          </div>
+          <img class="ds-hero-banner__media" src="/images/passkey-hero-kv.svg" width="738" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section passkeys-video-section-bg">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">
+        {t(locale, 'Passkeys.whatIsTitle')}
+        <br />
+        {t(locale, 'Passkeys.whatIsTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-dark">{t(locale, 'Passkeys.whatIsDescription')}</p>
+    </div>
+    <div class="ds-video-embed">
+      <iframe
+        src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F6IrX59CwWN4%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D6IrX59CwWN4&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F6IrX59CwWN4%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube"
+        title="What is Apple Passkey? - Explained in 100 seconds"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+<section class="ds-section b2c-ciam-solution-section-dark-bg">
+  <div class="ds-container ds-container--split-stack">
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-passkeys-api.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-dark">{t(locale, 'Passkeys.apiTitle')}</h2>
+        <p class="section-lede-on-dark">{t(locale, 'Passkeys.apiDesc')}</p>
+        <a href="/schedule-demo" class="ds-btn ds-btn-outline-light">
+          {t(locale, 'Passkeys.learnMore')}
+          <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'Passkeys.elevateTitle')}
+        <br />
+        {t(locale, 'Passkeys.elevateTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-light">{t(locale, 'Passkeys.elevateDescription')}</p>
+    </div>
+    <div class="ds-grid-3">
+      <div class="svg-card">
+        <img src="/images/features-passkeys-authentication-icon-setup.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'Passkeys.benefit1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'Passkeys.benefit1Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-passkeys-authentication-icon-secutiry.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'Passkeys.benefit2Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'Passkeys.benefit2Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-passkeys-authentication-icon-ux.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'Passkeys.benefit3Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'Passkeys.benefit3Desc')}</div>
+        </div>
+      </div>
+    </div>
+    <a
+      href="/post/passkey-vs-password-why-passkeys-are-the-future-of-security"
+      class="ds-btn ds-btn-subtle"
+    >
+      {t(locale, 'Passkeys.readBlog')}
+      <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+    </a>
+  </div>
+</section>
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'Passkeys.howToCreateTitle')}
+        <br />
+        {t(locale, 'Passkeys.howToCreateTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-light">{t(locale, 'Passkeys.howToCreateDescription')}</p>
+    </div>
+    <MfaOptionsTabs
+      client:visible
+      tabLabels={[t(locale, 'Passkeys.tab1Title'), t(locale, 'Passkeys.tab2Title'), t(locale, 'Passkeys.tab3Title'), t(locale, 'Passkeys.tab4Title')] as [string, string, string, string]}
+      tabDescriptions={[t(locale, 'Passkeys.tab1Desc'), t(locale, 'Passkeys.tab2Desc'), t(locale, 'Passkeys.tab3Desc'), t(locale, 'Passkeys.tab4Desc')] as [string, string, string, string]}
+      imageSources={PASSKEYS_HOW_TO_IMAGES as unknown as [string, string, string, string]}
+      ariaLabel={t(locale, 'Passkeys.passkeysHowToTabsAriaLabel')}
+    />
+  </div>
+</section>
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">
+        {t(locale, 'Passkeys.enterpriseTitle')}
+        <br />
+        {t(locale, 'Passkeys.enterpriseTitleHighlight')}
+      </h2>
+      <p class="section-lede-on-light">{t(locale, 'Passkeys.enterpriseDescription')}</p>
+    </div>
+    <div class="ds-grid-3 passkeys-enterprise-cards">
+      {PASSKEYS_ENTERPRISE_CARDS.map((card) => (
+        <div class="svg-card">
+          <div class="svg-card-image-container">
+            <img src={card.img} loading="lazy" alt="" />
+          </div>
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, `Passkeys.${card.titleKey}`)}</div>
+            <div class="ds-svg-card-description">{t(locale, `Passkeys.${card.descKey}`)}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<div class="footer-form-section form__bg-dark">
+  <div class="container-default">
+    <div class="container-default-inner px-0">
+      <div class="_2-block-flex footer-form">
+        <div class="_2-block-flex-content footer-form">
+          <div class="_2-block-flex-content-text-wrap footer-form">
+            <h2 class="form-heading color-white footer-form">{t(locale, 'Passkeys.ctaTitle')}</h2>
+            <div class="color-cee9ff">{t(locale, 'Passkeys.ctaDesc')}</div>
+            <div class="footerform__divider-sm"></div>
+            <div class="color-white footer-get-started-text">{t(locale, 'Passkeys.ctaGetStarted')}</div>
+          </div>
+        </div>
+        <div class="_2-block-flex-image footer-form">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

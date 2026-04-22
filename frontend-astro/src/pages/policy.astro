@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import PolicyPage from '@/components/pages/PolicyPage.astro';
+
+const locale = 'en';
+const title = t(locale, 'Policy.title');
+const description = t(locale, 'Policy.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <PolicyPage locale={locale} />
+</BaseLayout>

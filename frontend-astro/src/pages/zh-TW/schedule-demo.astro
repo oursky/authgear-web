@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import ScheduleDemoPage from '@/components/pages/ScheduleDemoPage.astro';
+
+const locale = 'zh-TW';
+const title = t(locale, 'ScheduleDemo.title');
+const description = t(locale, 'ScheduleDemo.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <ScheduleDemoPage locale={locale} />
+</BaseLayout>

@@ -1,0 +1,333 @@
+---
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<div class="page-wrapper">
+  <section class="ds-hero-banner--dark">
+    <div class="ds-container ds-container--hero">
+      <div class="ds-hero-banner__row">
+        <div class="ds-hero-banner__body">
+          <h1 class="ds-hero-banner__title">
+            {t(locale, 'FrontlineWorkersIdentity.heroTitle')}
+          </h1>
+          <p class="ds-hero-banner__description">
+            {t(locale, 'FrontlineWorkersIdentity.heroDescription')}
+          </p>
+          <div class="ds-hero-banner__ctas">
+            <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-secondary">
+              {t(locale, 'FrontlineWorkersIdentity.heroCta1')}
+              <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+            <a
+              href="https://portal.authgear.com/?utm_source=solutions-enterprise-sso&utm_medium=link&utm_campaign=sign-up"
+              target="_blank"
+              rel="noreferrer"
+              class="ds-btn ds-btn-tertiary"
+            >
+              {t(locale, 'FrontlineWorkersIdentity.heroCta2')}
+              <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <img
+          class="ds-hero-banner__media"
+          src="/images/solutions-wiam-kv2x.webp"
+          width={624}
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">{t(locale, 'FrontlineWorkersIdentity.empowerTitle')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'FrontlineWorkersIdentity.empowerDesc')}</p>
+      </div>
+      <div class="ds-grid-2">
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-empower-staff.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.empower1Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'FrontlineWorkersIdentity.empower1Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-empower-management.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.empower2Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'FrontlineWorkersIdentity.empower2Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-empower-security.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.empower3Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'FrontlineWorkersIdentity.empower3Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-empower-save.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.empower4Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'FrontlineWorkersIdentity.empower4Desc')}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="ds-split ds-split-row">
+        <div class="ds-split-row__media">
+          <img
+            src="/images/solutions-wiam-discory-customer-stories.svg"
+            loading="lazy"
+            alt=""
+            class="ds-split-row__img"
+          />
+        </div>
+        <div class="ds-split-row__body">
+          <h2 class="heading-on-light">{t(locale, 'FrontlineWorkersIdentity.discoverTitle')}</h2>
+          <p class="section-lede-on-light">
+            {t(locale, 'FrontlineWorkersIdentity.discoverDesc')}
+          </p>
+          <a
+            href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security"
+            class="button-secondary insection-cta features-text-block-cta-left w-button"
+          >
+            {t(locale, 'FrontlineWorkersIdentity.discoverCta')} {'>'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="ds-split ds-split-row ds-split-row--reverse">
+        <div class="ds-split-row__media">
+          <img
+            src="/images/solutions-wiam-discory-customer-stories.svg"
+            loading="lazy"
+            alt=""
+            class="ds-split-row__img"
+          />
+        </div>
+        <div class="ds-split-row__body">
+          <h2 class="heading-on-light">{t(locale, 'FrontlineWorkersIdentity.discoverTitle')}</h2>
+          <p class="section-lede-on-light">
+            {t(locale, 'FrontlineWorkersIdentity.discoverDesc')}
+          </p>
+          <a
+            href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security"
+            class="button-secondary insection-cta features-text-block-cta-left w-button"
+          >
+            {t(locale, 'FrontlineWorkersIdentity.discoverCta')} {'>'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">{t(locale, 'FrontlineWorkersIdentity.tailoredTitle')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'FrontlineWorkersIdentity.tailoredDesc')}</p>
+      </div>
+      <div class="ds-grid-2">
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_usercentric-journeys.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.tailored1Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'FrontlineWorkersIdentity.tailored1Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_usercentric-increased.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.tailored2Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'FrontlineWorkersIdentity.tailored2Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_usercentric-boosted.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.tailored3Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'FrontlineWorkersIdentity.tailored3Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2c_ciam_usercentric-enhanced.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.tailored4Title')}</div>
+            <div class="ds-svg-card-description">{t(locale, 'FrontlineWorkersIdentity.tailored4Desc')}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'FrontlineWorkersIdentity.accessTitle')}
+        </h2>
+        <p class="section-lede-on-light">
+          {t(locale, 'FrontlineWorkersIdentity.accessDesc')}
+        </p>
+      </div>
+      <div class="ds-grid-4">
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-access-01.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.access1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'FrontlineWorkersIdentity.access1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-access-02.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.access2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'FrontlineWorkersIdentity.access2Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-access-03.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.access3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'FrontlineWorkersIdentity.access3Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-access-04.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.access4Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'FrontlineWorkersIdentity.access4Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-access-05.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.access5Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'FrontlineWorkersIdentity.access5Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-access-06.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.access6Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'FrontlineWorkersIdentity.access6Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-access-07.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.access7Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'FrontlineWorkersIdentity.access7Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/solutions-wiam-access-08.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.access8Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'FrontlineWorkersIdentity.access8Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">{t(locale, 'FrontlineWorkersIdentity.trustedTitle')}</h2>
+      </div>
+      <div class="_2-card-grid">
+        <div class="solution-case-study-card">
+          <img
+            src="/images/solutions-wiam-case-MTR2x.webp"
+            loading="lazy"
+            width="624"
+            sizes="(max-width: 767px) 100vw, 624px"
+            alt=""
+            srcset="/images/solutions-wiam-case-MTR2x-p-500.webp 500w, /images/solutions-wiam-case-MTR2x-p-800.webp 800w, /images/solutions-wiam-case-MTR2x-p-1080.webp 1080w, /images/solutions-wiam-case-MTR2x.webp 1248w"
+            class="solution-case-study-card-thumb"
+          />
+          <div class="solution-case-study-card-text">
+            <div class="ds-svg-card-content">
+              <h3 class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.caseStudy1Title')}</h3>
+              <a href="/customer-stories/hongkong-mtr" class="ds-btn ds-btn-secondary">
+                {t(locale, 'FrontlineWorkersIdentity.caseStudy1Cta')}
+                <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="solution-case-study-card">
+          <img
+            src="/images/solutions-wiam-case-QSR2x.webp"
+            loading="lazy"
+            width="624"
+            sizes="(max-width: 767px) 100vw, 624px"
+            alt=""
+            srcset="/images/solutions-wiam-case-QSR2x-p-500.webp 500w, /images/solutions-wiam-case-QSR2x-p-800.webp 800w, /images/solutions-wiam-case-QSR2x-p-1080.webp 1080w, /images/solutions-wiam-case-QSR2x.webp 1248w"
+            class="solution-case-study-card-thumb"
+          />
+          <div class="solution-case-study-card-text">
+            <div class="ds-svg-card-content">
+              <h3 class="ds-svg-card-title">{t(locale, 'FrontlineWorkersIdentity.caseStudy2Title')}</h3>
+              <a href="/customer-stories/global-qsr" class="ds-btn ds-btn-secondary">
+                {t(locale, 'FrontlineWorkersIdentity.caseStudy2Cta')}
+                <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="footer-form-section form__bg-dark">
+    <div class="container-default">
+      <div class="container-default-inner px-0">
+        <div class="_2-block-flex footer-form">
+          <div class="_2-block-flex-content footer-form">
+            <div class="_2-block-flex-content-text-wrap footer-form">
+              <h2 class="form-heading color-white footer-form">{t(locale, 'FrontlineWorkersIdentity.footerTitle')}</h2>
+              <div class="footerform__divider-sm"></div>
+              <div class="color-white footer-get-started-text">{t(locale, 'FrontlineWorkersIdentity.footerGetStarted')}</div>
+            </div>
+          </div>
+          <div class="_2-block-flex-image footer-form">
+            <ContactForm client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

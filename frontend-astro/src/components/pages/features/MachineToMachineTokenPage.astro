@@ -1,0 +1,257 @@
+---
+import { t } from '@/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<section class="ds-hero-banner--dark">
+  <div class="ds-container ds-container--hero">
+    <div class="ds-hero-banner__row">
+      <div class="ds-hero-banner__body">
+        <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'MachineToMachineToken.heroSmallTitle')}</p>
+        <h1 class="ds-hero-banner__title">{t(locale, 'MachineToMachineToken.heroTitle')}</h1>
+        <p class="ds-hero-banner__description">{t(locale, 'MachineToMachineToken.heroDescription')}</p>
+        <div class="ds-hero-banner__ctas">
+          <a
+            href="https://portal.authgear.com/?utm_source=feature-m2m&utm_medium=link&utm_campaign=start-for-free"
+            target="_blank"
+            rel="noreferrer"
+            class="ds-btn ds-btn-secondary"
+          >
+            {t(locale, 'Features.startForFree')}
+            <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
+          <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+            {t(locale, 'Features.scheduleDemo')}
+            <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ds-hero-banner__media">
+        <div
+          class="lottie-hero-animation"
+          data-animation-type="lottie"
+          data-src="/documents/features-M2M-hero-kv.json"
+          data-loop="0"
+          data-direction="1"
+          data-autoplay="1"
+          data-is-ix2-target="0"
+          data-renderer="svg"
+          data-default-duration="0"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section mm-empower-section-bg">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{t(locale, 'MachineToMachineToken.whatIsTitle')}</h2>
+      <p class="section-lede-on-dark">{t(locale, 'MachineToMachineToken.whatIsDesc')}</p>
+      <a
+        href="https://docs.authgear.com/get-started/m2m-applications"
+        target="_blank"
+        rel="noreferrer"
+        class="ds-btn ds-btn-outline-light"
+      >
+        {t(locale, 'MachineToMachineToken.whatIsReadDocs')}
+      </a>
+    </div>
+  </div>
+</section>
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'MachineToMachineToken.benefitsTitle')}</h2>
+    </div>
+    <div class="ds-grid-3">
+      <div class="svg-card">
+        <img src="/images/features-selfserve-cx-security.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MachineToMachineToken.benefit1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MachineToMachineToken.benefit1Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-M2M-benefits-automated.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MachineToMachineToken.benefit2Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MachineToMachineToken.benefit2Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-M2M-benefits-accesscontrol.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MachineToMachineToken.benefit3Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MachineToMachineToken.benefit3Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-M2M-benefits-scalable.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MachineToMachineToken.benefit4Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MachineToMachineToken.benefit4Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-M2M-benefits-comliance.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MachineToMachineToken.benefit5Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MachineToMachineToken.benefit5Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-M2M-benefits-tools.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'MachineToMachineToken.benefit6Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'MachineToMachineToken.benefit6Desc')}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section ds-bg-white">
+  <div class="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'MachineToMachineToken.useCasesTitle')}</h2>
+    </div>
+    <div class="ds-split-stack__rows">
+      <div class="ds-split ds-split-row">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-usercase-backends.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.useCase1Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.useCase1Desc')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--reverse">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-usercase-clitools.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.useCase2Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.useCase2Desc')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-usercase-scheduled.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.useCase3Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.useCase3Desc')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--reverse">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-usercase-iot.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.useCase4Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.useCase4Desc')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'MachineToMachineToken.howItWorksTitle')}</h2>
+    </div>
+    <div class="ds-split-stack__rows">
+      <div class="ds-split ds-split-row ds-split-row--surface-light">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-how-register-resources.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.howStep1Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.howStep1Desc')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-how-register-application.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.howStep2Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.howStep2Desc')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--surface-light">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-how-obtain.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.howStep3Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.howStep3Desc')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-how-token.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.howStep4Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.howStep4Desc1')}<code>{t(locale, 'MachineToMachineToken.howStep4Code')}</code>{t(locale, 'MachineToMachineToken.howStep4Desc2')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--surface-light">
+        <div class="ds-split-row__media">
+          <img src="/images/features-M2M-how-access-api.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'MachineToMachineToken.howStep5Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'MachineToMachineToken.howStep5Desc')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'MachineToMachineToken.faqTitle')}</h2>
+    </div>
+    <div class="ds-faq">
+      <div class="ds-faq__item">
+        <h4 class="ds-faq__question">{t(locale, 'MachineToMachineToken.faq1Question')}</h4>
+        <p class="ds-faq__answer">{t(locale, 'MachineToMachineToken.faq1AnswerPre')}<strong>{t(locale, 'MachineToMachineToken.faq1AnswerBold')}</strong>{t(locale, 'MachineToMachineToken.faq1AnswerPost')}</p>
+      </div>
+      <div class="ds-faq__item">
+        <h4 class="ds-faq__question">{t(locale, 'MachineToMachineToken.faq2Question')}</h4>
+        <p class="ds-faq__answer">{t(locale, 'MachineToMachineToken.faq2AnswerPre')}<strong>{t(locale, 'MachineToMachineToken.faq2AnswerBold')}</strong>{t(locale, 'MachineToMachineToken.faq2AnswerPost')}</p>
+      </div>
+      <div class="ds-faq__item">
+        <h4 class="ds-faq__question">{t(locale, 'MachineToMachineToken.faq3Question')}</h4>
+        <p class="ds-faq__answer">{t(locale, 'MachineToMachineToken.faq3Answer')}</p>
+      </div>
+      <div class="ds-faq__item">
+        <h4 class="ds-faq__question">{t(locale, 'MachineToMachineToken.faq4Question')}</h4>
+        <p class="ds-faq__answer">{t(locale, 'MachineToMachineToken.faq4AnswerPre')}<strong>{t(locale, 'MachineToMachineToken.faq4AnswerBold')}</strong>{t(locale, 'MachineToMachineToken.faq4AnswerPost')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="footer-form-section form__bg-dark">
+  <div class="container-default">
+    <div class="container-default-inner px-0">
+      <div class="_2-block-flex footer-form">
+        <div class="_2-block-flex-content footer-form">
+          <div class="_2-block-flex-content-text-wrap footer-form">
+            <h2 class="form-heading color-white footer-form">{t(locale, 'MachineToMachineToken.ctaTitle')}</h2>
+            <div class="color-cee9ff">{t(locale, 'MachineToMachineToken.ctaDesc')}</div>
+            <div class="footerform__divider-sm"></div>
+            <a href="https://portal.authgear.com/?utm_source=feature-m2m&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" class="footer-link w-inline-block">
+              <div class="color-white footer-get-started-text">{t(locale, 'MachineToMachineToken.ctaLink')} &gt;</div>
+            </a>
+          </div>
+        </div>
+        <div class="_2-block-flex-image footer-form">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

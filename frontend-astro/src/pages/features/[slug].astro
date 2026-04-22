@@ -1,0 +1,85 @@
+---
+export const prerender = true;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { featuresMeta, type FeatureSlug } from '@/lib/features-meta';
+
+import AttackProtectionPage from '@/components/pages/features/AttackProtectionPage.astro';
+import AuthenticationPage from '@/components/pages/features/AuthenticationPage.astro';
+import AuthorizationPage from '@/components/pages/features/AuthorizationPage.astro';
+import BiometricAuthenticationPage from '@/components/pages/features/BiometricAuthenticationPage.astro';
+import BiometricLoginPage from '@/components/pages/features/BiometricLoginPage.astro';
+import CustomizationPage from '@/components/pages/features/CustomizationPage.astro';
+import ExtensibilityPage from '@/components/pages/features/ExtensibilityPage.astro';
+import IdentitySecurityPage from '@/components/pages/features/IdentitySecurityPage.astro';
+import MachineToMachineTokenPage from '@/components/pages/features/MachineToMachineTokenPage.astro';
+import MultiFactorAuthenticationPage from '@/components/pages/features/MultiFactorAuthenticationPage.astro';
+import PasskeysPage from '@/components/pages/features/PasskeysPage.astro';
+import PasswordlessAuthenticationPage from '@/components/pages/features/PasswordlessAuthenticationPage.astro';
+import SelfServeSettingsPage from '@/components/pages/features/SelfServeSettingsPage.astro';
+import SingleSignOnPage from '@/components/pages/features/SingleSignOnPage.astro';
+import SmsPasscodePage from '@/components/pages/features/SmsPasscodePage.astro';
+import SmsPumpingFraudPage from '@/components/pages/features/SmsPumpingFraudPage.astro';
+import SocialLoginPage from '@/components/pages/features/SocialLoginPage.astro';
+import UserManagementPage from '@/components/pages/features/UserManagementPage.astro';
+import WhatsappOtpPage from '@/components/pages/features/WhatsappOtpPage.astro';
+
+const pageMap = {
+  'attack-protection': AttackProtectionPage,
+  authentication: AuthenticationPage,
+  authorization: AuthorizationPage,
+  'biometric-authentication': BiometricAuthenticationPage,
+  'biometric-login': BiometricLoginPage,
+  customization: CustomizationPage,
+  extensibility: ExtensibilityPage,
+  'identity-security': IdentitySecurityPage,
+  'machine-to-machine-token': MachineToMachineTokenPage,
+  'multi-factor-authentication': MultiFactorAuthenticationPage,
+  passkeys: PasskeysPage,
+  'passwordless-authentication': PasswordlessAuthenticationPage,
+  'self-serve-settings-page': SelfServeSettingsPage,
+  'single-sign-on': SingleSignOnPage,
+  'sms-passcode': SmsPasscodePage,
+  'sms-pumping-fraud': SmsPumpingFraudPage,
+  'social-login': SocialLoginPage,
+  'user-management': UserManagementPage,
+  'whatsapp-otp': WhatsappOtpPage,
+} as const;
+
+export function getStaticPaths() {
+  return [
+    'attack-protection',
+    'authentication',
+    'authorization',
+    'biometric-authentication',
+    'biometric-login',
+    'customization',
+    'extensibility',
+    'identity-security',
+    'machine-to-machine-token',
+    'multi-factor-authentication',
+    'passkeys',
+    'passwordless-authentication',
+    'self-serve-settings-page',
+    'single-sign-on',
+    'sms-passcode',
+    'sms-pumping-fraud',
+    'social-login',
+    'user-management',
+    'whatsapp-otp',
+  ].map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params as { slug: FeatureSlug };
+const Component = pageMap[slug];
+const meta = featuresMeta[slug];
+if (!Component || !meta) {
+  return Astro.redirect('/404');
+}
+
+const locale = 'en';
+---
+
+<BaseLayout locale={locale} title={meta.title} description={meta.description}>
+  <Component locale={locale} />
+</BaseLayout>

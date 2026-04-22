@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  eyebrow?: string;
+}
+const { title, eyebrow = 'Legal' } = Astro.props;
+---
+<section class="ds-hero-banner--gradient legal-hero">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero legal-hero__inner">
+        <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{eyebrow}</p>
+        <h1 class="ds-hero-banner__title legal-hero__title">{title}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="legal-content">
+      <div class="ds-richtext-prose">
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-footer-cta-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">Start building with Authgear</h2>
+    </div>
+    <div class="ds-footer-cta__actions">
+      <a
+        href="https://portal.authgear.com/?utm_source=legal&utm_medium=link&utm_campaign=start-for-free"
+        target="_blank"
+        rel="noreferrer"
+        class="ds-btn ds-btn-secondary"
+      >
+        Start for free
+      </a>
+      <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+        Schedule a demo
+      </a>
+    </div>
+    <div class="ds-footer-cta__footnote">
+      <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+      <p class="ds-footer-cta__footnote-copy">
+        Free plan includes <strong>unlimited MAUs</strong>
+      </p>
+    </div>
+  </div>
+</section>

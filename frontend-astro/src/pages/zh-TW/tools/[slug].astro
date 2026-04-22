@@ -1,0 +1,64 @@
+---
+export const prerender = true;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import { TOOL_SLUG_PREFIX } from '@/lib/tools/toolSlugPrefix';
+
+import Base64Page from '@/components/pages/tools/Base64Page';
+import HmacPage from '@/components/pages/tools/HmacPage';
+import JwkGeneratorPage from '@/components/pages/tools/JwkGeneratorPage';
+import JwtDebuggerPage from '@/components/pages/tools/JwtDebuggerPage';
+import OidcDiscoveryPage from '@/components/pages/tools/OidcDiscoveryPage';
+import PasswordHashPage from '@/components/pages/tools/PasswordHashPage';
+import SslCheckerPage from '@/components/pages/tools/SslCheckerPage';
+import TotpPage from '@/components/pages/tools/TotpPage';
+import UuidV7Page from '@/components/pages/tools/UuidV7Page';
+
+type ToolSlug =
+  | 'base64-decode-encode'
+  | 'hmac-signature-generator-verifier'
+  | 'jwk-generator'
+  | 'jwt-jwe-debugger'
+  | 'oidc-discovery-endpoint'
+  | 'password-hash-generator'
+  | 'ssl-checker'
+  | 'totp-authenticator'
+  | 'uuidv7-generator';
+
+export function getStaticPaths() {
+  return [
+    'base64-decode-encode',
+    'hmac-signature-generator-verifier',
+    'jwk-generator',
+    'jwt-jwe-debugger',
+    'oidc-discovery-endpoint',
+    'password-hash-generator',
+    'ssl-checker',
+    'totp-authenticator',
+    'uuidv7-generator',
+  ].map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params as { slug: ToolSlug };
+const prefix = TOOL_SLUG_PREFIX[slug];
+if (!prefix) {
+  return Astro.redirect('/404');
+}
+
+const locale = 'zh-TW';
+const title = t(locale, `Tools.${prefix}.metaTitle`);
+const description = t(locale, `Tools.${prefix}.metaDescription`);
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  {slug === 'base64-decode-encode' && <Base64Page client:load locale={locale} />}
+  {slug === 'hmac-signature-generator-verifier' && <HmacPage client:load locale={locale} />}
+  {slug === 'jwk-generator' && <JwkGeneratorPage client:load locale={locale} />}
+  {slug === 'jwt-jwe-debugger' && <JwtDebuggerPage client:load locale={locale} />}
+  {slug === 'oidc-discovery-endpoint' && <OidcDiscoveryPage client:load locale={locale} />}
+  {slug === 'password-hash-generator' && <PasswordHashPage client:load locale={locale} />}
+  {slug === 'ssl-checker' && <SslCheckerPage client:load locale={locale} />}
+  {slug === 'totp-authenticator' && <TotpPage client:load locale={locale} />}
+  {slug === 'uuidv7-generator' && <UuidV7Page client:load locale={locale} />}
+</BaseLayout>

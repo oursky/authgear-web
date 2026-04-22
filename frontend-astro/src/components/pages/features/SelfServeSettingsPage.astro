@@ -1,0 +1,198 @@
+---
+import { t } from '@/i18n';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<section class="ds-hero-banner--gradient">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero">
+        <div class="ds-hero-banner__row">
+          <div class="ds-hero-banner__body">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'SelfServeSettings.heroSmallTitle')}</p>
+            <h1 class="ds-hero-banner__title">{t(locale, 'SelfServeSettings.heroTitle')}</h1>
+            <p class="ds-hero-banner__description">{t(locale, 'SelfServeSettings.heroDescription')}</p>
+            <div class="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-self-serve&utm_medium=link&utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                class="ds-btn ds-btn-secondary"
+              >
+                {t(locale, 'Features.startForFree')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+                {t(locale, 'Features.scheduleDemo')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+            <div class="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p class="ds-hero-banner__footnote-copy">
+                {t(locale, 'SelfServeSettings.freePlanIncludes')} <strong>{t(locale, 'SelfServeSettings.unlimitedMAUs')}</strong>
+              </p>
+            </div>
+          </div>
+          <img
+            class="ds-hero-banner__media"
+            src="/images/features-selfserve-banner-kv2x.webp"
+            srcset="/images/features-selfserve-banner-kv2x-p-500.webp 500w, /images/features-selfserve-banner-kv2x-p-800.webp 800w, /images/features-selfserve-banner-kv2x-p-1080.webp 1080w, /images/features-selfserve-banner-kv2x.webp 1244w"
+            width="738"
+            sizes="(max-width: 767px) 100vw, 738px"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <div class="ds-container">
+    <div class="ds-feature-callout">
+      <div class="ds-feature-callout__title">
+        <h2 class="heading-on-dark">{t(locale, 'SelfServeSettings.challengeTitle')}</h2>
+      </div>
+      <div class="ds-feature-callout__body">
+        <p class="section-lede-on-dark">{t(locale, 'SelfServeSettings.challengeDesc')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'SelfServeSettings.securitySettingsTitle')}</h2>
+    </div>
+    <div class="ds-split-stack__rows">
+      <div class="ds-split ds-split-row ds-split-row--surface-light">
+        <div class="ds-split-row__media">
+          <img src="/images/features-selfserve-setting-profile.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'SelfServeSettings.setting1Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'SelfServeSettings.setting1Desc')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--reverse ds-split-row--surface-light">
+        <div class="ds-split-row__media">
+          <img src="/images/features-selfserve-setting-account.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'SelfServeSettings.setting2Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'SelfServeSettings.setting2Desc')}</p>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--surface-light">
+        <div class="ds-split-row__media">
+          <img src="/images/features-selfserve-setting-sessions.svg" loading="lazy" width="624" alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'SelfServeSettings.setting3Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'SelfServeSettings.setting3Desc')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'SelfServeSettings.brandableTitle')}</h2>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card">
+        <img src="/images/features-selfserve-builtin-ready.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-description">{t(locale, 'SelfServeSettings.brandable1Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-attackprotection-values-04.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-description">{t(locale, 'SelfServeSettings.brandable2Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-selfserve-builtin-language.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-description">{t(locale, 'SelfServeSettings.brandable3Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-selfserve-builtin-device.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-description">{t(locale, 'SelfServeSettings.brandable4Desc')}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'SelfServeSettings.experienceTitle')}</h2>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card">
+        <img src="/images/features-selfserve-cx-faster.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SelfServeSettings.experience1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SelfServeSettings.experience1Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-selfserve-cx-apps.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SelfServeSettings.experience2Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SelfServeSettings.experience2Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-selfserve-cx-security.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SelfServeSettings.experience3Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SelfServeSettings.experience3Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-selfserve-cx-ux.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'SelfServeSettings.experience4Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'SelfServeSettings.experience4Desc')}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-footer-cta-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{t(locale, 'SelfServeSettings.ctaTitle')}</h2>
+    </div>
+    <div class="ds-footer-cta__actions">
+      <a
+        href="https://portal.authgear.com/?utm_source=feature-self-serve&utm_medium=link&utm_campaign=start-for-free"
+        target="_blank"
+        rel="noreferrer"
+        class="ds-btn ds-btn-secondary"
+      >
+        {t(locale, 'Features.startForFree')}
+      </a>
+      <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+        {t(locale, 'Features.getDemo')}
+      </a>
+    </div>
+    <div class="ds-footer-cta__footnote">
+      <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+      <p class="ds-footer-cta__footnote-copy">
+        {t(locale, 'SelfServeSettings.freePlanIncludes')} <strong>{t(locale, 'SelfServeSettings.unlimitedMAUs')}</strong>
+      </p>
+    </div>
+  </div>
+</section>

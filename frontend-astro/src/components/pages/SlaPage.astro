@@ -1,0 +1,57 @@
+---
+import LegalPageLayout from '@/components/legal/LegalPageLayout.astro';
+interface Props { locale: string }
+---
+<LegalPageLayout title="Service Level Agreement">
+  <p>We understand that service interruptions hinder productivity and disrupt your operation.</p>
+  <p>We've set a high bar for service uptime because we believe that you should be able to depend on Authgear and run your business without hassles.</p>
+
+  <h2>The Basics</h2>
+  <p>Our paid plan SLA guarantees a 99.95% monthly uptime, excluding scheduled downtimes described below.</p>
+  <p>Authgear also promises these to our users:</p>
+  <ul>
+    <li>You own your code, not us.</li>
+    <li>We won't lock you in (your business is our privilege, not our right).</li>
+    <li>We will use commercially reasonable efforts to achieve 100% uptime.</li>
+    <li>If we fall short of our 99.95% uptime guarantee (scheduled downtime excluded), we'll refund customers on the paid plan 10% of the amount you paid within the month Authgear was down.</li>
+  </ul>
+
+  <h2>Scheduled Downtime</h2>
+  <p>Occasionally, we need to perform maintenance to keep Authgear working as smoothly as possible. If scheduled downtime is necessary, we'll give you 48 hours' advance notice. In a calendar year, there will be no more than 12 hours of scheduled downtime.</p>
+
+  <h2>Downtime</h2>
+  <p>Downtime means the hosted server of Authgear was unavailable for use excluding the period of scheduled maintenance. We use server monitoring software to monitor when Authgear is down. Downtime does not include the period of time when Authgear is not available as a result of scheduled downtime.</p>
+
+  <h2>Service Credit</h2>
+  <p>In a calendar month during which the SLA is not met as defined in the Service Commitment, and as confirmed by Authgear in its sole discretion, Authgear will provide the customer's account with a nontransferable Service Credit equaling to 10% of the fees paid by customer in the applicable calendar month. Service Credit will be issued for future use only and must be requested by Customer. No refunds of cash value will be provided.</p>
+
+  <h2>SLA Exclusions</h2>
+  <p>The SLA does not apply to any of the following:</p>
+  <ul>
+    <li>Features designated as beta, early access, free trial, limited preview, or preview</li>
+    <li>
+      Downtime caused by any of the following:
+      <ul>
+        <li>Factors outside of Authgear's reasonable control</li>
+        <li>Force majeure events</li>
+        <li>Customer's software or hardware or third-party software or hardware under the customer's control, or both</li>
+        <li>Abuses or other behaviors that violate the Agreement</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Security Vulnerability Report Response</h2>
+  <p>Please refer to <a href="https://github.com/authgear/authgear-server/blob/main/SECURITY.md" target="_blank">https://github.com/authgear/authgear-server/blob/main/SECURITY.md</a></p>
+
+  <h2>Security Breach Notification</h2>
+  <p>In the event of a security breach, we will without undue delay and ,where feasible, not later than 72 hours after having become aware of it, notify affected clients by email. Where the notification to affected clients is not made within 72 hours, it shall be accompanied by reasons for the delay.</p>
+
+  <h2>Change Notification</h2>
+  <p>If changes were planned that will potentially affect current clients, the change will be communicated to clients by email 14 days prior to taking effect. The notification will include the following information (if applicable):</p>
+  <ul>
+    <li>Affected feature(s)</li>
+    <li>Migration path</li>
+    <li>Grace period</li>
+    <li>Planned downtime</li>
+  </ul>
+</LegalPageLayout>

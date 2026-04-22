@@ -1,0 +1,243 @@
+---
+import { t } from '@/i18n';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<section class="ds-hero-banner--gradient">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero">
+        <div class="ds-hero-banner__row">
+          <div class="ds-hero-banner__body">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'AttackProtection.heroSmallTitle')}</p>
+            <h1 class="ds-hero-banner__title">{t(locale, 'AttackProtection.heroTitle')}</h1>
+            <p class="ds-hero-banner__description">{t(locale, 'AttackProtection.heroDescription')}</p>
+            <div class="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-mfa&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                class="ds-btn ds-btn-secondary"
+              >
+                {t(locale, 'Features.startForFree')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+                {t(locale, 'Features.getDemo')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+            <div class="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p class="ds-hero-banner__footnote-copy">
+                {t(locale, 'AttackProtection.freePlanIncludes')} <strong>{t(locale, 'AttackProtection.unlimitedMAUs')}</strong>
+              </p>
+            </div>
+          </div>
+          <img
+            class="ds-hero-banner__media"
+            src="/images/features-attackprotection-banner-kv2x.webp"
+            srcset="/images/features-attackprotection-banner-kv2x-p-500.webp 500w, /images/features-attackprotection-banner-kv2x-p-800.webp 800w, /images/features-attackprotection-banner-kv2x-p-1080.webp 1080w, /images/features-attackprotection-banner-kv2x.webp 1244w"
+            sizes="(max-width: 767px) 100vw, 738px"
+            width="738"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section">
+  <div class="ds-container ds-container--split-stack">
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-attackprotection-features-01-square.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'AttackProtection.feature1Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'AttackProtection.feature1Description')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-attackprotection-features-02-square.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'AttackProtection.feature2Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'AttackProtection.feature2Description')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-attackprotection-features-03-square.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'AttackProtection.feature3Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'AttackProtection.feature3Description')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-attackprotection-features-04-square.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'AttackProtection.feature4Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'AttackProtection.feature4Description')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-attackprotection-features-05-square.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'AttackProtection.feature5Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'AttackProtection.feature5Description')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-attackprotection-features-06-square.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'AttackProtection.feature6Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'AttackProtection.feature6Description')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-attackprotection-features-07-square.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'AttackProtection.feature7Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'AttackProtection.feature7Description')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img
+          src="/images/features-attackprotection-features-08-square.svg"
+          loading="lazy"
+          width="624"
+          alt=""
+          class="ds-split-row__img"
+        />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'AttackProtection.feature8Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'AttackProtection.feature8Description')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'AttackProtection.valuesSectionTitle')}</h2>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card">
+        <img src="/images/features-attackprotection-values-01.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-description">{t(locale, 'AttackProtection.value1')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-description">{t(locale, 'AttackProtection.value2')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-attackprotection-values-03.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-description">{t(locale, 'AttackProtection.value3')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <img src="/images/features-attackprotection-values-04.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-description">{t(locale, 'AttackProtection.value4')}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section attack-protection-built-for">
+  <div class="ds-container">
+    <div class="attack-protection-built-for__surface">
+      <div class="attack-protection-built-for__content">
+        <h2 class="heading-on-dark">{t(locale, 'AttackProtection.builtForTitle')}</h2>
+        <p class="section-lede-on-dark">{t(locale, 'AttackProtection.builtForDescription')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section ds-footer-cta-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{t(locale, 'AttackProtection.ctaTitle')}</h2>
+      <p class="section-lede-on-dark">{t(locale, 'AttackProtection.ctaDescription')}</p>
+    </div>
+    <div class="ds-footer-cta__actions">
+      <a
+        href="https://portal.authgear.com/?utm_source=feature-attack-protection&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+        target="_blank"
+        rel="noreferrer"
+        class="ds-btn ds-btn-secondary"
+      >
+        {t(locale, 'Features.startForFree')}
+      </a>
+      <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+        {t(locale, 'Features.getDemo')}
+      </a>
+    </div>
+    <div class="ds-footer-cta__footnote">
+      <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+      <p class="ds-footer-cta__footnote-copy">
+        {t(locale, 'AttackProtection.freePlanIncludes')} <strong>{t(locale, 'AttackProtection.unlimitedMAUs')}</strong>
+      </p>
+    </div>
+  </div>
+</section>

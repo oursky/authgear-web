@@ -1,0 +1,234 @@
+---
+import { t } from '@/i18n';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+---
+
+<>
+  <div class="featurespage__hero_v2 featurespage__hero_bg vs-page">
+    <div class="features-hero-wrapper-new gap140">
+      <div class="split-content features-hero-left vs-mobile">
+        <h1 class="title features-hero-v2 vs-mobile">
+          {t(locale, 'CognitoAlternative.heroTitlePrefix')} <br />
+          {t(locale, 'CognitoAlternative.heroTitleSuffix')}
+        </h1>
+        <p class="features-hero-description">{t(locale, 'CognitoAlternative.heroDescription')}</p>
+        <div class="features-hero-cta-wrapper vs-mobile">
+          <a href="https://accounts.portal.authgear.com/signup" target="_blank" class="button-primary feature-hero-btn-v2 vs-mobile w-button">
+            {t(locale, 'Features.startForFree')}
+          </a>
+          <a href="/schedule-demo" target="_blank" class="button-secondary feature-hero-btn-v2 noscale button-secondary-with-boarder w-button">
+            {t(locale, 'Features.scheduleDemo')}
+          </a>
+        </div>
+      </div>
+      <img src="/images/compare_kv-aws2x.png" alt="" class="image features-hero-image-v2 _300max" />
+    </div>
+  </div>
+  <div>
+    <div class="container-default wider-container-default logo-section">
+      <div class="container-default-inner px-0 gap-0 pb-0"></div>
+      <img src="/images/compare_logo-Bupa-gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo-CIMIC-gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo-HML-gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo_hkpc_gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo-k11-gray2x.png" loading="lazy" alt="" class="image-86" />
+      <img src="/images/compare_logo-MTR-gray2x.png" loading="lazy" alt="" class="image-86" />
+    </div>
+  </div>
+  <div>
+    <div class="container-default wider-container-default">
+      <div class="container-default-inner px-0 gap-0 pb-0">
+        <div class="top-content feature-flex">
+          <h2 class="title features-page-v2">{t(locale, 'CognitoAlternative.whyChooseTitle')}</h2>
+        </div>
+      </div>
+      <div class="w-layout-hflex flex-block-71">
+        <div class="svg-card gray-card">
+          <div class="svg-card-image-container"><img src="/images/compare_why-custom.svg" loading="lazy" alt="" /></div>
+          <div class="svg-card-content-container text-center gap-16">
+            <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'CognitoAlternative.card1Title')}</div>
+            <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'CognitoAlternative.card1Description')}</div>
+          </div>
+        </div>
+        <div class="svg-card gray-card">
+          <div class="svg-card-image-container"><img src="/images/ompare_why-support.svg" loading="lazy" alt="" /></div>
+          <div class="svg-card-content-container text-center gap-16">
+            <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'CognitoAlternative.card2Title')}</div>
+            <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'CognitoAlternative.card2Description')}</div>
+          </div>
+        </div>
+        <div class="svg-card gray-card">
+          <div class="svg-card-image-container"><img src="/images/ompare_why-data.svg" loading="lazy" alt="" /></div>
+          <div class="svg-card-content-container text-center gap-16">
+            <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'CognitoAlternative.card3Title')}</div>
+            <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'CognitoAlternative.card3Description')}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-f9f9fb">
+    <div class="container-default">
+      <div class="container-default-inner px-0 gap-0">
+        <div class="_3-card-grid">
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-authentication.svg" loading="lazy" alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'CognitoAlternative.feature1Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'CognitoAlternative.feature1Description')}</div>
+            </div>
+          </div>
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-developer.svg" loading="lazy" alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'CognitoAlternative.feature2Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'CognitoAlternative.feature2Description')}</div>
+            </div>
+          </div>
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-flow.svg" loading="lazy" width={48} alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'CognitoAlternative.feature3Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'CognitoAlternative.feature3Description')}</div>
+            </div>
+          </div>
+        </div>
+        <div class="_2-card-grid gap-32 mb-40 _2-rows">
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-user.svg" loading="lazy" width={48} alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'CognitoAlternative.feature4Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'CognitoAlternative.feature4Description')}</div>
+            </div>
+          </div>
+          <div class="svg-card">
+            <div class="svg-card-image-container"><img src="/images/compare_features-support.svg" loading="lazy" alt="" /></div>
+            <div class="svg-card-content-container text-center gap-16">
+              <div class="svg-card-content-title left inter color-2e2e2e mobile-20px">{t(locale, 'CognitoAlternative.feature5Title')}</div>
+              <div class="svg-card-content-description inter text-align-left mobile-16px color-626262 line-height-26px">{t(locale, 'CognitoAlternative.feature5Description')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="container-default wider-container-default">
+      <div class="container-default-inner px-0 gap-0 pb-0">
+        <div class="top-content feature-flex">
+          <h2 class="title features-page-v2">{t(locale, 'CognitoAlternative.compareTitle')}</h2>
+        </div>
+        <div class="div-block-25">
+          <div class="w-layout-grid table-header">
+            <div class="w-layout-blockcontainer w-container"></div>
+            <img src="/images/compare_table-Authgear.svg" loading="lazy" alt="" />
+            <div class="okta">{t(locale, 'CognitoAlternative.competitorName')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableScalingTitle')}</div>
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableScalingAuthgear')}</div>
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableScalingCompetitor')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableWhatsappTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-false.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableSmsEmailOtpTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableEmailOtpNotSupported')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableEmailMagicLinkTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-false.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableMfaTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-check-gray.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableAdaptiveMfaTitle')}</div>
+            <div class="compare-table-multi-info"><img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" /></div>
+            <div class="compare-table-multi-info">
+              <img src="/images/compare_table-check-gray.svg" loading="lazy" alt="" />
+              <div class="compare-table-text-light title">{t(locale, 'CognitoAlternative.tableRequiresAdditionalCost')}</div>
+            </div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableSocialTitle')}</div>
+            <div class="compare-table-multi-info">
+              <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+              <div class="table-text">{t(locale, 'CognitoAlternative.tableSocialAuthgearExtra')}</div>
+            </div>
+            <div class="compare-table-multi-info">
+              <img src="/images/compare_table-check-gray.svg" loading="lazy" alt="" />
+              <div class="compare-table-text-light title">{t(locale, 'CognitoAlternative.tableSocialCognitoNote')}</div>
+            </div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableNativeBiometricTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-false.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableEnterpriseConnectionTitle')}</div>
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableUnlimited')}</div>
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableRequiresAdditionalCost')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableOidcSamlTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-check-gray.svg" loading="lazy" alt="" />
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableLoginExpTitle')}</div>
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableLoginExpAuthgear')}</div>
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableLoginExpCognito')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableBotProtectionTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableRequiresAdditionalCost')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableEmailTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <div class="table-text">{t(locale, 'CognitoAlternative.tableEmailSupportLimited')}</div>
+          </div>
+          <div class="w-layout-grid table-header table-content last-row">
+            <div class="table-text title">{t(locale, 'CognitoAlternative.tableDiscordTitle')}</div>
+            <img src="/images/compare_table-check-blue.svg" loading="lazy" alt="" />
+            <img src="/images/compare_table-false.svg" loading="lazy" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="container-default wider-container-default">
+      <div class="container-default-inner px-0 gap-0 pb-0"></div>
+      <div class="w-layout-hflex ready-to-switch">
+        <h1 class="title features-hero-v2 inverse nomargin">{t(locale, 'Compare.readyToSwitch')}</h1>
+        <div class="split-content features-hero-left nomargin">
+          <p class="features-hero-description inverse">{t(locale, 'CognitoAlternative.ctaMigrateDescription')}</p>
+          <div class="features-hero-cta-wrapper in-ready-to-switch">
+            <a href="/schedule-demo" target="_blank" class="button-primary feature-hero-btn-v2 nomargin w-button">
+              {t(locale, 'Compare.talkToUs')}
+            </a>
+            <a href="https://accounts.portal.authgear.com/signup" target="_blank" class="button-secondary feature-hero-btn-v2 noscale button-secondary-with-boarder inverse w-button">
+              {t(locale, 'Features.startForFree')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</>

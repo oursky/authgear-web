@@ -1,0 +1,261 @@
+---
+import { t } from '@/i18n';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<section class="ds-hero-banner--gradient">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero">
+        <div class="ds-hero-banner__row">
+          <div class="ds-hero-banner__body">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'Authentication.heroSmallTitle')}</p>
+            <h1 class="ds-hero-banner__title">
+              {t(locale, 'Authentication.heroTitleLine1')}
+              <br />
+              {t(locale, 'Authentication.heroTitleLine2')}
+            </h1>
+            <p class="ds-hero-banner__description">
+              {t(locale, 'Authentication.heroDescLine1')} {t(locale, 'Authentication.heroDescLine2')}
+            </p>
+            <div class="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-authentication&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                class="ds-btn ds-btn-secondary"
+              >
+                {t(locale, 'Features.startForFree')}
+                <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+                {t(locale, 'Features.getDemo')}
+                <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+            <div class="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p class="ds-hero-banner__footnote-copy">
+                {t(locale, 'Authentication.freePlanIncludes')} <strong>{t(locale, 'Authentication.unlimitedMAUs')}</strong>
+              </p>
+            </div>
+          </div>
+          <img
+            class="ds-hero-banner__media"
+            src="/images/features-authentication-hero-banner2x.webp"
+            srcset="/images/features-authentication-hero-banner2x-p-500.webp 500w, /images/features-authentication-hero-banner2x-p-800.webp 800w, /images/features-authentication-hero-banner2x-p-1080.webp 1080w, /images/features-authentication-hero-banner2x.webp 1476w"
+            sizes="(max-width: 767px) 100vw, 738px"
+            width={738}
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'Authentication.implementTitle')}</h2>
+    </div>
+    <div class="ds-grid-4">
+      <div class="svg-card">
+        <div class="svg-card-image-container">
+          <img src="/images/features-authentication-fast-implement-1.svg" loading="lazy" alt="" />
+        </div>
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'Authentication.card1')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <div class="svg-card-image-container">
+          <img src="/images/features-authentication-fast-implement-2.svg" loading="lazy" alt="" />
+        </div>
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'Authentication.card2')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <div class="svg-card-image-container">
+          <img src="/images/features-authentication-fast-implement-3.svg" loading="lazy" alt="" />
+        </div>
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'Authentication.card3')}</div>
+        </div>
+      </div>
+      <div class="svg-card">
+        <div class="svg-card-image-container">
+          <img src="/images/features-attackprotection-values-04.svg" loading="lazy" alt="" />
+        </div>
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'Authentication.card4')}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <div class="ds-container ds-container--split-stack">
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-01-methods.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature1Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature1Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-02-otp.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature2Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature2Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-03-magiclinks.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature3Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature3Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-03-magiclinks.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature4Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature4Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-04-mfa.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature5Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature5Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-06-anonymous.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature6Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature6Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-07-reauth.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature7Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature7Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-08-bot.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature8Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature8Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-09-sso.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature9Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature9Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row ds-split-row--reverse">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-10-branding.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature10Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature10Desc')}</p>
+      </div>
+    </div>
+    <div class="ds-split ds-split-row">
+      <div class="ds-split-row__media">
+        <img src="/images/features-authentication-features-11-m2m.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+      </div>
+      <div class="ds-split-row__body">
+        <h2 class="heading-on-light">{t(locale, 'Authentication.feature11Title')}</h2>
+        <p class="section-lede-on-light">{t(locale, 'Authentication.feature11Desc')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section authentication-dev-experience-section">
+  <div class="ds-container ds-container--max-callout">
+    <div class="authentication-dev-experience-section__surface">
+      <div class="authentication-dev-experience-section__layout">
+        <div class="title-content authentication-dev-experience-section__title-col">
+          <h2 class="heading-on-dark">
+            {t(locale, 'Authentication.devExpTitleLine1')}
+            <br />
+            {t(locale, 'Authentication.devExpTitleLine2')}
+          </h2>
+        </div>
+        <div class="authentication-dev-experience-section__cards-col">
+          <div class="ds-grid-2">
+            <div class="svg-card">
+              <div class="ds-svg-card-content">
+                <div class="ds-svg-card-title">{t(locale, 'Authentication.sdksLabel')}</div>
+                <div class="ds-svg-card-description">{t(locale, 'Authentication.sdksDesc')}</div>
+              </div>
+            </div>
+            <div class="svg-card">
+              <div class="ds-svg-card-content">
+                <div class="ds-svg-card-title">{t(locale, 'Authentication.adminApiLabel')}</div>
+                <div class="ds-svg-card-description">{t(locale, 'Authentication.adminApiDesc')}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-footer-cta-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{t(locale, 'Authentication.ctaTitle')}</h2>
+      <p class="section-lede-on-dark">{t(locale, 'Authentication.ctaDesc')}</p>
+    </div>
+    <div class="ds-footer-cta__actions">
+      <a
+        href="https://portal.authgear.com/?utm_source=feature-authentication&amp;utm_medium=link&amp;utm_campaign=start-for-free"
+        target="_blank"
+        rel="noreferrer"
+        class="ds-btn ds-btn-secondary"
+      >
+        {t(locale, 'Features.startForFree')}
+      </a>
+      <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+        {t(locale, 'Features.getDemo')}
+      </a>
+    </div>
+    <div class="ds-footer-cta__footnote">
+      <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+      <p class="ds-footer-cta__footnote-copy">
+        {t(locale, 'Authentication.freePlanIncludes')} <strong>{t(locale, 'Authentication.unlimitedMAUs')}</strong>
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,294 @@
+---
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<div class="page-wrapper">
+  <section class="ds-hero-banner--white">
+    <div class="ds-container ds-container--hero-white">
+      <div class="ds-hero-banner__stack">
+        <div class="ds-section-eyebrow">{t(locale, 'B2bSaasAuthentication.eyebrow')}</div>
+        <h1 class="ds-hero-banner__title">
+          {t(locale, 'B2bSaasAuthentication.heroTitleLine1')}<br />
+          {t(locale, 'B2bSaasAuthentication.heroTitleLine2')}
+        </h1>
+        <p class="ds-hero-banner__description">
+          {t(locale, 'B2bSaasAuthentication.heroDescPart1')}
+          <br />
+          <span class="text-bold">
+            {t(locale, 'B2bSaasAuthentication.heroDescBold')}
+          </span>
+        </p>
+        <div class="ds-hero-banner__ctas">
+          <a
+            href="https://portal.authgear.com/?utm_source=solutions-b2b-saas&utm_medium=link&utm_campaign=talk-with-us"
+            target="_blank"
+            rel="noreferrer"
+            class="ds-btn ds-btn-primary"
+          >
+            {t(locale, 'B2bSaasAuthentication.heroCta')}
+            <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
+      </div>
+      <img
+        src="/images/b2c_ciam_kv-hero-login-box1.svg"
+        loading="lazy"
+        alt=""
+        width={1152}
+        class="ds-hero-banner__media ds-hero-banner__media--bottom"
+      />
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'B2bSaasAuthentication.empowerTitleLine1')}<br />
+          {t(locale, 'B2bSaasAuthentication.empowerTitleLine2')}
+        </h2>
+        <p class="section-lede-on-light">
+          {t(locale, 'B2bSaasAuthentication.empowerDesc')}
+        </p>
+      </div>
+    </div>
+    <div class="container-full-general">
+      <img src="/images/b2b_saas_empower-flow.svg" loading="lazy" alt="" class="_w-full pb-80" />
+      <img src="/images/b2b_saas_empower-flow-m.svg" loading="lazy" alt="" class="_w-full pb-80 mobile-100" />
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'B2bSaasAuthentication.multitenancyTitleLine1')}<br />
+          {t(locale, 'B2bSaasAuthentication.multitenancyTitleLine2')}
+        </h2>
+        <p class="section-lede-on-light">
+          {t(locale, 'B2bSaasAuthentication.multitenancyDesc')}
+        </p>
+      </div>
+      <div class="ds-grid-3 b2b-saas-multitenancy-step-cards">
+        <div class="svg-card">
+          <div class="b2b-saas-multitenancy-step-cards__step" aria-hidden="true">
+            1
+          </div>
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.multitenancy1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.multitenancy1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <div class="b2b-saas-multitenancy-step-cards__step" aria-hidden="true">
+            2
+          </div>
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.multitenancy2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.multitenancy2Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <div class="b2b-saas-multitenancy-step-cards__step" aria-hidden="true">
+            3
+          </div>
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.multitenancy3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.multitenancy3Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'B2bSaasAuthentication.whyTitle')}
+        </h2>
+      </div>
+      <div class="ds-grid-3">
+        <div class="svg-card">
+          <img src="/images/b2b-saas-why-adminpanel.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.why1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.why1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b-saas-why-sso.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.why2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.why2Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b-saas-why-roles.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.why3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.why3Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b-saas-why-customized.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.why4Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.why4Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b-saas-why-integration.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.why5Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.why5Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b-saas-why-security.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.why6Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.why6Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'B2bSaasAuthentication.granularTitleLine1')}<br />
+          {t(locale, 'B2bSaasAuthentication.granularTitleLine2')}
+        </h2>
+        <p class="section-lede-on-light">
+          {t(locale, 'B2bSaasAuthentication.granularDesc')}
+        </p>
+      </div>
+      <div class="b2b-saas-granular-defense-cards">
+        <div class="svg-card">
+          <img src="/images/b2b_saas_granular-control-domain.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.granular1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.granular1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.granular2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.granular2Desc')}
+            </div>
+          </div>
+          <img src="/images/b2b_saas_granular-control-captcha.svg" loading="lazy" alt="" />
+        </div>
+        <div class="svg-card">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.granular3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.granular3Desc')}
+            </div>
+          </div>
+          <img src="/images/b2b_saas_granular-control-travel.svg" loading="lazy" alt="" />
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b_saas_granular-control-IPACLs.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.granular4Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.granular4Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">
+          {t(locale, 'B2bSaasAuthentication.freeTrialTitle')}
+        </h2>
+        <p class="section-lede-on-light">
+          {t(locale, 'B2bSaasAuthentication.freeTrialDesc')}
+        </p>
+      </div>
+      <div class="ds-grid-2">
+        <div class="svg-card">
+          <img src="/images/b2b_saas_freetrial-support.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.freeTrial1Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.freeTrial1Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b_saas_freetrial-reduce.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.freeTrial2Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.freeTrial2Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b_saas_freetrial-security.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.freeTrial3Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.freeTrial3Desc')}
+            </div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <img src="/images/b2b_saas_freetrial-experience.svg" loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{t(locale, 'B2bSaasAuthentication.freeTrial4Title')}</div>
+            <div class="ds-svg-card-description">
+              {t(locale, 'B2bSaasAuthentication.freeTrial4Desc')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="footer-form-section form__bg-dark">
+    <div class="container-default">
+      <div class="container-default-inner px-0">
+        <div class="_2-block-flex footer-form">
+          <div class="_2-block-flex-content footer-form">
+            <div class="_2-block-flex-content-text-wrap footer-form">
+              <h2 class="form-heading color-white footer-form">{t(locale, 'B2bSaasAuthentication.footerTitle')}</h2>
+              <div class="footerform__divider-sm"></div>
+              <div class="color-white footer-get-started-text">{t(locale, 'B2bSaasAuthentication.footerGetStarted')}</div>
+            </div>
+          </div>
+          <div class="_2-block-flex-image footer-form">
+            <ContactForm client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

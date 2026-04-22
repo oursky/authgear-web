@@ -1,0 +1,49 @@
+---
+export const prerender = true;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { solutionsMeta, type SolutionSlug } from '@/lib/solutions-meta';
+
+import B2bSaasAuthenticationPage from '@/components/pages/solutions/B2bSaasAuthenticationPage.astro';
+import CiamSolutionPage from '@/components/pages/solutions/CiamSolutionPage.astro';
+import CustomerIdentityAndAccessManagementPage from '@/components/pages/solutions/CustomerIdentityAndAccessManagementPage.astro';
+import EnterpriseSsoPage from '@/components/pages/solutions/EnterpriseSsoPage.astro';
+import ExternalIdentityAccessManagementPage from '@/components/pages/solutions/ExternalIdentityAccessManagementPage.astro';
+import FrontlineWorkersIdentityPage from '@/components/pages/solutions/FrontlineWorkersIdentityPage.astro';
+import ReduceSmsOtpCostPage from '@/components/pages/solutions/ReduceSmsOtpCostPage.astro';
+
+const pageMap = {
+  'b2b-saas-authentication': B2bSaasAuthenticationPage,
+  'ciam-solution': CiamSolutionPage,
+  'customer-identity-and-access-management': CustomerIdentityAndAccessManagementPage,
+  'enterprise-sso': EnterpriseSsoPage,
+  'external-identity-access-management': ExternalIdentityAccessManagementPage,
+  'frontline-workers-identity': FrontlineWorkersIdentityPage,
+  'reduce-sms-otp-cost': ReduceSmsOtpCostPage,
+} as const;
+
+export function getStaticPaths() {
+  return [
+    'b2b-saas-authentication',
+    'ciam-solution',
+    'customer-identity-and-access-management',
+    'enterprise-sso',
+    'external-identity-access-management',
+    'frontline-workers-identity',
+    'reduce-sms-otp-cost',
+  ].map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params as { slug: SolutionSlug };
+const Component = pageMap[slug];
+const meta = solutionsMeta[slug];
+if (!Component || !meta) {
+  return Astro.redirect('/404');
+}
+
+const locale = 'zh-TW';
+---
+
+<BaseLayout locale={locale} title={meta.title} description={meta.description}>
+  <Component locale={locale} />
+</BaseLayout>

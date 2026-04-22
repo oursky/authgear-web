@@ -1,0 +1,124 @@
+---
+import { LOCALES, localizedPath } from '@/lib/i18n';
+
+interface Props {
+  locale: string;
+  currentPath?: string;
+}
+
+const { locale, currentPath = Astro.url.pathname } = Astro.props;
+
+const LOCALE_LABELS: Record<string, string> = {
+  en: 'English',
+  'zh-TW': '繁體中文',
+};
+
+function getBasePath(pathname: string): string {
+  for (const loc of LOCALES) {
+    if (loc === 'en') continue;
+    if (pathname.startsWith(`/${loc}/`)) {
+      return pathname.slice(`/${loc}`.length);
+    }
+    if (pathname === `/${loc}`) {
+      return '/';
+    }
+  }
+  return pathname;
+}
+
+const basePath = getBasePath(currentPath);
+const currentLabel = LOCALE_LABELS[locale] ?? 'Language';
+---
+
+<div class="ds-footer-lang-switcher" id="footer-lang-switcher">
+  <button
+    type="button"
+    class="ds-footer-lang-switcher__btn"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    id="footer-lang-btn"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="ds-footer-lang-switcher__icon"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+    <span>{currentLabel}</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="ds-footer-lang-switcher__chevron"
+      id="footer-lang-chevron"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  </button>
+  <ul class="ds-footer-lang-switcher__dropdown" role="listbox" id="footer-lang-dropdown" hidden>
+    {LOCALES.map((l) => (
+      <li role="option" aria-selected={l === locale}>
+        <a
+          href={localizedPath(l, basePath)}
+          class={`ds-footer-lang-switcher__option${l === locale ? ' ds-footer-lang-switcher__option--active' : ''}`}
+        >
+          {LOCALE_LABELS[l]}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  (function () {
+    const wrapper = document.getElementById('footer-lang-switcher');
+    const btn = document.getElementById('footer-lang-btn');
+    const dropdown = document.getElementById('footer-lang-dropdown');
+    const chevron = document.getElementById('footer-lang-chevron');
+
+    if (!wrapper || !btn || !dropdown || !chevron) return;
+
+    function open() {
+      dropdown.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      chevron.classList.add('ds-footer-lang-switcher__chevron--open');
+    }
+
+    function close() {
+      dropdown.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      chevron.classList.remove('ds-footer-lang-switcher__chevron--open');
+    }
+
+    btn.addEventListener('click', function () {
+      if (dropdown.hidden) {
+        open();
+      } else {
+        close();
+      }
+    });
+
+    document.addEventListener('mousedown', function (e) {
+      if (!wrapper.contains(e.target as Node)) {
+        close();
+      }
+    });
+  })();
+</script>

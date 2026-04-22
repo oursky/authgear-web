@@ -1,0 +1,12 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import WhyAuthgearPage from '@/components/pages/WhyAuthgearPage.astro';
+const locale = 'en';
+const title = t(locale, 'WhyAuthgear.title');
+const description = t(locale, 'WhyAuthgear.description');
+---
+<BaseLayout locale={locale} title={title} description={description}>
+  <WhyAuthgearPage locale={locale} />
+</BaseLayout>

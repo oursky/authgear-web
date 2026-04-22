@@ -1,0 +1,283 @@
+---
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+import BiometricMethodsTabs from '@/components/islands/BiometricMethodsTabs';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<section class="ds-hero-banner--gradient">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero">
+        <div class="ds-hero-banner__row">
+          <div class="ds-hero-banner__body">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'BiometricAuthentication.heroSmallTitle')}</p>
+            <h1 class="ds-hero-banner__title">{t(locale, 'BiometricAuthentication.heroTitle')}</h1>
+            <p class="ds-hero-banner__description">{t(locale, 'BiometricAuthentication.heroDescription')}</p>
+            <div class="ds-hero-banner__ctas">
+              <a
+                href="https://portal.authgear.com/?utm_source=feature-biometric&utm_medium=link&utm_campaign=start-for-free"
+                target="_blank"
+                rel="noreferrer"
+                class="ds-btn ds-btn-secondary"
+              >
+                {t(locale, 'Features.startForFree')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+                {t(locale, 'Features.scheduleDemo')}
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+            <div class="ds-hero-banner__footnote">
+              <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+              <p class="ds-hero-banner__footnote-copy">
+                {t(locale, 'BiometricAuthentication.freePlanIncludes')} <strong>{t(locale, 'BiometricAuthentication.unlimitedMAUs')}</strong>
+              </p>
+            </div>
+          </div>
+          <img
+            class="ds-hero-banner__media"
+            src="/images/features-biometric-hero-kv.svg"
+            width={738}
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section b2c-ciam-solution-section-dark-bg">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{t(locale, 'BiometricAuthentication.whatIsTitle')}</h2>
+      <p class="section-lede-on-dark"><span class="text-bold">{t(locale, 'BiometricAuthentication.whatIsBold')}</span> {t(locale, 'BiometricAuthentication.whatIsDesc')}</p>
+    </div>
+    <div class="ds-grid-2">
+      <div class="svg-card svg-card-glass">
+        <img src="/images/features-biometric-whatis-enhanced.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'BiometricAuthentication.card1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'BiometricAuthentication.card1Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card svg-card-glass">
+        <img src="/images/features-biometric-whatis-experience.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'BiometricAuthentication.card2Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'BiometricAuthentication.card2Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card svg-card-glass">
+        <img src="/images/features-biometric-whatis-stronger.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'BiometricAuthentication.card3Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'BiometricAuthentication.card3Desc')}</div>
+        </div>
+      </div>
+      <div class="svg-card svg-card-glass">
+        <img src="/images/features-biometric-whatis-access.svg" loading="lazy" alt="" />
+        <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'BiometricAuthentication.card4Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'BiometricAuthentication.card4Desc')}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'BiometricAuthentication.methodsTitle')}</h2>
+      <p class="section-lede-on-light">{t(locale, 'BiometricAuthentication.methodsDesc')}</p>
+    </div>
+    <BiometricMethodsTabs
+      client:visible
+      ariaLabel={t(locale, 'BiometricAuthentication.methodsTitle')}
+      tabs={[
+        {
+          label: t(locale, 'BiometricAuthentication.tab1'),
+          panelTitle: t(locale, 'BiometricAuthentication.fp_title'),
+          panelDescription: t(locale, 'BiometricAuthentication.fp_desc'),
+          cards: [
+            { img: '/images/features-biometric-methods-fingerprint-accuracy.svg', title: t(locale, 'BiometricAuthentication.fp_card1Title'), description: t(locale, 'BiometricAuthentication.fp_card1Desc') },
+            { img: '/images/features-biometric-methods-fingerprint-wideavailability.svg', title: t(locale, 'BiometricAuthentication.fp_card2Title'), description: t(locale, 'BiometricAuthentication.fp_card2Desc') },
+            { img: '/images/features-biometric-methods-fingerprint-authentication.svg', title: t(locale, 'BiometricAuthentication.fp_card3Title'), description: t(locale, 'BiometricAuthentication.fp_card3Desc') },
+          ],
+        },
+        {
+          label: t(locale, 'BiometricAuthentication.tab2'),
+          panelTitle: t(locale, 'BiometricAuthentication.fa_title'),
+          panelDescription: t(locale, 'BiometricAuthentication.fa_desc'),
+          cards: [
+            { img: '/images/facial_authentication-faceid.svg', title: t(locale, 'BiometricAuthentication.fa_card1Title'), description: t(locale, 'BiometricAuthentication.fa_card1Desc') },
+            { img: '/images/facial-recognition.svg', title: t(locale, 'BiometricAuthentication.fa_card2Title'), description: t(locale, 'BiometricAuthentication.fa_card2Desc') },
+            { img: '/images/liveness-recognition.svg', title: t(locale, 'BiometricAuthentication.fa_card3Title'), description: t(locale, 'BiometricAuthentication.fa_card3Desc') },
+          ],
+        },
+      ]}
+    />
+  </div>
+</section>
+<section class="ds-section ds-bg-white">
+  <div class="ds-container ds-container--split-stack ds-container--split-stack--title-gap-m">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'BiometricAuthentication.flowTitle')}</h2>
+      <p class="section-lede-on-light">{t(locale, 'BiometricAuthentication.flowDesc')}</p>
+    </div>
+    <div class="ds-split-stack__rows">
+      <div class="ds-split ds-split-row ds-split-row--reverse">
+        <div class="ds-split-row__media">
+          <img src="/images/features-biometric-flow-key.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'BiometricAuthentication.flow1Title')}</h3>
+          <p class="section-lede-on-light">{t(locale, 'BiometricAuthentication.flow1Desc')}</p>
+          <ul role="list" class="ds-body-bullet-list">
+            <li>{t(locale, 'BiometricAuthentication.flow1Item1')}</li>
+            <li>{t(locale, 'BiometricAuthentication.flow1Item2')}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row">
+        <div class="ds-split-row__media">
+          <img src="/images/features-biometric-flow-authentication.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'BiometricAuthentication.flow2Title')}</h3>
+          <ul role="list" class="ds-body-bullet-list">
+            <li>{t(locale, 'BiometricAuthentication.flow2Item1')}</li>
+            <li>{t(locale, 'BiometricAuthentication.flow2Item2')}</li>
+            <li>{t(locale, 'BiometricAuthentication.flow2Item3')}</li>
+            <li>{t(locale, 'BiometricAuthentication.flow2Item4')}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ds-split ds-split-row ds-split-row--reverse">
+        <div class="ds-split-row__media">
+          <img src="/images/features-biometric-flow-server.svg" loading="lazy" width={624} alt="" class="ds-split-row__img" />
+        </div>
+        <div class="ds-split-row__body">
+          <h3 class="heading-on-light">{t(locale, 'BiometricAuthentication.flow3Title')}</h3>
+          <ul role="list" class="ds-body-bullet-list">
+            <li>{t(locale, 'BiometricAuthentication.flow3Item1')}</li>
+            <li>{t(locale, 'BiometricAuthentication.flow3Item2')}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ds-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'BiometricAuthentication.compareTitle')}</h2>
+      <p class="section-lede-on-light">{t(locale, 'BiometricAuthentication.compareDesc')}</p>
+    </div>
+    <div class="ds-compare-table-wrapper">
+      <table class="ds-compare-table">
+        <thead>
+          <tr>
+            <th>{t(locale, 'BiometricAuthentication.compareFeature')}</th>
+            <th>{t(locale, 'BiometricAuthentication.comparePassword')}</th>
+            <th>{t(locale, 'BiometricAuthentication.compareBiometric')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{t(locale, 'BiometricAuthentication.compareSecurity')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareSecurityPassword')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareSecurityBiometric')}</td>
+          </tr>
+          <tr>
+            <td>{t(locale, 'BiometricAuthentication.compareConvenience')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareConveniencePassword')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareConvenienceBiometric')}</td>
+          </tr>
+          <tr>
+            <td>{t(locale, 'BiometricAuthentication.compareUX')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareUXPassword')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareUXBiometric')}</td>
+          </tr>
+          <tr>
+            <td>{t(locale, 'BiometricAuthentication.compareCost')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareCostPassword')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareCostBiometric')}</td>
+          </tr>
+          <tr>
+            <td>{t(locale, 'BiometricAuthentication.compareAcceptance')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareAcceptancePassword')}</td>
+            <td>{t(locale, 'BiometricAuthentication.compareAcceptanceBiometric')}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<div class="bg-f9f9fb passkey-feature">
+  <div class="container-default">
+    <div class="container-default-inner px-0 gap-0">
+      <div class="top-content feature-flex mb-60">
+        <h2 class="title features-page-v2">{t(locale, 'BiometricAuthentication.enterpriseTitle')}</h2>
+        <p class="paragraph-large text-center features-page-v2">{t(locale, 'BiometricAuthentication.enterpriseDesc')}</p>
+      </div>
+      <div class="_3-card-grid row-gap-64">
+        <div class="svg-card p-0 gap-6 bg-transparent">
+          <div class="svg-card-image-container mb-18"><img loading="lazy" src="/images/features-biometric-authentications-financial.svg" alt="" /></div>
+          <div class="svg-card-content-title ibm-plex-sans color-2b2b2b size-22">{t(locale, 'BiometricAuthentication.enterprise1Title')}</div>
+          <div class="svg-card-content-container">
+            <div class="svg-card-content-description m-sm">{t(locale, 'BiometricAuthentication.enterprise1Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card p-0 gap-6 bg-transparent">
+          <div class="svg-card-image-container mb-18"><img loading="lazy" src="/images/features-biometric-authentications-healthcare.svg" alt="" /></div>
+          <div class="svg-card-content-title ibm-plex-sans color-2b2b2b size-22">{t(locale, 'BiometricAuthentication.enterprise2Title')}</div>
+          <div class="svg-card-content-container">
+            <div class="svg-card-content-description m-sm">{t(locale, 'BiometricAuthentication.enterprise2Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card p-0 gap-6 bg-transparent">
+          <div class="svg-card-image-container mb-18"><img loading="lazy" src="/images/features-biometric-authentications-passport.svg" alt="" /></div>
+          <div class="svg-card-content-title ibm-plex-sans color-2b2b2b size-22">{t(locale, 'BiometricAuthentication.enterprise3Title')}</div>
+          <div class="svg-card-content-container">
+            <div class="svg-card-content-description m-sm">{t(locale, 'BiometricAuthentication.enterprise3Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card p-0 gap-6 bg-transparent">
+          <div class="svg-card-image-container mb-18"><img loading="lazy" src="/images/features-biometric-authentications-enterprise.svg" alt="" /></div>
+          <div class="svg-card-content-title ibm-plex-sans color-2b2b2b size-22">{t(locale, 'BiometricAuthentication.enterprise4Title')}</div>
+          <div class="svg-card-content-container">
+            <div class="svg-card-content-description m-sm">{t(locale, 'BiometricAuthentication.enterprise4Desc')}</div>
+          </div>
+        </div>
+        <div class="svg-card p-0 gap-6 bg-transparent">
+          <div class="svg-card-image-container mb-18"><img loading="lazy" src="/images/features-biometric-authentications-mobile.svg" alt="" /></div>
+          <div class="svg-card-content-title ibm-plex-sans color-2b2b2b size-22">{t(locale, 'BiometricAuthentication.enterprise5Title')}</div>
+          <div class="svg-card-content-container">
+            <div class="svg-card-content-description m-sm">{t(locale, 'BiometricAuthentication.enterprise5Desc')}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer-form-section form__bg-dark">
+  <div class="container-default">
+    <div class="container-default-inner px-0">
+      <div class="_2-block-flex footer-form">
+        <div class="_2-block-flex-content footer-form">
+          <div class="_2-block-flex-content-text-wrap footer-form">
+            <h2 class="form-heading color-white footer-form">{t(locale, 'BiometricAuthentication.ctaTitle')}</h2>
+            <div class="color-cee9ff">{t(locale, 'BiometricAuthentication.ctaDesc')}</div>
+            <div class="footerform__divider-sm"></div>
+            <div class="color-white footer-get-started-text">{t(locale, 'BiometricAuthentication.ctaGetStarted')}</div>
+          </div>
+        </div>
+        <div class="_2-block-flex-image footer-form">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

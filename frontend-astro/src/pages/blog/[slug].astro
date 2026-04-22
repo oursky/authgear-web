@@ -1,0 +1,171 @@
+---
+export const prerender = false;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
+import {
+  blogPostDisplayPublishedAt,
+  getBlogPostBySlug,
+  getBlogPosts,
+  strapiImageUrl,
+} from '@/lib/strapi';
+
+const locale = 'en';
+const strapiLocale = pathLocaleToStrapiLocale(locale);
+const { slug } = Astro.params as { slug: string };
+
+const post = await getBlogPostBySlug(slug, strapiLocale);
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const { title, excerpt, body, thumbnail, category, author } = post.attributes;
+const imgUrl = strapiImageUrl(thumbnail);
+const catName = category?.data?.attributes?.name ?? '';
+const catSlug = category?.data?.attributes?.slug ?? '';
+const authorName = author?.data?.attributes?.name ?? '';
+const authorRole = author?.data?.attributes?.role ?? '';
+const authorImg = strapiImageUrl(author?.data?.attributes?.photo ?? null);
+const displayDate = blogPostDisplayPublishedAt(post.attributes);
+const date = displayDate
+  ? new Date(displayDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+  : '';
+
+const latestRes = await getBlogPosts({ pagination: { pageSize: 3 }, locale: strapiLocale });
+const latestPosts = (latestRes.data ?? []).filter((p) => p.attributes.slug !== slug);
+
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+
+const pageTitle = title;
+const pageDescription = excerpt ?? '';
+---
+
+<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
+  <div class="page-wrapper">
+    <div class="section blog-post">
+      <div class="container-default blog-banner w-container">
+        <div class="blog-post-top-content-wrapper">
+          <div class="animation-div">
+            {catName && (
+              <a
+                href={localizedPath(locale, `/blog?category=${catSlug}`)}
+                class="badge blog-post-category w-inline-block"
+              >
+                <div class="blog-category-text">{catName}</div>
+              </a>
+            )}
+          </div>
+          <h1 class="blog-h1">{title}</h1>
+          {excerpt && <p class="paragraph-large blog-post-excerpt">{excerpt}</p>}
+          <div class="blog-post-about-wrapper">
+            {authorName && (
+              <a href="#" class="blog-post-author-wrapper w-inline-block">
+                <div class="image-wrapper blog-post-author">
+                  {authorImg && (
+                    <img src={authorImg} alt={authorName} width={40} height={40} class="image blog-post-author" loading="lazy" />
+                  )}
+                </div>
+                <div class="blog-post-author-about">
+                  <div class="blog-post-author-name">{authorName}</div>
+                  <div class="blog-post-author-rol">{authorRole}</div>
+                </div>
+              </a>
+            )}
+            {date && (
+              <div class="blog-post-about-content">
+                <div class="blog-post-about-content-label">{t(locale, 'Blog.lastUpdated')}</div>
+                <div class="text-block-82">{date}</div>
+              </div>
+            )}
+          </div>
+        </div>
+        {imgUrl && (
+          <img
+            src={imgUrl}
+            alt={title}
+            width={1200}
+            height={630}
+            class="image blog-post"
+            style="width: 100%; height: auto;"
+            loading="lazy"
+          />
+        )}
+      </div>
+    </div>
+
+    <div>
+      <div class="container-default w-container">
+        <div class="w-layout-grid blog-content">
+          <div class="div-block-29">
+            <a href="https://discord.gg/Kdn5vcYwAS" target="_blank" rel="noreferrer" class="link-block-4 w-inline-block blog-discord-promo">
+              <img
+                src="/images/blog-discoard-community2x.jpg"
+                loading="lazy"
+                alt="Discord Community"
+                width={600}
+                height={400}
+                class="image-92 blog-discord-promo__img"
+              />
+            </a>
+            <div class="blog-github-star-cta">
+              <div>{t(locale, 'Blog.starOnGitHub')}</div>
+              <iframe
+                src="https://ghbtns.com/github-btn.html?user=authgear&repo=authgear-server&type=star&count=true&size=large"
+                frameborder="0"
+                scrolling="no"
+                width={150}
+                height={30}
+                title="GitHub"
+              ></iframe>
+            </div>
+          </div>
+          <div class="div-block-28">
+            {body ? (
+              <div class="ds-richtext-prose blog-rich-text w-richtext" set:html={body} />
+            ) : (
+              <p>{t(locale, 'Blog.noContentYet')}</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {latestPosts.length > 0 && (
+      <div class="section blog-post-latest-articles">
+        <div class="container-default w-container">
+          <div class="top-content blog-post-latest-artticles">
+            <div class="title blog-post-latest-articles">{t(locale, 'Blog.latestArticles')}</div>
+          </div>
+          <div role="list" class="section-blog-post-grid w-dyn-items">
+            {latestPosts.map((lp) => (
+              <div role="listitem" class="blog-post w-dyn-item">
+                <a
+                  href={localizedPath(locale, `/blog/${lp.attributes.slug}`)}
+                  class="card blog-post w-inline-block"
+                >
+                  <div class="image-wrapper card-blog-post">
+                    {strapiImageUrl(lp.attributes.thumbnail) && (
+                      <img
+                        src={strapiImageUrl(lp.attributes.thumbnail)}
+                        alt={lp.attributes.title}
+                        width={400}
+                        height={250}
+                        class="image card-blog-post"
+                        style="object-fit: cover; width: 100%; height: 100%;"
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
+                  <div class="card-blog-post-content">
+                    <h3 class="latest-articles-title">{lp.attributes.title}</h3>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</BaseLayout>
