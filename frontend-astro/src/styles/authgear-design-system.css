@@ -452,7 +452,7 @@
   }
 
   /*
-   * Customer story 單篇頂部：Strapi `coverImage` 全寬 + 標題。
+   * Customer story 單篇頂部：`coverImage` 全寬 + 標題。
    * 全站 `.header.event` 為 `position: fixed`（見本檔 `--layout-fixed-header-height` 註解）。
    * 底圖若自區塊頂 `inset: 0` 會從文件頂端算起，視覺上被 nav 遮掉一段；媒體與遮罩改為自
    * `top: var(--layout-fixed-header-height)` 起算。上緣帶狀區用與無圖時相同的深色底銜接 nav。
@@ -3892,7 +3892,7 @@ button.ds-pricing-faq__summary[aria-expanded='true'] .ds-pricing-faq__icon::befo
   max-width: min(100%, 48rem);
 }
 
-/* 右欄：Strapi metric1–3；數字 48px（3rem）medium、說明 16px（`--text-body2`），欄距 §5 spacing */
+/* 右欄：metric1–3；數字 48px（3rem）medium、說明 16px（`--text-body2`），欄距 §5 spacing */
 .ds-customer-story-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4486,7 +4486,7 @@ button.ds-login-gallery-carousel__dot[type='button']:focus-visible {
 }
 
 /*
- * Login Gallery CMS 長文：`StrapiBlocksContent`／legacy body 使用 `ds-richtext-prose--on-dark ds-login-gallery-richtext`（專用容器類，不依賴 Webflow `w-richtext`）。
+ * Login Gallery CMS 長文：legacy body 使用 `ds-richtext-prose--on-dark ds-login-gallery-richtext`（專用容器類，不依賴 Webflow `w-richtext`）。
  * 此為樣式主檔；`public/css/authgear-ds-split-stack.css` 內有同選擇器覆寫（後載於 Webflow），修改時請兩處同步。
  * 使用 `!important` 以抗衡 `authgear-new.webflow.css` 全域標題／段落規則。
  */
@@ -4761,18 +4761,6 @@ button.ds-login-gallery-carousel__dot[type='button']:focus-visible {
     padding-bottom: var(--spacing-m);
     border-bottom: none;
   }
-}
-
-/* Strapi Blocks 內嵌圖 */
-.ds-strapi-blocks-figure {
-  margin: 0 0 var(--spacing-m) 0;
-}
-
-.ds-strapi-blocks-figure__img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-product);
 }
 
 /* Blog post sidebar — Discord 圖（右欄滿寬） */

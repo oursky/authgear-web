@@ -1,5 +1,3 @@
-import type { StrapiLocale } from './strapi';
-
 /**
  * Supported locales. Default (`en`) is served at unprefixed URLs (`/pricing`);
  * Traditional Chinese uses `/zh-TW/...`. Internally, English is routed as `/en/...` via middleware rewrite.
@@ -46,13 +44,6 @@ export function resolveLocale(acceptLanguage: string | null): Locale {
     // When `zh-HK` is added to LOCALES, map e.g. zh-hk → 'zh-HK' here.
   }
   return DEFAULT_LOCALE;
-}
-
-/** Map App Router `[locale]` param (always `en` or `zh-TW` here) to Strapi i18n locale. */
-export function pathLocaleToStrapiLocale(pathLocale: string): StrapiLocale {
-  if (pathLocale === 'zh-TW' || pathLocale === LEGACY_ZH_PATH_LOCALE) return 'zh-Hant-TW';
-  // if (pathLocale === 'zh-HK') return 'zh-Hant-HK'; // when Strapi + StrapiLocale support HK
-  return 'en';
 }
 
 /** Return the HTML lang attribute value for a given locale. */

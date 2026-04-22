@@ -16,7 +16,7 @@
     "subtitle": "Stay updated with the latest best practices, product updates, and expert tips on building secure, seamless user experiences with Authgear.",
     "allPosts": "All posts",
     "all": "All",
-    "noPostsYet": "No posts yet. Add content in the Strapi admin panel.",
+    "noPostsYet": "No posts yet.",
     "latestArticles": "Latest articles",
     "lastUpdated": "Last updated: ",
     "loadingMore": "Loading more posts…",
@@ -32,7 +32,7 @@
     "heroSubtitle": "打造符合品牌、提升轉換的登入體驗。Authgear 協助你從第一屏就降低摩擦、建立信任並驅動成長。",
     "ctaPrimary": "免費開始使用",
     "ctaDocs": "開發者文件",
-    "emptyState": "尚無畫廊項目。請至 Strapi 後台新增內容。",
+    "emptyState": "尚無畫廊項目。",
     "cardAriaLabel": "查看 {title}"
   },
   "LoginGalleryDetail": {
@@ -52,7 +52,7 @@
   "CustomerStories": {
     "title": "Customer Stories",
     "subtitle": "協助有企圖心的團隊更快交付。Authgear 的抽換式驗證處理艱難的安全細節，讓開發者專注實作真正重要的產品。",
-    "noStoriesYet": "No customer stories yet. Add content in the Strapi admin panel.",
+    "noStoriesYet": "No customer stories yet.",
     "readStory": "Read story →",
     "noContentYet": "No content yet.",
     "sidebarIndustry": "產業",
@@ -63,12 +63,12 @@
   "Integrations": {
     "title": "Integrations",
     "subtitle": "Connect Authgear with your existing tools and services.",
-    "noIntegrationsYet": "No integrations yet. Add content in the Strapi admin panel."
+    "noIntegrationsYet": "No integrations yet."
   },
   "WhatsNew": {
     "title": "What's New",
     "subtitle": "Latest updates, releases, and improvements from the Authgear team.",
-    "noUpdatesYet": "No updates yet. Add content in the Strapi admin panel.",
+    "noUpdatesYet": "No updates yet.",
     "noContentYet": "No content yet."
   },
   "Pricing": {
