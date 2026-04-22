@@ -4,6 +4,8 @@ export const prerender = true;
 import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 
 export async function getStaticPaths() {
   const entries = await getCollection('whats-new', ({ id, data }) => id.startsWith('en/') && !data.draft);
@@ -27,22 +29,36 @@ const date = data.publishedAt.toLocaleDateString('en-US', {
 ---
 
 <BaseLayout locale={locale} title={data.title} description={data.excerpt ?? ''}>
-  <div class="page-wrapper">
-    <div class="section whats-new-post">
-      <div class="container-default w-container">
-        <div class="whats-new-date">{date}</div>
-        <h1>{data.title}</h1>
+  <article class="whats-new-post">
+    <header class="whats-new-post__header">
+      <div class="ds-container">
+        <a href={localizedPath(locale, '/whats-new')} class="whats-new-post__back">
+          ← {t(locale, 'WhatsNew.title')}
+        </a>
+        <p class="whats-new-post__date">{date}</p>
+        <h1 class="whats-new-post__title">{data.title}</h1>
+        {data.excerpt && <p class="whats-new-post__excerpt">{data.excerpt}</p>}
+      </div>
+    </header>
+
+    <div class="whats-new-post__cover">
+      <div class="ds-container">
         <Image
           src={data.coverImage}
           alt={data.title}
           width={1200}
           loading="eager"
-          style="width: 100%; height: auto;"
+          class="whats-new-post__cover-img"
         />
-        <div class="ds-richtext-prose whats-new-rich-text w-richtext">
+      </div>
+    </div>
+
+    <div class="ds-section ds-bg-white">
+      <div class="ds-container">
+        <div class="whats-new-post__body ds-richtext-prose">
           <Content />
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </BaseLayout>

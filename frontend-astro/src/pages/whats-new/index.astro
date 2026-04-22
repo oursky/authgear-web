@@ -19,47 +19,63 @@ const description = t(locale, 'WhatsNew.subtitle');
 ---
 
 <BaseLayout locale={locale} title={title} description={description}>
-  <div class="page-wrapper">
-    <div class="section whats-new">
-      <div class="container-default w-container">
-        <h1 class="heading">{t(locale, 'WhatsNew.title')}</h1>
-        <p class="paragraph">{t(locale, 'WhatsNew.subtitle')}</p>
-
-        {entries.length === 0 ? (
-          <div class="empty-state w-dyn-empty">
-            <div>{t(locale, 'WhatsNew.noUpdatesYet')}</div>
+  <section class="ds-hero-banner--gradient">
+    <div class="ds-container ds-container--gradient-hero-shell">
+      <div class="ds-hero-banner--gradient__inner">
+        <div class="ds-container ds-container--hero">
+          <div class="whats-new-index__hero-body">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'WhatsNew.title')}</p>
+            <h1 class="ds-hero-banner__title">{t(locale, 'WhatsNew.title')}</h1>
+            <p class="ds-hero-banner__description">{t(locale, 'WhatsNew.subtitle')}</p>
           </div>
-        ) : (
-          <div role="list" class="whats-new-list w-dyn-items">
-            {entries.map((entry) => {
-              const slug = slugOf(entry.id);
-              const date = entry.data.publishedAt.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              });
-              return (
-                <div role="listitem" class="whats-new-item w-dyn-item">
-                  <a href={localizedPath(locale, `/whats-new/${slug}`)} class="card whats-new w-inline-block">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-bg-white">
+    <div class="ds-container">
+      {entries.length === 0 ? (
+        <p class="whats-new-empty">{t(locale, 'WhatsNew.noUpdatesYet')}</p>
+      ) : (
+        <ul role="list" class="whats-new-grid">
+          {entries.map((entry) => {
+            const slug = slugOf(entry.id);
+            const date = entry.data.publishedAt.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            });
+            return (
+              <li class="whats-new-grid__item">
+                <a href={localizedPath(locale, `/whats-new/${slug}`)} class="whats-new-card">
+                  <div class="whats-new-card__media">
                     <Image
                       src={entry.data.coverImage}
                       alt={entry.data.title}
                       width={900}
                       loading="lazy"
-                      style="width: 100%; height: auto;"
+                      class="whats-new-card__img"
                     />
-                    <div class="whats-new-content">
-                      <div class="whats-new-date">{date}</div>
-                      <h3>{entry.data.title}</h3>
-                      {entry.data.excerpt && <p class="paragraph-small">{entry.data.excerpt}</p>}
+                  </div>
+                  <div class="whats-new-card__body">
+                    <div class="whats-new-card__meta">
+                      <span class="whats-new-card__category">New Feature</span>
+                      <span class="whats-new-card__date">Published on {date}</span>
                     </div>
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
+                    <h3 class="whats-new-card__title">{entry.data.title}</h3>
+                    {entry.data.excerpt && <p class="whats-new-card__excerpt">{entry.data.excerpt}</p>}
+                    <span class="whats-new-card__cta">
+                      Learn More
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                    </span>
+                  </div>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
-  </div>
+  </section>
 </BaseLayout>
