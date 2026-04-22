@@ -1,18 +1,20 @@
 ---
-export const prerender = false;
+export const prerender = true;
 
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { t } from '@/i18n';
-import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
-import { getCustomerStories, strapiImageUrl } from '@/lib/strapi';
+import { localizedPath } from '@/lib/i18n';
 
 const locale = 'en';
-const strapiLocale = pathLocaleToStrapiLocale(locale);
-
-const res = await getCustomerStories({ pagination: { pageSize: 50 }, locale: strapiLocale });
-const stories = res.data ?? [];
-
-Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+const entries = (await getCollection('customer-stories', ({ id }) => id.startsWith('en/')))
+  .sort((a, b) => {
+    const orderA = a.data.order ?? Number.POSITIVE_INFINITY;
+    const orderB = b.data.order ?? Number.POSITIVE_INFINITY;
+    if (orderA !== orderB) return orderA - orderB;
+    return b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
+  });
 
 const title = 'Customer Stories - Authgear';
 const description = t(locale, 'CustomerStories.subtitle');
@@ -32,41 +34,35 @@ const description = t(locale, 'CustomerStories.subtitle');
 
       <div class="ds-customer-stories-index__main">
         <div class="ds-container">
-          {stories.length === 0 ? (
+          {entries.length === 0 ? (
             <div class="empty-state w-dyn-empty">
               <div>{t(locale, 'CustomerStories.noStoriesYet')}</div>
             </div>
           ) : (
             <div role="list" class="case-study-list w-dyn-items">
-              {stories.map((story) => {
-                const { title: storyTitle, slug, thumbnail } = story.attributes;
-                const coverUrl = strapiImageUrl(thumbnail);
+              {entries.map((entry) => {
+                const slug = entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, '');
                 return (
-                  <div key={story.id} role="listitem" class="case-study-item-wrap w-dyn-item">
+                  <div role="listitem" class="case-study-item-wrap w-dyn-item">
                     <a
                       href={localizedPath(locale, `/customer-stories/${slug}`)}
                       class="case-study-featured-image-wrap w-inline-block"
                     >
-                      {coverUrl ? (
-                        <img
-                          src={coverUrl}
-                          alt={storyTitle}
-                          width={600}
-                          height={400}
-                          class="case-study-featured-image"
-                          style="object-fit: cover; width: 100%; height: auto;"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div class="case-study-featured-image w-dyn-bind-empty" aria-hidden="true" />
-                      )}
+                      <Image
+                        src={entry.data.thumbnail}
+                        alt={entry.data.title}
+                        width={600}
+                        class="case-study-featured-image"
+                        style="object-fit: cover; width: 100%; height: auto;"
+                        loading="lazy"
+                      />
                     </a>
                     <a
                       href={localizedPath(locale, `/customer-stories/${slug}`)}
                       class="case-study-content-wrap w-inline-block"
                     >
                       <div class="case-study-featured-content-top">
-                        <div class="case-study-title">{storyTitle}</div>
+                        <div class="case-study-title">{entry.data.title}</div>
                       </div>
                       <div class="case-study-item-cta">{t(locale, 'CustomerStories.readStory')}</div>
                     </a>
