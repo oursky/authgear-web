@@ -12,9 +12,9 @@
 
 ## Non-goals
 
-- Not migrating authors into a separate collection (yet). Author fields inline in each post.
+- **Authors are dropped entirely.** No author name, role, or photo in the migration. No byline on post pages. No `author` field on the JSON-LD (uses the Authgear organization as both author and publisher).
 - Not migrating drafts or archived posts — skipped by the script, but the authoring template supports a `draft: true` flag for local drafts.
-- Not changing the URL shape (`/blog/{slug}`, `/blog/category/{slug}`) — preserved for SEO continuity.
+- Not changing the URL shape — **preserving every indexed URL is a hard constraint** for SEO. See "URL preservation" below.
 
 ## Source of truth
 
@@ -31,7 +31,7 @@
 | `blog-post-featured`     | Switch      | `featured` |
 | `blog-post-read-time`    | Number      | `readTime` (minutes) |
 | `blog-post-category`     | Reference   | `category` (slug string) |
-| `blog-post-author`       | Reference   | `author.{name, role, photo}` (flattened, resolved from Team Members collection) |
+| `blog-post-author`       | Reference   | **dropped** — not migrated |
 | `canonical-tag`          | Link        | `canonicalUrl` |
 | `meta-title`             | PlainText   | `metaTitle` |
 | `meta-description`       | PlainText   | `metaDescription` |
@@ -59,11 +59,6 @@ const blogPosts = defineCollection({
       excerpt: z.string(),
       coverImage: image(),
       category: z.string().optional(),               // category slug
-      author: z.object({
-        name: z.string(),
-        role: z.string().optional(),
-        photo: image().optional(),
-      }).optional(),
       featured: z.boolean().default(false),
       readTime: z.number().int().positive().optional(),
       metaTitle: z.string().optional(),
@@ -122,13 +117,11 @@ src/content/
       … (mirror of en where translated; missing entries fall back to en)
 ```
 
-Authors' photos live alongside the post that references them (e.g. `./author.webp`) to keep posts self-contained. When the team_members collection migration happens later, author data can be normalized into a separate collection without breaking posts.
-
 ## Migration script
 
 `scripts/webflow-to-markdown-blog-posts.mjs`.
 
-Inputs: bundled MCP export with five labels (`schema`, `en-items`, `zh-items`, `categories`, `authors`).
+Inputs: bundled MCP export with four labels (`schema`, `en-items`, `zh-items`, `categories`). The `blog-post-author` reference ids are ignored; authors are not migrated.
 
 Per post:
 
@@ -141,8 +134,7 @@ Per post:
    - Convert `<h2>`…`<h6>` / `<p>` / `<ul>` / `<ol>` / `<blockquote>` / inline `<strong>` / `<em>` / `<a>` / `<code>` using the converter already shared with whats-new (extended for code-block extraction and raw-HTML passthrough).
 4. Detect the FAQ section: find the last `<h2>` whose text matches `/^Frequently Asked Questions$/i` and collect subsequent `<h3>` + `<p>` pairs into `faq: [{q, a}]` in frontmatter. The FAQ also remains in the markdown body (so on-page readers see it); JSON-LD is emitted from the frontmatter.
 5. Resolve `blog-post-category` reference id → category slug via the categories export.
-6. Resolve `blog-post-author` reference id → author name/role/photo via the team_members export; download photo to `./author.<ext>`.
-7. Write `index.md` with frontmatter + body.
+6. Write `index.md` with frontmatter + body.
 
 Idempotent: re-runs overwrite. Stale slugs on disk flagged to console but not deleted (authors may have local drafts the script can't know about).
 
@@ -172,9 +164,9 @@ New reusable component `src/components/blog/BlogPostSeo.astro` emits, in the lay
 - `<title>` — `metaTitle ?? title`
 - `<meta name="description">` — `metaDescription ?? excerpt`
 - `<link rel="canonical">` — `canonicalUrl ?? new URL(path, Astro.site)`
-- OG: `og:type=article`, `og:title`, `og:description`, `og:image` (from `coverImage`), `og:url`, `og:site_name`, `article:published_time`, `article:modified_time`, `article:author`, `article:section` (category name), `article:tag` (ditto).
+- OG: `og:type=article`, `og:title`, `og:description`, `og:image` (from `coverImage`), `og:url`, `og:site_name`, `article:published_time`, `article:modified_time`, `article:section` (category name), `article:tag` (ditto). No `article:author` tag.
 - Twitter: `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image`.
-- **JSON-LD `Article`**: headline, datePublished (= `publishedAtOverride ?? publishedAt`), dateModified (= `updatedAt ?? publishedAt`), author object (`{@type: 'Person', name, image}`), publisher (`{@type: 'Organization', name: 'Authgear', logo}`), image (array with OG image), mainEntityOfPage.
+- **JSON-LD `Article`**: headline, datePublished (= `publishedAtOverride ?? publishedAt`), dateModified (= `updatedAt ?? publishedAt`), author + publisher both set to the Authgear organization (`{@type: 'Organization', name: 'Authgear', logo}`), image (array with OG image), mainEntityOfPage.
 - **JSON-LD `FAQPage`** (conditional on `faq.length > 0`): `mainEntity` array of `{@type: 'Question', name: q, acceptedAnswer: {@type: 'Answer', text: a}}`.
 
 BaseLayout gains a `<slot name="head">` so per-page JSON-LD + meta can be injected without double-rendering the default tags. Non-blog pages ignore the slot.
@@ -194,7 +186,6 @@ BaseLayout gains a `<slot name="head">` so per-page JSON-LD + meta can be inject
         <time>{publishedAt}</time>
         {readTime && <span>{readTime} min read</span>}
       </p>
-      {author && <AuthorByline {...author} />}
       <Image src={coverImage} .../>
     </header>
     <div class="blog-post__body ds-richtext-prose">
@@ -205,13 +196,13 @@ BaseLayout gains a `<slot name="head">` so per-page JSON-LD + meta can be inject
 </BaseLayout>
 ```
 
-Design tokens reuse `ds-richtext-prose` (already styled for long-form content). Add small scoped `.blog-post__*` styles for header spacing, author byline, and FAQ section visuals.
+Design tokens reuse `ds-richtext-prose` (already styled for long-form content). Add small scoped `.blog-post__*` styles for header spacing and FAQ section visuals.
 
 ### Index + category pages
 
 - Hero banner (`ds-hero-banner--gradient`) with page title + subtitle.
 - Category chip row (links to each category page + an "All" chip that returns to `/blog`).
-- Grid of post cards: thumbnail + category eyebrow + title + excerpt + author name + date + read-time.
+- Grid of post cards: thumbnail + category eyebrow + title + excerpt + date + read-time.
 - Pagination: previous/next links at the bottom (Astro `paginate()` provides `page.url.prev`/`page.url.next`).
 
 ## Authoring a new blog post (documentation)
@@ -236,10 +227,6 @@ Committed alongside the spec: `frontend-astro/src/content/blog-posts/README.md` 
    excerpt: "One-paragraph preview (≤200 chars)."
    coverImage: ./cover.webp
    category: engineering      # must match a slug in blog-categories/
-   author:
-     name: "Louis Chan"
-     role: "Developer Advocate"
-     photo: ./author.webp     # optional; 96x96 recommended
    featured: false
    readTime: 8
    metaTitle: "SEO title (≤60 chars, optional — falls back to title)"
@@ -273,13 +260,37 @@ Committed alongside the spec: `frontend-astro/src/content/blog-posts/README.md` 
    the next `npm run build` (routes are prerendered).
 ```
 
+## URL preservation (hard constraint)
+
+Every URL currently indexed by search engines and linked externally MUST continue to resolve with a `200` after this migration. Breaking any of these is a regression, not a feature change.
+
+**Canonical post URL**
+
+The live Webflow path is `/post/{slug}` (singular, e.g. `https://www.authgear.com/post/nextjs-session-management`). The current Astro migration plan uses `/blog/{slug}` (plural), which was already introduced on the Astro site during the initial Next.js→Astro migration. This means:
+
+- **Current Astro route**: `/blog/{slug}` — keep as canonical.
+- **Legacy Webflow route**: `/post/{slug}` — already handled by a 301 redirect (or needs one added) so historical backlinks don't 404.
+
+Action items:
+
+1. Audit `src/pages/post/*` (if it exists) — if present, leave it as a permanent 301 → `/blog/{slug}` route. If missing, add `src/pages/post/[slug].astro` that emits `Astro.redirect(`/blog/${slug}`, 301)` so Webflow-era URLs survive.
+2. The `canonicalUrl` frontmatter field carries the live Webflow canonical (`https://www.authgear.com/post/{slug}`) captured from the `canonical-tag` column for every post — this goes directly into the `<link rel="canonical">`, which tells search engines the Webflow URL is authoritative until the Astro site is officially promoted as canonical.
+3. Slugs are preserved verbatim from Webflow (the folder name = the Webflow slug). The migration script does **not** transform or re-slugify. If a Webflow slug contains characters the filesystem doesn't like, the script fails loud (no silent renaming).
+4. Category URLs: the live Webflow site uses `/post/category/{slug}`. The Astro site mirrors that as `/blog/category/{slug}`. Add a redirect `/post/category/{slug}` → `/blog/category/{slug}` (301) if the legacy URL appears in any external link or sitemap.
+5. Add a `src/pages/sitemap.xml.ts` (if not already present) that lists every `/blog/{slug}` and `/blog/category/{slug}` URL. This ensures Google rediscovers the new canonical paths quickly.
+
+**URL validation step** in the migration script: after writing all markdown, it emits `/tmp/blog-url-check.txt` listing each slug. Compare that against the live Webflow sitemap (`https://www.authgear.com/post-sitemap.xml`) — any slug in the sitemap that's missing from the migration is flagged as a migration gap, not silently dropped.
+
 ## Testing
 
 - `npm run build` passes; 151 en post pages prerender + category filter pages + paginated listing.
 - Spot check a post with FAQ (e.g. `nextjs-session-management`) — verify `<script type="application/ld+json">` blocks for `Article` and `FAQPage`, `og:image` points at the optimized cover, `article:published_time` matches frontmatter `publishedAt`.
 - `/blog/category/engineering` shows only engineering posts, paginated.
 - `/zh-TW/blog/{slug}` serves zh-TW content when present, falls back to en otherwise.
-- Old `/blog?category={slug}` query-param URLs in shared links: emit a tiny redirect in the index page (server-side) or document them as a known minor regression.
+- **URL parity check**: diff the slug list produced by the migration against `https://www.authgear.com/post-sitemap.xml` — zero gaps required.
+- **Redirect test**: `/post/{slug}` → 301 → `/blog/{slug}` for every known legacy URL.
+- **Canonical test**: `<link rel="canonical">` on each post matches the `canonicalUrl` frontmatter (which preserves the Webflow URL).
+- Old `/blog?category={slug}` query-param URLs in shared links: the index page reads the `?category` param at load time and redirects (or renders filtered list) to `/blog/category/{slug}` to avoid breaking those.
 
 ## Rollback
 
