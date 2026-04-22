@@ -1,0 +1,72 @@
+---
+interface Props {
+  industry: string;
+  loginMethods: readonly string[];
+  socialLogins: readonly string[];
+  technicalDetails: readonly string[];
+  labels: {
+    industry: string;
+    loginMethods: string;
+    socialLogin: string;
+    technicalDetails: string;
+  };
+}
+
+const EMPTY = '—';
+const { industry, loginMethods, socialLogins, technicalDetails, labels } = Astro.props;
+const industryText = industry?.trim() ?? '';
+---
+<aside class="ds-login-gallery-body__sidebar">
+  <div class="ds-login-gallery-body__sidebar-card">
+    <dl class="ds-login-gallery-body__meta-list">
+      <div class="ds-login-gallery-body__meta">
+        <dt class="ds-login-gallery-body__label">{labels.industry}</dt>
+        <dd class="ds-login-gallery-body__dd ds-login-gallery-body__value">
+          {industryText || EMPTY}
+        </dd>
+      </div>
+      <div class="ds-login-gallery-body__meta">
+        <dt class="ds-login-gallery-body__label">{labels.loginMethods}</dt>
+        <dd class="ds-login-gallery-body__dd">
+          {loginMethods.length > 0 ? (
+            <ul class="ds-login-gallery-body__chip-list">
+              {loginMethods.map((item) => (
+                <li class="ds-login-gallery-body__chip">{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <span class="ds-login-gallery-body__value ds-login-gallery-body__value--plain">{EMPTY}</span>
+          )}
+        </dd>
+      </div>
+      <div class="ds-login-gallery-body__meta">
+        <dt class="ds-login-gallery-body__label">{labels.socialLogin}</dt>
+        <dd class="ds-login-gallery-body__dd">
+          {socialLogins.length > 0 ? (
+            <ul class="ds-login-gallery-body__chip-list">
+              {socialLogins.map((item) => (
+                <li class="ds-login-gallery-body__chip">{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <span class="ds-login-gallery-body__value ds-login-gallery-body__value--plain">{EMPTY}</span>
+          )}
+        </dd>
+      </div>
+      <div class="ds-login-gallery-body__meta">
+        <dt class="ds-login-gallery-body__label">{labels.technicalDetails}</dt>
+        <dd class="ds-login-gallery-body__dd">
+          {technicalDetails.length > 0 ? (
+            <ul class="ds-login-gallery-body__chip-list">
+              {technicalDetails.map((item) => (
+                <li class="ds-login-gallery-body__chip">{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <span class="ds-login-gallery-body__value ds-login-gallery-body__value--plain">{EMPTY}</span>
+          )}
+        </dd>
+      </div>
+    </dl>
+  </div>
+</aside>
