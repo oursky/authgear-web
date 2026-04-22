@@ -1,0 +1,47 @@
+---
+export const prerender = false;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t as tFn } from '@/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getLoginGalleryItemBySlug } from '@/lib/strapi';
+import LoginGalleryDetailLayout, { buildLoginGalleryDetailLabels } from '@/components/login-gallery/LoginGalleryDetailLayout';
+import type { BlocksContent } from '@strapi/blocks-react-renderer';
+
+const locale = 'en';
+const strapiLocale = pathLocaleToStrapiLocale(locale);
+const { slug } = Astro.params as { slug: string };
+
+const item = await getLoginGalleryItemBySlug(slug, strapiLocale);
+if (!item) {
+  return Astro.redirect('/404');
+}
+
+const attrs = item.attributes;
+const { title, content, body, webImage, mobileImage, mainImage, industry, socialLogin, loginMethodsTech } = attrs;
+
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+
+const t = (key: string) => tFn(locale, `LoginGalleryDetail.${key}`);
+const labels = buildLoginGalleryDetailLabels(t);
+
+const pageTitle = title;
+const pageDescription = (attrs as Record<string, unknown>).description as string | undefined ?? '';
+---
+
+<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
+  <LoginGalleryDetailLayout
+    client:load
+    galleryIndexHref={localizedPath(locale, '/login-gallery')}
+    title={title}
+    content={content as BlocksContent | null | undefined}
+    bodyHtml={body as string | null | undefined}
+    webImage={webImage}
+    mobileImage={mobileImage}
+    mainImage={mainImage}
+    industry={industry as string | null | undefined}
+    socialLogin={socialLogin}
+    loginMethodsTech={loginMethodsTech}
+    labels={labels}
+  />
+</BaseLayout>

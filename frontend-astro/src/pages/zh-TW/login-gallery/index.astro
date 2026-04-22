@@ -1,0 +1,26 @@
+---
+export const prerender = false;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getLoginGalleryItems } from '@/lib/strapi';
+import LoginGalleryIndexPage from '@/components/login-gallery/LoginGalleryIndexPage';
+
+const locale = 'zh-TW';
+const strapiLocale = pathLocaleToStrapiLocale(locale);
+
+const res = await getLoginGalleryItems({ pagination: { pageSize: 100 }, locale: strapiLocale });
+const items = res.data ?? [];
+
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+
+const title = t(locale, 'LoginGalleryIndex.metaTitle');
+const description = t(locale, 'LoginGalleryIndex.metaDescription');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <div class="page-wrapper">
+    <LoginGalleryIndexPage locale={locale} items={items} client:load />
+  </div>
+</BaseLayout>
