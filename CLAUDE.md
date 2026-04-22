@@ -4,11 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture Overview
 
-The **Authgear marketing website**, built with **Astro 5**. All content — blog posts, customer stories, login gallery, what's new, integrations — lives in the repo as markdown + JSON under `frontend/src/content/`. No external CMS.
+The **Authgear marketing website**, built with **Astro 5**. All content — blog posts, customer stories, login gallery, what's new, integrations — lives in the repo as markdown + JSON under `src/content/`. No external CMS.
 
 ```
 authgear-web/
-├── frontend/    # Astro 5 / React 19 islands / TypeScript site
+├── src/         # Astro 5 / React 19 islands / TypeScript site
+├── public/      # Static assets served as-is
+├── scripts/     # One-shot content-import scripts (audit trail)
+├── tests/       # Playwright + Vitest suites
 ├── docs/        # Architecture and authoring docs
 ├── design/      # Design assets
 └── skills/      # Repo-scoped Claude skills
@@ -16,15 +19,15 @@ authgear-web/
 
 ### Page Model
 
-1. **Static marketing pages** — Astro components under `frontend/src/pages/` and `frontend/src/components/pages/`.
-2. **Content-collection pages** — blog posts, customer stories, login gallery, what's new items, and integrations live under `frontend/src/content/{collection}/` as markdown + JSON, validated with zod schemas in `frontend/src/content/config.ts`.
+1. **Static marketing pages** — Astro components under `src/pages/` and `src/components/pages/`.
+2. **Content-collection pages** — blog posts, customer stories, login gallery, what's new items, and integrations live under `src/content/{collection}/` as markdown + JSON, validated with zod schemas in `src/content/config.ts`.
 3. **SSR endpoints** — only `/api/contact` (contact-form forwarder) and `/sitemap.xml` (via `@astrojs/sitemap`) run at request time. Everything else is prerendered.
 
 ### Routing / i18n
 
 - English is the default locale — served at unprefixed URLs (`/blog`, `/pricing`).
 - Traditional Chinese uses `/zh-TW/...` prefix.
-- Locale helpers live in `frontend/src/i18n/`; `localizedPath()` builds locale-aware URLs.
+- Locale helpers live in `src/i18n/`; `localizedPath()` builds locale-aware URLs.
 - For content collections, the zh-TW entry falls back to the English entry by slug when a translation is missing.
 
 ### URL preservation
@@ -35,7 +38,6 @@ authgear-web/
 ## Development Commands
 
 ```bash
-cd frontend
 npm install
 npm run dev        # http://localhost:4321
 npm run build      # → dist/client (static) + dist/server (SSR entry)
@@ -50,13 +52,13 @@ Only one:
 CONTACT_WEBHOOK_URL=
 ```
 
-Set in `frontend/.env` (or your deployment secret store). The contact form POSTs to `/api/contact`; if `CONTACT_WEBHOOK_URL` is set, submissions are forwarded there. Without it, submissions are logged to stdout.
+Set in `.env` (or your deployment secret store). The contact form POSTs to `/api/contact`; if `CONTACT_WEBHOOK_URL` is set, submissions are forwarded there. Without it, submissions are logged to stdout.
 
 ## Authoring content
 
-- **Blog posts**: `frontend/src/content/blog-posts/{locale}/{slug}/index.md`. See [`docs/blog-authoring.md`](docs/blog-authoring.md) for the full frontmatter reference, body conventions, FAQ handling, and SEO fields.
-- **Customer stories**, **login gallery**, **what's new**, **integrations**: same pattern under `frontend/src/content/{collection}/`. Schemas in `frontend/src/content/config.ts`.
-- Initial data for each collection was pulled from the live Webflow CMS via `frontend/scripts/webflow-to-markdown-*.mjs` one-shot scripts. Those scripts remain as an audit trail; they are not run on every build.
+- **Blog posts**: `src/content/blog-posts/{locale}/{slug}/index.md`. See [`docs/blog-authoring.md`](docs/blog-authoring.md) for the full frontmatter reference, body conventions, FAQ handling, and SEO fields.
+- **Customer stories**, **login gallery**, **what's new**, **integrations**: same pattern under `src/content/{collection}/`. Schemas in `src/content/config.ts`.
+- Initial data for each collection was pulled from the live Webflow CMS via `scripts/webflow-to-markdown-*.mjs` one-shot scripts. Those scripts remain as an audit trail; they are not run on every build.
 
 ## Docs
 
@@ -70,4 +72,4 @@ Fly.io (Node machine serving the Astro standalone entry). See the "Deployment" s
 
 ## Legacy
 
-The site previously ran on Next.js 16 + Strapi 5. That stack is fully retired — no `cms/`, `frontend/app/`, `middleware.ts`, Strapi client, or Docker Compose files remain. If you find a reference to Next.js, Strapi, or `frontend-astro/` (old path) in docs or scripts, treat it as stale and update it.
+The site previously ran on Next.js 16 + Strapi 5, with the Astro app living under `frontend-astro/` during the migration. That stack is fully retired. If you find a reference to Next.js, Strapi, `cms/`, `frontend/`, or `frontend-astro/` in docs or scripts, treat it as stale and update it.

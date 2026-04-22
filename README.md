@@ -1,6 +1,6 @@
 # Authgear Website
 
-The Authgear marketing website, built with **Astro 5**. All content — blog posts, customer stories, login gallery, what's new, integrations — lives in the repo as markdown + JSON under `frontend/src/content/`. No external CMS.
+The Authgear marketing website, built with **Astro 5**. All content — blog posts, customer stories, login gallery, what's new, integrations — lives in the repo as markdown + JSON under `src/content/`. No external CMS.
 
 ## Tech stack
 
@@ -19,17 +19,19 @@ Most routes are prerendered; only `/api/contact` and `/sitemap.xml` run at reque
 
 ```
 authgear-web/
-├── frontend/              # Astro app — pages, content, components
-├── docs/                  # Architecture + authoring docs
-├── design/                # Design assets
-├── skills/                # Repo-scoped Claude skills
+├── src/         # Astro app — pages, content, components
+├── public/      # Static assets
+├── scripts/     # One-shot content-import scripts (audit trail)
+├── tests/       # Playwright + Vitest suites
+├── docs/        # Architecture + authoring docs
+├── design/      # Design assets
+├── skills/      # Repo-scoped Claude skills
 └── README.md
 ```
 
 ## Run locally
 
 ```bash
-cd frontend
 npm install
 npm run dev        # http://localhost:4321
 ```
@@ -49,13 +51,13 @@ Only one:
 CONTACT_WEBHOOK_URL=
 ```
 
-Set in `frontend/.env` (or your deployment secret store). The contact form POSTs to `/api/contact`; if `CONTACT_WEBHOOK_URL` is set, the endpoint forwards submissions there. Without it, submissions are logged to the server stdout.
+Set in `.env` (or your deployment secret store). The contact form POSTs to `/api/contact`; if `CONTACT_WEBHOOK_URL` is set, the endpoint forwards submissions there. Without it, submissions are logged to the server stdout.
 
 ## Authoring content
 
-- **Blog posts**: `frontend/src/content/blog-posts/{locale}/{slug}/index.md`. See [`docs/blog-authoring.md`](docs/blog-authoring.md) for the full frontmatter reference, body conventions, FAQ handling, and SEO fields.
-- **Customer stories**, **login gallery**, **what's new**, **integrations**: same pattern under `frontend/src/content/{collection}/`. Schemas in `frontend/src/content/config.ts`.
-- Each collection's initial data was pulled from the live Webflow CMS via `frontend/scripts/webflow-to-markdown-*.mjs`. Those one-shot scripts remain in the repo as audit trail; they are not run on every build.
+- **Blog posts**: `src/content/blog-posts/{locale}/{slug}/index.md`. See [`docs/blog-authoring.md`](docs/blog-authoring.md) for the full frontmatter reference, body conventions, FAQ handling, and SEO fields.
+- **Customer stories**, **login gallery**, **what's new**, **integrations**: same pattern under `src/content/{collection}/`. Schemas in `src/content/config.ts`.
+- Each collection's initial data was pulled from the live Webflow CMS via `scripts/webflow-to-markdown-*.mjs`. Those one-shot scripts remain in the repo as audit trail; they are not run on every build.
 
 ## Docs
 
