@@ -31,8 +31,8 @@ export default function StrapiBlocksContent({ content, proseClassName = DEFAULT_
                   alt={image.alternativeText ?? ''}
                   width={w}
                   height={h}
-                  className="ds-strapi-blocks-figure__img"
                   loading="lazy"
+                  className="ds-strapi-blocks-figure__img"
                 />
               </figure>
             );
