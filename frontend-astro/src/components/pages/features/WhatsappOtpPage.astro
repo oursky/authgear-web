@@ -87,35 +87,125 @@ const HOW_STEPS = [
   </div>
 </section>
 
-<section class="ds-section ds-bg-white">
+<section class="ds-section ds-bg-light-blue">
   <div class="ds-container">
     <div class="title-content">
       <h2 class="heading-on-light">{t(locale, 'WhatsAppOtp.howItWorksTitle')}</h2>
     </div>
-    <div class="ds-grid-3 whatsapp-otp-how-grid">
+    <div class="wa-how-grid">
       {HOW_STEPS.map((s) => (
-        <div class="whatsapp-otp-how-step">
-          <div class="whatsapp-otp-how-step__figure">
-            <img src={s.img} loading="lazy" alt="" class="whatsapp-otp-how-step__img" />
+        <div class="wa-how-step">
+          <div class="wa-how-step__figure">
+            <img src={s.img} loading="lazy" alt="" class="wa-how-step__img" />
           </div>
-          <div class="ds-svg-card-content">
-            <div class="ds-svg-card-title">{t(locale, s.stepKey)}</div>
-          </div>
+          <div class="wa-how-step__title">{t(locale, s.stepKey)}</div>
         </div>
       ))}
     </div>
-    <div class="whatsapp-otp-checks">
-      <ul role="list" class="whatsapp-otp-checks__list">
+    <div class="wa-how-checks">
+      <ul role="list" class="wa-how-checks__list">
         <li>
-          {t(locale, 'WhatsAppOtp.checkPoint1Pre')}
-          <strong>{t(locale, 'WhatsAppOtp.checkPoint1Bold')}</strong>
-          {t(locale, 'WhatsAppOtp.checkPoint1Post')}
+          <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" class="wa-how-checks__icon" />
+          <span>
+            {t(locale, 'WhatsAppOtp.checkPoint1Pre')}
+            <strong>{t(locale, 'WhatsAppOtp.checkPoint1Bold')}</strong>
+            {t(locale, 'WhatsAppOtp.checkPoint1Post')}
+          </span>
         </li>
-        <li>{t(locale, 'WhatsAppOtp.checkPoint2')}</li>
+        <li>
+          <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" class="wa-how-checks__icon" />
+          <span>{t(locale, 'WhatsAppOtp.checkPoint2')}</span>
+        </li>
       </ul>
     </div>
   </div>
 </section>
+
+<style>
+  .wa-how-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .wa-how-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .wa-how-step {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: #fff;
+    border: 0.0625rem solid #e0e0e0;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+  }
+
+  .wa-how-step__figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 12rem;
+  }
+
+  .wa-how-step__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 20rem;
+    object-fit: contain;
+  }
+
+  .wa-how-step__title {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: var(--color-text-light-primary);
+  }
+
+  .wa-how-checks {
+    margin-top: 1.5rem;
+    padding: 1.75rem 2rem;
+    background-color: #fff;
+    border: 0.0625rem solid #e0e0e0;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+  }
+
+  .wa-how-checks__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .wa-how-checks__list > li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--color-text-light-primary);
+  }
+
+  .wa-how-checks__icon {
+    flex: 0 0 auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.25rem;
+  }
+</style>
 
 <section class="ds-section ds-footer-cta-section">
   <div class="ds-container">
