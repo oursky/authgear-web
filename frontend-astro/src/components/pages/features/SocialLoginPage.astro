@@ -168,46 +168,50 @@ const socialLoginProviderTiles = [
       </h2>
       <p class="section-lede-on-light">{t(locale, 'SocialLogin.simplifyDescription')}</p>
     </div>
-    <div class="sl-masonry">
-      <div class="sl-card sl-card--a">
-        <div class="sl-card__body">
-          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card1Title')}</h3>
-          <p class="sl-card__desc">{t(locale, 'SocialLogin.card1Desc')}</p>
+    <div class="sl-simplify-grid">
+      <article class="sl-simplify-card">
+        <h3 class="sl-simplify-card__title">{t(locale, 'SocialLogin.card1Title')}</h3>
+        <p class="sl-simplify-card__desc">{t(locale, 'SocialLogin.card1Desc')}</p>
+        <div class="sl-simplify-card__figure">
+          <img src="/images/features-sociallogin-withauthgear-singleintegration.svg" loading="lazy" alt="" />
         </div>
-        <img class="sl-card__img" src="/images/features-sociallogin-withauthgear-singleintegration.svg" loading="lazy" alt="" />
-      </div>
-      <div class="sl-card sl-card--b sl-card--tall">
-        <div class="sl-card__body">
-          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card2Title')}</h3>
-          <p class="sl-card__desc">{t(locale, 'SocialLogin.card2Desc')}</p>
+      </article>
+      <article class="sl-simplify-card">
+        <h3 class="sl-simplify-card__title">{t(locale, 'SocialLogin.card2Title')}</h3>
+        <p class="sl-simplify-card__desc">{t(locale, 'SocialLogin.card2Desc')}</p>
+        <div class="sl-simplify-card__figure">
+          <img src="/images/features-sociallogin-withauthgear-brandcontrol.svg" loading="lazy" alt="" />
         </div>
-        <img class="sl-card__img sl-card__img--brand" src="/images/features-sociallogin-withauthgear-brandcontrol.svg" loading="lazy" alt="" />
-      </div>
-      <div class="sl-card sl-card--c">
-        <div class="sl-card__body">
-          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card3Title')}</h3>
-          <p class="sl-card__desc">{t(locale, 'SocialLogin.card3Desc')}</p>
+      </article>
+      <article class="sl-simplify-card">
+        <h3 class="sl-simplify-card__title">{t(locale, 'SocialLogin.card3Title')}</h3>
+        <p class="sl-simplify-card__desc">{t(locale, 'SocialLogin.card3Desc')}</p>
+        <div class="sl-simplify-card__figure">
+          <img src="/images/features-sociallogin-withauthgear-topsecurity.svg" loading="lazy" alt="" />
         </div>
-        <img class="sl-card__img" src="/images/features-sociallogin-withauthgear-topsecurity.svg" loading="lazy" alt="" />
-      </div>
-      <div class="sl-card sl-card--d">
-        <div class="sl-card__body">
-          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card4Title')}</h3>
-          <p class="sl-card__desc">{t(locale, 'SocialLogin.card4Desc')}</p>
+      </article>
+      <article class="sl-simplify-card">
+        <h3 class="sl-simplify-card__title">{t(locale, 'SocialLogin.card4Title')}</h3>
+        <p class="sl-simplify-card__desc">{t(locale, 'SocialLogin.card4Desc')}</p>
+        <div class="sl-simplify-card__figure">
+          <img src="/images/features-sociallogin-withauthgear-easysetup.svg" loading="lazy" alt="" />
         </div>
-        <img class="sl-card__img" src="/images/features-sociallogin-withauthgear-easysetup.svg" loading="lazy" alt="" />
-      </div>
-      <div class="sl-card sl-card--e">
-        <div class="sl-card__body">
-          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card5Title')}</h3>
-          <p class="sl-card__desc">{t(locale, 'SocialLogin.card5Desc')}</p>
+      </article>
+      <article class="sl-simplify-card">
+        <h3 class="sl-simplify-card__title">{t(locale, 'SocialLogin.card5Title')}</h3>
+        <p class="sl-simplify-card__desc">{t(locale, 'SocialLogin.card5Desc')}</p>
+        <div class="sl-simplify-card__figure">
+          <img src="/images/features-sociallogin-withauthgear-seamless.svg" loading="lazy" alt="" />
         </div>
-        <img class="sl-card__img" src="/images/features-sociallogin-withauthgear-seamless.svg" loading="lazy" alt="" />
-      </div>
+      </article>
     </div>
 
     <style>
-      .sl-masonry {
+      /* Responsive flex row that snaps into 1 / 2 / 3 columns depending on viewport.
+         All cards are equal height (align-items stretches inside the flex row) and
+         the illustration area uses a fixed min-height so every card looks balanced —
+         no masonry, no row-span, no broken gaps. */
+      .sl-simplify-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -215,26 +219,21 @@ const socialLoginProviderTiles = [
         margin-top: 2.5rem;
       }
 
-      @media (min-width: 1024px) {
-        .sl-masonry {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          grid-template-rows: auto auto;
-          grid-template-areas:
-            "a b c"
-            "d b e";
+      @media (min-width: 640px) {
+        .sl-simplify-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-        .sl-card--a { grid-area: a; }
-        .sl-card--b { grid-area: b; }
-        .sl-card--c { grid-area: c; }
-        .sl-card--d { grid-area: d; }
-        .sl-card--e { grid-area: e; }
       }
 
-      .sl-card {
+      @media (min-width: 1024px) {
+        .sl-simplify-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .sl-simplify-card {
         display: flex;
         flex-direction: column;
-        align-items: stretch;
-        gap: 1.25rem;
         padding: 2rem;
         background-color: #fff;
         border: 0.0625rem solid #e0e0e0;
@@ -243,14 +242,8 @@ const socialLoginProviderTiles = [
         box-sizing: border-box;
       }
 
-      .sl-card__body {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .sl-card__title {
-        margin: 0;
+      .sl-simplify-card__title {
+        margin: 0 0 0.5rem;
         font-family: var(--font-sans);
         font-size: 1.125rem;
         line-height: 1.75rem;
@@ -258,8 +251,8 @@ const socialLoginProviderTiles = [
         color: var(--color-text-light-primary);
       }
 
-      .sl-card__desc {
-        margin: 0;
+      .sl-simplify-card__desc {
+        margin: 0 0 1.5rem;
         font-family: var(--font-sans);
         font-size: 1rem;
         line-height: 1.5rem;
@@ -267,28 +260,24 @@ const socialLoginProviderTiles = [
         color: var(--color-text-light-secondary);
       }
 
-      .sl-card__img {
+      /* Figure is the illustration holder at the bottom of every card. It grows to
+         fill leftover vertical space so cards of different text length still look
+         aligned. Images are centered and scaled to contain. */
+      .sl-simplify-card__figure {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 12rem;
+        margin-top: auto;
+      }
+
+      .sl-simplify-card__figure img {
         display: block;
         width: 100%;
         height: auto;
-        max-width: 100%;
+        max-width: 14rem;
         object-fit: contain;
-        margin-top: auto;
-        align-self: center;
-      }
-
-      /* Brand Control illustration sits inside the tall middle card. Let it take all
-         remaining vertical space below the text and shrink-to-fit rather than being
-         stuck to a single edge. */
-      .sl-card__img--brand {
-        max-width: 100%;
-        margin-top: 0;
-        flex: 1 1 auto;
-        min-height: 0;
-        align-self: stretch;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
       }
     </style>
   </div>
