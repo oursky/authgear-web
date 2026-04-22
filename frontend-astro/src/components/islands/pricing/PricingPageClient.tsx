@@ -66,7 +66,7 @@ function NodeVariantCell({
           <br />
           {isZhTW ? '自帶' : 'Bring your own'}
           <br />
-          {isZhTW ? 'SMS/WhatsApp / 電子郵件閘道' : 'SMS/WhatsApp / Email Gateway'}
+          {isZhTW ? 'SMS 與 WhatsApp 閘道' : 'SMS & WhatsApp Gateway'}
         </>
       );
     case 'othersEnterprise':
@@ -104,7 +104,6 @@ function NodeVariantCell({
           {isZhTW ? '每個應用程式 $100' : '$100/Applications'}
           <br />
           {isZhTW ? '每位專案成員 $50' : '$50/Project Member'}
-          <br />
           <br />
           {isZhTW ? '每 5,000 額外 MAU $50' : '$50/5,000 additional MAU'}
         </>

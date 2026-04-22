@@ -68,15 +68,54 @@
 .legal-content {
   max-width: 760px;
   margin-inline: auto;
+  color: var(--color-text-light-primary);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
 }
-.legal-content .ds-richtext-prose h2 {
-  margin-top: 2.5rem;
-}
-.legal-content .ds-richtext-prose h2:first-child {
+.legal-content .ds-richtext-prose > *:first-child {
   margin-top: 0;
 }
-.legal-content .ds-richtext-prose p + p {
-  margin-top: 1rem;
+.legal-content .ds-richtext-prose h2 {
+  margin: 2.75rem 0 1rem;
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--color-text-light-primary);
+}
+.legal-content .ds-richtext-prose h3 {
+  margin: 2rem 0 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--color-text-light-primary);
+}
+.legal-content .ds-richtext-prose p {
+  margin: 0 0 1rem;
+}
+.legal-content .ds-richtext-prose a {
+  color: var(--color-brand-primary, #0043e0);
+  text-decoration: underline;
+}
+.legal-content .ds-richtext-prose ul,
+.legal-content .ds-richtext-prose ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+.legal-content .ds-richtext-prose ul {
+  list-style: disc;
+}
+.legal-content .ds-richtext-prose ol {
+  list-style: decimal;
+}
+.legal-content .ds-richtext-prose li {
+  margin-bottom: 0.5rem;
+}
+.legal-content .ds-richtext-prose li > ul,
+.legal-content .ds-richtext-prose li > ol {
+  margin-top: 0.5rem;
 }
 
 /* SMS Pumping Warning Signs accordion — give icon + heading more breathing room
