@@ -281,6 +281,13 @@ Action items:
 
 **URL validation step** in the migration script: after writing all markdown, it emits `/tmp/blog-url-check.txt` listing each slug. Compare that against the live Webflow sitemap (`https://www.authgear.com/post-sitemap.xml`) — any slug in the sitemap that's missing from the migration is flagged as a migration gap, not silently dropped.
 
+**Internal links in post bodies** — every internal link authored in a blog post (e.g. `/post/nextjs-authentication-guide`, `/features/passkeys`, `https://www.authgear.com/solutions/b2b-saas`) MUST continue to resolve after migration:
+
+- The migration script preserves `href` values verbatim — no rewriting — so inline anchors like `<a href="/post/nextjs-jwt-authentication">...</a>` come out as `[text](/post/nextjs-jwt-authentication)` in the markdown. They then resolve via the `/post/{slug}` → `/blog/{slug}` 301 redirect.
+- Absolute links of the form `https://www.authgear.com/post/{slug}` are also preserved verbatim. They continue to point at the production domain and are handled by the same redirect at the origin.
+- Link audit step: the migration script walks every resulting markdown file, collects all `href`s, and writes `/tmp/blog-link-audit.txt`. Any link pointing at `/post/*`, `/blog/*`, `/features/*`, `/solutions/*`, `/compare/*`, `/customer-stories/*`, or any `authgear.com` path is spot-checked — if the target route doesn't exist in the Astro site's route table, it's flagged as a potential dead link (human review, not auto-fix).
+- `target="_blank" rel="noopener"` attributes on external links are preserved when the HTML→markdown conversion runs (emitted as `[text](url)` — markdown can't carry attributes; if we need to preserve the attribute, we keep the raw `<a>` tag, which markdown allows inline).
+
 ## Testing
 
 - `npm run build` passes; 151 en post pages prerender + category filter pages + paginated listing.
