@@ -40,3 +40,17 @@
   white-space: normal;
   overflow-wrap: anywhere;
 }
+
+/* SMS Pumping Warning Signs accordion — give icon + heading more breathing room
+   from the item separators. The base stylesheet uses var(--spacing-s) = 1.5rem
+   which feels cramped next to a 48px icon; bump vertical padding. */
+button.ds-sms-warning-faq__trigger {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+.ds-sms-warning-faq__item:first-child button.ds-sms-warning-faq__trigger {
+  padding-top: 1.25rem;
+}
+.ds-sms-warning-faq__answer {
+  padding-bottom: 1.5rem;
+}
