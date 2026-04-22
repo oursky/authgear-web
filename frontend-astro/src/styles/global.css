@@ -9,15 +9,19 @@
   gap: 16px;
   flex-wrap: wrap;
 }
-.footer-certificate > img,
-.footer-certificate .footer-passkey-pledge-link > img {
-  height: 72px;
+.footer-cert-badge {
+  height: 56px;
   width: auto;
+  max-width: none;
+  object-fit: contain;
   display: block;
+  margin: 0;
+  flex: 0 0 auto;
 }
 .footer-passkey-pledge-link {
   display: inline-block;
   line-height: 0;
+  flex: 0 0 auto;
 }
 .footer-compliance-text {
   margin-top: 12px;
