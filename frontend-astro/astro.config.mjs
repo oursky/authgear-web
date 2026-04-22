@@ -4,10 +4,17 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  site: 'https://www.authgear.com',
   output: 'server',
   adapter: node({ mode: 'standalone' }),
   integrations: [react()],
   vite: { plugins: [tailwindcss()] },
   trailingSlash: 'ignore',
   build: { format: 'directory' },
+  markdown: {
+    shikiConfig: {
+      theme: 'github-light',
+      wrap: false,
+    },
+  },
 });

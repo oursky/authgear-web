@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import { localizedPath } from '@/lib/i18n';
+
+interface Props {
+  locale: string;
+  currentCategory?: string;
+}
+
+const { locale, currentCategory } = Astro.props;
+
+const categories = (await getCollection('blog-categories')).sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
+);
+
+const allLabel = locale === 'zh-TW' ? '全部' : 'All';
+const allHref = localizedPath(locale, '/blog');
+const isAllActive = !currentCategory;
+---
+
+<nav class="blog-category-nav" aria-label="Blog categories">
+  <a
+    href={allHref}
+    class={`blog-category-chip${isAllActive ? ' blog-category-chip--active' : ''}`}
+  >
+    {allLabel}
+  </a>
+  {categories.map((cat) => {
+    const isActive = currentCategory === cat.data.slug;
+    return (
+      <a
+        href={localizedPath(locale, `/post-category/${cat.data.slug}`)}
+        class={`blog-category-chip${isActive ? ' blog-category-chip--active' : ''}`}
+      >
+        {cat.data.name}
+      </a>
+    );
+  })}
+</nav>

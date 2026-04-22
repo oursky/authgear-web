@@ -92,6 +92,7 @@ CONTACT_WEBHOOK_URL=
 - When editing Strapi-backed content (blog, customer stories, integrations, etc.), the source of truth is Strapi — not local files.
 - When editing static marketing pages, the source of truth is the React component in `frontend/components/pages/`.
 - Pricing page (`app/[locale]/pricing/`): structured data (plans, comparison table, FAQ) lives in `frontend/lib/pricing/copy-en.ts`; UI strings are in `frontend/messages/en.json` under the `Pricing` namespace.
+- **Authoring a blog post** on the Astro site (`frontend-astro/src/content/blog-posts/`): see [`docs/blog-authoring.md`](docs/blog-authoring.md) for the full structure — frontmatter fields, body conventions, FAQ, SEO, and translations.
 - `populate: '*'` is valid for Strapi 5 first-level relations; comma-separated field names for populate are **invalid** in Strapi v5 (use nested populate query strings instead).
 
 ## Webflow → Strapi Import Scripts

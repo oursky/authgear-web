@@ -1,0 +1,88 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
+
+interface Props {
+  entry: CollectionEntry<'blog-posts'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+
+const title = data.metaTitle ?? data.title;
+const description = data.metaDescription ?? data.excerpt;
+
+const canonicalHref = data.canonicalUrl
+  ?? new URL(Astro.url.pathname, Astro.site).href;
+
+const optimizedImage = await getImage({ src: data.coverImage, width: 1200 });
+const ogImageAbsolute = new URL(optimizedImage.src, Astro.site).href;
+
+const publishedISO = (data.publishedAtOverride ?? data.publishedAt).toISOString();
+const modifiedISO = (data.updatedAt ?? data.publishedAt).toISOString();
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  image: [ogImageAbsolute],
+  datePublished: publishedISO,
+  dateModified: modifiedISO,
+  author: {
+    '@type': 'Organization',
+    name: 'Authgear',
+    url: 'https://www.authgear.com',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Authgear',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.authgear.com/images/authgear-logo.svg',
+    },
+  },
+  mainEntityOfPage: canonicalHref,
+};
+
+const hasFaq = Array.isArray(data.faq) && data.faq.length > 0;
+const faqLd = hasFaq
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: data.faq!.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: a,
+        },
+      })),
+    }
+  : null;
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalHref} />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageAbsolute} />
+<meta property="og:url" content={canonicalHref} />
+<meta property="og:site_name" content="Authgear" />
+<meta property="article:published_time" content={publishedISO} />
+<meta property="article:modified_time" content={modifiedISO} />
+{data.category && (
+  <meta property="article:section" content={data.category} />
+)}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageAbsolute} />
+
+<script type="application/ld+json" set:html={JSON.stringify(articleLd)} />
+{faqLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+)}
