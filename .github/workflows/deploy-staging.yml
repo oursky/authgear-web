@@ -13,9 +13,11 @@ jobs:
   deploy:
     name: Deploy to Fly.io
     runs-on: ubuntu-latest
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STAGING }}
     steps:
       - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STAGING }}
+      - name: Install flyctl
+        run: curl -L https://fly.io/install.sh | sh
+      - name: Deploy
+        run: /home/runner/.fly/bin/flyctl deploy --remote-only
