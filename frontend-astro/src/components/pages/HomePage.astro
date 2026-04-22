@@ -7,10 +7,13 @@ import LogoMarquee from '@/components/islands/LogoMarquee';
 interface Props { locale: string }
 const { locale } = Astro.props;
 
-function tRich(locale: string, key: string): string {
+function tRich(locale: string, key: string, gradientExtraClass = ''): string {
   const raw = t(locale, key);
+  const gradientClass = gradientExtraClass
+    ? `once-gradient ${gradientExtraClass}`
+    : 'once-gradient';
   return raw
-    .replace(/<gradient>([\s\S]*?)<\/gradient>/g, '<span class="once-gradient">$1</span>')
+    .replace(/<gradient>([\s\S]*?)<\/gradient>/g, `<span class="${gradientClass}">$1</span>`)
     .replace(/<br><\/br>/g, '<br>')
     .replace(/<br\s*\/>/g, '<br>');
 }
@@ -229,7 +232,7 @@ function tRich(locale: string, key: string): string {
     <div class="container-default">
       <div class="container-default-inner">
         <div class="top-content flex-column text-center">
-          <h2 class="cloud-h2 dark-cloud-h2" set:html={tRich(locale, 'Home.microservicesHeading')}></h2>
+          <h2 class="cloud-h2 dark-cloud-h2" set:html={tRich(locale, 'Home.microservicesHeading', 'dark-cloud-h2')}></h2>
           <div class="top-content-description ibm-plex-sans">{t(locale, 'Home.microservicesSubheading')}</div>
         </div>
         <div class="home-feature-cards-v2_wrap gap-32">
@@ -311,7 +314,7 @@ function tRich(locale: string, key: string): string {
     <div class="container-default">
       <div class="container-default-inner">
         <div class="top-content flex-column text-center">
-          <h2 class="cloud-h2 dark-cloud-h2" set:html={tRich(locale, 'Home.zeroTrustHeading')}></h2>
+          <h2 class="cloud-h2 dark-cloud-h2" set:html={tRich(locale, 'Home.zeroTrustHeading', 'dark-cloud-h2')}></h2>
           <div class="top-content-description">{t(locale, 'Home.zeroTrustSubheading')}</div>
         </div>
         <div class="w-layout-grid feature-grid-3x1 home-cards-grid-wrap transparent">
