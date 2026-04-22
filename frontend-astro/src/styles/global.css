@@ -30,3 +30,13 @@
   line-height: 1.5;
   max-width: 320px;
 }
+
+/* Allow long Free Tools labels (e.g. UUID v7 Generator & Timestamp Extractor) to wrap */
+.footer-menu-link {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.footer-menu-link > div {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}

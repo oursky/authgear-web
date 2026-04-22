@@ -150,7 +150,10 @@ export const footerStrings: Record<string, Record<string, string>> = {
   freeToolsTitle: { en: 'Free Tools', 'zh-TW': '免費工具' },
   oidcDiscovery: { en: 'OIDC Discovery Explorer', 'zh-TW': 'OIDC Discovery 探索器' },
   sslChecker: { en: 'SSL Checker', 'zh-TW': 'SSL 檢查工具' },
-  uuidv7Generator: { en: 'UUID v7 Generator & Timestamp Extractor', 'zh-TW': 'UUID v7 產生器與時間戳解析器' },
+  uuidv7Generator: {
+    en: 'UUID v7 Generator<br>&amp; Timestamp Extractor',
+    'zh-TW': 'UUID v7 產生器<br>與時間戳解析器',
+  },
   base64: { en: 'Base64 Decode/Encode', 'zh-TW': 'Base64 編解碼' },
   jwtDebugger: { en: 'JWT &amp; JWE Debugger', 'zh-TW': 'JWT 與 JWE 除錯器' },
   jwkGenerator: { en: 'JWK Generator', 'zh-TW': 'JWK 產生器' },
