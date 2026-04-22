@@ -8,7 +8,7 @@ metaTitle: "How to Add Authentication to a React Native app in 10 Minutes"
 metaDescription: "In this we teach how add a full user authentication feature to any React Native application under 10 minutes."
 publishedAt: 2024-08-01T11:19:27.895Z
 updatedAt: 2026-02-12T02:35:14.203Z
-draft: true
+draft: false
 ---
 
 A simple definition of user authentication in a React Native application is a feature that allows users of the application to register with a username and password and subsequently log in with the same details to access additional features. User Authentication is an important part of any modern application that offers personalized or custom experience to each user.  For example, if you’re building an e-commerce application, adding authentication makes it easier to save a user's shopping cart and purchase history.
