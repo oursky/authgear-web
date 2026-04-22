@@ -16,7 +16,7 @@
     "subtitle": "Stay updated with the latest best practices, product updates, and expert tips on building secure, seamless user experiences with Authgear.",
     "allPosts": "All posts",
     "all": "All",
-    "noPostsYet": "No posts yet. Add content in the Strapi admin panel.",
+    "noPostsYet": "No posts yet.",
     "latestArticles": "Latest articles",
     "lastUpdated": "Last updated: ",
     "loadingMore": "Loading more posts…",
@@ -32,7 +32,7 @@
     "heroSubtitle": "Build login experiences that match your brand and convert better. Authgear helps you reduce friction, build trust, and drive growth from the very first screen.",
     "ctaPrimary": "Get Started for Free",
     "ctaDocs": "Developer Docs",
-    "emptyState": "No gallery items yet. Add content in the Strapi admin panel.",
+    "emptyState": "No gallery items yet.",
     "cardAriaLabel": "View {title}"
   },
   "LoginGalleryDetail": {
@@ -52,7 +52,7 @@
   "CustomerStories": {
     "title": "Customer Stories",
     "subtitle": "Power ambitious teams to build faster. Authgear's drop-in authentication handles the hard security work while your developers ship what matters.",
-    "noStoriesYet": "No customer stories yet. Add content in the Strapi admin panel.",
+    "noStoriesYet": "No customer stories yet.",
     "readStory": "Read story →",
     "noContentYet": "No content yet.",
     "sidebarIndustry": "Industry",
@@ -63,12 +63,12 @@
   "Integrations": {
     "title": "Integrations",
     "subtitle": "Connect Authgear with your existing tools and services.",
-    "noIntegrationsYet": "No integrations yet. Add content in the Strapi admin panel."
+    "noIntegrationsYet": "No integrations yet."
   },
   "WhatsNew": {
     "title": "What's New",
     "subtitle": "Latest updates, releases, and improvements from the Authgear team.",
-    "noUpdatesYet": "No updates yet. Add content in the Strapi admin panel.",
+    "noUpdatesYet": "No updates yet.",
     "noContentYet": "No content yet."
   },
   "Pricing": {
