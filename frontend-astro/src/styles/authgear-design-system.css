@@ -218,16 +218,16 @@
     --image-hero-banner-bg: url("/images/solutions_enterprise-sso_kv-bg2x.webp");
     /* Hero 右圖：各斷點 max-width 上限（單一 src，由 CSS 縮放） */
     --hero-banner-media-max-sm: 31.25rem;
-    --hero-banner-media-max-lg: 28rem;
+    --hero-banner-media-max-lg: 32rem;
     /* XL 勿大於 ~512px，避免大螢幕圖片欄搶光版面 */
-    --hero-banner-media-max-xl: 32rem;
+    --hero-banner-media-max-xl: 34rem;
     /* 佔列寬比例（與 max-width 並用） */
-    --hero-banner-media-basis-lg: 38%;
-    --hero-banner-media-basis-xl: 40%;
+    --hero-banner-media-basis-lg: 46%;
+    --hero-banner-media-basis-xl: 44%;
     /* Hero 左欄文案區最大寬 */
     --hero-banner-body-max-width: 43rem;
     /* LG（1024–1279）與右圖並排時，避免 43rem + 圖欄超出容器而裁切右圖 */
-    --hero-banner-body-max-width-lg: 35rem;
+    --hero-banner-body-max-width-lg: 30rem;
     /* `.ds-hero-banner--white` 底部大圖最大寬（單欄置中 KV） */
     --hero-banner-white-media-max: 72rem;
     --hero-banner-white-stack-max-width: 56rem;
