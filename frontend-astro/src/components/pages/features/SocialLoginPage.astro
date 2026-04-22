@@ -277,10 +277,18 @@ const socialLoginProviderTiles = [
         align-self: center;
       }
 
-      /* Brand Control illustration: capped so the tall card's picture doesn't overwhelm */
+      /* Brand Control illustration sits inside the tall middle card. Let it take all
+         remaining vertical space below the text and shrink-to-fit rather than being
+         stuck to a single edge. */
       .sl-card__img--brand {
-        max-width: 20rem;
-        margin-inline: auto;
+        max-width: 100%;
+        margin-top: 0;
+        flex: 1 1 auto;
+        min-height: 0;
+        align-self: stretch;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
       }
     </style>
   </div>
