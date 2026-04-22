@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 /* Authgear Design System — tokens, components, Tailwind (PostCSS when imported from app/layout) */
-@source "../components/**/*.{js,ts,jsx,tsx}";
+@source "../components/**/*.{astro,js,ts,jsx,tsx}";
+@source "../pages/**/*.{astro,js,ts,jsx,tsx}";
 @source "./**/*.{js,ts,jsx,tsx}";
 
 @theme {
