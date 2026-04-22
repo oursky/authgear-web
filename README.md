@@ -1,125 +1,70 @@
-# Authgear Website — Next.js + Strapi
+# Authgear Website
 
-This is the **Authgear marketing website**, built with **Next.js** and **Strapi** (headless CMS).
+The Authgear marketing website, built with **Astro 5**. All content — blog posts, customer stories, login gallery, what's new, integrations — lives in the repo as markdown + JSON under `src/content/`. No external CMS.
 
 ## Tech stack
 
 | Layer | Technology |
 |--------|------------|
-| **Site** | Next.js 16, React 19, TypeScript |
-| **CMS** | Strapi 5 |
-| **Local CMS (optional)** | Strapi + SQLite (`npm run develop` in `cms/`) |
-| **Assets** | CSS/JS/images in `frontend/public/` |
+| **Site** | Astro 5, React 19 islands, TypeScript |
+| **Styling** | Tailwind CSS v4 + a shared design-system stylesheet |
+| **Content** | Astro Content Collections (markdown + JSON) validated with zod |
+| **Images** | Astro's built-in image pipeline (WebP + responsive srcsets) |
+| **Syntax highlighting** | Shiki (`github-light` theme) |
+| **Adapter** | `@astrojs/node` in standalone mode (SSR for the few dynamic endpoints) |
 
----
+Most routes are prerendered; only `/api/contact` and `/sitemap.xml` run at request time.
 
-## Strapi setup
-
-1. Run Strapi from `cms/` (locally or via your deployment target).
-2. In Strapi Admin → **Settings → API Tokens**, create a **read-only** token for the frontend (optional if Public role is enabled).
-3. In **Settings → Users & Permissions → Roles → Public**, enable `find` / `findOne` for collections the website needs.
-
-### Environment variables (frontend)
-
-In `frontend/.env.local`, set:
-
-```env
-STRAPI_URL=https://your-strapi-url
-NEXT_PUBLIC_STRAPI_URL=https://your-strapi-url
-STRAPI_API_TOKEN=your_read_only_token
-```
-
-Use the **same base URL** for both unless you intentionally split internal vs public URLs.
-
-### Run the website locally
-
-```bash
-cd frontend
-npm install
-cp .env.local.example .env.local   # then edit with your Strapi URL + token
-npm run dev
-```
-
-Open **http://localhost:3000**.
-
-## Local Strapi without Docker (SQLite)
-
-For schema work or imports against local Strapi:
-
-```bash
-cd cms
-npm install
-npm run develop
-```
-
-Uses **SQLite** by default—no local PostgreSQL required. Point `frontend/.env.local` at `http://localhost:1337` while testing.
-
-SQLite DB path defaults to:
-
-`cms/data/data.db`
-
-This repo intentionally tracks `cms/data/data.db` so local CMS content can be versioned when needed.
-
-**Next.js cannot read Strapi content until one of these is true:**
-
-1. **Public API (typical for local dev):** In Strapi Admin go to **Settings → Users & Permissions → Roles → Public** and enable **find** and **findOne** for every collection the site uses (e.g. Customer Story, Blog Post, Blog Category, Integration, etc.).
-2. **Or** set **`STRAPI_API_TOKEN`** in `frontend/.env.local` to a **read-only** API token (Settings → API Tokens).
-
-The frontend expects **Strapi 5** REST responses; `frontend/lib/strapi.ts` normalizes them for the pages.
-
----
-
-## Project layout
+## Repository layout
 
 ```
 authgear-web/
-├── frontend/              # Next.js 16 / React 19 / TypeScript site
-│   ├── app/               # App Router routes (two trees: [locale]/... and thin wrappers)
-│   ├── components/pages/  # Static marketing page components (about, features, compare, etc.)
-│   ├── components/        # Shared UI components
-│   ├── lib/               # strapi.ts, i18n.ts, site-navigation.ts, navigation-data.ts, pricing/
-│   ├── messages/          # next-intl translation files (en.json, zh-TW.json)
-│   └── public/            # Static assets (CSS, JS, images, documents)
-└── cms/                   # Strapi 5 app (content types and local SQLite data)
+├── src/         # Astro app — pages, content, components
+├── public/      # Static assets
+├── scripts/     # One-shot content-import scripts (audit trail)
+├── tests/       # Playwright + Vitest suites
+├── docs/        # Architecture + authoring docs
+├── design/      # Design assets
+├── skills/      # Repo-scoped Claude skills
+└── README.md
 ```
 
----
+## Run locally
 
-## Importing CMS data from Webflow
-
-To seed Strapi with existing Webflow CMS content (blog posts, customer stories, etc.):
-
-1. **CSV import:** export collection CSVs from Webflow, then run `cms/scripts/import-from-webflow-csv.mjs`.
-2. **API import:** pull directly from the Webflow API with `cms/scripts/import-from-webflow-api.mjs`.
-
-Both scripts are documented in `cms/README.md`.
-
----
-
-## Agent skills
-
-Project-level skills live in `skills/` and are symlinked into each agent's config directory:
-
-```
-skills/                        # Source of truth (tracked in git)
-└── plausible-event-tracking/  # Plausible analytics event tracking conventions
-.claude/
-└── skills -> ../skills        # Claude Code
-.cursor/
-└── skills -> ../skills        # Cursor
+```bash
+npm install
+npm run dev        # http://localhost:4321
 ```
 
-Skills are version-controlled once in `skills/`; each agent picks them up via its own symlink. To add a new skill, create a directory under `skills/`. To support a new agent, add a symlink from its config directory: `ln -s ../skills ./<agent-dir>/skills`.
+Build + preview:
 
----
+```bash
+npm run build      # → dist/client (static) + dist/server (SSR entry)
+npm run preview
+```
+
+## Environment variables
+
+Only one:
+
+```env
+CONTACT_WEBHOOK_URL=
+```
+
+Set in `.env` (or your deployment secret store). The contact form POSTs to `/api/contact`; if `CONTACT_WEBHOOK_URL` is set, the endpoint forwards submissions there. Without it, submissions are logged to the server stdout.
+
+## Authoring content
+
+- **Blog posts**: `src/content/blog-posts/{locale}/{slug}/index.md`. See [`docs/blog-authoring.md`](docs/blog-authoring.md) for the full frontmatter reference, body conventions, FAQ handling, and SEO fields.
+- **Customer stories**, **login gallery**, **what's new**, **integrations**: same pattern under `src/content/{collection}/`. Schemas in `src/content/config.ts`.
+- Each collection's initial data was pulled from the live Webflow CMS via `scripts/webflow-to-markdown-*.mjs`. Those one-shot scripts remain in the repo as audit trail; they are not run on every build.
 
 ## Docs
 
-- **[frontend/README.md](./frontend/README.md)** — Frontend routes, env vars, and page/Strapi integration notes
-- **[cms/README.md](./cms/README.md)** — Strapi content types, local development, and Webflow import scripts
+- [`docs/ARCHITECTURE-ASTRO.md`](docs/ARCHITECTURE-ASTRO.md) — full architecture overview (routing, rendering, SEO, i18n, deployment).
+- [`docs/blog-authoring.md`](docs/blog-authoring.md) — how to write a new blog post.
+- [`docs/superpowers/specs/`](docs/superpowers/specs/) — design specs for each migration slice.
 
----
+## Deployment
 
-## License
-
-This repository does not currently declare a license.
+Fly.io (Node machine serving the Astro standalone entry). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
