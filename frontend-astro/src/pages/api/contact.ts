@@ -10,6 +10,7 @@ interface ContactFormData {
   Company?: string;
   'how-hear'?: string;
   'Use-Case'?: string;
+  formType?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -40,7 +41,15 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  if (!data.Name || !data.Email) {
+  if (!data.Email) {
+    return new Response(JSON.stringify({ error: 'Email is required.' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  // Download / lead-gen forms may submit Email only. The full contact form
+  // still supplies both Name + Email; we require Name only for that type.
+  if (!data.formType && !data.Name) {
     return new Response(JSON.stringify({ error: 'Name and Email are required.' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },

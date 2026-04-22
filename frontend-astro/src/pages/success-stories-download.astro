@@ -25,19 +25,28 @@ const description = 'Discover how companies use Authgear to simplify authenticat
           <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">Case Studies</p>
           <h1 class="ds-hero-banner__title">Get Inspired by Real Success Stories</h1>
           <p class="ds-hero-banner__description">{description}</p>
-          <div class="stories-dl__ctas">
-            <a
-              href={localizedPath(locale, '/customer-stories')}
-              class="ds-btn ds-btn-secondary"
-            >
-              Browse all stories
-              <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-            </a>
-            <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
-              Schedule a demo
-              <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-            </a>
-          </div>
+          <form
+            class="stories-dl__form"
+            data-pdf="https://cdn.prod.website-files.com/60658b46b03f0cf83ac1485d/6929eee05cb644e1cc7b84b9_Authgear_CaseStudy.pdf"
+          >
+            <label for="stories-dl-email" class="stories-dl__form-label">Email</label>
+            <div class="stories-dl__form-row">
+              <input
+                id="stories-dl-email"
+                type="email"
+                name="Email"
+                required
+                autocomplete="email"
+                placeholder="you@company.com"
+                class="stories-dl__form-input"
+              />
+              <button type="submit" class="ds-btn ds-btn-secondary stories-dl__form-submit">
+                Download PDF
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m0 0 3-3m-3 3-3-3M3.75 5.625c0-.621.504-1.125 1.125-1.125h14.25c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125H4.875a1.125 1.125 0 0 1-1.125-1.125V5.625Z" /></svg>
+              </button>
+            </div>
+            <p class="stories-dl__form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </div>
@@ -133,3 +142,35 @@ const description = 'Discover how companies use Authgear to simplify authenticat
     </div>
   </section>
 </BaseLayout>
+
+<script is:inline>
+  const form = document.querySelector('.stories-dl__form');
+  if (form) {
+    const pdfUrl = form.dataset.pdf;
+    const status = form.querySelector('.stories-dl__form-status');
+    const submit = form.querySelector('.stories-dl__form-submit');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[name="Email"]').value.trim();
+      if (!email) return;
+      submit.disabled = true;
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            Email: email,
+            formType: 'success-stories-download',
+          }),
+        });
+        if (!res.ok) throw new Error(`status ${res.status}`);
+        status.textContent = 'Thanks! Opening your PDF…';
+        if (pdfUrl) window.open(pdfUrl, '_blank', 'noopener');
+      } catch (err) {
+        status.textContent = 'Something went wrong. Please try again.';
+        submit.disabled = false;
+      }
+    });
+  }
+</script>
