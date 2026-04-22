@@ -59,8 +59,48 @@ const whatsNew = defineCollection({
     }),
 });
 
+const blogPosts = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      h1: z.string().optional(),
+      excerpt: z.string(),
+      coverImage: image(),
+      category: z.string().optional(),
+      featured: z.boolean().default(false),
+      readTime: z.number().int().positive().optional(),
+      metaTitle: z.string().optional(),
+      metaDescription: z.string().optional(),
+      canonicalUrl: z.string().url().optional(),
+      publishedAt: z.coerce.date(),
+      updatedAt: z.coerce.date().optional(),
+      publishedAtOverride: z.coerce.date().optional(),
+      draft: z.boolean().default(false),
+      faq: z
+        .array(
+          z.object({
+            q: z.string(),
+            a: z.string(),
+          }),
+        )
+        .optional(),
+    }),
+});
+
+const blogCategories = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    slug: z.string(),
+    description: z.string().optional(),
+  }),
+});
+
 export const collections = {
   'customer-stories': customerStories,
   'login-gallery': loginGallery,
   'whats-new': whatsNew,
+  'blog-posts': blogPosts,
+  'blog-categories': blogCategories,
 };

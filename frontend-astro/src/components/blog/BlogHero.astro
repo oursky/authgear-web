@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  eyebrow?: string;
+}
+
+const { title, subtitle, eyebrow } = Astro.props;
+---
+
+<section class="ds-hero-banner--gradient">
+  <div class="ds-container ds-container--gradient-hero-shell">
+    <div class="ds-hero-banner--gradient__inner">
+      <div class="ds-container ds-container--hero">
+        <div class="blog-index__hero-body">
+          {eyebrow && (
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{eyebrow}</p>
+          )}
+          <h1 class="ds-hero-banner__title">{title}</h1>
+          {subtitle && <p class="ds-hero-banner__description">{subtitle}</p>}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

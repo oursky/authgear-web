@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry, type CollectionEntry } from 'astro:content';
+import { localizedPath } from '@/lib/i18n';
+
+interface Props {
+  entry: CollectionEntry<'blog-posts'>;
+  locale: string;
+}
+
+const { entry, locale } = Astro.props;
+const data = entry.data;
+const slug = entry.id.replace(/^(zh-TW|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+
+let categoryName: string | undefined;
+if (data.category) {
+  try {
+    const cat = await getEntry('blog-categories', data.category);
+    categoryName = cat?.data.name;
+  } catch {
+    categoryName = undefined;
+  }
+}
+
+const displayDate = data.publishedAtOverride ?? data.publishedAt;
+const dateStr = displayDate.toLocaleDateString(locale === 'zh-TW' ? 'zh-TW' : 'en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+const readTimeLabel = locale === 'zh-TW' ? '分鐘閱讀' : 'min read';
+---
+
+<a href={localizedPath(locale, `/blog/${slug}`)} class="blog-card">
+  <div class="blog-card__media">
+    <Image
+      src={data.coverImage}
+      alt={data.title}
+      width={800}
+      loading="lazy"
+      class="blog-card__img"
+    />
+  </div>
+  <div class="blog-card__body">
+    {categoryName && <span class="blog-card__eyebrow">{categoryName}</span>}
+    <h3 class="blog-card__title">{data.title}</h3>
+    {data.excerpt && <p class="blog-card__excerpt">{data.excerpt}</p>}
+    <div class="blog-card__meta">
+      <span class="blog-card__date">{dateStr}</span>
+      {data.readTime && (
+        <span class="blog-card__read-time">{data.readTime} {readTimeLabel}</span>
+      )}
+    </div>
+  </div>
+</a>

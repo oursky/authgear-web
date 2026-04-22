@@ -1,0 +1,36 @@
+---
+interface Page {
+  url: { prev?: string; next?: string };
+  currentPage: number;
+  lastPage: number;
+}
+
+interface Props {
+  page: Page;
+  locale?: string;
+}
+
+const { page, locale = 'en' } = Astro.props;
+const prevLabel = locale === 'zh-TW' ? '上一頁' : 'Previous';
+const nextLabel = locale === 'zh-TW' ? '下一頁' : 'Next';
+const ofLabel = locale === 'zh-TW' ? '／' : 'of';
+const pageLabel = locale === 'zh-TW' ? '第' : 'Page';
+---
+
+{page.lastPage > 1 && (
+  <nav class="blog-pagination" aria-label="Pagination">
+    {page.url.prev ? (
+      <a href={page.url.prev} class="blog-pagination__btn">{prevLabel}</a>
+    ) : (
+      <span class="blog-pagination__btn blog-pagination__btn--disabled" aria-hidden="true">{prevLabel}</span>
+    )}
+    <span class="blog-pagination__status">
+      {pageLabel} {page.currentPage} {ofLabel} {page.lastPage}
+    </span>
+    {page.url.next ? (
+      <a href={page.url.next} class="blog-pagination__btn">{nextLabel}</a>
+    ) : (
+      <span class="blog-pagination__btn blog-pagination__btn--disabled" aria-hidden="true">{nextLabel}</span>
+    )}
+  </nav>
+)}

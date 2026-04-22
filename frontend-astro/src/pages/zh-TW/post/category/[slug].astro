@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const categories = await getCollection('blog-categories');
+  return categories.map((category) => ({
+    params: { slug: category.data.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+return Astro.redirect(`/zh-TW/blog/category/${slug}`, 301);
+---

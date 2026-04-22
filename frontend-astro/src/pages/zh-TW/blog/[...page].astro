@@ -1,0 +1,68 @@
+---
+export const prerender = true;
+
+import { getCollection, type CollectionEntry } from 'astro:content';
+import type { GetStaticPathsOptions, Page } from 'astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogHero from '@/components/blog/BlogHero.astro';
+import BlogCategoryNav from '@/components/blog/BlogCategoryNav.astro';
+import BlogCard from '@/components/blog/BlogCard.astro';
+import BlogPagination from '@/components/blog/BlogPagination.astro';
+import { t } from '@/i18n';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const slugOf = (id: string) =>
+    id.replace(/^(zh-TW|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  const [zhEntries, enEntries] = await Promise.all([
+    getCollection('blog-posts', ({ id, data }) => id.startsWith('zh-TW/') && !data.draft),
+    getCollection('blog-posts', ({ id, data }) => id.startsWith('en/') && !data.draft),
+  ]);
+  const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
+  const merged = [
+    ...zhEntries,
+    ...enEntries.filter((e) => !zhSlugs.has(slugOf(e.id))),
+  ];
+  const posts = merged.sort((a, b) => {
+    const aD = (a.data.publishedAtOverride ?? a.data.publishedAt).getTime();
+    const bD = (b.data.publishedAtOverride ?? b.data.publishedAt).getTime();
+    return bD - aD;
+  });
+  return paginate(posts, { pageSize: 24 });
+}
+
+interface Props {
+  page: Page<CollectionEntry<'blog-posts'>>;
+}
+
+const locale = 'zh-TW';
+const { page } = Astro.props;
+
+const title = t(locale, 'Blog.title') + ' - Authgear';
+const description = t(locale, 'Blog.subtitle');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <BlogHero
+    title={t(locale, 'Blog.title')}
+    subtitle={t(locale, 'Blog.subtitle')}
+    eyebrow={t(locale, 'Blog.title')}
+  />
+
+  <section class="ds-section ds-bg-white">
+    <div class="ds-container">
+      <BlogCategoryNav locale={locale} />
+
+      {page.data.length === 0 ? (
+        <p class="blog-empty">{t(locale, 'Blog.noPostsYet')}</p>
+      ) : (
+        <div class="blog-grid">
+          {page.data.map((entry) => (
+            <BlogCard entry={entry} locale={locale} />
+          ))}
+        </div>
+      )}
+
+      <BlogPagination page={page} locale={locale} />
+    </div>
+  </section>
+</BaseLayout>
