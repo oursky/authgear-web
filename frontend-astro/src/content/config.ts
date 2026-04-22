@@ -97,10 +97,33 @@ const blogCategories = defineCollection({
   }),
 });
 
+const integrations = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      excerpt: z.string(),
+      icon: image(),
+      website: z.string().url(),
+      category: z.string().optional(),
+      publishedAt: z.coerce.date().optional(),
+    }),
+});
+
+const integrationCategories = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    slug: z.string(),
+  }),
+});
+
 export const collections = {
   'customer-stories': customerStories,
   'login-gallery': loginGallery,
   'whats-new': whatsNew,
   'blog-posts': blogPosts,
   'blog-categories': blogCategories,
+  'integrations': integrations,
+  'integration-categories': integrationCategories,
 };

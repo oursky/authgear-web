@@ -205,42 +205,6 @@ export function strapiImageUrl(image: StrapiImage | { url?: string } | null | un
   return url.startsWith('http') ? url : `${base}${url}`;
 }
 
-// ── Integrations ──────────────────────────────────────────────────────────────
-export type Integration = {
-  name: string;
-  slug: string;
-  description: string;
-  body: string;
-  heroImage: StrapiImage;
-  logo: StrapiImage;
-  category: { data: { id: number; attributes: { name: string; slug: string } } | null };
-};
-
-export async function getIntegrations(options: FetchOptions = {}) {
-  return strapiGet<StrapiListResponse<Integration>>('integrations', {
-    populate: '*',
-    sort: 'name:asc',
-    ...options,
-  });
-}
-
-export async function getIntegrationBySlug(slug: string, locale?: StrapiLocale) {
-  const res = await strapiGet<StrapiListResponse<Integration>>('integrations', {
-    populate: '*',
-    filters: { slug: { $eq: slug } },
-    locale,
-  });
-  return res.data[0] ?? null;
-}
-
-// ── Integration Categories ────────────────────────────────────────────────────
-export type IntegrationCategory = { name: string; slug: string };
-
-export async function getIntegrationCategories(options: FetchOptions = {}) {
-  return strapiGet<StrapiListResponse<IntegrationCategory>>('integration-categories', options);
-}
-
-
 // ── Team Members ──────────────────────────────────────────────────────────────
 export type TeamMember = {
   name: string;

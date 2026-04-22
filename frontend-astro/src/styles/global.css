@@ -367,6 +367,154 @@
   height: 1rem;
 }
 
+/* Integrations — index grid + detail layout */
+.integrations-index__hero { text-align: center; }
+.integrations-index__hero .ds-section-eyebrow,
+.integrations-index__hero .ds-hero-banner__title,
+.integrations-index__hero .ds-hero-banner__description {
+  text-align: center;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+.integrations-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+@media (max-width: 991px) { .integrations-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 559px) { .integrations-grid { grid-template-columns: 1fr; } }
+.integrations-grid__item { display: flex; }
+.integration-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.75rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+.integration-card:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 4px 10px rgba(16, 24, 40, 0.06), 0 10px 24px rgba(16, 24, 40, 0.08);
+  transform: translateY(-2px);
+}
+.integration-card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.integration-card__icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.integration-card__name {
+  margin: 0;
+  font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+.integration-card__category {
+  margin: -0.25rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary, #0043e0);
+}
+.integration-card__excerpt {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #626262;
+}
+
+.integration-detail {
+  padding: 4rem 0 3rem;
+  background: #fff;
+}
+.integration-detail__container {
+  max-width: 48rem;
+  text-align: center;
+}
+.integration-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 2rem;
+  color: var(--color-text-light-secondary, #64748b);
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+.integration-detail__back:hover { color: var(--color-brand-primary, #0043e0); }
+.integration-detail__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.integration-detail__icon {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1.25rem;
+}
+.integration-detail__icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.integration-detail__eyebrow {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #626262;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.integration-detail__name {
+  margin: 0;
+  font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+  font-weight: 600;
+  color: #2e2e2e;
+}
+.integration-detail__category {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary, #0043e0);
+}
+.integration-detail__excerpt {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #626262;
+  max-width: 36rem;
+}
+.integration-detail__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* SMS Pumping Warning Signs accordion — give icon + heading more breathing room
    from the item separators. The base stylesheet uses var(--spacing-s) = 1.5rem
    which feels cramped next to a 48px icon; bump vertical padding. */

@@ -1,0 +1,90 @@
+---
+export const prerender = true;
+
+import { Image } from 'astro:assets';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { localizedPath } from '@/lib/i18n';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('integrations', ({ id }) => id.startsWith('en/'));
+  return entries.map((entry) => ({
+    params: { slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, '') },
+    props: { entry },
+  }));
+}
+
+interface Props { entry: CollectionEntry<'integrations'> }
+
+const locale = 'en';
+const { entry } = Astro.props;
+const data = entry.data;
+
+let categoryName: string | undefined;
+if (data.category) {
+  const cat = await getEntry('integration-categories', data.category);
+  categoryName = cat?.data.name;
+}
+
+// Fetch related integrations (same category, excluding self).
+const all = await getCollection('integrations', ({ id }) => id.startsWith('en/'));
+const slugOf = (id: string) => id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const mySlug = slugOf(entry.id);
+const related = all
+  .filter((e) => slugOf(e.id) !== mySlug)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 6);
+
+const pageTitle = `Integration: ${data.name} - Authgear`;
+---
+
+<BaseLayout locale={locale} title={pageTitle} description={data.excerpt}>
+  <section class="integration-detail">
+    <div class="ds-container integration-detail__container">
+      <a href={localizedPath(locale, '/integrations')} class="integration-detail__back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+        All integrations
+      </a>
+
+      <div class="integration-detail__card">
+        <div class="integration-detail__icon">
+          <Image src={data.icon} alt={data.name} width={120} loading="eager" />
+        </div>
+        <p class="integration-detail__eyebrow">Connect Authgear with</p>
+        <h1 class="integration-detail__name">{data.name}</h1>
+        {categoryName && <p class="integration-detail__category">{categoryName}</p>}
+        <p class="integration-detail__excerpt">{data.excerpt}</p>
+        <a
+          href={data.website}
+          target="_blank"
+          rel="noreferrer"
+          class="ds-btn ds-btn-primary integration-detail__cta"
+        >
+          Visit {data.name}
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">More available integrations</h2>
+      </div>
+      <ul role="list" class="integrations-grid">
+        {related.map((r) => (
+          <li class="integrations-grid__item">
+            <a href={localizedPath(locale, `/integrations/${slugOf(r.id)}`)} class="integration-card">
+              <div class="integration-card__icon">
+                <Image src={r.data.icon} alt={r.data.name} width={80} loading="lazy" />
+              </div>
+              <h3 class="integration-card__name">{r.data.name}</h3>
+              <p class="integration-card__excerpt">{r.data.excerpt}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
