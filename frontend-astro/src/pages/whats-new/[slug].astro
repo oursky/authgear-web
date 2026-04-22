@@ -1,0 +1,47 @@
+---
+export const prerender = false;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import { pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getWhatsNewItemBySlug, strapiImageUrl } from '@/lib/strapi';
+
+const locale = 'en';
+const strapiLocale = pathLocaleToStrapiLocale(locale);
+const { slug } = Astro.params as { slug: string };
+
+const item = await getWhatsNewItemBySlug(slug, strapiLocale);
+if (!item) {
+  return Astro.redirect('/404');
+}
+
+const { title, body, coverImage, publishedAt, excerpt } = item.attributes;
+const imgUrl = strapiImageUrl(coverImage);
+const date = publishedAt
+  ? new Date(publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  : '';
+
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+
+const pageTitle = title;
+const pageDescription = excerpt ?? '';
+---
+
+<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
+  <div class="page-wrapper">
+    <div class="section whats-new-post">
+      <div class="container-default w-container">
+        {date && <div class="whats-new-date">{date}</div>}
+        <h1>{title}</h1>
+        {imgUrl && (
+          <img src={imgUrl} alt={title} loading="eager" style="width: 100%; height: auto;" />
+        )}
+        {body ? (
+          <div class="ds-richtext-prose whats-new-rich-text w-richtext" set:html={body} />
+        ) : (
+          <p>{t(locale, 'WhatsNew.noContentYet')}</p>
+        )}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

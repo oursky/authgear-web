@@ -1,0 +1,63 @@
+---
+export const prerender = false;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import { localizedPath, pathLocaleToStrapiLocale } from '@/lib/i18n';
+import { getWhatsNewItems, strapiImageUrl } from '@/lib/strapi';
+
+const locale = 'zh-TW';
+const strapiLocale = pathLocaleToStrapiLocale(locale);
+
+const res = await getWhatsNewItems({ pagination: { pageSize: 50 }, locale: strapiLocale });
+const items = res.data ?? [];
+
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+
+const title = t(locale, 'WhatsNew.title') + " - Authgear";
+const description = t(locale, 'WhatsNew.subtitle');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <div class="page-wrapper">
+    <div class="section whats-new">
+      <div class="container-default w-container">
+        <h1 class="heading">{t(locale, 'WhatsNew.title')}</h1>
+        <p class="paragraph">{t(locale, 'WhatsNew.subtitle')}</p>
+
+        {items.length === 0 ? (
+          <div class="empty-state w-dyn-empty">
+            <div>{t(locale, 'WhatsNew.noUpdatesYet')}</div>
+          </div>
+        ) : (
+          <div role="list" class="whats-new-list w-dyn-items">
+            {items.map((item) => {
+              const { title: itemTitle, slug, excerpt, coverImage, publishedAt } = item.attributes;
+              const imgUrl = strapiImageUrl(coverImage);
+              const date = publishedAt
+                ? new Date(publishedAt).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })
+                : '';
+              return (
+                <div key={item.id} role="listitem" class="whats-new-item w-dyn-item">
+                  <a
+                    href={localizedPath(locale, `/whats-new/${slug}`)}
+                    class="card whats-new w-inline-block"
+                  >
+                    {imgUrl && (
+                      <img src={imgUrl} alt={itemTitle} loading="lazy" style="width: 100%; height: auto;" />
+                    )}
+                    <div class="whats-new-content">
+                      {date && <div class="whats-new-date">{date}</div>}
+                      <h3>{itemTitle}</h3>
+                      {excerpt && <p class="paragraph-small">{excerpt}</p>}
+                    </div>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
