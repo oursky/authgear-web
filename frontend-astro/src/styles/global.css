@@ -9,6 +9,12 @@
   gap: 16px;
   flex-wrap: wrap;
 }
+.footer-certificate > img,
+.footer-certificate .footer-passkey-pledge-link > img {
+  height: 72px;
+  width: auto;
+  display: block;
+}
 .footer-passkey-pledge-link {
   display: inline-block;
   line-height: 0;
