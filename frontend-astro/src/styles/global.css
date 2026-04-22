@@ -57,6 +57,28 @@
   font-weight: 400;
 }
 
+/* Legal pages — shared layout tweaks */
+.legal-hero .legal-hero__inner {
+  text-align: center;
+}
+.legal-hero .legal-hero__title {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+.legal-content {
+  max-width: 760px;
+  margin-inline: auto;
+}
+.legal-content .ds-richtext-prose h2 {
+  margin-top: 2.5rem;
+}
+.legal-content .ds-richtext-prose h2:first-child {
+  margin-top: 0;
+}
+.legal-content .ds-richtext-prose p + p {
+  margin-top: 1rem;
+}
+
 /* SMS Pumping Warning Signs accordion — give icon + heading more breathing room
    from the item separators. The base stylesheet uses var(--spacing-s) = 1.5rem
    which feels cramped next to a 48px icon; bump vertical padding. */

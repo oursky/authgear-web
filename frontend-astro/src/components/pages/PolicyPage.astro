@@ -1,79 +1,24 @@
 ---
-import { t } from '@/i18n';
-
-interface Props {
-  locale: string;
-}
-
-const { locale } = Astro.props;
+import LegalPageLayout from '@/components/legal/LegalPageLayout.astro';
+interface Props { locale: string }
 ---
-
-<>
-  <div class="page-wrapper">
-    <div class="inner-page-hero">
-      <div class="container-medium-761px">
-        <div class="text-center">
-          <div class="color-white">
-            <h1 class="color-white">Acceptable Use Policy</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container-default w-container"></div>
-      <div class="container-medium-761px">
-        <div class="ds-richtext-prose rich-text w-richtext">
-          <p>Your use of the Service is subject to this Acceptable Use Policy. If you are found to be in violation of our policies at any given time and as determined by Authgear in its sole discretion, we may warn you or suspend or terminate your account. Please note that we may change our Acceptable Use Policy at any time. Pursuant to the <a href="/terms">Terms</a>, it is your responsibility to keep up-to-date with and adhere to the policies posted here. All capitalized terms used herein have the meanings stated in the Terms, unless stated otherwise.</p>
-          <h3>Prohibited Content</h3>
-          <p>The Content displayed and/or processed through your Application or other web site utilizing the Service shall not contain any of the following types of content:</p>
-          <ul role="list">
-            <li>Content that infringes a third party's rights (i.e., copyright) according to applicable law</li>
-            <li>Excessively profane content</li>
-            <li>Hate-related or violent content</li>
-            <li>Content advocating racial or ethnic intolerance</li>
-            <li>Content intended to advocate or advance computer hacking or cracking</li>
-            <li>Gambling</li>
-            <li>Other illegal activities, including but not limited to, illegal export of controlled substances or illegal software</li>
-            <li>Drug paraphernalia</li>
-            <li>Phishing</li>
-            <li>Malicious content</li>
-            <li>Other materials, products, or services that violate or encourage conduct that would violate any criminal laws, any other applicable laws, or any third-party rights<br /></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="section cta">
-      <div class="container-default w-container">
-        <div class="cta-wrapper">
-          <div class="animation-div">
-            <a href="/pricing" class="split-content cta-left w-inline-block">
-              <h2 class="title cta-split-content-left">Get Started for free</h2>
-              <p class="paragraph cta-split-content-left">Authgear.com is free for apps unlimited MAUs (Monthly Active Users) with Authgear branding. It is also open source and always free!</p>
-              <div class="link-wrapper white">
-                <div>Get Started</div>
-                <div class="underline-wrapper white">
-                  <div class="underline white"></div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="animation-div">
-            <a href="/schedule-demo" class="split-content cta-right w-inline-block">
-              <h2 class="title cta-split-content-right">Talk with our sales team</h2>
-              <p class="paragraph cta-split-content-right">If you are looking for volume discounts, custom support plans, SLA, or have a different compliance requirements, feel free to contact us!</p>
-              <div class="link-wrapper cta-right">
-                <div>Contact Us</div>
-                <div class="underline-wrapper">
-                  <div class="underline"></div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-default w-container">
-      <div class="divider"></div>
-    </div>
-  </div>
-</>
+<LegalPageLayout title="Acceptable Use Policy">
+  <p>
+    Your use of the Service is subject to this Acceptable Use Policy. If you are found to be in violation of our policies at any given time and as determined by Authgear in its sole discretion, we may warn you or suspend or terminate your account. Please note that we may change our Acceptable Use Policy at any time. Pursuant to the <a href="/terms">Terms</a>, it is your responsibility to keep up-to-date with and adhere to the policies posted here. All capitalized terms used herein have the meanings stated in the Terms, unless stated otherwise.
+  </p>
+  <h2>Prohibited Content</h2>
+  <p>The Content displayed and/or processed through your Application or other web site utilizing the Service shall not contain any of the following types of content:</p>
+  <ul>
+    <li>Content that infringes a third party's rights (i.e., copyright) according to applicable law</li>
+    <li>Excessively profane content</li>
+    <li>Hate-related or violent content</li>
+    <li>Content advocating racial or ethnic intolerance</li>
+    <li>Content intended to advocate or advance computer hacking or cracking</li>
+    <li>Gambling</li>
+    <li>Other illegal activities, including but not limited to, illegal export of controlled substances or illegal software</li>
+    <li>Drug paraphernalia</li>
+    <li>Phishing</li>
+    <li>Malicious content</li>
+    <li>Other materials, products, or services that violate or encourage conduct that would violate any criminal laws, any other applicable laws, or any third-party rights</li>
+  </ul>
+</LegalPageLayout>
