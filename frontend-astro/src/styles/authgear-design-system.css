@@ -1691,7 +1691,7 @@ section.ds-section.authentication-dev-experience-section {
 @media (width >= 768px) {
   .authentication-dev-experience-section__layout {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--spacing-xl);
   }
 }
