@@ -1,0 +1,53 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LegalPageLayout from '@/components/legal/LegalPageLayout.astro';
+
+const title = 'Authgear ONCE License';
+const description = 'Authgear ONCE License Agreement.';
+---
+
+<BaseLayout locale="en" title={title} description={description}>
+  <LegalPageLayout title="Authgear ONCE License Agreement" eyebrow="License">
+    <p>Copyright © 2025, SkyMakers Digital Limited.</p>
+
+    <h2>1. License Grant</h2>
+    <p>Subject to the terms and conditions of this Agreement, Licensor hereby grants to Licensee a non-transferable, non-exclusive, non-sublicensable license to install and use the "Authgear ONCE" software (the "Software") on a single server instance or deployment.</p>
+
+    <h2>2. Restrictions</h2>
+    <p>Licensee shall NOT:</p>
+    <ul>
+      <li>Install or use the Software on more than one server instance or deployment</li>
+      <li>Publish, resell, distribute, or sublicense the Software to any third party</li>
+      <li>Modify, adapt, translate, reverse engineer, decompile, disassemble, or create derivative works based on the Software</li>
+      <li>Remove, alter, or obscure any proprietary notices on the Software</li>
+      <li>Use the Software after the license termination date</li>
+    </ul>
+
+    <h2>3. Ownership and Intellectual Property</h2>
+    <p>All title, ownership rights, and intellectual property rights in and to the Software, and all copies thereof, remain with Licensor. The Software is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties.</p>
+
+    <h2>4. Term and Termination</h2>
+    <p>This license is effective upon Licensee's purchase of the Software and shall continue until terminated. This license will automatically terminate if Licensee fails to comply with any term of this Agreement. Upon termination, Licensee must destroy all copies of the Software.</p>
+
+    <h2>5. Support and Updates</h2>
+    <p>Licensor shall provide technical support for the Software for a period of two (2) years from the date of purchase. This support obligation shall terminate if Licensor ceases business operations. Support includes reasonable assistance with installation, configuration, and troubleshooting via email or other designated support channels.</p>
+
+    <h2>6. Transfer</h2>
+    <p>Licensee may not rent, lease, lend, sell, redistribute, sublicense, or transfer the Software or this license to any third party.</p>
+
+    <h2>7. Disclaimer of Warranties</h2>
+    <p>THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. LICENSOR DOES NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE SOFTWARE WILL MEET LICENSEE'S REQUIREMENTS OR THAT THE OPERATION OF THE SOFTWARE WILL BE UNINTERRUPTED OR ERROR-FREE.</p>
+
+    <h2>8. Limitation of Liability</h2>
+    <p>IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN ANY CASE, LICENSOR'S ENTIRE LIABILITY SHALL BE LIMITED TO THE AMOUNT ACTUALLY PAID BY LICENSEE FOR THE SOFTWARE.</p>
+
+    <h2>9. Governing Law</h2>
+    <p>This Agreement shall be governed by the laws of England and Wales, without regard to its conflict of law provisions.</p>
+
+    <h2>10. Entire Agreement</h2>
+    <p>This Agreement constitutes the entire agreement between Licensor and Licensee and supersedes all prior or contemporaneous understandings regarding such subject matter.</p>
+
+    <p>By installing, copying, or otherwise using the Software, Licensee agrees to be bound by the terms of this Agreement.</p>
+  </LegalPageLayout>
+</BaseLayout>
