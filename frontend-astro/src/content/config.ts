@@ -46,7 +46,21 @@ const loginGallery = defineCollection({
     }),
 });
 
+const whatsNew = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      excerpt: z.string(),
+      coverImage: image(),
+      publishedAt: z.coerce.date(),
+      canonicalUrl: z.string().url().optional(),
+      draft: z.boolean().default(false),
+    }),
+});
+
 export const collections = {
   'customer-stories': customerStories,
   'login-gallery': loginGallery,
+  'whats-new': whatsNew,
 };

@@ -389,33 +389,6 @@ export async function getIntegrationCategories(options: FetchOptions = {}) {
   return strapiGet<StrapiListResponse<IntegrationCategory>>('integration-categories', options);
 }
 
-// ── What's New ────────────────────────────────────────────────────────────────
-export type WhatsNewItem = {
-  title: string;
-  slug: string;
-  body: string;
-  excerpt: string;
-  publishedAt: string;
-  coverImage: StrapiImage;
-};
-
-export async function getWhatsNewItems(options: FetchOptions = {}) {
-  return strapiGet<StrapiListResponse<WhatsNewItem>>('whats-new-items', {
-    populate: '*',
-    sort: 'publishedAt:desc',
-    ...options,
-  });
-}
-
-export async function getWhatsNewItemBySlug(slug: string, locale?: StrapiLocale) {
-  const res = await strapiGet<StrapiListResponse<WhatsNewItem>>('whats-new-items', {
-    populate: '*',
-    filters: { slug: { $eq: slug } },
-    locale,
-  });
-  return res.data[0] ?? null;
-}
-
 
 // ── Team Members ──────────────────────────────────────────────────────────────
 export type TeamMember = {

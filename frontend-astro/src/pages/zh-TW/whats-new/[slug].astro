@@ -1,46 +1,56 @@
 ---
-export const prerender = false;
+export const prerender = true;
 
+import { Image } from 'astro:assets';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { t } from '@/i18n';
-import { pathLocaleToStrapiLocale } from '@/lib/i18n';
-import { getWhatsNewItemBySlug, strapiImageUrl } from '@/lib/strapi';
 
-const locale = 'zh-TW';
-const strapiLocale = pathLocaleToStrapiLocale(locale);
-const { slug } = Astro.params as { slug: string };
-
-const item = await getWhatsNewItemBySlug(slug, strapiLocale);
-if (!item) {
-  return Astro.redirect('/404');
+export async function getStaticPaths() {
+  const [zhEntries, enEntries] = await Promise.all([
+    getCollection('whats-new', ({ id, data }) => id.startsWith('zh-TW/') && !data.draft),
+    getCollection('whats-new', ({ id, data }) => id.startsWith('en/') && !data.draft),
+  ]);
+  const slugOf = (id: string) => id.replace(/^(zh-TW|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
+  const merged = [
+    ...zhEntries,
+    ...enEntries.filter((e) => !zhSlugs.has(slugOf(e.id))),
+  ];
+  return merged.map((entry) => ({
+    params: { slug: slugOf(entry.id) },
+    props: { entry },
+  }));
 }
 
-const { title, body, coverImage, publishedAt, excerpt } = item.attributes;
-const imgUrl = strapiImageUrl(coverImage);
-const date = publishedAt
-  ? new Date(publishedAt).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })
-  : '';
+interface Props { entry: CollectionEntry<'whats-new'> }
 
-Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
-
-const pageTitle = title;
-const pageDescription = excerpt ?? '';
+const locale = 'zh-TW';
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await entry.render();
+const date = data.publishedAt.toLocaleDateString('zh-TW', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 ---
 
-<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
+<BaseLayout locale={locale} title={data.title} description={data.excerpt ?? ''}>
   <div class="page-wrapper">
     <div class="section whats-new-post">
       <div class="container-default w-container">
-        {date && <div class="whats-new-date">{date}</div>}
-        <h1>{title}</h1>
-        {imgUrl && (
-          <img src={imgUrl} alt={title} loading="eager" style="width: 100%; height: auto;" />
-        )}
-        {body ? (
-          <div class="ds-richtext-prose whats-new-rich-text w-richtext" set:html={body} />
-        ) : (
-          <p>{t(locale, 'WhatsNew.noContentYet')}</p>
-        )}
+        <div class="whats-new-date">{date}</div>
+        <h1>{data.title}</h1>
+        <Image
+          src={data.coverImage}
+          alt={data.title}
+          width={1200}
+          loading="eager"
+          style="width: 100%; height: auto;"
+        />
+        <div class="ds-richtext-prose whats-new-rich-text w-richtext">
+          <Content />
+        </div>
       </div>
     </div>
   </div>
