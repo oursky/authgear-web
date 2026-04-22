@@ -91,7 +91,7 @@ There are three broad approaches to authentication in Next.js. Each trades off c
           <td>Free tier, then usage-based</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 ### DIY Authentication
 
@@ -207,7 +207,7 @@ This registers the following routes automatically:
           <td>Returns the current user's info</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 ### Step 6: Wrap Your App with AuthgearProvider
 

@@ -437,7 +437,7 @@ Adaptive authentication adjusts security requirements based on contextual risk f
         <td>Consumer applications</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 **Recommended approach:** For most applications, start with password + TOTP MFA as the baseline, then migrate toward passwordless authentication (passkeys) as browser and device support improves.
 

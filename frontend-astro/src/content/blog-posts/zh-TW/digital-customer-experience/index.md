@@ -4,7 +4,7 @@ excerpt: "Discover how CIAM solutions serve as the essential foundation to eleva
 coverImage: ./cover.png
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/digital-customer-experience
+canonicalUrl: /post/digital-customer-experience
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.202Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/digital-customer-experience#webpage",
-														"url":"https://www.authgear.com/post/digital-customer-experience"
+                            "@id":"/post/digital-customer-experience#webpage",
+														"url":"/post/digital-customer-experience"
                         },
         "headline":"How to Elevate Digital Customer Experience with CIAM?",
         "image":{
@@ -45,14 +45,6 @@ draft: false
         }
     }
     </script>
-<style>
-    #table-of-content{max-width:720px;margin:auto;}
-    #table-of-content > ul {margin-top:17.83px}
-    #table-of-content > ul > li > ul {margin-bottom:0 !important}
-    #table-of-content > ul > li > ul > li {margin-top:15px}
-    .rich-text h3 {margin-top:0}
-    </style>
-
 In a recent <a href="https://www.pwc.com/us/en/services/consulting/library/consumer-intelligence-series/future-of-customer-experience.html" target="_blank">PWC survey</a>, 32% of customers included said they would stop engaging with a business after just one bad experience. There’s no doubt about it. Customer experience has to be a priority for any business seeking success, and when it comes to the digital space, it’s all about making sure that each online interaction is a positive one.
 
 In this article, we’ll be looking at how businesses can improve the digital customer experience with customer identity and access management solutions. Improving how people log onto and access your business’s offerings has significant benefits for both the digital customer experience and your bottom line.

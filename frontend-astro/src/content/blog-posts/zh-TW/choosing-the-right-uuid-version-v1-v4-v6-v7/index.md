@@ -70,7 +70,7 @@ Before diving into details, here's a snapshot of the four most commonly discusse
         <td>Modern distributed systems</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 Each version balances uniqueness, ordering, privacy, and operational simplicity differently. The right choice depends on the specific requirements of your system and the trade-offs you're willing to make.
 
@@ -222,7 +222,7 @@ Each UUID version prioritizes different system characteristics. Here's a practic
         <td>Low</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 From a database perspective, UUIDv7 often strikes the best balance for modern distributed systems.
 

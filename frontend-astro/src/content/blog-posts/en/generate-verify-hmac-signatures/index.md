@@ -118,7 +118,7 @@ This ensures only authorized senders can submit valid requests.
         <td>Standardize output format with <code>.hexdigest()</code> or <code>.base64encode()</code> consistently.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ## Choosing the Right Hash Algorithm
 
@@ -152,7 +152,7 @@ This ensures only authorized senders can submit valid requests.
         <td>Ideal for high-security or large-payload applications.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ## Testing Your HMAC Online
 
@@ -191,42 +191,3 @@ Authgear offers a free HMAC Signature Generator & Verifier, plus related tools l
 
 <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [ { "@type": "Question", "name": "What algorithm does HMAC use?", "acceptedAnswer": { "@type": "Answer", "text": "HMAC supports various hash algorithms such as SHA256, SHA1, and SHA512. SHA256 is the most widely used due to its balance of security and speed." } }, { "@type": "Question", "name": "Can I use HMAC for API authentication?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many APIs like Stripe, AWS, and GitHub use HMAC to sign requests and verify authenticity." } }, { "@type": "Question", "name": "What’s the difference between HMAC and hashing?", "acceptedAnswer": { "@type": "Answer", "text": "Hashing ensures data integrity, while HMAC adds authentication by combining a secret key and hash function." } }, { "@type": "Question", "name": "Is HMAC the same as JWT?", "acceptedAnswer": { "@type": "Answer", "text": "No. JWTs may use HMAC algorithms internally but serve a broader purpose for stateless authentication." } }, { "@type": "Question", "name": "What are the best tools to test HMAC online?", "acceptedAnswer": { "@type": "Answer", "text": "The Authgear HMAC Signature Generator & Verifier tool allows quick generation and validation of HMAC signatures online." } } ] } </script>
 
-<style>
-.ag-table-wrap{
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  border:1px solid #e5e7eb;
-  border-radius:12px;
-  background:#fff;
-}
-.ag-table{
-  width:100%;
-  border-collapse:separate;
-  border-spacing:0;
-  table-layout:auto;
-  font-size:15px;
-}
-.ag-table th, .ag-table td{
-  padding:12px 14px;
-  vertical-align:top;
-  text-align:left;
-  border-bottom:1px solid #e5e7eb;
-  word-break:normal;
-  hyphens:auto;
-}
-.ag-table thead th{
-  position:sticky;
-  top:0;
-  z-index:1;
-  background:#f9fafb;
-  font-weight:600;
-  color:#111827;
-  white-space:nowrap;
-}
-.ag-table tbody tr:last-child td{ border-bottom:0; }
-.ag-table td:first-child{ font-weight:600; color:#111827; }
-@media (max-width:640px){
-  .ag-table{ font-size:14px; }
-  .ag-table th, .ag-table td{ padding:10px 12px; }
-}
-</style>

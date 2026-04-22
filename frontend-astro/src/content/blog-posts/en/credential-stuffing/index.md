@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Credential Stuffing: What It Is and How to Prevent It?"
 metaDescription: "Credential stuffing is a type of cyberattack involving use of stolen credentials and bots to gain access to user accounts. Learn more about it and how to prevent it with Authgear."
-canonicalUrl: https://www.authgear.com/post/credential-stuffing
+canonicalUrl: /post/credential-stuffing
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:54.733Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/credential-stuffing#webpage",
-														"url":"https://www.authgear.com/post/credential-stuffing"
+                            "@id":"/post/credential-stuffing#webpage",
+														"url":"/post/credential-stuffing"
                         },
         "headline":"Credential Stuffing: What It Is and How to Prevent It?",
         "image":{

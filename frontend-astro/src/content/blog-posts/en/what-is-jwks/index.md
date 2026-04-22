@@ -74,7 +74,7 @@ How to use the `jwks_uri`:
 Tip: Always serve JWKS over HTTPS and include stable `kid` values for easier rotation handling.
 
 <blockquote>
-<p>&#x1F4A1; <strong>Find any provider's JWKS URI instantly:</strong> Use the <a href="https://www.authgear.com/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a>. Enter the issuer URL and the <code>jwks_uri</code> is shown in the Key Endpoints summary alongside the authorization endpoint and token endpoint &mdash; no curl required.</p>
+<p>&#x1F4A1; <strong>Find any provider's JWKS URI instantly:</strong> Use the <a href="/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a>. Enter the issuer URL and the <code>jwks_uri</code> is shown in the Key Endpoints summary alongside the authorization endpoint and token endpoint &mdash; no curl required.</p>
 </blockquote>
 
 ## JWK Format Explained (with Example)

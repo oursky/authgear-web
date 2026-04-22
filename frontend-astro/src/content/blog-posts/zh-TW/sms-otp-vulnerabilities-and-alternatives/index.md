@@ -4,29 +4,11 @@ excerpt: "Is SMS OTP still safe? See real risks (SIM swap, SS7, smishing) and co
 coverImage: ./cover.jpg
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/sms-otp-vulnerabilities-and-alternatives
+canonicalUrl: /post/sms-otp-vulnerabilities-and-alternatives
 publishedAt: 2025-10-17T14:55:41.321Z
 updatedAt: 2026-02-28T13:02:01.692Z
 draft: true
 ---
-
-<style>
-        #table-of-content{max-width:720px;margin:auto;}
-    #table-of-content > ul {margin-top:17.83px}
-    #table-of-content > ul > li > ul {margin-bottom:0 !important}
-    #table-of-content > ul > li > ul > li {margin-top:15px}
-    .rich-text h3 {margin-top:0}
-.code-block{
-display:block !important;
-background-color:#efefef;
-max-width:720px;
-line-height:20px;
-font-size:16px;
-color:#000;
-padding:20px;
-margin:20px auto 48px auto
-    }
-    </style>
 
 SMS OTP (One-Time Password) is a secure, temporary 4-8 digit code sent via text message to a user’s mobile phone to act as a second, time-sensitive layer of security for two-factor authentication. While it is the most popular authentication method, SMS OTP can be hacked through sophisticated tactics such as SIM swapping, where an attacker hijacks a phone number, or phishing to intercept the code in real-time.
 
@@ -255,7 +237,7 @@ By integrating your apps with Authgear, you can implement a variety of authentic
       "@type": "BlogPosting",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.authgear.com/post/sms-otp-vulnerabilities-and-alternatives"
+        "@id": "/post/sms-otp-vulnerabilities-and-alternatives"
       },
       "headline": "OTP Messages: Are They Still Reliable? Unmasking Vulnerabilities and Exploring Safer Alternatives",
       "description": "Is SMS OTP still safe? See risks like SIM swap, SS7 and smishing, then compare safer alternatives—Passkeys, WhatsApp OTP and Social Login—and how to enable them with Authgear.",
@@ -286,14 +268,14 @@ By integrating your apps with Authgear, you can implement a variety of authentic
         "FIDO2"
       ],
       "isAccessibleForFree": true,
-      "url": "https://www.authgear.com/post/sms-otp-vulnerabilities-and-alternatives"
+      "url": "/post/sms-otp-vulnerabilities-and-alternatives"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.authgear.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.authgear.com/blog" },
-        { "@type": "ListItem", "position": 3, "name": "Is SMS OTP Reliable? Its Vulnerabilities and Alternatives", "item": "https://www.authgear.com/post/sms-otp-vulnerabilities-and-alternatives" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Is SMS OTP Reliable? Its Vulnerabilities and Alternatives", "item": "/post/sms-otp-vulnerabilities-and-alternatives" }
       ]
     },
     {

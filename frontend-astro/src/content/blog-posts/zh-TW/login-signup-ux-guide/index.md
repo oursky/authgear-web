@@ -86,7 +86,7 @@ Users can authenticate in various ways, and each method comes with pros and cons
         <td>Extra step = extra friction. Risk of lockouts without backups. Mitigate with “remember device” and multiple methods.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 **Choosing the right methods:** Know your users and risk profile. A consumer app might offer social logins and passkeys for convenience, while an enterprise SaaS product might prioritize SSO and MFA for security. It’s common now to **offer multiple login options** side-by-side – e.g. email/password *or* “Continue with Google” *or* “Login with phone”. This lets users pick what they prefer. Just be sure to also **provide a unified experience**: no matter which method, the flow should feel consistent and the design should match your brand.
 
@@ -265,7 +265,7 @@ It’s useful to plan out common error scenarios in your login/signup flows and 
         </td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 By anticipating these cases, you can craft the **UX copy and flow** to handle them without frustration. Often it’s about providing an immediate next step. For example, if login fails repeatedly, a one-click “Reset password” or “Contact support” link in the error dropdown can turn a negative moment into a more positive one (the user feels taken care of).
 
@@ -443,6 +443,3 @@ Finally, consider leveraging proven solutions if you’re building this yourself
 
 Happy optimizing, and may your conversion rates be ever in your favor! 🚀
 
-<style>
-/* wrapper gives mobile scroll + rounded border */ .ag-table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid #e5e7eb; border-radius:12px; background:#fff; } /* table basics */ .ag-table{ width:100%; border-collapse:separate; border-spacing:0; table-layout:auto; font-size:15px; } .ag-table th, .ag-table td{ padding:12px 14px; vertical-align:top; text-align:left; border-bottom:1px solid #e5e7eb; word-break:normal; hyphens:auto; } .ag-table thead th{ position:sticky; top:0; z-index:1; background:#f9fafb; font-weight:600; color:#111827; white-space:nowrap; } .ag-table tbody tr:last-child td{ border-bottom:0; } /* emphasize first column for readability */ .ag-table td:first-child{ font-weight:600; color:#111827; } /* tighten on small screens */ @media (max-width: 640px){ .ag-table{ font-size:14px; } .ag-table th, .ag-table td{ padding:10px 12px; } }
-</style>

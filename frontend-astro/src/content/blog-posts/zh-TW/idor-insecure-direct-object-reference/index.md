@@ -134,10 +134,10 @@ IDOR is a simple bug with outsized impact because it strikes at the heart of aut
   "publisher": {
     "@type": "Organization",
     "name": "Authgear",
-    "logo": { "@type": "ImageObject", "url": "https://www.authgear.com/path-to-logo.png" }
+    "logo": { "@type": "ImageObject", "url": "/path-to-logo.png" }
   },
   "datePublished": "2025-09-09",
   "dateModified": "2025-09-09",
-  "mainEntityOfPage": "https://www.authgear.com/post/idor-insecure-direct-object-reference"
+  "mainEntityOfPage": "/post/idor-insecure-direct-object-reference"
 }
 </script>

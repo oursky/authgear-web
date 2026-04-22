@@ -4,7 +4,7 @@ excerpt: "We are excited to bring User Profile Management into your projects!"
 coverImage: ./cover.jpg
 category: features
 featured: false
-canonicalUrl: https://www.authgear.com/post/dec-2021-update-authgear-now-with-user-profile
+canonicalUrl: /post/dec-2021-update-authgear-now-with-user-profile
 publishedAt: 2025-10-17T14:55:41.200Z
 updatedAt: 2025-10-17T14:55:41.200Z
 draft: true

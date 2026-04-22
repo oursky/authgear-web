@@ -123,7 +123,7 @@ FIDO2 is the successor that unifies and extends both. By combining WebAuthn and 
 
 ### FIDO2 vs FIDO U2F Comparison
 
-<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>Feature</th><th>FIDO U2F</th><th>FIDO2</th></tr></thead><tbody><tr><td>Passwordless login</td><td>No (second factor only)</td><td>Yes</td></tr><tr><td>Browser integration</td><td>Required extension or plugin</td><td>Native via WebAuthn API</td></tr><tr><td>Biometric support</td><td>No</td><td>Yes (platform authenticators)</td></tr><tr><td>Passkey support</td><td>No</td><td>Yes</td></tr><tr><td>Security key support</td><td>Yes</td><td>Yes (via CTAP)</td></tr><tr><td>Phishing resistance</td><td>Yes</td><td>Yes</td></tr><tr><td>Supported authenticators</td><td>Roaming only (USB/NFC keys)</td><td>Platform and roaming</td></tr></tbody></table>
+<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>Feature</th><th>FIDO U2F</th><th>FIDO2</th></tr></thead><tbody><tr><td>Passwordless login</td><td>No (second factor only)</td><td>Yes</td></tr><tr><td>Browser integration</td><td>Required extension or plugin</td><td>Native via WebAuthn API</td></tr><tr><td>Biometric support</td><td>No</td><td>Yes (platform authenticators)</td></tr><tr><td>Passkey support</td><td>No</td><td>Yes</td></tr><tr><td>Security key support</td><td>Yes</td><td>Yes (via CTAP)</td></tr><tr><td>Phishing resistance</td><td>Yes</td><td>Yes</td></tr><tr><td>Supported authenticators</td><td>Roaming only (USB/NFC keys)</td><td>Platform and roaming</td></tr></tbody></table></div>
 
 For organizations still using FIDO U2F security keys, the good news is that CTAP1 provides backward compatibility. Existing U2F keys continue to work as second-factor authenticators within the FIDO2 framework.
 

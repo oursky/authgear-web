@@ -150,7 +150,7 @@ Bearer tokens are convenient but inherently insecure. They provide no cryptograp
         <td>Strong</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 Organizations handling sensitive data or operating in distributed environments benefit substantially from adopting DPoP.
 
@@ -189,7 +189,7 @@ Both DPoP and mTLS ensure sender-constrained tokens, but mTLS is complex to depl
         <td>Rarely</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 For modern OAuth deployments, especially those involving public clients, DPoP is the practical choice.
 

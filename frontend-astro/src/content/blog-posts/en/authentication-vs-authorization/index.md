@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Authentication vs. Authorization: The Differences in One Table"
 metaDescription: "Learn more about the differences between authentication and authorization, two important security processes, with one simple table. "
-canonicalUrl: https://www.authgear.com/post/authentication-vs-authorization
+canonicalUrl: /post/authentication-vs-authorization
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:17.656Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/authentication-vs-authorization#webpage",
-														"url":"https://www.authgear.com/post/authentication-vs-authorization"
+                            "@id":"/post/authentication-vs-authorization#webpage",
+														"url":"/post/authentication-vs-authorization"
                         },
         "headline":"Authentication vs. Authorization: The Differences in One Table",
         "image":{
@@ -47,30 +47,6 @@ draft: false
         }
     }
     </script>
-<style>
-    #table-container{
-        margin: 28px auto;
-        overflow:scroll
-    }
-
-    #auth-table{
-        border-collapse:collapse;
-        border-style:hidden;
-        background-color:#ffffff00
-    }
-    #auth-table td {background:#f1f1f1;}
-    #auth-table > thead > tr > td {background-color:#0b63e9 !important; color:#fff;font-weight:700}
-    #auth-table >thead > tr:first-child td:first-child {border-top-left-radius:10px;}
-    #auth-table >thead > tr:first-child td:last-child {border-top-right-radius:10px}
-    #auth-table >tbody > tr:last-child td:first-child {border-bottom-left-radius:10px}
-    #auth-table >tbody > tr:last-child td:last-child {border-bottom-right-radius:10px}
-
-    #auth-table td {padding:10px 0 10px 15px}
-    #auth-table > tbody > tr > td{
-        border-bottom:2px solid #fefefe;
-    }
-</style>
-
 When it comes to ensuring data security, it’s easy to mixed up authentication and authorization. Simply put, authentication is the process of verifying a user’s identity and confirming, through various methods, that they are who they say they are. Authorization follows on from this step but operates quite differently as it grants access to different resources based on a user’s exact level of authorization.
 
 The difference between authentication and authorization isn’t complicated but understanding these processes makes it far easier to make informed decisions regarding data and cybersecurity systems. In this article we’re looking into just what makes authentication and authorization distinct and some examples of how they operate.

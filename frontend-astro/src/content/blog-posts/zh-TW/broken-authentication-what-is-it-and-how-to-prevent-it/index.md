@@ -4,7 +4,7 @@ excerpt: "Broken authentication is one of the OWASP Top 10 vulnerabilities that 
 coverImage: ./cover.jpg
 category: highlight
 featured: false
-canonicalUrl: https://www.authgear.com/post/broken-authentication-what-is-it-and-how-to-prevent-it
+canonicalUrl: /post/broken-authentication-what-is-it-and-how-to-prevent-it
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.187Z
 draft: false
@@ -16,7 +16,7 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/how-to-prevent-broken-authentication#webpage",
+                            "@id":"/post/how-to-prevent-broken-authentication#webpage",
 														"url":"www.authgear.com/post/how-to-prevent-broken-authentication"
                         },
         "headline":"Broken Authentication What Is It and How to Prevent It",
@@ -45,14 +45,7 @@ draft: false
         }
     }
     </script>
-    <style>
-    #table-of-content > ul > li > ul {margin-bottom:0 !important}
-    #table-of-content > ul > li > ul > li {margin-top:15px}
-    .rich-text h3 {margin-top:0}
-    
-    </style>
-
-Authentication is the process of verifying that someone is who they say they are. It is a key part of security for any website or application.
+    Authentication is the process of verifying that someone is who they say they are. It is a key part of security for any website or application.
 
 However, authentication can be broken if it is not implemented correctly. According to the OWASP Foundation, broken authentication is among the <a href="https://owasp.org/www-project-top-ten/" target="_blank">top ten web application security risks</a>, ranking at number two in 2017 and seven in 2021. The causes of broken authentication are poorly implemented authentication and session management. Attackers can exploit these vulnerabilities to access sensitive information, such as financial or personal information.
 

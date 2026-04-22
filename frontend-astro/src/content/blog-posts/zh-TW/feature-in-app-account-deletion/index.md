@@ -4,7 +4,7 @@ excerpt: "We are helping you to give your users more control over their data. No
 coverImage: ./cover.png
 category: features
 featured: false
-canonicalUrl: https://www.authgear.com/post/feature-in-app-account-deletion
+canonicalUrl: /post/feature-in-app-account-deletion
 publishedAt: 2025-10-17T14:55:41.209Z
 updatedAt: 2025-10-17T14:55:41.209Z
 draft: true

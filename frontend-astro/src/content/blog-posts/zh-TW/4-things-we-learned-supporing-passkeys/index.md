@@ -4,7 +4,7 @@ excerpt: "Passkeys have the potential to completely replace passwords, but it is
 coverImage: ./cover.png
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/4-things-we-learned-supporing-passkeys
+canonicalUrl: /post/4-things-we-learned-supporing-passkeys
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.154Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/4-things-we-learned-supporing-passkeys#webpage",
-														"url":"https://www.authgear.com/post/4-things-we-learned-supporing-passkeys"
+                            "@id":"/post/4-things-we-learned-supporing-passkeys#webpage",
+														"url":"/post/4-things-we-learned-supporing-passkeys"
                         },
         "headline":"Web App Authentication: How It Works and How to Implement It",
         "image":{
@@ -45,59 +45,6 @@ draft: false
         }
     }
     </script>
-<style>
-.def-quote{
-				max-width:720px;	
-        margin:auto;
-        padding:60px;
-        font-style:italic;
-    }
-    .inline-code{
-        display:inline-block;
-        background-color:#eaeaea;
-        padding:0px 4px;
-        font-family: monospace;
-        border-radius: 4px
-    }
-    .code-block{
-        background-color:#efefef;
-        max-width:720px;
-        line-height:20px;
-        font-size:16px;
-        color:#000;
-        padding:20px;
-        margin:20px auto 48px auto
-    }
-
-    .property, .tag{
-        color:#905;
-    }
-    .string, .attribute{
-        color:#669900;
-    }
-    .constant{
-        color:#990055;
-    }
-    .function{
-        color:#dd4a68
-    }
-    .operator{
-        color:#9a6e3a
-    }
-    .comment{
-        color:#708090
-    }
-    .function{
-        color:#DD4A68
-    }
-    .value{
-        color:#07a
-    }
-    .keyword{
-        color:#0077AA
-    }
-</style>
-
 Do you know that the password “123456” is still used by <a href="https://www.ncsc.gov.uk/news/most-hacked-passwords-revealed-as-uk-cyber-survey-exposes-gaps-in-online-security" target="_blank">more than 23 million people</a>? People often think that hackers wouldn’t bother hacking their accounts and decide to use the same simple passwords on different platforms.
 
 One of my friends told me his account was hacked, and malicious messages were sent to his Facebook friends. He also used a simple password similar to “12345678” for all his social accounts since he thought no one would hack his accounts. Sadly, it turned out that anything that could go wrong would go wrong,

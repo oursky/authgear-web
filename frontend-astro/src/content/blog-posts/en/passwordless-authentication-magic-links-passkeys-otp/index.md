@@ -154,7 +154,7 @@ Each method prioritizes different goals. Some maximize convenience, others secur
           <td>Backup or MFA</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 The key takeaway is that no single method is universally best. The right choice depends on context.
 

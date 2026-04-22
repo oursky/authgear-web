@@ -526,36 +526,48 @@ button.ds-sms-warning-faq__trigger {
 .blog-pagination {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
-  margin: 2rem 0 1rem;
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+  max-width: 48rem;
   font-size: 0.9375rem;
 }
 .blog-pagination__btn {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  color: var(--color-text-light-primary, #0f172a);
+  gap: 0.5rem;
+  padding: 0.625rem 1.125rem;
+  border-radius: 0.625rem;
+  color: var(--color-brand-primary, #0043e0);
+  font-weight: 500;
   text-decoration: none;
-  background: #fff;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  background: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.blog-pagination__btn svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
 }
 .blog-pagination__btn:hover {
-  border-color: #0043e0;
-  color: #0043e0;
+  background: rgba(0, 67, 224, 0.08);
 }
-.blog-pagination__btn--disabled {
+.blog-pagination__btn--disabled,
+.blog-pagination__btn--disabled:hover {
   color: #cbd5e1;
+  background: transparent;
   cursor: default;
 }
-.blog-pagination__btn--disabled:hover {
-  border-color: #e5e7eb;
-  color: #cbd5e1;
-}
 .blog-pagination__status {
-  color: var(--color-text-light-secondary, #475569);
+  color: var(--color-text-light-secondary, #64748b);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+@media (max-width: 479px) {
+  .blog-pagination { flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+  .blog-pagination__status { order: -1; width: 100%; text-align: center; }
 }
 
 /* Blog post detail */
@@ -609,9 +621,45 @@ button.ds-sms-warning-faq__trigger {
   object-fit: cover;
 }
 .blog-post__body {
-  max-width: 42rem;
+  max-width: 48rem;
   margin-inline: auto;
 }
+/* Tables scroll horizontally inside the prose column so cells stay readable. */
+.blog-post__body .ag-table-wrap {
+  width: 100%;
+  margin: 1.5rem 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+}
+/* Override any inline .ag-table styles: drop sticky header (no scroll container) + slight polish. */
+.blog-post__body .ag-table {
+  width: 100%;
+  min-width: 38rem;
+  border-collapse: collapse;
+}
+.blog-post__body .ag-table th,
+.blog-post__body .ag-table td {
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  word-break: normal;
+  hyphens: manual;
+}
+.blog-post__body .ag-table thead th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+}
+.blog-post__body .ag-table td:first-child {
+  font-weight: 600;
+  color: #111827;
+}
+.blog-post__body .ag-table tbody tr:last-child td { border-bottom: 0; }
 .blog-post__body h2 {
   margin-top: 2.5rem;
   margin-bottom: 1rem;

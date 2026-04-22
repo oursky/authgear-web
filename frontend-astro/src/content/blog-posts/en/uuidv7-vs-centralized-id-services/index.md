@@ -104,7 +104,7 @@ Modern systems benefit from identifiers that satisfy the following characteristi
           <td>Does not expose internal hardware details</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 Centralized ID services provide ordering but require infrastructure. Random identifiers eliminate coordination but degrade database performance. UUIDv7 bridges this gap.
 
@@ -196,7 +196,7 @@ The differences become clearer when compared side by side.
           <td>Low</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 Centralized ID services achieve ordering through infrastructure. UUIDv7 achieves ordering through format design.
 

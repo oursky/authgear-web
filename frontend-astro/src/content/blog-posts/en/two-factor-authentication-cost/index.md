@@ -27,7 +27,7 @@ The most common 2FA method. Your app sends a one-time password to the user's pho
 
 SMS pricing varies significantly by country. Here are representative per-message rates via Twilio (as of early 2026):
 
-<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Country</th><th>SMS Cost per OTP (Twilio)</th></tr></thead><tbody><tr><td>United States</td><td>$0.0083</td></tr><tr><td>United Kingdom</td><td>$0.0524</td></tr><tr><td>Germany</td><td>$0.1120</td></tr><tr><td>India</td><td>$0.0170</td></tr><tr><td>Brazil</td><td>$0.0599</td></tr><tr><td>Nigeria</td><td>$0.0920</td></tr><tr><td>Egypt</td><td>$0.3959</td></tr><tr><td>Global average</td><td>~$0.0875</td></tr></tbody></table>
+<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Country</th><th>SMS Cost per OTP (Twilio)</th></tr></thead><tbody><tr><td>United States</td><td>$0.0083</td></tr><tr><td>United Kingdom</td><td>$0.0524</td></tr><tr><td>Germany</td><td>$0.1120</td></tr><tr><td>India</td><td>$0.0170</td></tr><tr><td>Brazil</td><td>$0.0599</td></tr><tr><td>Nigeria</td><td>$0.0920</td></tr><tr><td>Egypt</td><td>$0.3959</td></tr><tr><td>Global average</td><td>~$0.0875</td></tr></tbody></table></div>
 
 **Hidden costs to factor in:**
 
@@ -39,7 +39,7 @@ WhatsApp authentication messages use the Meta Business Platform and are priced a
 
 **Cost structure:** Variable, per-message (slightly higher minimum setup overhead, but lower ongoing cost).
 
-<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Country</th><th>WhatsApp Cost per OTP</th><th>vs. SMS</th></tr></thead><tbody><tr><td>United States</td><td>$0.0034</td><td>–59%</td></tr><tr><td>United Kingdom</td><td>$0.0220</td><td>–58%</td></tr><tr><td>Germany</td><td>$0.0550</td><td>–51%</td></tr><tr><td>India</td><td>$0.0014</td><td>–92%</td></tr><tr><td>Brazil</td><td>$0.0068</td><td>–89%</td></tr><tr><td>Nigeria</td><td>$0.0067</td><td>–93%</td></tr><tr><td>Egypt</td><td>$0.0036</td><td>–99%</td></tr><tr><td>Global average</td><td>~$0.0113</td><td>–87%</td></tr></tbody></table>
+<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Country</th><th>WhatsApp Cost per OTP</th><th>vs. SMS</th></tr></thead><tbody><tr><td>United States</td><td>$0.0034</td><td>–59%</td></tr><tr><td>United Kingdom</td><td>$0.0220</td><td>–58%</td></tr><tr><td>Germany</td><td>$0.0550</td><td>–51%</td></tr><tr><td>India</td><td>$0.0014</td><td>–92%</td></tr><tr><td>Brazil</td><td>$0.0068</td><td>–89%</td></tr><tr><td>Nigeria</td><td>$0.0067</td><td>–93%</td></tr><tr><td>Egypt</td><td>$0.0036</td><td>–99%</td></tr><tr><td>Global average</td><td>~$0.0113</td><td>–87%</td></tr></tbody></table></div>
 
 Limitation: Users need WhatsApp installed. Typically 5–10% of users in WhatsApp-dominant markets won't have it. A WhatsApp-primary, SMS-fallback approach captures most savings while maintaining full reach.
 
@@ -67,7 +67,7 @@ Over time, passkeys are the lowest-cost 2FA method at scale: the marginal cost p
 
 Here's how the costs add up at different monthly OTP volumes for a global user mix (average across 219 countries, data February 2026):
 
-<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Monthly OTPs</th><th>SMS Only</th><th>WhatsApp + SMS Fallback</th><th>TOTP (authenticator app)</th><th>Passkeys</th></tr></thead><tbody><tr><td>10,000</td><td>$875</td><td>~$113</td><td>~$0</td><td>~$0</td></tr><tr><td>100,000</td><td>$8,750</td><td>~$1,130</td><td>~$0</td><td>~$0</td></tr><tr><td>1,000,000</td><td>$87,500</td><td>~$11,300</td><td>~$0</td><td>~$0</td></tr></tbody></table>
+<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Monthly OTPs</th><th>SMS Only</th><th>WhatsApp + SMS Fallback</th><th>TOTP (authenticator app)</th><th>Passkeys</th></tr></thead><tbody><tr><td>10,000</td><td>$875</td><td>~$113</td><td>~$0</td><td>~$0</td></tr><tr><td>100,000</td><td>$8,750</td><td>~$1,130</td><td>~$0</td><td>~$0</td></tr><tr><td>1,000,000</td><td>$87,500</td><td>~$11,300</td><td>~$0</td><td>~$0</td></tr></tbody></table></div>
 
 *Note: WhatsApp + SMS Fallback assumes ~90% WhatsApp delivery, ~10% SMS fallback. TOTP and passkey costs shown are per-message costs only — implementation costs apply but are one-time.*
 
@@ -114,7 +114,7 @@ With this approach, your OTP volume grows much slower than your user base. An en
 
 A rough framework based on monthly OTP volume and market:
 
-<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Stage</th><th>Monthly OTPs</th><th>Recommended Approach</th><th>Estimated Monthly Cost</th></tr></thead><tbody><tr><td>Early / MVP</td><td>&lt;10K</td><td>SMS OTP (any gateway)</td><td>$50–$500 depending on market</td></tr><tr><td>Growth</td><td>10K–100K</td><td>WhatsApp + SMS fallback</td><td>$150–$1,200 (vs. $1K–$9K SMS-only)</td></tr><tr><td>Scale</td><td>100K–1M</td><td>WhatsApp + SMS fallback + passkeys for returning users</td><td>$1K–$12K (vs. $9K–$88K SMS-only)</td></tr><tr><td>Enterprise</td><td>1M+</td><td>Passkeys primary + WhatsApp OTP for new users only</td><td>Platform fee + minimal OTP cost</td></tr></tbody></table>
+<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Stage</th><th>Monthly OTPs</th><th>Recommended Approach</th><th>Estimated Monthly Cost</th></tr></thead><tbody><tr><td>Early / MVP</td><td>&lt;10K</td><td>SMS OTP (any gateway)</td><td>$50–$500 depending on market</td></tr><tr><td>Growth</td><td>10K–100K</td><td>WhatsApp + SMS fallback</td><td>$150–$1,200 (vs. $1K–$9K SMS-only)</td></tr><tr><td>Scale</td><td>100K–1M</td><td>WhatsApp + SMS fallback + passkeys for returning users</td><td>$1K–$12K (vs. $9K–$88K SMS-only)</td></tr><tr><td>Enterprise</td><td>1M+</td><td>Passkeys primary + WhatsApp OTP for new users only</td><td>Platform fee + minimal OTP cost</td></tr></tbody></table></div>
 
 ## Key Takeaways
 

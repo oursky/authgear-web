@@ -4,7 +4,7 @@ excerpt: "Apple will soon require apps to allow users to initiate account deleti
 coverImage: ./cover.jpg
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/in-app-account-deletion-required-by-app-store
+canonicalUrl: /post/in-app-account-deletion-required-by-app-store
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.237Z
 draft: false
@@ -44,24 +44,7 @@ draft: false
         }
     }
     </script>
-    <style>
-    #table-of-content{
-    max-width: 720px;
-    margin-right: auto;
-    margin-bottom: 28px;
-    margin-left: auto}
-    .subtitle{
-    max-width:720px;
-    display:block;
-    margin:auto}
-    
-.cta-v2{
-    margin-top:20px;
-    margin-bottom:48px
-    }
-    </style>
-
-If your app is listed on the App Store and allows account creation, you must also provide the necessary pathway for users to delete their account in the app by June 30, 2022 according to <a href="https://developer.apple.com/news/?id=i71db0mv" target="_blank">Apple’s recent announcement</a>. This requirement was initially scheduled to be effective on January 31, 2022 but postponed to June 30, 2022 for developers to have sufficient time to prepare for it. The latest announcement also clears up a few things that caused confusion in the <a href="https://developer.apple.com/news/?id=mdkbobfo" target="_blank">previous announcement</a>.
+    If your app is listed on the App Store and allows account creation, you must also provide the necessary pathway for users to delete their account in the app by June 30, 2022 according to <a href="https://developer.apple.com/news/?id=i71db0mv" target="_blank">Apple’s recent announcement</a>. This requirement was initially scheduled to be effective on January 31, 2022 but postponed to June 30, 2022 for developers to have sufficient time to prepare for it. The latest announcement also clears up a few things that caused confusion in the <a href="https://developer.apple.com/news/?id=mdkbobfo" target="_blank">previous announcement</a>.
 
 In this post, we will be discussing the details of the latest account deletion requirement, the difference between the announcement in 2021 and 2022, and the potential impacts of it.
 

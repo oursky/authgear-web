@@ -13,24 +13,35 @@ interface Props {
 const { page, locale = 'en' } = Astro.props;
 const prevLabel = locale === 'zh-TW' ? '上一頁' : 'Previous';
 const nextLabel = locale === 'zh-TW' ? '下一頁' : 'Next';
-const ofLabel = locale === 'zh-TW' ? '／' : 'of';
-const pageLabel = locale === 'zh-TW' ? '第' : 'Page';
+const statusLabel = locale === 'zh-TW'
+  ? `第 ${page.currentPage} 頁 / 共 ${page.lastPage} 頁`
+  : `Page ${page.currentPage} of ${page.lastPage}`;
 ---
 
 {page.lastPage > 1 && (
   <nav class="blog-pagination" aria-label="Pagination">
     {page.url.prev ? (
-      <a href={page.url.prev} class="blog-pagination__btn">{prevLabel}</a>
+      <a href={page.url.prev} class="blog-pagination__btn blog-pagination__btn--prev" rel="prev">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+        <span>{prevLabel}</span>
+      </a>
     ) : (
-      <span class="blog-pagination__btn blog-pagination__btn--disabled" aria-hidden="true">{prevLabel}</span>
+      <span class="blog-pagination__btn blog-pagination__btn--prev blog-pagination__btn--disabled" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+        <span>{prevLabel}</span>
+      </span>
     )}
-    <span class="blog-pagination__status">
-      {pageLabel} {page.currentPage} {ofLabel} {page.lastPage}
-    </span>
+    <span class="blog-pagination__status">{statusLabel}</span>
     {page.url.next ? (
-      <a href={page.url.next} class="blog-pagination__btn">{nextLabel}</a>
+      <a href={page.url.next} class="blog-pagination__btn blog-pagination__btn--next" rel="next">
+        <span>{nextLabel}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </a>
     ) : (
-      <span class="blog-pagination__btn blog-pagination__btn--disabled" aria-hidden="true">{nextLabel}</span>
+      <span class="blog-pagination__btn blog-pagination__btn--next blog-pagination__btn--disabled" aria-hidden="true">
+        <span>{nextLabel}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </span>
     )}
   </nav>
 )}

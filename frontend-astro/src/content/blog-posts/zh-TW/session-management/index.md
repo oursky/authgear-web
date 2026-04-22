@@ -4,7 +4,7 @@ excerpt: "Session management is the process of handling interactions between a u
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/session-management
+canonicalUrl: /post/session-management
 publishedAt: 2026-03-05T14:31:50.038Z
 updatedAt: 2026-02-12T04:16:20.586Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/session-management#webpage",
-														"url":"https://www.authgear.com/post/session-management"
+                            "@id":"/post/session-management#webpage",
+														"url":"/post/session-management"
                         },
         "headline":"What Is Session Management: Threats and Best Practices",
         "image":{
@@ -45,25 +45,7 @@ draft: false
         }
     }
     </script>
-    <style>
-        #table-of-content{max-width:720px;margin:auto;}
-    #table-of-content > ul {margin-top:17.83px}
-    #table-of-content > ul > li > ul {margin-bottom:0 !important}
-    #table-of-content > ul > li > ul > li {margin-top:15px}
-    .rich-text h3 {margin-top:0}
-.code-block{
-display:block !important;
-background-color:#efefef;
-max-width:720px;
-line-height:20px;
-font-size:16px;
-color:#000;
-padding:20px;
-margin:20px auto 48px auto
-    }
-    </style>
-
-<nav id="table-of-content">
+    <nav id="table-of-content">
     <ul> 
         <li><a href="#definition">How Does Session Management Work?</a></li>
         <li><a href="#cyberattacks">Threats and Cyber Attacks Related to Session Management</a>

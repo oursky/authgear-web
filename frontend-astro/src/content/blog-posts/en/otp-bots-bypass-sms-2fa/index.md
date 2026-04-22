@@ -17,8 +17,8 @@ draft: false
  "@context":"https://schema.org",
  "@type":"BreadcrumbList",
  "itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Blog","item":"https://www.authgear.com/blog"},
-  {"@type":"ListItem","position":2,"name":"How OTP Bots Bypass SMS 2FA","item":"https://www.authgear.com/blog/otp-bots-bypass-sms-2fa"}
+  {"@type":"ListItem","position":1,"name":"Blog","item":"/blog"},
+  {"@type":"ListItem","position":2,"name":"How OTP Bots Bypass SMS 2FA","item":"/blog/otp-bots-bypass-sms-2fa"}
  ]
 }
 </script>

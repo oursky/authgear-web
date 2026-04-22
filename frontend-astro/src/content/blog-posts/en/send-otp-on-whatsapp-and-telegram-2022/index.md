@@ -6,7 +6,7 @@ category: integrations
 featured: true
 metaTitle: "Send OTP on WhatsApp 2022"
 metaDescription: "OTPs are essential to verify transactions and logins. In Authgear, you can send OTPs with the messenger services they are familiar with."
-canonicalUrl: https://www.authgear.com/post/send-otp-on-whatsapp-and-telegram-2022
+canonicalUrl: /post/send-otp-on-whatsapp-and-telegram-2022
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:36:01.256Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/send-otp-on-whatsapp-and-telegram-2022/#webpage",
-														"url":"https://www.authgear.com/post/send-otp-on-whatsapp-and-telegram-2022"
+                            "@id":"/post/send-otp-on-whatsapp-and-telegram-2022/#webpage",
+														"url":"/post/send-otp-on-whatsapp-and-telegram-2022"
                         },
         "headline":"Send OTP on WhatsApp and Telegram 2022",
         "image":{

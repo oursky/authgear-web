@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "How to Elevate Digital Customer Experience with CIAM?"
 metaDescription: "Discover how CIAM solutions serve as the essential foundation to elevate digital customer experience, unlock seamless interactions and build customer loyalty."
-canonicalUrl: https://www.authgear.com/post/digital-customer-experience
+canonicalUrl: /post/digital-customer-experience
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:35:14.195Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/digital-customer-experience#webpage",
-														"url":"https://www.authgear.com/post/digital-customer-experience"
+                            "@id":"/post/digital-customer-experience#webpage",
+														"url":"/post/digital-customer-experience"
                         },
         "headline":"How to Elevate Digital Customer Experience with CIAM?",
         "image":{
@@ -47,14 +47,6 @@ draft: false
         }
     }
     </script>
-<style>
-    #table-of-content{max-width:720px;margin:auto;}
-    #table-of-content > ul {margin-top:17.83px}
-    #table-of-content > ul > li > ul {margin-bottom:0 !important}
-    #table-of-content > ul > li > ul > li {margin-top:15px}
-    .rich-text h3 {margin-top:0}
-    </style>
-
 In a recent <a href="https://www.pwc.com/us/en/services/consulting/library/consumer-intelligence-series/future-of-customer-experience.html" target="_blank">PWC survey</a>, 32% of customers included said they would stop engaging with a business after just one bad experience. There’s no doubt about it. Customer experience has to be a priority for any business seeking success, and when it comes to the digital space, it’s all about making sure that each online interaction is a positive one.
 
 In this article, we’ll be looking at how businesses can improve the digital customer experience with customer identity and access management solutions. Improving how people log onto and access your business’s offerings has significant benefits for both the digital customer experience and your bottom line.

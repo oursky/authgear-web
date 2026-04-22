@@ -4,7 +4,7 @@ excerpt: "Credential stuffing is a type of cyberattack involving use of stolen c
 coverImage: ./cover.png
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/credential-stuffing
+canonicalUrl: /post/credential-stuffing
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.195Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/credential-stuffing#webpage",
-														"url":"https://www.authgear.com/post/credential-stuffing"
+                            "@id":"/post/credential-stuffing#webpage",
+														"url":"/post/credential-stuffing"
                         },
         "headline":"Credential Stuffing: What It Is and How to Prevent It?",
         "image":{

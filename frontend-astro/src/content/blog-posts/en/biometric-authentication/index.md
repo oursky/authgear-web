@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Biometric Authentication: Why Do Your Applications Need It in 2024? "
 metaDescription: "Biometric authentication provides better data security and user experience for users. Learn more about the different biometric authentication methods."
-canonicalUrl: https://www.authgear.com/post/biometric-authentication
+canonicalUrl: /post/biometric-authentication
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:17.664Z
 draft: false
@@ -48,14 +48,7 @@ draft: false
     }
     </script>
     
-    <style>
-.cta-v2{
-    margin-top:20px;
-    margin-bottom:48px
-    }
-</style>
-
-Biometric authentication has become one of the most common login method now that mobile devices equipped with biometric sensors are ubiquitous. Compared to the traditional username-password authentication, it’s a much more secure and convenient authentication method via which users access various applications. When users attempt to log into applications, the system will compare their biometric signatures with the ones stored in the database to make sure that they are the ones with access to the applications or systems.
+    Biometric authentication has become one of the most common login method now that mobile devices equipped with biometric sensors are ubiquitous. Compared to the traditional username-password authentication, it’s a much more secure and convenient authentication method via which users access various applications. When users attempt to log into applications, the system will compare their biometric signatures with the ones stored in the database to make sure that they are the ones with access to the applications or systems.
 
 However, if the good old username-password authentication has been the dominant method of authentication, why should you implement biometric authentication? It’s actually more than just faster login and better data security.
 

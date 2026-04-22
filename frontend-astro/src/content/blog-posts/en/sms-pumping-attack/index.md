@@ -37,7 +37,7 @@ The attacker bears almost no cost. You bear all of it.
 
 SMS pumping attacks can go from zero to a massive bill in hours. A single attack campaign can generate hundreds of thousands of fraudulent OTP sends in one night. At typical SMS gateway pricing:
 
-<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>Messages Sent</th><th>Cost at $0.08/SMS (typical Africa/Asia rate)</th><th>Cost at $0.11/SMS (e.g., Germany)</th></tr></thead><tbody><tr><td>10,000</td><td>$800</td><td>$1,100</td></tr><tr><td>100,000</td><td>$8,000</td><td>$11,000</td></tr><tr><td>500,000</td><td>$40,000</td><td>$55,000</td></tr></tbody></table>
+<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>Messages Sent</th><th>Cost at $0.08/SMS (typical Africa/Asia rate)</th><th>Cost at $0.11/SMS (e.g., Germany)</th></tr></thead><tbody><tr><td>10,000</td><td>$800</td><td>$1,100</td></tr><tr><td>100,000</td><td>$8,000</td><td>$11,000</td></tr><tr><td>500,000</td><td>$40,000</td><td>$55,000</td></tr></tbody></table></div>
 
 These aren't hypothetical numbers. Developers on forums like Reddit and Hacker News regularly report waking up to five-figure surprise bills after their OTP endpoint was pumped overnight. Some SMS providers will dispute and refund fraudulent charges — but not all, and the process is slow.
 
@@ -109,7 +109,7 @@ Learn more about [why passkeys are replacing passwords and OTPs](/post/passkey-v
 
 These two attacks are sometimes confused:
 
-<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>Attack Type</th><th>Goal</th><th>Who Gets Hurt</th><th>Defense</th></tr></thead><tbody><tr><td><strong>SMS Pumping (Toll Fraud)</strong></td><td>Generate fraudulent SMS sends to earn carrier revenue</td><td>You (the developer/company) via inflated SMS bills</td><td>Rate limiting, CAPTCHA, phone validation, spend caps</td></tr><tr><td><strong>OTP Harvesting (Account Takeover)</strong></td><td>Intercept or socially engineer OTP codes to take over user accounts</td><td>Your users (their accounts get compromised)</td><td>Phishing-resistant authentication (passkeys, FIDO2)</td></tr></tbody></table>
+<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>Attack Type</th><th>Goal</th><th>Who Gets Hurt</th><th>Defense</th></tr></thead><tbody><tr><td><strong>SMS Pumping (Toll Fraud)</strong></td><td>Generate fraudulent SMS sends to earn carrier revenue</td><td>You (the developer/company) via inflated SMS bills</td><td>Rate limiting, CAPTCHA, phone validation, spend caps</td></tr><tr><td><strong>OTP Harvesting (Account Takeover)</strong></td><td>Intercept or socially engineer OTP codes to take over user accounts</td><td>Your users (their accounts get compromised)</td><td>Phishing-resistant authentication (passkeys, FIDO2)</td></tr></tbody></table></div>
 
 SMS pumping hurts your wallet. OTP harvesting hurts your users. Both are reasons to move away from SMS OTP as your primary authentication method. For a deeper look at OTP security pitfalls, see our guide on [5 common TOTP mistakes developers make](/post/5-common-totp-mistakes).
 

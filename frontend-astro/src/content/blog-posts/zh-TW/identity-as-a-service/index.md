@@ -4,7 +4,7 @@ excerpt: "Learn more about identity as a service and how cloud-based IAM can pro
 coverImage: ./cover.jpg
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/identity-as-a-service
+canonicalUrl: /post/identity-as-a-service
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.234Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/identity-as-a-service#webpage",
-														"url":"https://www.authgear.com/post/identity-as-a-service"
+                            "@id":"/post/identity-as-a-service#webpage",
+														"url":"/post/identity-as-a-service"
                         },
         "headline":"What Is Identity as a Service (IdaaS) And Why Does Your Business Need It?",
         "image":{

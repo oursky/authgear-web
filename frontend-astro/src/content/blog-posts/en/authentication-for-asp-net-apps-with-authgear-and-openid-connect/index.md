@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Authentication for ASP.NET apps with Authgear and OpenID Connect"
 metaDescription: "This blog post demonstrates how to add authentication features to ASP.NET apps with Authgear by implementing an OpenID Connect flow."
-canonicalUrl: https://www.authgear.com/post/authentication-for-asp-net-apps-with-authgear-and-openid-connect
+canonicalUrl: /post/authentication-for-asp-net-apps-with-authgear-and-openid-connect
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:17.669Z
 draft: false
@@ -187,13 +187,6 @@ page "/protected"
 model ProtectedModel
 
 addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
-
-<style type="text/css">
-button
-{
-  width: 200px;
-}
-</style>
 
 <h1>Protected View</h1>
 

@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Extended Enterprise and Identity & Access Management: The Challenges & Solutions"
 metaDescription: "Extended enterprise, including customers, partners, contractors, etc., poses some new identity & access challenges for businesses. Learn more about the challenges and solutions."
-canonicalUrl: https://www.authgear.com/post/extended-enterprise-identity-and-access-management
+canonicalUrl: /post/extended-enterprise-identity-and-access-management
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:54.761Z
 draft: false
@@ -18,7 +18,7 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/extended-enterprise-identity-and-access-management#webpage",
+                            "@id":"/post/extended-enterprise-identity-and-access-management#webpage",
 														"url":"www.authgear.com/post/extended-enterprise-identity-and-access-management"
                         },
         "headline":"Extended Enterprise and Identity & Access Management: The Challenges & Solutions",
@@ -47,19 +47,6 @@ draft: false
         }
     }
     </script>
-<style>
-.cta-v2{
-    margin-top:20px;
-    margin-bottom:48px
-    }
-#table-of-content > ul >li>ol >li{
-margin-bottom:0;
-margin-top:15px;}
-#table-of-content > ul >li>ol {
-margin-bottom:15px}
-#table-of-content > ul >li>ul{margin-bottom:0}
-</style>
-
 As the world becomes more interconnected, company boundaries are becoming more blurred. Businesses are now more connected than ever as they strive to create efficiencies and drive growth.
 
 In the new workplace paradigm, access to IT resources is no longer limited to internal employees. Customers, partners, contractors, vendors, suppliers, and other stakeholders now have a level of access that was once unthinkable, with the sole purpose of driving value back to the business. This concept is known as the extended enterprise.

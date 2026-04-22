@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Insurance IAM: How It Helps Acquire More Clients and Facilitate Collaboration?"
 metaDescription: "IAM does more than just enhancing data security for insurance companies. IAM also helps acquire and retain more users and facilitate collaboration with external team members for insurance. See how IAM achieves these with our guide."
-canonicalUrl: https://www.authgear.com/post/insurance-iam
+canonicalUrl: /post/insurance-iam
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:35:14.210Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/insurance-iam#webpage",
-														"url":"https://www.authgear.com/post/insurance-iam"
+                            "@id":"/post/insurance-iam#webpage",
+														"url":"/post/insurance-iam"
                         },
         "headline":"Insurance IAM: How It Helps Acquire More Clients and Facilitate Collaboration?",
         "image":{
@@ -48,16 +48,7 @@ draft: false
     }
     </script>
     
-        <style>
-    #table-of-content{max-width:720px;margin:auto;}
-    #table-of-content > ul {margin-top:17.83px}
-    #table-of-content > ul > li > ul {margin-bottom:0 !important}
-    #table-of-content > ul > li > ul > li {margin-top:15px}
-    .rich-text h3 {margin-top:0}
-    
-    </style>
-
-As a recent <a href="https://www.pwc.com/us/en/industries/financial-services/library/next-in-insurance-top-issues.html" target="_blank">PWC</a> article pointed out, the Insurance industry is experiencing change at a more rapid rate than ever. The pandemic may have driven up <a href="https://www.pwc.com/us/en/industries/financial-services/library/insurance-consumer-survey.html" target="_blank">life insurance purchases</a>, but it also created a far more digitally demanding consumer base. Forced to stay at home and do everything online, we’re now impatient with anyone who can’t keep up.
+        As a recent <a href="https://www.pwc.com/us/en/industries/financial-services/library/next-in-insurance-top-issues.html" target="_blank">PWC</a> article pointed out, the Insurance industry is experiencing change at a more rapid rate than ever. The pandemic may have driven up <a href="https://www.pwc.com/us/en/industries/financial-services/library/insurance-consumer-survey.html" target="_blank">life insurance purchases</a>, but it also created a far more digitally demanding consumer base. Forced to stay at home and do everything online, we’re now impatient with anyone who can’t keep up.
 
 When comparing a <a href="https://www.pwc.com/us/en/industries/financial-services/library/next-in-insurance-top-issues.html" target="_blank">survey</a> of 6000 insurance customers interviewed in 2018 to the same in 2021, PWC noted that there had been a 77% increase in users saying they’d prefer to submit mobile claims. They also showed that people who commented that they would switch carriers due to a lack of a user-friendly digital interface had increased by 80%. The big picture in all of this is that digital capabilities matter more than ever, especially in the insurance business.
 

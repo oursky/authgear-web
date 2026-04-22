@@ -11,8 +11,6 @@ updatedAt: 2026-03-05T15:37:19.801Z
 draft: false
 ---
 
-<style>.ag-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid #e5e7eb;border-radius:12px;background:#fff}.ag-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:auto;font-size:15px}.ag-table th,.ag-table td{padding:12px 14px;vertical-align:top;text-align:left;border-bottom:1px solid #e5e7eb;word-break:normal;hyphens:auto}.ag-table thead th{position:sticky;top:0;z-index:1;background:#f9fafb;font-weight:600;color:#111827;white-space:nowrap}.ag-table tbody tr:last-child td{border-bottom:0}.ag-table td:first-child{font-weight:600;color:#111827}@media(max-width:640px){.ag-table{font-size:14px}.ag-table th,.ag-table td{padding:10px 12px}}</style>
-
 ## What Is an SSL Certificate Chain?
 
 An **SSL certificate chain** — also called a certificate trust chain or chain of trust — is a sequence of certificates that connects your website's certificate back to a root Certificate Authority (CA) that browsers inherently trust.
@@ -25,7 +23,7 @@ Think of it like a chain of vouchers: your site's certificate is vouched for by 
 
 Every certificate chain has the same structure, regardless of which CA issued your certificate:
 
-<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>Level</th><th>Name</th><th>What It Is</th><th>Who Provides It</th></tr></thead><tbody><tr><td>1 (leaf)</td><td>Leaf certificate</td><td>The certificate issued to your specific domain</td><td>You — installed on your web server</td></tr><tr><td>2 (middle)</td><td>Intermediate certificate(s)</td><td>Issued by the root CA to authorize an intermediate CA to issue domain certificates</td><td>Your CA — must also be served by your web server</td></tr><tr><td>3 (root)</td><td>Root certificate</td><td>Self-signed certificate from a trusted root CA</td><td>The CA — pre-installed in browsers and operating systems</td></tr></tbody></table>
+<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>Level</th><th>Name</th><th>What It Is</th><th>Who Provides It</th></tr></thead><tbody><tr><td>1 (leaf)</td><td>Leaf certificate</td><td>The certificate issued to your specific domain</td><td>You — installed on your web server</td></tr><tr><td>2 (middle)</td><td>Intermediate certificate(s)</td><td>Issued by the root CA to authorize an intermediate CA to issue domain certificates</td><td>Your CA — must also be served by your web server</td></tr><tr><td>3 (root)</td><td>Root certificate</td><td>Self-signed certificate from a trusted root CA</td><td>The CA — pre-installed in browsers and operating systems</td></tr></tbody></table></div>
 
 When a browser connects to your site, your server sends the leaf certificate and any intermediate certificates. The browser checks whether the chain connects to a trusted root in its built-in trust store. The root certificate itself is never sent by the server — it's expected to already be present on the client.
 

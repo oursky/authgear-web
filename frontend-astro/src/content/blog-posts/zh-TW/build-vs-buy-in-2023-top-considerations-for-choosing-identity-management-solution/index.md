@@ -4,7 +4,7 @@ excerpt: "Choosing between building or buying an identity management solution is
 coverImage: ./cover.png
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/build-vs-buy-in-2023-top-considerations-for-choosing-identity-management-solution
+canonicalUrl: /post/build-vs-buy-in-2023-top-considerations-for-choosing-identity-management-solution
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.193Z
 draft: false

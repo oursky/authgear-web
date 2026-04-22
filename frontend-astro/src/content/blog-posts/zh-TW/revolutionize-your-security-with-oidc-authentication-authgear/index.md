@@ -46,47 +46,6 @@ Integrating OIDC authentication into your business framework not only secures yo
 
 Understanding the distinction between OIDC authentication and OAuth is essential for businesses looking to secure their digital assets. While both protocols work hand in hand, OIDC authentication goes a step further by introducing a standardized identity layer, allowing businesses to manage user identities more effectively. Below is a comparison table that highlights the key differences between OIDC authentication and OAuth:
 
-<style>
-.table_component {
-    overflow: auto;
-    width: 100%;
-}
-
-.table_component table {
-    border: 1px solid #dededf;
-    height: 100%;
-    width: 720px;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border-spacing: 1px;
-    text-align: left;
-    margin:0 auto;
-}
-
-.table_component caption {
-    caption-side: top;
-    text-align: left;
-}
-
-.table_component th {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-
-.table_component tr {
-    display: grid;
-    grid-template-columns: 20% 1fr 1fr;
-}
-
-.table_component td {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-</style>
 <div class="table_component" role="region" tabindex="0">
 <table>
     <thead>

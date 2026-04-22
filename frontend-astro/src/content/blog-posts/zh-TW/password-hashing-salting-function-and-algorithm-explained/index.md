@@ -4,7 +4,7 @@ excerpt: "Password salting is a security method that strengthens password protec
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/password-hashing-salting-function-and-algorithm-explained
+canonicalUrl: /post/password-hashing-salting-function-and-algorithm-explained
 publishedAt: 2026-02-12T23:37:57.792Z
 updatedAt: 2026-03-11T15:50:48.871Z
 draft: true
@@ -35,21 +35,13 @@ draft: true
         "publisher":{
             "@type":"Organization",
             "name":"Authgear",
-            "@id":"https://www.authgear.com/"
+            "@id":"/"
         }
     }
     </script>
   
  
- <style>
-
-.cta-v2{
-    margin-top:20px;
-    margin-bottom:48px
-    }
- </style>
-
-> TL;DR:  
+ > TL;DR:  
 > Password salting is a security method that strengthens password protection by adding unique, random data (a "salt") to a password before it is hashed. This ensures that every password hash stored in a database is unique, effectively defending against attacks that use precomputed tables, such as rainbow table attacks.
 
 <nav> Table of Content
@@ -150,37 +142,6 @@ Never use usernames, email addresses, or other static user data as salts, as the
 
 For an additional layer of security, implement a password pepper, which is a secret key stored separately from the database (e.g., in a secure vault or environment variable). Unlike a salt, the pepper is not stored with the hash. If the database is compromised, the pepper provides a final line of defense because the attacker lacks the secret value required to verify the hashes.
 
-<style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      margin: 20px;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 625px;
-    }
-
-    th,
-    td {
-      border: 1px solid #000;
-      padding: 6px 10px;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    th {
-      background: #0043e0;
-      color: #fff;
-      font-weight: 700;
-    }
-
-    td {
-      background: #e6e6e6;
-      color: #000;
-    }
-  </style>
 </head>
 <body>
   <table>

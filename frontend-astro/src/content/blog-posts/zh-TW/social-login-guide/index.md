@@ -4,7 +4,7 @@ excerpt: "Learn how to easily enable social login in your website or app to incr
 coverImage: ./cover.png
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/social-login-guide
+canonicalUrl: /post/social-login-guide
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.323Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/social-login-guide#webpage",
-														"url":"https://www.authgear.com/post/social-login-guide"
+                            "@id":"/post/social-login-guide#webpage",
+														"url":"/post/social-login-guide"
                         },
         "headline":"Social Login - Why You Should Implement It",
         "image":{
@@ -45,15 +45,6 @@ draft: false
         }
     }
     </script>
-<style>
-#table-of-content{max-width:720px;margin:auto;}
-#table-of-content > ul {margin-top:17.83px}
-#table-of-content > ul > li > ul {margin-bottom:0 !important}
-#table-of-content > ul > li > ul > li {margin-top:15px}
-.rich-text h3 {margin-top:0}
-.cta-v2{margin-top:20px;margin-bottom:48px}
-</style>
-
 The internet has truly revolutionized how people interact and socialize with each other. It has made it easier than ever to access content, information, and services online. It's no wonder that today, a staggering <a href="https://datareportal.com/global-digital-overview" target="_blank">5.16 billion people</a> use the internet, many of whom do so daily.
 
 If you frequently use the internet, you're probably familiar with being asked to create an account for a service or website you want access to. It's one of those requirements many people find annoying. In fact, 86 percent of internet users say they're bothered when asked to create a new account when on a website. <a href="https://www.shopify.com/blog/shopping-cart-abandonment" target="_blank">24 percent</a> of shoppers report abandoning e-commerce sites that asked for account registration before checkout. These figures are worrying, and they point to the need for a better way to authenticate users on websites. This is where social login comes in. In this blog, we tell you all you need to know about this authentication method and why you should implement it on your website.

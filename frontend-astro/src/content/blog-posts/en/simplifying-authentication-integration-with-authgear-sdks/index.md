@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Simplifying Authentication Integration For Developers With Authgear SDKs"
 metaDescription: "Authgear SDK libraries make it easy for developers to integrate and interact with Authgear."
-canonicalUrl: https://www.authgear.com/post/simplifying-authentication-integration-with-authgear-sdks
+canonicalUrl: /post/simplifying-authentication-integration-with-authgear-sdks
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:36:01.271Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/simplifying-authentication-integration-with-authgear-sdks#webpage",
-														"url":"https://www.authgear.com/post/simplifying-authentication-integration-with-authgear-sdks"
+                            "@id":"/post/simplifying-authentication-integration-with-authgear-sdks#webpage",
+														"url":"/post/simplifying-authentication-integration-with-authgear-sdks"
                         },
         "headline":"Simplifying Authentication Integration For Developers With Authgear SDKs",
         "image":{
@@ -64,25 +64,6 @@ Authgear SDKs are easy to integrate into your app, whether it's a **single-page 
 
 You need to protect a JavaScript SPA application that runs entirely in a browser:
 
-<style>
-  .centered-table {
-    display: table;
-    margin: 0 auto;
-    position: center;
-    border-collapse: collapse;
-  }
-
-  .centered-table th,
-  .centered-table td {
-    padding: 10px;
-    border: 1px solid blue;
-  }
-  
-  .centered-table table {
-    border-spacing: 0;
-  }
-</style>
-
 <div class="centered-table">
   <table>
     <thead>
@@ -124,24 +105,6 @@ You need to protect a JavaScript SPA application that runs entirely in a browser
 ### Native and Mobile Application SDK Libraries
 
 If you are developing mobile or desktop applications, choose from one of these SDKs for your platform to get started.
-
-<style>
-  .centered-table {
-    display: table;
-    margin: 0 auto;
-    border-collapse: collapse;
-  }
-
-  .centered-table th,
-  .centered-table td {
-    padding: 10px;
-    border: 1px solid blue;
-  }
-  
-  .centered-table table {
-    border-spacing: 0;
-  }
-</style>
 
 <div class="centered-table">
   <table class="column-spacing">

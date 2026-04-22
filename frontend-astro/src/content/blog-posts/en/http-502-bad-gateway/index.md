@@ -257,7 +257,7 @@ Cloudflare returns a 502 when it cannot connect to your origin. Check:
 <ol>
 <li><strong>Origin server is running</strong> — SSH in and confirm your app is up.</li>
 <li><strong>Origin firewall is not blocking Cloudflare IPs</strong> — allow <a href='https://www.cloudflare.com/ips/'>Cloudflare's IP ranges</a> on port 80/443.</li>
-<li><strong>SSL mode</strong> — in Cloudflare dashboard, go to SSL/TLS. If your origin does not have a valid SSL cert, use "Flexible" mode, not "Full (strict)". A cert mismatch between Cloudflare and your origin causes 502. Verify your origin cert with the <a href='https://www.authgear.com/tools/ssl-checker'>Authgear SSL Checker</a>.</li>
+<li><strong>SSL mode</strong> — in Cloudflare dashboard, go to SSL/TLS. If your origin does not have a valid SSL cert, use "Flexible" mode, not "Full (strict)". A cert mismatch between Cloudflare and your origin causes 502. Verify your origin cert with the <a href='/tools/ssl-checker'>Authgear SSL Checker</a>.</li>
 <li><strong>Origin response time</strong> — Cloudflare times out at 100 seconds. If your origin takes longer, you will see 524 (timeout), not 502. But very slow responses can also cause 502 in some configurations.</li>
 </ol>
 
@@ -317,7 +317,7 @@ server {
 <tr><td><strong>503 Service Unavailable</strong></td><td>Server is temporarily unable to handle requests</td><td>The server itself</td><td>Overloaded, in maintenance mode, rate limited</td></tr>
 <tr><td><strong>504 Gateway Timeout</strong></td><td>Proxy timed out waiting for the upstream</td><td>Upstream server (slow)</td><td>Slow query, deadlock, heavy computation</td></tr>
 </tbody>
-</table>
+</table></div>
 
 **The key distinction between 502 and 504:** both involve a proxy and an upstream failure. 502 means the upstream sent back something invalid or refused the connection. 504 means the upstream was reachable but took too long.
 

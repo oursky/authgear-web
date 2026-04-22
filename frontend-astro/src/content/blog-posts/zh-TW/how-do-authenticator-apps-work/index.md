@@ -118,7 +118,7 @@ Yes. They’re not tied to your phone number and resist SIM-swap. However, they 
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://www.authgear.com/post/how-do-authenticator-apps-work"
+    "@id": "/post/how-do-authenticator-apps-work"
   },
   "datePublished": "2025-11-07",
   "dateModified": "2025-11-07"

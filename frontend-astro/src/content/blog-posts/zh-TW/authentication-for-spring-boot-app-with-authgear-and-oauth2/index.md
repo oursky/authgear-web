@@ -4,7 +4,7 @@ excerpt: "Learn how to add authentication to your Java Spring Boot application u
 coverImage: ./cover.png
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/authentication-for-spring-boot-app-with-authgear-and-oauth2
+canonicalUrl: /post/authentication-for-spring-boot-app-with-authgear-and-oauth2
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.176Z
 draft: false

@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "The Right to Erasure and How You Can Follow It for Your Apps"
 metaDescription: "Under GDPR, users of mobile apps or software are entitled to have their data removed. This is known as the right to erasure or right to be forgotten."
-canonicalUrl: https://www.authgear.com/post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps
+canonicalUrl: /post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:36:33.465Z
 draft: false
@@ -48,16 +48,7 @@ draft: false
     }
     </script>
     
-   <style>
-   #table-of-content{
-   max-width: 720px;
-    margin-right: auto;
-    margin-bottom: 28px;
-    margin-left: auto;
-   }
-   </style>
-
-The collection of data has always helped various companies analyze the behaviors of their clients in order to provide personalized services or adjust their marketing strategies. However, consumers now are more aware of how their data is used or misused and thus start demanding for more control over their data. Consequently, governments have also introduced different laws to regulate data collection.
+   The collection of data has always helped various companies analyze the behaviors of their clients in order to provide personalized services or adjust their marketing strategies. However, consumers now are more aware of how their data is used or misused and thus start demanding for more control over their data. Consequently, governments have also introduced different laws to regulate data collection.
 
 The right to erasure is also commonly referred to as the right to be forgotten. It is a right under <a href="https://www.privacypolicies.com/blog/gdpr-compliance-apps/" target="_blank">article 17 of the GDPR</a>, which allows individuals to ask data controllers to delete their personal data. However, the right to erasure doesn’t always apply. In this blog post, we will discuss everything you need to know about the right to erasure for your apps to comply with the latest policies of data protection.
 

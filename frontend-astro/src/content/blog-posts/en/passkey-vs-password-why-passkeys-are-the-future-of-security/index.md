@@ -151,7 +151,7 @@ The core problem: passwords are *secrets shared with a server*. Every time you l
           <td>⚠️  Medium (WebAuthn API or auth platform like Authgear)</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 ## Passkeys in 2026: Real-World Adoption
 

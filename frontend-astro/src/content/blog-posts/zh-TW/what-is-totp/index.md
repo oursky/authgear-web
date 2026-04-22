@@ -69,7 +69,7 @@ Replace `SECRET_BASE32` with your Base32 secret. These examples use standard, we
 1. Generate a TOTP locally using one of the library examples above.
 1. Verify server-side acceptance with a small window (±1 step) for clock skew.
 1. Test algorithm/digits mismatch scenarios intentionally to confirm your server logs clear errors.
-1. Use a test-only tool to preview codes without exposing production secrets — try: **Authgear TOTP Authenticator**: <a href="/tools/totp-authenticator" target="_blank">https://www.authgear.com/tools/totp-authenticator</a>
+1. Use a test-only tool to preview codes without exposing production secrets — try: **Authgear TOTP Authenticator**: <a href="/tools/totp-authenticator" target="_blank">/tools/totp-authenticator</a>
 
 ## FAQ
 

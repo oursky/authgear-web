@@ -5,7 +5,7 @@ coverImage: ./cover.png
 featured: false
 metaTitle: "Easy Passwordless Login Experience with Magic Links and Authgear"
 metaDescription: "This post explores what magic links are and what you need to know to implement an email-powered login flow for your users with Authgear."
-canonicalUrl: https://www.authgear.com/post/easy-passwordless-login-experience-with-magic-links-and-authgear
+canonicalUrl: /post/easy-passwordless-login-experience-with-magic-links-and-authgear
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:54.727Z
 draft: false

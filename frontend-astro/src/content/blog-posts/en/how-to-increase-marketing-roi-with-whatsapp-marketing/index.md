@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "How to Increase Marketing ROI with WhatsApp Marketing"
 metaDescription: "Marketing on WhatsApp is a more cost-effective and efficient way to promote your brands, increase marketing ROI, and engage with your customers."
-canonicalUrl: https://www.authgear.com/post/how-to-increase-marketing-roi-with-whatsapp-marketing
+canonicalUrl: /post/how-to-increase-marketing-roi-with-whatsapp-marketing
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:35:14.196Z
 draft: false

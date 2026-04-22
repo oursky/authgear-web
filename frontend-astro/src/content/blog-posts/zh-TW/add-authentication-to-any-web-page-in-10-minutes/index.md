@@ -4,7 +4,7 @@ excerpt: "This post demonstrates how to easily add authentication to any Javascr
 coverImage: ./cover.png
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/add-authentication-to-any-web-page-in-10-minutes
+canonicalUrl: /post/add-authentication-to-any-web-page-in-10-minutes
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.164Z
 draft: false

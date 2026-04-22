@@ -4,7 +4,7 @@ excerpt: "This blog post demonstrates how to add authentication features to ASP.
 coverImage: ./cover.png
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/authentication-for-asp-net-apps-with-authgear-and-openid-connect
+canonicalUrl: /post/authentication-for-asp-net-apps-with-authgear-and-openid-connect
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.173Z
 draft: false
@@ -185,13 +185,6 @@ page "/protected"
 model ProtectedModel
 
 addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
-
-<style type="text/css">
-button
-{
-  width: 200px;
-}
-</style>
 
 <h1>Protected View</h1>
 

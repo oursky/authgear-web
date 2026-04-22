@@ -71,7 +71,7 @@ There are two main strategies: **stateful sessions**, where the server stores se
           <td>Apps prioritising simplicity and horizontal scale</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 ## Cookie Security Attributes You Must Set
 

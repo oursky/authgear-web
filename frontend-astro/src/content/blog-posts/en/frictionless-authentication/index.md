@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Frictionless Authentication: What Is It & How To Implement It?"
 metaDescription: "Learn more about frictionless authentication and how to achieve it with passwordless innovations, practical strategies, and forward-thinking approaches to enhance user experience and security."
-canonicalUrl: https://www.authgear.com/post/frictionless-authentication
+canonicalUrl: /post/frictionless-authentication
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:54.746Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/frictionless-authentication#webpage",
-														"url":"https://www.authgear.com/post/frictionless-authentication"
+                            "@id":"/post/frictionless-authentication#webpage",
+														"url":"/post/frictionless-authentication"
                         },
         "headline":"Frictionless Authentication: What Is It & How To Implement It?",
         "image":{
@@ -47,16 +47,7 @@ draft: false
         }
     }
     </script>
-            <style>
-    #table-of-content{max-width:720px;margin:auto;}
-    #table-of-content > ul {margin-top:17.83px}
-    #table-of-content > ul > li > ul {margin-bottom:0 !important}
-    #table-of-content > ul > li > ul > li {margin-top:15px}
-    .rich-text h3 {margin-top:0}
-    
-    </style>
-
-In today's digital landscape, providing a seamless and frictionless authentication experience has become an essential requirement for businesses. However, achieving the delicate balance between robust security measures and a user-friendly experience can be quite challenging. While password authentication remains the most widely used method, it also poses the biggest hurdle in terms of friction. Throughout the user journey, from sign-up to login and even during the checkout process, various points of friction can arise, potentially leading to cart abandonment, decreased sales, and frustrated customers.
+            In today's digital landscape, providing a seamless and frictionless authentication experience has become an essential requirement for businesses. However, achieving the delicate balance between robust security measures and a user-friendly experience can be quite challenging. While password authentication remains the most widely used method, it also poses the biggest hurdle in terms of friction. Throughout the user journey, from sign-up to login and even during the checkout process, various points of friction can arise, potentially leading to cart abandonment, decreased sales, and frustrated customers.
 
 In this blog post, we will explore the significance of frictionless authentication, what composes a frictionless authentication, and how businesses can benefit from it.
 

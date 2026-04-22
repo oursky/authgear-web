@@ -120,7 +120,7 @@ Think of this as the hotel guest list. Everyone gets checked — except the main
           <td>Everything except <code>/login</code> and <code>/register</code></td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 ## Validating Sessions in Middleware
 
@@ -339,7 +339,7 @@ Middleware runs in the Edge Runtime by default, which does not support many Node
           <td>Move queries to Server Components or Route Handlers</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 As of Next.js 15.2+, you can opt middleware into the Node.js runtime by adding `runtime: 'nodejs'` to your `config` export (stable since Next.js 15.5). This removes the Edge Runtime limitation, but middleware will no longer run at the CDN edge layer — it runs on your app server instead.
 

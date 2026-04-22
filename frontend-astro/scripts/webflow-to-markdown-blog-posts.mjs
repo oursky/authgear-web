@@ -93,6 +93,12 @@ function normaliseHref(href) {
   return href.replace(/^https?:\/\/(?:www\.)?authgear\.com/i, '');
 }
 
+/** Final sweep over the full markdown string: strip any remaining
+ *  `https://www.authgear.com/...` origin that slipped through raw-HTML paths. */
+function stripAbsoluteSelfDomainLinks(s) {
+  return s.replace(/(https?:\/\/(?:www\.)?authgear\.com)(?=\/|")/gi, '');
+}
+
 /**
  * Webflow RichText HTML → Markdown (with preserved table/code-block HTML blocks).
  * - <figure><img src=X></figure>  → ![alt](./figure-N.ext), image queued for download
@@ -120,23 +126,38 @@ function htmlToMarkdown(html, imageTasks, linkRefs) {
     },
   );
 
-  // 2) Preserved embed blocks (tables, code wrappers, etc.) — extract and stash.
+  // 2) Preserved embed blocks. Webflow wraps these with balanced nested divs:
+  //    <div data-rt-embed-type='true'><div class='ag-table-wrap'><table>…</table></div></div>
+  //    — we extract the innermost <table>…</table> or <pre><code>…</code></pre>
+  //    and emit a fresh wrapper so nested-div balancing never matters.
   const preserved = [];
   s = s.replace(
-    /<div\s+data-rt-embed-type=['"]true['"]\s*>([\s\S]*?)<\/div>/gi,
-    (_, inner) => {
-      const codeMatch = inner.match(/<pre[^>]*>\s*<code(?:\s+class="language-([^"]+)")?[^>]*>([\s\S]*?)<\/code>\s*<\/pre>/i);
+    /<div\s+data-rt-embed-type=['"]true['"][\s\S]*?(?:<\/div>\s*<\/div>|<\/div>)/gi,
+    (match) => {
+      const codeMatch = match.match(/<pre[^>]*>\s*<code(?:\s+class="language-([^"]+)")?[^>]*>([\s\S]*?)<\/code>\s*<\/pre>/i);
       if (codeMatch) {
         const lang = codeMatch[1] ?? '';
         const body = decodeEntities(codeMatch[2]);
         preserved.push('```' + lang + '\n' + body + '\n```');
         return `\n\n<!--PRESERVED-${preserved.length - 1}-->\n\n`;
       }
-      // Tables or other HTML — keep as-is inside a fresh wrapper.
-      preserved.push(inner.trim());
+      const tableMatch = match.match(/<table\b[\s\S]*?<\/table>/i);
+      if (tableMatch) {
+        preserved.push(`<div class="ag-table-wrap">${tableMatch[0]}</div>`);
+        return `\n\n<!--PRESERVED-${preserved.length - 1}-->\n\n`;
+      }
+      // Strip any inline <style> blocks — table CSS now lives globally.
+      const cleaned = match
+        .replace(/<style[\s\S]*?<\/style>/gi, '')
+        .replace(/<div\s+data-rt-embed-type=['"]true['"][^>]*>/i, '')
+        .replace(/<\/div>\s*(?:<\/div>\s*)?$/i, '')
+        .trim();
+      preserved.push(cleaned);
       return `\n\n<!--PRESERVED-${preserved.length - 1}-->\n\n`;
     },
   );
+  // Also strip any bare <style>…</style> blocks that weren't wrapped.
+  s = s.replace(/<style[\s\S]*?<\/style>\s*/gi, '');
 
   // 3) Inline conversions
   const inline = (t) => {
@@ -295,6 +316,9 @@ function buildFrontmatter(e) {
 // site setup. Skip them on migration so they never land in the content collection.
 const DUMMY_SLUGS = new Set([
   '5-principles-of-effective-web-design',
+  '10-great-examples-of-responsive-websites',
+  '10-quick-tips-about-blogging',
+  'how-to-improve-web-design-process',
   'what-will-website-be-like-in-100-years',
 ]);
 
@@ -323,7 +347,7 @@ async function processItem(item, categoryMap, localeFolder, allLinks) {
   const imageTasks = [];
   const linkRefs = [];
   const preppedHtml = preWrapFigures(f['blog-post-content'] ?? '');
-  const body = htmlToMarkdown(preppedHtml, imageTasks, linkRefs);
+  const body = stripAbsoluteSelfDomainLinks(htmlToMarkdown(preppedHtml, imageTasks, linkRefs));
   await Promise.all(imageTasks.map((t) => tryDownload(t.url, path.join(outDir, t.rel.replace(/^\.\//, '')))));
 
   for (const href of linkRefs) allLinks.push({ slug, href });

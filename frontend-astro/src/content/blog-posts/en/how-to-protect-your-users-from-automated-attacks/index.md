@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "How to protect your users from automated attacks"
 metaDescription: "Let's explore the best ways to protect your users from the rapidly evolving menace of automated attacks."
-canonicalUrl: https://www.authgear.com/post/how-to-protect-your-users-from-automated-attacks
+canonicalUrl: /post/how-to-protect-your-users-from-automated-attacks
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:35:14.204Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/how-to-protect-your-users-from-automated-attacks/#webpage",
-														"url":"https://www.authgear.com/post/how-to-protect-your-users-from-automated-attacks"
+                            "@id":"/post/how-to-protect-your-users-from-automated-attacks/#webpage",
+														"url":"/post/how-to-protect-your-users-from-automated-attacks"
                         },
         "headline":"How to protect your users from automated attacks",
         "image":{

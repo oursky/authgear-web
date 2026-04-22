@@ -68,47 +68,6 @@ Understanding the differences between attribute-based access control and [role-b
 
 Below is a comparison table that outlines the key differences between attribute-based access control and RBAC:
 
-<style>
-.table_component {
-    overflow: auto;
-    width: 100%;
-}
-
-.table_component table {
-    border: 1px solid #dededf;
-    height: 100%;
-    width: 720px;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border-spacing: 1px;
-    text-align: left;
-    margin:0 auto;
-}
-
-.table_component caption {
-    caption-side: top;
-    text-align: left;
-}
-
-.table_component th {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-
-.table_component tr {
-    display: grid;
-    grid-template-columns: 20% 1fr 1fr;
-}
-
-.table_component td {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-</style>
 <div class="table_component" role="region" tabindex="0">
 <table>
     <thead>

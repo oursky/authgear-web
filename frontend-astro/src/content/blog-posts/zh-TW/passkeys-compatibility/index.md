@@ -4,40 +4,20 @@ excerpt: "Passkeys are now supported by iOS, macOS, Chrome and Android. Learn mo
 coverImage: ./cover.png
 category: highlight
 featured: false
-canonicalUrl: https://www.authgear.com/post/passkeys-compatibility
+canonicalUrl: /post/passkeys-compatibility
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.273Z
 draft: false
 ---
 
-<style>
-    #table-container{
-        margin-bottom:28px;
-        overflow:auto
-    }
-
-    #table-container > table > tbody > tr > td:nth-child(1), #table-container > table > tbody >tr:nth-child(1){
-        font-weight:700;
-        word-wrap:break-word;
-        max-width: 450px;
-    }
-    table{
-        border-collapse:collapse;
-        border-style:hidden;
-    }
-    td{
-        border:1px solid #000;
-        padding: 10px
-    }
-</style>
 <script type="application/ld+json">
     {
         "@context":"http://schema.org",
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/passkeys-compatibility#webpage",
-														"url":"https://www.authgear.com/post/passkeys-compatibility"
+                            "@id":"/post/passkeys-compatibility#webpage",
+														"url":"/post/passkeys-compatibility"
                         },
         "headline":"Passkeys Compatibility: Which Platforms Support Passkeys?",
         "image":{

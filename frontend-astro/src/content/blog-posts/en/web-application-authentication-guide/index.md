@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "From Login to Lockdown: Building Secure Authenticated Applications"
 metaDescription: "Master the art of building secure authenticated applications. Learn about authentication methods, access tokens, and implement robust security with Authgear. Your comprehensive guide to safeguarding user data."
-canonicalUrl: https://www.authgear.com/post/web-application-authentication-guide
+canonicalUrl: /post/web-application-authentication-guide
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:54.722Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/web-application-authentication-guide#webpage",
-														"url":"https://www.authgear.com/post/web-application-authentication-guide"
+                            "@id":"/post/web-application-authentication-guide#webpage",
+														"url":"/post/web-application-authentication-guide"
                         },
         "headline":"Web App Authentication: How It Works and How to Implement It",
         "image":{
@@ -47,59 +47,6 @@ draft: false
         }
     }
     </script>
-<style>
-.def-quote{
-				max-width:720px;	
-        margin:auto;
-        padding:60px;
-        font-style:italic;
-    }
-    .inline-code{
-        display:inline-block;
-        background-color:#eaeaea;
-        padding:0px 4px;
-        font-family: monospace;
-        border-radius: 4px
-    }
-    .code-block{
-        background-color:#efefef;
-        max-width:720px;
-        line-height:20px;
-        font-size:16px;
-        color:#000;
-        padding:20px;
-        margin:20px auto 48px auto
-    }
-
-    .property, .tag{
-        color:#905;
-    }
-    .string, .attribute{
-        color:#669900;
-    }
-    .constant{
-        color:#990055;
-    }
-    .function{
-        color:#dd4a68
-    }
-    .operator{
-        color:#9a6e3a
-    }
-    .comment{
-        color:#708090
-    }
-    .function{
-        color:#DD4A68
-    }
-    .value{
-        color:#07a
-    }
-    .keyword{
-        color:#0077AA
-    }
-</style>
-
 As a web developer, you know how common it is to have authentication in your application as a requirement. And why not? It should be important, we surely want to know who is making requests, manage multi-transactions, and protect users' private information.
 
 In this guide, you’ll learn all you need to know about web app authentication, how it works in your web apps, and how to integrate Authgear Web SDK with your web apps to implement authentication quickly and securely.

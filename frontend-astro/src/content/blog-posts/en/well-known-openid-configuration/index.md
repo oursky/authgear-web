@@ -11,16 +11,6 @@ updatedAt: 2026-03-05T16:19:03.821Z
 draft: false
 ---
 
-<style>
-.ag-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid #e5e7eb;border-radius:12px;background:#fff}
-.ag-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:auto;font-size:15px}
-.ag-table th,.ag-table td{padding:12px 14px;vertical-align:top;text-align:left;border-bottom:1px solid #e5e7eb;word-break:normal;hyphens:auto}
-.ag-table thead th{position:sticky;top:0;z-index:1;background:#f9fafb;font-weight:600;color:#111827;white-space:nowrap}
-.ag-table tbody tr:last-child td{border-bottom:0}
-.ag-table td:first-child{font-weight:600;color:#111827}
-@media(max-width:640px){.ag-table{font-size:14px}.ag-table th,.ag-table td{padding:10px 12px}}
-</style>
-
 ## What Is .well-known/openid-configuration?
 
 `/.well-known/openid-configuration` is a standardized URL path that every OpenID Connect provider publishes to describe its configuration. Append it to any OIDC issuer's base URL and you get a JSON document listing all of the provider's endpoints, supported features, and cryptographic capabilities.
@@ -36,7 +26,7 @@ For example:
 This document is the foundation of OIDC auto-discovery. Instead of hardcoding authorization endpoint URLs, token endpoints, and signing keys into your application, you fetch this document once and read everything you need from it.
 
 <blockquote>
-<p>&#x1F4A1; <strong>Try it now:</strong> Use the <a href="https://www.authgear.com/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a> to fetch and inspect any provider's <code>.well-known/openid-configuration</code> &mdash; no curl, no command line. Enter an issuer URL and see the full document with a structured field summary.</p>
+<p>&#x1F4A1; <strong>Try it now:</strong> Use the <a href="/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a> to fetch and inspect any provider's <code>.well-known/openid-configuration</code> &mdash; no curl, no command line. Enter an issuer URL and see the full document with a structured field summary.</p>
 </blockquote>
 
 ## Where the "well-known" Convention Comes From
@@ -89,7 +79,7 @@ The discovery document is a flat JSON object. Some fields are required by the sp
         <td>Signing algorithms supported for ID tokens. Typically includes <code>RS256</code>.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ### Commonly used optional fields
 
@@ -139,7 +129,7 @@ The discovery document is a flat JSON object. Some fields are required by the sp
         <td>URL to check whether a token is currently active (token introspection).</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ## A Real Example: What Google's Document Looks Like
 
@@ -198,7 +188,7 @@ The path `/.well-known/openid-configuration` is always the same, but the base is
         <td><code>https://{your-project}.authgear.cloud/.well-known/openid-configuration</code></td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ## How to Fetch the Document
 
@@ -299,6 +289,6 @@ Every Authgear project publishes a discovery document at `https://your-project.a
 ## Next Steps
 
 <ul>
-  <li><a href="https://www.authgear.com/tools/oidc-discovery-endpoint">Inspect any provider's discovery document</a> with the free OIDC Discovery Endpoint Explorer</li>
+  <li><a href="/tools/oidc-discovery-endpoint">Inspect any provider's discovery document</a> with the free OIDC Discovery Endpoint Explorer</li>
   <li>Learn about JWKS in <a href="/post/what-is-jwks-uri">What Is a JWKS URI? JWT Key Sets Explained for Developers</a></li>
 </ul>

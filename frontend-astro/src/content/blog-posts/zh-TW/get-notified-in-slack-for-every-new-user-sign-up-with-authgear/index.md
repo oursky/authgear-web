@@ -4,7 +4,7 @@ excerpt: "This article will guide you through the process of integrating Authgea
 coverImage: ./cover.png
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/get-notified-in-slack-for-every-new-user-sign-up-with-authgear
+canonicalUrl: /post/get-notified-in-slack-for-every-new-user-sign-up-with-authgear
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.217Z
 draft: false

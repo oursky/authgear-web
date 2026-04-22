@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Password Reset Best Practices: Avoid Common Pitfalls and Secure Your Users"
 metaDescription: "Discover essential password reset best practices to safeguard your authentication system. Learn how to prevent common security breaches, protect user data, and enhance user experience. Bolster your application's security with expert insights and actionable tips."
-canonicalUrl: https://www.authgear.com/post/authentication-security-password-reset-best-practices-and-more
+canonicalUrl: /post/authentication-security-password-reset-best-practices-and-more
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:36:01.228Z
 draft: false
@@ -57,7 +57,7 @@ By the end, you'll have a clear understanding of how to safeguard your users' ac
         </td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ## What is Authentication vs. Authorization: Unveiling the Difference
 
@@ -174,42 +174,6 @@ DN homograph attacks are a sophisticated threat often overlooked by developers. 
 
 For example, the usernames "adminｅ" and "аdmin е" appear identical at first glance. However, the second username uses Cyrillic characters, which can be exploited to bypass authentication controls.
 
-<style>
-.table_component {
-    overflow: auto;
-    margin:0 auto;
-    max-width:720px;
-}
-
-.table_component table {
-    border: 1px solid #dededf;
-    height: 100%;
-    width: 100%;
-    table-layout: auto;
-    border-collapse: collapse;
-    border-spacing: 1px;
-    text-align: left;
-}
-
-.table_component caption {
-    caption-side: top;
-    text-align: left;
-}
-
-.table_component th {
-    border: 1px solid #dededf;
-    background-color: #eceff1;
-    color: #000000;
-    padding: 5px;
-}
-
-.table_component td {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-</style>
 <div class="table_component" role="region" tabindex="0">
 <table>
     <thead>

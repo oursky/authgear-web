@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Sign Up Form Best Practices: Skyrocket Your App Conversion Rate"
 metaDescription: "Explore the top 5 sign up page optimization techniques to maximize the sign up rate for your apps and grow your user base. "
-canonicalUrl: https://www.authgear.com/post/sign-up-form-best-practices
+canonicalUrl: /post/sign-up-form-best-practices
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:36:01.273Z
 draft: false
@@ -48,21 +48,7 @@ draft: false
     }
     </script>
     
-    <style>
-    #table-of-content{
-    max-width: 720px;
-    margin-right: auto;
-    margin-bottom: 28px;
-    margin-left: auto}
-    h3{margin-top:0!important}
-    
-    .cta-v2{
-    margin-top:20px;
-    margin-bottom:48px
-    }
-    </style>
-
-These days, the subscription service industry is soaring, companies are growing at unprecedented rates, and consumers are spoiled for choice. There is more money to be made online than ever before, but the competition is fierce. The best way to ensure you get a slice of the pie is by having a great sign up form or sign up page, but how can you optimize your sign up process for success?
+    These days, the subscription service industry is soaring, companies are growing at unprecedented rates, and consumers are spoiled for choice. There is more money to be made online than ever before, but the competition is fierce. The best way to ensure you get a slice of the pie is by having a great sign up form or sign up page, but how can you optimize your sign up process for success?
 
 **This article will go over the best tips and tricks that you can use to optimize your sign up form and skyrocket your app conversion rate.**
 

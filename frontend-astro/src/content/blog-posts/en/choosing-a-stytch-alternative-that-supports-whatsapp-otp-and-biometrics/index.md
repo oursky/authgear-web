@@ -247,7 +247,7 @@ Below is a compact vendor comparison focused on WhatsApp OTP and biometric/passk
         <td>Developers wanting integrated DB + auth</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ### Vendor profiles
 

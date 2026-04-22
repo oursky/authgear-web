@@ -101,7 +101,7 @@ Authgear is built on open standards (OpenID Connect, OAuth 2.0, SAML), includes 
           <td>Yes — native <code>@authgear/nextjs</code> SDK</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 ## Setup Comparison
 

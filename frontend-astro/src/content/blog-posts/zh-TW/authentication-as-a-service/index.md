@@ -4,7 +4,7 @@ excerpt: "By integrating their apps or software with authentication-as-a-service
 coverImage: ./cover.png
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/authentication-as-a-service
+canonicalUrl: /post/authentication-as-a-service
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.170Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/authentication-as-a-service#webpage",
-														"url":"https://www.authgear.com/post/authentication-as-a-service"
+                            "@id":"/post/authentication-as-a-service#webpage",
+														"url":"/post/authentication-as-a-service"
                         },
         "headline":"Authentication-as-a-Service: What Is It and Why You Need It",
         "image":{

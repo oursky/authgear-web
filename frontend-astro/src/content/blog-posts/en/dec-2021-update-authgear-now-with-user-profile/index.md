@@ -6,7 +6,7 @@ category: features
 featured: false
 metaTitle: "Dec 2021 Update - Authgear, now with User Profile"
 metaDescription: "We are excited to bring User Profile Management into your projects!"
-canonicalUrl: https://www.authgear.com/post/dec-2021-update-authgear-now-with-user-profile
+canonicalUrl: /post/dec-2021-update-authgear-now-with-user-profile
 publishedAt: 2021-12-10T08:52:05.430Z
 updatedAt: 2026-02-12T02:33:54.729Z
 draft: true

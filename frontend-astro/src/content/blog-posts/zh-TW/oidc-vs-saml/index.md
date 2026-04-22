@@ -61,7 +61,7 @@ Many teams search for **“What is OIDC?”** or **“OpenID Connect vs OAuth2�
         <td>Implementation and security best practices must be followed carefully</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 You can also opt for tools like Authgear that make implementing OIDC easier. This is done by providing a centralized, cloud-based identity platform with prebuilt support for modern apps and microservices.
 
@@ -110,7 +110,7 @@ This assertion is digitally signed by the Identity Provider (IdP), enabling the 
         <td>Configuration and troubleshooting can be challenging</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 Even for SAML-based systems, Authgear can act as a centralized identity provider. It bridges legacy enterprise systems with modern apps, giving teams a single platform to manage authentication across OIDC and SAML workflows.
 
@@ -222,7 +222,7 @@ Here’s a comparison table:
         <td>Modern cloud IdPs</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ### **Security Considerations**
 

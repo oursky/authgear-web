@@ -5,7 +5,7 @@ excerpt: "Learn more about the advantages of Single Sign-On for your customers a
 coverImage: ./cover.png
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/customer-sso
+canonicalUrl: /post/customer-sso
 publishedAt: 2026-03-05T14:31:50.038Z
 updatedAt: 2026-02-28T12:51:35.500Z
 draft: false
@@ -17,8 +17,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/customer-sso#webpage",
-														"url":"https://www.authgear.com/post/customer-sso"
+                            "@id":"/post/customer-sso#webpage",
+														"url":"/post/customer-sso"
                         },
         "headline":"What is Customer SSO and Why Should You Implement it?",
         "image":{
@@ -47,15 +47,6 @@ draft: false
     }
     </script>
     
-<style>
-#table-of-content{max-width:720px;margin:auto;}
-#table-of-content > ul {margin-top:17.83px}
-#table-of-content > ul > li > ul {margin-bottom:0 !important}
-#table-of-content > ul > li > ul > li {margin-top:15px}
-.rich-text h3 {margin-top:0}
-.cta-v2{margin-top:20px;margin-bottom:48px}
-</style>
-
 Customer Single Sign-On (SSO) is an authentication method that allows users to log in once with a single set of credentials to access multiple, independent applications or services. This process works by utilizing a central Identity Provider (IdP) that verifies the user’s identity and issues secure, trusted tokens to various connected Service Providers.
 
 Implementing Customer SSO is essential for businesses because it eliminates login friction and password fatigue, leading to higher conversion rates and lower churn. A unified login experience provides centralized data insights and significantly reduces IT management costs by consolidating disparate authentication databases into a single source of truth.

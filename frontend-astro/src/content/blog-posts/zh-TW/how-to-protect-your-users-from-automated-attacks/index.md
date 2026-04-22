@@ -4,7 +4,7 @@ excerpt: "Let’s explore the best ways to protect your users from the rapidly e
 coverImage: ./cover.jpg
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/how-to-protect-your-users-from-automated-attacks
+canonicalUrl: /post/how-to-protect-your-users-from-automated-attacks
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.232Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/how-to-protect-your-users-from-automated-attacks/#webpage",
-														"url":"https://www.authgear.com/post/how-to-protect-your-users-from-automated-attacks"
+                            "@id":"/post/how-to-protect-your-users-from-automated-attacks/#webpage",
+														"url":"/post/how-to-protect-your-users-from-automated-attacks"
                         },
         "headline":"How to protect your users from automated attacks",
         "image":{

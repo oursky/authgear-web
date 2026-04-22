@@ -4,7 +4,7 @@ excerpt: "Customer Identity and Access Management (CIAM) does more than managing
 coverImage: ./cover.jpg
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/what-is-customer-identity-and-access-management-ciam
+canonicalUrl: /post/what-is-customer-identity-and-access-management-ciam
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.358Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/what-is-customer-identity-and-access-management-ciam#webpage",
-														"url":"https://www.authgear.com/post/what-is-customer-identity-and-access-management-ciam"
+                            "@id":"/post/what-is-customer-identity-and-access-management-ciam#webpage",
+														"url":"/post/what-is-customer-identity-and-access-management-ciam"
                         },
         "headline":"What Is Customer Identity and Access Management (CIAM)?",
         "image":{
@@ -46,14 +46,7 @@ draft: false
     }
     </script>
     
-    <style>
-    #table-of-content{
-    max-width: 720px;
-    margin-right: auto;
-    margin-left: auto;}
-    </style>
-
-Customer Identity and Access Management (CIAM) solutions are integrated into different applications or software to help organizations manage and verify end users’ identities to grant access to online services and securely collect, organize, and analyze user data to generate business insights.
+    Customer Identity and Access Management (CIAM) solutions are integrated into different applications or software to help organizations manage and verify end users’ identities to grant access to online services and securely collect, organize, and analyze user data to generate business insights.
 
 The CIAM market is <a href="https://www.marketsandmarkets.com/Market-Reports/consumer-iam-market-87038588.html" target="_blank">projected to grow from $8.6 billion in 2021 to $17.6 billion by 2026</a> due to the rise in security breaches and cyber attacks. The COVID-19 pandemic plays an important role in driving the growth of the CIAM market as “going digital” is now the norm and various vendors and service providers demand for CIAM to offer a frictionless customer experience and improve data security.
 

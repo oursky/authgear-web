@@ -5,7 +5,7 @@ excerpt: "The fact is, if you aren’t using multi-factor authentication (MFA), 
 coverImage: ./cover.jpg
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/what-is-multi-factor-authentication-mfa
+canonicalUrl: /post/what-is-multi-factor-authentication-mfa
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.363Z
 draft: false
@@ -17,8 +17,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/what-is-multi-factor-authentication-mfa/#webpage",
-														"url":"https://www.authgear.com/post/what-is-multi-factor-authentication-mfa"
+                            "@id":"/post/what-is-multi-factor-authentication-mfa/#webpage",
+														"url":"/post/what-is-multi-factor-authentication-mfa"
                         },
         "headline":"What Is Multi-factor Authentication (MFA) and How Does it Work?",
         "image":{
@@ -48,15 +48,7 @@ draft: false
     </script>
     
     
-    <style>
-    #table-of-content{max-width:720px;margin:auto;}
-    #table-of-content > ul {margin-top:17.83px}
-    #table-of-content > ul > li > ul {margin-bottom:0 !important}
-    #table-of-content > ul > li > ul > li {margin-top:15px}
-    .rich-text h3 {margin-top:0}
-    </style>
-
-In 2021, President Biden had MFA rolled out across the federal government as part of a plan to increase cybersecurity. This came after the US national cyber security chief argued that Multi-Factor Authentication could prevent 80-90% of cyber-attacks. As we stare down increasing threats, the effectiveness of MFA at enhancing online safety is quickly making it a cyber-security must.
+    In 2021, President Biden had MFA rolled out across the federal government as part of a plan to increase cybersecurity. This came after the US national cyber security chief argued that Multi-Factor Authentication could prevent 80-90% of cyber-attacks. As we stare down increasing threats, the effectiveness of MFA at enhancing online safety is quickly making it a cyber-security must.
 
 To understand more about MFA, how it works, and the benefits it provides, keep reading:
 

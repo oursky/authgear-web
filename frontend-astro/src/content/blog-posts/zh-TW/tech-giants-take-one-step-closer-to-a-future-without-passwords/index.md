@@ -4,7 +4,7 @@ excerpt: "Apple, Google, and Microsoft have committed to make passwords a thing 
 coverImage: ./cover.png
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/tech-giants-take-one-step-closer-to-a-future-without-passwords
+canonicalUrl: /post/tech-giants-take-one-step-closer-to-a-future-without-passwords
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.324Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/tech-giants-take-one-step-closer-to-a-future-without-passwords#webpage",
-														"url":"https://www.authgear.com/post/tech-giants-take-one-step-closer-to-a-future-without-passwords"
+                            "@id":"/post/tech-giants-take-one-step-closer-to-a-future-without-passwords#webpage",
+														"url":"/post/tech-giants-take-one-step-closer-to-a-future-without-passwords"
                         },
         "headline":"Tech Giants Take One Step Closer to a Future without Passwords",
         "image":{

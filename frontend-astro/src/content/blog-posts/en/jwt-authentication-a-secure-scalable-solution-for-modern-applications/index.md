@@ -99,42 +99,6 @@ By following this process, JWT authentication provides a streamlined and secure 
 
 While JWT authentication is a powerful tool for secure and efficient communication, it’s important to understand its strengths and limitations to determine if it’s the right fit for your needs.
 
-<style>
-.table_component {
-    overflow: auto;
-    width: 100%;
-}
-
-.table_component table {
-    border: 1px solid #dededf;
-    height: 100%;
-    width: 720px;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border-spacing: 1px;
-    text-align: left;
-    margin;0 auto;
-}
-
-.table_component caption {
-    caption-side: top;
-    text-align: left;
-}
-
-.table_component th {
-    border: 1px solid #dededf;
-    background-color: #eceff1;
-    color: #000000;
-    padding: 5px;
-}
-
-.table_component td {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-</style>
 <div class="table_component" role="region" tabindex="0">
 <table>
     <thead>
@@ -175,42 +139,6 @@ While JWT authentication is widely used, it’s not the only option for securing
 
 #### Alternatives Overview:
 
-<style>
-.table_component {
-    overflow: auto;
-    width: 100%;
-}
-
-.table_component table {
-    border: 1px solid #dededf;
-    height: 100%;
-    width: 720px;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border-spacing: 1px;
-    text-align: left;
-    margin:0 auto;
-}
-
-.table_component caption {
-    caption-side: top;
-    text-align: left;
-}
-
-.table_component th {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-
-.table_component td {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-</style>
 <div class="table_component" role="region" tabindex="0">
 <table>
     <thead>

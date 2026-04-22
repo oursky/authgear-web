@@ -516,7 +516,7 @@ If you do decide to build your own, use this guide as a checklist — and be hon
 <tr><td>Cookies</td><td><code>HttpOnly</code>, <code>Secure</code>, <code>SameSite=Strict</code></td><td>All three flags set</td></tr>
 <tr><td>HTTPS</td><td>All auth traffic over TLS</td><td>No exceptions</td></tr>
 </tbody>
-</table>
+</table></div>
 
 ## 10. Frequently Asked Questions
 

@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Authentication-as-a-Service: What Is It and Why You Need It"
 metaDescription: "By integrating their apps or software with authentication-as-a-service solution, businesses can provide frictinoless signup/login experiences and more"
-canonicalUrl: https://www.authgear.com/post/authentication-as-a-service
+canonicalUrl: /post/authentication-as-a-service
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:17.651Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/authentication-as-a-service#webpage",
-														"url":"https://www.authgear.com/post/authentication-as-a-service"
+                            "@id":"/post/authentication-as-a-service#webpage",
+														"url":"/post/authentication-as-a-service"
                         },
         "headline":"Authentication-as-a-Service: What Is It and Why You Need It",
         "image":{

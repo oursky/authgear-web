@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "What Is SMS Authentication and Should You Implement It?"
 metaDescription: "SMS authentication is one of the most common methods of authentication that verifies user identity via text messages."
-canonicalUrl: https://www.authgear.com/post/sms-authentication-should-you-implement
+canonicalUrl: /post/sms-authentication-should-you-implement
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:36:33.494Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/sms-authentication-should-you-implement#webpage",
-														"url":"https://www.authgear.com/post/sms-authentication-should-you-implement"
+                            "@id":"/post/sms-authentication-should-you-implement#webpage",
+														"url":"/post/sms-authentication-should-you-implement"
                         },
         "headline":"What Is SMS Authentication and Should You Implement It?",
         "image":{

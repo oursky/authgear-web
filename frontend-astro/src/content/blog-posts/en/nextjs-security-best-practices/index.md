@@ -386,4 +386,4 @@ Implementing authentication securely from scratch is hard. You need to handle se
       <td>✅ / ❌</td>
     </tr>
   </tbody>
-</table>
+</table></div>

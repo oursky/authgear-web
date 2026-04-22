@@ -4,7 +4,7 @@ excerpt: "Explore how enriching user profiles work, their benefits, and how you 
 coverImage: ./cover.png
 category: engineering
 featured: false
-canonicalUrl: https://www.authgear.com/post/how-profile-enrichment-can-boost-your-product
+canonicalUrl: /post/how-profile-enrichment-can-boost-your-product
 publishedAt: 2025-10-17T14:55:41.222Z
 updatedAt: 2025-10-17T14:55:41.222Z
 draft: false

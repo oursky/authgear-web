@@ -5,7 +5,7 @@ excerpt: "Understand session-based vs token-based authentication, cookies vs JWT
 coverImage: ./cover.jpg
 category: highlight
 featured: false
-canonicalUrl: https://www.authgear.com/post/session-vs-token-authentication
+canonicalUrl: /post/session-vs-token-authentication
 publishedAt: 2025-10-17T14:55:41.312Z
 updatedAt: 2026-02-28T12:45:07.915Z
 draft: true
@@ -17,8 +17,8 @@ draft: true
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/session-vs-token-authentication/#webpage",
-														"url":"https://www.authgear.com/post/session-vs-token-authentication"
+                            "@id":"/post/session-vs-token-authentication/#webpage",
+														"url":"/post/session-vs-token-authentication"
                         },
         "headline":"Session vs Token Authentication",
         "image":{
@@ -33,16 +33,7 @@ draft: true
     }
     </script>
     
-    <style>
-.cta-v2{
-    margin-top:20px;
-    margin-bottom:48px
-    }
-
-    
-</style>
-
-The choice between session-based vs token-based authentication defines your application's scalability and security. Session authentication is stateful, relying on server-side memory and cookies, making it ideal for single-domain web apps. In contrast, token-based authentication (JWT) is stateless and mobile-ready, passing credentials via authorization headers. This guide compares both methods across security (CSRF vs. XSS), performance, and implementation complexity to help you choose the right architecture for your stack.
+    The choice between session-based vs token-based authentication defines your application's scalability and security. Session authentication is stateful, relying on server-side memory and cookies, making it ideal for single-domain web apps. In contrast, token-based authentication (JWT) is stateless and mobile-ready, passing credentials via authorization headers. This guide compares both methods across security (CSRF vs. XSS), performance, and implementation complexity to help you choose the right architecture for your stack.
 
 There are two main ways to do user authentication on the web, sessions and tokens.
 
@@ -240,7 +231,7 @@ The table below summarizes the differences between session and token authenticat
         <td>APIs, SPAs, mobile, multi-domain or microservices.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 *Notes:* “CSRF risk” is about the browser sending credentials automatically; “XSS risk” is about arbitrary script stealing/using credentials.
   Using `HttpOnly` cookies reduces token theft but does not eliminate XSS—pair with CSP and sanitization. If you must use JS storage, keep tokens short-lived and rotate.

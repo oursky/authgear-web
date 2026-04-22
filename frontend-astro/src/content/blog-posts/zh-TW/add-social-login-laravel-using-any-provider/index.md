@@ -248,7 +248,6 @@ public function handleRedirect() {
 	}
 }
 
-
 ```
 
 The code we just added exchanges the authorization code from the provider for an access token. It then uses the access token to request the current user’s information from Authgear.

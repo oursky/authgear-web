@@ -17,8 +17,6 @@ faq:
   - q: "What is the best Ping Identity alternative for multi-national enterprises?"
     a: "The best alternative depends on your specific use case:
 
-
-
 - **Mobile-first with passwordless authentication:** Authgear
 
 - **Microsoft-centric environments:** Microsoft Entra ID
@@ -27,23 +25,17 @@ faq:
 
 - **Developer-first customer CIAM:** Auth0 or Stytch
 
-
-
 Evaluate vendors using the criteria in this guide based on your mobile-first, multi-region, and compliance requirements."
   - q: "How long does it take to migrate from Ping Identity to a new platform?"
     a: "Typical migration timelines range from 8-12 weeks for POC and initial rollout, with phased expansion taking an additional 4-8 weeks. Timeline depends on complexity of existing integrations, number of users, and regional requirements. See the migration playbook section for detailed phases."
   - q: "What certifications should I look for in a Ping Identity alternative?"
     a: "Key certifications include:
 
-
-
 - **ISO 27001** (information security management)
 
 - **SOC 2 Type II** (security, availability, confidentiality)
 
 - **Regional certifications** (e.g., EU Cloud Code of Conduct, APAC-specific standards)
-
-
 
 Verify that certifications cover the specific regions where you'll host data."
   - q: "Can passwordless authentication work for mobile workforces?"
@@ -461,7 +453,7 @@ Note: Scores use the 1-5 rubric. Focus on mobile-first/multi-region fit.
           <td>IAM features</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 This matrix highlights the trade-offs between vendors for mobile-first usability, and multi-region hosting options.
 

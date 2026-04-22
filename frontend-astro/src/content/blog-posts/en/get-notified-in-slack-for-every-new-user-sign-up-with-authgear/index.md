@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Get Notified in Slack for Every New User Sign Up With Authgear"
 metaDescription: "This article will guide you through the process of integrating Authgear's Hooks and Events with Slack to send immediate notifications in Slack when a new user signs up."
-canonicalUrl: https://www.authgear.com/post/get-notified-in-slack-for-every-new-user-sign-up-with-authgear
+canonicalUrl: /post/get-notified-in-slack-for-every-new-user-sign-up-with-authgear
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:33:54.751Z
 draft: false

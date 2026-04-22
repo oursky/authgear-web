@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Password Spraying: What It Is and How to Prevent It?"
 metaDescription: "Learn more about password spraying and the different methods to protect your users from it with Authgear."
-canonicalUrl: https://www.authgear.com/post/password-spraying
+canonicalUrl: /post/password-spraying
 publishedAt: 2026-02-12T02:41:55.931Z
 updatedAt: 2026-02-12T02:36:01.268Z
 draft: false
@@ -18,8 +18,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/password-spraying#webpage",
-														"url":"https://www.authgear.com/post/password-spraying"
+                            "@id":"/post/password-spraying#webpage",
+														"url":"/post/password-spraying"
                         },
         "headline":"Password Spraying: What It Is and How to Prevent It?",
         "image":{
@@ -49,15 +49,6 @@ draft: false
 </script>
     
     
-<style>
-#table-of-content{max-width:720px;margin:auto;}
-#table-of-content > ul {margin-top:17.83px}
-#table-of-content > ul > li > ul {margin-bottom:0 !important}
-#table-of-content > ul > li > ul > li {margin-top:15px}
-.rich-text h3 {margin-top:0}
-.cta-v2{margin-top:20px;margin-bottom:48px}
-</style>
-
 The meteoric rise of cybercrime has been unprecedented, with the world now expected to lose a staggering <a href="https://www.analyticsinsight.net/online-industries-most-targeted-by-cyber-attacks/" target="_blank">$10.5 trillion</a> to attackers by 2025. Cybercriminals have no shortage of methods to choose from when looking to exploit their victims. But the most successful involves passwords. As much as <a href="https://financesonline.com/password-statistics/" target="_blank">81 percent</a> of all business data breaches are the result of poor passwords.
 
 In particular, attackers love to use a technique called password spraying, whose success rate is surprisingly high. So, what is password spraying, and how can organizations prevent it? This guide provides an overview of this attack and the steps that users and organizations can take to protect their digital assets from a password spray attack.

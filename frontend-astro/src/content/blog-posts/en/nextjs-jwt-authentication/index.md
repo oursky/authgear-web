@@ -70,7 +70,7 @@ Before writing any middleware, decide where the JWT lives on the client. The two
           <td>Yes</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
 The recommendation is clear: use **httpOnly cookies**.
 

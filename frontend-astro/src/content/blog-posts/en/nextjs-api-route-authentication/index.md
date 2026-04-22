@@ -191,7 +191,7 @@ The `currentUser()` helper works the same way in React Server Components, Route 
 
 Authentication answers "who is this user?" Authorization answers "what are they allowed to do?" Once you have a validated session, you can check the user's roles from their claims to implement role-based access control.
 
-Authgear exposes roles via the `https://authgear.com/claims/user/roles` claim — an array of role strings returned in the userinfo response. Here's an admin-only endpoint that returns `403 Forbidden` for authenticated users who don't have the `admin` role:
+Authgear exposes roles via the `/claims/user/roles` claim — an array of role strings returned in the userinfo response. Here's an admin-only endpoint that returns `403 Forbidden` for authenticated users who don't have the `admin` role:
 
 ```typescript
 // app/api/admin/users/route.ts
@@ -211,9 +211,9 @@ export async function GET() {
   }
 
   // Step 2: Check authorization
-  // Authgear returns roles in the https://authgear.com/claims/user/roles claim.
+  // Authgear returns roles in the /claims/user/roles claim.
   // Assign roles to users in the Authgear portal under Users > Roles & Groups.
-  const roles = user["https://authgear.com/claims/user/roles"] as string[] | undefined;
+  const roles = user["/claims/user/roles"] as string[] | undefined;
 
   if (!roles?.includes("admin")) {
     return NextResponse.json(
@@ -331,7 +331,7 @@ See the [Next.js middleware authentication guide](/post/nextjs-middleware-authen
         <td>Use a library or SDK that validates expiry automatically</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
 ## FAQ
 

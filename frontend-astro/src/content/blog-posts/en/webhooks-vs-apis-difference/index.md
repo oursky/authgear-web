@@ -87,7 +87,7 @@ Because webhooks only fire when events occur, they are far more efficient than p
 
 ## Webhooks vs APIs: Key Differences
 
-<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Feature</th><th>API</th><th>Webhook</th></tr></thead><tbody><tr><td>Communication model</td><td>Request–response</td><td>Event-driven</td></tr><tr><td>Initiator</td><td>Client</td><td>Server</td></tr><tr><td>Data flow</td><td>Pull</td><td>Push</td></tr><tr><td>Timing</td><td>On-demand</td><td>Real-time</td></tr><tr><td>Primary use case</td><td>Data access and operations</td><td>Event notifications</td></tr><tr><td>HTTP methods</td><td>GET, POST, PUT, DELETE</td><td>POST</td></tr></tbody></table>
+<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Feature</th><th>API</th><th>Webhook</th></tr></thead><tbody><tr><td>Communication model</td><td>Request–response</td><td>Event-driven</td></tr><tr><td>Initiator</td><td>Client</td><td>Server</td></tr><tr><td>Data flow</td><td>Pull</td><td>Push</td></tr><tr><td>Timing</td><td>On-demand</td><td>Real-time</td></tr><tr><td>Primary use case</td><td>Data access and operations</td><td>Event notifications</td></tr><tr><td>HTTP methods</td><td>GET, POST, PUT, DELETE</td><td>POST</td></tr></tbody></table></div>
 
 The core distinction is who initiates communication. With APIs, your system asks for data. With webhooks, the other system tells you when something happens.
 

@@ -59,7 +59,7 @@ Before walking through the flow, it helps to know the four parties involved:
       <td>Google Calendar API</td>
     </tr>
   </tbody>
-</table>
+</table></div>
 
 ## The OAuth 2.0 Authorization Code Flow: Step by Step
 
@@ -89,9 +89,9 @@ Key parameters:
 <ul>
   <li><code>client_id</code> — identifies your app to the authorization server</li>
   <li><code>redirect_uri</code> — where to send the user after they approve</li>
-  <li><code>scope</code> — what access you're requesting (e.g. <code>calendar.readonly</code>). Note: adding <code>openid</code> to the scope activates <a href='https://www.authgear.com/post/oidc-vs-saml'>OpenID Connect</a> on top of OAuth 2.0 — useful when you also need to identify the user.</li>
+  <li><code>scope</code> — what access you're requesting (e.g. <code>calendar.readonly</code>). Note: adding <code>openid</code> to the scope activates <a href='/post/oidc-vs-saml'>OpenID Connect</a> on top of OAuth 2.0 — useful when you also need to identify the user.</li>
   <li><code>state</code> — a random value to prevent CSRF attacks</li>
-  <li><code>code_challenge</code> — part of the <a href='https://www.authgear.com/post/pkce-in-oauth-2-0'>PKCE extension</a> (required for public clients)</li>
+  <li><code>code_challenge</code> — part of the <a href='/post/pkce-in-oauth-2-0'>PKCE extension</a> (required for public clients)</li>
 </ul>
 
 ### Step 2: The User Logs In and Grants Consent
@@ -200,7 +200,7 @@ The Authorization Code flow above is just one of several OAuth 2.0 grant types. 
       <td>❌ Avoid — superseded by Auth Code + PKCE</td>
     </tr>
   </tbody>
-</table>
+</table></div>
 
 For a deeper explanation of each grant type and when to use them, see our guide on [OAuth 2.0 grant types](/post/common-oauth-2-0-grant-types).
 
@@ -248,7 +248,7 @@ In practice: when you add `scope=openid` to your OAuth 2.0 request, you're using
       <td>Letting users "log in" to your app</td>
     </tr>
   </tbody>
-</table>
+</table></div>
 
 Most modern implementations use both together. For a deeper comparison with SAML, see [OIDC vs SAML](/post/oidc-vs-saml). You can also inspect any OIDC provider's configuration using the [OIDC Discovery Endpoint Explorer](/tools/oidc-discovery-endpoint).
 

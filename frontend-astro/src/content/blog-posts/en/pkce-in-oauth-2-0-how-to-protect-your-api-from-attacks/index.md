@@ -73,43 +73,6 @@ PKCE is a security extension primarily designed to protect against authorization
 
 On the other hand, JWT is a standard for representing claims securely and compactly. It is often used to transmit information between parties, such as user identity, permissions, and other relevant data. JWT is a three-part token consisting of a header, payload, and signature. The header contains metadata, the payload contains claims, and the signature verifies the token's authenticity.
 
-<style>
-.table_component {
-    overflow: auto;
-    width: 100%;
-    margin:0 auto;
-}
-
-.table_component table {
-    border: 1px solid #dededf;
-    height: 100%;
-    width: 720px;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border-spacing: 1px;
-    text-align: left;
-    margin:0 auto;
-}
-
-.table_component caption {
-    caption-side: top;
-    text-align: left;
-}
-
-.table_component th {
-    border: 1px solid #dededf;
-    background-color: #eceff1;
-    color: #000000;
-    padding: 5px;
-}
-
-.table_component td {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-</style>
 <div class="table_component" role="region" tabindex="0">
 <table>
     <thead>

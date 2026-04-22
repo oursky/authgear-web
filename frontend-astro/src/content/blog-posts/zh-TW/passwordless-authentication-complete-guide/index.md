@@ -4,7 +4,7 @@ excerpt: "Learn more about why passwordless authentication has been adopted by a
 coverImage: ./cover.png
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/passwordless-authentication-complete-guide
+canonicalUrl: /post/passwordless-authentication-complete-guide
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.285Z
 draft: false
@@ -46,14 +46,7 @@ draft: false
     }
     </script>
     
-    <style>
-.cta-v2{
-    margin-top:20px;
-    margin-bottom:48px
-    }
-</style>
-
-Passwordless authentication includes all authentication methods that verify users’ identities without asking users to enter their passwords. Examples of passwordless authentication include biometrics, such as fingerprint and face recognition, physical security token key, magic link, etc.
+    Passwordless authentication includes all authentication methods that verify users’ identities without asking users to enter their passwords. Examples of passwordless authentication include biometrics, such as fingerprint and face recognition, physical security token key, magic link, etc.
 
 Even though they are not completely safe from hacking, passwordless authentication methods are still superior over password authentication in several ways and all kinds of applications, whether commercial or enterprise, have adopted password authentication.
 

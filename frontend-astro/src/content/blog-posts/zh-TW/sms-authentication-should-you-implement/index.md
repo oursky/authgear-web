@@ -4,7 +4,7 @@ excerpt: "SMS authentication is one of the most common methods of authentication
 coverImage: ./cover.png
 category: industry
 featured: false
-canonicalUrl: https://www.authgear.com/post/sms-authentication-should-you-implement
+canonicalUrl: /post/sms-authentication-should-you-implement
 publishedAt: 2025-10-29T19:12:41.468Z
 updatedAt: 2025-10-17T14:55:41.318Z
 draft: false
@@ -16,8 +16,8 @@ draft: false
         "@type":"NewsArticle",
         "mainEntityOfPage":{
                             "@type":"WebPage",
-                            "@id":"https://www.authgear.com/post/sms-authentication-should-you-implement#webpage",
-														"url":"https://www.authgear.com/post/sms-authentication-should-you-implement"
+                            "@id":"/post/sms-authentication-should-you-implement#webpage",
+														"url":"/post/sms-authentication-should-you-implement"
                         },
         "headline":"What Is SMS Authentication and Should You Implement It?",
         "image":{
