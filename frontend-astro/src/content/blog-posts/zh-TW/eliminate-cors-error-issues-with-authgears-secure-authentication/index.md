@@ -5,7 +5,7 @@ excerpt: "Struggling with cors error challenges? Discover how Authgear’s one-t
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2025-10-17T14:55:41.207Z
 updatedAt: 2026-02-16T12:35:35.786Z
 draft: false
 ---

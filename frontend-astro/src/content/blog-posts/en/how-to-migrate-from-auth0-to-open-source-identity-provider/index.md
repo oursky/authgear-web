@@ -7,7 +7,7 @@ category: highlight
 featured: true
 metaTitle: "How to Migrate From Auth0 to an Open-Source Identity Provider: A Complete Step-by-Step Guide"
 metaDescription: "Learn how to migrate from Auth0 to an open-source identity provider with this step-by-step guide. Covers planning, data export, implementation, SDK updates, testing, and go-live best practices."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-12-16T17:40:16.768Z
 updatedAt: 2026-02-12T02:35:14.212Z
 draft: false
 ---

@@ -4,7 +4,7 @@ excerpt: "Learn what SCIM provisioning is, how it works, its benefits and drawba
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2025-12-03T19:35:46.787Z
+publishedAt: 2025-12-01T14:57:25.419Z
 updatedAt: 2026-02-28T12:55:40.199Z
 draft: true
 ---

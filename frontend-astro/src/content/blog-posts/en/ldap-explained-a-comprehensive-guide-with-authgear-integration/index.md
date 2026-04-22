@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "LDAP: Beyond the Basics: A Deeper Dive into Directory Services"
 metaDescription: "Discover everything you need to know about LDAP, from its fundamentals to its integration with modern authentication solutions like Authgear. Learn about LDAP's benefits, challenges, and how to enhance its security."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2024-11-12T09:55:32.279Z
 updatedAt: 2026-02-12T02:35:14.216Z
 draft: false
 ---

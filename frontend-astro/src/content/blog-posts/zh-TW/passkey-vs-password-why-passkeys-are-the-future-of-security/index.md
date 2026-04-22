@@ -5,7 +5,7 @@ excerpt: "Tired of weak passwords and constant security threats? Discover the ad
 coverImage: ./cover.jpg
 category: industry
 featured: true
-publishedAt: 2026-03-05T00:19:41.001Z
+publishedAt: 2025-10-17T14:55:41.273Z
 updatedAt: 2026-03-05T00:19:41.001Z
 draft: false
 ---

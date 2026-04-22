@@ -11,4 +11,10 @@ export default defineConfig({
   vite: { plugins: [tailwindcss()] },
   trailingSlash: 'ignore',
   build: { format: 'directory' },
+  markdown: {
+    shikiConfig: {
+      theme: 'github-light',
+      wrap: false,
+    },
+  },
 });

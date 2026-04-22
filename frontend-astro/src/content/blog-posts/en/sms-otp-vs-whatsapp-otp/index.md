@@ -6,7 +6,7 @@ category: case-studies
 featured: false
 metaTitle: "SMS OTP vs WhatsApp OTP: Which Is Better for Auth?"
 metaDescription: "Compare SMS OTP and WhatsApp OTP on cost, security, and deliverability. Real savings data across 219 countries — and when each makes sense."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-17T16:40:50.355Z
 updatedAt: 2026-03-19T21:15:36.438Z
 draft: false
 ---

@@ -6,7 +6,7 @@ category: industry
 featured: true
 metaTitle: "OIDC vs SAML: When to Use Each for Modern SSO"
 metaDescription: "OIDC and SAML are two widely used protocols for implementing Single Sign-On. Click here and explore how they work, key differences, and when to choose each."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2024-01-15T02:47:30.082Z
 updatedAt: 2026-02-12T02:35:14.202Z
 draft: false
 ---

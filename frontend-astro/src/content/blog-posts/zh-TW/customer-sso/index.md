@@ -6,7 +6,7 @@ coverImage: ./cover.png
 category: industry
 featured: false
 canonicalUrl: /post/customer-sso
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2025-10-17T14:55:41.199Z
 updatedAt: 2026-02-28T12:51:35.500Z
 draft: false
 ---

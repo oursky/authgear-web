@@ -5,7 +5,7 @@ coverImage: ./cover.png
 category: industry
 featured: false
 canonicalUrl: /post/passwordless-authentication-complete-guide
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.285Z
 updatedAt: 2025-10-17T14:55:41.285Z
 draft: false
 ---

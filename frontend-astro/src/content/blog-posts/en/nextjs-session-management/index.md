@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Next.js Session Management: Cookies, JWTs & Tokens"
 metaDescription: "Learn how Next.js session management works with cookies and JWTs in the App Router. Covers httpOnly cookies, jose, token rotation, middleware, and logout."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-27T15:28:51.407Z
 updatedAt: 2026-03-27T15:32:23.137Z
 draft: false
 faq:

@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Extended Enterprise and Identity & Access Management: The Challenges & Solutions"
 metaDescription: "Extended enterprise, including customers, partners, contractors, etc., poses some new identity & access challenges for businesses. Learn more about the challenges and solutions."
 canonicalUrl: /post/extended-enterprise-identity-and-access-management
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2022-10-21T10:16:56.770Z
 updatedAt: 2026-02-12T02:33:54.761Z
 draft: false
 ---

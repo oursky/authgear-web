@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "OTP Bots Explained: How Hackers Steal One-Time Passwords"
 metaDescription: "Learn what OTP bots are, how they bypass SMS 2FA, and how developers can stop OTP fraud with CAPTCHAs and Authgear's SMS pumping protection."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-03-10T08:02:53.485Z
 updatedAt: 2026-02-12T02:35:14.220Z
 draft: false
 ---

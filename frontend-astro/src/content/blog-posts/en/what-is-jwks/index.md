@@ -7,7 +7,7 @@ featured: false
 readTime: 6
 metaTitle: "What Is JWKS? JSON Web Key Set and JWKS URI Explained"
 metaDescription: "Learn what JWKS is, how JWKS URI works, JWK format examples, and practical tips to generate and manage keys for secure token verification."
-publishedAt: 2026-03-06T15:48:01.615Z
+publishedAt: 2025-08-14T11:39:55.480Z
 updatedAt: 2026-03-05T16:38:41.916Z
 draft: false
 ---

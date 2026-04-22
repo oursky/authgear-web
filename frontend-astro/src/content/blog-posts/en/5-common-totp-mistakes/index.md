@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "5 Common TOTP Mistakes Developers Make (2026 Guide)"
 metaDescription: "TOTP not working? Fix 5 common developer mistakes — clock drift, Base32 format issues, RFC 6238 mismatches, and weak verification. Python and JS code examples."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2025-08-27T19:07:44.104Z
 updatedAt: 2026-03-05T12:11:18.399Z
 draft: false
 ---

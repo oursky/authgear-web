@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Best Self-Hosted SSO Platforms Compared: Authgear vs Keycloak vs Authentik"
 metaDescription: "Compare the top self-hosted SSO platforms in 2026. Learn how Authgear, Keycloak, and Authentik differ in features, deployment options, and enterprise readiness."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2026-02-11T08:47:19.221Z
 updatedAt: 2026-03-04T12:42:13.525Z
 draft: false
 ---

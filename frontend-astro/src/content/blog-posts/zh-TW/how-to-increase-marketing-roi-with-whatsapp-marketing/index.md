@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: industry
 featured: false
 canonicalUrl: /post/how-to-increase-marketing-roi-with-whatsapp-marketing
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.231Z
 updatedAt: 2025-10-17T14:55:41.231Z
 draft: false
 ---

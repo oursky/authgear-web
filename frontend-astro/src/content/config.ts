@@ -54,7 +54,7 @@ const whatsNew = defineCollection({
       excerpt: z.string(),
       coverImage: image(),
       publishedAt: z.coerce.date(),
-      canonicalUrl: z.string().url().optional(),
+      canonicalUrl: z.string().optional(),
       draft: z.boolean().default(false),
     }),
 });
@@ -72,7 +72,7 @@ const blogPosts = defineCollection({
       readTime: z.number().int().positive().optional(),
       metaTitle: z.string().optional(),
       metaDescription: z.string().optional(),
-      canonicalUrl: z.string().url().optional(),
+      canonicalUrl: z.string().optional(),
       publishedAt: z.coerce.date(),
       updatedAt: z.coerce.date().optional(),
       publishedAtOverride: z.coerce.date().optional(),

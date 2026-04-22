@@ -8,7 +8,7 @@ featured: false
 readTime: 10
 metaTitle: "The Complete Guide to Machine-to-Machine (M2M) Authentication"
 metaDescription: "Learn how M2M tokens work, implement OAuth 2.0 Client Credentials, host JWKS, rotate keys, and secure service-to-service authentication with examples in curl, Node, Python, and Go."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-08-22T14:59:07.157Z
 updatedAt: 2026-02-12T02:36:01.279Z
 draft: false
 ---

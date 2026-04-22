@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: industry
 featured: false
 canonicalUrl: /post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.329Z
 updatedAt: 2025-10-17T14:55:41.329Z
 draft: false
 ---

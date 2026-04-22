@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "IAM at Scale: Cost-Effective Identity Management for Large Frontline Teams"
 metaDescription: "Learn how to implement cost-effective IAM solutions at scale for large frontline teams, focusing on security, efficiency, and automation."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-20T17:08:31.155Z
 updatedAt: 2026-02-12T02:35:14.206Z
 draft: false
 ---

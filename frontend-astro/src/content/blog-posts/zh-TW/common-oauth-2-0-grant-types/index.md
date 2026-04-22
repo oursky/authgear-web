@@ -4,7 +4,7 @@ excerpt: "Learn about the most common OAuth 2.0 grant types, how they work, and 
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2026-01-06T11:44:37.197Z
+publishedAt: 2026-01-05T16:04:14.645Z
 updatedAt: 2026-01-06T11:44:37.197Z
 draft: false
 ---

@@ -5,7 +5,7 @@ coverImage: ./cover.png
 category: engineering
 featured: false
 canonicalUrl: /post/get-notified-in-slack-for-every-new-user-sign-up-with-authgear
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.217Z
 updatedAt: 2025-10-17T14:55:41.217Z
 draft: false
 ---

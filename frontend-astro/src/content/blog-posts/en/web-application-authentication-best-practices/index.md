@@ -6,7 +6,7 @@ category: highlight
 featured: false
 metaTitle: "6 Tips to Strengthen Your Security: Authentication Best Practices Guide"
 metaDescription: "Protect your web application and authentication server with expert guidance. Learn essential authentication best practices, including securing login processes, password management, and server protection. Discover how Authgear can simplify your authentication and enhance security."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2022-02-21T03:41:58.389Z
 updatedAt: 2026-02-12T02:33:17.635Z
 draft: false
 ---

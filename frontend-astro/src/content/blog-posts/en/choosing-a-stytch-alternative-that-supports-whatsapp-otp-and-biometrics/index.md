@@ -7,7 +7,7 @@ featured: false
 readTime: 12
 metaTitle: "Choosing a Stytch Alternative that Supports WhatsApp OTP and Biometrics"
 metaDescription: "Enterprise teams with mobile-first workforces are increasingly rethinking Stytch as they look for more predictable pricing, better WhatsApp OTP delivery, and stronger biometric authentication. This guide compares leading Stytch alternatives built for phone-first staff, explains how WhatsApp OTP and passkeys work together, and provides a practical framework for evaluating, implementing, and migrating to a modern mobile-first authentication stack."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-12T10:09:09.718Z
 updatedAt: 2026-02-12T02:33:54.731Z
 draft: false
 ---

@@ -4,7 +4,7 @@ excerpt: "Learn the differences between UUIDv1, UUIDv4, UUIDv6, and UUIDv7, and 
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2026-02-12T03:54:56.282Z
+publishedAt: 2026-02-11T16:27:11.943Z
 updatedAt: 2026-02-12T03:54:56.282Z
 draft: false
 ---

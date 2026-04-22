@@ -7,7 +7,7 @@ category: industry
 featured: true
 metaTitle: "Passkey vs Password: Are Passkeys Safer? (2026 Guide)"
 metaDescription: "Passkeys are replacing passwords. Learn how passkeys work, why they're safer, see 2026 adoption data, and how to implement passkeys in your app. Complete guide."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2024-07-30T10:09:33.187Z
 updatedAt: 2026-03-05T00:19:41.284Z
 draft: false
 faq:

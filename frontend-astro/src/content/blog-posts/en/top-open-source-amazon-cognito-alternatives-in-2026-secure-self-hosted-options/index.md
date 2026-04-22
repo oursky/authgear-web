@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Top Open-Source Amazon Cognito Alternatives in 2026: Secure & Self-Hosted Options"
 metaDescription: "Explore the best open-source Amazon Cognito alternatives in 2026. Compare features, deployment models, security, and use cases to choose the right identity solution for your team."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-20T07:01:57.080Z
 updatedAt: 2026-02-12T02:36:33.470Z
 draft: false
 ---

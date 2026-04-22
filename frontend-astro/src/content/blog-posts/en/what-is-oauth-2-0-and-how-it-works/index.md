@@ -7,7 +7,7 @@ featured: false
 readTime: 8
 metaTitle: "How OAuth 2.0 Works: A Developer's Guide (2026)"
 metaDescription: "Learn how OAuth 2.0 works step by step — authorization code flow, grant types, tokens, and how it compares to OIDC and JWT. With code examples."
-publishedAt: 2026-04-08T16:34:02.358Z
+publishedAt: 2023-08-30T13:51:45.552Z
 updatedAt: 2026-03-30T18:20:17.804Z
 draft: false
 ---

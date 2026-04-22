@@ -5,7 +5,7 @@ excerpt: "Learn how to migrate from Auth0 to an open-source identity provider wi
 coverImage: ./cover.jpg
 category: highlight
 featured: true
-publishedAt: 2025-12-16T17:56:26.774Z
+publishedAt: 2025-12-16T17:40:16.768Z
 updatedAt: 2025-12-16T17:52:12.479Z
 draft: false
 ---

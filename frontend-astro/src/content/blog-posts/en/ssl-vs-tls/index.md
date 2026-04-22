@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "SSL vs TLS: What's the Difference and Why It Matters"
 metaDescription: "SSL is dead, TLS is what you actually use. Learn the technical differences, the vulnerabilities that killed SSL, and how to check your server's TLS version."
-publishedAt: 2026-03-05T15:37:43.005Z
+publishedAt: 2026-03-05T15:10:28.757Z
 updatedAt: 2026-03-05T15:37:29.698Z
 draft: false
 ---

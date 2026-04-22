@@ -5,7 +5,7 @@ excerpt: "What 2025:A03 Software Supply Chain Failures means, how attacks happen
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2025-11-21T05:18:06.071Z
+publishedAt: 2025-11-12T16:37:01.972Z
 updatedAt: 2025-11-12T16:47:38.301Z
 draft: false
 ---

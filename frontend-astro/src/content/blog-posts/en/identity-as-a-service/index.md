@@ -7,7 +7,7 @@ featured: false
 metaTitle: "What Is Identity as a Service (IdaaS) And Why Does Your Business Need It?"
 metaDescription: "Learn more about identity as a service and how cloud-based IAM can provider better scalability, streamline access management, and deliver smoother user experience."
 canonicalUrl: /post/identity-as-a-service
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-06-13T06:41:29.160Z
 updatedAt: 2026-02-12T02:36:33.490Z
 draft: false
 ---

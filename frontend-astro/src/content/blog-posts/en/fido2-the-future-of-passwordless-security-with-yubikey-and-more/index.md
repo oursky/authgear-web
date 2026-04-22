@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "Understanding FIDO2: The Future of Passwordless Security"
 metaDescription: "Discover what is FIDO2, its advantages and disadvantages, and how FIDO2 security key devices like YubiKey enhance online protection. Learn about FIDO2 authentication and passkey compatibility for a secure, passwordless future."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-03-05T01:58:26.645Z
 updatedAt: 2026-02-12T02:33:54.736Z
 draft: false
 ---

@@ -5,7 +5,7 @@ excerpt: "What 2025:A10 Mishandling of Exceptional Conditions means, how unpredi
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2025-11-21T05:18:06.071Z
+publishedAt: 2025-11-13T14:44:32.260Z
 updatedAt: 2025-11-13T14:45:49.797Z
 draft: false
 ---

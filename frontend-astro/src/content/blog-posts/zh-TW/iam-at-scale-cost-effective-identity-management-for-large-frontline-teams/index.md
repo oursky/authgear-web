@@ -4,7 +4,7 @@ excerpt: "Learn how to implement cost-effective IAM solutions at scale for large
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-01-20T17:13:28.871Z
+publishedAt: 2026-01-20T17:08:31.155Z
 updatedAt: 2026-01-20T17:09:23.427Z
 draft: false
 ---

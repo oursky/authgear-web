@@ -7,7 +7,7 @@ featured: false
 readTime: 5
 metaTitle: "JWE vs JWT: Key Differences, Use Cases, and Security Tips"
 metaDescription: "Learn the differences between JWE and JWT, when to use each, and how to secure your tokens. Includes free debugging and key generation tools."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-08-13T15:22:59.516Z
 updatedAt: 2026-02-12T02:35:14.231Z
 draft: false
 ---

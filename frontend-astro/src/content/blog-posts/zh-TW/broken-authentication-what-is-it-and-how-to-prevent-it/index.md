@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: highlight
 featured: false
 canonicalUrl: /post/broken-authentication-what-is-it-and-how-to-prevent-it
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.187Z
 updatedAt: 2025-10-17T14:55:41.187Z
 draft: false
 ---

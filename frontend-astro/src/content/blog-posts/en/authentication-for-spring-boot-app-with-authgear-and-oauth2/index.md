@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Authentication for Spring Boot App with Authgear and OAuth2"
 metaDescription: "Learn how to add authentication to your Java Spring Boot application using OAuth2 with Authgear as the Identity Provider."
 canonicalUrl: /post/authentication-for-spring-boot-app-with-authgear-and-oauth2
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-07-12T06:42:04.582Z
 updatedAt: 2026-02-12T02:33:17.668Z
 draft: false
 ---

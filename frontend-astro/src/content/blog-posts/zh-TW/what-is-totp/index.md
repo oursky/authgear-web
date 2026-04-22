@@ -4,7 +4,7 @@ excerpt: "What is TOTP (Time-based One-Time Password)? A concise RFC 6238 explan
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2025-11-07T16:32:47.393Z
+publishedAt: 2025-10-17T14:55:41.369Z
 updatedAt: 2025-11-07T16:32:47.393Z
 draft: false
 ---

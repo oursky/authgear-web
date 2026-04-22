@@ -5,7 +5,7 @@ excerpt: "Discover how biometric authentication works, from fingerprints to faci
 coverImage: ./cover.jpg
 category: engineering
 featured: true
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.220Z
 updatedAt: 2025-10-17T14:55:41.220Z
 draft: false
 ---

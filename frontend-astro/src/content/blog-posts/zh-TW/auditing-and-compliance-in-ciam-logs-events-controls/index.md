@@ -4,7 +4,7 @@ excerpt: "Understand which CIAM logs, events, and security controls matter most 
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-01-28T20:46:03.874Z
+publishedAt: 2026-01-28T20:45:57.727Z
 updatedAt: 2026-01-28T20:46:03.874Z
 draft: false
 ---

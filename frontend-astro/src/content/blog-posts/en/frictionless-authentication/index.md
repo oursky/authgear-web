@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Frictionless Authentication: What Is It & How To Implement It?"
 metaDescription: "Learn more about frictionless authentication and how to achieve it with passwordless innovations, practical strategies, and forward-thinking approaches to enhance user experience and security."
 canonicalUrl: /post/frictionless-authentication
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-05-15T03:27:15.290Z
 updatedAt: 2026-02-12T02:33:54.746Z
 draft: false
 ---

@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Password Hashing: How to Pick the Right Hashing Function"
 metaDescription: "Almost all popular online services use some form of hash technique to store passwords securely. In this post we cover the different hashing functions, best practices and how to pick the best one for your application and organisation."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2024-07-23T10:59:38.140Z
 updatedAt: 2026-02-12T02:36:01.247Z
 draft: false
 ---

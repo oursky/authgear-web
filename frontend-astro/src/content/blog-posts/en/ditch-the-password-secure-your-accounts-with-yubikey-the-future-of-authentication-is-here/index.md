@@ -6,7 +6,7 @@ category: industry
 featured: true
 metaTitle: "Ditch the Password, Secure Your Accounts with YubiKey: The Future of Authentication is Here"
 metaDescription: "In today's digital world, our online identities are more important than ever. Protecting them with strong passwords feels like a constant, uphill battle. But what if there was a better way? Enter the YubiKey, a powerful hardware authentication device that offers unmatched security and convenience."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2024-02-09T08:04:21.849Z
 updatedAt: 2026-02-12T02:33:54.741Z
 draft: false
 ---

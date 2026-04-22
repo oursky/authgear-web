@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Zero-Trust Security on Personal Devices: Protecting Frontline Apps"
 metaDescription: "Learn how Zero-Trust security protects frontline applications on personal devices. Explore core principles, authentication strategies, device trust, and access controls for modern workforces."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-12T19:24:19.959Z
 updatedAt: 2026-02-12T02:36:33.493Z
 draft: false
 ---

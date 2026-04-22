@@ -5,7 +5,7 @@ coverImage: ./cover.webp
 category: engineering
 featured: false
 readTime: 8
-publishedAt: 2026-04-08T16:34:02.358Z
+publishedAt: 2025-10-17T14:55:41.365Z
 updatedAt: 2026-03-30T18:20:17.809Z
 draft: false
 ---

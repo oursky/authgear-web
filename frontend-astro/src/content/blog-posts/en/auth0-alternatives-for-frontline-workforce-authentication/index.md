@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Auth0 Alternatives for Frontline Workforce Authentication"
 metaDescription: "Compare the leading open-source MFA solutions for enterprise internal applications. Discover self-hosted authentication platforms that support modern MFA for financial institutions, government organizations, and businesses."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-02-11T08:48:32.582Z
 updatedAt: 2026-02-12T02:33:17.657Z
 draft: false
 faq:

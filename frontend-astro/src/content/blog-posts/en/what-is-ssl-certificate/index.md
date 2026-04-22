@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "What Is an SSL Certificate? A Developer's Guide"
 metaDescription: "Learn what an SSL certificate is, how HTTPS encryption works, the 3 types of certificates (DV, OV, EV), and how to inspect your own certificate."
-publishedAt: 2026-03-05T15:37:43.005Z
+publishedAt: 2026-03-05T15:09:12.884Z
 updatedAt: 2026-03-05T15:37:24.768Z
 draft: false
 ---

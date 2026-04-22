@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Passwordless Authentication: Magic Links vs Passkeys vs OTP"
 metaDescription: "Compare magic links, passkeys, and OTP for passwordless authentication. Learn how each works, their security trade-offs, and best practices for implementation."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2026-02-24T10:16:05.061Z
 updatedAt: 2026-02-24T10:21:05.552Z
 draft: false
 ---

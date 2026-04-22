@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "How Much Does Two-Factor Authentication Cost? (2026)"
 metaDescription: "Understand the real cost of 2FA — SMS OTP, WhatsApp, TOTP, passkeys, and auth platforms. See monthly cost tables at different MAU scales."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-17T16:54:57.184Z
 updatedAt: 2026-03-19T21:16:27.848Z
 draft: false
 ---

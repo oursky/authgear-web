@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Supabase Auth vs Authgear for Next.js (2026 Guide)"
 metaDescription: "Compare Supabase Auth and Authgear for Next.js apps. Side-by-side feature table, code examples, and a clear guide to picking the right auth solution."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-27T15:30:07.472Z
 updatedAt: 2026-03-30T16:58:12.782Z
 draft: false
 faq:
@@ -159,7 +159,8 @@ export async function createClient() {
 
 **4. Protect a route** using `getClaims()` — not `getSession()` — in server code. `getClaims()` validates the JWT signature against the project's published public keys on every call. `getSession()` does not revalidate the token and must not be used for access control on the server.
 
-<pre><code class='language-typescript'>// src/app/dashboard/page.tsx
+```typescript
+// src/app/dashboard/page.tsx
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
@@ -174,6 +175,8 @@ export default async function DashboardPage() {
   return <div>Welcome, {data.claims.sub}
 
 You also need a middleware file to refresh expired tokens on every request — see the <a href="https://supabase.com/docs/guides/auth/server-side/nextjs" target="_blank" rel="noopener">Supabase Next.js server-side auth docs</a> for the full middleware example.
+```
+
 
 ### Authgear in Next.js
 
@@ -222,7 +225,8 @@ export const { GET, POST } = createAuthgearHandlers(authgearConfig);
 
 **5. Protect a route** using `currentUser()`:
 
-<pre><code class='language-typescript'>// src/app/dashboard/page.tsx
+```typescript
+// src/app/dashboard/page.tsx
 import { redirect } from "next/navigation";
 import { currentUser } from "@authgear/nextjs/server";
 import { authgearConfig } from "@/lib/authgear";
@@ -237,6 +241,8 @@ export default async function DashboardPage() {
   return <div>Welcome, {user.sub}
 
 Full step-by-step instructions are available in the <a href="https://docs.authgear.com/get-started/regular-web-app/nextjs" target="_blank" rel="noopener">Authgear Next.js quickstart guide</a>.
+```
+
 
 ### Key Setup Differences
 

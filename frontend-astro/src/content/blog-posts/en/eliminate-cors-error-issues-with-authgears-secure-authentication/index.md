@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "How to Fix \"strict-origin-when-cross-origin\" Referrer Policy | CORS Error"
 metaDescription: "To fix the strict-origin-when-cross-origin status, update your Referrer-Policy to no-referrer-when-downgrade or configure server CORS headers."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2025-03-14T09:47:09.074Z
 updatedAt: 2026-02-16T12:35:35.782Z
 draft: false
 ---

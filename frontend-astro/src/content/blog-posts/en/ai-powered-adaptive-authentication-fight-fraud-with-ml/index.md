@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "AI-Powered Adaptive Authentication: Using Machine Learning to Fight Fraud"
 metaDescription: "Learn how AI-driven adaptive authentication detects anomalies, reduces fraud, and secures logins. See how machine learning adapts to evolving threats."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-04-22T08:21:32.475Z
 updatedAt: 2026-02-12T02:33:17.646Z
 draft: false
 ---

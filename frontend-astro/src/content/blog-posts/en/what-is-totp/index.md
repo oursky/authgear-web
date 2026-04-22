@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "What is TOTP? A short guide for developers (RFC 6238 explained)"
 metaDescription: "What is TOTP (Time-based One-Time Password)? A concise RFC 6238 explanation for developers with code examples (Node, Python, Go), troubleshooting tips, and a free online TOTP tool."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-08-27T18:26:20.647Z
 updatedAt: 2026-02-12T02:36:33.462Z
 draft: false
 ---

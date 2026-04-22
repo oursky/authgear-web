@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "What Is FIDO2? Complete Guide to FIDO Authentication"
 metaDescription: "Learn what FIDO2 is, how FIDO authentication works, and why it replaces passwords with cryptographic keys. Covers WebAuthn, passkeys, and implementation basics."
-publishedAt: 2026-03-13T17:54:05.976Z
+publishedAt: 2026-03-10T18:59:49.213Z
 updatedAt: 2026-03-13T17:54:05.976Z
 draft: false
 ---

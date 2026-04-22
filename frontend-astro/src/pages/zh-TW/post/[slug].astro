@@ -1,18 +1,109 @@
 ---
-import { getCollection } from 'astro:content';
-
 export const prerender = true;
 
+import { Image } from 'astro:assets';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogPostSeo from '@/components/blog/BlogPostSeo.astro';
+import BlogSidebar from '@/components/blog/BlogSidebar.astro';
+import { localizedPath } from '@/lib/i18n';
+
 export async function getStaticPaths() {
-  const posts = await getCollection('blog-posts', ({ data }) => !data.draft);
-  return posts
-    .filter((post) => post.id.startsWith('zh-TW/'))
-    .map((post) => {
-      const slug = post.id.split('/')[1];
-      return { params: { slug } };
-    });
+  const [zhEntries, enEntries] = await Promise.all([
+    getCollection('blog-posts', ({ id, data }) => id.startsWith('zh-TW/') && !data.draft),
+    getCollection('blog-posts', ({ id, data }) => id.startsWith('en/') && !data.draft),
+  ]);
+  const slugOf = (id: string) =>
+    id.replace(/^(zh-TW|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
+  const merged = [
+    ...zhEntries,
+    ...enEntries.filter((e) => !zhSlugs.has(slugOf(e.id))),
+  ];
+  return merged.map((entry) => ({
+    params: { slug: slugOf(entry.id) },
+    props: { entry },
+  }));
 }
 
-const { slug } = Astro.params;
-return Astro.redirect(`/zh-TW/blog/${slug}`, 301);
+interface Props {
+  entry: CollectionEntry<'blog-posts'>;
+}
+
+const locale = 'zh-TW';
+const { entry } = Astro.props;
+const data = entry.data;
+const { Content } = await entry.render();
+
+let categoryName: string | undefined;
+let categorySlug: string | undefined;
+if (data.category) {
+  try {
+    const cat = await getEntry('blog-categories', data.category);
+    if (cat) {
+      categoryName = cat.data.name;
+      categorySlug = cat.data.slug;
+    }
+  } catch {
+    /* missing category is non-fatal */
+  }
+}
+
+const updatedDate = data.updatedAt ?? data.publishedAtOverride ?? data.publishedAt;
+const updatedStr = updatedDate.toLocaleDateString('zh-TW', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const pageTitle = data.metaTitle ?? data.title;
+const pageDescription = data.metaDescription ?? data.excerpt;
+const headingText = data.h1 ?? data.title;
 ---
+
+<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
+  <BlogPostSeo entry={entry} slot="head" />
+  <article class="blog-post">
+    <header class="blog-post__header">
+      <div class="ds-container">
+        {categoryName && categorySlug && (
+          <a
+            href={localizedPath(locale, `/post-category/${categorySlug}`)}
+            class="blog-post__category-chip"
+          >
+            {categoryName}
+          </a>
+        )}
+        <h1 class="blog-post__title">{headingText}</h1>
+        {data.excerpt && <p class="blog-post__excerpt">{data.excerpt}</p>}
+        <div class="blog-post__meta">
+          {data.readTime && (
+            <span class="blog-post__read-time">{data.readTime} 分鐘閱讀</span>
+          )}
+          <span class="blog-post__updated">
+            最後更新：<time datetime={updatedDate.toISOString()}>{updatedStr}</time>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="blog-post__cover ds-container">
+      <Image
+        src={data.coverImage}
+        alt={data.title}
+        width={1200}
+        loading="eager"
+        class="blog-post__cover-img"
+      />
+    </div>
+
+    <div class="ds-container">
+      <div class="blog-post__layout">
+        <div class="ds-richtext-prose blog-post__body">
+          <Content />
+        </div>
+        <BlogSidebar locale={locale} />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

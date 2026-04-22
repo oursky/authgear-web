@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Next.js Middleware Authentication: Protect Routes in App Router"
 metaDescription: "Learn how to protect Next.js routes with middleware. Covers matcher config, JWT validation, redirect logic, and avoiding common pitfalls. With code examples."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-25T18:17:54.737Z
 updatedAt: 2026-03-25T18:25:47.188Z
 draft: false
 ---

@@ -7,7 +7,7 @@ category: engineering
 featured: false
 metaTitle: "How OTP Bots Bypass SMS 2FA (and How to Fix It)"
 metaDescription: "See how OTP bot apps bypass SMS 2FA and ship fixes fast: adaptive CAPTCHA, entity rate limits, risk scoring, and Authgear fraud protection."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-09-09T07:48:25.584Z
 updatedAt: 2026-02-12T02:35:14.226Z
 draft: false
 ---

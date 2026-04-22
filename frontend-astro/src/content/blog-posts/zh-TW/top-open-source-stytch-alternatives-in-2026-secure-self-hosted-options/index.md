@@ -4,7 +4,7 @@ excerpt: "Explore the best open-source Stytch alternatives in 2026. Compare feat
 coverImage: ./cover.png
 category: industry
 featured: false
-publishedAt: 2026-01-15T04:06:29.772Z
+publishedAt: 2026-01-13T07:12:43.309Z
 updatedAt: 2026-01-14T16:22:57.665Z
 draft: false
 ---

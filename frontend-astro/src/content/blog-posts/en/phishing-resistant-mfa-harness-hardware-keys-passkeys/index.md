@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "Phishing-Resistant MFA: Why Hardware Keys and Passkeys Are the Future of Login"
 metaDescription: "Discover how phishing-resistant MFA uses hardware keys and passkeys to block attacks, boost security, and deliver a seamless login experience."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-04-22T08:16:01.685Z
 updatedAt: 2026-02-12T02:36:01.270Z
 draft: false
 ---

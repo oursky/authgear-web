@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: integrations
 featured: true
 canonicalUrl: /post/send-otp-on-whatsapp-and-telegram-2022
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.297Z
 updatedAt: 2025-10-17T14:55:41.297Z
 draft: false
 ---

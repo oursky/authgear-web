@@ -5,7 +5,7 @@ excerpt: "Learn how Base64 encoding works, why it’s used, and how to encode or
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2025-12-03T19:35:46.787Z
+publishedAt: 2025-12-03T19:25:11.735Z
 updatedAt: 2025-12-03T19:34:31.725Z
 draft: false
 ---

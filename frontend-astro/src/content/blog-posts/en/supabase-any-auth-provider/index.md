@@ -6,7 +6,7 @@ category: integrations
 featured: false
 metaTitle: "Connect Supabase with any Auth Provider"
 metaDescription: "Use your existing SSO or IdP with Supabase. Learn how to exchange JWTs for full RLS access and single sign-on integration."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-10-24T15:20:09.390Z
 updatedAt: 2026-02-12T02:33:54.737Z
 draft: false
 ---

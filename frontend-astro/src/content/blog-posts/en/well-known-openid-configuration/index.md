@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "What Is .well-known/openid-configuration? A Developer's Guide"
 metaDescription: "Understand .well-known/openid-configuration: what it is, what every field means, and how to fetch and inspect any OIDC provider's discovery document."
-publishedAt: 2026-03-05T16:25:17.307Z
+publishedAt: 2026-03-05T16:09:19.689Z
 updatedAt: 2026-03-05T16:19:03.821Z
 draft: false
 ---

@@ -4,7 +4,7 @@ excerpt: "In today's data-driven world, where information is the lifeblood of bu
 coverImage: ./cover.jpg
 category: industry
 featured: true
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.296Z
 updatedAt: 2025-10-17T14:55:41.296Z
 draft: false
 ---

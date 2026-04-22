@@ -7,7 +7,7 @@ category: industry
 featured: true
 metaTitle: "Master API Gateway Authentication: A Comprehensive Guide"
 metaDescription: "Learn how to implement robust API gateway authentication to protect your APIs. This comprehensive guide covers authentication methods and best practices."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2024-09-08T15:07:12.235Z
 updatedAt: 2026-02-12T02:35:14.217Z
 draft: false
 ---

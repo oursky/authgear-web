@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Next.js Security Best Practices: Complete 2026 Guide"
 metaDescription: "Secure your Next.js app in 2026: authentication, API route protection, XSS and CSRF prevention, the CVE-2025-29927 middleware bypass, CSP headers, and more."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-25T18:39:52.779Z
 updatedAt: 2026-03-25T18:45:47.481Z
 draft: false
 ---

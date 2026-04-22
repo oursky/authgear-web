@@ -134,7 +134,7 @@ function htmlToMarkdown(html, imageTasks, linkRefs) {
   s = s.replace(
     /<div\s+data-rt-embed-type=['"]true['"][\s\S]*?(?:<\/div>\s*<\/div>|<\/div>)/gi,
     (match) => {
-      const codeMatch = match.match(/<pre[^>]*>\s*<code(?:\s+class="language-([^"]+)")?[^>]*>([\s\S]*?)<\/code>\s*<\/pre>/i);
+      const codeMatch = match.match(/<pre[^>]*>\s*<code(?:\s+class=['"]language-([^'"]+)['"])?[^>]*>([\s\S]*?)<\/code>\s*<\/pre>/i);
       if (codeMatch) {
         const lang = codeMatch[1] ?? '';
         const body = decodeEntities(codeMatch[2]);
@@ -366,8 +366,10 @@ async function processItem(item, categoryMap, localeFolder, allLinks) {
     metaTitle: f['meta-title'] ?? null,
     metaDescription: f['meta-description'] ?? null,
     canonicalUrl: f['canonical-tag'] ?? null,
-    publishedAt: item.lastPublished ?? item.createdOn,
-    updatedAt: item.lastUpdated ?? null,
+    // `createdOn` is the first-publish timestamp and is unique per item.
+    // `lastPublished` is shared across bulk republishes — don't use for listing order.
+    publishedAt: item.createdOn ?? item.lastPublished,
+    updatedAt: item.lastUpdated ?? item.lastPublished ?? null,
     draft: Boolean(item.isDraft),
     faq,
   });

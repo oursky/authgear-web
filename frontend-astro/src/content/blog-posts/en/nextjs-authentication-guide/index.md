@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Next.js Auth: Complete Guide for App Router (2026)"
 metaDescription: "Add authentication to your Next.js App Router app in 2026. Compare DIY, NextAuth, and Authgear — with passkeys, SSO, MFA, and working TypeScript code."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-27T15:27:15.707Z
 updatedAt: 2026-03-27T15:32:43.121Z
 draft: false
 faq:

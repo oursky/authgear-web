@@ -5,7 +5,7 @@ excerpt: "Learn how to implement robust API gateway authentication to protect yo
 coverImage: ./cover.jpg
 category: industry
 featured: true
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.265Z
 updatedAt: 2025-10-17T14:55:41.265Z
 draft: false
 ---

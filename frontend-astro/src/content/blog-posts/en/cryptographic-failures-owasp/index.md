@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Comprehensive Guide to Cryptographic Failures (OWASP Top 10 A02)"
 metaDescription: "Learn what cryptographic failures are, see real-world examples, and get OWASP best practices to secure data in transit & at rest."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-09-09T09:46:02.181Z
 updatedAt: 2026-02-12T02:33:54.718Z
 draft: false
 ---

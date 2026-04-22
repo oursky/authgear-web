@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Passwordless & Biometric Authentication: Securing the Frontline Workforce"
 metaDescription: "Passwordless and biometric authentication help secure frontline workforce access without slowing productivity. Learn how these methods work, benefits, challenges, and when to adopt them."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-08T18:19:21.432Z
 updatedAt: 2026-02-12T02:36:01.267Z
 draft: false
 ---

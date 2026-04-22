@@ -7,7 +7,7 @@ featured: false
 metaTitle: "From Login to Lockdown: Building Secure Authenticated Applications"
 metaDescription: "Master the art of building secure authenticated applications. Learn about authentication methods, access tokens, and implement robust security with Authgear. Your comprehensive guide to safeguarding user data."
 canonicalUrl: /post/web-application-authentication-guide
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2022-06-24T06:05:49.487Z
 updatedAt: 2026-02-12T02:33:54.722Z
 draft: false
 ---

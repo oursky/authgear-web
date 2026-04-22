@@ -4,7 +4,7 @@ excerpt: "Explore a SAML token example and learn what’s inside a SAML assertio
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2026-01-20T03:51:09.213Z
+publishedAt: 2026-01-19T17:19:06.179Z
 updatedAt: 2026-01-19T17:20:04.193Z
 draft: false
 ---

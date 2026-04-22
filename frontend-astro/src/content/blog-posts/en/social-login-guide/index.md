@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Social Login - Why You Should Implement It"
 metaDescription: "Learn how to easily enable social login in your website or app to increase conversion rate and deliver smoother user experience."
 canonicalUrl: /post/social-login-guide
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-02-13T07:53:11.200Z
 updatedAt: 2026-02-12T02:36:01.280Z
 draft: false
 ---

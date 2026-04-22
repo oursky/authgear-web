@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "How to Implement Passkeys with WebAuthn: Developer Guide"
 metaDescription: "Learn how passkey authentication works and how to implement it using the WebAuthn API. Includes registration and login code examples, best practices, and testing tips."
-publishedAt: 2026-03-13T17:53:28.938Z
+publishedAt: 2026-03-13T17:35:55.681Z
 updatedAt: 2026-03-13T17:53:28.938Z
 draft: false
 ---

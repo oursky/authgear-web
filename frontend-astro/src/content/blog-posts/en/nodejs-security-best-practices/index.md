@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Node.js Auth Security Best Practices (2026)"
 metaDescription: "Learn Node.js security best practices for authentication: secure password hashing, JWT signing, session management, rate limiting, MFA, and more."
-publishedAt: 2026-03-17T16:27:38.612Z
+publishedAt: 2026-03-13T22:26:35.278Z
 updatedAt: 2026-03-17T15:53:12.503Z
 draft: false
 ---

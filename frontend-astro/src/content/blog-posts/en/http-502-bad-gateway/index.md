@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "HTTP 502 Bad Gateway: Causes & Fixes | Authgear"
 metaDescription: "A 502 Bad Gateway error means your proxy couldn't reach the upstream server. Learn what causes it, how to diagnose it, and how to fix it fast."
-publishedAt: 2026-03-17T16:27:38.612Z
+publishedAt: 2026-03-13T22:25:51.671Z
 updatedAt: 2026-03-17T15:52:41.327Z
 draft: false
 ---

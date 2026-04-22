@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "OAuth 2.0 Security Best Practices: PKCE, State Parameters & More"
 metaDescription: "Discover OAuth 2.0 security best practices, including PKCE, state parameters, and token handling strategies, to protect your authentication and authorization flows."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2026-02-24T06:44:25.552Z
 updatedAt: 2026-02-24T10:20:36.572Z
 draft: false
 ---

@@ -1,97 +1,17 @@
 ---
+// Legacy redirect: /blog/{slug} → /post/{slug}. The canonical URL for a
+// blog post detail page is /post/{slug} (matches the live Webflow site).
 export const prerender = true;
 
-import { Image } from 'astro:assets';
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import BlogPostSeo from '@/components/blog/BlogPostSeo.astro';
-import { localizedPath } from '@/lib/i18n';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const entries = await getCollection(
-    'blog-posts',
-    ({ id, data }) => id.startsWith('en/') && !data.draft,
-  );
+  const entries = await getCollection('blog-posts', ({ id, data }) => id.startsWith('en/') && !data.draft);
   return entries.map((entry) => ({
-    params: {
-      slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, ''),
-    },
-    props: { entry },
+    params: { slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, '') },
   }));
 }
 
-interface Props {
-  entry: CollectionEntry<'blog-posts'>;
-}
-
-const locale = 'en';
-const { entry } = Astro.props;
-const data = entry.data;
-const { Content } = await entry.render();
-
-let categoryName: string | undefined;
-let categorySlug: string | undefined;
-if (data.category) {
-  try {
-    const cat = await getEntry('blog-categories', data.category);
-    if (cat) {
-      categoryName = cat.data.name;
-      categorySlug = cat.data.slug;
-    }
-  } catch {
-    /* missing category is non-fatal */
-  }
-}
-
-const displayDate = data.publishedAtOverride ?? data.publishedAt;
-const dateStr = displayDate.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-
-const pageTitle = data.metaTitle ?? data.title;
-const pageDescription = data.metaDescription ?? data.excerpt;
-const headingText = data.h1 ?? data.title;
+const { slug } = Astro.params as { slug: string };
+return Astro.redirect(`/post/${slug}`, 301);
 ---
-
-<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
-  <BlogPostSeo entry={entry} slot="head" />
-  <article class="blog-post">
-    <header class="blog-post__header">
-      <div class="ds-container">
-        {categoryName && categorySlug && (
-          <a
-            href={localizedPath(locale, `/blog/category/${categorySlug}`)}
-            class="blog-post__category-chip"
-          >
-            {categoryName}
-          </a>
-        )}
-        <h1 class="blog-post__title">{headingText}</h1>
-        <div class="blog-post__meta">
-          <time datetime={displayDate.toISOString()} class="blog-post__date">{dateStr}</time>
-          {data.readTime && (
-            <span class="blog-post__read-time">{data.readTime} min read</span>
-          )}
-        </div>
-      </div>
-    </header>
-
-    <div class="blog-post__cover ds-container">
-      <Image
-        src={data.coverImage}
-        alt={data.title}
-        width={1200}
-        loading="eager"
-        class="blog-post__cover-img"
-      />
-    </div>
-
-    <div class="ds-container">
-      <div class="ds-richtext-prose blog-post__body">
-        <Content />
-      </div>
-    </div>
-  </article>
-</BaseLayout>

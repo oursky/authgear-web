@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "SSL Certificate Chain: What It Is and How to Fix It"
 metaDescription: "Understand SSL certificate chains: how they work, why a missing intermediate certificate breaks HTTPS, and how to fix it on Nginx, Apache, or Caddy."
-publishedAt: 2026-03-05T15:37:43.005Z
+publishedAt: 2026-03-05T15:08:04.494Z
 updatedAt: 2026-03-05T15:37:19.801Z
 draft: false
 ---

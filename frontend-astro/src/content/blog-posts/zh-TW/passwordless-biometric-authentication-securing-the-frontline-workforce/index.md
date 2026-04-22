@@ -4,7 +4,7 @@ excerpt: "Passwordless and biometric authentication help secure frontline workfo
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-01-09T02:27:06.581Z
+publishedAt: 2026-01-08T18:19:21.432Z
 updatedAt: 2026-01-08T19:00:27.791Z
 draft: false
 ---

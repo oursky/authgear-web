@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "What is SCIM Provisioning? How Does It Work and Why Does it Matter?"
 metaDescription: "SCIM (System for Cross-domain Identity Management) is an open standard protocol used to automate the exchange of user identity information between cloud apps."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2025-12-01T14:57:25.419Z
 updatedAt: 2026-02-28T12:55:40.194Z
 draft: false
 ---

@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Add Social Login to Your Laravel Project Using any Provider"
 metaDescription: "Social login allows users to log in to your website using their existing account on social sites like Facebook, Twitter (X), and Google. In this post, we show how to implement social login in a Laravel project using any social login provider."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-10-24T15:01:14.208Z
 updatedAt: 2026-02-12T02:33:17.654Z
 draft: false
 ---

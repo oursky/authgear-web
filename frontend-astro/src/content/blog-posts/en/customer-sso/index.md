@@ -8,7 +8,7 @@ featured: false
 metaTitle: "What is Customer SSO and How Does It Work?"
 metaDescription: "Customer SSO is an authentication method allowing users to access multiple apps with one set of credentials. It improves UX, reduces password fatigue, and centralizes security."
 canonicalUrl: /post/customer-sso
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2023-03-02T05:32:25.324Z
 updatedAt: 2026-02-28T12:51:35.509Z
 draft: false
 ---

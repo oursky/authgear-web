@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "SAML Providers Explained: IdP vs SP Roles and Responsibilities"
 metaDescription: "Understand SAML providers and the differences between Identity Providers (IdP) and Service Providers (SP). Learn roles, flows, trust models, and implementation best practices."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-15T10:50:02.228Z
 updatedAt: 2026-02-12T02:36:01.248Z
 draft: false
 ---

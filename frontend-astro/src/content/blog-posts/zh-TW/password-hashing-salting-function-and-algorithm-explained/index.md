@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: engineering
 featured: false
 canonicalUrl: /post/password-hashing-salting-function-and-algorithm-explained
-publishedAt: 2026-02-12T23:37:57.792Z
+publishedAt: 2025-10-17T14:55:41.281Z
 updatedAt: 2026-03-11T15:50:48.871Z
 draft: true
 ---

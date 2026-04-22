@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: engineering
 featured: false
 canonicalUrl: /post/password-spraying
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.283Z
 updatedAt: 2025-10-17T14:55:41.283Z
 draft: false
 ---

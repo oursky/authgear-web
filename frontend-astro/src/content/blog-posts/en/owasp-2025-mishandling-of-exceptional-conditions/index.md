@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "OWASP Top 10 2025: A10—Mishandling of Exceptional Conditions (Beginner's Guide)"
 metaDescription: "What 2025:A10 Mishandling of Exceptional Conditions means, how unpredictable errors can turn into vulnerabilities, and best practices for robust error handling and fail-safe design."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-11-13T14:44:32.260Z
 updatedAt: 2026-02-12T02:35:14.223Z
 draft: false
 ---

@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Authentication vs. Authorization: The Differences in One Table"
 metaDescription: "Learn more about the differences between authentication and authorization, two important security processes, with one simple table. "
 canonicalUrl: /post/authentication-vs-authorization
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-01-13T05:44:08.288Z
 updatedAt: 2026-02-12T02:33:17.656Z
 draft: false
 ---

@@ -4,7 +4,7 @@ excerpt: "Understand the OIDC specification with a practical breakdown of flows,
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2026-01-15T11:08:34.774Z
+publishedAt: 2026-01-09T15:46:15.698Z
 updatedAt: 2026-01-15T10:59:40.021Z
 draft: false
 ---

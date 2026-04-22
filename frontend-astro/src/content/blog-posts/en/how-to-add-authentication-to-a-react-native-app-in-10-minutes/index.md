@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "How to Add Authentication to a React Native app in 10 Minutes"
 metaDescription: "In this we teach how add a full user authentication feature to any React Native application under 10 minutes."
-publishedAt: 2025-05-27T17:55:36.324Z
+publishedAt: 2024-08-01T11:19:27.895Z
 updatedAt: 2026-02-12T02:35:14.203Z
 draft: true
 ---

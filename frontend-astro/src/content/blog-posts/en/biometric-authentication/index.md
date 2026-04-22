@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Biometric Authentication: Why Do Your Applications Need It in 2024? "
 metaDescription: "Biometric authentication provides better data security and user experience for users. Learn more about the different biometric authentication methods."
 canonicalUrl: /post/biometric-authentication
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2022-02-07T01:08:11.802Z
 updatedAt: 2026-02-12T02:33:17.664Z
 draft: false
 ---

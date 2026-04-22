@@ -4,7 +4,7 @@ excerpt: "Compare the leading open-source MFA solutions for enterprise internal 
 coverImage: ./cover.png
 category: industry
 featured: false
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-02-11T08:48:32.582Z
 updatedAt: 2026-02-11T16:27:46.343Z
 draft: false
 faq:

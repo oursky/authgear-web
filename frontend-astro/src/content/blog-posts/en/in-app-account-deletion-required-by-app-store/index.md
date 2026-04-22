@@ -7,7 +7,7 @@ featured: false
 metaTitle: "In-App Account Deletion Required by App Store Starting June 30, 2022"
 metaDescription: "Apple will soon require apps to allow users to initiate account deletion. Learn more about the upcoming policy and how you can prepare for it. "
 canonicalUrl: /post/in-app-account-deletion-required-by-app-store
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2022-01-11T10:08:18.211Z
 updatedAt: 2026-02-12T02:35:14.207Z
 draft: false
 ---

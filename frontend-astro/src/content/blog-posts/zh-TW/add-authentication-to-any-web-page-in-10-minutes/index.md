@@ -5,7 +5,7 @@ coverImage: ./cover.png
 category: engineering
 featured: false
 canonicalUrl: /post/add-authentication-to-any-web-page-in-10-minutes
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.164Z
 updatedAt: 2025-10-17T14:55:41.164Z
 draft: false
 ---

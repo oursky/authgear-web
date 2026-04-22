@@ -4,7 +4,7 @@ excerpt: "Learn how Zero-Trust security protects frontline applications on perso
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-01-12T19:38:54.765Z
+publishedAt: 2026-01-12T19:24:19.959Z
 updatedAt: 2026-01-12T19:25:18.908Z
 draft: false
 ---

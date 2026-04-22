@@ -5,7 +5,7 @@ excerpt: "Learn what session hijacking is, how it works, and the best defenses a
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.306Z
 updatedAt: 2026-02-28T12:53:04.968Z
 draft: true
 ---

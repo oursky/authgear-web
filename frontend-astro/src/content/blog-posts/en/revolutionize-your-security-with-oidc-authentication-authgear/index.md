@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "Revolutionize Your Security: Mastering OIDC Authentication with Authgear"
 metaDescription: "Discover how oidc authentication transforms user identity verification for modern businesses. Explore our comprehensive guide on oidc authentication and learn why Authgear is your ideal security partner."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-03-10T07:52:39.924Z
 updatedAt: 2026-02-12T02:36:01.281Z
 draft: false
 ---

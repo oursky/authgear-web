@@ -4,7 +4,7 @@ excerpt: "Understand what an extended workforce is, who it includes, why it matt
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-01-06T11:45:53.450Z
+publishedAt: 2026-01-05T16:11:41.901Z
 updatedAt: 2026-01-06T11:45:53.450Z
 draft: false
 ---

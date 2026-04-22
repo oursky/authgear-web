@@ -7,7 +7,7 @@ featured: false
 metaTitle: "The Right to Erasure and How You Can Follow It for Your Apps"
 metaDescription: "Under GDPR, users of mobile apps or software are entitled to have their data removed. This is known as the right to erasure or right to be forgotten."
 canonicalUrl: /post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2022-03-01T08:36:27.117Z
 updatedAt: 2026-02-12T02:36:33.465Z
 draft: false
 ---

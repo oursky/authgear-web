@@ -4,7 +4,7 @@ excerpt: "Social login allows users to log in to your website using their existi
 coverImage: ./cover.png
 category: engineering
 featured: false
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.167Z
 updatedAt: 2025-10-17T14:55:41.167Z
 draft: false
 ---

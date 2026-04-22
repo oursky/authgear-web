@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "From Passwords to Passkeys: A Phased Migration Plan for Existing Users"
 metaDescription: "Learn how to migrate existing users from passwords to passkeys with a phased approach. Discover best practices for secure, user-friendly passwordless authentication at scale."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-28T20:05:25.850Z
 updatedAt: 2026-02-12T02:33:54.725Z
 draft: false
 ---

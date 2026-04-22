@@ -7,7 +7,7 @@ category: engineering
 featured: false
 metaTitle: "Role-Based Access Control (RBAC): Unlocking Secure and Efficient Authentication"
 metaDescription: "Learn everything about role-based access control (RBAC), its benefits, pros and cons, key rules, and comparisons with ABAC and ACL. Discover how Authgear simplifies RBAC for secure and scalable access management."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2024-12-06T05:34:08.987Z
 updatedAt: 2026-02-12T02:36:33.503Z
 draft: false
 ---

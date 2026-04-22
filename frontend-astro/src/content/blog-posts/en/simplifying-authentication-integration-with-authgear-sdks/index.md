@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Simplifying Authentication Integration For Developers With Authgear SDKs"
 metaDescription: "Authgear SDK libraries make it easy for developers to integrate and interact with Authgear."
 canonicalUrl: /post/simplifying-authentication-integration-with-authgear-sdks
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-07-07T05:35:25.745Z
 updatedAt: 2026-02-12T02:36:01.271Z
 draft: false
 ---

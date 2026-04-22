@@ -7,7 +7,7 @@ featured: false
 metaTitle: "4 Things We Learned Supporting Passkeys"
 metaDescription: "Passkeys have the potential to completely replace passwords, but it isn't perfect yet. Learn more about what you might encounter when supporting them."
 canonicalUrl: /post/4-things-we-learned-supporing-passkeys
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2022-08-29T03:24:43.364Z
 updatedAt: 2026-02-12T02:33:17.663Z
 draft: false
 ---

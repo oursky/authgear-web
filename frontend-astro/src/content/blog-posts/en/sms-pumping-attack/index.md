@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "What Is an SMS Pumping Attack? Detect & Prevent"
 metaDescription: "Learn how SMS pumping attacks work, how to spot them in your OTP logs, and the steps to prevent SMS toll fraud before it drains your budget."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-17T16:48:12.266Z
 updatedAt: 2026-03-19T21:16:18.210Z
 draft: false
 ---

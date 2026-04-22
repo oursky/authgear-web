@@ -6,7 +6,7 @@ category: industry
 featured: true
 metaTitle: "Securing the Perimeterless: Dive Deep into Zero Trust Architecture with Continuous Authentication"
 metaDescription: "The cost of digital vulnerabilities is staggering. In 2023 alone, cybercrime is estimated to cause $6 trillion in global damages, a figure expected to balloon to $10.5 trillion by 2025. Every minute, 117 new records are exposed in data breaches, with the average cost of a breach topping $4 million. Closer to home, 46% of all cyberattacks target businesses with fewer than 1,000 employees, illustrating the widespread reach of the threat."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-12-22T08:16:14.962Z
 updatedAt: 2026-02-12T02:36:01.290Z
 draft: false
 ---

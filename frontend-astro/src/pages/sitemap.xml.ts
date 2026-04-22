@@ -52,13 +52,13 @@ export const GET: APIRoute = async ({ site }) => {
 
     const lastmod = (post.data.updatedAt ?? post.data.publishedAt).toISOString();
     const base = locale === 'en' ? '' : `/${locale}`;
-    urls.push({ loc: abs(`${base}/blog/${slug}`), lastmod });
+    urls.push({ loc: abs(`${base}/post/${slug}`), lastmod });
   }
 
   for (const category of categories) {
     const slug = category.data.slug;
-    urls.push({ loc: abs(`/blog/category/${slug}`) });
-    urls.push({ loc: abs(`/zh-TW/blog/category/${slug}`) });
+    urls.push({ loc: abs(`/post-category/${slug}`) });
+    urls.push({ loc: abs(`/zh-TW/post-category/${slug}`) });
   }
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>

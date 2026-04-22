@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: engineering
 featured: false
 canonicalUrl: /post/session-management
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2025-10-17T14:55:41.309Z
 updatedAt: 2026-02-12T04:16:20.586Z
 draft: false
 ---

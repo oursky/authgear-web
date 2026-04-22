@@ -5,7 +5,7 @@ coverImage: ./cover.png
 category: industry
 featured: false
 readTime: 12
-publishedAt: 2026-01-20T03:51:09.213Z
+publishedAt: 2026-01-12T10:09:09.718Z
 updatedAt: 2026-01-19T16:41:13.591Z
 draft: false
 ---

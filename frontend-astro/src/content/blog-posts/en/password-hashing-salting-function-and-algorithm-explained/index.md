@@ -7,7 +7,7 @@ featured: false
 metaTitle: "What is Salting in Security? Password Hashing and Salting Explained"
 metaDescription: "Salting is the practice of adding unique, random data (a \"salt\") to a password before it is hashed, to ensures distinct hashes, neutralizing rainbow table attacks."
 canonicalUrl: /post/password-hashing-salting-function-and-algorithm-explained
-publishedAt: 2026-03-12T16:06:21.666Z
+publishedAt: 2022-02-24T02:51:02.195Z
 updatedAt: 2026-03-11T15:50:48.875Z
 draft: false
 ---

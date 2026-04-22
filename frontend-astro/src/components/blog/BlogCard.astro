@@ -31,7 +31,7 @@ const dateStr = displayDate.toLocaleDateString(locale === 'zh-TW' ? 'zh-TW' : 'e
 const readTimeLabel = locale === 'zh-TW' ? '分鐘閱讀' : 'min read';
 ---
 
-<a href={localizedPath(locale, `/blog/${slug}`)} class="blog-card">
+<a href={localizedPath(locale, `/post/${slug}`)} class="blog-card">
   <div class="blog-card__media">
     <Image
       src={data.coverImage}

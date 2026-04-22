@@ -5,7 +5,7 @@ excerpt: "Discover the top 10 SSO providers in 2025 for secure, convenient, and 
 coverImage: ./cover.webp
 category: industry
 featured: false
-publishedAt: 2026-03-30T17:48:28.762Z
+publishedAt: 2025-10-17T14:55:41.331Z
 updatedAt: 2026-03-30T17:48:28.762Z
 draft: false
 ---

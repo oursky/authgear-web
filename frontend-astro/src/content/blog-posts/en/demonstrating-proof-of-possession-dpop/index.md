@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Demonstrating Proof-of-Possession (DPoP): A Complete Guide for Modern OAuth Security"
 metaDescription: "Learn what Demonstrating Proof-of-Possession (DPoP) is, why it's important for secure APIs, and how to implement it. Includes practical examples for developers."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-12-10T14:18:13.024Z
 updatedAt: 2026-02-12T02:33:54.744Z
 draft: false
 ---

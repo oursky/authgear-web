@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "Decentralized Identity (DID) Explained: A Guide to Self-Sovereign Authentication"
 metaDescription: "Learn about Decentralized Identity (DID), how it provides self-sovereign authentication, enhances privacy, and transforms digital identity management across industries."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-04-22T08:23:08.795Z
 updatedAt: 2026-02-12T02:33:54.723Z
 draft: false
 ---

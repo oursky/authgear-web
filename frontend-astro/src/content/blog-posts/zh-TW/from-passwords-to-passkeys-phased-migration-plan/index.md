@@ -4,7 +4,7 @@ excerpt: "Learn how to migrate existing users from passwords to passkeys with a 
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-01-28T21:17:17.994Z
+publishedAt: 2026-01-28T20:05:25.850Z
 updatedAt: 2026-01-28T20:06:06.037Z
 draft: false
 ---

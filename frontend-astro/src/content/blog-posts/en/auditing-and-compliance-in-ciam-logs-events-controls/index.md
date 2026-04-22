@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Auditing and Compliance in CIAM: What Logs, Events, and Controls Actually Matter"
 metaDescription: "Understand which CIAM logs, events, and security controls matter most for auditing and compliance. Learn how to design audit-ready CIAM systems."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-28T20:45:57.727Z
 updatedAt: 2026-02-12T02:33:17.616Z
 draft: false
 ---

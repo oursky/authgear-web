@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Why UUIDv7 Beats Centralized ID Services"
 metaDescription: "Learn why UUIDv7 is a better choice than centralized ID services in distributed systems. Explore scalability, performance, ordering, and operational trade-offs."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2026-02-12T03:38:13.569Z
 updatedAt: 2026-02-12T03:47:57.671Z
 draft: false
 ---

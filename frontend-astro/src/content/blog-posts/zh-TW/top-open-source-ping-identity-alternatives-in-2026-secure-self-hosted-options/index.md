@@ -4,7 +4,7 @@ excerpt: "Explore the best open-source Ping Identity alternatives in 2026. Compa
 coverImage: ./cover.png
 category: industry
 featured: false
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2026-01-20T07:32:05.303Z
 updatedAt: 2026-03-04T12:41:00.412Z
 draft: false
 ---

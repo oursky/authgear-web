@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: engineering
 featured: false
 readTime: 6
-publishedAt: 2026-03-05T16:38:41.910Z
+publishedAt: 2025-10-17T14:55:41.361Z
 updatedAt: 2026-03-05T16:38:41.910Z
 draft: false
 ---

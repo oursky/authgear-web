@@ -5,7 +5,7 @@ excerpt: "Learn everything you need to know about PKCE, a security extension for
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.287Z
 updatedAt: 2025-10-17T14:55:41.287Z
 draft: false
 ---

@@ -4,7 +4,7 @@ excerpt: "Discover IAM best practices to securely manage deskless workforces. Le
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-01-28T18:28:05.366Z
+publishedAt: 2026-01-22T16:59:35.909Z
 updatedAt: 2026-01-22T17:00:03.250Z
 draft: false
 ---

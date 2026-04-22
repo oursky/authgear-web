@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "Login & Signup UX: The 2025 Guide to Best Practices (Examples & Tips)"
 metaDescription: "Optimizing your login and sign-up experience is crucial in 2025. This guide covers UX principles, patterns like passwordless login and passkeys, real-world login screen examples, and a handy checklist to improve conversion and security."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-09-25T14:14:30.776Z
 updatedAt: 2026-02-12T02:35:14.228Z
 draft: false
 ---

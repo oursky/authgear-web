@@ -5,7 +5,7 @@ excerpt: "Learn how authenticator apps work: TOTP secrets, QR provisioning, cloc
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2025-11-21T05:18:06.071Z
+publishedAt: 2025-11-07T16:32:34.377Z
 updatedAt: 2025-11-07T16:57:39.339Z
 draft: false
 ---

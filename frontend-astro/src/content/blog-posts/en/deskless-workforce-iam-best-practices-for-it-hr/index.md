@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Empowering the Deskless Workforce: IAM Best Practices for IT & HR"
 metaDescription: "Discover IAM best practices to securely manage deskless workforces. Learn how IT and HR can collaborate to improve access, security, and productivity at scale."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-22T16:59:35.909Z
 updatedAt: 2026-02-12T02:33:54.764Z
 draft: false
 ---

@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "OIDC Specification Explained: Key Concepts Developers Need"
 metaDescription: "Understand the OIDC specification with a practical breakdown of flows, tokens, claims, scopes, and endpoints. Learn the key concepts developers actually need to implement secure authentication."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-01-09T15:46:15.698Z
 updatedAt: 2026-02-12T02:35:14.214Z
 draft: false
 ---

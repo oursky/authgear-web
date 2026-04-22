@@ -7,7 +7,7 @@ category: engineering
 featured: false
 metaTitle: "Base64 Made Easy: How to Encode and Decode Data (Plus Free Online Tool)"
 metaDescription: "Learn how Base64 encoding works, why it's used, and how to encode or decode data safely. Includes practical examples and a free online Base64 tool."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-12-03T19:25:11.735Z
 updatedAt: 2026-02-12T02:33:17.659Z
 draft: false
 ---

@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "What is Session Hijacking? Session Hijacking Examples and How to Prevent it"
 metaDescription: "Session hijacking is a cyberattack where a malicious actor steals an authorized user's session token to bypass MFA and gain unauthorized account access."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2024-12-29T06:24:37.185Z
 updatedAt: 2026-02-28T12:53:04.971Z
 draft: false
 ---

@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "OWASP Top 10 2025: A03—Software Supply Chain Failures (Beginner's Guide)"
 metaDescription: "What 2025:A03 Software Supply Chain Failures means, how attacks happen, and a practical checklist to secure your pipeline"
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-11-12T16:37:01.972Z
 updatedAt: 2026-02-12T02:35:14.209Z
 draft: false
 ---

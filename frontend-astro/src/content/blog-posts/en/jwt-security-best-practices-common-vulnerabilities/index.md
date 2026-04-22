@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "JWT Security Explained: Best Practices and Common Vulnerabilities"
 metaDescription: "Learn how JWT works, understand the most common security vulnerabilities, and apply proven best practices to protect tokens in production authentication systems."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2026-02-24T06:41:01.586Z
 updatedAt: 2026-02-24T10:20:31.244Z
 draft: false
 ---

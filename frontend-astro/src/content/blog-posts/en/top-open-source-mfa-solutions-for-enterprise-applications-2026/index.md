@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Top Open-Source MFA Solutions for Enterprise Applications (2026)"
 metaDescription: "Compare the leading open-source MFA solutions for enterprise internal applications. Discover self-hosted authentication platforms that support modern MFA for financial institutions, government organizations, and businesses."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2026-02-11T08:46:00.164Z
 updatedAt: 2026-02-12T02:36:33.475Z
 draft: false
 faq:

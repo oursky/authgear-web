@@ -4,7 +4,7 @@ excerpt: "Learn what Demonstrating Proof-of-Possession (DPoP) is, why it’s imp
 coverImage: ./cover.jpg
 category: engineering
 featured: false
-publishedAt: 2025-12-16T17:56:26.774Z
+publishedAt: 2025-12-10T14:18:13.024Z
 updatedAt: 2025-12-10T14:20:15.153Z
 draft: false
 ---

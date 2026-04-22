@@ -4,7 +4,7 @@ excerpt: "OIDC and SAML are two widely used protocols for implementing Single Si
 coverImage: ./cover.jpg
 category: industry
 featured: true
-publishedAt: 2025-11-24T18:31:51.064Z
+publishedAt: 2025-10-17T14:55:41.268Z
 updatedAt: 2025-11-24T18:31:03.084Z
 draft: false
 ---

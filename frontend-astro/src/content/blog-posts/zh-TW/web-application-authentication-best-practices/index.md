@@ -4,7 +4,7 @@ excerpt: "Protect your web application and authentication server with expert gui
 coverImage: ./cover.jpg
 category: highlight
 featured: false
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.336Z
 updatedAt: 2025-10-17T14:55:41.336Z
 draft: false
 ---

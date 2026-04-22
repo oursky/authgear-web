@@ -7,7 +7,7 @@ featured: false
 metaTitle: "How to protect your users from automated attacks"
 metaDescription: "Let's explore the best ways to protect your users from the rapidly evolving menace of automated attacks."
 canonicalUrl: /post/how-to-protect-your-users-from-automated-attacks
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2021-12-13T05:04:41.126Z
 updatedAt: 2026-02-12T02:35:14.204Z
 draft: false
 ---

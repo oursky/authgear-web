@@ -7,7 +7,7 @@ category: highlight
 featured: false
 metaTitle: "Unlock Ultimate Security: Master Attribute-Based Access Control with Authgear"
 metaDescription: "Discover how attribute-based access control enhances your software's security. Learn implementation steps, benefits, and a comparison with RBAC in our comprehensive Authgear guide."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-03-10T07:42:58.703Z
 updatedAt: 2026-02-12T02:35:14.213Z
 draft: false
 ---

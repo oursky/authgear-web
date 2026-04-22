@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "How to Add JWT Authentication to Next.js App Router (2026)"
 metaDescription: "Learn how to add JWT authentication to Next.js App Router using httpOnly cookies and jose. Covers middleware, Server Components, and full TypeScript examples."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-20T20:55:19.382Z
 updatedAt: 2026-03-20T21:06:16.550Z
 draft: false
 faq:

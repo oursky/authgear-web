@@ -5,7 +5,7 @@ coverImage: ./cover.png
 category: industry
 featured: false
 canonicalUrl: /post/frictionless-authentication
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.211Z
 updatedAt: 2025-10-17T14:55:41.211Z
 draft: false
 ---

@@ -4,7 +4,7 @@ excerpt: "Explore the best open-source Amazon Cognito alternatives in 2026. Comp
 coverImage: ./cover.png
 category: industry
 featured: false
-publishedAt: 2026-01-20T17:13:28.871Z
+publishedAt: 2026-01-20T07:01:57.080Z
 updatedAt: 2026-01-20T16:56:53.136Z
 draft: false
 ---

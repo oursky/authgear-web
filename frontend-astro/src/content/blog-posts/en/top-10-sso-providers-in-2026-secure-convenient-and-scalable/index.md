@@ -7,7 +7,7 @@ category: industry
 featured: false
 metaTitle: "10 Best SSO Providers in 2026 | Top SSO Solutions"
 metaDescription: "The Best SSO Provider in 2026 is a leading enterprise solution, Authgear specialises on developer-friendly, secure, and modern authentication for consumer-facing apps"
-publishedAt: 2026-03-30T17:48:28.758Z
+publishedAt: 2025-03-05T01:43:26.425Z
 updatedAt: 2026-03-30T17:48:28.758Z
 draft: false
 ---

@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Authentication for ASP.NET apps with Authgear and OpenID Connect"
 metaDescription: "This blog post demonstrates how to add authentication features to ASP.NET apps with Authgear by implementing an OpenID Connect flow."
 canonicalUrl: /post/authentication-for-asp-net-apps-with-authgear-and-openid-connect
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2023-08-15T10:53:36.816Z
 updatedAt: 2026-02-12T02:33:17.669Z
 draft: false
 ---

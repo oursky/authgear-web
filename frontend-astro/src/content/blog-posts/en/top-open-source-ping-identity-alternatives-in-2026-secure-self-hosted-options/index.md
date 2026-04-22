@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "Top Open-Source Ping Identity Alternatives in 2026: Secure & Self-Hosted Options"
 metaDescription: "Explore the best open-source Ping Identity alternatives in 2026. Compare features, deployment models, security, and use cases to choose the right identity solution for your team."
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2026-01-20T07:32:05.303Z
 updatedAt: 2026-03-04T12:41:00.402Z
 draft: false
 ---

@@ -7,7 +7,7 @@ featured: false
 metaTitle: "What is SMS OTP？SMS OTP Vulnerabilities and Alternatives"
 metaDescription: "SMS OTP is a temporary security code sent via text for two-factor authentication. While common, it is vulnerable to hacking via SIM swapping and phishing."
 canonicalUrl: /post/sms-otp-vulnerabilities-and-alternatives
-publishedAt: 2026-03-05T14:31:50.038Z
+publishedAt: 2022-07-07T15:24:32.915Z
 updatedAt: 2026-02-28T13:02:01.685Z
 draft: false
 ---

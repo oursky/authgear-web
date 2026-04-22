@@ -7,7 +7,7 @@ featured: false
 metaTitle: "Password Reset Best Practices: Avoid Common Pitfalls and Secure Your Users"
 metaDescription: "Discover essential password reset best practices to safeguard your authentication system. Learn how to prevent common security breaches, protect user data, and enhance user experience. Bolster your application's security with expert insights and actionable tips."
 canonicalUrl: /post/authentication-security-password-reset-best-practices-and-more
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2021-11-17T01:35:53.381Z
 updatedAt: 2026-02-12T02:36:01.228Z
 draft: false
 ---

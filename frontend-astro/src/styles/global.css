@@ -572,12 +572,18 @@ button.ds-sms-warning-faq__trigger {
 
 /* Blog post detail */
 .blog-post {
-  padding-top: 3rem;
-  padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
   background: #fff;
 }
+@media (min-width: 768px) {
+  .blog-post { padding-top: 3rem; padding-bottom: 4rem; }
+}
 .blog-post__header {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 768px) {
+  .blog-post__header { margin-bottom: 2rem; }
 }
 .blog-post__category-chip {
   display: inline-block;
@@ -604,6 +610,14 @@ button.ds-sms-warning-faq__trigger {
   margin: 0 0 1rem;
   max-width: 48rem;
 }
+.blog-post__excerpt {
+  max-width: 48rem;
+  margin: 0 0 1.25rem;
+  color: #626262;
+  font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
 .blog-post__meta {
   display: flex;
   gap: 1rem;
@@ -611,7 +625,10 @@ button.ds-sms-warning-faq__trigger {
   color: var(--color-text-light-secondary, #64748b);
 }
 .blog-post__cover {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .blog-post__cover { margin-bottom: 2.5rem; }
 }
 .blog-post__cover-img {
   width: 100%;
@@ -622,6 +639,8 @@ button.ds-sms-warning-faq__trigger {
 }
 .blog-post__body {
   max-width: 48rem;
+  width: 100%;
+  min-width: 0;
   margin-inline: auto;
 }
 /* Tables scroll horizontally inside the prose column so cells stay readable. */
@@ -660,17 +679,112 @@ button.ds-sms-warning-faq__trigger {
   color: #111827;
 }
 .blog-post__body .ag-table tbody tr:last-child td { border-bottom: 0; }
+/* Two-column layout on desktop: prose left, sticky sidebar right. */
+.blog-post__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3rem;
+  max-width: 64rem;
+  margin-inline: auto;
+}
+@media (min-width: 840px) {
+  .blog-post__layout {
+    grid-template-columns: minmax(0, 1fr) 14rem;
+    align-items: start;
+    gap: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .blog-post__layout {
+    grid-template-columns: minmax(0, 48rem) 16rem;
+    gap: 3rem;
+  }
+}
+.blog-post__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 6rem;
+}
+@media (max-width: 839px) {
+  .blog-post__sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+}
+.blog-post__sidebar-discord {
+  display: block;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+  transition: transform 150ms ease;
+}
+.blog-post__sidebar-discord:hover {
+  transform: translateY(-2px);
+}
+.blog-post__sidebar-discord img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.blog-post__sidebar-star {
+  padding: 1.25rem 1.25rem 1.125rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.875rem;
+  text-align: center;
+}
+.blog-post__sidebar-star-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: #0f172a;
+  font-weight: 500;
+}
+.blog-post__sidebar-star iframe {
+  display: inline-block;
+}
+@media (max-width: 839px) {
+  .blog-post__sidebar-discord { max-width: 18rem; flex: 1 1 18rem; }
+  .blog-post__sidebar-star { max-width: 18rem; flex: 1 1 18rem; }
+}
+
+/* Body prose matches live site typography: IBM Plex Sans, muted grey body,
+   dark grey headings (500 weight), brand-blue links without underline. */
+.blog-post__body {
+  color: #626262;
+  font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+}
 .blog-post__body h2 {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0 1rem;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  color: #2e2e2e;
 }
 .blog-post__body h3 {
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin: 1.75rem 0 0.75rem;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+.blog-post__body h4 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #2e2e2e;
 }
 .blog-post__body p {
   margin: 0 0 1.25rem;
-  line-height: 1.7;
 }
 .blog-post__body ul,
 .blog-post__body ol {
@@ -679,10 +793,19 @@ button.ds-sms-warning-faq__trigger {
 }
 .blog-post__body ul { list-style: disc; }
 .blog-post__body ol { list-style: decimal; }
+.blog-post__body li {
+  margin-bottom: 0.25rem;
+  font-size: 18px;
+  line-height: 32px;
+  color: #626262;
+}
 .blog-post__body a {
   color: #0043e0;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 400;
 }
+.blog-post__body a:hover { text-decoration: underline; }
+.blog-post__body strong { color: #626262; font-weight: 500; }
 .blog-post__body img {
   max-width: 100%;
   height: auto;
@@ -690,30 +813,41 @@ button.ds-sms-warning-faq__trigger {
   margin: 1.5rem 0;
 }
 .blog-post__body blockquote {
-  border-left: 4px solid #e5e7eb;
-  padding-left: 1rem;
+  border-left: 3px solid #0043e0;
+  padding: 0.125rem 0 0.125rem 1rem;
   margin: 1.5rem 0;
-  color: var(--color-text-light-secondary, #475569);
-  font-style: italic;
+  color: #334155;
+  font-style: normal;
 }
+.blog-post__body blockquote p:last-child { margin-bottom: 0; }
+
+/* Code: light theme (Shiki github-light handles <pre>/token coloring).
+   Inline <code> inherits body color, monospace font, subtle grey background. */
 .blog-post__body pre {
-  background: #0f172a;
-  color: #e2e8f0;
-  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  padding: 1rem 1.25rem;
   border-radius: 0.5rem;
   overflow-x: auto;
   margin: 1.5rem 0;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
 }
 .blog-post__body code {
   background: #f1f5f9;
+  color: #2e2e2e;
   padding: 0.125rem 0.375rem;
-  border-radius: 0.25rem;
+  border-radius: 0.3125rem;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.875em;
+  word-break: break-word;
 }
 .blog-post__body pre code {
   background: transparent;
   padding: 0;
+  border-radius: 0;
+  word-break: normal;
+  white-space: pre;
+  font-size: inherit;
 }
 .blog-post__body table {
   width: 100%;

@@ -5,7 +5,7 @@ excerpt: "Discover how Authgear’s ISO 27001 and SOC 2 Type 2 compliance ensure
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.182Z
 updatedAt: 2025-10-17T14:55:41.182Z
 draft: false
 ---

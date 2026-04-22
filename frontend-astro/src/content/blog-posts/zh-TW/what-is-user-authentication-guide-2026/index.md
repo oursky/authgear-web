@@ -4,7 +4,7 @@ excerpt: "User authentication verifies user identity before granting access. Lea
 coverImage: ./cover.jpeg
 category: industry
 featured: false
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-10-17T14:55:41.334Z
 updatedAt: 2026-02-09T18:47:55.832Z
 draft: false
 faq:

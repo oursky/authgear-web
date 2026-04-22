@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "Next.js API Routes: Authentication Guide with Examples"
 metaDescription: "Learn how to authenticate Next.js Route Handlers with session cookies and Bearer tokens. Complete TypeScript examples for App Router, RBAC, and Server Actions."
-publishedAt: 2026-03-30T17:47:49.619Z
+publishedAt: 2026-03-25T18:41:16.137Z
 updatedAt: 2026-03-25T18:46:20.452Z
 draft: false
 ---

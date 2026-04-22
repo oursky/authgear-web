@@ -29,7 +29,7 @@ const isAllActive = !currentCategory;
     const isActive = currentCategory === cat.data.slug;
     return (
       <a
-        href={localizedPath(locale, `/blog/category/${cat.data.slug}`)}
+        href={localizedPath(locale, `/post-category/${cat.data.slug}`)}
         class={`blog-category-chip${isActive ? ' blog-category-chip--active' : ''}`}
       >
         {cat.data.name}

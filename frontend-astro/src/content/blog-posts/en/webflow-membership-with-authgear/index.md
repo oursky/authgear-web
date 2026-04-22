@@ -7,7 +7,7 @@ category: integrations
 featured: false
 metaTitle: "Add Membership to Webflow sites with Authgear"
 metaDescription: "Webflow is sunsetting its native User Accounts feature, leaving many site owners searching for a new way to manage member logins and gated content. If you rely on Webflow for authentication, it's time to explore alternatives—before your users lose access. This article shows how Authgear can seamlessly replace Webflow's soon-to-be-retired accounts, keeping your community secure and engaged."
-publishedAt: 2026-02-12T02:41:55.931Z
+publishedAt: 2025-06-27T12:48:36.371Z
 updatedAt: 2026-02-12T02:35:14.225Z
 draft: false
 ---

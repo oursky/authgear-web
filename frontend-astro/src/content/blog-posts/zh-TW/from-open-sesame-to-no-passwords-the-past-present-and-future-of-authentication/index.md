@@ -4,7 +4,7 @@ excerpt: "From \"Open Sesame\" to passkeys, explore how authentication has evolv
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2025-10-29T19:12:41.468Z
+publishedAt: 2025-10-17T14:55:41.213Z
 updatedAt: 2025-10-17T14:55:41.213Z
 draft: false
 ---

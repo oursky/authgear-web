@@ -4,7 +4,7 @@ excerpt: "Understand SAML providers and the differences between Identity Provide
 coverImage: ./cover.jpg
 category: industry
 featured: false
-publishedAt: 2026-01-15T11:08:34.774Z
+publishedAt: 2026-01-15T10:50:02.228Z
 updatedAt: 2026-01-15T10:50:18.171Z
 draft: false
 ---
