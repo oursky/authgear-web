@@ -1,0 +1,135 @@
+---
+export const prerender = true;
+
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { localizedPath } from '@/lib/i18n';
+
+const locale = 'en';
+const slugOf = (id: string) => id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const stories = (await getCollection('customer-stories', ({ id }) => id.startsWith('en/')))
+  .sort((a, b) => (a.data.order ?? 9e9) - (b.data.order ?? 9e9)
+                  || b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 6);
+
+const title = 'Get Inspired by Real Success Stories';
+const description = 'Discover how companies use Authgear to simplify authentication, improve user experience, and scale securely.';
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <section class="ds-hero-banner--gradient">
+    <div class="ds-container ds-container--gradient-hero-shell">
+      <div class="ds-hero-banner--gradient__inner">
+        <div class="ds-container ds-container--hero stories-dl__hero">
+          <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">Case Studies</p>
+          <h1 class="ds-hero-banner__title">Get Inspired by Real Success Stories</h1>
+          <p class="ds-hero-banner__description">{description}</p>
+          <div class="stories-dl__ctas">
+            <a
+              href={localizedPath(locale, '/customer-stories')}
+              class="ds-btn ds-btn-secondary"
+            >
+              Browse all stories
+              <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+            <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+              Schedule a demo
+              <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">See How Leading Companies Simplify Authentication with Authgear</h2>
+      </div>
+      <div class="ds-grid-3">
+        <div class="svg-card">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">Accelerate Development with Ready-to-Use Authentication</div>
+            <div class="ds-svg-card-description">Authgear handles the complex parts of authentication — from social logins to passwordless flows — so your developers don't need to reinvent the wheel. Teams can focus on building core product features while reducing integration time from weeks to days.</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">Enterprise-Grade Security Without the Complexity</div>
+            <div class="ds-svg-card-description">With built-in support for MFA, passkeys, GeoIP rules, and anomaly detection (like SMS pumping fraud prevention), Authgear ensures your users are always protected. You get robust security controls out of the box, without adding friction to the login experience.</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">A Seamless, Branded User Experience</div>
+            <div class="ds-svg-card-description">Your login should feel like part of your product, not an afterthought. Authgear lets you customize the entire authentication flow — from colors, themes, and logos to adaptive authentication steps — ensuring your users enjoy a smooth and consistent experience that reflects your brand.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-bg-white">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">Read how enterprises trust Authgear</h2>
+        <p class="section-lede-on-light">Real-world stories from teams that chose Authgear to secure their identity infrastructure.</p>
+      </div>
+      <ul role="list" class="stories-dl__grid">
+        {stories.map((entry) => {
+          const slug = slugOf(entry.id);
+          return (
+            <li class="stories-dl__item">
+              <a href={localizedPath(locale, `/customer-stories/${slug}`)} class="stories-dl__card">
+                <Image
+                  src={entry.data.thumbnail}
+                  alt={entry.data.title}
+                  width={600}
+                  loading="lazy"
+                  class="stories-dl__card-img"
+                />
+                <div class="stories-dl__card-body">
+                  <h3 class="stories-dl__card-title">{entry.data.title}</h3>
+                  {entry.data.excerpt && <p class="stories-dl__card-excerpt">{entry.data.excerpt}</p>}
+                  <span class="stories-dl__card-cta">
+                    Read story
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                  </span>
+                </div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <section class="ds-section ds-footer-cta-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-dark">Start building with Authgear</h2>
+      </div>
+      <div class="ds-footer-cta__actions">
+        <a
+          href="https://portal.authgear.com/?utm_source=success-stories&utm_medium=link&utm_campaign=start-for-free"
+          target="_blank"
+          rel="noreferrer"
+          class="ds-btn ds-btn-secondary"
+        >
+          Start for free
+        </a>
+        <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+          Schedule a demo
+        </a>
+      </div>
+      <div class="ds-footer-cta__footnote">
+        <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+        <p class="ds-footer-cta__footnote-copy">
+          Free plan includes <strong>unlimited MAUs</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
