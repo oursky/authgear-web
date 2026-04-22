@@ -168,48 +168,121 @@ const socialLoginProviderTiles = [
       </h2>
       <p class="section-lede-on-light">{t(locale, 'SocialLogin.simplifyDescription')}</p>
     </div>
-    <div class="social-login-simplify-feature-cards grid w-full grid-cols-1 gap-6 self-stretch lg:grid-cols-3 lg:grid-rows-2 lg:gap-6">
-      <div class="svg-card lg:col-start-1 lg:row-start-1">
-        <div class="ds-svg-card-content">
-          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card1Title')}</div>
-          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card1Desc')}</div>
+    <div class="sl-masonry">
+      <div class="sl-card sl-card--a">
+        <div class="sl-card__body">
+          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card1Title')}</h3>
+          <p class="sl-card__desc">{t(locale, 'SocialLogin.card1Desc')}</p>
         </div>
-        <img src="/images/features-sociallogin-withauthgear-singleintegration.svg" loading="lazy" alt="" />
+        <img class="sl-card__img" src="/images/features-sociallogin-withauthgear-singleintegration.svg" loading="lazy" alt="" />
       </div>
-      <div class="svg-card lg:col-start-1 lg:row-start-2">
-        <div class="ds-svg-card-content">
-          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card4Title')}</div>
-          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card4Desc')}</div>
+      <div class="sl-card sl-card--b sl-card--tall">
+        <div class="sl-card__body">
+          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card2Title')}</h3>
+          <p class="sl-card__desc">{t(locale, 'SocialLogin.card2Desc')}</p>
         </div>
-        <img src="/images/features-sociallogin-withauthgear-easysetup.svg" loading="lazy" alt="" />
+        <img class="sl-card__img sl-card__img--brand" src="/images/features-sociallogin-withauthgear-brandcontrol.svg" loading="lazy" alt="" />
       </div>
-      <div class="svg-card lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:h-full lg:min-h-0">
-        <div class="ds-svg-card-content">
-          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card2Title')}</div>
-          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card2Desc')}</div>
+      <div class="sl-card sl-card--c">
+        <div class="sl-card__body">
+          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card3Title')}</h3>
+          <p class="sl-card__desc">{t(locale, 'SocialLogin.card3Desc')}</p>
         </div>
-        <img
-          src="/images/features-sociallogin-withauthgear-brandcontrol.svg"
-          loading="lazy"
-          alt=""
-          class="mw-140 mx-auto"
-        />
+        <img class="sl-card__img" src="/images/features-sociallogin-withauthgear-topsecurity.svg" loading="lazy" alt="" />
       </div>
-      <div class="svg-card lg:col-start-3 lg:row-start-1">
-        <div class="ds-svg-card-content">
-          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card3Title')}</div>
-          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card3Desc')}</div>
+      <div class="sl-card sl-card--d">
+        <div class="sl-card__body">
+          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card4Title')}</h3>
+          <p class="sl-card__desc">{t(locale, 'SocialLogin.card4Desc')}</p>
         </div>
-        <img src="/images/features-sociallogin-withauthgear-topsecurity.svg" loading="lazy" alt="" />
+        <img class="sl-card__img" src="/images/features-sociallogin-withauthgear-easysetup.svg" loading="lazy" alt="" />
       </div>
-      <div class="svg-card lg:col-start-3 lg:row-start-2">
-        <div class="ds-svg-card-content">
-          <div class="ds-svg-card-title">{t(locale, 'SocialLogin.card5Title')}</div>
-          <div class="ds-svg-card-description">{t(locale, 'SocialLogin.card5Desc')}</div>
+      <div class="sl-card sl-card--e">
+        <div class="sl-card__body">
+          <h3 class="sl-card__title">{t(locale, 'SocialLogin.card5Title')}</h3>
+          <p class="sl-card__desc">{t(locale, 'SocialLogin.card5Desc')}</p>
         </div>
-        <img src="/images/features-sociallogin-withauthgear-seamless.svg" loading="lazy" alt="" />
+        <img class="sl-card__img" src="/images/features-sociallogin-withauthgear-seamless.svg" loading="lazy" alt="" />
       </div>
     </div>
+
+    <style>
+      .sl-masonry {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        width: 100%;
+        margin-top: 2.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        .sl-masonry {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-rows: auto auto;
+          grid-template-areas:
+            "a b c"
+            "d b e";
+        }
+        .sl-card--a { grid-area: a; }
+        .sl-card--b { grid-area: b; }
+        .sl-card--c { grid-area: c; }
+        .sl-card--d { grid-area: d; }
+        .sl-card--e { grid-area: e; }
+      }
+
+      .sl-card {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+        padding: 2rem;
+        background-color: #fff;
+        border: 0.0625rem solid #e0e0e0;
+        border-radius: 1.25rem;
+        box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+      }
+
+      .sl-card__body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .sl-card__title {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        font-weight: 600;
+        color: var(--color-text-light-primary);
+      }
+
+      .sl-card__desc {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 400;
+        color: var(--color-text-light-secondary);
+      }
+
+      .sl-card__img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+        margin-top: auto;
+        align-self: center;
+      }
+
+      /* Brand Control illustration: capped so the tall card's picture doesn't overwhelm */
+      .sl-card__img--brand {
+        max-width: 20rem;
+        margin-inline: auto;
+      }
+    </style>
   </div>
 </section>
 
