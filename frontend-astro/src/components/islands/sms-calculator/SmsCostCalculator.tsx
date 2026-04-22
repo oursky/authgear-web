@@ -116,12 +116,20 @@ export default function SmsCostCalculator({ locale }: Props) {
                     setSearchQuery(e.target.value);
                     setDropdownOpen(true);
                   }}
-                  onFocus={() => {
+                  onFocus={(e) => {
                     if (blurTimer.current) clearTimeout(blurTimer.current);
+                    // Clear the search so the user sees the full country list; also select
+                    // the existing text so typing over it is natural.
+                    setSearchQuery('');
+                    e.target.select();
                     setDropdownOpen(true);
                   }}
                   onBlur={() => {
-                    blurTimer.current = setTimeout(() => setDropdownOpen(false), 150);
+                    blurTimer.current = setTimeout(() => {
+                      setDropdownOpen(false);
+                      // Restore the selected country's name if the user blurred without picking anything.
+                      setSearchQuery((q) => (q ? q : selectedCountry.country));
+                    }, 150);
                   }}
                 />
                 <div className={`ag-dropdown${dropdownOpen ? ' open' : ''}`} id="ag-dropdown">
