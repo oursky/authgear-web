@@ -291,10 +291,18 @@ function buildFrontmatter(e) {
   return L.join('\n');
 }
 
+// Webflow template seed posts — dummy Lorem Ipsum content left over from the initial
+// site setup. Skip them on migration so they never land in the content collection.
+const DUMMY_SLUGS = new Set([
+  '5-principles-of-effective-web-design',
+  'what-will-website-be-like-in-100-years',
+]);
+
 async function processItem(item, categoryMap, localeFolder, allLinks) {
   const f = item.fieldData;
   const slug = f.slug?.trim();
   if (!slug) return null;
+  if (DUMMY_SLUGS.has(slug)) return null;
 
   const outDir = path.join(POSTS_ROOT, localeFolder, slug);
   await fs.mkdir(outDir, { recursive: true });
