@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  companyLogo?: ImageMetadata;
+  companyLogoAlt: string;
+  companyIndustry?: string;
+  loginMethods: readonly string[];
+  technicalDetails: readonly string[];
+  labels: {
+    industry: string;
+    loginMethods: string;
+    technicalDetails: string;
+  };
+}
+
+const EMPTY = '—';
+const {
+  companyLogo,
+  companyLogoAlt,
+  companyIndustry,
+  loginMethods,
+  technicalDetails,
+  labels,
+} = Astro.props;
+const industryText = companyIndustry?.trim() || '';
+---
+<aside class="ds-customer-story-body__sidebar">
+  {companyLogo && (
+    <div class="ds-customer-story-body__logo-wrap">
+      <Image
+        src={companyLogo}
+        alt={companyLogoAlt}
+        width={180}
+        class="ds-customer-story-body__logo"
+        loading="lazy"
+      />
+    </div>
+  )}
+  <dl class="ds-customer-story-body__meta-list">
+    <div class="ds-customer-story-body__meta">
+      <dt class="ds-customer-story-body__label">{labels.industry}</dt>
+      <dd class="ds-customer-story-body__dd ds-customer-story-body__value">
+        {industryText || EMPTY}
+      </dd>
+    </div>
+    <div class="ds-customer-story-body__meta">
+      <dt class="ds-customer-story-body__label">{labels.loginMethods}</dt>
+      <dd class="ds-customer-story-body__dd">
+        {loginMethods.length > 0 ? (
+          <ul class="ds-customer-story-body__chip-list">
+            {loginMethods.map((item) => (
+              <li class="ds-customer-story-body__chip">{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <span class="ds-customer-story-body__value ds-customer-story-body__value--plain">{EMPTY}</span>
+        )}
+      </dd>
+    </div>
+    <div class="ds-customer-story-body__meta">
+      <dt class="ds-customer-story-body__label">{labels.technicalDetails}</dt>
+      <dd class="ds-customer-story-body__dd">
+        {technicalDetails.length > 0 ? (
+          <ul class="ds-customer-story-body__chip-list">
+            {technicalDetails.map((item) => (
+              <li class="ds-customer-story-body__chip">{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <span class="ds-customer-story-body__value ds-customer-story-body__value--plain">{EMPTY}</span>
+        )}
+      </dd>
+    </div>
+  </dl>
+</aside>

@@ -1,76 +1,53 @@
 ---
-export const prerender = false;
+export const prerender = true;
 
+import { Image } from 'astro:assets';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import CustomerStorySidebar from '@/components/customer-story/CustomerStorySidebar.astro';
 import { t } from '@/i18n';
-import { pathLocaleToStrapiLocale } from '@/lib/i18n';
-import { getCustomerStoryBySlug, strapiImageUrl } from '@/lib/strapi';
-import CustomerStoryBody from '@/components/customer-story/CustomerStoryBody';
 
-const locale = 'en';
-const strapiLocale = pathLocaleToStrapiLocale(locale);
-const { slug } = Astro.params as { slug: string };
-
-const story = await getCustomerStoryBySlug(slug, strapiLocale);
-if (!story) {
-  return Astro.redirect('/404');
+export async function getStaticPaths() {
+  const entries = await getCollection('customer-stories', ({ id }) => id.startsWith('en/'));
+  return entries.map((entry) => ({
+    params: { slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, '') },
+    props: { entry },
+  }));
 }
 
-const {
-  title,
-  excerpt,
-  content,
-  companyLogo,
-  coverImage,
-  companyIndustry,
-  loginMethodsTech,
-  metric1_num,
-  metric1_Text,
-  metric2_num,
-  metric2_Text,
-  metric3_num,
-  metric3_Text,
-} = story.attributes;
+interface Props { entry: CollectionEntry<'customer-stories'> }
 
-const logoUrl = strapiImageUrl(companyLogo);
-const coverUrl = strapiImageUrl(coverImage);
-
-Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+const locale = 'en';
+const { entry } = Astro.props;
+const data = entry.data;
+const { Content } = await entry.render();
 
 const labels = {
   industry: t(locale, 'CustomerStories.sidebarIndustry'),
   loginMethods: t(locale, 'CustomerStories.sidebarLoginMethods'),
   technicalDetails: t(locale, 'CustomerStories.sidebarTechnicalDetails'),
-  noContent: t(locale, 'CustomerStories.noContentYet'),
   metricsAriaLabel: t(locale, 'CustomerStories.metricsAriaLabel'),
 };
-
-const pageTitle = title;
-const pageDescription = excerpt ?? '';
 ---
 
-<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
+<BaseLayout locale={locale} title={data.title} description={data.excerpt ?? ''}>
   <div class="page-wrapper">
     <section class="ds-customer-story-hero">
-      {coverUrl ? (
-        <>
-          <div class="ds-customer-story-hero__media">
-            <img
-              src={coverUrl}
-              alt=""
-              class="ds-customer-story-hero__img"
-              style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-          </div>
-          <div class="ds-customer-story-hero__overlay" aria-hidden="true" />
-        </>
-      ) : null}
+      <div class="ds-customer-story-hero__media">
+        <Image
+          src={data.coverImage}
+          alt=""
+          class="ds-customer-story-hero__img"
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
+          loading="eager"
+        />
+      </div>
+      <div class="ds-customer-story-hero__overlay" aria-hidden="true" />
       <div class="ds-customer-story-hero__inner">
         <div class="ds-container ds-container--hero">
           <div class="ds-customer-story-hero__intro">
             <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'CustomerStories.title')}</p>
-            <h1 class="ds-hero-banner__title">{title}</h1>
+            <h1 class="ds-hero-banner__title">{data.title}</h1>
           </div>
         </div>
       </div>
@@ -78,21 +55,35 @@ const pageDescription = excerpt ?? '';
 
     <div class="section case-study-post">
       <div class="container-default w-container">
-        <CustomerStoryBody
-          client:load
-          content={content}
-          companyLogoUrl={logoUrl}
-          companyLogoAlt={title}
-          companyIndustry={companyIndustry}
-          loginMethodsTech={loginMethodsTech}
-          metric1_num={metric1_num}
-          metric1_Text={metric1_Text}
-          metric2_num={metric2_num}
-          metric2_Text={metric2_Text}
-          metric3_num={metric3_num}
-          metric3_Text={metric3_Text}
-          labels={labels}
-        />
+        <div class="ds-customer-story-body">
+          <CustomerStorySidebar
+            companyLogo={data.companyLogo}
+            companyLogoAlt={data.title}
+            companyIndustry={data.companyIndustry}
+            loginMethods={data.loginMethods}
+            technicalDetails={data.technicalDetails}
+            labels={labels}
+          />
+          <div class="ds-customer-story-body__main">
+            {data.metrics.length > 0 ? (
+              <ul class="ds-customer-story-metrics" aria-label={labels.metricsAriaLabel}>
+                {data.metrics.map((m) => (
+                  <li class="ds-customer-story-metrics__item">
+                    {m.num?.trim() ? (
+                      <span class="ds-customer-story-metrics__num">{m.num.trim()}</span>
+                    ) : null}
+                    {m.text?.trim() ? (
+                      <p class="ds-customer-story-metrics__text">{m.text.trim()}</p>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            <div class="ds-richtext-prose w-richtext">
+              <Content />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

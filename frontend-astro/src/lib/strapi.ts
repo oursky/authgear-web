@@ -416,30 +416,7 @@ export async function getBlogCategories(options: FetchOptions = {}) {
   return strapiGet<StrapiListResponse<BlogCategory>>('blog-categories', options);
 }
 
-// ── Customer Stories ──────────────────────────────────────────────────────────
-export type CustomerStory = {
-  title: string;
-  slug: string;
-  excerpt: string;
-  /** Strapi Blocks JSON (`content` field); legacy HTML string still accepted in UI. */
-  content?: unknown;
-  companyIndustry?: string;
-  companyLogo: StrapiImage;
-  thumbnail: StrapiImage;
-  coverImage: StrapiImage;
-  companyLocation?: string;
-  /** Component `cms.login-and-tech`: `methodsDetail` + `technicalDetails` multi-selects */
-  loginMethodsTech?: unknown;
-  metric1_num?: string;
-  metric1_Text?: string;
-  metric2_num?: string;
-  metric2_Text?: string;
-  metric3_num?: string;
-  metric3_Text?: string;
-  publishedAt: string;
-};
-
-/** Unwrap customer story `loginMethodsTech` component (flat Strapi 5 or `{ data: { attributes } }` after normalize). */
+/** Unwrap `loginMethodsTech` component (flat Strapi 5 or `{ data: { attributes } }` after normalize). */
 export function strapiLoginMethodsTechFields(loginMethodsTech: unknown): {
   methodsDetail: unknown;
   technicalDetails: unknown;
@@ -481,23 +458,6 @@ export function strapiMultiSelectToStrings(value: unknown): string[] {
     }
   }
   return [];
-}
-
-export async function getCustomerStories(options: FetchOptions = {}) {
-  return strapiGet<StrapiListResponse<CustomerStory>>('customer-stories', {
-    populate: '*',
-    sort: 'publishedAt:desc',
-    ...options,
-  });
-}
-
-export async function getCustomerStoryBySlug(slug: string, locale?: StrapiLocale) {
-  const res = await strapiGet<StrapiListResponse<CustomerStory>>('customer-stories', {
-    populate: '*',
-    filters: { slug: { $eq: slug } },
-    locale,
-  });
-  return res.data[0] ?? null;
 }
 
 // ── Integrations ──────────────────────────────────────────────────────────────

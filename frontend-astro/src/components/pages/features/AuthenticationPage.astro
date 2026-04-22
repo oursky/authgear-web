@@ -1,7 +1,18 @@
 ---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+
 interface Props { locale: string }
 const { locale } = Astro.props;
+
+const USE_CASE_SLUGS = ['k11', 'global-qsr', 'hongkong-land'] as const;
+const slugOf = (id: string) => id.replace(/^(en|zh-TW)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const allStories = await getCollection('customer-stories', ({ id }) => id.startsWith('en/'));
+const useCaseStories = USE_CASE_SLUGS
+  .map((s) => allStories.find((e) => slugOf(e.id) === s))
+  .filter((e): e is NonNullable<typeof e> => !!e);
 ---
 <section class="ds-hero-banner--gradient">
   <div class="ds-container ds-container--gradient-hero-shell">
@@ -228,6 +239,40 @@ const { locale } = Astro.props;
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">Use Cases</h2>
+    </div>
+    <div class="ds-grid-3 authentication-use-cases">
+      {useCaseStories.map((entry) => {
+        const slug = slugOf(entry.id);
+        const href = localizedPath(locale, `/customer-stories/${slug}`);
+        return (
+          <a href={href} class="authentication-use-case-card">
+            <Image
+              src={entry.data.coverImage}
+              alt={entry.data.title}
+              width={600}
+              class="authentication-use-case-card__img"
+              loading="lazy"
+            />
+            <div class="authentication-use-case-card__body">
+              <p class="authentication-use-case-card__title">{entry.data.title}</p>
+              <span class="authentication-use-case-card__cta">
+                See Case Studies
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>
