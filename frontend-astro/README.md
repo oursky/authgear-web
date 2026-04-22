@@ -42,5 +42,5 @@ npm test                          # playwright — smoke tests (home + redirects
 - [x] Phase 2e-2 — Pricing page (comparison table + toggle + FAQ)
 - [x] Phase 3-1 — Blog (listing + detail + /api/blog-posts)
 - [x] Phase 3-2 — Customer stories (listing + detail)
-- [ ] Phase 3-3 — Login gallery + What's new
+- [x] Phase 3-3 — Login gallery + What's new
 - [ ] Phase 4 — Fly.io deployment + cutover
