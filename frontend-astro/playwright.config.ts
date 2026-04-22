@@ -1,16 +1,18 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const PORT = 4321;
+
 export default defineConfig({
   testDir: './tests',
   timeout: 30_000,
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: `http://localhost:${PORT}`,
     trace: 'retain-on-failure',
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {
-    command: 'npm run build && PORT=3000 npm start',
-    url: 'http://localhost:3000',
+    command: `npm run build && PORT=${PORT} npm start`,
+    url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
