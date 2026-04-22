@@ -1,0 +1,60 @@
+---
+export const prerender = true;
+
+import { Image } from 'astro:assets';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { localizedPath } from '@/lib/i18n';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('integration-categories');
+  return categories.map((cat) => ({
+    params: { slug: cat.data.slug },
+    props: { category: cat },
+  }));
+}
+
+interface Props { category: CollectionEntry<'integration-categories'> }
+
+const locale = 'en';
+const { category } = Astro.props;
+
+const all = await getCollection('integrations', ({ id, data }) => id.startsWith('en/') && data.category === category.data.slug);
+const slugOf = (id: string) => id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const entries = all.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const title = `${category.data.name} Integrations - Authgear`;
+const description = `Authgear integrations in the ${category.data.name} category.`;
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <section class="ds-hero-banner--gradient">
+    <div class="ds-container ds-container--gradient-hero-shell">
+      <div class="ds-hero-banner--gradient__inner">
+        <div class="ds-container ds-container--hero integrations-index__hero">
+          <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">Integrations</p>
+          <h1 class="ds-hero-banner__title">{category.data.name}</h1>
+          <p class="ds-hero-banner__description">{description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-bg-white">
+    <div class="ds-container">
+      <ul role="list" class="integrations-grid">
+        {entries.map((entry) => (
+          <li class="integrations-grid__item">
+            <a href={localizedPath(locale, `/integrations/${slugOf(entry.id)}`)} class="integration-card">
+              <div class="integration-card__icon">
+                <Image src={entry.data.icon} alt={entry.data.name} width={80} loading="lazy" />
+              </div>
+              <h3 class="integration-card__name">{entry.data.name}</h3>
+              <p class="integration-card__excerpt">{entry.data.excerpt}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
