@@ -38,6 +38,7 @@ npm test                          # playwright — smoke tests (home + redirects
 - [x] Phase 2c-3 — Features subtree + 3 tab/accordion islands (19 pages)
 - [x] Phase 2d-1 — SMS Cost Calculator island (unblocks Phase 2c-2 stub)
 - [x] Phase 2d-2 — Tools subtree (9 interactive dev-tool pages as React islands)
-- [ ] Phase 2e — Once page + Pricing page
+- [x] Phase 2e-1 — Once page (SDK tab switcher + FAQ accordion)
+- [ ] Phase 2e-2 — Pricing page (comparison table + toggle + FAQ)
 - [ ] Phase 3 — CMS-backed pages (blog, customer stories, etc.)
 - [ ] Phase 4 — Fly.io deployment + cutover
