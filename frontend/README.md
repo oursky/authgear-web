@@ -1,69 +1,46 @@
-# Frontend
+# frontend-astro
 
-This directory contains the Authgear marketing site built with Next.js 16, React 19, and TypeScript.
+Astro 5 port of the Authgear marketing site. Runs alongside `frontend/` (Next.js) during migration.
 
-All pages are native React server components:
+Design rationale: `docs/ARCHITECTURE-ASTRO.md`.
+Implementation plan: `docs/superpowers/plans/2026-04-21-astro-migration-foundation.md`.
 
-- **Static marketing pages** — components in `components/pages/` (about, features, compare, solutions, go, events, campaign, tools, home, and more)
-- **Dynamic CMS pages** — blog posts, customer stories, integrations, etc., fetched from Strapi via `lib/strapi.ts`
-- **Localized routes** under `app/[locale]/` for English (`en`) and Traditional Chinese (`zh-TW`)
-
-## Run locally
+## Dev
 
 ```bash
-cd frontend
 npm install
-cp .env.local.example .env.local
-npm run dev
+cp ../frontend/.env.local .env
+# Rename NEXT_PUBLIC_* to PUBLIC_* in .env
+npm run dev                       # http://localhost:4321
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-## Environment variables
-
-Set these in `frontend/.env.local`:
-
-```env
-STRAPI_URL=http://localhost:1337
-NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
-STRAPI_API_TOKEN=
-CONTACT_WEBHOOK_URL=
-```
-
-Notes:
-
-- Set both `STRAPI_URL` and `NEXT_PUBLIC_STRAPI_URL` to your active Strapi base URL (local or deployed).
-- `STRAPI_API_TOKEN` can be left empty only if the Strapi Public role allows `find` and `findOne` on the collections the site reads.
-
-## How the frontend is organized
-
-- `app/[locale]/...` — canonical localized routes; `app/...` — thin English wrappers (redirect or re-export).
-- `components/pages/` — one component per static marketing page (or per slug group for features, compare, etc.).
-- `lib/navigation-data.ts` — typed nav/footer link data with per-locale labels; `lib/site-navigation.ts` renders it to HTML injected by the root layout.
-- `lib/strapi.ts` — fetches and normalizes Strapi 5 REST responses.
-- `lib/i18n.ts` — `LOCALES`, `localizedPath()`, locale mapping helpers.
-- `messages/` — next-intl translation files (`en.json`, `zh-TW.json`). See `messages/README.md` for how to add a locale.
-- `public/` — static assets: CSS, JS, images, documents.
-
-## Editing content and pages
-
-Use the right source depending on the page:
-
-- **Static marketing pages** (about, features, compare, solutions, home, tools, etc.): edit the React component in `components/pages/`.
-- **Translatable strings**: edit `messages/en.json` and `messages/zh-TW.json`. Components use `getTranslations({ locale, namespace })` from next-intl.
-- **Pricing page** (`/pricing`, `/zh-TW/pricing`): structured data (plans, comparison table, FAQ) lives in `lib/pricing/copy-en.ts`; UI strings are in `messages/en.json` under the `Pricing` namespace; rendered by `components/pricing/PricingPageView.tsx`.
-- **CMS-driven collections** (blog posts, customer stories, integrations, login gallery, team members, what's new): update content in Strapi.
-- **Nav / footer**: edit `lib/navigation-data.ts`.
-- **Locale routing**: default English has no URL prefix (`/blog`); Traditional Chinese uses `/zh-TW/...`. Middleware rewrites unprefixed paths to `/en/...` internally. `/zh-Hant-TW/...` and legacy `/zh/...` redirect (308) to `/zh-TW/...`.
-
-## Available scripts
+## Build & run (production)
 
 ```bash
-npm run dev
 npm run build
-npm run start
+PORT=3000 npm start               # node ./dist/server/entry.mjs on :3000
 ```
 
-## Related docs
+## Tests
 
-- Root setup and deployment: `../README.md`
+```bash
+npm run test:unit                 # vitest — t() translation helper
+npm test                          # playwright — smoke tests (home + redirects + analytics)
+```
+
+## Phase status
+
+- [x] Phase 1 — Foundation
+- [x] Phase 2a — Core islands + home parity (ContactForm, LogoMarquee, /api/contact)
+- [x] Phase 2b — Simple static marketing pages (~13 pages)
+- [x] Phase 2c-1 — Compare subtree + dynamic route pattern (4 pages)
+- [x] Phase 2c-2 — Solutions subtree (7 pages)
+- [x] Phase 2c-3 — Features subtree + 3 tab/accordion islands (19 pages)
+- [x] Phase 2d-1 — SMS Cost Calculator island (unblocks Phase 2c-2 stub)
+- [x] Phase 2d-2 — Tools subtree (9 interactive dev-tool pages as React islands)
+- [x] Phase 2e-1 — Once page (SDK tab switcher + FAQ accordion)
+- [x] Phase 2e-2 — Pricing page (comparison table + toggle + FAQ)
+- [x] Phase 3-1 — Blog (listing + detail + /api/blog-posts)
+- [x] Phase 3-2 — Customer stories (listing + detail)
+- [x] Phase 3-3 — Login gallery + What's new
+- [ ] Phase 4 — Fly.io deployment + cutover

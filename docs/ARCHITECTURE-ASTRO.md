@@ -2,7 +2,7 @@
 
 Architecture of the Authgear marketing website after the Next.js → Astro migration and the Strapi → Astro Content Collections migration. Source of truth for how the site is built today.
 
-**Status (2026-04-22):** Live on `frontend-astro/`. All static marketing pages + every CMS collection (blog posts, customer stories, login gallery, what's new, integrations) render from local content files. Zero runtime Strapi dependency. Legacy Next.js app in `frontend/` is retained for reference but no longer the production target.
+**Status (2026-04-22):** Live on `frontend/` (Astro). All static marketing pages + every CMS collection (blog posts, customer stories, login gallery, what's new, integrations) render from local content files. Zero runtime Strapi dependency. The previous Next.js + Strapi stack has been fully removed from the repo.
 
 ## Stack
 
@@ -28,7 +28,7 @@ No external CMS. No rebuild-on-publish webhook. Editing = editing markdown + ima
 ## Directory layout
 
 ```
-frontend-astro/
+frontend/
 ├── src/
 │   ├── pages/                                 # File-based routing
 │   │   ├── index.astro                        # Home (en)
@@ -253,7 +253,7 @@ That's it — no more `STRAPI_URL`, no more `STRAPI_API_TOKEN`, no more `PUBLIC_
 ## Dev commands
 
 ```bash
-cd frontend-astro
+cd frontend
 npm install
 npm run dev        # http://localhost:4321
 npm run build      # → dist/client/ (static) + dist/server/ (SSR entry for API + sitemap)
@@ -269,7 +269,7 @@ app = "authgear-web"
 primary_region = "nrt"
 
 [build]
-  dockerfile = "frontend-astro/Dockerfile"
+  dockerfile = "frontend/Dockerfile"
 
 [env]
   HOST = "0.0.0.0"

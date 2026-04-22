@@ -1,31 +1,40 @@
 {
-  "name": "frontend",
+  "name": "frontend-astro",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
+    "check": "astro check",
+    "test": "playwright test",
+    "test:unit": "vitest run"
   },
   "dependencies": {
+    "@astrojs/node": "^9.1.0",
+    "@astrojs/react": "^4.2.0",
+    "@astrojs/sitemap": "^3.7.2",
     "@heroicons/react": "^2.2.0",
-    "@next/third-parties": "^16.2.1",
-    "@strapi/blocks-react-renderer": "^1.0.2",
-    "intl-tel-input": "^26.8.1",
-    "next": "16.2.0",
-    "next-intl": "^4.8.3",
-    "next-plausible": "^3.12.5",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^5.2.0",
+    "intl-tel-input": "^26.9.2",
+    "node-addon-api": "^8.7.0",
     "normalize.css": "^8.0.1",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.2.2",
-    "@types/node": "^20",
+    "@astrojs/check": "^0.9.8",
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^25.6.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "postcss": "^8.5.8",
-    "tailwindcss": "^4.2.2",
-    "typescript": "^5"
+    "node-gyp": "^12.3.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.5"
   }
 }
