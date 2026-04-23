@@ -154,12 +154,13 @@ export const footerStrings: Record<string, Record<string, string>> = {
   freeToolsTitle: { en: 'Free Tools', 'zh-TW': '免費工具' },
   oidcDiscovery: { en: 'OIDC Discovery Explorer', 'zh-TW': 'OIDC Discovery 探索器' },
   sslChecker: { en: 'SSL Checker', 'zh-TW': 'SSL 檢查工具' },
-  uuidv7Generator: {
-    en: 'UUID v7 Generator<br>&amp; Timestamp Extractor',
-    'zh-TW': 'UUID v7 產生器<br>與時間戳解析器',
+  uuidv7Generator: { en: 'UUID v7 Generator', 'zh-TW': 'UUID v7 產生器' },
+  uuidv7GeneratorNote: {
+    en: '& Timestamp Extractor',
+    'zh-TW': '與時間戳解析器',
   },
   base64: { en: 'Base64 Decode/Encode', 'zh-TW': 'Base64 編解碼' },
-  jwtDebugger: { en: 'JWT &amp; JWE Debugger', 'zh-TW': 'JWT 與 JWE 除錯器' },
+  jwtDebugger: { en: 'JWT & JWE Debugger', 'zh-TW': 'JWT 與 JWE 除錯器' },
   jwkGenerator: { en: 'JWK Generator', 'zh-TW': 'JWK 產生器' },
   passwordHash: { en: 'Password Hash Generator/Verifier', 'zh-TW': '密碼雜湊產生／驗證' },
   hmacSignature: { en: 'HMAC Signature Generator/Verifier', 'zh-TW': 'HMAC 簽章產生／驗證' },

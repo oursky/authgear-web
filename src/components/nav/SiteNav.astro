@@ -9,6 +9,7 @@ import {
   developersDropdownLinks,
   type NavLink,
 } from '@/lib/navigation-data';
+import Button from './Button.astro';
 import NavDropdown from './NavDropdown.astro';
 import SolutionsNavIcons from './SolutionsNavIcons.astro';
 import ResourcesDevelopersNavIcons from './ResourcesDevelopersNavIcons.astro';
@@ -58,7 +59,7 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
                         </div>
                         <div class="nav-menu-dropdown-column-links">
                           {sec.links.map((item) => (
-                            <a href={href(item.path!)} class="nav-menu-dropdown-link w-inline-block">
+                            <a href={href(item.path!)} class="nav-menu-dropdown-link">
                               <div>{label(item)}</div>
                             </a>
                           ))}
@@ -80,7 +81,7 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
                     {col.links.map((item) => {
                       const linkNote = note(item);
                       return (
-                        <a href={href(item.path!)} class="nav-menu-dropdown-link products w-inline-block">
+                        <a href={href(item.path!)} class="nav-menu-dropdown-link products">
                           <div>
                             <span>{label(item)}</span>
                             {linkNote && (
@@ -107,7 +108,7 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
                   </div>
                   <div class="nav-menu-dropdown-column-links">
                     {col.links.map((item) => (
-                      <a href={href(item.path!)} class="nav-menu-dropdown-link w-inline-block">
+                      <a href={href(item.path!)} class="nav-menu-dropdown-link">
                         <div>{label(item)}</div>
                       </a>
                     ))}
@@ -125,8 +126,8 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
       <div class="nav-menu-dropdown-column">
         <div class="nav-menu-dropdown-column-links">
           {solutionsDropdownLinks.map((item) => (
-            <a href={href(item.path!)} class="nav-menu-dropdown-link w-inline-block">
-              <div class="w-embed nav-dropdown-icon-embed">
+            <a href={href(item.path!)} class="nav-menu-dropdown-link">
+              <div class="nav-dropdown-icon-embed">
                 <SolutionsNavIcons name={item.path!} />
               </div>
               <div>{label(item)}</div>
@@ -135,7 +136,7 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
         </div>
       </div>
       <div class="nav-menu-dropdown-column image">
-        <a href={sideHref} class="w-inline-block">
+        <a href={sideHref}>
           <img src={solutionsSideImage.src} loading="eager" width={solutionsSideImage.width} alt={sideAlt} />
         </a>
       </div>
@@ -145,8 +146,8 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     <NavDropdown title={t(locale, 'Navigation.resources')} panelClass="nav-menu-dropdown-list">
       <div class="nav-menu-dropdown-column no-gap">
         {resourcesDropdownLinks.map((item) => (
-          <a href={href(item.path!)} class="nav-menu-dropdown-link w-inline-block">
-            <div class="w-embed nav-dropdown-icon-embed">
+          <a href={href(item.path!)} class="nav-menu-dropdown-link">
+            <div class="nav-dropdown-icon-embed">
               <ResourcesDevelopersNavIcons name={item.path!} />
             </div>
             <div>{label(item)}</div>
@@ -160,8 +161,8 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
       <div class="nav-menu-dropdown-column">
         <div class="nav-menu-dropdown-column-links">
           {developersDropdownLinks.map((item) => (
-            <a href={item.href ?? href(item.path!)} class="nav-menu-dropdown-link w-inline-block">
-              <div class="w-embed nav-dropdown-icon-embed">
+            <a href={item.href ?? href(item.path!)} class="nav-menu-dropdown-link">
+              <div class="nav-dropdown-icon-embed">
                 <ResourcesDevelopersNavIcons name={item.href ?? item.path ?? ''} />
               </div>
               <div>{label(item)}</div>
@@ -180,33 +181,43 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     </ul>
 
     <div class="mobile-nav-buttons">
-      <a
+      <Button
         href="https://portal.authgear.com/"
         target="_blank"
-        class="nav-button login mobile w-inline-block plausible-event-name--login"
+        variant="ghost"
+        plausibleEvent="login"
+        class="login mobile"
       >
         <div class="text-block-32">{t(locale, 'Navigation.loginMobile')}</div>
-      </a>
-      <a
+      </Button>
+      <Button
         href="https://portal.authgear.com/"
-        class="button-primary header-button-mobile signup w-button plausible-event-name--signup"
+        variant="primary"
+        plausibleEvent="signup"
+        class="header-button-mobile signup"
       >
         {t(locale, 'Navigation.signupMobile')}
-      </a>
+      </Button>
     </div>
   </nav>
 
   <div class="split-content header-right">
-    <a href={localizedPath(locale, '/schedule-demo')} class="button-primary header-button w-button">
+    <Button
+      href={localizedPath(locale, '/schedule-demo')}
+      variant="primary"
+      class="header-button"
+    >
       {t(locale, 'Navigation.getDemo')}
-    </a>
-    <a
+    </Button>
+    <Button
       href="https://portal.authgear.com/"
       target="_blank"
-      class="nav-button login w-inline-block plausible-event-name--login"
+      variant="ghost"
+      plausibleEvent="login"
+      class="login"
     >
       <div>{t(locale, 'Navigation.signupLogin')}</div>
-    </a>
+    </Button>
     <div class="menu-button w-nav-button">
       <div class="menu-button-wrapper">
         <div class="menu-button-icon">

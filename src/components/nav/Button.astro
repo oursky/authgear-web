@@ -1,0 +1,54 @@
+---
+/**
+ * Thin wrapper around the existing button CSS classes. Centralizes the
+ * variant → base-class mapping and the Plausible event-name tagging so
+ * callers don't repeat the same class soup.
+ *
+ * The base classes (`button-primary w-button`, `nav-button`) still live
+ * in the Webflow-exported stylesheet. When those classes are migrated
+ * to a scoped stylesheet, only this component needs updating.
+ */
+interface Props {
+  /** If provided, renders an <a>; otherwise renders a <button type="button">. */
+  href?: string;
+  target?: string;
+  rel?: string;
+  variant: 'primary' | 'ghost';
+  /**
+   * Plausible event name. Adds the `plausible-event-name--<name>` class
+   * and matches the existing site convention.
+   */
+  plausibleEvent?: string;
+  /** Extra class names (size / placement modifiers). */
+  class?: string;
+  'aria-label'?: string;
+}
+const {
+  href,
+  target,
+  rel,
+  variant,
+  plausibleEvent,
+  class: extra,
+  'aria-label': ariaLabel,
+} = Astro.props;
+
+const base = variant === 'primary' ? 'button-primary w-button' : 'nav-button';
+const classList = [
+  base,
+  plausibleEvent ? `plausible-event-name--${plausibleEvent}` : null,
+  extra,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+{href ? (
+  <a href={href} target={target} rel={rel} class={classList} aria-label={ariaLabel}>
+    <slot />
+  </a>
+) : (
+  <button type="button" class={classList} aria-label={ariaLabel}>
+    <slot />
+  </button>
+)}

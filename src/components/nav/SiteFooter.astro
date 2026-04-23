@@ -277,7 +277,10 @@ const poweredSuffix = L('poweredBySuffix');
               </li>
               <li class="footer-menu-list-item">
                 <a href={lp('/tools/uuidv7-generator')} class="footer-menu-link workshop-footer-link w-inline-block">
-                  <div set:html={L('uuidv7Generator')} />
+                  <div>
+                    {L('uuidv7Generator')}<br />
+                    {L('uuidv7GeneratorNote')}
+                  </div>
                 </a>
               </li>
               <li class="footer-menu-list-item">
@@ -287,7 +290,7 @@ const poweredSuffix = L('poweredBySuffix');
               </li>
               <li class="footer-menu-list-item">
                 <a href={lp('/tools/jwt-jwe-debugger')} class="footer-menu-link workshop-footer-link w-inline-block">
-                  <div set:html={L('jwtDebugger')} />
+                  <div>{L('jwtDebugger')}</div>
                 </a>
               </li>
               <li class="footer-menu-list-item">
