@@ -215,6 +215,26 @@ const featuredCases = featuredCaseSlugs
       </div>
     </div>
   </section>
+
+  <!-- SECTION: Footer Form -->
+  <div class="footer-form-section form__bg-dark">
+    <div class="container-default">
+      <div class="container-default-inner px-0">
+        <div class="_2-block-flex footer-form">
+          <div class="_2-block-flex-content footer-form">
+            <div class="_2-block-flex-content-text-wrap footer-form">
+              <h2 class="form-heading color-white footer-form">{t(locale, 'About.footerTitle')}</h2>
+              <div class="footerform__divider-sm"></div>
+              <div class="color-white footer-get-started-text">{t(locale, 'About.footerBody')}</div>
+            </div>
+          </div>
+          <div class="_2-block-flex-image footer-form">
+            <ContactForm client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
