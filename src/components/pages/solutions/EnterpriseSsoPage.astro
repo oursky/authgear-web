@@ -1,8 +1,22 @@
 ---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 import ContactForm from '@/components/islands/ContactForm';
 interface Props { locale: string }
 const { locale } = Astro.props;
+
+const featuredSlugs = ['global-qsr', 'hongkong-land', 'hongkong-mtr'];
+const allStories = await getCollection('customer-stories', ({ id }) => id.startsWith('en/'));
+const caseStudies = featuredSlugs
+  .map((slug) => allStories.find((e) => e.id === `en/${slug}/index.md`))
+  .filter((e): e is NonNullable<typeof e> => e !== undefined)
+  .map((entry) => ({
+    slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, ''),
+    title: entry.data.title,
+    thumbnail: entry.data.thumbnail,
+  }));
 ---
 <section class="ds-hero-banner--dark">
   <div class="ds-container ds-container--hero">
@@ -302,25 +316,39 @@ const { locale } = Astro.props;
     </div>
   </div>
 </section>
-<!-- SECTION: Workforce (legacy Webflow dyn-list, preserved as-is) -->
-<section>
-  <div class="container-default feature-v3-container-default">
-    <div class="w-layout-grid container-default-inner px-0 gap-0"></div>
-    <h2 class="title features-page-v2 features-page-v3">{t(locale, 'EnterpriseSso.workforceTitle')}</h2>
-    <div class="collection-list-wrapper-8 w-dyn-list">
-      <div role="list" class="collection-list-7 w-dyn-items">
-        <div role="listitem" class="collection-item-5 w-dyn-item"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt="" class="image-102 w-dyn-bind-empty" />
-          <div class="w-layout-vflex flex-block-95">
-            <div class="text-block-98 w-dyn-bind-empty"></div>
-            <a href="#" class="link-block-10 w-inline-block">
-              <div>{t(locale, 'EnterpriseSso.workforceCta')}</div><img src="/images/Arrow-RIght-SM---Iconly-Pro.svg" loading="lazy" alt="" />
-            </a>
-          </div>
+<!-- SECTION: Workforce case studies -->
+<section class="ds-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{t(locale, 'EnterpriseSso.workforceTitle')}</h2>
+    </div>
+    <div role="list" class="case-study-list w-dyn-items">
+      {caseStudies.map((story) => (
+        <div role="listitem" class="case-study-item-wrap w-dyn-item">
+          <a
+            href={localizedPath(locale, `/customer-stories/${story.slug}`)}
+            class="case-study-featured-image-wrap w-inline-block"
+          >
+            <Image
+              src={story.thumbnail}
+              alt={story.title}
+              width={600}
+              class="case-study-featured-image"
+              style="object-fit: cover; width: 100%; height: auto;"
+              loading="lazy"
+            />
+          </a>
+          <a
+            href={localizedPath(locale, `/customer-stories/${story.slug}`)}
+            class="case-study-content-wrap w-inline-block"
+          >
+            <div class="case-study-featured-content-top">
+              <div class="case-study-title">{story.title}</div>
+            </div>
+            <div class="case-study-item-cta">{t(locale, 'EnterpriseSso.workforceCta')}</div>
+          </a>
         </div>
-      </div>
-      <div class="w-dyn-empty">
-        <div>No items found.</div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
