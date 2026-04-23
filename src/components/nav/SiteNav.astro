@@ -38,11 +38,16 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
 ---
 
 <div class="container-header">
-  <a href={localizedPath(locale, '/')} class="brand w-nav-brand">
+  <a href={localizedPath(locale, '/')} class="brand">
     <img src="/images/authgear-logo.svg" alt={t(locale, 'Navigation.logoAlt')} class="header-logo" />
   </a>
 
-  <nav role="navigation" class="nav-menu w-nav-menu">
+  <nav
+    id="site-nav"
+    role="navigation"
+    class="nav-menu"
+    data-site-nav-panel
+  >
     {/* Products */}
     <NavDropdown title={t(locale, 'Navigation.products')} panelClass="nav-menu-dropdown-list-full-width">
       <div class="nav-full-width-wrapper">
@@ -218,14 +223,174 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     >
       <div>{t(locale, 'Navigation.signupLogin')}</div>
     </Button>
-    <div class="menu-button w-nav-button">
-      <div class="menu-button-wrapper">
-        <div class="menu-button-icon">
-          <div class="menu-line-top"></div>
-          <div class="menu-line-middle"></div>
-          <div class="menu-line-bottom"></div>
-        </div>
-      </div>
-    </div>
+    <button
+      type="button"
+      class="menu-button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label={t(locale, 'Navigation.menuToggleLabel')}
+      data-site-nav-toggle
+    >
+      <span class="menu-button-wrapper">
+        <span class="menu-button-icon" aria-hidden="true">
+          <span class="menu-line-top"></span>
+          <span class="menu-line-middle"></span>
+          <span class="menu-line-bottom"></span>
+        </span>
+      </span>
+    </button>
   </div>
 </div>
+
+<style>
+  /* Mobile drawer: replaces Webflow's w-nav behavior. At >=992px the
+     nav renders inline as today; at <=991px it collapses behind the
+     hamburger and animates open on tap. */
+  .menu-button {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
+  }
+  .menu-button:focus-visible {
+    outline: 2px solid var(--primary-1, #0043e0);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 991px) {
+    .menu-button {
+      display: inline-flex;
+    }
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      padding: 1rem 1.5rem 2rem;
+      z-index: 900;
+    }
+    .nav-menu[data-site-nav-open] {
+      display: block;
+    }
+  }
+
+  .menu-line-top,
+  .menu-line-middle,
+  .menu-line-bottom {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .menu-button[aria-expanded='true'] .menu-line-top {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .menu-button[aria-expanded='true'] .menu-line-middle {
+    opacity: 0;
+  }
+  .menu-button[aria-expanded='true'] .menu-line-bottom {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-line-top,
+    .menu-line-middle,
+    .menu-line-bottom {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const BREAKPOINT = window.matchMedia('(max-width: 991px)');
+  const toggle = document.querySelector<HTMLButtonElement>(
+    '[data-site-nav-toggle]',
+  );
+  const panel = document.querySelector<HTMLElement>(
+    '[data-site-nav-panel]',
+  );
+
+  if (toggle && panel) {
+    const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+
+    const focusableSelectors = [
+      'a[href]',
+      'button:not([disabled])',
+      'input:not([disabled])',
+      'select:not([disabled])',
+      'textarea:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])',
+    ].join(',');
+
+    function setOpen(open: boolean) {
+      toggle!.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        panel!.setAttribute('data-site-nav-open', '');
+        document.documentElement.style.overflow = 'hidden';
+        const first = panel!.querySelector<HTMLElement>(focusableSelectors);
+        first?.focus();
+      } else {
+        panel!.removeAttribute('data-site-nav-open');
+        document.documentElement.style.overflow = '';
+      }
+    }
+
+    function close() {
+      setOpen(false);
+      toggle!.focus();
+    }
+
+    toggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      setOpen(!isOpen());
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!isOpen()) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        close();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!isOpen()) return;
+      const target = event.target as Node | null;
+      if (!target) return;
+      if (panel!.contains(target) || toggle!.contains(target)) return;
+      setOpen(false);
+    });
+
+    panel.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+      if (target.closest('a')) setOpen(false);
+    });
+
+    panel.addEventListener('keydown', (event) => {
+      if (!isOpen() || event.key !== 'Tab') return;
+      const focusables = Array.from(
+        panel!.querySelectorAll<HTMLElement>(focusableSelectors),
+      ).filter((el) => el.offsetParent !== null);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    BREAKPOINT.addEventListener('change', () => {
+      if (!BREAKPOINT.matches && isOpen()) setOpen(false);
+    });
+  }
+</script>
