@@ -117,6 +117,104 @@ const featuredCases = featuredCaseSlugs
       </div>
     </div>
   </section>
+
+  <!-- SECTION: Company snapshot -->
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">{t(locale, 'About.snapshotTitle')}</h2>
+      </div>
+      <p class="about-snapshot__line">{t(locale, 'About.snapshotLine')}</p>
+      <div class="about-snapshot__badges">
+        <img
+          src="/images/Authgear_footer_certificated_blue2x.png"
+          alt="ISO 27001 and SoC 2 Type II certified"
+          class="about-snapshot__badge"
+          loading="lazy"
+        />
+        <a
+          href="https://fidoalliance.org/passkeypledge/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="about-snapshot__badge-link"
+          aria-label="Passkey Pledge Partner"
+        >
+          <img
+            src="/images/PasskeyPledge_color.png"
+            alt="Passkey Pledge Partner"
+            class="about-snapshot__badge"
+            loading="lazy"
+          />
+        </a>
+        <img
+          src="/images/1111.png"
+          alt="Microsoft Azure"
+          class="about-snapshot__cloud-logo"
+          loading="lazy"
+        />
+        <img
+          src="/images/gcp.png"
+          alt="Google Cloud"
+          class="about-snapshot__cloud-logo"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Customer proof -->
+  <section class="ds-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">{t(locale, 'About.customersTitle')}</h2>
+      </div>
+      <div class="about-logo-wall" role="list">
+        {logoWall.map((story) => (
+          story.logo && (
+            <a
+              href={localizedPath(locale, `/customer-stories/${story.slug}`)}
+              class="about-logo-wall__item"
+              role="listitem"
+              aria-label={story.title}
+            >
+              <Image
+                src={story.logo}
+                alt={story.title}
+                width={160}
+                class="about-logo-wall__img"
+                loading="lazy"
+              />
+            </a>
+          )
+        ))}
+      </div>
+      <div class="_2-card-grid">
+        {featuredCases.map((story) => (
+          <div class="solution-case-study-card">
+            <Image
+              src={story.thumbnail}
+              alt={story.title}
+              width={624}
+              class="solution-case-study-card-thumb"
+              loading="lazy"
+              sizes="(max-width: 767px) 100vw, 624px"
+            />
+            <div class="solution-case-study-card-text">
+              <div class="ds-svg-card-content">
+                <h3 class="ds-svg-card-title">{t(locale, story.titleKey)}</h3>
+                <a href={localizedPath(locale, `/customer-stories/${story.slug}`)} class="ds-btn ds-btn-secondary">
+                  {t(locale, story.ctaKey)}
+                  <svg class="ds-btn__icon-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 </div>
 
 <style>
@@ -127,5 +225,70 @@ const featuredCases = featuredCaseSlugs
     flex-direction: column;
     gap: 1.25rem;
     text-align: center;
+  }
+  .about-snapshot__line {
+    max-width: 960px;
+    margin: 1.5rem auto 2rem;
+    text-align: center;
+    color: #3e4f6f;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  .about-snapshot__badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  .about-snapshot__badge {
+    height: 72px;
+    width: auto;
+  }
+  .about-snapshot__cloud-logo {
+    height: 40px;
+    width: auto;
+    opacity: 0.85;
+  }
+  .about-snapshot__badge-link {
+    display: inline-flex;
+    align-items: center;
+  }
+  .about-logo-wall {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem 2rem;
+    align-items: center;
+    justify-items: center;
+    margin: 2rem 0 3rem;
+  }
+  .about-logo-wall__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  .about-logo-wall__img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+  .about-logo-wall__item:hover .about-logo-wall__img {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  @media (max-width: 991px) {
+    .about-logo-wall {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 479px) {
+    .about-logo-wall {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>
