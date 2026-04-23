@@ -362,7 +362,14 @@
   },
   "Promises": {
     "title": "Authgear Promises",
-    "description": ""
+    "description": "The commitments we make to every Authgear customer.",
+    "heroTitle": "Authgear Promises",
+    "item1": "You own your code and data, not us.",
+    "item2": "We won't lock you in from other vendors.",
+    "item3": "We will do everything we can to achieve 100% uptime.",
+    "item4": "We will never achieve 100% uptime, but when we fall short, we'll explain why and how we'll do better next time.",
+    "footerTitle": "Get started with Authgear",
+    "footerBody": "Talk to us about your authentication needs, or start building for free today."
   },
   "ScheduleDemo": {
     "title": "Schedule Demo",
