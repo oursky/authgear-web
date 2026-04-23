@@ -361,15 +361,15 @@
     "description": ""
   },
   "Promises": {
-    "title": "Authgear Promises",
-    "description": "The commitments we make to every Authgear customer.",
-    "heroTitle": "Authgear Promises",
-    "item1": "You own your code and data, not us.",
-    "item2": "We won't lock you in from other vendors.",
-    "item3": "We will do everything we can to achieve 100% uptime.",
-    "item4": "We will never achieve 100% uptime, but when we fall short, we'll explain why and how we'll do better next time.",
-    "footerTitle": "Get started with Authgear",
-    "footerBody": "Talk to us about your authentication needs, or start building for free today."
+    "title": "Authgear 的承諾",
+    "description": "我們對每一位 Authgear 客戶所做的承諾。",
+    "heroTitle": "Authgear 的承諾",
+    "item1": "你的程式碼和資料屬於你,不屬於我們。",
+    "item2": "我們不會把你鎖在其他供應商的生態之外。",
+    "item3": "我們會盡一切努力達到 100% 的服務可用時間。",
+    "item4": "我們永遠無法做到 100% 可用,但當我們未能達成時,會說明原因,並告訴你下一次會如何做得更好。",
+    "footerTitle": "開始使用 Authgear",
+    "footerBody": "和我們聊聊你的身份驗證需求,或立即從免費方案開始。"
   },
   "ScheduleDemo": {
     "title": "Schedule Demo",
