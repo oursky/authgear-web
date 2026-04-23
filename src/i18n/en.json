@@ -9,7 +9,8 @@
     "loginMobile": "Login",
     "signupMobile": "Signup",
     "getDemo": "Get a Demo",
-    "signupLogin": "Signup/Login"
+    "signupLogin": "Signup/Login",
+    "menuToggleLabel": "Open menu"
   },
   "Blog": {
     "title": "Resource Center",

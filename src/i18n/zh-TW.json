@@ -9,7 +9,8 @@
     "loginMobile": "登入",
     "signupMobile": "註冊",
     "getDemo": "預約示範",
-    "signupLogin": "註冊／登入"
+    "signupLogin": "註冊／登入",
+    "menuToggleLabel": "開啟選單"
   },
   "Blog": {
     "title": "Resource Center",
