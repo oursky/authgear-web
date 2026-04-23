@@ -16,8 +16,10 @@ export default defineConfig({
         !page.includes('/en/') &&
         !/\/blog\/[a-z0-9-]+\/?$/.test(page) && // /blog/{slug} is a 301 redirect
         !/\/post\/category\//.test(page) && // legacy redirect
+        !/\/features\/identity-security\/?$/.test(page) && // 301 → attack-protection
         !/\/zh-TW\/blog\/[a-z0-9-]+\/?$/.test(page) &&
-        !/\/zh-TW\/post\/category\//.test(page),
+        !/\/zh-TW\/post\/category\//.test(page) &&
+        !/\/zh-TW\/features\/identity-security\/?$/.test(page),
     }),
   ],
   vite: { plugins: [tailwindcss()] },

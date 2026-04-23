@@ -11,7 +11,6 @@ import BiometricAuthenticationPage from '@/components/pages/features/BiometricAu
 import BiometricLoginPage from '@/components/pages/features/BiometricLoginPage.astro';
 import CustomizationPage from '@/components/pages/features/CustomizationPage.astro';
 import ExtensibilityPage from '@/components/pages/features/ExtensibilityPage.astro';
-import IdentitySecurityPage from '@/components/pages/features/IdentitySecurityPage.astro';
 import MachineToMachineTokenPage from '@/components/pages/features/MachineToMachineTokenPage.astro';
 import MultiFactorAuthenticationPage from '@/components/pages/features/MultiFactorAuthenticationPage.astro';
 import PasskeysPage from '@/components/pages/features/PasskeysPage.astro';
@@ -32,7 +31,6 @@ const pageMap = {
   'biometric-login': BiometricLoginPage,
   customization: CustomizationPage,
   extensibility: ExtensibilityPage,
-  'identity-security': IdentitySecurityPage,
   'machine-to-machine-token': MachineToMachineTokenPage,
   'multi-factor-authentication': MultiFactorAuthenticationPage,
   passkeys: PasskeysPage,
@@ -55,7 +53,7 @@ export function getStaticPaths() {
     'biometric-login',
     'customization',
     'extensibility',
-    'identity-security',
+    'identity-security', // 301-redirected to /features/attack-protection below.
     'machine-to-machine-token',
     'multi-factor-authentication',
     'passkeys',
@@ -70,9 +68,12 @@ export function getStaticPaths() {
   ].map((slug) => ({ params: { slug } }));
 }
 
-const { slug } = Astro.params as { slug: FeatureSlug };
-const Component = pageMap[slug];
-const meta = featuresMeta[slug];
+const { slug } = Astro.params as { slug: string };
+if (slug === 'identity-security') {
+  return Astro.redirect('/features/attack-protection', 301);
+}
+const Component = pageMap[slug as keyof typeof pageMap];
+const meta = featuresMeta[slug as FeatureSlug];
 if (!Component || !meta) {
   return Astro.redirect('/404');
 }

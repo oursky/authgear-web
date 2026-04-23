@@ -39,11 +39,6 @@ export const featuresMeta: Record<string, FeatureMeta> = {
     description:
       'Extend and customize authentication with APIs and Hooks. Authgear lets developers tailor auth flows, validate inputs, and enrich tokens to fit any product.',
   },
-  'identity-security': {
-    title: 'Unbreakable Identity Security: Protect Your Business with Authgear',
-    description:
-      'Bolster your business with robust identity security. Authgear offers advanced features like bot detection, brute-force protection, and MFA to shield your users and data from threats.',
-  },
   'machine-to-machine-token': {
     title: 'Machine-to-Machine Authentication (M2M Tokens) | Authgear',
     description:
