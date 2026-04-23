@@ -367,9 +367,7 @@
   "Promises": {
     "title": "Authgear Promises",
     "description": "The commitments we make to every Authgear customer.",
-    "eyebrow": "Our commitments",
     "heroTitle": "Authgear Promises",
-    "lede": "A short list of the things we commit to, and the things we don't.",
     "item1": "You own your code and data, not us.",
     "item2": "We won't lock you in from other vendors.",
     "item3": "We will do everything we can to achieve 100% uptime.",
