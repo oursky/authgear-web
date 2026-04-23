@@ -1,122 +1,70 @@
 ---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
+import ContactForm from '@/components/islands/ContactForm';
 
 interface Props { locale: string }
 const { locale } = Astro.props;
 
-// heroParagraph uses rich text with skymakerLink and br tags — convert to HTML
-const heroParagraphRaw = t(locale, 'About.heroParagraph');
-const heroParagraphHtml = heroParagraphRaw
-  .replace(/<skymakerLink>(.*?)<\/skymakerLink>/g, '<a href="https://www.skymakers.co.uk" target="_blank" rel="noopener noreferrer">$1</a>')
-  .replace(/<br><\/br>/g, '<br />');
+// Logo wall: 6 customer stories that ship a logo.png file.
+const logoWallSlugs = [
+  'hongkong-mtr',
+  'hongkong-land',
+  'k11',
+  'cornerstone-technologies',
+  'outback-steakhouse',
+  'bupa',
+];
+// Featured case cards: 2 "extended enterprise / frontline workers" stories.
+const featuredCaseSlugs = ['hongkong-mtr', 'global-qsr'];
+
+const allStories = await getCollection('customer-stories', ({ id }) => id.startsWith('en/'));
+const findStory = (slug: string) =>
+  allStories.find((e) => e.id === `en/${slug}/index.md`);
+
+const logoWall = logoWallSlugs
+  .map(findStory)
+  .filter((e): e is NonNullable<typeof e> => e !== undefined)
+  .map((entry) => ({
+    slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, ''),
+    title: entry.data.title,
+    logo: entry.data.companyLogo,
+  }));
+
+const featuredCases = featuredCaseSlugs
+  .map(findStory)
+  .filter((e): e is NonNullable<typeof e> => e !== undefined)
+  .map((entry, idx) => ({
+    slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, ''),
+    title: entry.data.title,
+    thumbnail: entry.data.thumbnail,
+    titleKey: `About.caseStudy${idx + 1}Title` as const,
+    ctaKey: `About.caseStudy${idx + 1}Cta` as const,
+  }));
 ---
 
 <div class="page-wrapper">
-  <div class="section about-hero">
-    <div class="container-default w-container">
-      <div class="about-hero-wrapper">
-        <div class="split-content about-hero-left">
-          <h1>{t(locale, 'About.heroHeading')}</h1>
-          <p class="paragraph-large" set:html={heroParagraphHtml}></p>
-        </div>
-        <img
-          src="/images/Lessons-Working-Remotely-in-the-Time-of-Coronavirus-5.png"
-          alt={t(locale, 'About.heroImageAlt')}
-          class="image about-hero"
-        />
-      </div>
-    </div>
-  </div>
-  <div class="section team-members">
-    <div class="container-medium-651px team-members">
-      <h2>{t(locale, 'About.teamHeading')}</h2>
-      <p class="paragraph-large">{t(locale, 'About.teamSubheading')}</p>
-    </div>
-    <div class="container-default w-container">
-      <div data-duration-in="300" data-duration-out="100" data-current="Tab 2" data-easing="ease" class="team-members-tabs w-tabs">
-        <div class="team-members-tabs-content w-tab-content">
-          <div data-w-tab="Tab 2" class="tem-members-tab-pane w-tab-pane w--tab-active">
-            <div class="w-dyn-list">
-              <div role="list" class="team-members-grid w-dyn-items">
-                <div role="listitem" class="w-dyn-item">
-                  <div class="card team">
-                    <a href="#" class="team-profile-link w-inline-block">
-                      <div class="image-wrapper card-team"><img src="" alt="" class="image card-team w-dyn-bind-empty" /></div>
-                      <h3 class="h3-title-small card-team-name w-dyn-bind-empty"></h3>
-                      <div class="card-team-rol w-dyn-bind-empty"></div>
-                    </a>
-                    <div class="divider card-team"></div>
-                    <p class="paragraph card-team w-dyn-bind-empty"></p>
-                    <a href="#" class="link-wrapper w-inline-block">
-                      <div>View LinkedIn</div>
-                      <div class="underline-wrapper">
-                        <div class="underline"></div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="empty-state w-dyn-empty">
-                <div>No items found.</div>
-              </div>
-            </div>
+  <!-- SECTION: Hero -->
+  <section class="ds-hero-banner--dark">
+    <div class="ds-container ds-container--hero">
+      <div class="ds-hero-banner__row">
+        <div class="ds-hero-banner__body">
+          <h1 class="ds-hero-banner__title">{t(locale, 'About.heroTitle')}</h1>
+          <p class="ds-hero-banner__description">{t(locale, 'About.heroSubhead')}</p>
+          <div class="ds-hero-banner__ctas">
+            <a href={localizedPath(locale, '/schedule-demo')} class="ds-btn ds-btn-secondary">
+              {t(locale, 'About.heroCta1')}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+            <a href={localizedPath(locale, '/pricing')} class="ds-btn ds-btn-tertiary">
+              {t(locale, 'About.heroCta2')}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
           </div>
         </div>
       </div>
-      <div class="flex-vc">
-        <a href="#" class="button-primary w-button">{t(locale, 'About.joinUsButton')}</a>
-      </div>
     </div>
-  </div>
-  <div class="section partners">
-    <div class="container-medium-997px partners">
-      <h2 class="title partners">{t(locale, 'About.partnersHeading')}</h2>
-      <div class="w-layout-grid partners-grid">
-        <div class="animation-div">
-          <a href="https://azure.microsoft.com/" target="_blank" rel="noopener noreferrer" class="image-wrapper partners w-inline-block">
-            <img src="/images/1111.png" alt="Microsoft Azure" class="image partners" />
-          </a>
-        </div>
-        <div class="animation-div">
-          <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer" class="image-wrapper partners w-inline-block">
-            <img src="/images/gcp.png" alt="Google Cloud" class="image partners" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section cta">
-    <div class="container-default w-container">
-      <div class="cta-wrapper">
-        <div class="animation-div">
-          <a href={localizedPath(locale, '/pricing')} class="split-content cta-left w-inline-block">
-            <h2 class="title cta-split-content-left">{t(locale, 'About.ctaGetStartedHeading')}</h2>
-            <p class="paragraph cta-split-content-left">{t(locale, 'About.ctaGetStartedBody')}</p>
-            <div class="link-wrapper white">
-              <div>{t(locale, 'About.ctaGetStartedLink')}</div>
-              <div class="underline-wrapper white">
-                <div class="underline white"></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="animation-div">
-          <a href={localizedPath(locale, '/schedule-demo')} class="split-content cta-right w-inline-block">
-            <h2 class="title cta-split-content-right">{t(locale, 'About.ctaSalesHeading')}</h2>
-            <p class="paragraph cta-split-content-right">{t(locale, 'About.ctaSalesBody')}</p>
-            <div class="link-wrapper cta-right">
-              <div>{t(locale, 'About.ctaSalesLink')}</div>
-              <div class="underline-wrapper">
-                <div class="underline"></div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-default w-container">
-    <div class="divider"></div>
-  </div>
+  </section>
 </div>
