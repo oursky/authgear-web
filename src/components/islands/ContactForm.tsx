@@ -64,21 +64,43 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
 
   if (status === 'success') {
     return (
-      <div className="success-message">
-        <div>Thank you! Your submission has been received!</div>
+      <div className="form-block ds-form">
+        <div className="ds-form-success" role="status">
+          <svg
+            className="ds-form-success__icon"
+            aria-hidden="true"
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="24" cy="24" r="22" fill="#d1fae5" />
+            <path
+              d="M15 25 L22 32 L34 18"
+              stroke="#047857"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+            />
+          </svg>
+          <h3 className="ds-form-success__title">Thanks — we got it.</h3>
+          <p className="ds-form-success__body">
+            We'll be in touch within one business day.
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="form-block">
-      <form onSubmit={handleSubmit} className="contact-form">
-        <div className="margin-vertical margin-small">
-          <label className="getdemo-label">
-            Full Name<span className="text-span-7">*</span>
+    <div className="form-block ds-form">
+      <form onSubmit={handleSubmit} className="ds-form__form">
+        <div className="ds-form__field">
+          <label htmlFor="cf-name" className="ds-form-label">
+            Full Name<span className="ds-form-label__required">*</span>
           </label>
           <input
-            className="getdemo-field w-input"
+            id="cf-name"
+            className="ds-form-input"
             maxLength={256}
             name="Name"
             type="text"
@@ -88,12 +110,13 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
           />
         </div>
 
-        <div className="margin-vertical margin-small">
-          <label className="getdemo-label">
-            Work Email<span className="text-span-8">*</span>
+        <div className="ds-form__field">
+          <label htmlFor="cf-email" className="ds-form-label">
+            Work Email<span className="ds-form-label__required">*</span>
           </label>
           <input
-            className="getdemo-field w-input"
+            id="cf-email"
+            className="ds-form-input"
             maxLength={256}
             name="Email"
             type="email"
@@ -103,9 +126,9 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
           />
         </div>
 
-        <div className="margin-vertical margin-small">
-          <label className="getdemo-label">
-            Phone Number<span className="text-span-9">*</span>
+        <div className="ds-form__field">
+          <label htmlFor="cf-phone" className="ds-form-label">
+            Phone Number<span className="ds-form-label__required">*</span>
           </label>
           <IntlTelInput
             ref={itiRef}
@@ -130,24 +153,31 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
               setCountry(data?.name ?? '');
             }}
             inputProps={{
-              className: 'getdemo-field w-input',
+              id: 'cf-phone',
+              className:
+                'ds-form-input' +
+                (phone && !phoneValid ? ' ds-form-input--error' : ''),
               required: true,
               name: 'Phone',
+              'aria-invalid': phone && !phoneValid ? true : undefined,
+              'aria-describedby':
+                phone && !phoneValid ? 'cf-phone-error' : undefined,
             }}
           />
           {phone && !phoneValid && (
-            <span style={{ color: '#e53e3e', fontSize: '0.875rem' }}>
+            <span id="cf-phone-error" className="ds-form-field-error">
               Invalid phone number
             </span>
           )}
         </div>
 
-        <div className="margin-vertical margin-small">
-          <label className="getdemo-label">
-            Company Name<span className="text-span-10">*</span>
+        <div className="ds-form__field">
+          <label htmlFor="cf-company" className="ds-form-label">
+            Company Name<span className="ds-form-label__required">*</span>
           </label>
           <input
-            className="getdemo-field w-input"
+            id="cf-company"
+            className="ds-form-input"
             maxLength={256}
             name="Company"
             type="text"
@@ -157,18 +187,22 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
           />
         </div>
 
-        <div className="margin-vertical margin-small">
-          <label className="getdemo-label">
-            How did you hear about us?<span className="text-span-10">*</span>
+        <div className="ds-form__field">
+          <label htmlFor="cf-how-hear" className="ds-form-label">
+            How did you hear about us?
+            <span className="ds-form-label__required">*</span>
           </label>
           <select
+            id="cf-how-hear"
             name="how-hear"
             required
-            className="getdemo-field w-select"
+            className="ds-form-input"
             value={howHear}
             onChange={(e) => setHowHear(e.target.value)}
           >
-            <option value="" disabled>Select one</option>
+            <option value="" disabled>
+              Select one
+            </option>
             <option value="organic-search">Search Engine</option>
             <option value="llm">AI Tools (e.g. ChatGPT, Gemini, etc)</option>
             <option value="github">GitHub</option>
@@ -176,32 +210,52 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
           </select>
         </div>
 
-        <div className="margin-vertical margin-small">
-          <label className="getdemo-label">Anything else?</label>
+        <div className="ds-form__field">
+          <label htmlFor="cf-use-case" className="ds-form-label">
+            Anything else?
+          </label>
           <textarea
+            id="cf-use-case"
             placeholder="Tell us more about your project, needs, timeline"
             maxLength={500}
             name="Use-Case"
-            className="get-demo-form-field w-input"
+            className="ds-form-input"
             value={useCase}
             onChange={(e) => setUseCase(e.target.value)}
           />
         </div>
 
         {status === 'error' && (
-          <div className="error-message">
-            <div>Oops! Something went wrong while submitting the form.</div>
+          <div className="ds-form-error" role="alert">
+            Oops! Something went wrong while submitting the form.
           </div>
         )}
 
-        <div className="margin-vertical margin-medium">
-          <input
-            type="submit"
-            className="getdemo-submit"
-            value={status === 'submitting' ? 'Please wait...' : 'Submit'}
-            disabled={status === 'submitting'}
-          />
-        </div>
+        <button
+          type="submit"
+          className="ds-btn ds-btn-primary ds-form__submit"
+          disabled={status === 'submitting'}
+          aria-busy={status === 'submitting'}
+        >
+          {status === 'submitting' ? 'Submitting…' : 'Submit'}
+          {status !== 'submitting' && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="ds-btn__icon-arrow"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          )}
+        </button>
       </form>
     </div>
   );
