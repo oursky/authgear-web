@@ -49,7 +49,7 @@ Rebuild `/about` (and `/zh-TW/about`) to:
 - CTAs:
   - Primary: "Get a Demo" → `/schedule-demo`
   - Ghost: "View Pricing" → `/pricing`
-- Visual: product imagery on the right, matching the `ds-hero-banner__media` pattern. Reuse an existing marketing SVG/image (candidate: `/images/home-hero-illustration.svg` or similar — to be picked at implementation time; must not be the old zoom-call photo). If nothing suitable exists, fall back to no-image hero with centered copy.
+- Visual: no image. Centered copy in the hero. The old zoom-call photo is gone.
 
 ### 2. "Why we built Authgear" — narrative
 
@@ -125,7 +125,7 @@ About.heroSubhead
 About.heroCta1             → "Get a Demo"
 About.heroCta2             → "View Pricing"
 About.whyEyebrow           → "Why Authgear" (section eyebrow)
-About.whyTitle             → "Authentication is infrastructure" (or similar — see Open Questions)
+About.whyTitle             → "Why we built Authgear"
 About.whyP1                → paragraph 1 (the problem)
 About.whyP2                → paragraph 2 (the market)
 About.whyP3                → paragraph 3 (the approach)
@@ -207,12 +207,6 @@ About.ctaSalesLink
 - Links: demo CTA hits `/schedule-demo`, pricing CTA hits `/pricing`, case study CTAs hit `/customer-stories/{slug}`.
 - Visual spot-check at three viewports: desktop (≥1280), tablet (768–991), mobile (<768).
 - Verify compliance badges and cloud logos render at reasonable sizes inline.
-
-## Open questions
-
-1. **Hero image.** Is there a preferred existing marketing illustration for the hero right column, or should we ship the hero centered (no image) and add visual later?
-2. **`whyTitle` section heading.** Candidates: "Why we built Authgear" / "What makes Authgear different" / "Our take on CIAM". Pick at review time.
-3. **Spec-only:** Should the company-snapshot row include a photo of the remote team (non-staged), or stay text+logos only? Default: text + logos.
 
 ## Out of scope / follow-ups
 
