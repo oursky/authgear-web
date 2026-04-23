@@ -1,72 +1,115 @@
 ---
 import { t } from '@/i18n';
+import ContactForm from '@/components/islands/ContactForm';
 
-interface Props {
-  locale: string;
-}
-
+interface Props { locale: string }
 const { locale } = Astro.props;
+
+const items = [
+  t(locale, 'Promises.item1'),
+  t(locale, 'Promises.item2'),
+  t(locale, 'Promises.item3'),
+  t(locale, 'Promises.item4'),
+];
 ---
 
-<>
-  <div class="page-wrapper">
-    <div class="inner-page-hero">
-      <div class="container-medium-761px">
-        <div class="text-center">
-          <div class="color-white">
-            <h1 class="color-white">Ours Promises</h1>
-          </div>
+<div class="page-wrapper">
+  <!-- SECTION: Hero -->
+  <section class="ds-hero-banner--dark">
+    <div class="ds-container ds-container--hero">
+      <div class="ds-hero-banner__row">
+        <div class="ds-hero-banner__body">
+          <p class="ds-section-eyebrow promises-hero__eyebrow">{t(locale, 'Promises.eyebrow')}</p>
+          <h1 class="ds-hero-banner__title">{t(locale, 'Promises.heroTitle')}</h1>
+          <p class="ds-hero-banner__description">{t(locale, 'Promises.lede')}</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="section">
-      <div class="container-default w-container"></div>
-      <div class="container-medium-761px">
-        <div class="ds-richtext-prose rich-text w-richtext">
-          <ol role="list">
-            <li>You own your code and data, not us.</li>
-            <li>We won't lock you in from other vendors.</li>
-            <li>We will do everything we can to achieve 100% uptime.</li>
-            <li>We will never achieve 100% uptime, but when we fall short, we'll explain why and how we'll do better next time.</li>
-          </ol>
-        </div>
-      </div>
+  <!-- SECTION: Promises list -->
+  <section class="ds-section">
+    <div class="ds-container">
+      <ol class="promises-list" role="list">
+        {items.map((text, i) => (
+          <li class="promises-list__item">
+            <span class="promises-list__num" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <p class="promises-list__text">{text}</p>
+          </li>
+        ))}
+      </ol>
     </div>
+  </section>
 
-    <div class="section cta">
-      <div class="container-default w-container">
-        <div class="cta-wrapper">
-          <div class="animation-div">
-            <a href="/pricing" class="split-content cta-left w-inline-block">
-              <h2 class="title cta-split-content-left">Get Started for free</h2>
-              <p class="paragraph cta-split-content-left">Authgear.com is free for apps unlimited MAUs (Monthly Active Users) with Authgear branding. It is also open source and always free!</p>
-              <div class="link-wrapper white">
-                <div>Get Started</div>
-                <div class="underline-wrapper white">
-                  <div class="underline white"></div>
-                </div>
-              </div>
-            </a>
+  <!-- SECTION: Footer Form (matches About page) -->
+  <div class="footer-form-section form__bg-dark">
+    <div class="container-default">
+      <div class="container-default-inner px-0">
+        <div class="_2-block-flex footer-form">
+          <div class="_2-block-flex-content footer-form">
+            <div class="_2-block-flex-content-text-wrap footer-form">
+              <h2 class="form-heading color-white footer-form">{t(locale, 'Promises.footerTitle')}</h2>
+              <div class="footerform__divider-sm"></div>
+              <div class="color-white footer-get-started-text">{t(locale, 'Promises.footerBody')}</div>
+            </div>
           </div>
-          <div class="animation-div">
-            <a href="/schedule-demo" class="split-content cta-right w-inline-block">
-              <h2 class="title cta-split-content-right">Talk with our sales team</h2>
-              <p class="paragraph cta-split-content-right">If you are looking for volume discounts, custom support plans, SLA, or have a different compliance requirements, feel free to contact us!</p>
-              <div class="link-wrapper cta-right">
-                <div>Contact Us</div>
-                <div class="underline-wrapper">
-                  <div class="underline"></div>
-                </div>
-              </div>
-            </a>
+          <div class="_2-block-flex-image footer-form">
+            <ContactForm client:load />
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="container-default w-container">
-      <div class="divider"></div>
     </div>
   </div>
-</>
+</div>
+
+<style>
+  .promises-hero__eyebrow {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.75rem;
+  }
+  .promises-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+  }
+  .promises-list__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(62, 79, 111, 0.15);
+  }
+  .promises-list__item:last-child {
+    border-bottom: none;
+  }
+  .promises-list__num {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #6366f1;
+    line-height: 1.4;
+  }
+  .promises-list__text {
+    margin: 0;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: #0f172a;
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .promises-list__item {
+      padding: 1.5rem 0;
+      gap: 1rem;
+    }
+    .promises-list__text {
+      font-size: 1.125rem;
+    }
+  }
+</style>
