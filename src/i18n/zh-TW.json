@@ -258,12 +258,6 @@
   "Once": {
     "title": "Authgear ONCE – 買斷授權，自主掌握 IAM",
     "description": "以買斷授權自建 IAM——Authgear ONCE。無訂閱費，完整掌控身份與存取基礎架構。",
-    "waitlistTitle": "搶先取得<br></br>Authgear ONCE",
-    "emailPlaceholder": "您的電子郵件",
-    "submitButton": "送出",
-    "submitWait": "請稍候…",
-    "formSuccess": "感謝您！我們已收到您的提交。",
-    "formError": "提交時發生錯誤，請再試一次。",
     "heroTagline": "像 Auth0，<br></br>但無需<gradient>訂閱</gradient>",
     "heroDescription": "以 Authgear ONCE 掌握身份與存取管理：自架 IAM 平台，永久擁有。無訂閱、無隱藏費用。",
     "productHuntBadgeAlt": "Authgear ONCE 於 Product Hunt",

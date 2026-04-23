@@ -24,25 +24,6 @@ function tRich(locale: string, key: string): string {
 
 <div class="page-wrapper">
 
-  <!-- Popup / Waitlist -->
-  <div class="w-layout-blockcontainer popup-container w-container">
-    <div class="w-layout-blockcontainer container-1459 w-container"></div>
-    <div class="w-layout-hflex waitlist-popup"><img src="/images/AuthgearONCE_logo_dark.svg" loading="lazy" alt="" />
-      <div class="text-block-64" set:html={tRich(locale, 'Once.waitlistTitle')}></div>
-      <div class="authgear-once-form w-form">
-        <form id="wf-form-Once-Waitlist" name="wf-form-Once-Waitlist-2" data-name="Once Waitlist" method="get" class="authgear-once"><input class="text-field-2 w-input" maxlength="256" name="Email" data-name="Email" placeholder={t(locale, 'Once.emailPlaceholder')} type="email" id="Email" required />
-          <div id="w-node-f51c9bed-a02e-8eab-fd22-370ce9d91b0e-85a0aff6" data-sitekey="6LdonPYqAAAAAGzNsg7cDyHi5VTueApPzHoOx0Y4" class="w-form-formrecaptcha recaptcha long g-recaptcha g-recaptcha-error g-recaptcha-disabled"></div><input type="submit" data-wait={t(locale, 'Once.submitWait')} class="submit-button w-button" value={t(locale, 'Once.submitButton')} />
-        </form>
-        <div class="success-message-4 w-form-done">
-          <div>{t(locale, 'Once.formSuccess')}</div>
-        </div>
-        <div class="w-form-fail">
-          <div>{t(locale, 'Once.formError')}</div>
-        </div>
-      </div><img src="/images/Authgear_once-list-pop-close.svg" loading="lazy" alt="" class="image-83" />
-    </div>
-  </div>
-
   <!-- Banner / Hero -->
   <div class="page-wrapper once-banner">
     <div class="section home-hero dark once-banner new-kv">

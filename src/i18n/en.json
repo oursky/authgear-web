@@ -258,12 +258,6 @@
   "Once": {
     "title": "Authgear ONCE – Own Your IAM with a Perpetual License",
     "description": "Self-hosted IAM with a perpetual license — Authgear ONCE. No subscriptions; full control of your identity stack.",
-    "waitlistTitle": "Get Early Access to<br></br>Authgear ONCE",
-    "emailPlaceholder": "Your email address",
-    "submitButton": "Submit",
-    "submitWait": "Please wait...",
-    "formSuccess": "Thank you! Your submission has been received!",
-    "formError": "Oops! Something went wrong while submitting the form.",
     "heroTagline": "Like Auth0,<br></br>But Without the <gradient>Subscription</gradient>",
     "heroDescription": "Take control of your identity and access management with Authgear ONCE — a self-hosted IAM platform you own forever. No subscriptions, no surprises.",
     "productHuntBadgeAlt": "Authgear ONCE on Product Hunt",
