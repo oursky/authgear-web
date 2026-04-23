@@ -10,7 +10,7 @@ import ToolPopup from '@/components/tools/ToolPopup';
 
 function OidcIcon1() {
   return (
-    <div className="icon-w48 w-embed">
+    <div className="icon-w48">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
         <path d="M29.5874 31.3508C28.9512 31.9248 28.5872 32.7402 28.5872 33.5964V37.5038C28.5872 38.7414 27.8342 39.8526 26.6842 40.3118L22.9868 41.783C21.002 42.573 18.8458 41.1116 18.8458 38.975V32.6408C18.8458 31.841 18.5286 31.0724 17.9604 30.5042L9.38458 22.8684C7.99518 21.4808 7.21484 19.5972 7.21484 17.6317V13.6036C7.21484 10.6925 9.57528 8.33203 12.4884 8.33203" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M36.4331 8.33203C39.3443 8.33203 41.7047 10.6925 41.7047 13.6036V16.2832C41.7047 18.3809 40.8153 20.3814 39.2585 21.7844L34.4219 26.5676" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -22,7 +22,7 @@ function OidcIcon1() {
 
 function OidcIcon2() {
   return (
-    <div className="icon-w48 w-embed">
+    <div className="icon-w48">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
         <path d="M16.5 23.9883H40.5014" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M28.5006 35.9883H40.5014M16.5 35.9883H22.5004" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -37,7 +37,7 @@ function OidcIcon2() {
 
 function OidcIcon3() {
   return (
-    <div className="icon-w48 w-embed">
+    <div className="icon-w48">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
         <path d="M14.2139 17.5703L6.5 23.9978L14.2139 30.4274" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M34.7852 17.5703L42.499 23.9978L34.7852 30.4274" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />

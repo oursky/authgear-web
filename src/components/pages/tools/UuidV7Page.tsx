@@ -10,7 +10,7 @@ import ToolPopup from '@/components/tools/ToolPopup';
 
 function UuidIcon1() {
   return (
-    <div className="icon-w48 w-embed">
+    <div className="icon-w48">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
         <path d="M19.9727 40.1553H26.3397" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M19.9727 7.82812H26.3398" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -25,7 +25,7 @@ function UuidIcon1() {
 
 function UuidIcon2() {
   return (
-    <div className="icon-w48 w-embed">
+    <div className="icon-w48">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
         <path d="M6.46094 13.4922H12.2505M29.9552 13.4922H42.461" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M6.46094 34.5078H19.1682M37.2066 34.5078H42.461" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -38,7 +38,7 @@ function UuidIcon2() {
 
 function UuidIcon3() {
   return (
-    <div className="icon-w48 w-embed">
+    <div className="icon-w48">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
         <path d="M34.7227 35.168L41.5705 42" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M18.0234 22.8648L21.8278 26.6672L29.4304 19.0625" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -50,7 +50,7 @@ function UuidIcon3() {
 
 function UuidIcon4() {
   return (
-    <div className="icon-w48 w-embed">
+    <div className="icon-w48">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
         <path d="M15.818 40.34C9.976 37.23 6 31.08 6 24C6 13.782 14.282 5.5 24.5 5.5C34.718 5.5 43 13.782 43 24C43 34.218 34.718 42.5 24.5 42.5" stroke="#0043E0" strokeWidth="3" strokeLinecap="round" />
         <path d="M31.3642 29.8834L23.8242 25.3854V15.6914" stroke="#31B7FF" strokeWidth="3" strokeLinecap="round" />

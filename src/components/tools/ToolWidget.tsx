@@ -17,7 +17,7 @@ export default function ToolWidget({ locale, src, iframeTitle, height, policy, i
   return (
     <section>
       <div className="w-layout-blockcontainer tools-container w-container">
-        <div className="w-embed w-iframe">
+        <div className="w-iframe">
           <iframe
             {...(iframeId ? { id: iframeId } : {})}
             src={src}

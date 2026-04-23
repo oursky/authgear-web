@@ -50,11 +50,11 @@ const description = t(locale, 'CustomerStories.subtitle');
               <div>{t(locale, 'CustomerStories.noStoriesYet')}</div>
             </div>
           ) : (
-            <div role="list" class="case-study-list w-dyn-items">
+            <div role="list" class="case-study-list">
               {entries.map((entry) => {
                 const slug = slugOf(entry.id);
                 return (
-                  <div role="listitem" class="case-study-item-wrap w-dyn-item">
+                  <div role="listitem" class="case-study-item-wrap">
                     <a
                       href={localizedPath(locale, `/customer-stories/${slug}`)}
                       class="case-study-featured-image-wrap w-inline-block"
