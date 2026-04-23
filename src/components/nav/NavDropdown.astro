@@ -1,0 +1,200 @@
+---
+interface Props {
+  title: string;
+  /**
+   * Class applied to the panel, e.g. "nav-menu-dropdown-list" for list-style
+   * panels or "nav-menu-dropdown-list-full-width" for the wide products panel.
+   */
+  panelClass: string;
+  /** Optional extra modifier classes on the panel (e.g. "developers"). */
+  panelModifier?: string;
+}
+const { title, panelClass, panelModifier } = Astro.props;
+const panelId = `nav-dd-${Math.random().toString(36).slice(2, 10)}`;
+const panelClassList = [panelClass, panelModifier].filter(Boolean).join(' ');
+---
+
+<div class="nav-menu-dropdown" data-nav-dropdown>
+  <button
+    type="button"
+    class="dropdown-toggle"
+    aria-expanded="false"
+    aria-controls={panelId}
+    data-nav-dropdown-toggle
+  >
+    <span class="nav-menu-dropdown-toggle-title">{title}</span>
+    <svg
+      class="nav-menu-dropdown-icon"
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M2 4l4 4 4-4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </button>
+  <div id={panelId} class={panelClassList} role="region" aria-label={title} data-nav-dropdown-panel>
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+  /* Replace the base positioning/hiding that used to come from webflow's
+     .w-dropdown / .w-dropdown-list classes, so we can drop those runtime
+     hooks entirely. */
+  .nav-menu-dropdown {
+    position: relative;
+    z-index: 900;
+  }
+  .dropdown-toggle {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .dropdown-toggle:focus-visible {
+    outline: 2px solid var(--primary-1, #0043e0);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .nav-menu-dropdown-list,
+  .nav-menu-dropdown-list-full-width {
+    display: none;
+    position: absolute;
+    min-width: 100%;
+  }
+  .nav-menu-dropdown-icon {
+    transition: transform 0.2s ease;
+  }
+  .dropdown-toggle[aria-expanded='true'] .nav-menu-dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile: sections are stacked in the drawer; animate open/close instead
+     of show/hide so it no longer jumps. */
+  @media (max-width: 991px) {
+    .nav-menu-dropdown {
+      width: 100%;
+    }
+    .nav-menu-dropdown > .dropdown-toggle {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      padding: 0;
+    }
+    .nav-menu-dropdown > .dropdown-toggle .nav-menu-dropdown-toggle-title {
+      flex: 1 1 auto;
+    }
+    .nav-menu-dropdown > .dropdown-toggle .nav-menu-dropdown-icon {
+      flex: 0 0 auto;
+      margin-left: 12px;
+    }
+    .nav-menu-dropdown-list,
+    .nav-menu-dropdown-list-full-width {
+      display: block;
+      position: static;
+      overflow: hidden;
+      pointer-events: none;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition:
+        max-height 0.3s ease,
+        opacity 0.2s ease,
+        transform 0.3s ease;
+    }
+    .nav-menu-dropdown-list.w--open,
+    .nav-menu-dropdown-list-full-width.w--open {
+      pointer-events: auto;
+      max-height: 1200px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Keep headers at a consistent height — the base stylesheet sets
+       .dropdown-toggle.w--open { height: auto } on mobile, which caused
+       the section to shrink and the whole menu to jump. */
+    .dropdown-toggle,
+    .dropdown-toggle[aria-expanded='true'],
+    .dropdown-toggle.w--open {
+      height: 64px;
+    }
+  }
+</style>
+
+<script>
+  const DESKTOP = window.matchMedia('(min-width: 992px)');
+  const FINE_POINTER = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  const dropdowns = Array.from(
+    document.querySelectorAll<HTMLElement>('[data-nav-dropdown]'),
+  );
+
+  function toggleEl(d: HTMLElement) {
+    return d.querySelector<HTMLElement>('[data-nav-dropdown-toggle]');
+  }
+  function panelEl(d: HTMLElement) {
+    return d.querySelector<HTMLElement>('[data-nav-dropdown-panel]');
+  }
+
+  function setOpen(d: HTMLElement, open: boolean) {
+    toggleEl(d)?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panelEl(d)?.classList.toggle('w--open', open);
+  }
+
+  function closeAll(except?: HTMLElement) {
+    dropdowns.forEach((d) => {
+      if (d !== except) setOpen(d, false);
+    });
+  }
+
+  dropdowns.forEach((d) => {
+    const toggle = toggleEl(d);
+    if (!toggle) return;
+
+    toggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      const wasOpen = toggle.getAttribute('aria-expanded') === 'true';
+      closeAll(wasOpen ? undefined : d);
+      setOpen(d, !wasOpen);
+    });
+
+    // Desktop hover-open (only on devices with a real pointer).
+    d.addEventListener('mouseenter', () => {
+      if (!DESKTOP.matches || !FINE_POINTER.matches) return;
+      closeAll(d);
+      setOpen(d, true);
+    });
+    d.addEventListener('mouseleave', () => {
+      if (!DESKTOP.matches || !FINE_POINTER.matches) return;
+      setOpen(d, false);
+    });
+  });
+
+  // Outside click closes everything.
+  document.addEventListener('click', (event) => {
+    const target = event.target as Node | null;
+    if (!target) return;
+    if (!dropdowns.some((d) => d.contains(target))) closeAll();
+  });
+
+  // Escape closes and restores focus.
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const open = dropdowns.find(
+      (d) => toggleEl(d)?.getAttribute('aria-expanded') === 'true',
+    );
+    if (!open) return;
+    closeAll();
+    toggleEl(open)?.focus();
+  });
+</script>

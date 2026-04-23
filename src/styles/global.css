@@ -1148,3 +1148,17 @@ button.ds-sms-warning-faq__trigger {
   background: #f8fafc;
   font-weight: 600;
 }
+
+/* Header grid placement — replaces the legacy #w-node-* rules in
+   authgear-new.webflow.css. The .container-header grid itself
+   (grid-template-columns: auto auto 1fr) still comes from the Webflow
+   stylesheet; only child placement is class-based here. */
+.container-header > .brand {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+}
+.container-header > .nav-menu {
+  justify-self: center;
+}
+.container-header > .header-right {
+  justify-self: end;
+}

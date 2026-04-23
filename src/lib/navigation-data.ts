@@ -2,11 +2,12 @@ export type NavLink = {
   path?: string;
   href?: string;
   label: Record<string, string>;
-  html?: Record<string, string>;
+  /** Optional second line rendered under the label (e.g. "(Start for Free)"). */
+  note?: Record<string, string>;
 };
 
 export type NavColumn =
-  | { type?: undefined; subtitle: Record<string, string>; links: NavLink[] }
+  | { type: 'simple'; subtitle: Record<string, string>; links: NavLink[] }
   | {
       type: 'stacked';
       sections: { subtitle: Record<string, string>; links: NavLink[] }[];
@@ -19,6 +20,7 @@ export type NavColumn =
 
 export const productsDropdownColumns: NavColumn[] = [
   {
+    type: 'simple',
     subtitle: { en: 'SECURITY', 'zh-TW': '安全性' },
     links: [
       { path: '/features/attack-protection', label: { en: 'Attack Protection', 'zh-TW': '攻擊防護' } },
@@ -28,6 +30,7 @@ export const productsDropdownColumns: NavColumn[] = [
     ],
   },
   {
+    type: 'simple',
     subtitle: { en: 'AUTHENTICATION', 'zh-TW': '驗證' },
     links: [
       { path: '/features/authentication', label: { en: 'Authentication', 'zh-TW': '身份驗證' } },
@@ -40,6 +43,7 @@ export const productsDropdownColumns: NavColumn[] = [
     ],
   },
   {
+    type: 'simple',
     subtitle: { en: 'USER', 'zh-TW': '使用者' },
     links: [
       { path: '/features/user-management', label: { en: 'User Management', 'zh-TW': '使用者管理' } },
@@ -69,8 +73,8 @@ export const productsDropdownColumns: NavColumn[] = [
     links: [
       {
         path: '/',
-        label: { en: 'On the Cloud (Start for Free)', 'zh-TW': '雲端版（免費開始）' },
-        html: { en: 'On the Cloud<br>(Start for Free)', 'zh-TW': '雲端版<br>（免費開始）' },
+        label: { en: 'On the Cloud', 'zh-TW': '雲端版' },
+        note: { en: '(Start for Free)', 'zh-TW': '（免費開始）' },
       },
       { path: '/once', label: { en: 'On your Server', 'zh-TW': '自建版' } },
       { path: '/migrate-to-authgear', label: { en: 'Migrate to Authgear', 'zh-TW': '遷移至 Authgear' } },
