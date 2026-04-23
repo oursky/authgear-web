@@ -1,4 +1,4 @@
-export type PricingLocaleKey = 'en' | 'zh-TW';
+export type PricingLocaleKey = 'en' | 'zh-Hant';
 
 /** Rich comparison cells — rendered in `PricingPageClient` (must be serializable; no functions). */
 export type PricingNodeVariant =

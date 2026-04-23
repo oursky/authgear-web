@@ -1,11 +1,11 @@
 import en from './en.json';
-import zhTW from './zh-TW.json';
+import zhHant from './zh-Hant.json';
 import { toolsMessagesEn } from '@/lib/tools/messages/en';
-import { toolsMessagesZhTW } from '@/lib/tools/messages/zh-TW';
+import { toolsMessagesZhHant } from '@/lib/tools/messages/zh-Hant';
 
 const messages: Record<string, Record<string, unknown>> = {
   en: { ...en, Tools: toolsMessagesEn },
-  'zh-TW': { ...zhTW, Tools: toolsMessagesZhTW },
+  'zh-Hant': { ...zhHant, Tools: toolsMessagesZhHant },
 };
 
 function lookup(bag: Record<string, unknown>, key: string): string | undefined {

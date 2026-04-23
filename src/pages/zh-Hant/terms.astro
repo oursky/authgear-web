@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import TermsPage from '@/components/pages/TermsPage.astro';
+
+const locale = 'zh-Hant';
+const title = t(locale, 'Terms.title');
+const description = t(locale, 'Terms.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <TermsPage locale={locale} />
+</BaseLayout>

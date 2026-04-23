@@ -10,7 +10,7 @@ interface Props {
 
 const { entry, locale } = Astro.props;
 const data = entry.data;
-const slug = entry.id.replace(/^(zh-TW|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const slug = entry.id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
 
 let categoryName: string | undefined;
 if (data.category) {
@@ -23,12 +23,12 @@ if (data.category) {
 }
 
 const displayDate = data.publishedAtOverride ?? data.publishedAt;
-const dateStr = displayDate.toLocaleDateString(locale === 'zh-TW' ? 'zh-TW' : 'en-US', {
+const dateStr = displayDate.toLocaleDateString(locale === 'zh-Hant' ? 'zh-Hant' : 'en-US', {
   year: 'numeric',
   month: 'short',
   day: 'numeric',
 });
-const readTimeLabel = locale === 'zh-TW' ? '分鐘閱讀' : 'min read';
+const readTimeLabel = locale === 'zh-Hant' ? '分鐘閱讀' : 'min read';
 ---
 
 <a href={localizedPath(locale, `/post/${slug}`)} class="blog-card">

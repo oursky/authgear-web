@@ -8,7 +8,7 @@ interface Props { locale: string }
 const { locale } = Astro.props;
 
 const USE_CASE_SLUGS = ['k11', 'global-qsr', 'hongkong-land'] as const;
-const slugOf = (id: string) => id.replace(/^(en|zh-TW)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const slugOf = (id: string) => id.replace(/^(en|zh-Hant)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
 const allStories = await getCollection('customer-stories', ({ id }) => id.startsWith('en/'));
 const useCaseStories = USE_CASE_SLUGS
   .map((s) => allStories.find((e) => slugOf(e.id) === s))

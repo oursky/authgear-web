@@ -7,7 +7,7 @@ import { trackEvent } from '@/lib/plausible';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-type Locale = 'en' | 'zh-TW';
+type Locale = 'en' | 'zh-Hant';
 
 interface Props {
   /** Page locale — drives user-facing copy. Payload field names stay locale-neutral. */
@@ -42,7 +42,7 @@ const MESSAGES = {
     successTitle: 'Thanks — we got it.',
     successBody: "We'll be in touch within one business day.",
   },
-  'zh-TW': {
+  'zh-Hant': {
     labelFullName: '姓名',
     labelWorkEmail: '公司電子郵件',
     labelPhoneNumber: '電話號碼',
@@ -75,7 +75,7 @@ function getSubmissionPage(): string {
 }
 
 export default function ContactForm({ locale = 'en', action = '/api/contact' }: Props) {
-  const l: Locale = locale === 'zh-TW' ? 'zh-TW' : 'en';
+  const l: Locale = locale === 'zh-Hant' ? 'zh-Hant' : 'en';
   const t = MESSAGES[l];
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

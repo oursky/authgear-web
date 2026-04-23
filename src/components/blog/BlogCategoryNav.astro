@@ -13,7 +13,7 @@ const categories = (await getCollection('blog-categories')).sort((a, b) =>
   a.data.name.localeCompare(b.data.name),
 );
 
-const allLabel = locale === 'zh-TW' ? '全部' : 'All';
+const allLabel = locale === 'zh-Hant' ? '全部' : 'All';
 const allHref = localizedPath(locale, '/blog');
 const isAllActive = !currentCategory;
 ---

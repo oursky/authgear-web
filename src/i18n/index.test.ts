@@ -8,8 +8,8 @@ describe('t()', () => {
     expect(result.length).toBeGreaterThan(0);
   });
 
-  it('resolves a nested key for zh-TW', () => {
-    const result = t('zh-TW', 'Home.heroCtaGetStarted');
+  it('resolves a nested key for zh-Hant', () => {
+    const result = t('zh-Hant', 'Home.heroCtaGetStarted');
     expect(typeof result).toBe('string');
     expect(result.length).toBeGreaterThan(0);
   });
@@ -18,9 +18,9 @@ describe('t()', () => {
     expect(t('en', 'Nonexistent.missing')).toBe('Nonexistent.missing');
   });
 
-  it('falls back to en when key missing in zh-TW', () => {
+  it('falls back to en when key missing in zh-Hant', () => {
     // Any key present in en.json — the helper should find it via fallback
-    const result = t('zh-TW', 'Home.heroCtaGetStarted');
+    const result = t('zh-Hant', 'Home.heroCtaGetStarted');
     expect(result.length).toBeGreaterThan(0);
   });
 

@@ -1,0 +1,100 @@
+---
+export const prerender = true;
+
+import { Image } from 'astro:assets';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CustomerStorySidebar from '@/components/customer-story/CustomerStorySidebar.astro';
+import { t } from '@/i18n';
+
+export async function getStaticPaths() {
+  const [zhEntries, enEntries] = await Promise.all([
+    getCollection('customer-stories', ({ id }) => id.startsWith('zh-Hant/')),
+    getCollection('customer-stories', ({ id }) => id.startsWith('en/')),
+  ]);
+  const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
+  // Emit one path per slug: prefer zh-Hant entry, fall back to en for missing translations.
+  const merged = [
+    ...zhEntries,
+    ...enEntries.filter((e) => !zhSlugs.has(slugOf(e.id))),
+  ];
+  return merged.map((entry) => ({
+    params: { slug: slugOf(entry.id) },
+    props: { entry },
+  }));
+}
+
+interface Props { entry: CollectionEntry<'customer-stories'> }
+
+const locale = 'zh-Hant';
+const { entry } = Astro.props;
+const data = entry.data;
+const { Content } = await entry.render();
+
+const labels = {
+  industry: t(locale, 'CustomerStories.sidebarIndustry'),
+  loginMethods: t(locale, 'CustomerStories.sidebarLoginMethods'),
+  technicalDetails: t(locale, 'CustomerStories.sidebarTechnicalDetails'),
+  metricsAriaLabel: t(locale, 'CustomerStories.metricsAriaLabel'),
+};
+---
+
+<BaseLayout locale={locale} title={data.title} description={data.excerpt ?? ''}>
+  <div class="page-wrapper">
+    <section class="ds-customer-story-hero">
+      <div class="ds-customer-story-hero__media">
+        <Image
+          src={data.coverImage}
+          alt=""
+          class="ds-customer-story-hero__img"
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
+          loading="eager"
+        />
+      </div>
+      <div class="ds-customer-story-hero__overlay" aria-hidden="true" />
+      <div class="ds-customer-story-hero__inner">
+        <div class="ds-container ds-container--hero">
+          <div class="ds-customer-story-hero__intro">
+            <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{t(locale, 'CustomerStories.title')}</p>
+            <h1 class="ds-hero-banner__title">{data.title}</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section case-study-post">
+      <div class="container-default w-container">
+        <div class="ds-customer-story-body">
+          <CustomerStorySidebar
+            companyLogo={data.companyLogo}
+            companyLogoAlt={data.title}
+            companyIndustry={data.companyIndustry}
+            loginMethods={data.loginMethods}
+            technicalDetails={data.technicalDetails}
+            labels={labels}
+          />
+          <div class="ds-customer-story-body__main">
+            {data.metrics.length > 0 ? (
+              <ul class="ds-customer-story-metrics" aria-label={labels.metricsAriaLabel}>
+                {data.metrics.map((m) => (
+                  <li class="ds-customer-story-metrics__item">
+                    {m.num?.trim() ? (
+                      <span class="ds-customer-story-metrics__num">{m.num.trim()}</span>
+                    ) : null}
+                    {m.text?.trim() ? (
+                      <p class="ds-customer-story-metrics__text">{m.text.trim()}</p>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            <div class="ds-richtext-prose w-richtext">
+              <Content />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

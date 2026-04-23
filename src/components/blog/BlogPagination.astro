@@ -11,9 +11,9 @@ interface Props {
 }
 
 const { page, locale = 'en' } = Astro.props;
-const prevLabel = locale === 'zh-TW' ? '上一頁' : 'Previous';
-const nextLabel = locale === 'zh-TW' ? '下一頁' : 'Next';
-const statusLabel = locale === 'zh-TW'
+const prevLabel = locale === 'zh-Hant' ? '上一頁' : 'Previous';
+const nextLabel = locale === 'zh-Hant' ? '下一頁' : 'Next';
+const statusLabel = locale === 'zh-Hant'
   ? `第 ${page.currentPage} 頁 / 共 ${page.lastPage} 頁`
   : `Page ${page.currentPage} of ${page.lastPage}`;
 ---

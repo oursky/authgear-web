@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import DataPrivacyPage from '@/components/pages/DataPrivacyPage.astro';
+
+const locale = 'zh-Hant';
+const title = t(locale, 'DataPrivacy.title');
+const description = t(locale, 'DataPrivacy.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <DataPrivacyPage locale={locale} />
+</BaseLayout>

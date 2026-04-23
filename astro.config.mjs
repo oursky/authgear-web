@@ -18,10 +18,10 @@ export default defineConfig({
         !/\/post\/category\//.test(page) && // legacy redirect
         !/\/features\/identity-security\/?$/.test(page) && // 301 → attack-protection
         !/\/why-authgear\/?$/.test(page) && // 301 → /about
-        !/\/zh-TW\/blog\/[a-z0-9-]+\/?$/.test(page) &&
-        !/\/zh-TW\/post\/category\//.test(page) &&
-        !/\/zh-TW\/features\/identity-security\/?$/.test(page) &&
-        !/\/zh-TW\/why-authgear\/?$/.test(page),
+        !/\/zh-Hant\/blog\/[a-z0-9-]+\/?$/.test(page) &&
+        !/\/zh-Hant\/post\/category\//.test(page) &&
+        !/\/zh-Hant\/features\/identity-security\/?$/.test(page) &&
+        !/\/zh-Hant\/why-authgear\/?$/.test(page),
     }),
   ],
   vite: { plugins: [tailwindcss()] },

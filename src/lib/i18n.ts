@@ -1,13 +1,13 @@
 /**
  * Supported locales. Default (`en`) is served at unprefixed URLs (`/pricing`);
- * Traditional Chinese uses `/zh-TW/...`. Internally, English is routed as `/en/...` via middleware rewrite.
+ * Traditional Chinese uses `/zh-Hant/...`. Internally, English is routed as `/en/...` via middleware rewrite.
  */
-export const LOCALES = ['en', 'zh-TW'] as const;
+export const LOCALES = ['en', 'zh-Hant'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
 /**
- * Public URL for a path. Default English has no `/${locale}` prefix; `zh-TW` uses `/zh-TW`.
+ * Public URL for a path. Default English has no `/${locale}` prefix; `zh-Hant` uses `/zh-Hant`.
  * `path` must start with `/` or include query (e.g. `/blog?category=x`).
  */
 export function localizedPath(locale: string, path: string): string {
@@ -21,7 +21,7 @@ export function localizedPath(locale: string, path: string): string {
   return `/${locale}${pathname === '/' ? '' : pathname}${search}`;
 }
 
-/** Legacy URL segment; middleware redirects `/zh-Hant-TW/...` → `/zh-TW/...`. */
+/** Legacy URL segment; middleware redirects `/zh-Hant-TW/...` → `/zh-Hant/...`. */
 export const LEGACY_ZH_PATH_LOCALE = 'zh-Hant-TW' as const;
 
 /** Map Accept-Language header value to a supported locale. */
@@ -31,24 +31,29 @@ export function resolveLocale(acceptLanguage: string | null): Locale {
     .split(',')
     .map((l) => l.split(';')[0].trim().toLowerCase());
   for (const tag of tags) {
-    // zh-TW, zh-Hant-TW, zh-hant-tw all map to Traditional Chinese (Taiwan)
+    // Traditional Chinese — covers Taiwan, Hong Kong, Macau readers.
+    // Simplified Chinese (zh-Hans, zh-CN) is separate future work.
     if (
       tag === 'zh-tw' ||
-      tag === 'zh-hant-tw' ||
+      tag === 'zh-hk' ||
+      tag === 'zh-mo' ||
       tag === 'zh-hant' ||
+      tag === 'zh-hant-tw' ||
+      tag === 'zh-hant-hk' ||
+      tag === 'zh-hant-mo' ||
       tag.startsWith('zh-tw-') ||
-      tag.startsWith('zh-hant-tw-')
+      tag.startsWith('zh-hk-') ||
+      tag.startsWith('zh-hant-')
     ) {
-      return 'zh-TW';
+      return 'zh-Hant';
     }
-    // When `zh-HK` is added to LOCALES, map e.g. zh-hk → 'zh-HK' here.
   }
   return DEFAULT_LOCALE;
 }
 
 /** Return the HTML lang attribute value for a given locale. */
 export function localeToHtmlLang(locale: Locale | typeof LEGACY_ZH_PATH_LOCALE | string): string {
-  if (locale === 'zh-TW' || locale === LEGACY_ZH_PATH_LOCALE) return 'zh-TW';
+  if (locale === 'zh-Hant' || locale === LEGACY_ZH_PATH_LOCALE) return 'zh-Hant';
   // if (locale === 'zh-HK') return 'zh-HK';
   return 'en';
 }

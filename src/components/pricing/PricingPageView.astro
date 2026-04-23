@@ -2,7 +2,7 @@
 import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
 import { pricingCopyEn } from '@/lib/pricing/copy-en';
-import { pricingCopyZhTW } from '@/lib/pricing/copy-zh-TW';
+import { pricingCopyZhHant } from '@/lib/pricing/copy-zh-Hant';
 import PricingPageClient from '@/components/islands/pricing/PricingPageClient';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 
 const { locale } = Astro.props;
 
-const baseCopy = locale === 'zh-TW' ? pricingCopyZhTW : pricingCopyEn;
+const baseCopy = locale === 'zh-Hant' ? pricingCopyZhHant : pricingCopyEn;
 const contactPath = localizedPath(locale, '/schedule-demo');
 const whatsappPath = localizedPath(locale, '/features/whatsapp-otp');
 

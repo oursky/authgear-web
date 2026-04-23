@@ -26,7 +26,7 @@ function NodeVariantCell({
   whatsappPath: string;
   locale: string;
 }) {
-  const isZhTW = locale === 'zh-TW';
+  const isZhHant = locale === 'zh-Hant';
   switch (variant) {
     case 'smsWhatsappBusiness':
       return (
@@ -34,78 +34,78 @@ function NodeVariantCell({
           <div className="plan-data-sub-row">
             <strong>SMS</strong>
             <br />
-            {isZhTW ? '美國/加拿大：$0.02' : 'US/Canada: $0.02'}
+            {isZhHant ? '美國/加拿大：$0.02' : 'US/Canada: $0.02'}
             <br />
-            {isZhTW ? '其他：$0.1' : 'Others: $0.1'}
+            {isZhHant ? '其他：$0.1' : 'Others: $0.1'}
           </div>
           <div className="plan-data-sub-row">
             <strong>WhatsApp</strong>
             <br />
             <a href={whatsappPath} className="comparison-label">
-              {isZhTW ? '請參閱定價' : 'See Pricing'}
+              {isZhHant ? '請參閱定價' : 'See Pricing'}
             </a>
           </div>
-          <div className="plan-data-sub-row">{isZhTW ? '或自訂閘道' : 'Or Custom Gateway'}</div>
+          <div className="plan-data-sub-row">{isZhHant ? '或自訂閘道' : 'Or Custom Gateway'}</div>
         </>
       );
     case 'smsWhatsappDevelopers':
       return (
         <>
-          <strong>{isZhTW ? 'SMS 及 WhatsApp' : 'SMS and WhatsApp'}</strong>
+          <strong>{isZhHant ? 'SMS 及 WhatsApp' : 'SMS and WhatsApp'}</strong>
           <br />
-          {isZhTW ? '美國/加拿大：$0.02' : 'US/Canada: $0.02'}
+          {isZhHant ? '美國/加拿大：$0.02' : 'US/Canada: $0.02'}
           <br />
-          {isZhTW ? '其他：$0.1' : 'Others: $0.1'}
+          {isZhHant ? '其他：$0.1' : 'Others: $0.1'}
         </>
       );
     case 'othersBusiness':
       return (
         <>
-          {isZhTW ? '包含所有功能' : 'All Features Included'}
+          {isZhHant ? '包含所有功能' : 'All Features Included'}
           <br />
           <br />
-          {isZhTW ? '自帶' : 'Bring your own'}
+          {isZhHant ? '自帶' : 'Bring your own'}
           <br />
-          {isZhTW ? 'SMS 與 WhatsApp 閘道' : 'SMS & WhatsApp Gateway'}
+          {isZhHant ? 'SMS 與 WhatsApp 閘道' : 'SMS & WhatsApp Gateway'}
         </>
       );
     case 'othersEnterprise':
       return (
         <>
-          {isZhTW ? '自帶' : 'Bring your own'}
+          {isZhHant ? '自帶' : 'Bring your own'}
           <br />
-          {isZhTW ? 'SMS/WhatsApp / 電子郵件閘道' : 'SMS/WhatsApp / Email Gateway'}
-          <br />
-          <br />
-          {isZhTW ? '客製化 SLA' : 'Tailored SLA'}
+          {isZhHant ? 'SMS/WhatsApp / 電子郵件閘道' : 'SMS/WhatsApp / Email Gateway'}
           <br />
           <br />
-          {isZhTW ? '私有雲選項' : 'Private Cloud Option'}
+          {isZhHant ? '客製化 SLA' : 'Tailored SLA'}
           <br />
           <br />
-          {isZhTW ? '資料駐留' : 'Data Residency'}
+          {isZhHant ? '私有雲選項' : 'Private Cloud Option'}
+          <br />
+          <br />
+          {isZhHant ? '資料駐留' : 'Data Residency'}
         </>
       );
     case 'addonsDevelopers':
       return (
         <>
-          {isZhTW ? '每個環境 $100' : '$100/Environment'}
+          {isZhHant ? '每個環境 $100' : '$100/Environment'}
           <br />
-          {isZhTW ? '每個應用程式 $100' : '$100/Applications'}
+          {isZhHant ? '每個應用程式 $100' : '$100/Applications'}
           <br />
-          {isZhTW ? '每位專案成員 $50' : '$50/Project Member'}
+          {isZhHant ? '每位專案成員 $50' : '$50/Project Member'}
         </>
       );
     case 'addonsBusiness':
       return (
         <>
-          {isZhTW ? '每個環境 $100' : '$100/Environment'}
+          {isZhHant ? '每個環境 $100' : '$100/Environment'}
           <br />
-          {isZhTW ? '每個應用程式 $100' : '$100/Applications'}
+          {isZhHant ? '每個應用程式 $100' : '$100/Applications'}
           <br />
-          {isZhTW ? '每位專案成員 $50' : '$50/Project Member'}
+          {isZhHant ? '每位專案成員 $50' : '$50/Project Member'}
           <br />
-          {isZhTW ? '每 5,000 額外 MAU $50' : '$50/5,000 additional MAU'}
+          {isZhHant ? '每 5,000 額外 MAU $50' : '$50/5,000 additional MAU'}
         </>
       );
     default:
