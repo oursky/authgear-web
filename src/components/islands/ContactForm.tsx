@@ -64,14 +64,14 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
 
   if (status === 'success') {
     return (
-      <div className="success-message w-form-done" style={{ display: 'block' }}>
+      <div className="success-message">
         <div>Thank you! Your submission has been received!</div>
       </div>
     );
   }
 
   return (
-    <div className="form-block w-form">
+    <div className="form-block">
       <form onSubmit={handleSubmit} className="contact-form">
         <div className="margin-vertical margin-small">
           <label className="getdemo-label">
@@ -189,7 +189,7 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
         </div>
 
         {status === 'error' && (
-          <div className="error-message w-form-fail" style={{ display: 'block' }}>
+          <div className="error-message">
             <div>Oops! Something went wrong while submitting the form.</div>
           </div>
         )}
@@ -197,7 +197,7 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
         <div className="margin-vertical margin-medium">
           <input
             type="submit"
-            className="getdemo-submit w-button"
+            className="getdemo-submit"
             value={status === 'submitting' ? 'Please wait...' : 'Submit'}
             disabled={status === 'submitting'}
           />
