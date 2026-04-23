@@ -225,85 +225,132 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     </Button>
     <button
       type="button"
-      class="menu-button"
+      class="site-nav-toggle"
       aria-expanded="false"
       aria-controls="site-nav"
       aria-label={t(locale, 'Navigation.menuToggleLabel')}
       data-site-nav-toggle
     >
-      <span class="menu-button-wrapper">
-        <span class="menu-button-icon" aria-hidden="true">
-          <span class="menu-line-top"></span>
-          <span class="menu-line-middle"></span>
-          <span class="menu-line-bottom"></span>
-        </span>
+      <span class="site-nav-toggle__bars" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
       </span>
     </button>
   </div>
 </div>
 
-<style>
+<style is:global>
   /* Mobile drawer: replaces Webflow's w-nav behavior. At >=992px the
      nav renders inline as today; at <=991px it collapses behind the
-     hamburger and animates open on tap. */
-  .menu-button {
+     hamburger and animates open on tap. `is:global` is needed because
+     several selectors target descendants rendered by child components
+     (Button, NavDropdown) which have their own scoping attributes. */
+  /* Fresh hamburger button — no Webflow inheritance. Fixed 40×40
+     hit target, icon lines sized within the button. `position: relative`
+     confines the inner absolute wrapper (if any) to the button itself. */
+  .site-nav-toggle {
     display: none;
+    position: relative;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    margin: 0;
     background: none;
     border: 0;
-    padding: 0;
+    border-radius: 6px;
     cursor: pointer;
     color: inherit;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
   }
-  .menu-button:focus-visible {
+  .site-nav-toggle:focus-visible {
     outline: 2px solid var(--primary-1, #0043e0);
     outline-offset: 2px;
-    border-radius: 4px;
   }
-
-  @media (max-width: 991px) {
-    .menu-button {
-      display: inline-flex;
-    }
-    .nav-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
-      max-height: calc(100vh - 80px);
-      overflow-y: auto;
-      padding: 1rem 1.5rem 2rem;
-      z-index: 900;
-    }
-    .nav-menu[data-site-nav-open] {
-      display: block;
-    }
+  .site-nav-toggle__bars {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
   }
-
-  .menu-line-top,
-  .menu-line-middle,
-  .menu-line-bottom {
+  .site-nav-toggle__bars > span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #3e4f6f;
+    border-radius: 2px;
+    transform-origin: center;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
-  .menu-button[aria-expanded='true'] .menu-line-top {
-    transform: translateY(6px) rotate(45deg);
+  .site-nav-toggle[aria-expanded='true'] .site-nav-toggle__bars > span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
   }
-  .menu-button[aria-expanded='true'] .menu-line-middle {
+  .site-nav-toggle[aria-expanded='true'] .site-nav-toggle__bars > span:nth-child(2) {
     opacity: 0;
   }
-  .menu-button[aria-expanded='true'] .menu-line-bottom {
-    transform: translateY(-6px) rotate(-45deg);
+  .site-nav-toggle[aria-expanded='true'] .site-nav-toggle__bars > span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
-
   @media (prefers-reduced-motion: reduce) {
-    .menu-line-top,
-    .menu-line-middle,
-    .menu-line-bottom {
+    .site-nav-toggle__bars > span {
       transition: none;
     }
   }
+
+  @media (max-width: 991px) {
+    .site-nav-toggle {
+      display: inline-flex;
+    }
+    /* At mobile the .container-header switches to display: flex (from
+       grid), so the grid-based justify-self: end in global.css no
+       longer positions .header-right. Push it to the right edge with
+       margin-left: auto, and right-align its flex content so the
+       hamburger sits flush right. */
+    .container-header > .split-content.header-right {
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+    /* Keep the Get a Demo CTA visible on mobile (primary conversion
+       action), hide only the Signup/Login ghost link — its mobile
+       equivalent lives inside the drawer as .mobile-nav-buttons. */
+    .split-content.header-right > a.nav-button {
+      display: none;
+    }
+    .split-content.header-right {
+      gap: 8px;
+    }
+    /* Override the Webflow-exported `.nav-menu` rules in
+       authgear-new.webflow.css (~line 154 of the 991px block) that
+       force a 100vw × 100vh overlay — those were designed to pair with
+       webflow.js's overlay injection. We want a full-width dropdown
+       panel below the header. Using position: fixed with left/right: 0
+       so the panel escapes the container-header's horizontal padding
+       and spans the full viewport. */
+    .nav-menu[data-site-nav-panel] {
+      display: none !important;
+      position: fixed !important;
+      top: var(--site-nav-top, 80px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100vw !important;
+      height: auto !important;
+      max-height: calc(100vh - var(--site-nav-top, 80px)) !important;
+      overflow-y: auto !important;
+      background: #ffffff !important;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+      padding: 1.25rem 1.5rem 2rem !important;
+      z-index: 900;
+      border: 0 !important;
+    }
+    .nav-menu[data-site-nav-panel][data-site-nav-open] {
+      display: block !important;
+    }
+  }
+
 </style>
 
 <script>
@@ -330,6 +377,14 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     function setOpen(open: boolean) {
       toggle!.setAttribute('aria-expanded', open ? 'true' : 'false');
       if (open) {
+        // Pin the panel directly under the header, whatever its current
+        // height. The fixed-position panel reads --site-nav-top.
+        const header = toggle!.closest('[role="banner"]') as HTMLElement | null;
+        const headerHeight = header?.getBoundingClientRect().height ?? 80;
+        document.documentElement.style.setProperty(
+          '--site-nav-top',
+          `${Math.round(headerHeight)}px`,
+        );
         panel!.setAttribute('data-site-nav-open', '');
         document.documentElement.style.overflow = 'hidden';
         const first = panel!.querySelector<HTMLElement>(focusableSelectors);
