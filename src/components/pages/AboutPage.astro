@@ -118,7 +118,32 @@ const featuredCases = featuredCaseSlugs
       <div class="title-content">
         <h2 class="heading-on-light">{t(locale, 'About.snapshotTitle')}</h2>
       </div>
-      <p class="about-snapshot__line">{t(locale, 'About.snapshotLine')}</p>
+      <dl class="about-snapshot__facts">
+        <div class="about-snapshot__fact">
+          <dt class="about-snapshot__fact-label">{t(locale, 'About.snapshotBuiltByLabel')}</dt>
+          <dd class="about-snapshot__fact-value">{t(locale, 'About.snapshotBuiltByValue')}</dd>
+        </div>
+        <div class="about-snapshot__fact">
+          <dt class="about-snapshot__fact-label">{t(locale, 'About.snapshotFoundedLabel')}</dt>
+          <dd class="about-snapshot__fact-value">{t(locale, 'About.snapshotFoundedValue')}</dd>
+        </div>
+        <div class="about-snapshot__fact">
+          <dt class="about-snapshot__fact-label">{t(locale, 'About.snapshotTeamLabel')}</dt>
+          <dd class="about-snapshot__fact-value">{t(locale, 'About.snapshotTeamValue')}</dd>
+        </div>
+        <div class="about-snapshot__fact">
+          <dt class="about-snapshot__fact-label">{t(locale, 'About.snapshotComplianceLabel')}</dt>
+          <dd class="about-snapshot__fact-value">{t(locale, 'About.snapshotComplianceValue')}</dd>
+        </div>
+        <div class="about-snapshot__fact">
+          <dt class="about-snapshot__fact-label">{t(locale, 'About.snapshotPledgeLabel')}</dt>
+          <dd class="about-snapshot__fact-value">{t(locale, 'About.snapshotPledgeValue')}</dd>
+        </div>
+        <div class="about-snapshot__fact">
+          <dt class="about-snapshot__fact-label">{t(locale, 'About.snapshotCloudLabel')}</dt>
+          <dd class="about-snapshot__fact-value">{t(locale, 'About.snapshotCloudValue')}</dd>
+        </div>
+      </dl>
       <div class="about-snapshot__badges">
         <img
           src="/images/Authgear_footer_certificated_blue2x.png"
@@ -240,13 +265,44 @@ const featuredCases = featuredCaseSlugs
     gap: 1.25rem;
     text-align: center;
   }
-  .about-snapshot__line {
+  .about-snapshot__facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 2.5rem;
     max-width: 960px;
-    margin: 1.5rem auto 2rem;
+    margin: 2.5rem auto 3rem;
+    padding: 0;
+  }
+  .about-snapshot__fact {
     text-align: center;
-    color: #3e4f6f;
+    padding: 0 0.5rem;
+  }
+  .about-snapshot__fact-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b7a94;
+    margin: 0 0 0.5rem;
+  }
+  .about-snapshot__fact-value {
+    margin: 0;
     font-size: 1.0625rem;
-    line-height: 1.6;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #1a2a4e;
+  }
+  @media (max-width: 767px) {
+    .about-snapshot__facts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.75rem 1rem;
+    }
+  }
+  @media (max-width: 419px) {
+    .about-snapshot__facts {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
   .about-snapshot__badges {
     display: flex;
