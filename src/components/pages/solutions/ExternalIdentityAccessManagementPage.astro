@@ -1,5 +1,8 @@
 ---
 import ContactForm from '@/components/islands/ContactForm';
+
+interface Props { locale: string }
+const { locale } = Astro.props;
 ---
 
 <>
@@ -126,7 +129,7 @@ import ContactForm from '@/components/islands/ContactForm';
       <div class="top-content feature-flex contact-form-title">
         <h2 class="title features-page">Centralize Identity & Access Management to Stay Competitive Without Organizational and Operational Complexity</h2>
       </div>
-      <ContactForm client:load />
+      <ContactForm client:load locale={locale} />
     </div>
   </div>
 </>

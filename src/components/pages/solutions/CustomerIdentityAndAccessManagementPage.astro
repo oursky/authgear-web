@@ -88,7 +88,7 @@ const { locale } = Astro.props;
         <h2 class="title features-page">Tell Us More About Your Customer Identity and Access Management Requirements<br /></h2>
       </div>
       <div>
-        <ContactForm client:load />
+        <ContactForm client:load locale={locale} />
       </div>
     </div>
   </div>

@@ -367,8 +367,21 @@
     "footerBody": "和我們聊聊你的身份驗證需求，或立即從免費方案開始。"
   },
   "ScheduleDemo": {
-    "title": "Schedule Demo",
-    "description": ""
+    "title": "預約展示 — Authgear",
+    "description": "預約 Authgear 個人化展示，了解安全存取、簡化入職流程，以及 Authgear 如何融入您的延伸勞動力架構。",
+    "heroTitle": "為您的延伸勞動力建立安全、流暢、賦能的存取",
+    "heroLede": "預約個人化展示，了解:",
+    "feature1Label": "安全存取:",
+    "feature1Desc": "透過細緻的權限控管與多因子驗證，保護您的資料與資源。",
+    "feature2Label": "簡化入職流程:",
+    "feature2Desc": "透過自動化供應與自助入口，讓延伸團隊即刻上手。",
+    "feature3Label": "無縫協作:",
+    "feature3Desc": "打破部門藩籬，讓整個勞動力團隊順暢協作。",
+    "feature4Label": "減輕 IT 負擔:",
+    "feature4Desc": "釋放 IT 資源，為所有人簡化存取管理。",
+    "feature5Label": "擴展性與彈性:",
+    "feature5Desc": "因應獨特需求，與既有系統無縫整合。",
+    "trustedBy": "信賴 Authgear 的客戶"
   },
   "Security": {
     "title": "Security - Authgear",

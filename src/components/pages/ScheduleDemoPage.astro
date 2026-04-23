@@ -7,6 +7,11 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+
+const features: Array<{ label: string; desc: string }> = [1, 2, 3, 4, 5].map((i) => ({
+  label: t(locale, `ScheduleDemo.feature${i}Label`),
+  desc: t(locale, `ScheduleDemo.feature${i}Desc`),
+}));
 ---
 
 <>
@@ -14,30 +19,37 @@ const { locale } = Astro.props;
     <section class="getdemo-bg">
       <div class="w-layout-blockcontainer getdemo w-container">
         <div class="w-layout-hflex getdemo-content">
-          <h1 class="getdemo-title">Secure, Streamline &amp; Empower Your Extended Workforce</h1>
-          <p class="paragraph-7">Request a personalised demo and discover:</p>
+          <h1 class="getdemo-title">{t(locale, 'ScheduleDemo.heroTitle')}</h1>
+          <p class="paragraph-7">{t(locale, 'ScheduleDemo.heroLede')}</p>
           <div class="w-layout-vflex flex-block-69">
-            <div class="w-layout-hflex getdemo-feature-block"><img src="/images/Checkmark---Iconly-Pro.svg" loading="lazy" alt="" class="getdemo-feature-check" />
-              <p class="getdemo-feature"><span class="text-span-42">Secure access:</span><br />Secure your data and resources with granular controls and multi-factor authentication.</p>
-            </div>
-            <div class="w-layout-hflex getdemo-feature-block"><img src="/images/Checkmark---Iconly-Pro.svg" loading="lazy" alt="" class="getdemo-feature-check" />
-              <p class="getdemo-feature"><span class="text-span-42">Streamlined onboarding:</span><br />Get your extended team productive instantly with automated provisioning and self-service portals.</p>
-            </div>
-            <div class="w-layout-hflex getdemo-feature-block"><img src="/images/Checkmark---Iconly-Pro.svg" loading="lazy" alt="" class="getdemo-feature-check" />
-              <p class="getdemo-feature"><span class="text-span-42">Seamless collaboration:</span><br />Break down silos and empower collaboration across your entire workforce.</p>
-            </div>
-            <div class="w-layout-hflex getdemo-feature-block"><img src="/images/Checkmark---Iconly-Pro.svg" loading="lazy" alt="" class="getdemo-feature-check" />
-              <p class="getdemo-feature"><span class="text-span-42">Reduced IT burden:</span><br />Free up IT resources and simplify access management for everyone.</p>
-            </div>
-            <div class="w-layout-hflex getdemo-feature-block"><img src="/images/Checkmark---Iconly-Pro.svg" loading="lazy" alt="" class="getdemo-feature-check" />
-              <p class="getdemo-feature"><span class="text-span-42">Scalability and flexibility:</span><br />Adapt to your unique needs and integrate seamlessly with existing systems.</p>
-            </div>
+            {features.map(({ label, desc }) => (
+              <div class="w-layout-hflex getdemo-feature-block">
+                <img
+                  src="/images/Checkmark---Iconly-Pro.svg"
+                  loading="lazy"
+                  alt=""
+                  class="getdemo-feature-check"
+                />
+                <p class="getdemo-feature">
+                  <span class="text-span-42">{label}</span>
+                  <br />
+                  {desc}
+                </p>
+              </div>
+            ))}
           </div>
-          <p class="getdemo-feature logo-totle">Authgear is trusted by</p>
-          <div class="w-layout-hflex flex-block-70"><img src="/images/demo_customer-logo-Bupa2x.png" loading="lazy" alt="" /><img src="/images/demo_customer-logo-CIMIC2x.png" loading="lazy" alt="" /><img src="/images/demo_customer-logo-HKL2x.png" loading="lazy" alt="" /><img src="/images/demo_customer-logo-hkpc2x.png" loading="lazy" alt="" /><img src="/images/demo_customer-logo-K112x.png" loading="lazy" alt="" /><img src="/images/demo_customer-logo-嚗胞TR2x.png" loading="lazy" alt="" /></div>
+          <p class="getdemo-feature logo-totle">{t(locale, 'ScheduleDemo.trustedBy')}</p>
+          <div class="w-layout-hflex flex-block-70">
+            <img src="/images/demo_customer-logo-Bupa2x.png" loading="lazy" alt="Bupa" />
+            <img src="/images/demo_customer-logo-CIMIC2x.png" loading="lazy" alt="CIMIC" />
+            <img src="/images/demo_customer-logo-HKL2x.png" loading="lazy" alt="Hongkong Land" />
+            <img src="/images/demo_customer-logo-hkpc2x.png" loading="lazy" alt="HKPC" />
+            <img src="/images/demo_customer-logo-K112x.png" loading="lazy" alt="K11" />
+            <img src="/images/demo_customer-logo-嚗胞TR2x.png" loading="lazy" alt="MTR" />
+          </div>
         </div>
         <div class="w-layout-hflex getdemo-form">
-          <ContactForm client:load />
+          <ContactForm client:load locale={locale} />
         </div>
       </div>
     </section>

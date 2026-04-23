@@ -367,8 +367,21 @@
     "footerBody": "Talk to us about your authentication needs, or start building for free today."
   },
   "ScheduleDemo": {
-    "title": "Schedule Demo",
-    "description": ""
+    "title": "Schedule a Demo — Authgear",
+    "description": "Request a personalized Authgear demo. We'll show you secure access, streamlined onboarding, and how Authgear fits into your extended-workforce stack.",
+    "heroTitle": "Secure, streamline & empower your extended workforce",
+    "heroLede": "Request a personalized demo and discover:",
+    "feature1Label": "Secure access:",
+    "feature1Desc": "Secure your data and resources with granular controls and multi-factor authentication.",
+    "feature2Label": "Streamlined onboarding:",
+    "feature2Desc": "Get your extended team productive instantly with automated provisioning and self-service portals.",
+    "feature3Label": "Seamless collaboration:",
+    "feature3Desc": "Break down silos and empower collaboration across your entire workforce.",
+    "feature4Label": "Reduced IT burden:",
+    "feature4Desc": "Free up IT resources and simplify access management for everyone.",
+    "feature5Label": "Scalability and flexibility:",
+    "feature5Desc": "Adapt to your unique needs and integrate seamlessly with existing systems.",
+    "trustedBy": "Authgear is trusted by"
   },
   "Security": {
     "title": "Security - Authgear",

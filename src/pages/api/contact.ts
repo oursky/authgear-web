@@ -14,6 +14,10 @@ interface ContactFormData {
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
+  /** Path + search of the page the submission came from (e.g. "/zh-TW/about"). */
+  page?: string;
+  /** UI locale the form was rendered in ("en" or "zh-TW"). */
+  locale?: string;
 }
 
 export const GET: APIRoute = () =>

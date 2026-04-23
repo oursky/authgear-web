@@ -7,17 +7,76 @@ import { trackEvent } from '@/lib/plausible';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
+type Locale = 'en' | 'zh-TW';
+
 interface Props {
+  /** Page locale — drives user-facing copy. Payload field names stay locale-neutral. */
+  locale?: string;
   /** Optional: override the POST target (default `/api/contact`). */
   action?: string;
 }
+
+/**
+ * User-facing strings for the ContactForm. Kept colocated with the component
+ * since none of this copy is shared elsewhere. Submission payload field names
+ * (Name, Email, Phone, …) are NOT translated — those are protocol, not UI.
+ */
+const MESSAGES = {
+  en: {
+    labelFullName: 'Full Name',
+    labelWorkEmail: 'Work Email',
+    labelPhoneNumber: 'Phone Number',
+    labelCompanyName: 'Company Name',
+    labelHowHear: 'How did you hear about us?',
+    labelAnythingElse: 'Anything else?',
+    useCasePlaceholder: 'Tell us more about your project, needs, timeline',
+    howHearSelectOne: 'Select one',
+    howHearSearch: 'Search Engine',
+    howHearLLM: 'AI Tools (e.g. ChatGPT, Gemini, etc)',
+    howHearGitHub: 'GitHub',
+    howHearOther: 'Others',
+    invalidPhone: 'Invalid phone number',
+    submitError: 'Oops! Something went wrong while submitting the form.',
+    submit: 'Submit',
+    submitting: 'Submitting…',
+    successTitle: 'Thanks — we got it.',
+    successBody: "We'll be in touch within one business day.",
+  },
+  'zh-TW': {
+    labelFullName: '姓名',
+    labelWorkEmail: '公司電子郵件',
+    labelPhoneNumber: '電話號碼',
+    labelCompanyName: '公司名稱',
+    labelHowHear: '您是從哪裡得知我們的?',
+    labelAnythingElse: '還有什麼想讓我們知道的?',
+    useCasePlaceholder: '告訴我們您的專案、需求與時程',
+    howHearSelectOne: '請選擇',
+    howHearSearch: '搜尋引擎',
+    howHearLLM: 'AI 工具(例如 ChatGPT、Gemini 等)',
+    howHearGitHub: 'GitHub',
+    howHearOther: '其他',
+    invalidPhone: '電話號碼格式不正確',
+    submitError: '哎呀!表單送出時發生錯誤,請再試一次。',
+    submit: '送出',
+    submitting: '送出中⋯',
+    successTitle: '感謝您!我們已收到。',
+    successBody: '我們將於一個工作日內與您聯繫。',
+  },
+} as const satisfies Record<Locale, Record<string, string>>;
 
 function getQueryParam(key: string): string {
   if (typeof window === 'undefined') return '';
   return new URLSearchParams(window.location.search).get(key) ?? '';
 }
 
-export default function ContactForm({ action = '/api/contact' }: Props) {
+function getSubmissionPage(): string {
+  if (typeof window === 'undefined') return '';
+  return window.location.pathname + window.location.search;
+}
+
+export default function ContactForm({ locale = 'en', action = '/api/contact' }: Props) {
+  const l: Locale = locale === 'zh-TW' ? 'zh-TW' : 'en';
+  const t = MESSAGES[l];
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -54,6 +113,8 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
           utm_source: getQueryParam('utm_source') || undefined,
           utm_medium: getQueryParam('utm_medium') || undefined,
           utm_campaign: getQueryParam('utm_campaign') || undefined,
+          page: getSubmissionPage() || undefined,
+          locale: l,
         }),
       });
       setStatus(res.ok ? 'success' : 'error');
@@ -82,10 +143,8 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
               fill="none"
             />
           </svg>
-          <h3 className="ds-form-success__title">Thanks — we got it.</h3>
-          <p className="ds-form-success__body">
-            We'll be in touch within one business day.
-          </p>
+          <h3 className="ds-form-success__title">{t.successTitle}</h3>
+          <p className="ds-form-success__body">{t.successBody}</p>
         </div>
       </div>
     );
@@ -96,7 +155,7 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
       <form onSubmit={handleSubmit} className="ds-form__form">
         <div className="ds-form__field">
           <label htmlFor="cf-name" className="ds-form-label">
-            Full Name<span className="ds-form-label__required">*</span>
+            {t.labelFullName}<span className="ds-form-label__required">*</span>
           </label>
           <input
             id="cf-name"
@@ -112,7 +171,7 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
 
         <div className="ds-form__field">
           <label htmlFor="cf-email" className="ds-form-label">
-            Work Email<span className="ds-form-label__required">*</span>
+            {t.labelWorkEmail}<span className="ds-form-label__required">*</span>
           </label>
           <input
             id="cf-email"
@@ -128,7 +187,7 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
 
         <div className="ds-form__field">
           <label htmlFor="cf-phone" className="ds-form-label">
-            Phone Number<span className="ds-form-label__required">*</span>
+            {t.labelPhoneNumber}<span className="ds-form-label__required">*</span>
           </label>
           <IntlTelInput
             ref={itiRef}
@@ -166,14 +225,14 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
           />
           {phone && !phoneValid && (
             <span id="cf-phone-error" className="ds-form-field-error">
-              Invalid phone number
+              {t.invalidPhone}
             </span>
           )}
         </div>
 
         <div className="ds-form__field">
           <label htmlFor="cf-company" className="ds-form-label">
-            Company Name<span className="ds-form-label__required">*</span>
+            {t.labelCompanyName}<span className="ds-form-label__required">*</span>
           </label>
           <input
             id="cf-company"
@@ -189,7 +248,7 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
 
         <div className="ds-form__field">
           <label htmlFor="cf-how-hear" className="ds-form-label">
-            How did you hear about us?
+            {t.labelHowHear}
             <span className="ds-form-label__required">*</span>
           </label>
           <select
@@ -201,22 +260,22 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
             onChange={(e) => setHowHear(e.target.value)}
           >
             <option value="" disabled>
-              Select one
+              {t.howHearSelectOne}
             </option>
-            <option value="organic-search">Search Engine</option>
-            <option value="llm">AI Tools (e.g. ChatGPT, Gemini, etc)</option>
-            <option value="github">GitHub</option>
-            <option value="others">Others</option>
+            <option value="organic-search">{t.howHearSearch}</option>
+            <option value="llm">{t.howHearLLM}</option>
+            <option value="github">{t.howHearGitHub}</option>
+            <option value="others">{t.howHearOther}</option>
           </select>
         </div>
 
         <div className="ds-form__field">
           <label htmlFor="cf-use-case" className="ds-form-label">
-            Anything else?
+            {t.labelAnythingElse}
           </label>
           <textarea
             id="cf-use-case"
-            placeholder="Tell us more about your project, needs, timeline"
+            placeholder={t.useCasePlaceholder}
             maxLength={500}
             name="Use-Case"
             className="ds-form-input"
@@ -227,7 +286,7 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
 
         {status === 'error' && (
           <div className="ds-form-error" role="alert">
-            Oops! Something went wrong while submitting the form.
+            {t.submitError}
           </div>
         )}
 
@@ -237,7 +296,7 @@ export default function ContactForm({ action = '/api/contact' }: Props) {
           disabled={status === 'submitting'}
           aria-busy={status === 'submitting'}
         >
-          {status === 'submitting' ? 'Submitting…' : 'Submit'}
+          {status === 'submitting' ? t.submitting : t.submit}
           {status !== 'submitting' && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
