@@ -17,9 +17,11 @@ export default defineConfig({
         !/\/blog\/[a-z0-9-]+\/?$/.test(page) && // /blog/{slug} is a 301 redirect
         !/\/post\/category\//.test(page) && // legacy redirect
         !/\/features\/identity-security\/?$/.test(page) && // 301 → attack-protection
+        !/\/why-authgear\/?$/.test(page) && // 301 → /about
         !/\/zh-TW\/blog\/[a-z0-9-]+\/?$/.test(page) &&
         !/\/zh-TW\/post\/category\//.test(page) &&
-        !/\/zh-TW\/features\/identity-security\/?$/.test(page),
+        !/\/zh-TW\/features\/identity-security\/?$/.test(page) &&
+        !/\/zh-TW\/why-authgear\/?$/.test(page),
     }),
   ],
   vite: { plugins: [tailwindcss()] },

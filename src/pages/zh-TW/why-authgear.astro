@@ -1,12 +1,5 @@
 ---
+// Legacy page: /zh-TW/why-authgear is retired. 301 → /zh-TW/about.
 export const prerender = true;
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import { t } from '@/i18n';
-import WhyAuthgearPage from '@/components/pages/WhyAuthgearPage.astro';
-const locale = 'zh-TW';
-const title = t(locale, 'WhyAuthgear.title');
-const description = t(locale, 'WhyAuthgear.description');
+return Astro.redirect('/zh-TW/about', 301);
 ---
-<BaseLayout locale={locale} title={title} description={description}>
-  <WhyAuthgearPage locale={locale} />
-</BaseLayout>
