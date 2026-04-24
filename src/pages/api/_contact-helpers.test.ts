@@ -22,3 +22,66 @@ describe('isHoneypotFilled', () => {
     expect(isHoneypotFilled({ website: 'http://bot.example' })).toBe(true);
   });
 });
+
+import { verifyTurnstile } from './_contact-helpers';
+
+function okResponse(body: unknown): Response {
+  return new Response(JSON.stringify(body), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
+
+describe('verifyTurnstile', () => {
+  it('returns ok:false with missing-input-response when token is undefined', async () => {
+    const fetchSpy = async () => okResponse({ success: true });
+    const result = await verifyTurnstile(undefined, 'secret', '1.2.3.4', fetchSpy as unknown as typeof fetch);
+    expect(result.ok).toBe(false);
+    expect(result.errorCodes).toEqual(['missing-input-response']);
+  });
+
+  it('returns ok:true when Cloudflare says success', async () => {
+    const fetchSpy = async () => okResponse({ success: true });
+    const result = await verifyTurnstile('tok', 'secret', undefined, fetchSpy as unknown as typeof fetch);
+    expect(result.ok).toBe(true);
+  });
+
+  it('returns ok:false and passes through error-codes on Cloudflare reject', async () => {
+    const fetchSpy = async () => okResponse({ success: false, 'error-codes': ['invalid-input-response'] });
+    const result = await verifyTurnstile('tok', 'secret', undefined, fetchSpy as unknown as typeof fetch);
+    expect(result.ok).toBe(false);
+    expect(result.errorCodes).toEqual(['invalid-input-response']);
+    expect(result.transportError).toBeUndefined();
+  });
+
+  it('returns transportError:true on non-2xx Cloudflare response', async () => {
+    const fetchSpy = async () => new Response('', { status: 502 });
+    const result = await verifyTurnstile('tok', 'secret', undefined, fetchSpy as unknown as typeof fetch);
+    expect(result.ok).toBe(false);
+    expect(result.transportError).toBe(true);
+    expect(result.errorCodes).toEqual(['http-502']);
+  });
+
+  it('returns transportError:true when fetch throws', async () => {
+    const fetchSpy = async () => {
+      throw new Error('boom');
+    };
+    const result = await verifyTurnstile('tok', 'secret', undefined, fetchSpy as unknown as typeof fetch);
+    expect(result.ok).toBe(false);
+    expect(result.transportError).toBe(true);
+  });
+
+  it('POSTs the expected form body to the Cloudflare endpoint', async () => {
+    let captured: { url?: string; init?: RequestInit } = {};
+    const fetchSpy = async (url: string, init?: RequestInit) => {
+      captured = { url, init };
+      return okResponse({ success: true });
+    };
+    await verifyTurnstile('tok-123', 'secret-abc', '8.8.8.8', fetchSpy as unknown as typeof fetch);
+    expect(captured.url).toBe('https://challenges.cloudflare.com/turnstile/v0/siteverify');
+    const body = captured.init?.body as URLSearchParams;
+    expect(body.get('secret')).toBe('secret-abc');
+    expect(body.get('response')).toBe('tok-123');
+    expect(body.get('remoteip')).toBe('8.8.8.8');
+  });
+});
