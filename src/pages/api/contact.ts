@@ -56,7 +56,10 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
   // 1. Honeypot — silent 200 to avoid tipping off bots.
   if (isHoneypotFilled(data as Record<string, unknown>)) {
-    console.info('[contact-form] spam: honeypot', JSON.stringify(data));
+    const emailDomain = typeof data.Email === 'string' && data.Email.includes('@')
+      ? data.Email.split('@')[1]
+      : 'unknown';
+    console.info('[contact-form] spam: honeypot', { emailDomain, page: data.page });
     return json({ success: true }, 200);
   }
 
@@ -72,7 +75,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       console.info('[contact-form] reject: turnstile', result.errorCodes);
       return json({ error: 'Verification failed, please retry.' }, 400);
     }
-  } else if (process.env.NODE_ENV === 'production') {
+  } else if (import.meta.env.PROD) {
     console.error('[contact-form] missing TURNSTILE_SECRET_KEY in production');
     return json({ error: 'Please retry in a moment.' }, 503);
   } else {

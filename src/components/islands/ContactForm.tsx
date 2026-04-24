@@ -100,10 +100,6 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     trackEvent('contact-form-submit');
-    if (turnstileSiteKey && !turnstileToken) {
-      setStatus('error');
-      return;
-    }
     if (phone && !phoneValid) return;
     setStatus('submitting');
     try {
@@ -325,7 +321,7 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
         <button
           type="submit"
           className="ds-btn ds-btn-primary ds-form__submit"
-          disabled={status === 'submitting'}
+          disabled={status === 'submitting' || (!!turnstileSiteKey && !turnstileToken)}
           aria-busy={status === 'submitting'}
         >
           {status === 'submitting' ? t.submitting : t.submit}
