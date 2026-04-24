@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { isHoneypotFilled, verifyTurnstile, stripOperationalFields } from './_contact-helpers';
 
 export const prerender = false;
 
@@ -18,6 +19,17 @@ interface ContactFormData {
   page?: string;
   /** UI locale the form was rendered in ("en" or "zh-Hant"). */
   locale?: string;
+  /** Honeypot — must be empty. */
+  website?: string;
+  /** Cloudflare Turnstile token. */
+  cfTurnstileToken?: string;
+}
+
+function json(body: unknown, status = 200): Response {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
 
 export const GET: APIRoute = () =>
@@ -26,7 +38,7 @@ export const GET: APIRoute = () =>
     headers: { 'Content-Type': 'application/json', Allow: 'POST' },
   });
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   let data: ContactFormData;
 
   const contentType = request.headers.get('content-type') ?? '';
@@ -39,35 +51,55 @@ export const POST: APIRoute = async ({ request }) => {
     const formData = await request.formData();
     data = Object.fromEntries(formData.entries()) as ContactFormData;
   } else {
-    return new Response(JSON.stringify({ error: 'Unsupported content type' }), {
-      status: 415,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Unsupported content type' }, 415);
   }
 
+  // 1. Honeypot — silent 200 to avoid tipping off bots.
+  if (isHoneypotFilled(data as Record<string, unknown>)) {
+    const emailDomain = typeof data.Email === 'string' && data.Email.includes('@')
+      ? data.Email.split('@')[1]
+      : 'unknown';
+    console.info('[contact-form] spam: honeypot', { emailDomain, page: data.page });
+    return json({ success: true }, 200);
+  }
+
+  // 2. Turnstile verify (env-gated).
+  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+  if (turnstileSecret) {
+    const result = await verifyTurnstile(data.cfTurnstileToken, turnstileSecret, clientAddress);
+    if (!result.ok) {
+      if (result.transportError) {
+        console.error('[contact-form] turnstile verify error:', result.errorCodes);
+        return json({ error: 'Please retry in a moment.' }, 503);
+      }
+      console.info('[contact-form] reject: turnstile', result.errorCodes);
+      return json({ error: 'Verification failed, please retry.' }, 400);
+    }
+  } else if (import.meta.env.PROD) {
+    console.error('[contact-form] missing TURNSTILE_SECRET_KEY in production');
+    return json({ error: 'Please retry in a moment.' }, 503);
+  } else {
+    console.warn('[contact-form] TURNSTILE_SECRET_KEY unset — skipping verification (dev only)');
+  }
+
+  // 3. Existing field validation.
   if (!data.Email) {
-    return new Response(JSON.stringify({ error: 'Email is required.' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Email is required.' }, 400);
   }
-  // Download / lead-gen forms may submit Email only. The full contact form
-  // still supplies both Name + Email; we require Name only for that type.
   if (!data.formType && !data.Name) {
-    return new Response(JSON.stringify({ error: 'Name and Email are required.' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Name and Email are required.' }, 400);
   }
 
+  // 4. Forward to webhook (strip operational fields).
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
+  const forwardBody = stripOperationalFields(data as Record<string, unknown>);
   if (webhookUrl) {
     try {
       const res = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...data,
+          ...forwardBody,
           submittedAt: new Date().toISOString(),
           source: 'authgear-website-contact',
         }),
@@ -79,11 +111,8 @@ export const POST: APIRoute = async ({ request }) => {
       console.error('Webhook error:', err);
     }
   } else {
-    console.info('[contact-form]', JSON.stringify(data));
+    console.info('[contact-form]', JSON.stringify(forwardBody));
   }
 
-  return new Response(JSON.stringify({ success: true }), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
-  });
+  return json({ success: true }, 200);
 };

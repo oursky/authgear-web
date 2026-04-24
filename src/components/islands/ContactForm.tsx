@@ -4,6 +4,7 @@ import type { IntlTelInputRef } from 'intl-tel-input/react';
 import type { Iso2 } from 'intl-tel-input/data';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import { trackEvent } from '@/lib/plausible';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -86,6 +87,9 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   const [useCase, setUseCase] = useState('');
   const [phoneValid, setPhoneValid] = useState(true);
   const [status, setStatus] = useState<Status>('idle');
+  const [honeypot, setHoneypot] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
   const itiRef = useRef<IntlTelInputRef | null>(null);
 
   useEffect(() => {
@@ -115,9 +119,12 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
           utm_campaign: getQueryParam('utm_campaign') || undefined,
           page: getSubmissionPage() || undefined,
           locale: l,
+          website: honeypot || undefined,
+          cfTurnstileToken: turnstileToken || undefined,
         }),
       });
       setStatus(res.ok ? 'success' : 'error');
+      setTurnstileToken('');
     } catch {
       setStatus('error');
     }
@@ -153,6 +160,16 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   return (
     <div className="form-block ds-form">
       <form onSubmit={handleSubmit} className="ds-form__form">
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
         <div className="ds-form__field">
           <label htmlFor="cf-name" className="ds-form-label">
             {t.labelFullName}<span className="ds-form-label__required">*</span>
@@ -290,10 +307,21 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
           </div>
         )}
 
+        {turnstileSiteKey && (
+          <div className="ds-form__turnstile" style={{ marginTop: 12 }}>
+            <Turnstile
+              siteKey={turnstileSiteKey}
+              onSuccess={(t) => setTurnstileToken(t)}
+              onExpire={() => setTurnstileToken('')}
+              onError={() => setTurnstileToken('')}
+            />
+          </div>
+        )}
+
         <button
           type="submit"
           className="ds-btn ds-btn-primary ds-form__submit"
-          disabled={status === 'submitting'}
+          disabled={status === 'submitting' || (!!turnstileSiteKey && !turnstileToken)}
           aria-busy={status === 'submitting'}
         >
           {status === 'submitting' ? t.submitting : t.submit}
