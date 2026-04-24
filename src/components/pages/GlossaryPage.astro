@@ -8,8 +8,8 @@ const { locale } = Astro.props;
 
   <section class="glossary">
     <div class="login-default-inner-section gallery-banner">
-      <h1 class="glossary-h1">Glossary</h1>
-      <p class="glossary-subtitle subtitle-paddings">Decode identity, authentication, and secure access—quickly and clearly with Authgear's practical glossary.</p>
+      <h1 class="glossary-h1">{t(locale, 'Glossary.title')}</h1>
+      <p class="glossary-subtitle subtitle-paddings">{t(locale, 'Glossary.description')}</p>
       <div class="div-block-30">
         <div class="w-layout-hflex anchor-container">
           <a href="#Glossary-A" class="anchor-link w-inline-block"><div class="glossary-anchor">A</div></a>
