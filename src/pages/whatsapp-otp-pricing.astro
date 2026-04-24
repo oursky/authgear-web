@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import WhatsappOtpPricingPage from '@/components/pages/WhatsappOtpPricingPage.astro';
+
+const locale = 'en';
+const title = 'WhatsApp OTP Pricing | Authgear';
+const description = 'Per-message rate by country for WhatsApp one-time passcode delivery via Authgear.';
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <WhatsappOtpPricingPage locale={locale} />
+</BaseLayout>

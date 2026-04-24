@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import WhatsappOtpPricingPage from '@/components/pages/WhatsappOtpPricingPage.astro';
+
+const locale = 'zh-Hant';
+const title = 'WhatsApp OTP 費率 | Authgear';
+const description = '以國家／地區為單位的 WhatsApp 一次性密碼（OTP）費率，透明計價。';
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <WhatsappOtpPricingPage locale={locale} />
+</BaseLayout>

@@ -1,0 +1,1104 @@
+---
+import { localizedPath } from '@/lib/i18n';
+
+interface Props { locale: string }
+const { locale } = Astro.props;
+
+const isZh = locale === 'zh-Hant';
+const copy = {
+  eyebrow: isZh ? '即時費率 · 2026 年 3 月' : 'Live rates · March 2026',
+  titleLine1: isZh ? 'WhatsApp OTP，' : 'WhatsApp OTP,',
+  titleLine2: isZh ? '各地費率一覽。' : 'priced by country.',
+  lede: isZh
+    ? '以透明的單則訊息費率，透過 WhatsApp 發送驗證碼 —— 在多數地區，只需 Twilio 公開 SMS 價格的一小部分。'
+    : 'Send verification codes over WhatsApp at transparent, per-message rates — often a fraction of Twilio’s public SMS pricing in the same market.',
+  ctaDemo: isZh ? '預約 Demo' : 'Get a demo',
+  ctaFullPricing: isZh ? '查看完整價目' : 'See full pricing',
+  terminalPath: 'authgear · whatsapp-otp · rates',
+  kvTemplate: isZh ? '範本' : 'Template',
+  kvTemplateVal: isZh ? '驗證 · OTP' : 'Authentication · OTP',
+  kvBenchmark: isZh ? 'SMS 基準' : 'SMS benchmark',
+  kvBenchmarkVal: isZh ? 'Twilio 公開價格' : 'Twilio public pricing',
+  kvUpdated: isZh ? '更新' : 'Updated',
+  lookupLabel: isZh ? '查詢 · 國家／地區' : 'Lookup · Country',
+  searchPlaceholder: isZh ? '輸入國家／地區名稱…' : 'Start typing a country…',
+  chipsLabel: isZh ? '熱門國家／地區' : 'Popular countries',
+  rateEyebrow: isZh ? 'Authgear WhatsApp 費率' : 'Authgear WhatsApp rate',
+  emptyCountry: isZh ? '請選擇國家／地區以查看費率' : 'Select a country to see price',
+  savingsLabel: isZh ? '相比 Twilio SMS' : 'vs Twilio SMS',
+  perMsg: isZh ? '／則' : '/ msg',
+  cmpWa: isZh ? 'Authgear WA' : 'Authgear WA',
+  cmpSms: isZh ? 'Twilio SMS' : 'Twilio SMS',
+  sectionPopular: isZh ? '熱門' : 'Popular',
+  sectionAll: isZh ? '全部國家／地區' : 'All countries',
+  noMatch: isZh ? '找不到符合「{q}」的結果' : 'No match for “{q}”',
+  ctaTitle: isZh ? '一個下午就能導入 WhatsApp OTP。' : 'Ship WhatsApp OTP in an afternoon.',
+  ctaSub: isZh ? 'WhatsApp、SMS、Email OTP 一次整合。' : 'One integration for WhatsApp, SMS, and email OTP.',
+  ctaStart: isZh ? '免費開始' : 'Start for free',
+  ctaGetDemo: isZh ? '預約 Demo' : 'Get a demo',
+};
+
+const schedulePath = localizedPath(locale, '/schedule-demo');
+const fullPricingPath = localizedPath(locale, '/pricing');
+
+const DATA = [
+  { iso: 'BR', country: 'Brazil', sms: 0.0599, wa: 0.0268, popular: true },
+  { iso: 'DE', country: 'Germany', sms: 0.112, wa: 0.075, popular: true },
+  { iso: 'HK', country: 'Hong Kong', sms: 0.0682, wa: 0.0313, popular: true },
+  { iso: 'IN', country: 'India', sms: 0.0832, wa: 0.0214, popular: true },
+  { iso: 'NG', country: 'Nigeria', sms: 0.3868, wa: 0.0267, popular: true },
+  { iso: 'SG', country: 'Singapore', sms: 0.0591, wa: 0.0313, popular: true },
+  { iso: 'GB', country: 'United Kingdom', sms: 0.0524, wa: 0.042, popular: true },
+  { iso: 'US', country: 'United States', sms: 0.0083, wa: 0.0083, popular: false },
+  { iso: 'AF', country: 'Afghanistan', sms: 0.3756, wa: 0.0313, popular: false },
+  { iso: 'AL', country: 'Albania', sms: 0.1101, wa: 0.0412, popular: false },
+  { iso: 'DZ', country: 'Algeria', sms: 0.2575, wa: 0.024, popular: false },
+  { iso: 'AS', country: 'American Samoa', sms: 0.1881, wa: 0.0234, popular: false },
+  { iso: 'AD', country: 'Andorra', sms: 0.1464, wa: 0.0371, popular: false },
+  { iso: 'AO', country: 'Angola', sms: 0.2588, wa: 0.024, popular: false },
+  { iso: 'AI', country: 'Anguilla', sms: 0.22, wa: 0.0313, popular: false },
+  { iso: 'AG', country: 'Antigua and Barbuda', sms: 0.2025, wa: 0.0313, popular: false },
+  { iso: 'AR', country: 'Argentina', sms: 0.0935, wa: 0.046, popular: false },
+  { iso: 'AM', country: 'Armenia', sms: 0.2528, wa: 0.0412, popular: false },
+  { iso: 'AW', country: 'Aruba', sms: 0.2297, wa: 0.0313, popular: false },
+  { iso: 'AU', country: 'Australia', sms: 0.0515, wa: 0.0313, popular: false },
+  { iso: 'AT', country: 'Austria', sms: 0.0979, wa: 0.0371, popular: false },
+  { iso: 'AZ', country: 'Azerbaijan', sms: 0.37, wa: 0.0277, popular: false },
+  { iso: 'BS', country: 'Bahamas', sms: 0.0904, wa: 0.0313, popular: false },
+  { iso: 'BH', country: 'Bahrain', sms: 0.0364, wa: 0.0291, popular: false },
+  { iso: 'BD', country: 'Bangladesh', sms: 0.3869, wa: 0.0313, popular: false },
+  { iso: 'BB', country: 'Barbados', sms: 0.2624, wa: 0.0313, popular: false },
+  { iso: 'BY', country: 'Belarus', sms: 0.2521, wa: 0.0412, popular: false },
+  { iso: 'BE', country: 'Belgium', sms: 0.105, wa: 0.0371, popular: false },
+  { iso: 'BZ', country: 'Belize', sms: 0.2738, wa: 0.0313, popular: false },
+  { iso: 'BJ', country: 'Benin', sms: 0.2985, wa: 0.024, popular: false },
+  { iso: 'BM', country: 'Bermuda', sms: 0.2316, wa: 0.0313, popular: false },
+  { iso: 'BT', country: 'Bhutan', sms: 0.4007, wa: 0.0313, popular: false },
+  { iso: 'BO', country: 'Bolivia', sms: 0.2215, wa: 0.0313, popular: false },
+  { iso: 'BA', country: 'Bosnia and Herzegovina', sms: 0.511, wa: 0.0412, popular: false },
+  { iso: 'BW', country: 'Botswana', sms: 0.158, wa: 0.024, popular: false },
+  { iso: 'BN', country: 'Brunei', sms: 0.065, wa: 0.0313, popular: false },
+  { iso: 'BG', country: 'Bulgaria', sms: 0.1466, wa: 0.0412, popular: false },
+  { iso: 'BF', country: 'Burkina Faso', sms: 0.2233, wa: 0.024, popular: false },
+  { iso: 'BI', country: 'Burundi', sms: 0.463, wa: 0.024, popular: false },
+  { iso: 'KH', country: 'Cambodia', sms: 0.4418, wa: 0.0313, popular: false },
+  { iso: 'CM', country: 'Cameroon', sms: 0.2545, wa: 0.024, popular: false },
+  { iso: 'CA', country: 'Canada', sms: 0.0083, wa: 0.0083, popular: false },
+  { iso: 'CV', country: 'Cape Verde', sms: 0.2239, wa: 0.024, popular: false },
+  { iso: 'KY', country: 'Cayman Islands', sms: 0.2476, wa: 0.0313, popular: false },
+  { iso: 'CF', country: 'Central Africa', sms: 0.4518, wa: 0.024, popular: false },
+  { iso: 'TD', country: 'Chad', sms: 0.3458, wa: 0.024, popular: false },
+  { iso: 'CL', country: 'Chile', sms: 0.0742, wa: 0.04, popular: false },
+  { iso: 'CN', country: 'China', sms: 0.1082, wa: 0.0313, popular: false },
+  { iso: 'CO', country: 'Colombia', sms: 0.0592, wa: 0.0208, popular: false },
+  { iso: 'KM', country: 'Comoros', sms: 0.4175, wa: 0.024, popular: false },
+  { iso: 'CG', country: 'Congo', sms: 0.282, wa: 0.024, popular: false },
+  { iso: 'CK', country: 'Cook Islands', sms: 0.1396, wa: 0.0277, popular: false },
+  { iso: 'CR', country: 'Costa Rica', sms: 0.0623, wa: 0.0313, popular: false },
+  { iso: 'HR', country: 'Croatia', sms: 0.1379, wa: 0.0412, popular: false },
+  { iso: 'CY', country: 'Cyprus', sms: 0.0864, wa: 0.0412, popular: false },
+  { iso: 'CZ', country: 'Czech Republic', sms: 0.0666, wa: 0.0412, popular: false },
+  { iso: 'CD', country: 'DR Congo', sms: 0.2291, wa: 0.024, popular: false },
+  { iso: 'DK', country: 'Denmark', sms: 0.0592, wa: 0.0371, popular: false },
+  { iso: 'DJ', country: 'Djibouti', sms: 0.1624, wa: 0.024, popular: false },
+  { iso: 'DM', country: 'Dominica', sms: 0.2288, wa: 0.0313, popular: false },
+  { iso: 'DO', country: 'Dominican Republic', sms: 0.1014, wa: 0.0313, popular: false },
+  { iso: 'TL', country: 'East Timor', sms: 0.203, wa: 0.0313, popular: false },
+  { iso: 'EC', country: 'Ecuador', sms: 0.3135, wa: 0.0313, popular: false },
+  { iso: 'EG', country: 'Egypt', sms: 0.3959, wa: 0.0236, popular: false },
+  { iso: 'SV', country: 'El Salvador', sms: 0.2377, wa: 0.0313, popular: false },
+  { iso: 'GQ', country: 'Equatorial Guinea', sms: 0.2705, wa: 0.024, popular: false },
+  { iso: 'ER', country: 'Eritrea', sms: 0.1166, wa: 0.024, popular: false },
+  { iso: 'EE', country: 'Estonia', sms: 0.0958, wa: 0.0412, popular: false },
+  { iso: 'ET', country: 'Ethiopia', sms: 0.3425, wa: 0.024, popular: false },
+  { iso: 'FK', country: 'Falkland Islands', sms: 0.1672, wa: 0.0313, popular: false },
+  { iso: 'FO', country: 'Faroe Islands', sms: 0.0676, wa: 0.0277, popular: false },
+  { iso: 'FJ', country: 'Fiji', sms: 0.22, wa: 0.0313, popular: false },
+  { iso: 'FI', country: 'Finland', sms: 0.0861, wa: 0.0371, popular: false },
+  { iso: 'FR', country: 'France', sms: 0.0798, wa: 0.05, popular: false },
+  { iso: 'GF', country: 'French Guiana', sms: 0.1842, wa: 0.0313, popular: false },
+  { iso: 'PF', country: 'French Polynesia', sms: 0.1797, wa: 0.0277, popular: false },
+  { iso: 'GA', country: 'Gabon', sms: 0.3146, wa: 0.024, popular: false },
+  { iso: 'GM', country: 'Gambia', sms: 0.2606, wa: 0.024, popular: false },
+  { iso: 'GE', country: 'Georgia', sms: 0.1589, wa: 0.0412, popular: false },
+  { iso: 'GH', country: 'Ghana', sms: 0.3741, wa: 0.024, popular: false },
+  { iso: 'GI', country: 'Gibraltar', sms: 0.1091, wa: 0.0371, popular: false },
+  { iso: 'GR', country: 'Greece', sms: 0.062, wa: 0.0412, popular: false },
+  { iso: 'GL', country: 'Greenland', sms: 0.041, wa: 0.0277, popular: false },
+  { iso: 'GD', country: 'Grenada', sms: 0.2462, wa: 0.0313, popular: false },
+  { iso: 'GP', country: 'Guadeloupe', sms: 0.1866, wa: 0.0313, popular: false },
+  { iso: 'GU', country: 'Guam', sms: 0.0687, wa: 0.0234, popular: false },
+  { iso: 'GT', country: 'Guatemala', sms: 0.2498, wa: 0.0313, popular: false },
+  { iso: 'GN', country: 'Guinea', sms: 0.2361, wa: 0.024, popular: false },
+  { iso: 'GW', country: 'Guinea-Bissau', sms: 0.4722, wa: 0.024, popular: false },
+  { iso: 'GY', country: 'Guyana', sms: 0.3366, wa: 0.0313, popular: false },
+  { iso: 'HT', country: 'Haiti', sms: 0.2637, wa: 0.0313, popular: false },
+  { iso: 'HN', country: 'Honduras', sms: 0.246, wa: 0.0313, popular: false },
+  { iso: 'HU', country: 'Hungary', sms: 0.091, wa: 0.0412, popular: false },
+  { iso: 'IS', country: 'Iceland', sms: 0.0661, wa: 0.0371, popular: false },
+  { iso: 'ID', country: 'Indonesia', sms: 0.4414, wa: 0.045, popular: false },
+  { iso: 'IQ', country: 'Iraq', sms: 0.4491, wa: 0.0291, popular: false },
+  { iso: 'IE', country: 'Ireland', sms: 0.0735, wa: 0.0371, popular: false },
+  { iso: 'IL', country: 'Israel', sms: 0.2575, wa: 0.0253, popular: false },
+  { iso: 'IT', country: 'Italy', sms: 0.0927, wa: 0.05, popular: false },
+  { iso: 'CI', country: 'Ivory Coast', sms: 0.4397, wa: 0.024, popular: false },
+  { iso: 'JM', country: 'Jamaica', sms: 0.2819, wa: 0.0313, popular: false },
+  { iso: 'JP', country: 'Japan', sms: 0.084, wa: 0.0313, popular: false },
+  { iso: 'JO', country: 'Jordan', sms: 0.3884, wa: 0.0291, popular: false },
+  { iso: 'KZ', country: 'Kazakhstan', sms: 0.3382, wa: 0.0313, popular: false },
+  { iso: 'KE', country: 'Kenya', sms: 0.2336, wa: 0.024, popular: false },
+  { iso: 'KI', country: 'Kiribati', sms: 0.1455, wa: 0.0313, popular: false },
+  { iso: 'KR', country: 'Korea Republic of', sms: 0.0494, wa: 0.0313, popular: false },
+  { iso: 'KW', country: 'Kuwait', sms: 0.3164, wa: 0.0291, popular: false },
+  { iso: 'KG', country: 'Kyrgyzstan', sms: 0.3852, wa: 0.0313, popular: false },
+  { iso: 'LA', country: 'Laos PDR', sms: 0.2868, wa: 0.0313, popular: false },
+  { iso: 'LV', country: 'Latvia', sms: 0.0801, wa: 0.0412, popular: false },
+  { iso: 'LB', country: 'Lebanon', sms: 0.3619, wa: 0.0291, popular: false },
+  { iso: 'LS', country: 'Lesotho', sms: 0.4123, wa: 0.024, popular: false },
+  { iso: 'LR', country: 'Liberia', sms: 0.2406, wa: 0.024, popular: false },
+  { iso: 'LY', country: 'Libya', sms: 0.3984, wa: 0.024, popular: false },
+  { iso: 'LI', country: 'Liechtenstein', sms: 0.0334, wa: 0.0334, popular: false },
+  { iso: 'LT', country: 'Lithuania', sms: 0.0545, wa: 0.0412, popular: false },
+  { iso: 'LU', country: 'Luxembourg', sms: 0.0818, wa: 0.0371, popular: false },
+  { iso: 'MO', country: 'Macao', sms: 0.059, wa: 0.0313, popular: false },
+  { iso: 'MK', country: 'Macedonia', sms: 0.2012, wa: 0.0412, popular: false },
+  { iso: 'MG', country: 'Madagascar', sms: 0.5267, wa: 0.024, popular: false },
+  { iso: 'MW', country: 'Malawi', sms: 0.3307, wa: 0.024, popular: false },
+  { iso: 'MY', country: 'Malaysia', sms: 0.2594, wa: 0.034, popular: false },
+  { iso: 'MV', country: 'Maldives', sms: 0.3581, wa: 0.0313, popular: false },
+  { iso: 'ML', country: 'Mali', sms: 0.3288, wa: 0.024, popular: false },
+  { iso: 'MT', country: 'Malta', sms: 0.065, wa: 0.0371, popular: false },
+  { iso: 'MH', country: 'Marshall Islands', sms: 0.1589, wa: 0.0313, popular: false },
+  { iso: 'MQ', country: 'Martinique', sms: 0.1897, wa: 0.0313, popular: false },
+  { iso: 'MR', country: 'Mauritania', sms: 0.2583, wa: 0.024, popular: false },
+  { iso: 'MU', country: 'Mauritius', sms: 0.1896, wa: 0.024, popular: false },
+  { iso: 'MX', country: 'Mexico', sms: 0.1819, wa: 0.0285, popular: false },
+  { iso: 'FM', country: 'Micronesia', sms: 0.0735, wa: 0.0313, popular: false },
+  { iso: 'MD', country: 'Moldova', sms: 0.1304, wa: 0.0412, popular: false },
+  { iso: 'MC', country: 'Monaco', sms: 0.1856, wa: 0.0371, popular: false },
+  { iso: 'MN', country: 'Mongolia', sms: 0.279, wa: 0.0313, popular: false },
+  { iso: 'ME', country: 'Montenegro', sms: 0.1721, wa: 0.0412, popular: false },
+  { iso: 'MS', country: 'Montserrat', sms: 0.2371, wa: 0.0313, popular: false },
+  { iso: 'MA', country: 'Morocco', sms: 0.2244, wa: 0.024, popular: false },
+  { iso: 'MZ', country: 'Mozambique', sms: 0.417, wa: 0.024, popular: false },
+  { iso: 'MM', country: 'Myanmar', sms: 0.3358, wa: 0.0313, popular: false },
+  { iso: 'NA', country: 'Namibia', sms: 0.1041, wa: 0.024, popular: false },
+  { iso: 'NP', country: 'Nepal', sms: 0.3022, wa: 0.0313, popular: false },
+  { iso: 'NL', country: 'Netherlands', sms: 0.12091, wa: 0.07, popular: false },
+  { iso: 'NC', country: 'New Caledonia', sms: 0.1761, wa: 0.0313, popular: false },
+  { iso: 'NZ', country: 'New Zealand', sms: 0.105, wa: 0.0313, popular: false },
+  { iso: 'NI', country: 'Nicaragua', sms: 0.1274, wa: 0.0313, popular: false },
+  { iso: 'NE', country: 'Niger', sms: 0.3652, wa: 0.024, popular: false },
+  { iso: 'NU', country: 'Niue', sms: 0.2335, wa: 0.0277, popular: false },
+  { iso: 'NF', country: 'Norfolk Island', sms: 0.02817, wa: 0.0277, popular: false },
+  { iso: 'NO', country: 'Norway', sms: 0.0651, wa: 0.0371, popular: false },
+  { iso: 'OM', country: 'Oman', sms: 0.1707, wa: 0.0291, popular: false },
+  { iso: 'PK', country: 'Pakistan', sms: 0.4734, wa: 0.0254, popular: false },
+  { iso: 'PW', country: 'Palau', sms: 0.0998, wa: 0.0313, popular: false },
+  { iso: 'PS', country: 'Palestinian Territory', sms: 0.3869, wa: 0.0291, popular: false },
+  { iso: 'PA', country: 'Panama', sms: 0.1732, wa: 0.0313, popular: false },
+  { iso: 'PG', country: 'Papua New Guinea', sms: 0.7544, wa: 0.0313, popular: false },
+  { iso: 'PY', country: 'Paraguay', sms: 0.1208, wa: 0.0313, popular: false },
+  { iso: 'PE', country: 'Peru', sms: 0.2476, wa: 0.04, popular: false },
+  { iso: 'PH', country: 'Philippines', sms: 0.2001, wa: 0.0313, popular: false },
+  { iso: 'PL', country: 'Poland', sms: 0.0431, wa: 0.0412, popular: false },
+  { iso: 'PT', country: 'Portugal', sms: 0.0473, wa: 0.0371, popular: false },
+  { iso: 'PR', country: 'Puerto Rico', sms: 0.054, wa: 0.0313, popular: false },
+  { iso: 'QA', country: 'Qatar', sms: 0.2634, wa: 0.0291, popular: false },
+  { iso: 'RE', country: 'Reunion/Mayotte', sms: 0.1911, wa: 0.024, popular: false },
+  { iso: 'RO', country: 'Romania', sms: 0.0737, wa: 0.0412, popular: false },
+  { iso: 'RU', country: 'Russia', sms: 0.7096, wa: 0.06, popular: false },
+  { iso: 'RW', country: 'Rwanda', sms: 0.2627, wa: 0.024, popular: false },
+  { iso: 'WS', country: 'Samoa', sms: 0.2369, wa: 0.0313, popular: false },
+  { iso: 'SM', country: 'San Marino', sms: 0.1256, wa: 0.0371, popular: false },
+  { iso: 'ST', country: 'Sao Tome and Principe', sms: 0.1307, wa: 0.024, popular: false },
+  { iso: 'SA', country: 'Saudi Arabia', sms: 0.1949, wa: 0.0307, popular: false },
+  { iso: 'SN', country: 'Senegal', sms: 0.4411, wa: 0.024, popular: false },
+  { iso: 'RS', country: 'Serbia', sms: 0.4098, wa: 0.0412, popular: false },
+  { iso: 'SC', country: 'Seychelles', sms: 0.3077, wa: 0.024, popular: false },
+  { iso: 'SL', country: 'Sierra Leone', sms: 0.3898, wa: 0.024, popular: false },
+  { iso: 'SK', country: 'Slovakia', sms: 0.0883, wa: 0.0412, popular: false },
+  { iso: 'SI', country: 'Slovenia', sms: 0.1935, wa: 0.0412, popular: false },
+  { iso: 'SB', country: 'Solomon Islands', sms: 0.1194, wa: 0.0313, popular: false },
+  { iso: 'SO', country: 'Somalia', sms: 0.3482, wa: 0.024, popular: false },
+  { iso: 'ZA', country: 'South Africa', sms: 0.1089, wa: 0.0276, popular: false },
+  { iso: 'SS', country: 'South Sudan', sms: 0.2399, wa: 0.024, popular: false },
+  { iso: 'ES', country: 'Spain', sms: 0.0875, wa: 0.04, popular: false },
+  { iso: 'LK', country: 'Sri Lanka', sms: 0.3962, wa: 0.0313, popular: false },
+  { iso: 'KN', country: 'St Kitts and Nevis', sms: 0.2272, wa: 0.0313, popular: false },
+  { iso: 'LC', country: 'St Lucia', sms: 0.2343, wa: 0.0313, popular: false },
+  { iso: 'PM', country: 'St Pierre and Miquelon', sms: 0.1507, wa: 0.0313, popular: false },
+  { iso: 'VC', country: 'St Vincent Grenadines', sms: 0.2585, wa: 0.0313, popular: false },
+  { iso: 'SD', country: 'Sudan', sms: 0.4749, wa: 0.024, popular: false },
+  { iso: 'SR', country: 'Suriname', sms: 0.3172, wa: 0.0313, popular: false },
+  { iso: 'SZ', country: 'Swaziland', sms: 0.2235, wa: 0.024, popular: false },
+  { iso: 'SE', country: 'Sweden', sms: 0.0609, wa: 0.0371, popular: false },
+  { iso: 'CH', country: 'Switzerland', sms: 0.0725, wa: 0.0371, popular: false },
+  { iso: 'TW', country: 'Taiwan', sms: 0.0842, wa: 0.0277, popular: false },
+  { iso: 'TJ', country: 'Tajikistan', sms: 0.4505, wa: 0.0313, popular: false },
+  { iso: 'TZ', country: 'Tanzania', sms: 0.4336, wa: 0.024, popular: false },
+  { iso: 'TH', country: 'Thailand', sms: 0.0305, wa: 0.0305, popular: false },
+  { iso: 'TG', country: 'Togo', sms: 0.4416, wa: 0.024, popular: false },
+  { iso: 'TO', country: 'Tonga', sms: 0.2177, wa: 0.0313, popular: false },
+  { iso: 'TT', country: 'Trinidad and Tobago', sms: 0.2992, wa: 0.0313, popular: false },
+  { iso: 'TN', country: 'Tunisia', sms: 0.5379, wa: 0.024, popular: false },
+  { iso: 'TR', country: 'Turkey', sms: 0.0305, wa: 0.0253, popular: false },
+  { iso: 'TM', country: 'Turkmenistan', sms: 0.3233, wa: 0.0313, popular: false },
+  { iso: 'TC', country: 'Turks and Caicos Islands', sms: 0.2302, wa: 0.0313, popular: false },
+  { iso: 'TV', country: 'Tuvalu', sms: 0.2959, wa: 0.0313, popular: false },
+  { iso: 'UG', country: 'Uganda', sms: 0.3289, wa: 0.024, popular: false },
+  { iso: 'UA', country: 'Ukraine', sms: 0.2268, wa: 0.0412, popular: false },
+  { iso: 'AE', country: 'United Arab Emirates', sms: 0.1092, wa: 0.0357, popular: false },
+  { iso: 'UY', country: 'Uruguay', sms: 0.0852, wa: 0.0313, popular: false },
+  { iso: 'UZ', country: 'Uzbekistan', sms: 0.4571, wa: 0.0313, popular: false },
+  { iso: 'VU', country: 'Vanuatu', sms: 0.2067, wa: 0.0313, popular: false },
+  { iso: 'VE', country: 'Venezuela', sms: 0.1987, wa: 0.0313, popular: false },
+  { iso: 'VN', country: 'Vietnam', sms: 0.2269, wa: 0.0313, popular: false },
+  { iso: 'VG', country: 'Virgin Islands, British', sms: 0.308, wa: 0.0313, popular: false },
+  { iso: 'VI', country: 'Virgin Islands, U.S.', sms: 0.1987, wa: 0.0313, popular: false },
+  { iso: 'WF', country: 'Wallis and Futuna', sms: 0.11, wa: 0.0277, popular: false },
+  { iso: 'YE', country: 'Yemen', sms: 0.2391, wa: 0.0291, popular: false },
+  { iso: 'ZM', country: 'Zambia', sms: 0.3942, wa: 0.024, popular: false },
+  { iso: 'ZW', country: 'Zimbabwe', sms: 0.2481, wa: 0.024, popular: false },
+];
+
+const popularChips = DATA.filter((d) => d.popular);
+---
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+/>
+
+<section class="wa-hero">
+  <div class="wa-hero__grid-overlay" aria-hidden="true"></div>
+  <div class="wa-hero__glow wa-hero__glow--a" aria-hidden="true"></div>
+  <div class="wa-hero__glow wa-hero__glow--b" aria-hidden="true"></div>
+
+  <div class="ds-container wa-hero__shell">
+    <div class="wa-hero__row">
+      <div class="wa-hero__copy">
+        <div class="wa-eyebrow">
+          <span class="wa-eyebrow__dot" aria-hidden="true"></span>
+          {copy.eyebrow}
+        </div>
+        <h1 class="wa-hero__title">
+          {copy.titleLine1}<br />
+          <span class="wa-hero__title-grad">{copy.titleLine2}</span>
+        </h1>
+        <p class="wa-hero__lede">{copy.lede}</p>
+        <div class="wa-hero__cta-row">
+          <a href={schedulePath} class="wa-btn wa-btn--primary">
+            {copy.ctaDemo}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
+          <a href={fullPricingPath} class="wa-btn wa-btn--ghost">{copy.ctaFullPricing}</a>
+        </div>
+      </div>
+
+      <!-- Rates terminal -->
+      <div class="wa-terminal" role="region" aria-label="WhatsApp OTP price lookup">
+        <div class="wa-terminal__chrome">
+          <span class="wa-dot wa-dot--r"></span>
+          <span class="wa-dot wa-dot--y"></span>
+          <span class="wa-dot wa-dot--g"></span>
+          <span class="wa-terminal__path">{copy.terminalPath}</span>
+        </div>
+
+        <div class="wa-terminal__body">
+          <div class="wa-terminal__row">
+            <span class="wa-kv-label">{copy.kvTemplate}</span>
+            <span class="wa-kv-value">{copy.kvTemplateVal}</span>
+          </div>
+          <div class="wa-terminal__row">
+            <span class="wa-kv-label">{copy.kvBenchmark}</span>
+            <span class="wa-kv-value">{copy.kvBenchmarkVal}</span>
+          </div>
+          <div class="wa-terminal__row">
+            <span class="wa-kv-label">{copy.kvUpdated}</span>
+            <span class="wa-kv-value wa-kv-value--mono">2026-03</span>
+          </div>
+
+          <div class="wa-terminal__divider" aria-hidden="true"></div>
+
+          <label class="wa-kv-label" for="ag-pl-input">{copy.lookupLabel}</label>
+          <div class="wa-search" id="wa-search">
+            <svg class="wa-search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" /><path stroke-linecap="round" d="m21 21-4.3-4.3" />
+            </svg>
+            <input
+              type="text"
+              id="ag-pl-input"
+              class="wa-search__input"
+              placeholder={copy.searchPlaceholder}
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <kbd class="wa-search__kbd" aria-hidden="true">/</kbd>
+            <div class="wa-dropdown" id="ag-pl-dropdown" role="listbox"></div>
+          </div>
+
+          <div class="wa-chips" aria-label={copy.chipsLabel}>
+            {popularChips.map((c) => (
+              <button
+                class="wa-chip"
+                type="button"
+                data-iso={c.iso}
+                data-country={c.country}
+                data-wa={c.wa}
+                data-sms={c.sms}
+              >
+                <span class="wa-chip__flag" aria-hidden="true">{c.iso}</span>
+                <span>{c.country}</span>
+              </button>
+            ))}
+          </div>
+
+          <div class="wa-result" id="ag-pl-result" data-state="empty">
+            <div class="wa-result__header">
+              <div>
+                <div class="wa-result__eyebrow">{copy.rateEyebrow}</div>
+                <div class="wa-result__country" id="ag-pl-country">{copy.emptyCountry}</div>
+              </div>
+              <div class="wa-result__savings" id="ag-pl-savings" hidden>
+                <span class="wa-result__savings-val" id="ag-pl-savings-val">—</span>
+                <span class="wa-result__savings-label">{copy.savingsLabel}</span>
+              </div>
+            </div>
+
+            <div class="wa-result__price">
+              <span class="wa-result__currency">USD</span>
+              <span class="wa-result__big" id="ag-pl-price">0.0000</span>
+              <span class="wa-result__unit">{copy.perMsg}</span>
+            </div>
+
+            <div class="wa-compare" id="ag-pl-compare" hidden>
+              <div class="wa-compare__row">
+                <span class="wa-compare__label">{copy.cmpWa}</span>
+                <span class="wa-compare__bar wa-compare__bar--wa"><span class="wa-compare__bar-fill" id="ag-pl-bar-wa"></span></span>
+                <span class="wa-compare__val" id="ag-pl-wa-val">—</span>
+              </div>
+              <div class="wa-compare__row">
+                <span class="wa-compare__label">{copy.cmpSms}</span>
+                <span class="wa-compare__bar wa-compare__bar--sms"><span class="wa-compare__bar-fill" id="ag-pl-bar-sms"></span></span>
+                <span class="wa-compare__val" id="ag-pl-sms-val">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-footer-cta-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{copy.ctaTitle}</h2>
+      <p class="section-lede-on-dark">{copy.ctaSub}</p>
+    </div>
+    <div class="ds-footer-cta__actions">
+      <a
+        href="https://portal.authgear.com/?utm_source=whatsapp-otp-pricing&utm_medium=link&utm_campaign=start-for-free"
+        target="_blank"
+        rel="noreferrer"
+        class="ds-btn ds-btn-secondary"
+      >
+        {copy.ctaStart}
+      </a>
+      <a href={schedulePath} target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+        {copy.ctaGetDemo}
+      </a>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ DATA, I18N: { popular: copy.sectionPopular, all: copy.sectionAll, noMatch: copy.noMatch } }}>
+  (function () {
+    var input = document.getElementById('ag-pl-input');
+    var dropdown = document.getElementById('ag-pl-dropdown');
+    var result = document.getElementById('ag-pl-result');
+    var chips = document.querySelectorAll('.wa-chip');
+    if (!input || !dropdown || !result) return;
+
+    var elCountry = document.getElementById('ag-pl-country');
+    var elPrice = document.getElementById('ag-pl-price');
+    var elSavings = document.getElementById('ag-pl-savings');
+    var elSavingsVal = document.getElementById('ag-pl-savings-val');
+    var elCompare = document.getElementById('ag-pl-compare');
+    var elBarWa = document.getElementById('ag-pl-bar-wa');
+    var elBarSms = document.getElementById('ag-pl-bar-sms');
+    var elWaVal = document.getElementById('ag-pl-wa-val');
+    var elSmsVal = document.getElementById('ag-pl-sms-val');
+
+    function buildOption(item) {
+      var div = document.createElement('button');
+      div.type = 'button';
+      div.className = 'wa-opt';
+      div.setAttribute('role', 'option');
+
+      var iso = document.createElement('span');
+      iso.className = 'wa-opt__iso';
+      iso.textContent = item.iso;
+      div.appendChild(iso);
+
+      var name = document.createElement('span');
+      name.className = 'wa-opt__name';
+      name.textContent = item.country;
+      div.appendChild(name);
+
+      var price = document.createElement('span');
+      price.className = 'wa-opt__price';
+      price.textContent = '$' + item.wa.toFixed(4);
+      div.appendChild(price);
+
+      if (item.popular) {
+        var tag = document.createElement('span');
+        tag.className = 'wa-opt__tag';
+        tag.textContent = '★';
+        tag.title = 'Popular';
+        div.appendChild(tag);
+      }
+      div.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+        select(item);
+      });
+      return div;
+    }
+
+    function renderDropdown(query) {
+      dropdown.innerHTML = '';
+      var q = (query || '').toLowerCase();
+      var matches = DATA.filter(function (d) {
+        return !q || d.country.toLowerCase().indexOf(q) !== -1 || d.iso.toLowerCase().indexOf(q) !== -1;
+      });
+
+      if (!q) {
+        var pop = matches.filter(function (d) { return d.popular; });
+        var rest = matches.filter(function (d) { return !d.popular; });
+        if (pop.length) {
+          dropdown.appendChild(section(I18N.popular));
+          pop.forEach(function (d) { dropdown.appendChild(buildOption(d)); });
+        }
+        if (rest.length) {
+          dropdown.appendChild(section(I18N.all));
+          rest.forEach(function (d) { dropdown.appendChild(buildOption(d)); });
+        }
+      } else {
+        matches.forEach(function (d) { dropdown.appendChild(buildOption(d)); });
+      }
+
+      if (!dropdown.children.length) {
+        var empty = document.createElement('div');
+        empty.className = 'wa-opt wa-opt--empty';
+        empty.textContent = I18N.noMatch.replace('{q}', query);
+        dropdown.appendChild(empty);
+      }
+      dropdown.classList.add('open');
+    }
+
+    function section(text) {
+      var h = document.createElement('div');
+      h.className = 'wa-opt__section';
+      h.textContent = text;
+      return h;
+    }
+
+    function select(item) {
+      input.value = item.country;
+      dropdown.classList.remove('open');
+      result.setAttribute('data-state', 'filled');
+
+      elCountry.textContent = item.country + ' · ' + item.iso;
+      elPrice.textContent = item.wa.toFixed(4);
+
+      var savings = item.sms > 0 ? Math.round((1 - item.wa / item.sms) * 100) : 0;
+      if (savings > 0) {
+        elSavings.hidden = false;
+        elSavingsVal.textContent = '−' + savings + '%';
+      } else {
+        elSavings.hidden = true;
+      }
+
+      elCompare.hidden = false;
+      elWaVal.textContent = '$' + item.wa.toFixed(4);
+      elSmsVal.textContent = '$' + item.sms.toFixed(4);
+      var max = Math.max(item.wa, item.sms);
+      var waW = max > 0 ? (item.wa / max) * 100 : 0;
+      var smsW = max > 0 ? (item.sms / max) * 100 : 0;
+      // animate from 0
+      elBarWa.style.width = '0%';
+      elBarSms.style.width = '0%';
+      requestAnimationFrame(function () {
+        elBarWa.style.width = waW + '%';
+        elBarSms.style.width = smsW + '%';
+      });
+    }
+
+    input.addEventListener('focus', function () { renderDropdown(input.value); });
+    input.addEventListener('input', function () { renderDropdown(input.value); });
+    input.addEventListener('blur', function () {
+      setTimeout(function () { dropdown.classList.remove('open'); }, 150);
+    });
+
+    // "/" shortcut to focus
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && document.activeElement !== input) {
+        var tag = document.activeElement && document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        e.preventDefault();
+        input.focus();
+      } else if (e.key === 'Escape' && document.activeElement === input) {
+        input.blur();
+      }
+    });
+
+    chips.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = {
+          iso: btn.getAttribute('data-iso'),
+          country: btn.getAttribute('data-country'),
+          wa: parseFloat(btn.getAttribute('data-wa')),
+          sms: parseFloat(btn.getAttribute('data-sms')),
+          popular: true,
+        };
+        select(item);
+      });
+    });
+  })();
+</script>
+
+<style>
+  /* ========== hero ========== */
+  .wa-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(122, 46, 255, 0.35), transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(31, 124, 255, 0.35), transparent 55%),
+      linear-gradient(180deg, #050418 0%, #0a0a24 55%, #0b0722 100%);
+    color: #fff;
+    padding: clamp(56px, 9vw, 120px) 0 clamp(72px, 11vw, 140px);
+  }
+
+  .wa-hero__grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 75%);
+    z-index: 0;
+    opacity: 0.7;
+  }
+
+  .wa-hero__glow {
+    position: absolute;
+    filter: blur(80px);
+    opacity: 0.55;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .wa-hero__glow--a {
+    top: -100px;
+    left: -120px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, #5a2dff 0%, transparent 70%);
+  }
+  .wa-hero__glow--b {
+    bottom: -140px;
+    right: -140px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, #1fd17e 0%, transparent 70%);
+    opacity: 0.25;
+  }
+
+  .wa-hero__shell { position: relative; z-index: 1; }
+
+  .wa-hero__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+  }
+  @media (min-width: 960px) {
+    .wa-hero__row {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    }
+  }
+
+  .wa-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .wa-eyebrow__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1fd17e;
+    box-shadow: 0 0 0 3px rgba(31, 209, 126, 0.25);
+    animation: wa-pulse 1.8s ease-out infinite;
+  }
+  @keyframes wa-pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(31, 209, 126, 0.25); }
+    50% { box-shadow: 0 0 0 6px rgba(31, 209, 126, 0.08); }
+  }
+
+  .wa-hero__title {
+    margin: 20px 0 18px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: clamp(38px, 5.2vw, 68px);
+    line-height: 1.02;
+    color: #fff;
+  }
+  .wa-hero__title-grad {
+    background: linear-gradient(91deg, #b8d1ff 0%, #a88bff 50%, #63f2c2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .wa-hero__lede {
+    max-width: 46ch;
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0 0 24px;
+  }
+
+  .wa-hero__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ========== buttons ========== */
+  .wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: -0.005em;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .wa-btn:hover { transform: translateY(-1px); }
+  .wa-btn--primary {
+    background: linear-gradient(91deg, #391ce9, #31b7ff);
+    color: #fff;
+    box-shadow: 0 10px 30px -10px rgba(57, 28, 233, 0.6);
+  }
+  .wa-btn--primary:hover {
+    box-shadow: 0 14px 36px -10px rgba(57, 28, 233, 0.7);
+  }
+  .wa-btn--ghost {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .wa-btn--ghost:hover { background: rgba(255, 255, 255, 0.06); }
+
+  /* ========== terminal card ========== */
+  .wa-terminal {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+      0 30px 80px -20px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .wa-terminal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(168, 139, 255, 0.5), transparent 40%, rgba(99, 242, 194, 0.4));
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .wa-terminal__chrome {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .wa-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+  .wa-dot--r { background: #ff6063; }
+  .wa-dot--y { background: #febb2e; }
+  .wa-dot--g { background: #27c93f; }
+  .wa-terminal__path {
+    margin-left: 10px;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.02em;
+  }
+
+  .wa-terminal__body {
+    padding: 22px 26px 26px;
+  }
+
+  .wa-terminal__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  }
+  .wa-terminal__row:first-of-type { padding-top: 0; }
+
+  .wa-kv-label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .wa-kv-value {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 500;
+  }
+  .wa-kv-value--mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    color: #b8d1ff;
+  }
+
+  .wa-terminal__divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    margin: 20px 0 16px;
+  }
+
+  .wa-terminal__body > .wa-kv-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* ========== search ========== */
+  .wa-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .wa-search__icon {
+    position: absolute;
+    left: 14px;
+    color: rgba(255, 255, 255, 0.45);
+    pointer-events: none;
+  }
+  .wa-search__input {
+    width: 100%;
+    padding: 14px 50px 14px 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .wa-search__input::placeholder { color: rgba(255, 255, 255, 0.35); }
+  .wa-search__input:focus {
+    border-color: rgba(168, 139, 255, 0.6);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 0 4px rgba(168, 139, 255, 0.12);
+  }
+  .wa-search__kbd {
+    position: absolute;
+    right: 14px;
+    padding: 2px 7px;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+    pointer-events: none;
+  }
+
+  /* ========== dropdown ========== */
+  .wa-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: rgba(12, 8, 32, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    max-height: 280px;
+    overflow-y: auto;
+    z-index: 20;
+    padding: 6px;
+    backdrop-filter: blur(20px);
+  }
+  .wa-dropdown.open { display: block; }
+
+  :global(.wa-opt) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 12px;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.88);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.1s;
+  }
+  :global(.wa-opt:hover) { background: rgba(168, 139, 255, 0.12); }
+  :global(.wa-opt__iso) {
+    flex: 0 0 36px;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.08em;
+  }
+  :global(.wa-opt__name) {
+    flex: 1 1 auto;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  :global(.wa-opt__price) {
+    flex: 0 0 auto;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 13px;
+    color: #63f2c2;
+  }
+  :global(.wa-opt__tag) {
+    flex: 0 0 auto;
+    color: #febb2e;
+    font-size: 11px;
+  }
+  :global(.wa-opt__section) {
+    padding: 10px 12px 6px;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  :global(.wa-opt--empty) {
+    color: rgba(255, 255, 255, 0.5);
+    cursor: default;
+    display: block;
+    padding: 14px 12px;
+  }
+
+  /* ========== chips ========== */
+  .wa-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .wa-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  }
+  .wa-chip:hover {
+    background: rgba(168, 139, 255, 0.16);
+    border-color: rgba(168, 139, 255, 0.5);
+    transform: translateY(-1px);
+  }
+  .wa-chip__flag {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.06em;
+  }
+
+  /* ========== result ========== */
+  .wa-result {
+    margin-top: 22px;
+    padding: 22px;
+    border-radius: 14px;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(99, 242, 194, 0.1), transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: opacity 0.2s;
+  }
+  .wa-result[data-state='empty'] .wa-result__price { opacity: 0.3; }
+
+  .wa-result__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .wa-result__eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 4px;
+  }
+  .wa-result__country {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+  }
+  .wa-result__savings {
+    text-align: right;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(99, 242, 194, 0.12);
+    border: 1px solid rgba(99, 242, 194, 0.3);
+  }
+  .wa-result__savings-val {
+    display: block;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-weight: 600;
+    color: #63f2c2;
+    font-size: 16px;
+    line-height: 1.1;
+  }
+  .wa-result__savings-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(99, 242, 194, 0.75);
+  }
+
+  .wa-result__price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    color: #fff;
+  }
+  .wa-result__currency {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.08em;
+  }
+  .wa-result__big {
+    font-size: clamp(44px, 5.5vw, 64px);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(91deg, #b8d1ff 0%, #a88bff 60%, #63f2c2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .wa-result__unit {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* ========== compare bars ========== */
+  .wa-compare {
+    margin-top: 18px;
+    display: grid;
+    gap: 10px;
+  }
+  .wa-compare__row {
+    display: grid;
+    grid-template-columns: 104px 1fr 72px;
+    align-items: center;
+    gap: 12px;
+  }
+  .wa-compare__label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .wa-compare__bar {
+    position: relative;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .wa-compare__bar-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .wa-compare__bar--wa .wa-compare__bar-fill {
+    background: linear-gradient(90deg, #63f2c2, #a88bff);
+  }
+  .wa-compare__bar--sms .wa-compare__bar-fill {
+    background: linear-gradient(90deg, rgba(255, 104, 104, 0.55), rgba(255, 104, 104, 0.9));
+  }
+  .wa-compare__val {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.82);
+    text-align: right;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wa-eyebrow__dot { animation: none; }
+    .wa-compare__bar-fill { transition: none; }
+    .wa-btn { transition: none; }
+  }
+</style>

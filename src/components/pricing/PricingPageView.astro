@@ -13,7 +13,7 @@ const { locale } = Astro.props;
 
 const baseCopy = locale === 'zh-Hant' ? pricingCopyZhHant : pricingCopyEn;
 const contactPath = localizedPath(locale, '/schedule-demo');
-const whatsappPath = localizedPath(locale, '/features/whatsapp-otp');
+const whatsappPath = localizedPath(locale, '/whatsapp-otp-pricing');
 
 const copy = {
   ...baseCopy,
