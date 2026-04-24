@@ -85,3 +85,24 @@ describe('verifyTurnstile', () => {
     expect(body.get('remoteip')).toBe('8.8.8.8');
   });
 });
+
+import { stripOperationalFields } from './_contact-helpers';
+
+describe('stripOperationalFields', () => {
+  it('removes website and cfTurnstileToken, keeps everything else', () => {
+    const input = {
+      Name: 'A',
+      Email: 'a@b.co',
+      website: 'spam',
+      cfTurnstileToken: 'abc',
+      utm_source: 'x',
+    };
+    const result = stripOperationalFields(input);
+    expect(result).toEqual({ Name: 'A', Email: 'a@b.co', utm_source: 'x' });
+  });
+
+  it('is a no-op when neither field is present', () => {
+    const input = { Name: 'A', Email: 'a@b.co' };
+    expect(stripOperationalFields(input)).toEqual(input);
+  });
+});
