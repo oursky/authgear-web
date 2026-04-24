@@ -101,6 +101,14 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
     e.preventDefault();
     trackEvent('contact-form-submit');
     if (phone && !phoneValid) return;
+    // onChangeNumber only fires with a formatted value when intl-tel-input
+    // can parse the input; if that never happened (e.g. late country
+    // detection), pull the current E.164 directly off the instance before
+    // submitting.
+    const itiInstance = itiRef.current?.getInstance?.();
+    const phoneE164 =
+      (typeof itiInstance?.getNumber === 'function' && itiInstance.getNumber()) ||
+      phone;
     setStatus('submitting');
     try {
       const res = await fetch(action, {
@@ -109,7 +117,7 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
         body: JSON.stringify({
           Name: name,
           Email: email,
-          Phone: phone || undefined,
+          Phone: phoneE164 || undefined,
           Country: country || undefined,
           Company: company,
           'how-hear': howHear,
