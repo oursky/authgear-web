@@ -86,6 +86,7 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   const [useCase, setUseCase] = useState('');
   const [phoneValid, setPhoneValid] = useState(true);
   const [status, setStatus] = useState<Status>('idle');
+  const [honeypot, setHoneypot] = useState('');
   const itiRef = useRef<IntlTelInputRef | null>(null);
 
   useEffect(() => {
@@ -115,6 +116,7 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
           utm_campaign: getQueryParam('utm_campaign') || undefined,
           page: getSubmissionPage() || undefined,
           locale: l,
+          website: honeypot || undefined,
         }),
       });
       setStatus(res.ok ? 'success' : 'error');
@@ -153,6 +155,16 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   return (
     <div className="form-block ds-form">
       <form onSubmit={handleSubmit} className="ds-form__form">
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
         <div className="ds-form__field">
           <label htmlFor="cf-name" className="ds-form-label">
             {t.labelFullName}<span className="ds-form-label__required">*</span>
