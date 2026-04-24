@@ -61,4 +61,29 @@ test.describe('/api/contact', () => {
     const resp = await request.get('/api/contact');
     expect(resp.status()).toBe(405);
   });
+
+  test('POST with filled honeypot returns 200 but does not forward (silent)', async ({ request }) => {
+    const resp = await request.post('/api/contact', {
+      data: {
+        Name: 'Spam Bot',
+        Email: 'spam@bot.example',
+        website: 'http://bot.example',
+        cfTurnstileToken: VALID_TOKEN,
+      },
+      headers: { 'Content-Type': 'application/json', Origin: 'http://localhost' },
+    });
+    // Silent pass-through: bot sees success, webhook not called.
+    expect(resp.status()).toBe(200);
+    expect(await resp.json()).toEqual({ success: true });
+  });
+
+  test('POST missing Turnstile token returns 400', async ({ request }) => {
+    const resp = await request.post('/api/contact', {
+      data: { Name: 'X', Email: 'x@y.z' },
+      headers: { 'Content-Type': 'application/json', Origin: 'http://localhost' },
+    });
+    expect(resp.status()).toBe(400);
+    const body = await resp.json();
+    expect(body.error).toMatch(/Verification failed/i);
+  });
 });
