@@ -4,6 +4,7 @@ import type { IntlTelInputRef } from 'intl-tel-input/react';
 import type { Iso2 } from 'intl-tel-input/data';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import { trackEvent } from '@/lib/plausible';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -87,6 +88,8 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   const [phoneValid, setPhoneValid] = useState(true);
   const [status, setStatus] = useState<Status>('idle');
   const [honeypot, setHoneypot] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
   const itiRef = useRef<IntlTelInputRef | null>(null);
 
   useEffect(() => {
@@ -97,6 +100,10 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     trackEvent('contact-form-submit');
+    if (turnstileSiteKey && !turnstileToken) {
+      setStatus('error');
+      return;
+    }
     if (phone && !phoneValid) return;
     setStatus('submitting');
     try {
@@ -117,9 +124,11 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
           page: getSubmissionPage() || undefined,
           locale: l,
           website: honeypot || undefined,
+          cfTurnstileToken: turnstileToken || undefined,
         }),
       });
       setStatus(res.ok ? 'success' : 'error');
+      setTurnstileToken('');
     } catch {
       setStatus('error');
     }
@@ -299,6 +308,17 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
         {status === 'error' && (
           <div className="ds-form-error" role="alert">
             {t.submitError}
+          </div>
+        )}
+
+        {turnstileSiteKey && (
+          <div className="ds-form__turnstile" style={{ marginTop: 12 }}>
+            <Turnstile
+              siteKey={turnstileSiteKey}
+              onSuccess={(t) => setTurnstileToken(t)}
+              onExpire={() => setTurnstileToken('')}
+              onError={() => setTurnstileToken('')}
+            />
           </div>
         )}
 
