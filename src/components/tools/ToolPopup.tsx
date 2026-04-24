@@ -1,24 +1,83 @@
+import { useEffect, useState } from 'react';
 import { t as tFn } from '@/i18n';
 
 type Props = { locale: string };
 
+const DISMISS_KEY = 'authgearToolPopupDismissed';
+const DISMISS_WINDOW_MS = 60 * 60 * 1000;
+const SHOW_DELAY_MS = 5000;
+
+function isDismissed(): boolean {
+  try {
+    const raw = window.localStorage.getItem(DISMISS_KEY);
+    if (!raw) return false;
+    const ts = Number(raw);
+    if (!Number.isFinite(ts)) return false;
+    return Date.now() - ts < DISMISS_WINDOW_MS;
+  } catch {
+    return false;
+  }
+}
+
+function markDismissed(): void {
+  try {
+    window.localStorage.setItem(DISMISS_KEY, String(Date.now()));
+  } catch {
+    // ignore storage failures (private mode, etc.)
+  }
+}
+
 export default function ToolPopup({ locale }: Props) {
   const t = (key: string): string => tFn(locale, `Tools.common.${key}`);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (isDismissed()) return;
+    const timer = window.setTimeout(() => setVisible(true), SHOW_DELAY_MS);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    markDismissed();
+    setVisible(false);
+  };
+
+  if (!visible) return null;
+
   return (
-    <div className="tool-popup">
+    <div className="tool-popup" role="dialog" aria-label={t('popupHeading')}>
       <h1 className="dev-tool-popup-heading">{t('popupHeading')}</h1>
       <p className="paragraph-20">{t('popupBody')}</p>
       <div className="tool-popup-wrapper">
-        <a href="https://portal.authgear.com/" target="_blank" className="tool-popup-button w-inline-block plausible-event-name--tool-popup-signup-click">
+        <a
+          href="https://portal.authgear.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="tool-popup-button plausible-event-name--tool-popup-signup-click"
+        >
           <div>{t('popupStartFree')}</div>
         </a>
-        <a href="https://github.com/authgear/authgear-server" target="_blank" className="tool-popup-button secondary w-inline-block plausible-event-name--tool-github-click">
+        <a
+          href="https://github.com/authgear/authgear-server"
+          target="_blank"
+          rel="noreferrer"
+          className="tool-popup-button secondary plausible-event-name--tool-github-click"
+        >
           <div>{t('popupStarUs')}</div>
-          <img src="https://img.shields.io/github/stars/authgear/authgear-server" width="110px" alt="" />
+          <img
+            src="https://img.shields.io/github/stars/authgear/authgear-server"
+            width="110"
+            alt=""
+          />
         </a>
       </div>
       <div className="tool-popup-close-button-wrapper">
-        <a href="#" className="tool-popup-close-button w-button plausible-event-name--popup-close-click">
+        <a
+          href="#"
+          onClick={handleClose}
+          className="tool-popup-close-button plausible-event-name--popup-close-click"
+        >
           {t('popupClose')}
         </a>
       </div>
