@@ -97,18 +97,23 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
     setEmail(getQueryParam('email'));
   }, []);
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     trackEvent('contact-form-submit');
-    if (phone && !phoneValid) return;
-    // onChangeNumber only fires with a formatted value when intl-tel-input
-    // can parse the input; if that never happened (e.g. late country
-    // detection), pull the current E.164 directly off the instance before
-    // submitting.
+    // Phone: invalid numbers are allowed through — the downstream webhook
+    // handles normalisation. Sourcing order:
+    //   1. intl-tel-input's formatted E.164 (via getNumber()) — empty when
+    //      the library can't parse the input to a valid number.
+    //   2. React state populated by onChangeNumber.
+    //   3. Raw DOM input value — captures whatever the user typed even
+    //      when nothing else resolves.
     const itiInstance = itiRef.current?.getInstance?.();
-    const phoneE164 =
-      (typeof itiInstance?.getNumber === 'function' && itiInstance.getNumber()) ||
-      phone;
+    const e164 =
+      typeof itiInstance?.getNumber === 'function' ? itiInstance.getNumber() : '';
+    const rawPhoneInput = e.currentTarget.elements.namedItem('Phone');
+    const rawPhone =
+      rawPhoneInput instanceof HTMLInputElement ? rawPhoneInput.value : '';
+    const phoneToSend = e164 || phone || rawPhone;
     setStatus('submitting');
     try {
       const res = await fetch(action, {
@@ -117,7 +122,7 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
         body: JSON.stringify({
           Name: name,
           Email: email,
-          Phone: phoneE164 || undefined,
+          Phone: phoneToSend || undefined,
           Country: country || undefined,
           Company: company,
           'how-hear': howHear,
