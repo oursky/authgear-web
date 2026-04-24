@@ -11,7 +11,14 @@ export default defineConfig({
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {
-    command: `PUBLIC_GTM_ID=GTM-TEST0000 npm run build && PORT=${PORT} npm start`,
+    command:
+      `PUBLIC_GTM_ID=GTM-TEST0000 ` +
+      `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA ` +
+      `TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA ` +
+      `npm run build && ` +
+      `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA ` +
+      `TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA ` +
+      `PORT=${PORT} npm start`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

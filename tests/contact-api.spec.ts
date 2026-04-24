@@ -1,5 +1,8 @@
 import { test, expect } from '@playwright/test';
 
+// Cloudflare's always-pass test secret accepts any token string.
+const VALID_TOKEN = 'test-ok';
+
 test.describe('/api/contact', () => {
   test('POST with valid JSON returns 200 {success:true}', async ({ request }) => {
     const resp = await request.post('/api/contact', {
@@ -8,6 +11,7 @@ test.describe('/api/contact', () => {
         Email: 'test@example.com',
         Company: 'Example Co',
         'how-hear': 'organic-search',
+        cfTurnstileToken: VALID_TOKEN,
       },
       headers: { 'Content-Type': 'application/json', Origin: 'http://localhost' },
     });
@@ -17,7 +21,7 @@ test.describe('/api/contact', () => {
 
   test('POST missing Name returns 400', async ({ request }) => {
     const resp = await request.post('/api/contact', {
-      data: { Email: 'x@y.z' },
+      data: { Email: 'x@y.z', cfTurnstileToken: VALID_TOKEN },
       headers: { 'Content-Type': 'application/json', Origin: 'http://localhost' },
     });
     expect(resp.status()).toBe(400);
@@ -25,7 +29,7 @@ test.describe('/api/contact', () => {
 
   test('POST missing Email returns 400', async ({ request }) => {
     const resp = await request.post('/api/contact', {
-      data: { Name: 'X' },
+      data: { Name: 'X', cfTurnstileToken: VALID_TOKEN },
       headers: { 'Content-Type': 'application/json', Origin: 'http://localhost' },
     });
     expect(resp.status()).toBe(400);
@@ -46,6 +50,7 @@ test.describe('/api/contact', () => {
         Email: 'form@example.com',
         Company: 'Example',
         'how-hear': 'github',
+        cfTurnstileToken: VALID_TOKEN,
       },
       headers: { Origin: 'http://localhost' },
     });
