@@ -229,7 +229,7 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
                   )
                   .catch(() => failure());
               },
-              countryOrder: (['hk', 'sg', 'au'] as const) as unknown as Iso2[],
+              countryOrder: (['hk', 'sg', 'tw', 'gb'] as const) as unknown as Iso2[],
               placeholderNumberType: 'MOBILE',
               nationalMode: true,
             }}
