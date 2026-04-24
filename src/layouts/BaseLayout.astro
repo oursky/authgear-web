@@ -19,6 +19,7 @@ const {
 const htmlLang = localeToHtmlLang(locale);
 const gtmId = import.meta.env.PUBLIC_GTM_ID ?? '';
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN ?? '';
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION ?? '';
 ---
 
 <!doctype html>
@@ -26,7 +27,9 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN ?? '';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="google-site-verification" content="cwUTy_LBZHQ90P9sQzhKyyV2M024ukPHK2rYpvion6M" />
+    {googleSiteVerification && (
+      <meta name="google-site-verification" content={googleSiteVerification} />
+    )}
     <title>{title}</title>
     <meta name="description" content={description} />
 

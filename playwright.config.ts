@@ -11,7 +11,7 @@ export default defineConfig({
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {
-    command: `npm run build && PORT=${PORT} npm start`,
+    command: `PUBLIC_GTM_ID=GTM-TEST0000 npm run build && PORT=${PORT} npm start`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
