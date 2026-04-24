@@ -31,9 +31,10 @@ test.describe('legacy redirects', () => {
 });
 
 test.describe('analytics scripts', () => {
-  test('GTM script tag present on home page', async ({ page }) => {
+  test('GTM script tag renders when PUBLIC_GTM_ID is set', async ({ page }) => {
+    // playwright.config.ts sets PUBLIC_GTM_ID=GTM-TEST0000 for the webServer build.
     await page.goto('/');
     const content = await page.content();
-    expect(content).toContain('GTM-KTHFL6S');
+    expect(content).toContain('GTM-TEST0000');
   });
 });
