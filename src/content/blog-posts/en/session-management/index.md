@@ -74,7 +74,7 @@ A well-configured session ID is fundamental to a secure session management strat
 - **Length:** A sufficiently long session ID is essential to deter brute-force attacks. While 128 bits is often cited as a baseline, the optimal length depends on factors like the expected number of sessions and the desired level of security. Longer session IDs offer greater protection but may impact performance.
 - **Randomness:** Employ a cryptographically secure random number generator (CSPRNG) to create unpredictable session IDs. Avoid patterns or predictable sequences that could be exploited by attackers.
 - **Entropy:** High entropy ensures that the session ID contains ample randomness, making it computationally infeasible to guess. This property is closely tied to length and randomness.
-- **Obscurity:** The content of the session ID should be meaningless and devoid of any sensitive information. This prevents attackers from extracting valuable data even if they manage to obtain the ID. Additionally, consider encoding or obfuscating the session ID to further hinder analysis.****
+- **Obscurity:** The content of the session ID should be meaningless and devoid of any sensitive information. This prevents attackers from extracting valuable data even if they manage to obtain the ID. Additionally, consider encoding or obfuscating the session ID to further hinder analysis.
 - **Uniqueness:** Each session should have a distinct session ID to prevent session fixation attacks. Duplicate session IDs can allow attackers to hijack existing sessions.
 
 ### Attributes of Cookies
@@ -85,7 +85,7 @@ Cookies offer several attributes to enhance session ID security:
 - **HttpOnly:** This attribute prevents client-side scripts (JavaScript) from accessing the cookie, mitigating cross-site scripting (XSS) vulnerabilities.
 - **SameSite:** This attribute controls cookie sending behavior based on the request origin.some text<ul><li>**Strict:** Cookies are only sent in same-site requests, preventing cross-site request forgery (CSRF).
 - **Lax:** Cookies are sent in same-site and some cross-site requests, offering a balance between security and user experience.
-- **None:** Cookies are sent with all requests, requiring additional security measures like Secure and HttpOnly.****
+- **None:** Cookies are sent with all requests, requiring additional security measures like Secure and HttpOnly.
 
 ### Generation of New Session IDs
 
@@ -93,7 +93,7 @@ Regularly regenerating session IDs is essential for maintaining strong security:
 
 - **Login:** Issuing a new session ID upon successful login helps prevent session fixation attacks.
 - **Privilege Level Changes:** When a user's privileges change (e.g., from guest to authenticated), generate a new session ID to protect sensitive data.
-- **Password Changes:** Requiring users to re-authenticate after changing their password and issuing a new session ID adds an extra layer of protection.****
+- **Password Changes:** Requiring users to re-authenticate after changing their password and issuing a new session ID adds an extra layer of protection.
 - **Idle Timeout:** Consider regenerating the session ID after a period of inactivity to mitigate session hijacking risks.
 
 ## How Session Management Works with Authgear

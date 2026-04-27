@@ -215,9 +215,9 @@ You should consider DPoP for:
 
 - **Mobile applications accessing protected APIs**   <ul><li>Mobile apps operate on networks and devices the server does not control. If tokens leak (e.g., through logs or intercepted traffic), binding tokens to a key prevents replay from a different device.
 
-- These devices often cannot use mTLS or maintain traditional client secrets. DPoP offers key binding without requiring a mutually authenticated TLS channel.****
+- These devices often cannot use mTLS or maintain traditional client secrets. DPoP offers key binding without requiring a mutually authenticated TLS channel.
 
-- If tokens are exposed in transit or captured by monitoring systems, they cannot be replayed without the private key.****
+- If tokens are exposed in transit or captured by monitoring systems, they cannot be replayed without the private key.
 
 - Refresh tokens have high value if stolen. Binding them to a key reduces the risk of successful replay by an attacker who only obtains the token.
 
@@ -280,15 +280,15 @@ Avoiding these mistakes ensures reliable interoperability with compliant OAuth s
 
 DPoP errors typically fall under a few predictable categories. Understanding these helps streamline debugging.
 
-- **“Invalid DPoP Proof”**   <ul><li>****Likely causes:   <ul><li>malformed JWT structure
+- **“Invalid DPoP Proof”**   <ul><li>Likely causes:   <ul><li>malformed JWT structure
 - mismatched signing algorithm
 - corrupted proof header
 
-- Occurs when the token’s cnf.jkt value does not correspond to the signing key being used.****
+- Occurs when the token’s cnf.jkt value does not correspond to the signing key being used.
 
-- ****Indicates device clock misconfiguration.****
+- Indicates device clock misconfiguration.
 
-- Proof replay detected. Generate a new random UUID for each proof.****
+- Proof replay detected. Generate a new random UUID for each proof.
 
 - The htm or htu does not match the current token request.
 

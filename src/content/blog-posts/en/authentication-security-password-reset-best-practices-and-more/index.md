@@ -138,7 +138,7 @@ To protect your application, adhere to these essential principles:
 - **Avoid hardcoding:** Never embed secrets or tokens directly in your code.
 - **Secure communication:** Always use HTTPS to protect data transmission.
 - **Prevent accidental exposure:** Exclude sensitive files (like `.git` directories) from deployments to avoid unintentional leaks.
-- **Secure secret management:** Consider using encryption tools like [Blackbox](https://github.com/StackExchange/blackbox) to store secrets separately from your source code.****
+- **Secure secret management:** Consider using encryption tools like [Blackbox](https://github.com/StackExchange/blackbox) to store secrets separately from your source code.
 - **Dynamic generation:**Generate secrets on the fly (during runtime or deployment) and never commit them to version control.
 
 By following these guidelines, you significantly reduce the risk of exposing sensitive information and safeguarding your application.
@@ -149,7 +149,7 @@ Logging is a valuable tool for debugging and monitoring applications. However, i
 
 **The dangers of logging sensitive data are clear:**
 
-- **Data breaches:** Exposed logs can become a goldmine for attackers, providing them with credentials, API keys, and other valuable information.****
+- **Data breaches:** Exposed logs can become a goldmine for attackers, providing them with credentials, API keys, and other valuable information.
 - **Compliance violations:** Many industries have strict regulations around data privacy. Logging sensitive data can lead to hefty fines and reputational damage.
 
 **To prevent accidental logging of sensitive information:**
@@ -163,7 +163,7 @@ Examples of sensitive data that should **never** be logged include:
 
 - **Authentication credentials:** Passwords, tokens, API keys, and secret keys.
 - **Financial information:** Credit card numbers, bank account details, and transaction data.
-- **Personally identifiable information (PII):** Names, addresses, social security numbers, and email addresses.****
+- **Personally identifiable information (PII):** Names, addresses, social security numbers, and email addresses.
 - **Health information:** Medical records and patient data.
 
 By following these guidelines and fostering a culture of security, you can significantly reduce the risk of exposing sensitive information through your logs.
@@ -213,7 +213,7 @@ Maintain a consistent password policy throughout all password-related actions, i
 
 - **Minimum length:** Enforce a minimum password length of 8 characters (widely recommended as a baseline).
 - **Reasonable maximum length:**Set an upper limit (e.g. 64 characters) to discourage excessively long passwords that are impractical or could strain systems.
-- **Password strength meter:** Utilize a strength meter (like [zxcvbn](https://github.com/dropbox/zxcvbn)) to provide real-time feedback on password complexity.****
+- **Password strength meter:** Utilize a strength meter (like [zxcvbn](https://github.com/dropbox/zxcvbn)) to provide real-time feedback on password complexity.
 - **Banned words:** Prevent the use of common or compromised passwords by checking against known breach lists or obvious patterns related to your application.
 - **Managers & UX:** allow password managers, paste/autofill, and optional “show password” to reduce entry errors.
 

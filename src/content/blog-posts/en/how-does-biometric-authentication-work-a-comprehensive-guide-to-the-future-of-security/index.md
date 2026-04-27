@@ -28,7 +28,7 @@ While Android biometric authentication offers enhanced security and user conveni
 
 - **Fragmentation:** The diverse range of Android devices and operating system versions creates inconsistencies in biometric hardware and software implementations, making it difficult to develop robust and compatible authentication solutions.
 - **Security Risks:** Class 2 biometric devices are susceptible to spoofing attacks, compromising the security of sensitive data. Additionally, improper key management and storage can expose users to vulnerabilities.
-- **User Experience:** Integrating biometric authentication seamlessly into the user experience can be challenging, as it requires careful consideration of factors such as enrollment processes, error handling, and fallback mechanisms.****
+- **User Experience:** Integrating biometric authentication seamlessly into the user experience can be challenging, as it requires careful consideration of factors such as enrollment processes, error handling, and fallback mechanisms.
 - **Regulatory Compliance:** Adhering to various biometric data protection regulations and privacy laws adds complexity to the development and deployment of biometric authentication systems.
 
 ### Beyond Biometric Unlock: Secure Data Protection with Biometrics

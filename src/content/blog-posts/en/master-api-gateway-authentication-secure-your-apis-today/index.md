@@ -74,7 +74,7 @@ API Gateway authorizers are the mechanisms used to validate the identity of clie
 
 - **Total Control:** Provides maximum control over authentication logic.
 - **Complex Scenarios:** Suitable for complex authentication requirements.
-- **Development Effort:** Requires additional development and maintenance.****
+- **Development Effort:** Requires additional development and maintenance.
 - **Example:** Implementing custom authentication schemes or integrating with legacy systems.
 
 ## API Gateway Authentication Example: Protecting Your APIs with JWT
@@ -96,7 +96,7 @@ Let's consider a common scenario: a mobile application that needs to access a pr
 
 - **Stateless Authentication:** No need to maintain session data on the server.
 - **Security:** JWTs can be signed and encrypted to protect against tampering.
-- **Efficiency:** JWTs can be easily verified by the API Gateway.****
+- **Efficiency:** JWTs can be easily verified by the API Gateway.
 - **Standardized Format:** Widely adopted and supported.
 
 ## API Gateway Authentication Methods
@@ -157,7 +157,7 @@ API gateway authentication is a multi-step process that ensures only authorized 
 1. **Client Request:** A client application sends an API request to the API gateway.
 1. **Authentication Check:** The API gateway intercepts the request and examines the authentication credentials provided by the client. This might involve checking API keys, JWT tokens, or other forms of authentication.
 1. **Authorization Verification:** If the authentication is successful, the API gateway proceeds to verify the client's authorization to access the requested resource. This involves checking permissions and roles associated with the authenticated user.
-1. **Request Forwarding:** If both authentication and authorization are successful, the API gateway forwards the request to the appropriate backend service.****
+1. **Request Forwarding:** If both authentication and authorization are successful, the API gateway forwards the request to the appropriate backend service.
 1. **Response Handling:** The API gateway receives the response from the backend service and returns it to the client, often with additional headers or data.
 
 **Key components involved in the process:**
@@ -187,7 +187,7 @@ Implementing a robust API gateway for authentication and authorization is crucia
 - **Implement role-based access control (RBAC):** Define roles with specific permissions and assign them to users or groups.
 - **Follow the principle of least privilege:** Grant users only the necessary permissions to perform their tasks.
 - **Regularly review and update authorization policies:** Ensure that permissions remain appropriate.
-- **Use token-based authentication:** JWT or OAuth tokens can be used to carry user claims and permissions.****
+- **Use token-based authentication:** JWT or OAuth tokens can be used to carry user claims and permissions.
 - **Validate user claims:** Verify the authenticity and integrity of user information in tokens.
 
 ### Additional Best Practices
@@ -195,7 +195,7 @@ Implementing a robust API gateway for authentication and authorization is crucia
 - **Centralized authentication and authorization:** Manage authentication and authorization centrally for consistency.
 - **Regular security audits:** Conduct vulnerability assessments and penetration testing to identify weaknesses.
 - **Monitor API usage:** Track API usage patterns to detect anomalies and potential threats.
-- **Implement logging and auditing:** Record API requests and responses for troubleshooting and security analysis.****
+- **Implement logging and auditing:** Record API requests and responses for troubleshooting and security analysis.
 - **Stay updated with security best practices:** Follow industry standards and guidelines.
 
 By adhering to these best practices, you can significantly enhance the security of your API gateway and protect your applications and data from unauthorized access.
@@ -258,7 +258,7 @@ An authorization server is specifically designed to issue access tokens to clien
 
 ### When to Use Which
 
-- **API Gateway:** When you need to manage multiple APIs, handle traffic, and enforce basic security policies.****
+- **API Gateway:** When you need to manage multiple APIs, handle traffic, and enforce basic security policies.
 - **Authorization Server:** When you have complex authorization requirements, need to manage user consent, or want to leverage industry standards like OAuth 2.0.
 
 In many cases, an API gateway can incorporate basic authorization features, but for complex scenarios, using a dedicated authorization server is recommended. By understanding the distinctions between these components, you can design a robust and secure API architecture.
@@ -273,14 +273,14 @@ Let's consider a common scenario: a mobile application that needs to access a pr
 1. **Token Generation:** Upon successful authentication, the authentication server issues a JWT containing user claims (e.g., user ID, roles, permissions).
 1. **API Request:** The mobile app includes the JWT in the authorization header of subsequent API requests.
 1. **Token Verification:** The API Gateway intercepts the request and validates the JWT using a public key.
-1. **Authorization:** If the token is valid and the user has the necessary permissions, the API Gateway forwards the request to the backend service.****
+1. **Authorization:** If the token is valid and the user has the necessary permissions, the API Gateway forwards the request to the backend service.
 1. **Response:** The backend service processes the request and returns a response to the API Gateway, which then forwards it to the mobile app.
 
 ### Benefits of Using JWT:
 
 - **Stateless Authentication:** No need to maintain session data on the server.
 - **Security:** JWTs can be signed and encrypted to protect against tampering.
-- **Efficiency:** JWTs can be easily verified by the API Gateway.****
+- **Efficiency:** JWTs can be easily verified by the API Gateway.
 - **Standardized Format:** Widely adopted and supported.
 
 By implementing JWT-based authentication, you can effectively protect your APIs while providing a seamless user experience.
@@ -295,7 +295,7 @@ Authgear provides a robust solution for handling authentication and authorizatio
 
 - **Managed authentication:** Authgear handles user registration, login, and password management.
 - **Customizable workflows:** Configure authentication flows to match your specific requirements.
-- **Integration with identity providers:** Connect to social login providers or enterprise identity systems.****
+- **Integration with identity providers:** Connect to social login providers or enterprise identity systems.
 - **Scalability:** Authgear can handle large volumes of authentication requests.
 
 To learn more about how to forward authentication to the Authgear Resolver Endpoint and leverage its capabilities, visit our website at https://docs.authgear.com/get-started/backend-api/nginx.

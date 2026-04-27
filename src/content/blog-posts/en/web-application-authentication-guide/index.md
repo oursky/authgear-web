@@ -116,7 +116,7 @@ The third-party access authentication can work in two ways:
 Building upon the OAuth 2.0 protocol, OpenID Connect (OIDC) simplifies user authentication by providing an authorization layer on top of it. This layer enables applications to verify user identities and obtain essential user information beyond just basic authentication. OIDC offers several advantages, including:
 
 - **Single Sign-On (SSO):** Users can log in to your application using their existing credentials from a trusted identity provider (IdP) like Google or Facebook, eliminating the need for separate login credentials for your application. This streamlines the login process and improves user experience.
-- **Reduced Security Risk:** By leveraging established IdPs for authentication, OIDC reduces the burden of managing user credentials on your application server. This minimizes the risk of data breaches and unauthorized access.****
+- **Reduced Security Risk:** By leveraging established IdPs for authentication, OIDC reduces the burden of managing user credentials on your application server. This minimizes the risk of data breaches and unauthorized access.
 - **Rich User Information:** OIDC allows applications to request and receive a broader scope of user information from the IdP beyond just usernames. This information can include profile details, email addresses, and preferences, potentially enriching the user experience within your application.
 
 <h3 id="saml">Security Assertion Markup Language (SAML)</h3>

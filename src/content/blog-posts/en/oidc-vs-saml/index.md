@@ -248,9 +248,9 @@ The right protocol depends on application type and ecosystem support. OIDC suits
 
 Implementation complexity, SDK availability, and metadata handling vary between protocols. Knowing these differences reduces errors and ensures secure integration.
 
-- **Libraries and SDKs**   <ul><li>OIDC is widely supported across Spring Security, Express.js, Next.js, React Native, Flutter, and most programming languages. SAML SDKs (e.g., OneLogin, Shibboleth, Spring SAML) require more setup and XML expertise.****
+- **Libraries and SDKs**   <ul><li>OIDC is widely supported across Spring Security, Express.js, Next.js, React Native, Flutter, and most programming languages. SAML SDKs (e.g., OneLogin, Shibboleth, Spring SAML) require more setup and XML expertise.
 
-- SAML requires manual metadata exchange and certificate management. OIDC simplifies this with well-known endpoints and JWKS, making token validation and key rotation easier.****
+- SAML requires manual metadata exchange and certificate management. OIDC simplifies this with well-known endpoints and JWKS, making token validation and key rotation easier.
 
 - Misconfigured SAML assertion lifetimes → login failures
 - OIDC SPAs require PKCE → security risk if omitted

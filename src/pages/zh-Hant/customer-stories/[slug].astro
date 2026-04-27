@@ -6,6 +6,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import CustomerStorySidebar from '@/components/customer-story/CustomerStorySidebar.astro';
 import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 
 export async function getStaticPaths() {
   const [zhEntries, enEntries] = await Promise.all([
@@ -73,6 +74,10 @@ const labels = {
             loginMethods={data.loginMethods}
             technicalDetails={data.technicalDetails}
             labels={labels}
+            downloadCta={{
+              href: localizedPath(locale, '/success-stories-download'),
+              alt: '下載更多成功案例',
+            }}
           />
           <div class="ds-customer-story-body__main">
             {data.metrics.length > 0 ? (

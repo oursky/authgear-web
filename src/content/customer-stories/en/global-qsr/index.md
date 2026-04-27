@@ -30,7 +30,7 @@ A global quick‑service restaurant (QSR) leader needed to modernize authenticat
 - **Industry:** Global food & beverage (QSR)
 - **Users:** Thousands of frontline employees across stores and functions
 - **Use case:** Secure workforce access with minimal friction
-- **Auth methods:** SSO, 2FA (SMS/Email), biometric (Face/Touch)****
+- **Auth methods:** SSO, 2FA (SMS/Email), biometric (Face/Touch)
 - **Outcome:** Compliance achieved; faster login; fewer support tickets; higher adoption
 
 ## About the company
@@ -43,7 +43,7 @@ The global corporate office mandated strict security controls—including the ro
 
 - **Comply with complex global security mandates**
 - **Provide easy access** for thousands of frontline staff with varied tech familiarity
-- **Reduce support burden** caused by forgotten passwords****
+- **Reduce support burden** caused by forgotten passwords
 - **Streamline access** to multiple daily‑use apps without repetitive logins
 
 ## The Solution
@@ -52,7 +52,7 @@ The team adopted **Authgear** to deliver a scalable, user‑friendly authenticat
 
 1. **Two‑Factor Authentication (2FA)**   Multiple factor options (e.g., SMS OTP, Email OTP) met corporate policies while accommodating diverse devices and user preferences.
 1. **Single Sign‑On (SSO)**   One sign‑in unlocks all employee apps, reducing repeated logins and saving time during busy shifts.
-1. **Biometric login**   Fingerprint and facial recognition offered fast, secure 2FA—ideal for frontline staff who need quick access without managing complex passwords.****
+1. **Biometric login**   Fingerprint and facial recognition offered fast, secure 2FA—ideal for frontline staff who need quick access without managing complex passwords.
 1. **User‑friendly interface**   Clear, step‑by‑step setup and guidance reduced confusion for non‑technical users and cut down on help‑desk tickets.
 
 ## The Results
@@ -78,5 +78,5 @@ This implementation not only reduced friction and operational burden — it also
 
 - **2FA options:** SMS OTP, Email OTP,, biometric step‑up
 - **Single Sign‑On:** Seamless access across daily‑use apps, SAML and OAuth, embedded web-apps in a single mobile app
-- **Intuitive onboarding:** Guided setup reduces training and errors****
+- **Intuitive onboarding:** Guided setup reduces training and errors
 - **Centralized policies:** Consistent enforcement across regions and teams

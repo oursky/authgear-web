@@ -13,6 +13,7 @@ interface Props {
     loginMethods: string;
     technicalDetails: string;
   };
+  downloadCta?: { href: string; alt: string };
 }
 
 const EMPTY = '—';
@@ -23,6 +24,7 @@ const {
   loginMethods,
   technicalDetails,
   labels,
+  downloadCta,
 } = Astro.props;
 const industryText = companyIndustry?.trim() || '';
 ---
@@ -74,4 +76,19 @@ const industryText = companyIndustry?.trim() || '';
       </dd>
     </div>
   </dl>
+  {downloadCta && (
+    <a
+      href={downloadCta.href}
+      class="ds-customer-story-cta"
+      aria-label={downloadCta.alt}
+    >
+      <img
+        src="/images/case-study-download2x.jpg"
+        srcset="/images/case-study-download2x-p-500.jpg 500w, /images/case-study-download2x.jpg 1000w"
+        sizes="(max-width: 991px) 100vw, 280px"
+        alt={downloadCta.alt}
+        loading="lazy"
+      />
+    </a>
+  )}
 </aside>

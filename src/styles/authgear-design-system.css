@@ -3948,6 +3948,25 @@ button.ds-pricing-faq__summary[aria-expanded='true'] .ds-pricing-faq__icon::befo
   max-width: 100%;
 }
 
+.ds-customer-story-cta {
+  display: block;
+  margin-top: var(--spacing-m, 1.5rem);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ds-customer-story-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.ds-customer-story-cta img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 @media (width < 992px) {
   .ds-customer-story-body__sidebar {
     padding-bottom: var(--spacing-m);

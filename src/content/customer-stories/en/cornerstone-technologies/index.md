@@ -37,7 +37,7 @@ Here's how Authgear's authentication platform helped Cornerstone achieve their d
 - **Faster Development:** Authgear's low-code approach streamlined the integration process, allowing Cornerstone to meet their tight deadline.
 - **Enhanced Security:** Authgear provides robust security features, ensuring the safety of Cornerstone's client data.
 - **Scalability and Flexibility:** The platform can easily adapt to the evolving needs of Cornerstone's diverse clientele, offering a white-label solution for their clients' staff logins.
-- **Simplified Management:** Authgear's user-friendly interface simplifies access management for Cornerstone's clients.****
+- **Simplified Management:** Authgear's user-friendly interface simplifies access management for Cornerstone's clients.
 - **White-Label Security Customization:** Authgear simplifies security for Cornerstone's white-label CPO portal. They can tailor password policies, 2FA, and integrate with enterprise sign-in (ADFS) to meet each client's needs without any coding.
 
 ## Streamlined Security, Accelerated Development: The Cornerstone Advantage with Authgear

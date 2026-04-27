@@ -28,7 +28,7 @@ If you don’t already have an IdP, **Authgear** slots in neatly here and gives 
 
 <!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
 
-This guide is for teams who can't****use these options—you can still use Supabase.
+This guide is for teams who can'tuse these options—you can still use Supabase.
 
 ## Full example code
 

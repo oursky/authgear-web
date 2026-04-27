@@ -123,11 +123,11 @@ These logs support data integrity requirements and help meet obligations around 
 
 Routine logs provide baseline visibility. Certain events, however, indicate elevated risk and deserve special attention.
 
-- **Failed Authentication Patterns**   <ul><li>Repeated failed login attempts can indicate credential stuffing or brute-force attacks. Logging these patterns allows organisations to detect abuse early and apply protective measures.****
+- **Failed Authentication Patterns**   <ul><li>Repeated failed login attempts can indicate credential stuffing or brute-force attacks. Logging these patterns allows organisations to detect abuse early and apply protective measures.
 
-- Logins from new locations, devices, or networks may not be malicious, but they warrant additional scrutiny. CIAM audit data should support contextual risk analysis.****
+- Logins from new locations, devices, or networks may not be malicious, but they warrant additional scrutiny. CIAM audit data should support contextual risk analysis.
 
-- Any change in roles or permissions must be logged and reviewed. Privilege escalation is a common attack vector and a major compliance concern.****
+- Any change in roles or permissions must be logged and reviewed. Privilege escalation is a common attack vector and a major compliance concern.
 
 - Lockouts and suspensions demonstrate enforcement of security controls. Logging these events helps auditors confirm that policies are actively applied.
 

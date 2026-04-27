@@ -227,7 +227,7 @@ By integrating your apps with Authgear, you can implement a variety of authentic
 
 ## **Skip fragile SMS codes.**
 
-****With Authgear you can roll out **Passkeys**, **WhatsApp OTP**, and **Social Login** in days—not months. Start with passkeys for the biggest lift in security and conversion, add WhatsApp OTP where SMS is costly or unreliable, and keep Social Login for instant signups.
+With Authgear you can roll out **Passkeys**, **WhatsApp OTP**, and **Social Login** in days—not months. Start with passkeys for the biggest lift in security and conversion, add WhatsApp OTP where SMS is costly or unreliable, and keep Social Login for instant signups.
 
 [Get a live demo](/talk-with-us) to see how quickly your team can ship secure, low-friction login.
 

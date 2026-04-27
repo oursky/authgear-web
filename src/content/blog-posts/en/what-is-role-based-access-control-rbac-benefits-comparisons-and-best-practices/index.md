@@ -60,18 +60,18 @@ Implementing Role-Based Access Control (RBAC) brings numerous benefits, but like
 
 1. **Simplifies Permission Management:**   Assigning permissions to roles rather than individuals reduces complexity, especially in organizations with large teams.
 1. **Enhances Security:**   By enforcing the principle of least privilege, RBAC restricts access to only what is necessary for a user’s role, reducing potential vulnerabilities.
-1. **Improves Compliance:**   RBAC creates a clear, auditable log of access, which is essential for meeting regulatory requirements like GDPR, HIPAA, and SOC 2.****
+1. **Improves Compliance:**   RBAC creates a clear, auditable log of access, which is essential for meeting regulatory requirements like GDPR, HIPAA, and SOC 2.
 1. **Facilitates Scalability:**   As organizations grow, adding new users and roles to an RBAC system is straightforward, ensuring scalability without sacrificing security.
 
 ### Disadvantages of RBAC
 
 1. **Initial Setup Complexity:**   Designing and implementing an effective RBAC system requires time, resources, and a clear understanding of organizational roles.
-1. **Rigid Role Definitions:**   In dynamic environments, predefined roles may not always accommodate nuanced or changing responsibilities, leading to potential inefficiencies.****
+1. **Rigid Role Definitions:**   In dynamic environments, predefined roles may not always accommodate nuanced or changing responsibilities, leading to potential inefficiencies.
 1. **Role Explosion:**   Organizations with highly specific needs may experience "role explosion," where managing an excessive number of roles becomes cumbersome.
 
 ### Common Alternatives to RBAC
 
-- **Attribute-Based Access Control (ABAC):**   ABAC uses attributes (e.g., job title, location, device type) to determine access, providing more granular and dynamic control.****
+- **Attribute-Based Access Control (ABAC):**   ABAC uses attributes (e.g., job title, location, device type) to determine access, providing more granular and dynamic control.
 - **Access Control Lists (ACL):**   ACL assigns permissions directly to users or resources, offering flexibility but lacking RBAC’s scalability and efficiency.
 
 While RBAC excels in simplicity and scalability, organizations should weigh its pros and cons alongside their specific needs and consider alternatives like ABAC or ACL for greater flexibility.
@@ -108,7 +108,7 @@ Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC) are t
 
 ### Defining RBAC and ABAC
 
-- **RBAC (Role-Based Access Control):**   Access rights are granted based on predefined roles within the organization. For example, a "sales representative" role might grant access to customer databases but not financial records.****
+- **RBAC (Role-Based Access Control):**   Access rights are granted based on predefined roles within the organization. For example, a "sales representative" role might grant access to customer databases but not financial records.
 - **ABAC (Attribute-Based Access Control):**   Access rights are determined by evaluating attributes such as user location, device type, time of access, and more. For example, an employee might access sensitive data only during business hours from a corporate device.
 
 ### Key Differences
@@ -145,12 +145,12 @@ An ACL is a straightforward access control method where permissions are assigned
 
 ### Advantages of ACL
 
-1. **Granular Control:**   ACL provides fine-grained access to specific resources, making it ideal for situations requiring unique permissions.****
+1. **Granular Control:**   ACL provides fine-grained access to specific resources, making it ideal for situations requiring unique permissions.
 1. **Simple for Small Setups:**   For small organizations or limited resources, ACL is easy to implement and manage.
 
 ### Drawbacks of ACL
 
-1. **Complexity in Large Systems:**   Managing permissions for hundreds of users and resources quickly becomes unmanageable.****
+1. **Complexity in Large Systems:**   Managing permissions for hundreds of users and resources quickly becomes unmanageable.
 1. **Lack of Scalability:**   ACL is less effective in dynamic environments with frequent changes in roles or access needs.
 
 ### When to Choose RBAC Over ACL
@@ -168,7 +168,7 @@ Authgear is a robust authentication platform designed with flexibility and secur
 
 - **Streamline User Management:** Easily define roles, assign permissions, and manage access across your applications.
 - **Enhance Security:** Enforce the principle of least privilege with role-based permissions, reducing risks of unauthorized access.
-- **Achieve Compliance Effortlessly:** Meet regulatory standards like ISO 27001 and SOC 2 with auditable access control systems.****
+- **Achieve Compliance Effortlessly:** Meet regulatory standards like ISO 27001 and SOC 2 with auditable access control systems.
 - **Scale Seamlessly:** Whether your organization is small or rapidly growing, Authgear’s RBAC system adapts to your needs.
 
 With Authgear, you can focus on building your applications while we handle the complexities of authentication and access management.

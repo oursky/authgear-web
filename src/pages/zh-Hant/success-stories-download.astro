@@ -1,0 +1,194 @@
+---
+export const prerender = true;
+
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { localizedPath } from '@/lib/i18n';
+
+const locale = 'zh-Hant';
+const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+
+const [zhEntries, enEntries] = await Promise.all([
+  getCollection('customer-stories', ({ id }) => id.startsWith('zh-Hant/')),
+  getCollection('customer-stories', ({ id }) => id.startsWith('en/')),
+]);
+const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
+const merged = [...zhEntries, ...enEntries.filter((e) => !zhSlugs.has(slugOf(e.id)))];
+const stories = merged
+  .sort((a, b) => (a.data.order ?? 9e9) - (b.data.order ?? 9e9)
+                  || b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 6);
+
+const title = '從真實成功案例獲得啟發';
+const description = '了解各家企業如何運用 Authgear 簡化身份驗證、提升使用者體驗,並安全擴展業務。';
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <section class="ds-hero-banner--gradient">
+    <div class="ds-container ds-container--gradient-hero-shell">
+      <div class="ds-hero-banner--gradient__inner">
+        <div class="ds-container ds-container--hero stories-dl__hero">
+          <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">客戶案例</p>
+          <h1 class="ds-hero-banner__title">{title}</h1>
+          <p class="ds-hero-banner__description">{description}</p>
+          <form
+            class="stories-dl__form"
+            data-pdf="/downloads/authgear-case-study.pdf"
+          >
+            <label for="stories-dl-email" class="stories-dl__form-label">電子郵件</label>
+            <div class="stories-dl__form-row">
+              <input
+                id="stories-dl-email"
+                type="email"
+                name="Email"
+                required
+                autocomplete="email"
+                placeholder="you@company.com"
+                class="stories-dl__form-input"
+              />
+              <button type="submit" class="ds-btn ds-btn-secondary stories-dl__form-submit">
+                下載 PDF
+                <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m0 0 3-3m-3 3-3-3M3.75 5.625c0-.621.504-1.125 1.125-1.125h14.25c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125H4.875a1.125 1.125 0 0 1-1.125-1.125V5.625Z" /></svg>
+              </button>
+            </div>
+            {turnstileSiteKey && (
+              <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-size="flexible" style="margin-top: 12px;"></div>
+            )}
+            <p class="stories-dl__form-status" role="status" aria-live="polite"></p>
+          </form>
+          {turnstileSiteKey && (
+            <script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-bg-light-blue">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">看看領先企業如何用 Authgear 簡化身份驗證</h2>
+      </div>
+      <div class="ds-grid-3">
+        <div class="svg-card">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">用現成的身份驗證加速開發</div>
+            <div class="ds-svg-card-description">Authgear 已處理好身份驗證最複雜的部分——從社交登入到無密碼流程——讓您的開發團隊不必重新造輪子。團隊可以專注於打造核心產品功能,並將整合時間從數週縮短到數天。</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">企業級安全,無需複雜部署</div>
+            <div class="ds-svg-card-description">內建 MFA、Passkey、GeoIP 規則與異常偵測(例如 SMS pumping 詐騙防護),Authgear 確保使用者隨時受到保護。您可立即獲得強健的安全控制,並維持流暢的登入體驗。</div>
+          </div>
+        </div>
+        <div class="svg-card">
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">流暢且符合品牌的使用者體驗</div>
+            <div class="ds-svg-card-description">登入體驗應該像您產品的一部分,而非附加品。Authgear 讓您客製整個身份驗證流程——從色彩、佈景主題、Logo 到動態驗證步驟——確保使用者享有與您品牌一致的順暢體驗。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-bg-white">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-light">了解企業為何選擇 Authgear</h2>
+        <p class="section-lede-on-light">來自各團隊的真實案例,看看他們如何用 Authgear 守護身份基礎設施。</p>
+      </div>
+      <ul role="list" class="stories-dl__grid">
+        {stories.map((entry) => {
+          const slug = slugOf(entry.id);
+          return (
+            <li class="stories-dl__item">
+              <a href={localizedPath(locale, `/customer-stories/${slug}`)} class="stories-dl__card">
+                <Image
+                  src={entry.data.thumbnail}
+                  alt={entry.data.title}
+                  width={600}
+                  loading="lazy"
+                  class="stories-dl__card-img"
+                />
+                <div class="stories-dl__card-body">
+                  <h3 class="stories-dl__card-title">{entry.data.title}</h3>
+                  {entry.data.excerpt && <p class="stories-dl__card-excerpt">{entry.data.excerpt}</p>}
+                  <span class="stories-dl__card-cta">
+                    閱讀案例
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                  </span>
+                </div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <section class="ds-section ds-footer-cta-section">
+    <div class="ds-container">
+      <div class="title-content">
+        <h2 class="heading-on-dark">立即開始打造 Authgear</h2>
+      </div>
+      <div class="ds-footer-cta__actions">
+        <a
+          href="https://portal.authgear.com/?utm_source=success-stories&utm_medium=link&utm_campaign=start-for-free"
+          target="_blank"
+          rel="noreferrer"
+          class="ds-btn ds-btn-secondary"
+        >
+          免費開始
+        </a>
+        <a href={localizedPath(locale, '/schedule-demo')} target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+          預約 Demo
+        </a>
+      </div>
+      <div class="ds-footer-cta__footnote">
+        <img src="/images/features-hero-banner-check-purple.svg" loading="lazy" alt="" />
+        <p class="ds-footer-cta__footnote-copy">
+          免費方案包含<strong>無限 MAU</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  const form = document.querySelector('.stories-dl__form');
+  if (form) {
+    const pdfUrl = form.dataset.pdf;
+    const status = form.querySelector('.stories-dl__form-status');
+    const submit = form.querySelector('.stories-dl__form-submit');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[name="Email"]').value.trim();
+      if (!email) return;
+      const tokenInput = form.querySelector('input[name="cf-turnstile-response"]');
+      const cfTurnstileToken = tokenInput ? tokenInput.value : undefined;
+      submit.disabled = true;
+      status.textContent = '送出中⋯';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            Email: email,
+            source: 'success-stories-download',
+            locale: 'zh-Hant',
+            cfTurnstileToken,
+          }),
+        });
+        if (!res.ok) throw new Error(`status ${res.status}`);
+        status.textContent = '感謝您!正在為您開啟 PDF⋯';
+        if (pdfUrl) window.open(pdfUrl, '_blank', 'noopener');
+      } catch (err) {
+        status.textContent = '發生錯誤,請再試一次。';
+        submit.disabled = false;
+      }
+    });
+  }
+</script>

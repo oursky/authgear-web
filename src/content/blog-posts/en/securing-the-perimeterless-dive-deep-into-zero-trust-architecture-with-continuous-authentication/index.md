@@ -51,7 +51,7 @@ The advantages of Zero Trust extend far beyond just enhanced data security. Here
 - **Reduced Attack Surface**: By micromanaging access, you shrink the potential target area for attackers, making it harder for them to find vulnerabilities and infiltrate your system.
 - **Improved Data Security**: Continuous authentication and granular access controls safeguard sensitive data, minimizing the risk of breaches and unauthorized access.
 - **Enhanced User Experience**: Secure access from anywhere, on any device, empowers your workforce and fosters collaboration without compromising security.
-- **Simplified Compliance**: Streamlined access management and robust audit trails facilitate compliance with industry regulations and data privacy laws.****
+- **Simplified Compliance**: Streamlined access management and robust audit trails facilitate compliance with industry regulations and data privacy laws.
 - **Reduced Recovery Costs**: Proactive threat detection and swift access revocation limit the damage from potential breaches, saving time and resources in the aftermath.
 
 ## Building Your Zero Trust Foundation with Authgear: WIAM for the Modern Enterprise
@@ -62,7 +62,7 @@ Implementing a Zero Trust architecture requires tools that empower you to contin
 
 - **Implement Multi-Factor Authentication (MFA)**: Go beyond passwords with advanced authentication methods like biometrics, hardware tokens, and adaptive MFA.
 - **Enforce Contextual Access Control**: Define granular access policies based on user, device, location, time, and application, ensuring access is granted only under the right circumstances.
-- **Enable Continuous Authentication**: Monitor user behavior and device posture in real-time, automatically adapting access permissions and mitigating potential threats.****
+- **Enable Continuous Authentication**: Monitor user behavior and device posture in real-time, automatically adapting access permissions and mitigating potential threats.
 - **Streamline Identity Management**: Unify your identity infrastructure, simplify user provisioning and deprovisioning, and gain full visibility into user activity.
 
 ## Take the Next Step: Embrace the Future of Security

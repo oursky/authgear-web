@@ -66,9 +66,9 @@ Where:
 1. `"enc"` → content encryption algorithm (e.g., `A256GCM`)
 1. `"kid"` → key ID
 1. **Encrypted Key**   <ul><li>The CEK, encrypted using the algorithm in `"alg"`.
-1. Only the intended recipient can decrypt it using their private key.****
-1. **Initialization Vector (IV)**   <ul><li>A random value used for the encryption process to ensure security even if the same data is encrypted multiple times.****
-1. **Ciphertext**   <ul><li>The encrypted payload (claims). This is where your sensitive data lives — but in unreadable form without the key.****
+1. Only the intended recipient can decrypt it using their private key.
+1. **Initialization Vector (IV)**   <ul><li>A random value used for the encryption process to ensure security even if the same data is encrypted multiple times.
+1. **Ciphertext**   <ul><li>The encrypted payload (claims). This is where your sensitive data lives — but in unreadable form without the key.
 1. **Authentication Tag**   <ul><li>Ensures data integrity and authenticity. If the ciphertext is tampered with, the tag will not match, and decryption will fail.
 
 ### **Example JWE** (shortened for readability):

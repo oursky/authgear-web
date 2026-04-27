@@ -26,7 +26,7 @@ Bupa replaced Azure AD B2C with Authgear to enable Face/Touch ID for infrequent 
 
 - **Industry:** Health insurance & healthcare services
 - **Use case:** Reduce password friction for infrequent users
-- **Auth methods:** Biometrics (Face/Touch), passwordless options, MFA-ready****
+- **Auth methods:** Biometrics (Face/Touch), passwordless options, MFA-ready
 - **Outcome:** Fewer password resets and support tickets; faster, easier access
 
 ## About Bupa
@@ -49,11 +49,11 @@ Authgear provided a flexible path to a modern, low‑friction login.
 
 - **Lower support burden:** Significant reduction in password‑related tickets
 - **Higher satisfaction:** Faster, familiar sign‑in via biometrics
-- **Better engagement:** Easier access encourages more consistent usage****
+- **Better engagement:** Easier access encourages more consistent usage
 - **Future‑ready:** Foundation to add new factors and support upcoming use cases
 
 ## Why Authgear for healthcare
 
 - **Biometrics first:** Native support for Face/Touch ID
-- **Migration friendly:** Azure AD B2C → Authgear with minimal friction****
+- **Migration friendly:** Azure AD B2C → Authgear with minimal friction
 - **Compliance conscious:** Security features aligned to enterprise requirements

@@ -27,7 +27,7 @@ SCIM provisioning is particularly valuable for organizations that:
 
 - **Manage multiple applications:** If your business utilizes a variety of software solutions, manually creating and updating user accounts in each system can be time-consuming and error-prone. SCIM provisioning automates this process, saving valuable resources.
 - **Have a large number of users:** For organizations with a substantial user base, managing user accounts manually can be overwhelming. SCIM provisioning streamlines the process, ensuring that user information is consistently updated across all systems.
-- **Require a high level of security:** SCIM provisioning can help enhance security by reducing the risk of human error and ensuring that user data is synchronized accurately.****
+- **Require a high level of security:** SCIM provisioning can help enhance security by reducing the risk of human error and ensuring that user data is synchronized accurately.
 - **Want to improve user experience:** By automating the provisioning process, SCIM provisioning can provide a smoother onboarding experience for new users and minimize disruptions caused by account management issues.
 
 ## How SCIM Works: Understanding the Protocol
@@ -37,7 +37,7 @@ The **SCIM (System for Cross-domain Identity Management) protocol** defines a st
 ### SCIM provisioning typically involves the following steps:
 
 1. **User Creation:** When a new user is created in a source application, the application sends a SCIM API request to the target application, providing the necessary user information.
-1. **User Update:** If a user's information changes (e.g., email address, role), the source application sends a SCIM API update request to the target application, updating the corresponding user record.****
+1. **User Update:** If a user's information changes (e.g., email address, role), the source application sends a SCIM API update request to the target application, updating the corresponding user record.
 1. **User Deletion:** When a user is deleted from the source application, a SCIM API delete request is sent to the target application, removing the user's account.
 
 ### SCIM Example Use Case:
@@ -54,7 +54,7 @@ SCIM provisioning offers numerous advantages for organizations of all sizes. By 
 - **Improve accuracy:** SCIM ensures that user data is consistent across all systems, reducing the risk of errors.
 - **Enhance security:** SCIM can help improve security by automating the provisioning process and reducing the risk of unauthorized access.
 - **Streamline onboarding and offboarding:** SCIM can automate the creation and deletion of user accounts, making the onboarding and offboarding process more efficient.
-- **Increase scalability:** SCIM can easily handle large numbers of users and systems, making it a scalable solution for growing organizations.****
+- **Increase scalability:** SCIM can easily handle large numbers of users and systems, making it a scalable solution for growing organizations.
 - **Improve user experience:** SCIM can provide a smoother onboarding experience for new users and minimize disruptions caused by account management issues.
 
 ## SCIM vs. SAML & SSO: A Comparative Analysis
@@ -64,7 +64,7 @@ SCIM provisioning offers numerous advantages for organizations of all sizes. By 
 **SCIM, SAML, and SSO** are all important technologies for identity and access management, but they serve different purposes.
 
 - **SCIM** (System for Cross-domain Identity Management) is a protocol for automating the provisioning of user accounts across different applications and systems.
-- **SAML** (Security Assertion Markup Language) is a standard for exchanging authentication and authorization data between different systems.  ****
+- **SAML** (Security Assertion Markup Language) is a standard for exchanging authentication and authorization data between different systems.  
 - **SSO** (Single Sign-On) is a mechanism that allows users to log in to multiple applications with a single set of credentials.
 
 <div class="table_component" role="region" tabindex="0">

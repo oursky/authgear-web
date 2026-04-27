@@ -27,10 +27,10 @@ To improve login experience and reduce operational friction, Outback Steakhouse 
 ## At a Glance
 
 - **Login Method**: Passwordless SMS
-- **Duplicate Accounts Reduced**: 75%****
-- **Login Friction Decrease**: 97%****
-- **Support Tickets Reduced**: Significant drop in password reset requests****
-- **User Type**: Loyalty App Members****
+- **Duplicate Accounts Reduced**: 75%
+- **Login Friction Decrease**: 97%
+- **Support Tickets Reduced**: Significant drop in password reset requests
+- **User Type**: Loyalty App Members
 - **Use Case**: Membership access during high-traffic campaigns
 
 ## The Challenge: Forgotten Passwords and Duplicated Accounts
@@ -45,9 +45,9 @@ Outback Steakhouse, a well-loved Australian-inspired restaurant chain with over 
 
 Outback adopted Authgear to deliver a smoother, more reliable login experience for both users and internal teams.
 
-1. **Passwordless SMS Login**   Users now sign in quickly with SMS-based one-time codes. No passwords to remember, and conversion stays high during peak promotions.****
-1. **Account Unification**   By consolidating user identities around phone numbers, duplicate accounts were eliminated. Returning users are automatically matched to the correct profile, while outdated or conflicting accounts are merged.****
-1. **Reliable Performance at Scale**   Authgear’s event-safe OTP delivery and rate-limiting keep logins stable during spikes in campaign traffic.****
+1. **Passwordless SMS Login**   Users now sign in quickly with SMS-based one-time codes. No passwords to remember, and conversion stays high during peak promotions.
+1. **Account Unification**   By consolidating user identities around phone numbers, duplicate accounts were eliminated. Returning users are automatically matched to the correct profile, while outdated or conflicting accounts are merged.
+1. **Reliable Performance at Scale**   Authgear’s event-safe OTP delivery and rate-limiting keep logins stable during spikes in campaign traffic.
 1. **Seamless Upgrade Path**   Users can upgrade their membership tier within the same account, keeping their points, history, and rewards intact—no new registration required.
 1. **Fraud Controls**   Anomaly detection and abuse prevention mechanisms, such as device signals and OTP throttling, maintain security without adding user friction.
 

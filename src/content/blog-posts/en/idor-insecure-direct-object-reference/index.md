@@ -38,7 +38,7 @@ Any time the **client** can influence which resource is fetched or modified, the
 
 **Peloton (2021)**
 
-****Researchers showed Peloton’s back-end APIs could return **private user data** even when profiles were set to private—because requests to certain endpoints lacked proper authZ. Peloton subsequently patched the issues after disclosure. This is a classic **IDOR/BOLA** pattern in an API.
+Researchers showed Peloton’s back-end APIs could return **private user data** even when profiles were set to private—because requests to certain endpoints lacked proper authZ. Peloton subsequently patched the issues after disclosure. This is a classic **IDOR/BOLA** pattern in an API.
 
 Sources: <a href="https://techcrunch.com/2021/05/05/peloton-bug-account-data-leak/" target="_blank">Techcrunch</a>, <a href="https://www.bankinfosecurity.com/peloton-api-flaws-exposed-users-data-prior-to-recent-patch-a-16534" target="_blank">bankinsecurity</a>, [salt.security](https://salt.security/blog/the-peloton-api-security-incident-what-happened-and-how-you-can-protect-yourself)
 
@@ -56,7 +56,7 @@ Log in as **User A**, capture a request that fetches A’s object (e.g., `/order
 
 **2) Test all places IDs can hide.**
 
-****Don’t just check path/query. Try body fields, nested JSON, GraphQL arguments, alternate HTTP methods, and secondary endpoints that touch the same resource.
+Don’t just check path/query. Try body fields, nested JSON, GraphQL arguments, alternate HTTP methods, and secondary endpoints that touch the same resource.
 
 **3) Negative tests belong in CI.**
 
@@ -70,11 +70,11 @@ If one endpoint is vulnerable, **search for the pattern** across the codebase (c
 
 **1) Deny by default & centralize authorization**
 
-****Implement authorization in **trusted server-side code** (or a serverless function you control). Except for explicitly public resources, **block by default** and grant access via reusable policy checks (not scattered `if` statements).
+Implement authorization in **trusted server-side code** (or a serverless function you control). Except for explicitly public resources, **block by default** and grant access via reusable policy checks (not scattered `if` statements).
 
 **2) Enforce object-level checks everywhere**
 
-****For every handler that reads/writes an object using an ID **from the client**, verify:
+For every handler that reads/writes an object using an ID **from the client**, verify:
 
 - Who is the caller (subject)?
 - What are they allowed to do (role/attributes/policy)?
@@ -82,23 +82,23 @@ If one endpoint is vulnerable, **search for the pattern** across the codebase (c
 
 **3) Don’t trust client-supplied claims**
 
-****Never treat `user_id`, `org_id`, or `tenant_id` in the request as authoritative. Derive the subject and scope from the authenticated context and server-side lookups.
+Never treat `user_id`, `org_id`, or `tenant_id` in the request as authoritative. Derive the subject and scope from the authenticated context and server-side lookups.
 
 **4) Prefer RBAC/ABAC over ad-hoc checks**
 
-****Define roles/attributes and policies centrally (e.g., “record owner OR `billing_admin` can read `invoice`”). This avoids missing checks in edge controllers and makes reviews/audits feasible.
+Define roles/attributes and policies centrally (e.g., “record owner OR `billing_admin` can read `invoice`”). This avoids missing checks in edge controllers and makes reviews/audits feasible.
 
 **5) Guard multi-tenant boundaries**
 
-****Confirm **tenant isolation** on every access. Consider **row-level security** in the database (where supported) to enforce ownership constraints close to the data. (RLS is an implementation technique that reinforces policy; you still need app-level checks.)
+Confirm **tenant isolation** on every access. Consider **row-level security** in the database (where supported) to enforce ownership constraints close to the data. (RLS is an implementation technique that reinforces policy; you still need app-level checks.)
 
 **6) Be careful with “opaque IDs,” CDNs, and signed URLs**
 
-****Opaque IDs (UUIDs) reduce enumeration, but do **not** fix authorization. For content delivery, use **short-lived, signed URLs** and verify permissions at the time of signing.
+Opaque IDs (UUIDs) reduce enumeration, but do **not** fix authorization. For content delivery, use **short-lived, signed URLs** and verify permissions at the time of signing.
 
 **7) Log denials and throttle enumeration**
 
-****Log failed access attempts (including object IDs, caller, and reason) and **rate-limit** endpoints to make brute-force ID guessing noisy and slow.
+Log failed access attempts (including object IDs, caller, and reason) and **rate-limit** endpoints to make brute-force ID guessing noisy and slow.
 
 ## API design patterns that help
 
@@ -112,7 +112,7 @@ If one endpoint is vulnerable, **search for the pattern** across the codebase (c
 
 ### **Is hiding or hashing IDs enough?**
 
-****No. Obscurity helps, but **authorization** is the control. Treat the client as hostile, *always* check ownership/permission server-side.
+No. Obscurity helps, but **authorization** is the control. Treat the client as hostile, *always* check ownership/permission server-side.
 
 ### **Do UUIDs prevent IDOR?**
 

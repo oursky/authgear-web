@@ -100,9 +100,9 @@ SCIM is built on a REST-style API with standardized endpoints, designed for pred
 Identity providers interact with the SaaS platform using standard HTTP methods:
 
 - **Create User** → `POST /User`
-- **Update User** → `PATCH` or `PUT /Users/{id}` ****
-- **Deactivate User** → `PATCH /Users/{id} set { active: false }` ****
-- **Delete User** → `DELETE /Users/{id}` ****
+- **Update User** → `PATCH` or `PUT /Users/{id}` 
+- **Deactivate User** → `PATCH /Users/{id} set { active: false }` 
+- **Delete User** → `DELETE /Users/{id}` 
 - **Manage Groups** → `POST/PUT/PATCH /Groups`
 
 These API requests trigger the SaaS platform’s internal provisioning logic, such as creating local accounts, assigning permissions, or revoking access when a user leaves the organization.

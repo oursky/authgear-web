@@ -165,7 +165,7 @@ Mobile authentication commonly needs both security and speed. Device biometrics 
 
 ### Hybrid flows for mobile contexts
 
-Best practice: use WhatsApp OTP for initial enrollment and backup, then enable biometric/passkey re-auth for quick re-entry.****Example flow pattern:
+Best practice: use WhatsApp OTP for initial enrollment and backup, then enable biometric/passkey re-auth for quick re-entry.Example flow pattern:
 
 **Personal mobile device:**
 

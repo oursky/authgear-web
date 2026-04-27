@@ -32,7 +32,7 @@ K11 / NWD standardized authentication across the K11, Artisanal Living, and K Do
 - **Industry:** Luxury retail, property & lifestyle
 - **Products:** K11 app, Artisanal Living app, K Dollar app
 - **Use case:** Unified authentication, SSO, embedded login UI
-- **Auth methods:** MFA, email magic links, SMS OTPs****
+- **Auth methods:** MFA, email magic links, SMS OTPs
 - **Outcome:** Consistent, secure sign‑in across apps; lower friction; faster iteration
 
 ## About K11 / New World Development
@@ -86,14 +86,14 @@ Using embedded login via web views, K11 delivers a login that looks and feels na
 
 - **Consistent sign‑in across the ecosystem** — one familiar, polished flow
 - **Lower login friction** — fewer hurdles to access benefits and services
-- **Faster iteration** — centralized auth reduces backend complexity and unlocks quicker product updates****
+- **Faster iteration** — centralized auth reduces backend complexity and unlocks quicker product updates
 - **Stronger brand trust** — secure, seamless experiences aligned with the K11 aesthetic
 
 ## Why Authgear
 
 - **Flexibility without compromise:** Support for **non‑standard flows** while maintaining strong security
 - **Brand‑perfect UX:** Embedded, customizable UI that feels native
-- **Built for scale:** One identity layer for multiple apps and audiences****
+- **Built for scale:** One identity layer for multiple apps and audiences
 - **Security that users feel good about:** MFA, magic links, SMS OTPs, and centralized session control
 
 ## Feature highlights
@@ -101,5 +101,5 @@ Using embedded login via web views, K11 delivers a login that looks and feels na
 - **Unified authentication:** One framework, many apps
 - **SSO & app‑to‑app login:** Seamless movement between K11, Artisanal Living, and K Dollar
 - **Passwordless options:** Email magic link & SMS OTP
-- **MFA:** Risk‑appropriate step‑up****
+- **MFA:** Risk‑appropriate step‑up
 - **Embedded UI:** WebView with custom branding and microcopy

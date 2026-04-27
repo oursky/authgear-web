@@ -185,7 +185,7 @@ Authgear is an open-source identity platform focused on mobile-first and phone-f
 
 ### Auth0
 
-**Strengths:** Depth of extensibility, custom rules, large partner ecosystem, many connectors, strong developer community.****
+**Strengths:** Depth of extensibility, custom rules, large partner ecosystem, many connectors, strong developer community.
 
 **Weaknesses:** Pricing can scale steeply with MAU; regional hosting and offline flows may require engineering work.
 
