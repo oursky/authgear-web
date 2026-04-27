@@ -69,11 +69,6 @@ export const featuresMeta: Record<string, FeatureMeta> = {
     description:
       "Simplify user experience and boost security with Authgear's OIDC-based SSO login solution. Learn how to implement SSO, understand its benefits, and start your free trial today.",
   },
-  'sms-passcode': {
-    title: 'SMS passcode',
-    description:
-      "Easily eliminate authentication friction for your users with Authgear's passwordless authentication solution. It only takes minutes to integrate your apps with Authgear.",
-  },
   'sms-pumping-fraud': {
     title: 'SMS Pumping Fraud | Authgear',
     description:

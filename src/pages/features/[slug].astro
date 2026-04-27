@@ -17,7 +17,6 @@ import PasskeysPage from '@/components/pages/features/PasskeysPage.astro';
 import PasswordlessAuthenticationPage from '@/components/pages/features/PasswordlessAuthenticationPage.astro';
 import SelfServeSettingsPage from '@/components/pages/features/SelfServeSettingsPage.astro';
 import SingleSignOnPage from '@/components/pages/features/SingleSignOnPage.astro';
-import SmsPasscodePage from '@/components/pages/features/SmsPasscodePage.astro';
 import SmsPumpingFraudPage from '@/components/pages/features/SmsPumpingFraudPage.astro';
 import SocialLoginPage from '@/components/pages/features/SocialLoginPage.astro';
 import UserManagementPage from '@/components/pages/features/UserManagementPage.astro';
@@ -37,7 +36,6 @@ const pageMap = {
   'passwordless-authentication': PasswordlessAuthenticationPage,
   'self-serve-settings-page': SelfServeSettingsPage,
   'single-sign-on': SingleSignOnPage,
-  'sms-passcode': SmsPasscodePage,
   'sms-pumping-fraud': SmsPumpingFraudPage,
   'social-login': SocialLoginPage,
   'user-management': UserManagementPage,
@@ -60,7 +58,7 @@ export function getStaticPaths() {
     'passwordless-authentication',
     'self-serve-settings-page',
     'single-sign-on',
-    'sms-passcode',
+    'sms-passcode', // 301-redirected to /features/multi-factor-authentication below.
     'sms-pumping-fraud',
     'social-login',
     'user-management',
@@ -71,6 +69,9 @@ export function getStaticPaths() {
 const { slug } = Astro.params as { slug: string };
 if (slug === 'identity-security') {
   return Astro.redirect('/features/attack-protection', 301);
+}
+if (slug === 'sms-passcode') {
+  return Astro.redirect('/features/multi-factor-authentication', 301);
 }
 const Component = pageMap[slug as keyof typeof pageMap];
 const meta = featuresMeta[slug as FeatureSlug];
