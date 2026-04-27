@@ -123,6 +123,7 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
           utm_campaign: getQueryParam('utm_campaign') || undefined,
           page: getSubmissionPage() || undefined,
           locale: l,
+          source: 'contact-form',
           website: honeypot || undefined,
           cfTurnstileToken: turnstileToken || undefined,
         }),

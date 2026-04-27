@@ -11,7 +11,8 @@ interface ContactFormData {
   Company?: string;
   'how-hear'?: string;
   'Use-Case'?: string;
-  formType?: string;
+  /** Identifier for which form was submitted (e.g. "contact-form", "success-stories-download"). */
+  source?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -86,7 +87,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!data.Email) {
     return json({ error: 'Email is required.' }, 400);
   }
-  if (!data.formType && !data.Name) {
+  if (data.source === 'contact-form' && !data.Name) {
     return json({ error: 'Name and Email are required.' }, 400);
   }
 
@@ -101,7 +102,6 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         body: JSON.stringify({
           ...forwardBody,
           submittedAt: new Date().toISOString(),
-          source: 'authgear-website-contact',
         }),
       });
       if (!res.ok) {
