@@ -36,12 +36,11 @@ const MESSAGES = {
     howHearLLM: 'AI Tools (e.g. ChatGPT, Gemini, etc)',
     howHearGitHub: 'GitHub',
     howHearOther: 'Others',
-    invalidPhone: 'Invalid phone number',
     submitError: 'Oops! Something went wrong while submitting the form.',
     submit: 'Submit',
     submitting: 'Submitting…',
     successTitle: 'Thanks — we got it.',
-    successBody: "We'll be in touch within one business day.",
+    successBody: "We'll be in touch soon.",
   },
   'zh-Hant': {
     labelFullName: '姓名',
@@ -56,12 +55,11 @@ const MESSAGES = {
     howHearLLM: 'AI 工具(例如 ChatGPT、Gemini 等)',
     howHearGitHub: 'GitHub',
     howHearOther: '其他',
-    invalidPhone: '電話號碼格式不正確',
     submitError: '哎呀!表單送出時發生錯誤,請再試一次。',
     submit: '送出',
     submitting: '送出中⋯',
     successTitle: '感謝您!我們已收到。',
-    successBody: '我們將於一個工作日內與您聯繫。',
+    successBody: '我們會盡快與您聯繫。',
   },
 } as const satisfies Record<Locale, Record<string, string>>;
 
@@ -80,12 +78,10 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   const t = MESSAGES[l];
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
   const [country, setCountry] = useState('');
   const [company, setCompany] = useState('');
   const [howHear, setHowHear] = useState('');
   const [useCase, setUseCase] = useState('');
-  const [phoneValid, setPhoneValid] = useState(true);
   const [status, setStatus] = useState<Status>('idle');
   const [honeypot, setHoneypot] = useState('');
   const [turnstileToken, setTurnstileToken] = useState('');
@@ -100,20 +96,7 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     trackEvent('contact-form-submit');
-    // Phone: invalid numbers are allowed through — the downstream webhook
-    // handles normalisation. Sourcing order:
-    //   1. intl-tel-input's formatted E.164 (via getNumber()) — empty when
-    //      the library can't parse the input to a valid number.
-    //   2. React state populated by onChangeNumber.
-    //   3. Raw DOM input value — captures whatever the user typed even
-    //      when nothing else resolves.
-    const itiInstance = itiRef.current?.getInstance?.();
-    const e164 =
-      typeof itiInstance?.getNumber === 'function' ? itiInstance.getNumber() : '';
-    const rawPhoneInput = e.currentTarget.elements.namedItem('Phone');
-    const rawPhone =
-      rawPhoneInput instanceof HTMLInputElement ? rawPhoneInput.value : '';
-    const phoneToSend = e164 || phone || rawPhone;
+    const phoneToSend = itiRef.current?.getInstance?.()?.getNumber?.() || '';
     setStatus('submitting');
     try {
       const res = await fetch(action, {
@@ -238,29 +221,17 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
               placeholderNumberType: 'MOBILE',
               nationalMode: true,
             }}
-            onChangeNumber={setPhone}
-            onChangeValidity={setPhoneValid}
             onChangeCountry={() => {
               const data = itiRef.current?.getInstance()?.getSelectedCountryData();
               setCountry(data?.name ?? '');
             }}
             inputProps={{
               id: 'cf-phone',
-              className:
-                'ds-form-input' +
-                (phone && !phoneValid ? ' ds-form-input--error' : ''),
+              className: 'ds-form-input',
               required: true,
               name: 'Phone',
-              'aria-invalid': phone && !phoneValid ? true : undefined,
-              'aria-describedby':
-                phone && !phoneValid ? 'cf-phone-error' : undefined,
             }}
           />
-          {phone && !phoneValid && (
-            <span id="cf-phone-error" className="ds-form-field-error">
-              {t.invalidPhone}
-            </span>
-          )}
         </div>
 
         <div className="ds-form__field">
