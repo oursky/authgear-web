@@ -378,13 +378,34 @@ async function processItem(item, categoryMap, localeFolder, allLinks) {
   return slug;
 }
 
-async function writeCategories(categories) {
+/** Preserve `nameZhHant` across re-imports (Webflow has no field for it). */
+async function readExistingCategoryZhNames() {
+  const map = new Map();
+  try {
+    const entries = await fs.readdir(CATEGORIES_ROOT, { withFileTypes: true });
+    for (const ent of entries) {
+      if (!ent.isFile() || !ent.name.endsWith('.json')) continue;
+      const raw = await fs.readFile(path.join(CATEGORIES_ROOT, ent.name), 'utf8');
+      const j = JSON.parse(raw);
+      if (typeof j.nameZhHant === 'string' && j.nameZhHant.trim() && j.slug) {
+        map.set(j.slug, j.nameZhHant.trim());
+      }
+    }
+  } catch {
+    /* directory missing */
+  }
+  return map;
+}
+
+async function writeCategories(categories, nameZhHantBySlug = new Map()) {
   await fs.mkdir(CATEGORIES_ROOT, { recursive: true });
   for (const c of categories) {
     if (c.isDraft || c.isArchived) continue;
     const { name, slug, 'blog-post-category-description': desc } = c.fieldData;
     const payload = { name, slug };
     if (desc && desc.trim() && desc.trim().length > 2) payload.description = desc.trim();
+    const zh = nameZhHantBySlug.get(slug);
+    if (zh) payload.nameZhHant = zh;
     await fs.writeFile(
       path.join(CATEGORIES_ROOT, `${slug}.json`),
       JSON.stringify(payload, null, 2) + '\n',
@@ -398,10 +419,12 @@ async function main() {
 
   const categoryMap = new Map(categories.map((c) => [c.id, c.fieldData.slug]));
 
+  const categoryZhNames = await readExistingCategoryZhNames();
+
   await fs.rm(POSTS_ROOT, { recursive: true, force: true });
   await fs.rm(CATEGORIES_ROOT, { recursive: true, force: true });
 
-  await writeCategories(categories);
+  await writeCategories(categories, categoryZhNames);
 
   const allLinks = [];
   const enSlugs = [];

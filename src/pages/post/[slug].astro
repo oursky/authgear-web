@@ -6,6 +6,7 @@ import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BlogPostSeo from '@/components/blog/BlogPostSeo.astro';
 import BlogSidebar from '@/components/blog/BlogSidebar.astro';
+import { blogCategoryDisplayName } from '@/lib/blog-category';
 import { localizedPath } from '@/lib/i18n';
 
 export async function getStaticPaths() {
@@ -36,7 +37,7 @@ if (data.category) {
   try {
     const cat = await getEntry('blog-categories', data.category);
     if (cat) {
-      categoryName = cat.data.name;
+      categoryName = blogCategoryDisplayName(locale, cat.data);
       categorySlug = cat.data.slug;
     }
   } catch {

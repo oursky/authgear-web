@@ -92,6 +92,8 @@ const blogCategories = defineCollection({
   type: 'data',
   schema: z.object({
     name: z.string(),
+    /** Traditional Chinese label for `/zh-Hant/...` blog UI; falls back to `name`. */
+    nameZhHant: z.string().optional(),
     slug: z.string(),
     description: z.string().optional(),
   }),
