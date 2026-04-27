@@ -300,7 +300,7 @@ Two notes on this config: First, `frame-ancestors 'none'` in the CSP and `X-Fram
 
 ## 7. Using an Auth Platform
 
-Implementing authentication securely from scratch is hard. You need to handle session management, token rotation, MFA, passkeys, brute-force protection, and more — and every detail has to be right. That's where an authentication platform like <a href="" target="_blank" rel="noopener">Authgear</a> helps. Authgear provides a drop-in auth layer for Next.js that handles passkeys, TOTP MFA, social login, and session management out of the box — so you can focus on your app rather than the auth infrastructure. See the <a href="https://docs.authgear.com/get-started/regular-web-app/nextjs" target="_blank" rel="noopener">Next.js quickstart guide</a> to get started in under 15 minutes.
+Implementing authentication securely from scratch is hard. You need to handle session management, token rotation, MFA, passkeys, brute-force protection, and more — and every detail has to be right. That's where an authentication platform like <a href="https://www.authgear.com" target="_blank" rel="noopener">Authgear</a> helps. Authgear provides a drop-in auth layer for Next.js that handles passkeys, TOTP MFA, social login, and session management out of the box — so you can focus on your app rather than the auth infrastructure. See the <a href="https://docs.authgear.com/get-started/regular-web-app/nextjs" target="_blank" rel="noopener">Next.js quickstart guide</a> to get started in under 15 minutes.
 
 ## Next.js Security Checklist
 
