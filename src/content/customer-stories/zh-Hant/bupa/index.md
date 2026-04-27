@@ -1,0 +1,59 @@
+---
+title: "Bupa 以 Authgear 生物辨識簡化安全登入"
+excerpt: "了解 Bupa 如何從 Azure AD B2C 遷移至 Authgear，透過 Face ID／Touch ID 降低重設密碼與支援成本，打造順暢又安全的登入體驗。"
+customerName: Bupa
+companyIndustry: "健康保險與醫療保健服務"
+companyLogo: ./logo.png
+coverImage: ./cover.jpg
+thumbnail: ./thumbnail.jpg
+loginMethods:
+  - 生物辨識
+  - 無密碼／簡訊
+technicalDetails:
+  - 多因素驗證
+metrics:
+  - num: "2"
+    text: "款醫療相關應用程式已整合 Authgear"
+  - num: "80%"
+    text: "密碼重設／找回請求顯著減少"
+publishedAt: 2025-11-28T18:51:18.660Z
+canonicalUrl: "https://www.authgear.com/zh-Hant/customer-stories/bupa"
+---
+
+Bupa 以 Authgear 取代 Azure AD B2C，為較少登入的使用者啟用 Face ID／Touch ID，在降低密碼重設與支援成本、提升滿意度的同時，為未來的驗證需求奠定可擴充平台。
+
+## 重點摘要
+
+- **產業：** 健康保險與醫療保健服務
+- **使用情境：** 降低較少登入使用者的密碼摩擦
+- **驗證方式：** 生物辨識（Face／Touch）、無密碼選項、可搭配 MFA
+- **成果：** 密碼重設與支援工單減少；登入更快、更輕鬆
+
+## 關於 Bupa
+
+Bupa 是服務全球數百萬客戶的醫療保健集團，透過健康保險與多元醫療服務守護會員健康。為改善健康成果與就醫可近性，Bupa 與醫療提供者合作，並投資數位工具，讓會員的照護流程更簡單、安全且便利。
+
+## 挑戰
+
+Bupa 在保險與醫療服務領域服務廣大族群，但多數會員**每年僅登入一兩次**。搭配**嚴格且複雜的密碼政策**，導致憑證經常重設、支援成本攀升。既有平台 **Azure AD B2C** 對**生物辨識的原生支援有限**，難以提供使用者期待的低摩擦體驗。
+
+## 解決方案
+
+Authgear 提供彈性路徑，邁向現代化、低摩擦的登入體驗。
+
+1. **生物辨識驗證**　安全直覺的 Face／Touch ID 登入，快速存取，特別適合較少登入的使用者。
+1. **自 Azure AD B2C 無縫遷移**　平順轉移既有帳戶，將停機時間降到最低。
+1. **安全不必痛苦**　企業級管控搭配更快、更輕量的密碼體驗（可搭配 MFA、符合政策）。
+
+## 成果
+
+- **降低支援負擔：** 與密碼相關的工單顯著減少
+- **更高滿意度：** 透過生物辨識加快、熟悉登入流程
+- **更佳參與：** 更容易存取，鼓勵更穩定的使用
+- **面向未來：** 為新增驗證因子與未來情境打好基礎
+
+## 為何醫療保健選擇 Authgear
+
+- **生物辨識優先：** 原生支援 Face／Touch ID
+- **遷移友善：** Azure AD B2C → Authgear，摩擦極小
+- **合規意識：** 安全功能對齊企業需求

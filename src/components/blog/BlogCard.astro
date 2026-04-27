@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getEntry, type CollectionEntry } from 'astro:content';
+import { blogCategoryDisplayName } from '@/lib/blog-category';
 import { localizedPath } from '@/lib/i18n';
 
 interface Props {
@@ -16,7 +17,7 @@ let categoryName: string | undefined;
 if (data.category) {
   try {
     const cat = await getEntry('blog-categories', data.category);
-    categoryName = cat?.data.name;
+    categoryName = cat ? blogCategoryDisplayName(locale, cat.data) : undefined;
   } catch {
     categoryName = undefined;
   }

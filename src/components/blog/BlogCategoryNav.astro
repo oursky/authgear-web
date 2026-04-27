@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { blogCategoryDisplayName } from '@/lib/blog-category';
 import { localizedPath } from '@/lib/i18n';
 
 interface Props {
@@ -9,8 +10,12 @@ interface Props {
 
 const { locale, currentCategory } = Astro.props;
 
+const collatorLocale = locale === 'zh-Hant' ? 'zh-Hant' : 'en';
 const categories = (await getCollection('blog-categories')).sort((a, b) =>
-  a.data.name.localeCompare(b.data.name),
+  blogCategoryDisplayName(locale, a.data).localeCompare(
+    blogCategoryDisplayName(locale, b.data),
+    collatorLocale,
+  ),
 );
 
 const allLabel = locale === 'zh-Hant' ? '全部' : 'All';
@@ -32,7 +37,7 @@ const isAllActive = !currentCategory;
         href={localizedPath(locale, `/post-category/${cat.data.slug}`)}
         class={`blog-category-chip${isActive ? ' blog-category-chip--active' : ''}`}
       >
-        {cat.data.name}
+        {blogCategoryDisplayName(locale, cat.data)}
       </a>
     );
   })}
