@@ -120,8 +120,8 @@ const { locale } = Astro.props;
       <div class="_2-block-flex footer-form bg-white radius-24px p-60">
         <div class="_2-block-flex-content footer-form">
           <div class="_2-block-flex-content-text-wrap footer-form">
-            <h2 class="form-heading footer-form ibm-plex-sans color-000">Ready to Migrate to a <span class="color-gradient">Seamless &amp; Secure Authentication System?</span></h2>
-            <div class="form-description ibm-plex-sans">Tell us a little about yourself and your migration needs.Our team will be in touch to answer your questions and get you started.</div>
+            <h2 class="form-heading footer-form ibm-plex-sans color-000">{t(locale, 'MigrateToAuthgear.formHeading')} <span class="color-gradient">{t(locale, 'MigrateToAuthgear.formHeadingAccent')}</span></h2>
+            <div class="form-description ibm-plex-sans">{t(locale, 'MigrateToAuthgear.formDescription')}</div>
           </div>
         </div>
         <div class="_2-block-flex-image footer-form">

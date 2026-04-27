@@ -254,7 +254,10 @@
     "who2Title": "Extended enterprise needs with 1,000 or more users",
     "who2Desc": "Authgear can scale to support complex enterprise environments with a high volume of users.",
     "whoNote": "Don't worry if your organization doesn't currently meet these requirements!",
-    "whoNoteDesc": "We're passionate about supporting startups and early-stage businesses. We encourage you to contact us to discuss your specific needs and explore alternative solutions."
+    "whoNoteDesc": "We're passionate about supporting startups and early-stage businesses. We encourage you to contact us to discuss your specific needs and explore alternative solutions.",
+    "formHeading": "Ready to Migrate to a",
+    "formHeadingAccent": "Seamless & Secure Authentication System?",
+    "formDescription": "Tell us a little about yourself and your migration needs. Our team will be in touch to answer your questions and get you started."
   },
   "Once": {
     "title": "Authgear ONCE – Own Your IAM with a Perpetual License",
