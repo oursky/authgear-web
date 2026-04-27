@@ -96,7 +96,15 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     trackEvent('contact-form-submit');
-    const phoneToSend = itiRef.current?.getInstance?.()?.getNumber?.() || '';
+    const iti = itiRef.current?.getInstance?.();
+    const rawInput = e.currentTarget.elements.namedItem('Phone');
+    const rawPhone = rawInput instanceof HTMLInputElement ? rawInput.value.trim() : '';
+    const dialCode = iti?.getSelectedCountryData?.()?.dialCode ?? '';
+    const phoneToSend =
+      iti?.getNumber?.() ||
+      (rawPhone && !rawPhone.startsWith('+') && dialCode
+        ? `+${dialCode}${rawPhone.replace(/^0+/, '')}`
+        : rawPhone);
     setStatus('submitting');
     try {
       const res = await fetch(action, {
