@@ -13,6 +13,7 @@ draft: false
 
 <div style="background:#fff3cd;border-left:4px solid #ffc107;padding:16px 20px;border-radius:4px;margin:0 0 24px;">
   <strong>Next.js 16 note:</strong> In Next.js 16, <code>middleware.ts</code> was renamed to <code>proxy.ts</code> and the exported function renamed from <code>middleware</code> to <code>proxy</code>. This article uses Next.js 12–15 syntax. If you are on Next.js 16+, replace <code>middleware.ts</code> with <code>proxy.ts</code> and <code>export function middleware</code> with <code>export function proxy</code> — everything else in this guide applies unchanged. Vercel provides a codemod: <code>npx @next/codemod@canary middleware-to-proxy .</code>
+</div>
 
 ## Why Middleware Is the Right Place to Protect Routes
 
@@ -403,4 +404,4 @@ export default async function DashboardPage() {
 
 For a more complete approach to session management and token handling, see the [authentication solutions guide](/post/authentication-solutions-guide) or explore how [JWTs carry user identity](/post/what-is-jwt) so you understand what data is available in the token payload.
 
-To skip the boilerplate entirely and add production-ready authentication to your Next.js app in minutes, [try Authgear for free]() — it handles token issuance, refresh, session management, and MFA out of the box.
+To skip the boilerplate entirely and add production-ready authentication to your Next.js app in minutes, [try Authgear for free](https://portal.authgear.com/) — it handles token issuance, refresh, session management, and MFA out of the box.
