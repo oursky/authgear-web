@@ -63,7 +63,9 @@ The right to erasure is also commonly referred to as the right to be forgotten. 
 
 <h2 id="background">Background of the Right to Erasure</h2>
 
-<!--FIGURE-->![](./figure-1.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpg)
+<!--/FIGURE-->
 
 The General Data Protection Regulation is a body whose mandate is to govern how personal data is collected, processed, and erased. Initially, the right to erasure came around after a dispute was taken to court against search engines. In the litigation, search engines were on the defense side for holding older materials in the indexes, though they were no longer accurate or newsworthy.
 
@@ -152,7 +154,9 @@ If you decline the data subject’s request, you also need to inform them within
 
 As time goes by, the issue of data control is gaining traction. Now, more than ever before, users want more control of their data, including deleting it. With Authgear, you can easily comply with the right to erasure and Apple’s upcoming account deletion requirement with our latest in-app account deletion feature.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 Authgear is the authentication and user management solution your apps need that comes with all sorts of features, such as SSO, 2FA, biometrics, admin portals, etc., that your consumer apps need. As a developer, you would highly appreciate Authgear for its ease of customization and a wide range of defaults.
 

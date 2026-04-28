@@ -245,7 +245,9 @@ By enforcing these measures, you prevent attackers from reusing tokens or exploi
 
 ## Fortifying Your Password Reset Flow: A Final Word
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 Building a secure password reset flow requires meticulous attention to detail. By avoiding the common pitfalls and implementing the best practices outlined in this article, you can significantly enhance the security of your authentication system. Remember, a robust password reset process is not just about protecting user accounts, but also about safeguarding your overall system from potential breaches. Continuous vigilance and staying updated on emerging threats are essential for maintaining a high level of security.
 

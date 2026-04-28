@@ -22,11 +22,15 @@ Imagine a tiny, USB-like device that acts as a physical guardian to your online 
 1. Secure Transmission: The generated code is then transmitted to the website or app, not through your keyboard (a key security feature!), eliminating the risk of keyloggers capturing it.
 1. Verification and Access: The website/app verifies the code's validity and, if correct, grants you access.
 
-<!--FIGURE-->![](./figure-1.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpg)
+<!--/FIGURE-->
 
 ## The Meteoric Rise of Passkeys: Why YubiKey and Similar Solutions are Booming
 
-<!--FIGURE-->![](./figure-2.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpg)
+<!--/FIGURE-->
 
 The surge in popularity of passkeys like YubiKey isn't just a fad; it's a response to a perfect storm of factors converging in the digital landscape. Let's dissect the key drivers behind this exciting shift:
 
@@ -61,7 +65,9 @@ The rise of passkeys signifies a paradigm shift in online security. While YubiKe
 
 ## Beyond YubiKey: Exploring the Diverse Landscape of Passkey Solutions
 
-<!--FIGURE-->![](./figure-3.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpg)
+<!--/FIGURE-->
 
 In our previous explorations, we delved into the world of YubiKeys and the rising trend of passkeys. Now, let's broaden our horizons and explore some compelling alternatives to YubiKey, each with unique strengths and considerations:
 
@@ -91,7 +97,9 @@ In our previous explorations, we delved into the world of YubiKeys and the risin
 
 ## Securing the Enterprise: Why YubiKey and Authgear are the Perfect Duo
 
-<!--FIGURE-->![](./figure-4.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.jpg)
+<!--/FIGURE-->
 
 While YubiKey offers robust individual hardware authentication, enterprises require a comprehensive solution to manage and leverage its full potential across their organization. That's where Authgear steps in, acting as the brains behind the brawn of your YubiKey deployment.
 

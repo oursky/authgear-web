@@ -146,7 +146,9 @@ OIDC, as part of the **OIDC vs OAuth**discussion, builds on [OAuth 2.0](/post/wh
 
 OIDC enables programmatic access for APIs and supports SPAs and mobile apps. It also incorporates security measures like PKCE, token expiry, and refresh tokens, which make it ideal for modern cloud-native applications.
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 The diagram depicts the OIDC authentication flow involving the User, Relying Party (RP), and Identity Provider (IdP). Rectangular boxes highlight key actions or stages, while arrows show the sequence of data exchanges and user interactions.
 
@@ -165,7 +167,9 @@ SAML is primarily browser-based and is often used for workforce SSO. Its high-le
 
 SAML is particularly strong for enterprises requiring centralized audit and single logout. Understanding **OIDC vs OAuth**clarifies why OIDC is the preferred modern authentication standard, complementing OAuth 2.0’s authorization capabilities.
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 This diagram walks you through the SAML authentication flow in a logical sequence. It starts with the user trying to log in, shown by simple shapes that represent each key player: the service provider, the user, and the identity provider.
 

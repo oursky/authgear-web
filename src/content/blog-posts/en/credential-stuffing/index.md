@@ -77,7 +77,9 @@ If that sounds slightly terrifying, it’s because it is. When a person has used
 
 <h2 id="how">How Credential Stuffing Attacks Work?</h2>
 
-<!--FIGURE-->![](./figure-1.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpg)
+<!--/FIGURE-->
 
 Knowing how to prevent a credential stuffing attack starts with understanding how the attacks take place. There is a typical process that attackers tend to follow in large-scale credential abuse:
 
@@ -102,7 +104,9 @@ Knowing how to prevent credential stuffing is all about seeing the ways in which
 
 <h2 id="prevent">How to Prevent Credential Stuffing?</h2>
 
-<!--FIGURE-->![](./figure-2.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpg)
+<!--/FIGURE-->
 
 The scary reality for enterprises is that, as a <a href="https://www.troyhunt.com/the-111-million-pemiblanc-credential-stuffing-list/" target="_blank">2018 FTC case</a> in the USA showed, if a customer’s data is threatened because of credential stuffing, the legal responsibility is still at least partially on the company's shoulders. Even if that user made the error of using repeat passwords, it’s not enough of a defense to leave the company behind the application entirely absolved.
 
@@ -162,10 +166,14 @@ How strict the parameters are and what measures are enforced is up to the enterp
 
 In addition, Authgear also provides a variety of secondary factors, such as TOTP, OTP via email or additional passwords to protect your users from credential stuffing.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 A pre-built account setting page is also available for your users to enable MFA, manage their credentials, and revoke their signed in session if they observe any suspiscious actions.
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
 The threat that credential attacks pose to user safety and data privacy is not something to be taken lightly. <a href="/talk-with-us" target="_blank">Contact us</a> at Authgear for more details on how we can help build your defense against these threats.

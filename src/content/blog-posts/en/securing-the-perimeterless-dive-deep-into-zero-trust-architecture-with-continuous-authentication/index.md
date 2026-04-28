@@ -21,13 +21,17 @@ By **moving beyond the "trust by default" mentality** and implementing stringent
 
 ## What is Zero Trust? Unveiling Zero Trust: More Than Just a Buzzword
 
-<!--FIGURE-->![](./figure-1.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpg)
+<!--/FIGURE-->
 
 Zero Trust isn't a specific product or technology; it's a philosophy, a new way of thinking about security. It challenges the assumption of trust within the network, even for internal users. Instead, it demands continuous verification and authorization for every access attempt, regardless of location or perceived identity. This creates a dynamic layer of defense that adapts to constantly shifting threats and minimizes the attack surface.
 
 ## The Authentication Puzzle Piece: Zero Trust's Importance and Core Principle
 
-<!--FIGURE-->![](./figure-2.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpg)
+<!--/FIGURE-->
 
 Zero Trust hinges on **robust authentication mechanisms.** In the past, a single login at the network edge used to grant access to virtually everything within. Now, every resource requires its own verification checkpoint, ensuring only authorized users with the right context (device, location, time of day) gain access to specific data or applications. This multi-layered approach significantly reduces the risk of lateral movement and data exfiltration, even if an attacker breaches the initial defenses.
 
@@ -44,7 +48,9 @@ To implement Continuous Authentication and Authorization, you can follow the ste
 
 ## Building Your Fortress: Benefits of a Zero Trust Architecture
 
-<!--FIGURE-->![](./figure-3.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpg)
+<!--/FIGURE-->
 
 The advantages of Zero Trust extend far beyond just enhanced data security. Here are some key benefits:
 
@@ -56,7 +62,9 @@ The advantages of Zero Trust extend far beyond just enhanced data security. Here
 
 ## Building Your Zero Trust Foundation with Authgear: WIAM for the Modern Enterprise
 
-<!--FIGURE-->![](./figure-4.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.jpg)
+<!--/FIGURE-->
 
 Implementing a Zero Trust architecture requires tools that empower you to continuously verify, authorize, and monitor access across your entire ecosystem. This is where Authgear, the leading Workforce Identity and Access Management (WIAM) solution, steps in. Authgear empowers businesses to:
 

@@ -83,7 +83,9 @@ While SMS authentication is simple and convenient, it has its downsides. Therefo
 
 Here are some reasons why SMS authentication is not ideal.
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 ### SMS Messages are not Encrypted
 
@@ -121,7 +123,9 @@ Another more straightforward way to authenticate users is through WhatsApp. What
 
 When users attempt to log into your app through WhatsApp OTP, the system will display the OTP on the screen instead of sending them an OTP on WhatsApp as shown below.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 The user can then send the OTP to Authgear for authentication. This allows businesses to significantly reduce operation cost as user-initiated conversations on WhatsApp are much cheaper than business-initiated ones and it also comes with other benefits.
 

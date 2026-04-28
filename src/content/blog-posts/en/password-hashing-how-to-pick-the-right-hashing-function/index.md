@@ -17,7 +17,9 @@ Want to try them side-by-side? Use our [Password Hash Generator & Verifier (Argo
 
 ## What is Hashing?
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 Hashing can be as simple as using a hashing function in your favorite programming language or framework to convert a text (the message) into a fixed-length string (the hash value). For example, the table below shows some text and their hash values after using an MD5 hash function to convert the original text:
 
@@ -50,7 +52,9 @@ First, let's take a look at the various hash algorithms and how they work.
 
 ## What are the Different Types of Hash Algorithms?
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 The following section lists the different types of hashing algorithms. However, this is not a definitive list of hash algorithms. Instead, it is a list we will be using to explain different hash algorithms and how they improve as you move down the list.
 
@@ -116,7 +120,9 @@ Not sure which settings to choose? Start with our presets (Argon2id, bcrypt, scr
 
 ## Attack Vectors
 
-<!--FIGURE-->![](./figure-3.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpeg)
+<!--/FIGURE-->
 
 Attack vectors are the different ways an attacker can break into a system that depends on hashing for security. The following are examples of attack vectors:
 
@@ -152,7 +158,9 @@ Getting access to an existing rainbow table is as easy as a simple Google search
 
 ## How to Use Better Hash
 
-<!--FIGURE-->![](./figure-4.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.jpeg)
+<!--/FIGURE-->
 
 The better way to use hash is by including a “salt” while using a recommended hashing algorithm. To explain the above statement further, let’s take a look at what salt is and how to use it well. We’ll also discuss how which hash algorithm is still safe and recommended.
 
@@ -182,7 +190,9 @@ The Open Web Application Security Project (OWASP) [Password Storage Cheat Sheet]
 
 ## Additional Forms of Protection to Make Hashing More Secure
 
-<!--FIGURE-->![](./figure-5.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-5.jpeg)
+<!--/FIGURE-->
 
 In addition to storing passwords as hashes, you can do the following to increase the security of your application.
 

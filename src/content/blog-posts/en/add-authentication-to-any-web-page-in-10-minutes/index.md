@@ -29,7 +29,9 @@ When your user logs in, Authgear creates a special **ID Token** that gets sent b
 1. After the user is authenticated, your app asks for the user's ID Token.
 1. Authgear then gives the user's ID Token back to your app.
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 ## Implementation Overview
 
@@ -48,7 +50,9 @@ You’ll need to create an application so you know which users can log into whic
 - Once logged into <a href="https://portal.authgear.com/" target="_blank">Authgear Portal</a>, navigate to the "Applications" tab and click "Add Application."
 - Choose an appropriate application type (Single Page Application) and provide a name for your application.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 - Click “Save” and skip to the next tutorial page or you can also follow the <a href="https://docs.authgear.com/get-started/single-page-app/website#setup-application-in-authgear" target="_blank">getting started guide</a> to set up the new application.
 
@@ -68,7 +72,9 @@ A **Post Logout Redirect URI** is a URL in your application that Authgear can re
 
 Click "Save" and keep the **Endpoint** and **Client ID** in mind. You will need it when initializing the connection through <a href="https://github.com/authgear/authgear-sdk-js" target="_blank">Authgear SDK for Web</a> in your SPA code.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 Every application in Authgear is assigned an alphanumeric, unique client ID that your application code will use to call Authgear APIs through the SDK.
 
@@ -76,7 +82,9 @@ Every application in Authgear is assigned an alphanumeric, unique client ID that
 
 Authgear supports a wide range of authentication methods. From the “Authentication” tab, you can choose a **login method** for your users. Options are including, by email, mobile, or social, just using a username or the custom method you specify. For simplicity, you can choose the **Email** and **Passwordless** options:
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
 ## Part 2: **Add Authentication to your web page**
 
@@ -217,7 +225,9 @@ label {
 
 After creating an HTML file and applying CSS styles, see now how our page looks like by running npm run dev and accessing it at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>.
 
-<!--FIGURE-->![](./figure-5.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-5.png)
+<!--/FIGURE-->
 
 ### Create an app.js file
 
@@ -318,7 +328,9 @@ Let’s breakdown down app.js code in the previous section and understand how au
 
 login: The login function is called by the **Login** button previously defined in the HTML page. It performs the login action by calling *authgearClient.startAuthentication* Authgear’s function.  It redirects the user to the Auhthgear login page. After the user logs in successfully, they will be redirected back to the same page we set in redirectURI. Run the project and click the **Login** button. You should be taken to the **Authgear Login Page** configured for your application. Go ahead and create a new user or log in using an email (we specified the Passwordless Email login method in the first part). When you try to log in with your email, you should receive a <a href="https://docs.authgear.com/strategies/email-login-link" target="_blank">magic link</a> to your email box to confirm login operation.
 
-<!--FIGURE-->![](./figure-6.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-6.png)
+<!--/FIGURE-->
 
 After authenticating successfully, you will be redirected to the page you were before.
 

@@ -42,7 +42,9 @@ According to Google, accounts with passkeys are 99.9% less likely to be compromi
 
 ## Understanding Passkeys: How They Work
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 A passkey is a pair of cryptographic keys: a **private key** stored securely on your device, and a **public key** stored on the server. Here's what happens when you log in:
 
@@ -63,7 +65,9 @@ Think of it like a safe deposit box. The bank holds the lock (your public key). 
 
 ## Why Passwords Are No Longer Enough
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 Passwords have been the primary authentication method for 60 years, and they're failing us. Here's why:
 
@@ -155,7 +159,9 @@ The core problem: passwords are *secrets shared with a server*. Every time you l
 
 ## Passkeys in 2026: Real-World Adoption
 
-<!--FIGURE-->![](./figure-3.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpeg)
+<!--/FIGURE-->
 
 Passkeys have crossed the tipping point from "interesting experiment" to "production standard." Here's where things stand in 2026:
 

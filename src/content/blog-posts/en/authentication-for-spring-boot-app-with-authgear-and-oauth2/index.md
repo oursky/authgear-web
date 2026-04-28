@@ -29,7 +29,9 @@ You will learn the following throughout the article:
 
 Before diving into implementation, let’s understand first the <a href="https://tools.ietf.org/html/rfc6749#section-4.1" target="_blank">Authorization Code Flow</a> works in our example. This flow can only be used for confidential applications (such as Regular Web Applications) because involves **exchanging an authorization code for a token**. Here are steps in this flow:
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 1. User selects **Login** within the **Spring application**.
 1. **Spring Security** redirects the user to **Authgear Authorization Server** (/oauth2/authorize endpoint).
@@ -61,11 +63,15 @@ To use Authgear services, you’ll need to have an application set up in the Aut
 
 Use the interactive selector to create a new **Authgear OIDC Client application** or select an existing application that represents the project you want to integrate with.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 Every application in Authgear is assigned an alphanumeric, unique client ID that your application code will use to call Authgear APIs through the Spring Boot <a href="https://docs.spring.io/spring-security/reference/reactive/oauth2/client/index.html" target="_blank">OAuth 2 Client</a>. Note down the Authgear issuer (for example, https://example-auth.authgear-apps.com/), CLIENT ID, CLIENT SECRET, and OpenID endpoints from the output. You will use these values in the next step for the client app config.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 ### Step 2: Configure **Redirect URI**
 
@@ -75,7 +81,9 @@ A **Redirect URI** is a URL in your application that you would like Authgear to 
 
 After you created the Authgear app, you choose how users need to **authenticate on the login page**. From the “Authentication” tab, navigate to “Login Methods”, you can choose a **login method** from various options including, by email, mobile, or social, just using a username or the custom method you specify. For this demo, we choose the **Email+Passwordless** approach where our users are asked to register an account and log in by using their emails. They will receive a One-time password (OTP) to their emails and verify the code to use the app.
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
 ## Part 2: Configure Spring Boot application
 
@@ -172,7 +180,9 @@ public class SecurityConfig {
 
 We create a simple home.html page using Thymeleaf templates. When a user opens the page running on http://localhost:8080/, we show the page with buttons for login or logout:
 
-<!--FIGURE-->![](./figure-5.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-5.png)
+<!--/FIGURE-->
 
 ### Step 5: Add controller
 
@@ -194,19 +204,27 @@ public class HomeController {
 
 To run the application, you can execute the mvn spring-boot:run goal. Or run from your editor the main ExampleApplication.java file. The sample application will be available at http://localhost:8080/.
 
-<!--FIGURE-->![](./figure-6.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-6.png)
+<!--/FIGURE-->
 
 Click on the **Login** button to be redirected to the Authgear login page.
 
-<!--FIGURE-->![](./figure-7.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-7.png)
+<!--/FIGURE-->
 
 You can also customize the login page UI view from the Authgear Portal. After you sign-up, you will receive an OTP code in your email to verify your identity.
 
-<!--FIGURE-->![](./figure-8.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-8.png)
+<!--/FIGURE-->
 
 And log into your new account, you will be redirected back to the home page:
 
-<!--FIGURE-->![](./figure-9.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-9.png)
+<!--/FIGURE-->
 
 You have successfully configured a Spring Boot application to use Authgear for authentication. Now users can sign-up for a new account, log in, and log out.
 

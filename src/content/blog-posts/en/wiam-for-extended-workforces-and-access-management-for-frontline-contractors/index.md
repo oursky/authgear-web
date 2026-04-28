@@ -19,7 +19,9 @@ Traditional WIAM solutions, built for the era of saloon doors and oil lamps, can
 
 ## WIAM for the Extended Workforce: Your Six-Shooter for Secure Access
 
-<!--FIGURE-->![](./figure-1.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpg)
+<!--/FIGURE-->
 
 - Onboarding in a Flash: No more mountains of paperwork! Automated workflows provision access based on roles or project requirements, getting your posse up and running faster than a tumbleweed in a tornado.
 - Mobile is King: Ditch the clunky desktop interfaces! Secure and user-friendly mobile apps put essential resources at your fingertips, anytime, anywhere. Perfect for frontline riders on the move.
@@ -29,7 +31,9 @@ Traditional WIAM solutions, built for the era of saloon doors and oil lamps, can
 
 ## Frontline & Contractors: Access Management Tailored for Your Skills
 
-<!--FIGURE-->![](./figure-2.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpg)
+<!--/FIGURE-->
 
 WIAM for the Extended Workforce knows not everyone wears the same Stetson. It caters to your unique needs:
 

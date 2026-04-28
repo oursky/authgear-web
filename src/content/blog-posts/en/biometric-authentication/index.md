@@ -74,7 +74,9 @@ Biometric authentication is mostly used as a secondary authentication method aft
 
 <h2 id="why">Why Should My Applications or Websites Offer Biometric Login?</h2>
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 ### User Experience and Preference
 
@@ -125,7 +127,9 @@ A lot can go wrong when developing and maintaining biometric authentication, alo
 
 <h2 id="types">What Are the Types of Biometric Authentication?</h2>
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 ### **Fingerprint Recognition**
 
@@ -155,6 +159,8 @@ Developing an authentication system to provide all kinds of authentication metho
 
 Authgear provides all features needed for your applications such as passwordless & biometrics, SSO & social login, password policy management, two-factor authentication, etc. In order to enable biometric authentication for your app, you simply have to enable it in your portal and also follow the steps in our [documentation](https://docs.authgear.com/strategies/biometric) to enable biometric login in mobile SDK.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 <a href="/talk-with-us" target="_blank">Contact us</a> and learn more about how you can benefit from Authgear to deliver smooth user experience and improve data security.

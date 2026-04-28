@@ -76,17 +76,23 @@ Here are the 4 issues for any developers trying to develop Passkeys-enabled webs
 
 <h2 id="backward">Needs to Maintain Backward Compatibility With Non-passkeys Supported Platforms</h2>
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 Before we got our hands dirty, we spent some time researching the compatibility of Passkeys on various platforms.
 
 Before iOS 16, the <a href="https://www.w3.org/TR/webauthn-2/#enum-attachment" target="_blank">platform authenticator</a> like Safari creates <a href="https://fidoalliance.org/white-paper-multi-device-fido-credentials/" target="_blank">single-device FIDO credentials</a>. The implication is that while the end-user can create credentials, it will be cleared along with cookies. If the end-user signs up to your app with a single-device credential only, they will permanently lose access to their accounts when they clear their browsing history. Platforms like Android and Chrome desktop share this characteristic as well.
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 With Passkeys support on iOS16, Safari creates <a href="https://fidoalliance.org/multi-device-fido-credentials/#faq" target="_blank">multi-device FIDO credentials</a> stored in iCloud Keychain. Multi-device FIDO credentials are also known as **Passkeys**. The passkeys are still considered to have <a href="https://www.w3.org/TR/webauthn-2/#enum-attachment" target="_blank">platform attachment</a>s, but these passkeys are synced across the end-user devices. Therefore, the passkeys are available on all devices the end-user owns and will not be cleared with the browsing history. This characteristic is also the key point of making passkeys usable among consumers.
 
-<!--FIGURE-->![](./figure-3.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpeg)
+<!--/FIGURE-->
 
 As there are two kinds of credentials, “single-device credentials” and “multi-device credentials.” To ensure our end-users have the best experience, your app must be prepared to handle both technically.
 
@@ -129,9 +135,13 @@ The mediation option is the option that determines the behavior of the system. W
 
 <p>We ran into an issue that <span class="inline-code">navigator.credentials.get({ mediation: "conditional"})</span> will immediately be rejected with a <span class="inline-code">DOMException(name="NotAllowedError")</span>. When such an exception is observed, the next invocation of <span class="inline-code">navigator.credentials.get()</span> will display the modal dialog normally. However, when the end-user chooses a passkey, the modal dialog becomes unresponsive, and the promise never settles. This bug effectively breaks the flow. We have no choice but to disable autofill for now. It’s probably a bug we have to wait til iOS 16 is officially available. This bug is tracked <a href="https://bugs.webkit.org/show_bug.cgi?id=241126" target="_blank">here</a>.</p>
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
-<!--FIGURE-->![](./figure-5.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-5.png)
+<!--/FIGURE-->
 
 <h2 id="platform-experience">User Experiences Vary Across Platforms</h2>
 
@@ -143,11 +153,15 @@ We rely on the WebAuthn API the platform/browser provides to use Passkeys. We ha
 
 On Chrome desktop, however, the browser is not smart enough to hide the option of using credentials on the device. The end-user could tap on that option and see an unhelpful error message saying "Your identity could not be verified" without any other messages.
 
-<!--FIGURE-->![](./figure-6.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-6.png)
+<!--/FIGURE-->
 
 On the Firefox desktop, the modal dialog looks very similar to the ordinary permission dialog. The modal dialog is not centered and not big enough to draw the end-user’s attention. If the end-user is accustomed to the permission dialog, the modal dialog could be easy to miss.
 
-<!--FIGURE-->![](./figure-7.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-7.png)
+<!--/FIGURE-->
 
 <h2 id="error-handling">Error Handling Is Inconsistent Across Platforms</h2>
 

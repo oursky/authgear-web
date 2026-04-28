@@ -78,7 +78,9 @@ A more efficient solution is authentication as a service or AaaS. In this blog p
 
 <h2 id="definition">What Is Authentication as a Service?</h2>
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 Authentication as a service is a cloud-based authentication solution that allows businesses to outsource their authentication needs. AaaS providers offer authentication platforms that are secure, scalable, and easy to use.
 
@@ -134,7 +136,9 @@ These features help businesses not only improve data security but also provide b
 
 <h2 id="comparison">In-house Authentication vs Using Authentication-as-a-Service</h2>
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 Some senior developers certainly prefer developing their authentication system in-house since they will have more control over it. However, there are many reasons for businesses to use authentication-as-a-service (AaaS), such as:
 
@@ -180,11 +184,15 @@ Instead of making your development work on maintaining the authentication system
 
 The choice is clear: authentication as a service is the way to go and Authgear is certainly one of the solutions to be considered. This customer identity and access management solution comes with everything you need to get started, including secure and frictionless authentication methods, user management tools, pre-built signup & account setting pages, and more.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 Users will love the easy sign-up process and the fact that they can manage their authentication methods and information all in one place. In fact, with Authgear, you'll notice that dropout rates decrease significantly. Thanks to the fact that we follow conversion best practices, you can be sure that more users will sign up for your services.
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
 For developers, we offer an easy-to-use authentication API that makes it simple to integrate Authgear into your existing app. And if you ever need help, our expert support team is always there to lend a hand.
 

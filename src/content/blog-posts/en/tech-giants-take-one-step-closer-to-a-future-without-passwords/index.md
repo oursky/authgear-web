@@ -80,7 +80,9 @@ Nevertheless, the current state of passwordless authentication isn't enough for 
 
 <h2 id="passkeys">Passkey: A Step Closer to a Future Without Passwords</h2>
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 Furthermore, Authgear also comes with a set of authentication and user management features, such as pre-built signup and user profile pages, user analytics, WhatsApp OTP, social logins, etc., to help you provide better user experience, increase app conversion rate, and boost user retention rate.
 

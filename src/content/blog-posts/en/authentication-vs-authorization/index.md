@@ -128,7 +128,9 @@ If you take anything away from all of this, it’s simply that authentication an
 
 <h2 id="authn-methods">Authentication Methods</h2>
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 Most businesses these days are opting to use <a href="/post/what-is-multi-factor-authentication-mfa" target="_blank">multi-factor authentication</a> (MFA) for stronger protection against cyber security threats.
 

@@ -36,7 +36,9 @@ The process of **using magic links** with Authgear is straightforward.
 1. The application sends an email with a link to their registered email address.
 1. The user clicks on the link in the email to access the application.
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 ## 5 Use cases of Magic Links
 
@@ -90,9 +92,13 @@ Another way to make magic links safer is by setting an expiration period. With A
 
 Assume that you have a case where you send **magic links to a few users** and allow them to log in only from the magic link. While for all other users, the login would follow the normal flow through **Email & Password** credentials. In this case, it is possible to define multiple login methods with Authgear to accommodate the specific requirements of different user groups.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 **7. Customize branding**
 

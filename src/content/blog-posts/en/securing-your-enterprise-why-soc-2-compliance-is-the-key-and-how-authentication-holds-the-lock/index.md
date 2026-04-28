@@ -27,7 +27,9 @@ Achieving SOC 2 compliance isn't just a box to tick; it's a strategic advantage.
 
 ### SOC 2 Compliance Checklist: A Step-by-Step Guide to Success
 
-<!--FIGURE-->![](./figure-1.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpg)
+<!--/FIGURE-->
 
 Achieving SOC 2 compliance, while rewarding, isn't a simple feat. To navigate this journey effectively, a detailed checklist can be your map. Here's a comprehensive breakdown of the key steps, with additional insights to empower your progress:
 
@@ -64,7 +66,9 @@ Remember, this checklist serves as a framework, not a rigid formula. Tailor it t
 
 ## SOC 1 vs. SOC 2: Focus on the Source
 
-<!--FIGURE-->![](./figure-2.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpg)
+<!--/FIGURE-->
 
 Imagine SOC 1 and SOC 2 as siblings, sharing a family resemblance but specializing in distinct areas.
 
@@ -114,7 +118,9 @@ SOC 2:
 
 ## ISO 27001: The Guiding Light
 
-<!--FIGURE-->![](./figure-3.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpg)
+<!--/FIGURE-->
 
 Unlike SOC 1 and SOC 2, which are audit reports, ISO 27001 is a prescriptive set of guidelines for implementing an Information Security Management System (ISMS).
 

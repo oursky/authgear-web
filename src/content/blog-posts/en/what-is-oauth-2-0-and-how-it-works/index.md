@@ -65,7 +65,9 @@ Before walking through the flow, it helps to know the four parties involved:
 
 The most common and secure OAuth 2.0 flow is the **Authorization Code flow**. Here's exactly what happens, step by step:
 
-<!--FIGURE-->![](./figure-1.webp)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.webp)
+<!--/FIGURE-->
 
 ### Step 1: The Client Redirects the User to the Authorization Server
 

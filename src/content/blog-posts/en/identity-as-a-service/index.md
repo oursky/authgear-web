@@ -69,7 +69,9 @@ Identity as a Service (IDaaS) is the cloud version of IAM and allows organizatio
 
 <h2 id="why">Why Having Identity as a Service (IDaaS) is a Must?</h2>
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 As businesses grow and develop, identity and access management tends to get more costly and complex with each year. This is further exacerbated by technology changes and increasing cyber security pressures. Balancing user experience and security can be quite challenging and the best way to ease these burdens and limit the expense of identity management is to outsource to an IAM solution that can handle all these issues for you, from development to long-term maintenance.
 
@@ -111,7 +113,9 @@ As PWC showed in their <a href="https://www.pwc.com/us/en/services/consulting/cy
 
 <h2 id="features">The Most Important Features of Great IDaaS</h2>
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 With the aforementioned advantages of IDaaS in mind, here are some of the most important features the service includes:
 

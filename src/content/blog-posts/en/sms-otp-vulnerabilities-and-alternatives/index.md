@@ -43,7 +43,9 @@ Moving away from SMS is recommended because it relies on the insecure SS7 cellul
 
 <h2 id="sms-otp-definition">What are OTP messages?</h2>
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 OTP, or One-Time Password, is a security token delivered to a user's device, typically a mobile phone, for the purpose of verifying their identity. This dynamic code replaces static passwords, providing an additional layer of protection against unauthorized access. When a user attempts to log in to an online account or perform a sensitive transaction, they are prompted to enter a unique, time-sensitive code sent to their registered device. This mechanism enhances account security by making it significantly more difficult for malicious actors to gain unauthorized access, even if they possess the user's credentials.
 

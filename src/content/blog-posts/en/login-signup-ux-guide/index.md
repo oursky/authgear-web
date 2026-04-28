@@ -94,9 +94,13 @@ Users can authenticate in various ways, and each method comes with pros and cons
 
 For instance, [Authgear’s Login Gallery ](/login-gallery)showcases real apps with multi-option logins. Many modern apps combine methods: e.g., [*Molto*](/login-gallery/molto) (a developer analytics SaaS) allows email/password, email magic links, **social logins**, and even passcodes – covering both convenience and security for different user preferences. On the other hand, an app like [*WorkKing*](/login-gallery/work-king) (job platform) went fully passwordless with phone number OTP for simplicity in a mobile-first audience. Both approaches can work if aligned with user needs.
 
-<!--FIGURE-->![](./figure-1.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpg)
+<!--/FIGURE-->
 
-<!--FIGURE-->![](./figure-2.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpg)
+<!--/FIGURE-->
 
 Finally, remember **not to overwhelm** with too many options on one screen. Offer the key 2–3 methods that make sense for your users. It’s okay to tuck secondary options behind an “Other methods” link or a “More login options” dropdown to keep the UI clean.
 

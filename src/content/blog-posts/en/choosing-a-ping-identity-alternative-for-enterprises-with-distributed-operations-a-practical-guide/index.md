@@ -53,7 +53,9 @@ Authgear is positioned throughout this guide as a mobile-first identity platform
 - [Top 9 Ping Alternatives](#top-ping-identity-alternatives-to-evaluate-quick-reference)
 - [Vendor Deep Dives](#vendor-profiles-detailed)
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 ## Why companies look beyond Ping Identity
 
@@ -72,7 +74,9 @@ Ping Identity is a mature platform that excels at workforce SSO, complex federat
 
 ## Evaluation criteria for enterprises and mobile-first staff
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 Standard CIAM/IAM checklists (security, UX, scalability) are necessary but insufficient for globally distributed, mobile-first workforces. Expand evaluation to include mobile and multi-region nuances.
 
@@ -123,7 +127,9 @@ Standard CIAM/IAM checklists (security, UX, scalability) are necessary but insuf
 
 Use this rubric during vendor demos to rate vendors across the checklist.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 ## Top Ping Identity alternatives to evaluate (quick reference)
 

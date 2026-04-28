@@ -82,7 +82,9 @@ Being digitally equipped no longer gives insurance companies an edge, it’s now
 
 <h2 id="why">Why Do You Need an Insurance IAM?</h2>
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 IAM stands for “identity and access management” and can be broken down into different categories of use, each of which has its own benefits for insurers. It’s a blanket term for technology that helps to manage access security.
 
@@ -94,7 +96,9 @@ With how digital our world has become clients are now expecting the same level o
 
 An exciting feature that CIAM includes is multiple passwordless options – a game-changer for anyone sick of trying to keep track of passwords. Logins can be done with <a href="/features/whatsapp-otp" target="_blank">OTPs</a> which are sent via SMS or WhatsApp, or even biometric authentication. The <a href="/features/biometric-authentication" target="_blank">biometric authentication</a> that we offer at Authgear is quite different. Unlike what our competitor offers, our biometric authentication **has no timeout**. In other words, once the insurance clients log into the portals and enable biometric authentication, they can always securely log in again using biometric authentication forever using the logged in device, which is perfect for insurance clients who might only log in once or twice every year.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 Without getting too technical about it, biometric authentication generally use a refresh token to store the login session, but it has to be replaced every once  in a while (usually max of 180 days) to stay secure, meaning that users will have to log in again with their passwords before being able to sign in with biometric authentication again. Authgear, on the other hand, implements biometric authentication based on the public-key cryptography. The private key stored in the user’s device never leaves the device and it’s used to authenticate against a public key on the server, eliminating the need for users to sign in again while keeping the credentials safe.
 
@@ -114,7 +118,9 @@ It’s one thing to attract clients but retaining them for life requires ongoing
 
 Authgear provides insurance companies with a pre-built customizable signup page that follows best practices to minimize any signup friction and ultimately, makes it easier for insurers to acquire new clients. There’s nothing that puts potential customers off like glitchy sign-ups that take too long. The process needs to be quick and easy so that they follow through.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 After sign-up, Authgear supports the long-term customer experience by making logins simpler and safer. We provide a variety of passwordless authentication options such as OTP authentication, biometric authentication, and <a href="/features/passkeys" target="_blank">passkeys</a> for users to choose from. Each allows users to log into insurance apps without having to memorize complex passwords or worry about the cybersecurity flaws that come with them.
 
@@ -124,7 +130,9 @@ These authentication features not only ensure data security but also prevent pro
 
 Once the client is logged in, Authgear also provides a pre-built account setting page for users to manage their personal information, authentication methods, and logged-in sessions. This gives them full control over how they log in so that they can use whatever suits them best.
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
 Furthermore, Authgear also provides an admin portal for support teams to help clients if they forget their passwords or are worried they’ve been hacked. This kind of support is crucial for keeping the user experience pleasant and secure.
 
@@ -152,7 +160,9 @@ In their 2022 report on password safety, <a href="https://financesonline.com/pas
 
 Authgear allows developers to easily configure 2FA and implement passwordless authentications which adds a layer of security to your insurance IAM. External team members can access your business application using a TOTP, Email OTP, etc. – all of which provide added data privacy protection. Various passwordless authentication methods are also vailable as primary authentication factor, helping insurers provide a smoother user experience free of any password-related frustration
 
-<!--FIGURE-->![](./figure-5.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-5.png)
+<!--/FIGURE-->
 
 <h2 id="authgear">Insurance IAM is Key to a Successful Insurance Business</h2>
 
