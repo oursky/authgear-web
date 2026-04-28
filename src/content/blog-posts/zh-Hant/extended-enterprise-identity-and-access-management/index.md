@@ -1,0 +1,184 @@
+---
+title: "延伸型企業與身分存取管理：挑戰與解法"
+excerpt: "客戶、合作夥伴、承包商等延伸型企業成員，為企業帶來新的身分與存取管理挑戰。本文整理核心問題與可行解法。"
+coverImage: ./cover.png
+category: industry
+featured: false
+metaTitle: "延伸型企業與身分存取管理：挑戰與解法"
+metaDescription: "延伸型企業雖能提升效率與成長，但也帶來 IAM 管理難題。了解常見挑戰與 Authgear 的解決方式。"
+canonicalUrl: /post/extended-enterprise-identity-and-access-management
+publishedAt: 2022-10-21T10:16:56.770Z
+updatedAt: 2026-02-12T02:33:54.761Z
+draft: false
+---
+
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org",
+  "@type":"NewsArticle",
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"/post/extended-enterprise-identity-and-access-management#webpage",
+    "url":"www.authgear.com/post/extended-enterprise-identity-and-access-management"
+  },
+  "headline":"延伸型企業與身分存取管理：挑戰與解法",
+  "image":{
+    "@type":"ImageObject",
+    "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63526a5a62d088630d6014af_extended-enterprise-featured.png",
+    "width":1223,
+    "height":584
+  },
+  "datePublished":"2022-10-21",
+  "dateModified":"2022-10-24",
+  "description":"延伸型企業可提升營運彈性，但也帶來新的身分與存取管理挑戰。",
+  "author":{"@id":"https://www.oursky.com/#organization"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Oursky",
+    "@id":"https://www.oursky.com/#organization",
+    "logo":{"@type":"ImageObject","@id":"https://www.oursky.com/#logo","url":"https://oursky.com/assets/img/og-image.png","caption":"Oursky"}
+  }
+}
+</script>
+
+隨著世界更加互聯，企業邊界也愈來愈模糊。企業彼此連結的程度前所未見，目標是創造效率並驅動成長。
+
+在新的工作型態下，存取 IT 資源的人不再只有內部員工。客戶、合作夥伴、承包商、廠商、供應商與其他利害關係人，如今都可能擁有過去難以想像的存取權限，而這一切的目的，是把價值帶回企業。這個概念就是 **延伸型企業（extended enterprise）**。
+
+然而，這種程度的存取也帶來一組獨特的身分與存取管理（IAM）挑戰：你要如何管理所有外部使用者的身分，並確保他們對公司資源擁有恰當的存取層級？
+
+畢竟，傳統上用來管理內部員工的 IAM 方案，往往不太適合管理延伸型企業的使用者。在這篇文章中，我們會探討延伸型企業在身分管理上的挑戰，以及為什麼 Authgear 是值得考慮的解法。
+
+<nav id="table-of-content">
+    <ul>
+        <li><a href="#definition">什麼是延伸型企業？</a></li>
+        <li><a href="#components">延伸型企業網路有哪些組成？</a></li>
+        <li><a href="#challenges">延伸型企業的身分與存取管理挑戰</a></li>
+        <li style="margin-bottom:0"><a href="#features">Authgear 能如何協助你</a>
+            <ul>
+                <li style="margin-top:15px"><a href="#self-service">自助註冊與審批流程</a></li>
+                <li><a href="#admin">管理後台與自助設定頁</a></li>
+                <li><a href="#passwordless">無密碼與兩步驟驗證（2FA）</a></li>
+                <li><a href="#access-control">以角色與應用為基礎的存取控制</a></li>
+                <li><a href="#integration">與 HR 系統及 WIAM 整合</a></li>
+            </ul>
+        </li>
+        <li><a href="#authgear">用 Authgear 簡化延伸型企業的身分與存取管理</a></li>
+    </ul>
+</nav>
+
+<h2 id="definition">什麼是延伸型企業？</h2>
+
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
+
+延伸型企業是由組織、人員與技術資源構成的協作網路，共同為企業創造價值。它涵蓋所有商業利害關係人，例如客戶、合作夥伴、供應商與承包商。
+
+在傳統企業環境中，公司的 IT 資產往往侷限在單一實體地點或平台，而且通常只有內部員工能夠存取。
+
+然而，隨著商業環境改變，這種傳統模式已難以為繼。若把外部參與者完全排除在外，企業就很難取得在競爭環境中生存所需的連結性與敏捷度。
+
+如今，企業需要與各種外部合作夥伴共享資訊並協同合作才能成功。延伸型企業模式讓企業得以做到這件事。
+
+換句話說，在延伸型企業中，企業必須跳脫「四面牆內」的視角，納入所有為成功貢獻心力的利害關係人；也就是形成一個能存取公司 IT 資源的外部與內部使用者網路。
+
+雲端應用與服務的普及，也讓企業更容易採用延伸型企業模式。只要點幾下，企業就能授予世界各地任何人存取權限。
+
+<h2 id="components">延伸型企業網路有哪些組成？</h2>
+
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
+
+延伸型企業包含多種為企業成功貢獻心力的參與者，涵蓋所有能存取公司 IT 資源的內部與外部利害關係人。主要組成包括：
+
+*供應商（Vendors）*：供應商主要販售原料或半成品，供企業製造產品。他們在延伸型企業中扮演關鍵角色，因為最終產品的品質，往往取決於他們供應的原料品質。
+
+*經銷商（Distributors）*：當製造商不直接把產品賣給終端消費者時，就會倚賴批發商、零售商與轉售商等經銷商來評估需求並分銷產品。經銷商透過行銷與推廣活動擴大產品觸及。企業必須與經銷商維持緊密關係，才能確保產品真正抵達終端使用者。
+
+*技術人員（Technicians）*：也稱服務提供者，負責維護與修復公司的 IT 基礎設施與應用。他們對維持業務順暢運作至關重要。
+
+*承包商（Contractors）*：承包商通常受僱在特定期間提供某項服務。他們與正職員工不同，通常不在公司的薪資名冊上。延伸型企業可能包含多種承包商，例如 IT、行銷、營運等。
+
+*合作夥伴（Partners）*：合作夥伴通常是能補足公司產品或服務的其他企業，可能是經銷商、零售商、供應商或其他型態的業者。例如手機製造商會與電信業者建立合作關係。
+
+*客戶（Customers）*：客戶是購買公司產品或服務的人，可能是個人或組織。企業必須滿足客戶需求，才能創造回購並建立良好聲譽。
+
+這份清單並非鉅細靡遺；你實際的延伸型企業利害關係人，仍會依產業與商業模式而有所不同。
+
+<h2 id="challenges">延伸型企業的身分與存取管理挑戰</h2>
+
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
+
+延伸型企業模式自有其挑戰，其中最重要的一項就是管理身分與存取。在延伸型企業中，企業必須讓許多人存取自家的 IT 資源。
+
+你的企業需要讓所有利害關係人都能使用應用程式。若沿用傳統 IAM 來管理這些身分，對 IT 部門而言往往笨重又耗時。
+
+IT 團隊必須在 IAM 方案中為每個參與者建立名額（seat），也必須確保存取與設定變更能及時、正確地完成。當要管理的身分數量很大時，錯誤很容易發生。
+
+舉例來說，採用延伸型企業模式的房仲業者，可能會有同時開放給經紀人與內部員工使用的應用程式；但他們絕對不會希望這些對象存取 HR 系統。
+
+最大的難題在於：HR 系統與 IAM 方案整合在一起，但公司仍需要讓經紀人存取部分應用程式。此時問題就浮現了：公司要如何在讓經紀人存取某些應用的同時，阻擋他們存取其他應用？
+
+另一項挑戰是延伸型企業網路持續變動：新的利害關係人加入，舊的離開。
+
+這代表存取權必須定期更新以反映變化。當參與者不停更替時，要追蹤「誰能存取什麼」變得非常困難。在 IAM 方案中管理每一個 seat 也可能所費不貲，尤其是使用者數量很多的時候。
+
+<h2 id="features">Authgear 能如何協助你</h2>
+
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
+
+為了與延伸型企業中的承包商、自由工作者、廠商與供應商等不同對象協作，企業往往會為他們打造新的應用，並與內部員工一起使用；但底層的身分與權限問題可能相當棘手。
+
+Authgear 提供一站式方案，協助你解決應用程式上與延伸型企業相關的身分與存取管理議題，以提升整體生產力。
+
+我們的目標是協助企業以最低的安全風險營運，並盡量降低 IT 複雜度。Authgear 也重視促進協作與提供順暢的使用者體驗。以下功能讓延伸型企業的身分與存取更容易管理：
+
+<h3 id="self-service">自助註冊與審批流程</h3>
+
+Authgear 提供預先建置的登入與註冊頁面，外部使用者可以自行建立帳號並登入，而不必等待 IT 寄送邀請連結；IT 也不必為他們逐一建立公司電子郵件帳號——這類做法往往會在 IAM 平台上帶來可觀成本，也需要大量時間設定。這套自助流程可搭配審批功能，讓 IT 確認所有註冊都來自經授權的人員。
+
+這些能力能帶來低摩擦又安全的體驗。企業可以更容易讓內部與外部夥伴上線，並把 IT 團隊從大量密碼與驗證相關工作中解放出來。
+
+<h3 id="admin">管理後台與自助設定頁</h3>
+
+有些使用者仍需要 IT 支援。Authgear 提供管理後台，讓支援團隊能建立、移除、撤銷或停用使用者的工作階段，通常只需要點幾下即可完成。
+
+此外，Authgear 也內建帳號設定頁，讓使用者能自行處理上述許多事項。外部使用者可以變更密碼、設定 2FA、撤銷仍有效的工作階段，以及更新個人資料，而不必聯絡 IT。
+
+管理後台也內建分析能力，協助企業取得可用於行銷或安全面的洞察；並提供稽核紀錄，追蹤後台內的所有操作，更容易找出安全疑慮。
+
+<h3 id="passwordless">無密碼與兩步驟驗證（2FA）</h3>
+
+使用 Authgear，使用者不必再硬記另一組塞爆腦袋的密碼。Authgear 提供多種無密碼驗證方式，讓生活更輕鬆。
+
+其一是 <a href="/zh-Hant/features/whatsapp-otp" target="_blank">WhatsApp OTP</a>：使用者可透過 WhatsApp 登入帳號，以 WhatsApp 接收一次性密碼，而非簡訊。由於端到端加密，WhatsApp OTP 通常比簡訊 OTP 更安全；每次驗證的成本也更低，讓企業能以更具成本效益的方式擴張。
+
+另一種方式是 <a href="/zh-Hant/features/social-login" target="_blank">社群登入</a>：把註冊流程與熱門社群平台登入整合，簡化客戶註冊。使用者以社群帳號註冊後，你就能取得由社群提供者驗證過的電子郵件地址。
+
+<a href="/zh-Hant/features/passkeys" target="_blank">Passkeys</a> 則能帶來真正的無密碼體驗：若你的應用支援 passkeys，使用者註冊或登入時就不必輸入容易被攻擊者鎖定的複雜密碼。使用者以使用者名稱註冊後，通常只需要 <a href="/zh-Hant/features/biometric-authentication" target="_blank">生物辨識驗證</a> 就能存取帳號。
+
+這些無密碼功能可強化安全並簡化驗證流程。你也可以加入 2FA 作為額外防護，確保只有經授權的使用者能存取帳號。
+
+<h3 id="access-control">以角色與應用為基礎的存取控制</h3>
+
+Authgear 支援以角色為基礎的存取控制（RBAC）與以屬性／應用情境為基礎的存取控制（ABAC）。RBAC 讓你透過指派角色，控制使用者能否存取特定資源；角色可以是預先定義，也可以依需要建立。
+
+另一方面，ABAC 是更具彈性的模型，會依屬性決定使用者能否存取特定應用或軟體；屬性可能來自使用者身分、請求情境或資源本身。
+
+在管理延伸型企業存取時，RBAC 與 ABAC 都很重要。透過 Authgear，你可以更容易把使用者加入或移出特定角色或應用，從而控制誰能存取哪些資源。
+
+<h3 id="integration">與 HR 系統及 WIAM 整合</h3>
+
+Authgear 能與你的 HR 系統以及 Workforce IAM（WIAM）整合，讓你從單一地方管理延伸型企業的存取。
+
+從 HR 系統中，你可以依人員在系統中的狀態進行帳號開通與撤銷。WIAM 整合則讓你管理使用者角色與權限。透過 Authgear，你可以更容易把使用者加入或移出特定角色或應用。
+
+<h2 id="authgear">用 Authgear 簡化延伸型企業的身分與存取管理</h2>
+
+Authgear 協助你集中管理內部與外部的身分與存取，以提升生產力、強化安全並改善體驗。透過我們的軟體開發套件（SDK），把商業應用與 Authgear 整合並不困難。歡迎<a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a>，讓我們更了解你的使用情境，並看看 Authgear 如何協助你提升延伸型企業的生產力與獲利能力。
