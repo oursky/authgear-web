@@ -28,7 +28,9 @@ We'll cover authentication providers that natively support WhatsApp Business API
 - [Implementation Guide](#deep-dive-implementing-whatsapp-otp-biometrics-with-authgear)
 - [FAQs](#faqs)
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 ## Why teams are re-evaluating Stytch
 
@@ -42,7 +44,9 @@ For mobile-first deployments you care most about predictable costs, channel flex
 
 **Key takeaway:** When your users are phone-first and cost-sensitive, channel flexibility and vendor responsiveness matter as much as features.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 ## Core authentication features you must evaluate
 
@@ -271,7 +275,9 @@ Useful for developers looking for an integrated database+auth stack. Growing pla
 
 ## Deep dive: Implementing WhatsApp OTP + biometrics with Authgear
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 This section provides a concrete implementation blueprint: architecture, sequence, and provisioning guidance.
 

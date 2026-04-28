@@ -17,7 +17,9 @@ This comprehensive guide will delve into the intricacies of SCIM provisioning, e
 
 ## What is SCIM Provisioning: A Simplified Overview
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 **SCIM**is a standardized protocol designed to automate the management of user accounts across different applications and systems. It provides a common language and framework for exchanging user data, ensuring seamless integration and reducing the administrative burden associated with manual provisioning.
 
@@ -46,7 +48,9 @@ Imagine a company that uses a cloud-based HR system and a SaaS-based project man
 
 ## Benefits of SCIM Provisioning
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 SCIM provisioning offers numerous advantages for organizations of all sizes. By automating user account management, SCIM can:
 
@@ -59,7 +63,9 @@ SCIM provisioning offers numerous advantages for organizations of all sizes. By 
 
 ## SCIM vs. SAML & SSO: A Comparative Analysis
 
-<!--FIGURE-->![](./figure-3.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpeg)
+<!--/FIGURE-->
 
 **SCIM, SAML, and SSO** are all important technologies for identity and access management, but they serve different purposes.
 
@@ -139,7 +145,9 @@ While SCIM is primarily concerned with user account management, SAML and SSO foc
 
 ## Just-in-Time Provisioning vs. SCIM Provisioning: A Comparison
 
-<!--FIGURE-->![](./figure-4.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.jpeg)
+<!--/FIGURE-->
 
 **Just-in-time provisioning** and **SCIM provisioning** are both methods for automating user account management, but they differ in their approach.
 

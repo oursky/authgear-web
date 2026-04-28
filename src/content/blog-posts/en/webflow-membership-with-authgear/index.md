@@ -39,7 +39,9 @@ First, we'll create a project, which acts as a container for your applications a
 1. Enter a Project Name (e.g., `My Webflow Site`).
 1. Complete the endpoint domain to form your unique Authgear endpoint: `https://<your-project-name>.authgear.cloud`. Click "Next".
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 1. Choose how you would like your end-users to login. In this tutorial, make sure we choose Email here.
 1. Add branding by uploading logo and choosing the colors you like.
@@ -52,7 +54,9 @@ Now that you have a project, you need to create an application within it.
 1. Click the + Add Application button in the top toolbar.
 1. In the dialog, enter an Application Name (e.g., "Webflow Site") and select the Single Page Application type. Click "Save".
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 1. On the next screen, Authgear shows tutorials for various frameworks. Click Next to skip this and go to your application's configuration page.
 1. You will now be on the application configuration page. Under the URIs section, find the Authorized Redirect URIs field.
@@ -60,7 +64,9 @@ Now that you have a project, you need to create an application within it.
 1. Click Save at the bottom of the page.
 1. Finally, make a note on your Client ID and Endpoint. You will need these values in a later step.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 ## Step 3: Add Custom Styles to Webflow
 
@@ -107,13 +113,17 @@ Then, you can move on to sign up as the first user:
 1. Configure it: Name **`points_collected`**, Type Number. Click "Save".
 1. In the list, set Token Bearer Access Right and End-user Access Right to Read-only.
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
 1. Assign a Value to Your User   <ol><li>Navigate to User Management > Users, and click on your test user.
 1. In the Profile Tab, scroll down to Custom Attributes.
 1. Enter a number (e.g., 50) in the Points Collected field and click "Save".
 
-<!--FIGURE-->![](./figure-5.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-5.png)
+<!--/FIGURE-->
 
 ### 7b. Display the Custom Attribute in Webflow
 

@@ -101,7 +101,9 @@ Broken authentication refers to any vulnerabilities involving the attackers impe
 
 <h2 id="session-management">Poorly Implemented Session Management</h2>
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 Before we get into how poorly implemented session manage leads to broken authentication, there are a few terms that we need to explain.
 
@@ -137,7 +139,9 @@ This attack occurs when the web application does not generate a new session ID a
 
 <h3 id="loose-policy">Loose Password Policies and Stolen/Compromised Credentials</h3>
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 Cybercriminals can also compromise your authentication process if your apps don’t impose strong password policies. Your users might be inclined to choosing easily-guessed passwords that cybercriminals can use to access their accounts.
 
@@ -163,7 +167,9 @@ Phishing attacks can expose users' credentials, which can then be used to access
 
 <h2 id="prevent-broken">How to Prevent Broken Authentication?</h2>
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 Although attacks involving broken authentication are common, there are some measures you can take to prevent them. The following safeguards will help you secure your authentication process:
 

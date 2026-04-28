@@ -20,7 +20,9 @@ SAML and OAuth are two fundamental protocols for managing user identities within
 
 ## How does SAML work?
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 The SAML process involves three main actors:
 
@@ -41,7 +43,9 @@ By streamlining the authentication process and eliminating the need for multiple
 
 ## What is OAuth and how does it work?
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 **OAuth**, which stands for Open Authorization, is an industry-standard protocol for authorization. Unlike SAML, which focuses on authentication, OAuth is concerned with granting access to specific resources on behalf of a user. It allows users to share their data with third-party applications without revealing their credentials.
 
@@ -130,7 +134,9 @@ By understanding these key differences, you can make informed decisions about wh
 
 ## When to Use SAML vs OAuth: Best Practices
 
-<!--FIGURE-->![](./figure-3.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpeg)
+<!--/FIGURE-->
 
 The decision to use SAML or OAuth hinges on several factors, including the nature of your application, its security requirements, and the target audience. Enterprise environments with multiple applications and a strong emphasis on centralized identity management often benefit from SAML's robust authentication and single sign-on capabilities. On the other hand, consumer-facing applications that rely on third-party authentication or need to grant granular access to specific resources are well-suited for OAuth's flexible authorization mechanisms. Additionally, API-driven systems and mobile applications often leverage OAuth's token-based approach to secure data exchange and user interactions. Here's a breakdown of when to use each:
 
@@ -160,7 +166,9 @@ By carefully considering these factors and following best practices, you can sel
 
 ## SAML vs. OAuth: A Comprehensive Guide to Choosing the Right Identity Management Solution
 
-<!--FIGURE-->![](./figure-4.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.jpeg)
+<!--/FIGURE-->
 
 SAML and OAuth are both powerful tools for managing user identities, but they serve distinct purposes. SAML excels at authentication, establishing a user's identity, while OAuth focuses on authorization, determining what a user can access. By understanding the core differences, use cases, and best practices for each protocol, you can make informed decisions to enhance the security and user experience of your applications.
 

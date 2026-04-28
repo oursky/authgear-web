@@ -80,7 +80,9 @@ Improving customer experience is a never-ending fight that requires businesses t
 
 <h3 id="registraion">A Simplified Registration Process</h3>
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 One of the very first interactions a customer will have with a business’s website is registering their details to open a new account. This can often be a finicky process with lengthy forms and annoying questions that end up putting people off entirely. It’s why landing and sign-up page drop-off rates can sometimes be as high as <a href="https://andrewchen.com/investor-metrics-deck" target="_blank">80%</a>.
 
@@ -94,7 +96,9 @@ In addition, we’ve also supported <a href="/features/passkeys" target="_blank"
 
 Once registration is complete, logging into your site or app becomes the next hurdle for a customer to cross. Thankfully, having to remember complicated passwords doesn’t need to be an issue anymore with passkey and other <a href="/post/passwordless-authentication-complete-guide" target="_blank">passwordless authentication</a> methods as we explain earlier. Other passwordless options that we offer at Authgear include <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP</a>, <a href="/features/biometric-authentication" target="_blank">biometric authentication</a>, and SMS OTP.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 Making it easier for your customers to log in is one of the simplest solutions for anyone looking at how to improve digital customer experience. Think of your registration and login process like you would the doorway to a store – if it’s heavy and difficult to use, or doesn’t automatically slide open when expected, customers are likely to give up and go somewhere easier to access.
 
@@ -118,7 +122,9 @@ It’s a tricky balance, creating systems that make things easier for users with
 
 Another way in which CIAM like Authgear helps improve digital customer experience is by providing users with self-service options. Where in the past an issue with a password or a request to change login details may have required customer support, Authgear provides an account setting page that allows users to manage much of this on their own.
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 Customers can update their personal information, reset their passwords, change their authentication methods, and adjust any linked accounts they have according to their preferences, at any time without having to wait for days and hours for the customer support team to respond.
 

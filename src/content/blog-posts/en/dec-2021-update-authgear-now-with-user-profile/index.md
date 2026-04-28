@@ -24,13 +24,17 @@ These attributes are supported out-of-the-box by Authgear: Name, Given Name, Fam
 
 In the user detail page on the Portal, you will find a new tab called "Profile". The app admin can quickly view and change the information about a user.
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 ### Ship fast with the pre-built frontend
 
 In the [User Settings](https://docs.authgear.com/integrate/auth-ui) page, there is a new section where the users can manage their profile. Yes, the front-end is pre-built for you. You don't need to write any code for your final app to ship this feature.
 
-<!--FIGURE-->![](./figure-2.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpg)
+<!--/FIGURE-->
 
 ### Accessing the profile
 

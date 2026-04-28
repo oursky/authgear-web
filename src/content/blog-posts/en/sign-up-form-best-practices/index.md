@@ -80,7 +80,9 @@ That said, having a sign up form or a sign up page is not enough; you need to ma
 
 Many sign up pages keep their design to minimal and only contain a sign up form.
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 Take Mailchimp as an example. The sign up page removes the navigation bar and the footer. It also does not have other sections to distract the users; furthermore, there are no other links, aside from the required ones like terms and privacy statement, that will take users away from the sign up process. This effectively keeps the users’ attention to the sign up form itself and minimizes the possibility of bouncing off.
 
@@ -88,7 +90,9 @@ Take Mailchimp as an example. The sign up page removes the navigation bar and th
 
 Many websites or apps may ask for a ton of information as part of the qualification process. However, the best sign up forms are always clean and simple to minimize friction. Ideally, your form should only ask for the information that's absolutely necessary to register the customer in your database, such as their name, password, and email address.
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 A perfect example would be Asana’s sign up form, which only requires users to provide their email address to send a verification email.
 
@@ -120,7 +124,9 @@ Mobile usage has increased steadily over the last few years. According to <a hre
 
 <h2 id="authgear">Create High Conversion Sign Up Page with Authgear</h2>
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 Authgear is an authentication and user management solution for web and mobile apps. By integrating your apps with Authgear, you can provide a secure and smooth authentication experience for your users. Furthermore, we also offer customizable sign up and login pages that follow the best practices to help you boost the sign up rate, grow your subscriber base, and ultimately generate more revenue for your apps.
 

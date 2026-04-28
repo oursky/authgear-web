@@ -96,7 +96,9 @@ This may sound like a lengthy process but for the user, it’s barely a moment. 
 
 <h2 id="why">Why Should You Implement SSO for Your Customers?</h2>
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 Implementing customer SSO doesn’t just benefit the users, it also benefits you as the service provider. Here’s how:
 

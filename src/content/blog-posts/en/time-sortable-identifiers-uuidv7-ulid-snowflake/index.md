@@ -62,7 +62,9 @@ A ULID is a 26-character Base32 string designed to sort correctly as a string.
 
 The structure of a ULID places a millisecond-precision timestamp at the beginning of the identifier, followed by random bits to ensure uniqueness.
 
-<!--FIGURE-->![](./figure-1.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpg)
+<!--/FIGURE-->
 
 - Timestamp: Milliseconds since Unix epoch
 - Random data: Ensures uniqueness across systems
@@ -89,7 +91,9 @@ UUIDv7 is a 128-bit UUID that embeds time while remaining compatible with the UU
 
 ### UUIDv7 structure
 
-<!--FIGURE-->![](./figure-2.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpg)
+<!--/FIGURE-->
 
 - Timestamp: Milliseconds since Unix epoch
 - Version bits: Indicate UUID version 7
@@ -120,7 +124,9 @@ Snowflake IDs are 64-bit integers optimized for extremely high write throughput.
 
 ### Snowflake ID structure (typical)
 
-<!--FIGURE-->![](./figure-3.jpg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpg)
+<!--/FIGURE-->
 
 A common layout is:
 

@@ -20,7 +20,9 @@ However, the landscape expanded with the introduction of facial recognition, exe
 
 ### Android Biometric Authentication: A Complex Landscape
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 **Android biometric authentication presents a more intricate landscape compared to its iOS counterpart due to its open-source nature and diverse hardware manufacturers.** To address this variability, the Android Compatibility Definition Document (CDD) categorizes biometric devices into two security classes: Class 3 (BIOMETRIC_STRONG) and Class 2 (BIOMETRIC_WEAK). While fingerprint sensors often meet the rigorous Class 3 standards, facial recognition systems, especially those without advanced 3D mapping capabilities, frequently fall into the less secure Class 2 category. This disparity underscores the importance of developers thoroughly evaluating the biometric capabilities of target devices to ensure robust security when implementing Android biometric authentication solutions.
 
@@ -33,7 +35,9 @@ While Android biometric authentication offers enhanced security and user conveni
 
 ### Beyond Biometric Unlock: Secure Data Protection with Biometrics
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 Both iOS and Android offer robust native APIs that empower developers to create applications leveraging biometric authentication for secure data protection. These APIs provide the necessary tools to encrypt sensitive data and restrict access to biometrically verified users. However, a common pitfall lies in the misconception that biometric authentication alone guarantees absolute security. **Many developers erroneously store plaintext passwords or refresh tokens on the device, assuming that biometric protection is sufficient.**This oversight can lead to catastrophic consequences if the device is compromised, as attackers can potentially access these critical credentials.
 
@@ -43,7 +47,9 @@ By combining biometric authentication and tokenization, organizations can enhanc
 
 ### General Process of Biometric Authentication
 
-<!--FIGURE-->![](./figure-3.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpeg)
+<!--/FIGURE-->
 
 Biometric authentication involves a sophisticated sequence of steps to verify a user's identity securely. The process commences with key generation and user enrollment, where cryptographic keys are created and the user's biometric data is captured and transformed into a template. This template, encrypted using a public key, is securely stored.
 
@@ -71,7 +77,9 @@ This intricate process underscores the importance of robust cryptographic practi
 
 ### How About Web Biometrics? A Deep Dive into WebAuthn
 
-<!--FIGURE-->![](./figure-4.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.jpeg)
+<!--/FIGURE-->
 
 Web biometrics extends the realm of biometric authentication to the web environment, allowing users to verify their identity using biometric factors like fingerprints or facial recognition directly within web applications. This is achieved through the Web Authentication API, commonly known as WebAuthn.
 
@@ -89,7 +97,9 @@ By carefully addressing these challenges and leveraging the benefits of WebAuthn
 
 ### The Future of Identity: A Deep Dive into Biometric Authentication
 
-<!--FIGURE-->![](./figure-5.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-5.jpeg)
+<!--/FIGURE-->
 
 Biometric authentication has emerged as a cornerstone of modern security, offering a robust and convenient alternative to traditional password-based systems. From the intricacies of hardware dependencies and software implementations to the complexities of web-based authentication and identity verification, understanding the underlying mechanisms is crucial for harnessing the full potential of this technology.
 

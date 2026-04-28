@@ -62,7 +62,9 @@ In this post, we will be discussing the details of the latest account deletion r
 
 <h2 id="requirement">What You Have to Know About the In-App Account Deletion Requirement?</h2>
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 <strong class="subtitle">Is my app affected by the requirement?</strong>
     <p> If your app is listed on the iOS App Store and allows users to create accounts, you will have to meet the requirement.</p>
@@ -81,7 +83,9 @@ In this post, we will be discussing the details of the latest account deletion r
 
 <h2 id="difference">How Is the Latest Announcement Different From the Previous One Aside From the Deadline Extension?</h2>
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 The <a href="https://developer.apple.com/news/?id=mdkbobfo" target="_blank">first announcement</a> was published on Oct 6, 2021 stating that “all apps that allow for account creation must also allow users to **initiate deletion of their account** from within the app.” In addition, it also reminds developers to review any regional or local data privacy laws to ensure legal compliance.
 
@@ -117,7 +121,9 @@ More can be found in <a href="https://developer.apple.com/app-store/review/guide
 
 <h2 id="privacy-policies">More Data Protection and Privacy Legislation</h2>
 
-<!--FIGURE-->![](./figure-3.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.jpeg)
+<!--/FIGURE-->
 
 With more social and economic activities happening online, users are now sharing more personal data with online service providers. In addition, they are also more aware of how their data is being used by different companies and wish to gain more control over their data. Governments in various jurisdictions have passed regulatory privacy frameworks, such as GDPR, National data protection laws, and California Consumer Privacy Act, to protect consumers’ fundamental human rights. According to the United Nations Conference on Trade and Development (UNCTAD), over 71% countries have data privacy legislation, 9% have drafted legislation, and only 15% of them have no legislation. Furthermore, major players, such as Google and Apple, in the field have also enforced stricter data privacy requirements to gain the users’ trust.
 
@@ -127,7 +133,9 @@ It is therefore important for developers to strictly follow the rules imposed by
 
 Developing an in-app account deletion flow can be quite time-consuming and it takes some time and effort to assure that the processes are working properly.
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
 With Authgear, you can easily offer user-initiated account deletion with just a few clicks. Furthermore, your apps will be equipped with different authentication and security features for you to not only meet the complex authentication requirements but more importantly provide a secure user experience for your users.   
 <a href="/talk-with-us" target="_blank">Contact us</a> now to see how your apps can benefit from Authgear.

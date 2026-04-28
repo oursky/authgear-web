@@ -98,11 +98,15 @@ Regularly regenerating session IDs is essential for maintaining strong security:
 
 ## How Session Management Works with Authgear
 
-<!--FIGURE-->![](./figure-1.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.jpeg)
+<!--/FIGURE-->
 
 When your users authenticate with Authgear, Authgear will take care of generating and properly configuring the cookies to ensure secure authentication. The subsequent requests sent from the browser to your app server will now include the session cookie. To verify the session, forward the requests to the Authgear Resolver Endpoint.
 
-<!--FIGURE-->![](./figure-2.jpeg)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.jpeg)
+<!--/FIGURE-->
 
 **Request Example**`  
 > GET /api_path HTTP/1.1  

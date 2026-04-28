@@ -35,39 +35,55 @@ Before integrating Authgear, you'll need to create a webhook in Slack.
 
 As you can see, I created a new workspace called authgear-example-sign-up:
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 Created a new Admin account there:
 
-<!--FIGURE-->![](./figure-2.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-2.png)
+<!--/FIGURE-->
 
 Initiated a new Slack channel named notification-sign-upwhere we receive a notification when a user signs up:
 
-<!--FIGURE-->![](./figure-3.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-3.png)
+<!--/FIGURE-->
 
 ### Create a Slack App
 
 Navigate to the <a href="https://api.slack.com/apps" target="_blank">Slack API page</a>, and create a new app **from scratch**. We use it to send the webhook information:
 
-<!--FIGURE-->![](./figure-4.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-4.png)
+<!--/FIGURE-->
 
 In the next step, you provide the app name and select the workspace that you want to connect the app to. Make sure this is the correct app because you can't change the app's workspace later. After you pick a workspace, click **Create App**.
 
-<!--FIGURE-->![](./figure-5.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-5.png)
+<!--/FIGURE-->
 
 ### Enable Incoming Webhooks
 
 Under the "Add features and functionality" section, click on "Incoming Webhooks" and activate them.
 
-<!--FIGURE-->![](./figure-6.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-6.png)
+<!--/FIGURE-->
 
 Scroll down and click on "Add New Webhook to Workspace." Select the channel where notifications should be sent, and click "Allow.”
 
-<!--FIGURE-->![](./figure-7.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-7.png)
+<!--/FIGURE-->
 
 Scroll down and click on "Add New Webhook to Workspace." Select the channel where notifications should be sent, and click "Allow.”
 
-<!--FIGURE-->![](./figure-8.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-8.png)
+<!--/FIGURE-->
 
 ## Integrating Authgear with Slack Webhook
 
@@ -77,11 +93,15 @@ With the Slack Webhook URL in hand, you can now set up the Authgear Hook to resp
 
 Navigate to **Advanced**->**Hooks** section in the <a href="https://portal.authgear.com/" target="_blank">Authgear Portal</a>. **Add** a new **Non-blocking** Event:
 
-<!--FIGURE-->![](./figure-9.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-9.png)
+<!--/FIGURE-->
 
 Choose the Hook **Type** as the *TypeScript.*You will write a function to respond to the user creation event and send a notification to Slack. Click on **Edit Script** under the **Config** option, it will bring you to the editor:
 
-<!--FIGURE-->![](./figure-10.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-10.png)
+<!--/FIGURE-->
 
 We want to send a POST request to a Slack webhook URL when EventUserCreated is triggered:
 
@@ -118,21 +138,29 @@ This async TypeScript function will run after a user is registered. Replace *YOU
 
 After everything is configured, we can test the newly created hook in action. The easiest way to test it is by creating a **new user** from the **User Management** page in [Authgear Portal](https://portal.authgear.com/) manually.
 
-<!--FIGURE-->![](./figure-11.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-11.png)
+<!--/FIGURE-->
 
 ### Validate the new hook
 
 After everything is configured, we can test the newly created hook in action. The easiest way to test it is by creating a **new user** from the **User Management** page in <a href="https://portal.authgear.com/" target="_blank">Authgear Portal</a> manually.
 
-<!--FIGURE-->![](./figure-12.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-12.png)
+<!--/FIGURE-->
 
 Another way to validate it is when a new user goes through the sign-up process after you integrated your system with Authgear App and configured the login method for your users. Or you could also use the **Try it now** option on the Authgear dashboard's **Getting Started** page.
 
-<!--FIGURE-->![](./figure-13.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-13.png)
+<!--/FIGURE-->
 
 After you sign up with an email, Slack message will be sent:
 
-<!--FIGURE-->![](./figure-14.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-14.png)
+<!--/FIGURE-->
 
 ## Summary
 

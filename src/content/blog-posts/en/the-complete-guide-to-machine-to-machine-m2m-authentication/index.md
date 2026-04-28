@@ -139,7 +139,9 @@ Authgear provides an easy path to implement M2M tokens: registration UX for clie
 
 ## Example sequence diagram
 
-<!--FIGURE-->![](./figure-1.png)<!--/FIGURE-->
+<!--FIGURE-->
+![](./figure-1.png)
+<!--/FIGURE-->
 
 ## FAQ
 
