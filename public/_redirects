@@ -1,3 +1,9 @@
+# Locale path lowercased: /zh-Hant/* → /zh-hant/*. Edge-level so it
+# fires before the SSR Function (the in-app middleware also handles
+# this, but a static rule here is faster and more reliable).
+/zh-Hant                                                                            /zh-hant/                                                                                                               301
+/zh-Hant/*                                                                          /zh-hant/:splat                                                                                                         301
+
 # Internal canonical redirects (previously prerendered as Astro stubs)
 /why-authgear                                                                       /about                                                                                                                  301
 /zh-hant/why-authgear                                                               /zh-hant/about                                                                                                          301
