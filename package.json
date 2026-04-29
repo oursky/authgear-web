@@ -13,7 +13,7 @@
     "test:unit": "vitest run"
   },
   "dependencies": {
-    "@astrojs/node": "^9.1.0",
+    "@astrojs/netlify": "^6.6.5",
     "@astrojs/react": "^4.2.0",
     "@astrojs/sitemap": "^3.7.2",
     "@heroicons/react": "^2.2.0",

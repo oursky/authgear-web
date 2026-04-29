@@ -6,6 +6,7 @@ dist/
 build/
 .astro/
 .cache/
+.netlify/
 
 # logs
 *.log
