@@ -5,5 +5,8 @@ import HomePage from '@/components/pages/HomePage.astro';
 ---
 
 <BaseLayout locale="en" title="Authgear">
+  <Fragment slot="head">
+    <link rel="preload" as="image" href="/images/home_kv_bg-pc2x.webp" fetchpriority="high" />
+  </Fragment>
   <HomePage locale="en" />
 </BaseLayout>

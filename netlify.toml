@@ -4,3 +4,28 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Long-cache static assets that ship with the deploy. The Astro build
+# emits hashed _astro/* assets which are already covered by Netlify's
+# default immutable headers; this block extends the same treatment to
+# the unhashed CSS/images/fonts under public/ that we treat as content-
+# stable in practice (we redeploy when they change).
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/downloads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
