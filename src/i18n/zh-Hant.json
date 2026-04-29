@@ -199,7 +199,7 @@
     "whyP3": "Authgear 走的是另一條路。用有主見的預設值，取代無盡的設定。開源、自力營運，所以我們撐得過創投週期。一套十年後還會在的身份驗證系統。",
     "principlesTitle": "Authgear 有何不同",
     "principles1Title": "預設即有主見",
-    "principles1Desc": "安全且經過驗證的流程開箱即用——通行金鑰、MFA、帳號連結、復原。不必為「忘記密碼」另寫 40 行程式。",
+    "principles1Desc": "安全且經過驗證的流程開箱即用——通行密鑰、MFA、帳號連結、復原。不必為「忘記密碼」另寫 40 行程式。",
     "principles2Title": "開源，沒有鎖定",
     "principles2Desc": "可自主架設、遷移，或換成任何相容 OIDC 的服務。你的身份驗證不會被困在我們的雲端。",
     "principles3Title": "撐得過創投週期",

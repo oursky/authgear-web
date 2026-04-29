@@ -61,7 +61,7 @@ SIM 換卡（說服電信業者把號碼轉到攻擊者持有的 SIM）可攻破
 
 **SMS pumping**（機器人濫用你的 OTP 端點，對高費率號碼發送詐騙簡訊）是 SMS 特有現象。WhatsApp 在 Meta 網路上運作，沒有相同的電信分潤話費機制；改用 WhatsApp 可消除整類詐欺風險。更多說明見 [SMS pumping 攻擊原理與防範](/zh-hant/post/sms-pumping-attack)。
 
-<blockquote><p><strong>重要提醒：</strong>WhatsApp OTP 與 SMS OTP 一樣，仍屬「使用者所收到之物」的知識因子，無法防範釣魚——攻擊者誘使使用者在假網站輸入 OTP 仍可能成功。若要釣魚抗性驗證，請見 <a href="/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security">通行金鑰與 FIDO2</a>。</p></blockquote>
+<blockquote><p><strong>重要提醒：</strong>WhatsApp OTP 與 SMS OTP 一樣，仍屬「使用者所收到之物」的知識因子，無法防範釣魚——攻擊者誘使使用者在假網站輸入 OTP 仍可能成功。若要釣魚抗性驗證，請見 <a href="/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security">通行密鑰與 FIDO2</a>。</p></blockquote>
 
 ## 何時仍應使用 SMS OTP
 

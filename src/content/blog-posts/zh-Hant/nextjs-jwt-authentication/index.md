@@ -285,7 +285,7 @@ export default async function ProfilePage() {
 
 自建 JWT 適合學習，但正式環境還需要 refresh 輪替、PKCE、全裝置登出、社交登入、MFA 等——每一塊都是安全關鍵、實作不簡單。
 
-Authgear 的 [`@authgear/nextjs` SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 內建上述能力。你仍取得應用 JWKS 簽署的標準 JWT，但權杖生命週期、Cookie 管理與 middleware 整合已預先完成。若團隊想專注產品而非維護驗證函式庫，這是較快路徑。亦可搭配我們的 [WebAuthn 實作通行金鑰指南](/zh-hant/post/how-to-implement-passkeys-developer-guide)，在 JWT 之上加入無密碼登入。
+Authgear 的 [`@authgear/nextjs` SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 內建上述能力。你仍取得應用 JWKS 簽署的標準 JWT，但權杖生命週期、Cookie 管理與 middleware 整合已預先完成。若團隊想專注產品而非維護驗證函式庫，這是較快路徑。亦可搭配我們的 [WebAuthn 實作通行密鑰指南](/zh-hant/post/how-to-implement-passkeys-developer-guide)，在 JWT 之上加入無密碼登入。
 
 ## 常見問題
 

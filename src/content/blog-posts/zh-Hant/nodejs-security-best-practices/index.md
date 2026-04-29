@@ -457,7 +457,7 @@ app.post('/login/mfa', async (req, res) => {
 });
 ```
 
-若要更強的 MFA，可考慮通行金鑰（FIDO2／WebAuthn），依設計具抗釣魚性。完整說明見 [什麼是 FIDO2？FIDO 驗證完整指南](/zh-hant/post/what-is-fido2-complete-guide-fido-authentication)。
+若要更強的 MFA，可考慮通行密鑰（FIDO2／WebAuthn），依設計具抗釣魚性。完整說明見 [什麼是 FIDO2？FIDO 驗證完整指南](/zh-hant/post/what-is-fido2-complete-guide-fido-authentication)。
 
 ## 8. 使用驗證平台 vs. 自行打造
 
@@ -470,7 +470,7 @@ app.post('/login/mfa', async (req, res) => {
 <ul>
 <li>安全的工作階段與權杖管理</li>
 <li>密碼雜湊與外洩偵測</li>
-<li>MFA（TOTP、簡訊、通行金鑰）</li>
+<li>MFA（TOTP、簡訊、通行密鑰）</li>
 <li>社群登入（Google、Apple、GitHub 等）</li>
 <li>暴力破解防護與速率限制</li>
 <li>稽核日誌與安全事件</li>
@@ -485,7 +485,7 @@ app.get('/api/me', authgear.middleware(), (req, res) => {
 });
 ```
 
-你可將通行金鑰與傳統密碼登入並用——從零正確實作通常需數週。詳見 [通行金鑰實作指南](/zh-hant/post/how-to-implement-passkeys-developer-guide)。
+你可將通行密鑰與傳統密碼登入並用——從零正確實作通常需數週。詳見 [通行密鑰實作指南](/zh-hant/post/how-to-implement-passkeys-developer-guide)。
 
 若驗證並非產品核心差異化，使用 Authgear 這類平台通常是正確選擇。你能更快獲得更好的安全覆蓋，工程師可專注在產品獨特之處。
 
@@ -511,7 +511,7 @@ app.get('/api/me', authgear.middleware(), (req, res) => {
 <tr><td>IDOR</td><td>查詢限於已驗證使用者</td><td>勿信任使用者提供的 ID</td></tr>
 <tr><td>速率限制</td><td>登入端點依 IP 限制</td><td>多實例部署時以 Redis 支援</td></tr>
 <tr><td>速率限制</td><td>N 次失敗後帳號鎖定</td><td>僅限 IP 可被繞過</td></tr>
-<tr><td>MFA</td><td>TOTP 或通行金鑰</td><td>FIDO2／WebAuthn 具抗釣魚性</td></tr>
+<tr><td>MFA</td><td>TOTP 或通行密鑰</td><td>FIDO2／WebAuthn 具抗釣魚性</td></tr>
 <tr><td>相依套件</td><td>CI 管線執行 <code>npm audit</code></td><td>高嚴重度即失敗建置</td></tr>
 <tr><td>Cookie</td><td><code>HttpOnly</code>、<code>Secure</code>、<code>SameSite=Strict</code></td><td>三者皆設</td></tr>
 <tr><td>HTTPS</td><td>所有驗證流量走 TLS</td><td>無例外</td></tr>
@@ -549,4 +549,4 @@ Node.js 讓你能隨意建置驗證——這也表示若不刻意為之，很容
 <li>在 CI 執行 <code>npm audit</code>，在漏洞進入正式環境前攔截。</li>
 </ul>
 
-若你希望開箱即用處理多數項目，[Authgear](https://portal.authgear.com/) 提供具備安全驗證、MFA、通行金鑰與社群登入的 Node.js SDK——讓團隊專注產品，而非維護整套驗證堆疊。
+若你希望開箱即用處理多數項目，[Authgear](https://portal.authgear.com/) 提供具備安全驗證、MFA、通行密鑰與社群登入的 Node.js SDK——讓團隊專注產品，而非維護整套驗證堆疊。

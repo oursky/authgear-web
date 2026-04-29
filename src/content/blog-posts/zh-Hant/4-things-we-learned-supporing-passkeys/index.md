@@ -1,11 +1,11 @@
 ---
-title: "我們在支持萬能鑰匙方面學到的 4 件事"
-excerpt: "萬能鑰匙有可能完全取代密碼，但它還不夠完美。詳細了解您在支持他們時可能遇到的情況。"
+title: "我們在支持通行密鑰方面學到的 4 件事"
+excerpt: "通行密鑰有可能完全取代密碼，但它還不夠完美。詳細了解您在支持他們時可能遇到的情況。"
 coverImage: ./cover.png
 category: engineering
 featured: false
-metaTitle: "我們在支持萬能鑰匙方面學到的 4 件事"
-metaDescription: "萬能鑰匙有可能完全取代密碼，但它還不夠完美。詳細了解您在支持他們時可能遇到的情況。"
+metaTitle: "我們在支持通行密鑰方面學到的 4 件事"
+metaDescription: "通行密鑰有可能完全取代密碼，但它還不夠完美。詳細了解您在支持他們時可能遇到的情況。"
 canonicalUrl: /zh-hant/post/4-things-we-learned-supporing-passkeys
 publishedAt: 2022-08-29T03:24:43.364Z
 updatedAt: 2026-02-12T02:33:17.663Z
@@ -53,11 +53,11 @@ draft: false
 
 密碼易於使用，使其成為最常見的身份驗證方法。然而，人們傾向於使用容易被破解的簡單密碼。此外，用戶可能會被欺騙，在不知情的情況下向駭客提供密碼。
 
-2022年，我們終於迎來了好消息！行業領導者喜歡 <a href="https://developer.apple.com/passkeys/" target="_blank">蘋果</a>, <a href="https://developers.google.com/identity/fido#who_supports_passkeys" target="_blank">Google</a> 微軟正在研究一種稱為金鑰的新身份驗證方法。萬能鑰匙有可能完全取代密碼。儘管如此， <a href="/zh-hant/post/passkeys-compatibility" target="_blank">在技​​術更加成熟之前，存在各種相容性和支援問題</a>.
+2022年，我們終於迎來了好消息！行業領導者喜歡 <a href="https://developer.apple.com/passkeys/" target="_blank">蘋果</a>, <a href="https://developers.google.com/identity/fido#who_supports_passkeys" target="_blank">Google</a> 微軟正在研究一種稱為金鑰的新身份驗證方法。通行密鑰有可能完全取代密碼。儘管如此， <a href="/zh-hant/post/passkeys-compatibility" target="_blank">在技​​術更加成熟之前，存在各種相容性和支援問題</a>.
 
 在這篇文章中，我們將簡要討論金鑰的基礎以及我們在透過 Authgear 幫助開發人員在其應用程式上輕鬆支援金鑰時遇到的問題。
 
-## 什麼是萬能鑰匙？
+## 什麼是通行密鑰？
 
 金鑰是基於用戶身份驗證行業標準的數位憑證。它們遵循使用公鑰加密的 FIDO 和 WebAuthn 標準，這是最受歡迎和最安全的協定。每當用戶建立新帳戶時，都會建立一對公鑰和私鑰。公鑰是公開的，而相應的私鑰通常是在用戶的裝置內保密的。用公鑰加密的資料只能用對應的私鑰解密。用戶只需使用 PIN、生物辨識感應器等解鎖設備，即可解鎖私鑰並存取應用程式或網站。這樣，與基於密碼的身份驗證不同，用戶永遠不必向任何人透露他們的私鑰。
 
@@ -88,7 +88,7 @@ draft: false
 ![](./figure-2.jpeg)
 <!--/FIGURE-->
 
-借助 iOS16 上的密鑰支持，Safari 創建了 <a href="https://fidoalliance.org/multi-device-fido-credentials/#faq" target="_blank">多裝置 FIDO 憑證</a> 儲存在 iCloud 鑰匙圈中。多裝置 FIDO 憑證也稱為 **金鑰**。密鑰仍然被認為具有 <a href="https://www.w3.org/TR/webauthn-2/#enum-attachment" target="_blank">平台附件</a>s，但這些金鑰在最終用戶設備之間同步。因此，萬能鑰匙在最終用戶擁有的所有設備上都可用，並且不會隨瀏覽歷史記錄一起清除。這項特性也是讓萬能鑰匙可供消費者使用的關鍵點。
+借助 iOS16 上的密鑰支持，Safari 創建了 <a href="https://fidoalliance.org/multi-device-fido-credentials/#faq" target="_blank">多裝置 FIDO 憑證</a> 儲存在 iCloud 鑰匙圈中。多裝置 FIDO 憑證也稱為 **金鑰**。密鑰仍然被認為具有 <a href="https://www.w3.org/TR/webauthn-2/#enum-attachment" target="_blank">平台附件</a>s，但這些金鑰在最終用戶設備之間同步。因此，通行密鑰在最終用戶擁有的所有設備上都可用，並且不會隨瀏覽歷史記錄一起清除。這項特性也是讓通行密鑰可供消費者使用的關鍵點。
 
 <!--FIGURE-->
 ![](./figure-3.jpeg)
@@ -131,7 +131,7 @@ draft: false
     </span>
 ```
 
-中介選項是決定係統行為的選項。當中介是有條件的時，系統不會顯示模式對話框。在 iOS 16 上，可用的萬能鑰匙在鍵盤配件視圖中顯示為選項。因此，它的工作原理類似於自動填充。當未指定中介時，系統會顯示典型的模式對話框，要求使用者選擇金鑰。
+中介選項是決定係統行為的選項。當中介是有條件的時，系統不會顯示模式對話框。在 iOS 16 上，可用的通行密鑰在鍵盤配件視圖中顯示為選項。因此，它的工作原理類似於自動填充。當未指定中介時，系統會顯示典型的模式對話框，要求使用者選擇金鑰。
 
 <p>我們遇到了一個問題 <span class="inline-code">navigator.credentials.get({ 中介: "條件"})</span> 將立即被拒絕 <span class="inline-code">DOMException(名稱=“NotAllowedError”)</span>。當觀察到此類異常時，下一次調用 <span class="inline-code">navigator.credentials.get()</span> 將正常顯示模式對話框。但是，當最終用戶選擇密鑰時，模式對話框將變得無響應，並且承諾永遠不會實現。這個錯誤有效地破壞了流程。我們別無選擇，只能暫時停用自動填充。這可能是個bug，我們必須等到iOS 16正式發布。此錯誤已被跟踪 <a href="https://bugs.webkit.org/show_bug.cgi?id=241126" target="_blank">這裡</a>.</p>
 

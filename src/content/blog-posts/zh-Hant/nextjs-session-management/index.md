@@ -372,7 +372,7 @@ JWT 工作階段在登出時刪除 Cookie 即足夠：Cookie 消失後權杖不�
 
 [Authgear 的 Next.js SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 可代管完整工作階段生命週期：簽發與更新權杖、設定安全 Cookie、在 Server Components 與客戶端 hook 暴露目前使用者，並提供現成登出端點。你可取得符合 OIDC、含 refresh token 輪替的工作階段，而無須自行寫加密或 Cookie 管理。
 
-若還需要社交登入、通行金鑰或多因素驗證，Authgear 的託管驗證 UI 也能涵蓋——讓你專心做產品，而不是維護一整層驗證。
+若還需要社交登入、通行密鑰或多因素驗證，Authgear 的託管驗證 UI 也能涵蓋——讓你專心做產品，而不是維護一整層驗證。
 
 若要搭配工作階段管理補強 JWT 實務，可參考 [Next.js JWT 驗證](/zh-hant/post/nextjs-jwt-authentication)一文。
 

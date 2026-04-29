@@ -16,7 +16,7 @@ loginMethods:
   - 電子郵件
   - 手機號碼
   - 密碼
-  - 通行金鑰
+  - 通行密鑰
 socialLogins:
   - Google
   - Microsoft

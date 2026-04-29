@@ -20,7 +20,7 @@ draft: false
 
 OAuth 2.0 是一個開放式授權框架，讓使用者可以把自己在某個服務上的帳號，授予第三方應用程式有限存取權限——而不需要分享密碼。
 
-你可以把它想像成飯店房卡系統。你不會把萬能鑰匙（密碼）交給房客；飯店（授權伺服器）會發一張有時效、只能開特定門（scope）的房卡（access token）。
+你可以把它想像成飯店房卡系統。你不會把通行密鑰（密碼）交給房客；飯店（授權伺服器）會發一張有時效、只能開特定門（scope）的房卡（access token）。
 
 OAuth 2.0 是 *授權（authorization）*，不是驗證（authentication）。它回答的是「這個 App 可以存取什麼？」而不是「這個使用者是誰？」（後者由 [OpenID Connect](/zh-hant/post/oidc-vs-saml) 在 OAuth 之上補齊。）
 
