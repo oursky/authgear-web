@@ -95,17 +95,17 @@ const currentLabel = LOCALE_LABELS[locale] ?? 'Language';
 
     if (!wrapper || !btn || !dropdown || !chevron) return;
 
-    function open() {
+    const open = () => {
       dropdown.hidden = false;
       btn.setAttribute('aria-expanded', 'true');
       chevron.classList.add('ds-footer-lang-switcher__chevron--open');
-    }
+    };
 
-    function close() {
+    const close = () => {
       dropdown.hidden = true;
       btn.setAttribute('aria-expanded', 'false');
       chevron.classList.remove('ds-footer-lang-switcher__chevron--open');
-    }
+    };
 
     btn.addEventListener('click', function () {
       if (dropdown.hidden) {

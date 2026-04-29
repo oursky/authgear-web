@@ -1,12 +1,12 @@
 # Authgear Website
 
-The Authgear marketing website, built with **Astro 5**. All content — blog posts, customer stories, login gallery, what's new, integrations — lives in the repo as markdown + JSON under `src/content/`. No external CMS.
+The Authgear marketing website, built with **Astro 6**. All content — blog posts, customer stories, login gallery, what's new, integrations — lives in the repo as markdown + JSON under `src/content/`. No external CMS.
 
 ## Tech stack
 
 | Layer | Technology |
 |--------|------------|
-| **Site** | Astro 5, React 19 islands, TypeScript |
+| **Site** | Astro 6, React 19 islands, TypeScript |
 | **Styling** | Tailwind CSS v4 + a shared design-system stylesheet |
 | **Content** | Astro Content Collections (markdown + JSON) validated with zod |
 | **Images** | Astro's built-in image pipeline (WebP + responsive srcsets) |

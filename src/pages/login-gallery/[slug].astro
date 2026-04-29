@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { getImage } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import LoginGallerySidebar from '@/components/login-gallery/LoginGallerySidebar.astro';
@@ -21,7 +21,7 @@ interface Props { entry: CollectionEntry<'login-gallery'> }
 const locale = 'en';
 const { entry } = Astro.props;
 const data = entry.data;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 async function slidesFor(images: readonly (typeof data.mainImage)[]) {
   const out: { src: string; alt: string }[] = [];
