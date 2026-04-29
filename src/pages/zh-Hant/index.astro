@@ -2,9 +2,14 @@
 export const prerender = true;
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import HomePage from '@/components/pages/HomePage.astro';
+import { t } from '@/i18n';
+
+const locale = 'zh-Hant';
+const title = t(locale, 'Seo.home.title');
+const description = t(locale, 'Seo.home.description');
 ---
 
-<BaseLayout locale="zh-Hant" title="Authgear">
+<BaseLayout locale={locale} title={title} description={description}>
   <Fragment slot="head">
     {/* Hero is a CSS background that swaps at 768px. Preload the matching
         asset per breakpoint so we don't waste the LCP budget on the wrong
@@ -12,5 +17,5 @@ import HomePage from '@/components/pages/HomePage.astro';
     <link rel="preload" as="image" href="/images/home_kv_bg-m2x.webp" fetchpriority="high" media="(max-width: 767px)" />
     <link rel="preload" as="image" href="/images/home_kv_bg-pc2x.webp" fetchpriority="high" media="(min-width: 768px)" />
   </Fragment>
-  <HomePage locale="zh-Hant" />
+  <HomePage locale={locale} />
 </BaseLayout>

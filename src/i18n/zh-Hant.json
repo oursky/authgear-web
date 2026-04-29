@@ -1,4 +1,12 @@
 {
+  "Seo": {
+    "siteName": "Authgear",
+    "siteDescription": "Authgear 讓開發者更輕鬆地滿足複雜的身份驗證需求，為使用者打造順暢且卓越的數位體驗。",
+    "home": {
+      "title": "Authgear CLOUD — 為您託管的 IAM 解決方案",
+      "description": "Authgear 讓開發者更輕鬆地滿足複雜的身份驗證需求，為使用者打造順暢且卓越的數位體驗。"
+    }
+  },
   "Navigation": {
     "logoAlt": "Authgear 標誌",
     "products": "產品",
