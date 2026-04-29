@@ -68,4 +68,4 @@ SaaS 身分方案固然便利，但其商業模式對金融與政府組織會帶
 
 取回身分基礎建設主導權，意味著消除廠商鎖定、確保資料落地、維持詳盡稽核日誌，並建立足以滿足產業嚴格要求的安全姿態。
 
-前往 [GitHub 上的 Authgear](https://github.com/authgear/authgear-server) 檢視開源程式碼，或[與我們預約技術深談](/zh-Hant/schedule-demo)，討論自行託管方案如何符合貴組織需求。
+前往 [GitHub 上的 Authgear](https://github.com/authgear/authgear-server) 檢視開源程式碼，或[與我們預約技術深談](/zh-hant/schedule-demo)，討論自行託管方案如何符合貴組織需求。

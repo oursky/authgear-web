@@ -157,11 +157,11 @@ Authgear 提供預先建置的登入與註冊頁面，外部使用者可以自�
 
 使用 Authgear，使用者不必再硬記另一組塞爆腦袋的密碼。Authgear 提供多種無密碼驗證方式，讓生活更輕鬆。
 
-其一是 <a href="/zh-Hant/features/whatsapp-otp" target="_blank">WhatsApp OTP</a>：使用者可透過 WhatsApp 登入帳號，以 WhatsApp 接收一次性密碼，而非簡訊。由於端到端加密，WhatsApp OTP 通常比簡訊 OTP 更安全；每次驗證的成本也更低，讓企業能以更具成本效益的方式擴張。
+其一是 <a href="/zh-hant/features/whatsapp-otp" target="_blank">WhatsApp OTP</a>：使用者可透過 WhatsApp 登入帳號，以 WhatsApp 接收一次性密碼，而非簡訊。由於端到端加密，WhatsApp OTP 通常比簡訊 OTP 更安全；每次驗證的成本也更低，讓企業能以更具成本效益的方式擴張。
 
-另一種方式是 <a href="/zh-Hant/features/social-login" target="_blank">社群登入</a>：把註冊流程與熱門社群平台登入整合，簡化客戶註冊。使用者以社群帳號註冊後，你就能取得由社群提供者驗證過的電子郵件地址。
+另一種方式是 <a href="/zh-hant/features/social-login" target="_blank">社群登入</a>：把註冊流程與熱門社群平台登入整合，簡化客戶註冊。使用者以社群帳號註冊後，你就能取得由社群提供者驗證過的電子郵件地址。
 
-<a href="/zh-Hant/features/passkeys" target="_blank">Passkeys</a> 則能帶來真正的無密碼體驗：若你的應用支援 passkeys，使用者註冊或登入時就不必輸入容易被攻擊者鎖定的複雜密碼。使用者以使用者名稱註冊後，通常只需要 <a href="/zh-Hant/features/biometric-authentication" target="_blank">生物辨識驗證</a> 就能存取帳號。
+<a href="/zh-hant/features/passkeys" target="_blank">Passkeys</a> 則能帶來真正的無密碼體驗：若你的應用支援 passkeys，使用者註冊或登入時就不必輸入容易被攻擊者鎖定的複雜密碼。使用者以使用者名稱註冊後，通常只需要 <a href="/zh-hant/features/biometric-authentication" target="_blank">生物辨識驗證</a> 就能存取帳號。
 
 這些無密碼功能可強化安全並簡化驗證流程。你也可以加入 2FA 作為額外防護，確保只有經授權的使用者能存取帳號。
 
@@ -181,4 +181,4 @@ Authgear 能與你的 HR 系統以及 Workforce IAM（WIAM）整合，讓你從�
 
 <h2 id="authgear">用 Authgear 簡化延伸型企業的身分與存取管理</h2>
 
-Authgear 協助你集中管理內部與外部的身分與存取，以提升生產力、強化安全並改善體驗。透過我們的軟體開發套件（SDK），把商業應用與 Authgear 整合並不困難。歡迎<a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a>，讓我們更了解你的使用情境，並看看 Authgear 如何協助你提升延伸型企業的生產力與獲利能力。
+Authgear 協助你集中管理內部與外部的身分與存取，以提升生產力、強化安全並改善體驗。透過我們的軟體開發套件（SDK），把商業應用與 Authgear 整合並不困難。歡迎<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，讓我們更了解你的使用情境，並看看 Authgear 如何協助你提升延伸型企業的生產力與獲利能力。

@@ -26,7 +26,7 @@ draft: false
 這份文件是 OIDC **自動探索**的基礎。你不必在應用裡硬編碼授權端點、權杖端點與簽章金鑰；取得文件一次，即可從中讀取所需資訊。
 
 <blockquote>
-<p>&#x1F4A1; <strong>立即試用：</strong>使用 <a href="/zh-Hant/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a> 取得並檢視任何提供者的 <code>.well-known/openid-configuration</code>——無需 curl 或指令列。輸入 issuer URL 即可看到完整文件與結構化欄位摘要。</p>
+<p>&#x1F4A1; <strong>立即試用：</strong>使用 <a href="/zh-hant/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a> 取得並檢視任何提供者的 <code>.well-known/openid-configuration</code>——無需 curl 或指令列。輸入 issuer URL 即可看到完整文件與結構化欄位摘要。</p>
 </blockquote>
 
 ## 「well-known」慣例從何而來
@@ -148,7 +148,7 @@ draft: false
 }
 ```
 
-完整文件約有 25 個欄位。使用 [OIDC Discovery Endpoint Explorer](/zh-Hant/tools/oidc-discovery-endpoint) 可檢視任何提供者（含 Google、Okta、Azure、Keycloak 或你的 Authgear 專案）的完整 JSON。
+完整文件約有 25 個欄位。使用 [OIDC Discovery Endpoint Explorer](/zh-hant/tools/oidc-discovery-endpoint) 可檢視任何提供者（含 Google、Okta、Azure、Keycloak 或你的 Authgear 專案）的完整 JSON。
 
 ## 各提供者的探索 URL 格式
 
@@ -194,7 +194,7 @@ draft: false
 
 ### 在瀏覽器（無需設定）
 
-使用 [Authgear OIDC Discovery Endpoint Explorer](/zh-Hant/tools/oidc-discovery-endpoint)。輸入任一 issuer URL 後按 Fetch，即可取得完整 JSON 與主要端點的結構化摘要。
+使用 [Authgear OIDC Discovery Endpoint Explorer](/zh-hant/tools/oidc-discovery-endpoint)。輸入任一 issuer URL 後按 Fetch，即可取得完整 JSON 與主要端點的結構化摘要。
 
 ### 使用 curl
 
@@ -280,7 +280,7 @@ print(config['jwks_uri'])
 
 探索文件中的 <code>jwks_uri</code> 是最重要的欄位之一。它指向 **JSON Web Key Set**——應用驗證 JWT 簽章所需的公鑰。每次收到 ID 權杖或存取權杖，都應依此 URI 上的金鑰驗證簽章。
 
-若要進一步了解 JWKS URI 的運作與在驗證程式中的用法，請見 [什麼是 JWKS URI？開發者必懂的 JWT 金鑰組](/zh-Hant/post/what-is-jwks)。
+若要進一步了解 JWKS URI 的運作與在驗證程式中的用法，請見 [什麼是 JWKS URI？開發者必懂的 JWT 金鑰組](/zh-hant/post/what-is-jwks)。
 
 ## 與 Authgear 搭配使用 .well-known/openid-configuration
 
@@ -289,6 +289,6 @@ print(config['jwks_uri'])
 ## 下一步
 
 <ul>
-  <li>以免費的 <a href="/zh-Hant/tools/oidc-discovery-endpoint">OIDC Discovery Endpoint Explorer</a> 檢視任何提供者的探索文件</li>
-  <li>閱讀 <a href="/zh-Hant/post/what-is-jwks">什麼是 JWKS URI？開發者必懂的 JWT 金鑰組</a> 深入了解 JWKS</li>
+  <li>以免費的 <a href="/zh-hant/tools/oidc-discovery-endpoint">OIDC Discovery Endpoint Explorer</a> 檢視任何提供者的探索文件</li>
+  <li>閱讀 <a href="/zh-hant/post/what-is-jwks">什麼是 JWKS URI？開發者必懂的 JWT 金鑰組</a> 深入了解 JWKS</li>
 </ul>

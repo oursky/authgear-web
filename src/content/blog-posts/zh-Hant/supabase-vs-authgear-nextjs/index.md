@@ -11,7 +11,7 @@ updatedAt: 2026-03-30T16:58:12.782Z
 draft: false
 faq:
   - q: "可以把 Authgear 和 Supabase 資料庫一起用嗎？"
-    a: "可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href=\"/zh-Hant/post/supabase-any-auth-provider\" target=\"_blank\" rel=\"noopener\">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。"
+    a: "可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href=\"/zh-hant/post/supabase-any-auth-provider\" target=\"_blank\" rel=\"noopener\">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。"
   - q: "Supabase Auth 支援 Next.js App Router 嗎？"
     a: "支援。`@supabase/ssr` 完整支援 Next.js App Router，含 Server Components、Route Handlers 與 middleware。舊套件 `@supabase/auth-helpers-nextjs` 已棄用——新專案請使用 `@supabase/ssr`。"
   - q: "Authgear 的 Next.js SDK 能上正式環境嗎？"
@@ -22,7 +22,7 @@ faq:
 
 若你正在開發 Next.js 並研究驗證，很可能會遇到兩條截然不同的路：**Supabase Auth** 與 **Authgear**。兩者皆可用於正式環境、皆與 Next.js App Router 相容，也都有免費方案。但它們對「驗證」的取徑根本不同——而這會依你的技術堆疊大幅影響取捨。
 
-本篇是給開發者在 **Next.js** 專案中，於 **Supabase Auth** 與 **Authgear** 之間做選擇的務實、平衡比較。不預設誰贏——正解取決於你在做什麼。若想先看 Next.js 驗證的全景，可讀我們的 [Next.js 驗證指南](/zh-Hant/post/nextjs-authentication-guide)，再回來看這篇專題比較。
+本篇是給開發者在 **Next.js** 專案中，於 **Supabase Auth** 與 **Authgear** 之間做選擇的務實、平衡比較。不預設誰贏——正解取決於你在做什麼。若想先看 Next.js 驗證的全景，可讀我們的 [Next.js 驗證指南](/zh-hant/post/nextjs-authentication-guide)，再回來看這篇專題比較。
 
 ## 快速概覽
 
@@ -294,7 +294,7 @@ export default async function DashboardPage() {
 
 ### 可以把 Authgear 和 Supabase 資料庫一起用嗎？
 
-可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href="/zh-Hant/post/supabase-any-auth-provider" target="_blank" rel="noopener">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。
+可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href="/zh-hant/post/supabase-any-auth-provider" target="_blank" rel="noopener">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。
 
 ### Supabase Auth 支援 Next.js App Router 嗎？
 

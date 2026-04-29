@@ -120,5 +120,5 @@ Authgear 能卸載大量與驗證相關的複雜度，讓你專注在為應用�
   
 Related resources
 
-- [Authentication-as-a-Service: What Is It and Why You Need It](/zh-Hant/post/authentication-as-a-service)
-- [Frictionless Authentication: What Is It & How To Implement It?](/zh-Hant/post/frictionless-authentication)
+- [Authentication-as-a-Service: What Is It and Why You Need It](/zh-hant/post/authentication-as-a-service)
+- [Frictionless Authentication: What Is It & How To Implement It?](/zh-hant/post/frictionless-authentication)

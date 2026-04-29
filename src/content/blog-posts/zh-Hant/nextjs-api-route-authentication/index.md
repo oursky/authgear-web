@@ -26,7 +26,7 @@ Route Handler 是**端點**，不是頁面。呼叫方可能是行動 App、`fet
 
 還有第二個重點：**光靠 middleware 不夠**。我們會在 [常見錯誤](#常見錯誤) 一節說明。
 
-若你對 Next.js 驗證還不熟，建議先讀 [Next.js 驗證指南](/zh-Hant/post/nextjs-authentication-guide)，再回到本篇看 API 專屬模式。
+若你對 Next.js 驗證還不熟，建議先讀 [Next.js 驗證指南](/zh-hant/post/nextjs-authentication-guide)，再回到本篇看 API 專屬模式。
 
 ## App Router Route Handlers：快速複習
 
@@ -296,7 +296,7 @@ export const config = {
 
 **作法：** 永遠在 Route Handler **內部**再做驗證。把 middleware 當快速第一道防線——但把 handler 層檢查當成**真正的**安全保證。這就是**多層防禦（defence in depth）**。
 
-更深入說明見 [Next.js middleware 驗證指南](/zh-Hant/post/nextjs-middleware-authentication)。
+更深入說明見 [Next.js middleware 驗證指南](/zh-hant/post/nextjs-middleware-authentication)。
 
 ### 其他常見錯誤
 

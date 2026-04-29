@@ -103,7 +103,7 @@ SMS pumping 利用傳統電信分潤經濟。**WhatsApp 驗證訊息**走 Meta �
 
 **每少發一則 OTP，就少一個攻擊面。** 通行金鑰與生物辨識登入可讓回訪使用者完全不必再收簡訊——該使用者工作階段即無 SMS pumping 暴露。
 
-進一步了解為何 [通行金鑰正取代密碼與 OTP](/zh-Hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security) 成為現代驗證趨勢。
+進一步了解為何 [通行金鑰正取代密碼與 OTP](/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security) 成為現代驗證趨勢。
 
 ## SMS Pumping 與 OTP 盜用：有何不同？
 
@@ -111,7 +111,7 @@ SMS pumping 利用傳統電信分潤經濟。**WhatsApp 驗證訊息**走 Meta �
 
 <div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>攻擊類型</th><th>目的</th><th>誰受害</th><th>防禦</th></tr></thead><tbody><tr><td><strong>SMS Pumping（話費詐欺）</strong></td><td>製造詐欺簡訊發送以赚取電信分潤</td><td>你（開發者／公司）——帳單暴增</td><td>速率限制、CAPTCHA、門號驗證、支出上限</td></tr><tr><td><strong>OTP 盜用（帳戶接管）</strong></td><td>攔截或社交工程騙取 OTP 以接管帳戶</td><td>你的使用者——帳戶遭入侵</td><td>釣魚抗性驗證（通行金鑰、FIDO2）</td></tr></tbody></table></div>
 
-SMS pumping 傷的是**你的荷包**；OTP 盜用傷的是**使用者**。兩者都是應降低對 SMS OTP 依賴的理由。OTP 安全陷阱可再讀 [開發者常犯的 5 個 TOTP 錯誤](/zh-Hant/post/5-common-totp-mistakes)。
+SMS pumping 傷的是**你的荷包**；OTP 盜用傷的是**使用者**。兩者都是應降低對 SMS OTP 依賴的理由。OTP 安全陷阱可再讀 [開發者常犯的 5 個 TOTP 錯誤](/zh-hant/post/5-common-totp-mistakes)。
 
 ## Authgear 是否防範 SMS Pumping？
 
@@ -119,7 +119,7 @@ SMS pumping 傷的是**你的荷包**；OTP 盜用傷的是**使用者**。兩�
 
 除詐欺防護外，Authgear 預設透過 **WhatsApp** 路由 OTP（並附 SMS 後援），相較僅 SMS 流程每則成本常可降 **70–90%**。再搭配通行金鑰，隨使用者採用無密碼登入，**成本曲線可趨近零**。
 
-若正在評估 SMS pumping——或單純例行 SMS——對業務的成本，見我們的 [SMS 成本優化指南](/zh-Hant/solutions/reduce-sms-otp-cost)，含各市場與規模拆解。
+若正在評估 SMS pumping——或單純例行 SMS——對業務的成本，見我們的 [SMS 成本優化指南](/zh-hant/solutions/reduce-sms-otp-cost)，含各市場與規模拆解。
 
 ## 重點整理
 

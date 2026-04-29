@@ -185,7 +185,7 @@ FIDO 登入也防**憑證重用**：每個服務取得獨一無二的金鑰對�
 
 FIDO2 以存在受信任裝置上的密碼學憑證取代密碼，消除釣魚、撞庫與伺服器端密碼外洩風險，並以生物辨識或安全金鑰加快登入。
 
-開發團隊若評估無密碼驗證，Authgear 內建 [通行金鑰](https://www.authgear.com/features/passkeys) 與 FIDO2 安全金鑰支援，並可搭配 [TOTP](/zh-Hant/post/what-is-totp)、[SMS OTP](/zh-Hant/post/sms-authentication-should-you-implement)、[社交登入](/zh-Hant/post/social-login-guide)與[使用者驗證概覽](/zh-Hant/post/what-is-user-authentication-guide-2026)等其他管道——無須從零整合 WebAuthn。
+開發團隊若評估無密碼驗證，Authgear 內建 [通行金鑰](https://www.authgear.com/features/passkeys) 與 FIDO2 安全金鑰支援，並可搭配 [TOTP](/zh-hant/post/what-is-totp)、[SMS OTP](/zh-hant/post/sms-authentication-should-you-implement)、[社交登入](/zh-hant/post/social-login-guide)與[使用者驗證概覽](/zh-hant/post/what-is-user-authentication-guide-2026)等其他管道——無須從零整合 WebAuthn。
 
 <a href="https://portal.authgear.com/" target="_blank" rel="noopener">開始使用 Authgear</a>，為應用加入無密碼登入。
 

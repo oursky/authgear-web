@@ -136,7 +136,7 @@ Authentik 是現代化、政策導向的開源身分供應商，強調易用性�
 
 **Authentik** 以現代 UX 與可視化配置見長，適合 Kubernetes 導向團隊。
 
-**準備評估 Authgear 作為你的 SSO 方案？** [預約 Demo](/zh-Hant/schedule-demo) 討論你的需求。
+**準備評估 Authgear 作為你的 SSO 方案？** [預約 Demo](/zh-hant/schedule-demo) 討論你的需求。
 
 ## 特定部署情境下的自託管 SSO
 

@@ -30,7 +30,7 @@ LDAP 代表輕量級目錄存取協定。它本質上是應用程式透過網路
 - 使用者管理：建立、修改和刪除使用者帳戶。
 - 群組管理：建立、修改和刪除群組。
 - 身份驗證和授權：驗證使用者憑證並確定他們的存取權限。
-- [Single Sign-On (SSO)](/zh-Hant/post/customer-sso)：允許使用者登入一次並存取多個應用程式。
+- [Single Sign-On (SSO)](/zh-hant/post/customer-sso)：允許使用者登入一次並存取多個應用程式。
 - 網路存取控制：根據使用者身分控制對網路資源的存取。
 
 ## 了解 LDAP 流程
@@ -217,10 +217,10 @@ LDAP（輕量級目錄存取協定）和 Active Directory (AD) 都是廣泛使�
 **Authgear** 提供一套全面的身份驗證和授權功能，包括：
 
 - **強密碼原則：** 執行嚴格的密碼要求，以防止弱密碼或容易猜到的密碼。
-- [**Multi-Factor Authentication (MFA)**](/zh-Hant/post/what-is-multi-factor-authentication-mfa)**：** 透過要求使用者提供多種形式的驗證（例如來自基於時間的一次性密碼 (TOTP) 應用程式的密碼和代碼）來新增額外的安全層。
+- [**Multi-Factor Authentication (MFA)**](/zh-hant/post/what-is-multi-factor-authentication-mfa)**：** 透過要求使用者提供多種形式的驗證（例如來自基於時間的一次性密碼 (TOTP) 應用程式的密碼和代碼）來新增額外的安全層。
 - **單一登入 (SSO)：** 允許使用者登入一次並使用一組憑證存取多個應用程序，從而降低密碼疲勞的風險並改善使用者體驗。
-- **自適應身分驗證：** 根據風險因素（例如使用者行為、裝置類型和位置）動態調整安全等級。 [****](/zh-Hant/features/identity-security)
-- [**Advanced Threat Protection**](/zh-Hant/features/identity-security)**：** 防範常見的安全性威脅，例如網路釣魚、密碼噴灑和暴力攻擊。
+- **自適應身分驗證：** 根據風險因素（例如使用者行為、裝置類型和位置）動態調整安全等級。 [****](/zh-hant/features/identity-security)
+- [**Advanced Threat Protection**](/zh-hant/features/identity-security)**：** 防範常見的安全性威脅，例如網路釣魚、密碼噴灑和暴力攻擊。
 
 透過將 LDAP 與 Authgear 集成，您可以利用這些高級安全功能來增強對目錄資訊的保護並降低未經授權存取的風險。
 

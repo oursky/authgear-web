@@ -121,10 +121,10 @@ Profile Enrichment 在有效運用時，能為企業帶來顯著效益。它有�
 
 ### Related resources
 
-- <a href="/zh-Hant/post/authentication-as-a-service" target="_blank">Authentication-as-a-Service: What Is It and Why You Need It</a>
-- <a href="/zh-Hant/post/frictionless-authentication" target="_blank">Frictionless Authentication: What Is It & How To Implement It?</a>
+- <a href="/zh-hant/post/authentication-as-a-service" target="_blank">Authentication-as-a-Service: What Is It and Why You Need It</a>
+- <a href="/zh-hant/post/frictionless-authentication" target="_blank">Frictionless Authentication: What Is It & How To Implement It?</a>
 
 ### Recommended content
 
-- <a href="/zh-Hant/post/simplifying-authentication-integration-with-authgear-sdks" target="_blank">Simplifying Authentication Integration For Developers With Authgear SDKs</a>
-- <a href="/zh-Hant/post/social-login-guide" target="_blank">Social Login - Why You Should Implement It</a>
+- <a href="/zh-hant/post/simplifying-authentication-integration-with-authgear-sdks" target="_blank">Simplifying Authentication Integration For Developers With Authgear SDKs</a>
+- <a href="/zh-hant/post/social-login-guide" target="_blank">Social Login - Why You Should Implement It</a>

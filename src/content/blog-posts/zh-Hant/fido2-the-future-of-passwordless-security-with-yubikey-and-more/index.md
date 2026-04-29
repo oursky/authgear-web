@@ -50,11 +50,11 @@ draft: false
 - **相容性廣**：不只支援 **FIDO2**，也支援其他多種驗證協定。
 - **安全性提升**：每次驗證都會觸發獨立密碼學挑戰，降低釣魚與中間人攻擊風險。
 
-若想深入了解，我們在這篇文章有更完整介紹：[**拋開密碼，用 YubiKey 保護你的帳號：驗證的未來已經到來**](/zh-Hant/post/ditch-the-password-secure-your-accounts-with-yubikey-the-future-of-authentication-is-here)。
+若想深入了解，我們在這篇文章有更完整介紹：[**拋開密碼，用 YubiKey 保護你的帳號：驗證的未來已經到來**](/zh-hant/post/ditch-the-password-secure-your-accounts-with-yubikey-the-future-of-authentication-is-here)。
 
 ## FIDO2 與 Passkey 相容性
 
-隨著 **FIDO2 驗證** 逐漸獲得廣泛支援，越來越多服務開始採用 Passkey，進一步跳脫傳統密碼框架。若你想了解 **FIDO2** 標準如何成為 Passkey 技術基礎，以及這項轉變對開發者和終端使用者代表什麼，歡迎閱讀 [Authgear 的 Passkey 相容性文章](/zh-Hant/post/passkeys-compatibility)。你會看到更完整的 Passkey 解析、它如何對齊 **FIDO2**，以及為何它對打造順暢且使用者友善的登入體驗至關重要。
+隨著 **FIDO2 驗證** 逐漸獲得廣泛支援，越來越多服務開始採用 Passkey，進一步跳脫傳統密碼框架。若你想了解 **FIDO2** 標準如何成為 Passkey 技術基礎，以及這項轉變對開發者和終端使用者代表什麼，歡迎閱讀 [Authgear 的 Passkey 相容性文章](/zh-hant/post/passkeys-compatibility)。你會看到更完整的 Passkey 解析、它如何對齊 **FIDO2**，以及為何它對打造順暢且使用者友善的登入體驗至關重要。
 
 ## 結語
 

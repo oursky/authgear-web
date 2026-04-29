@@ -174,7 +174,7 @@ OTP 常見於：
 
 ### 威脅模型
 
-不同平台面臨不同威脅。消費型 App 常面臨憑證填充與釣魚；企業系統可能面臨鎖定性攻擊。了解可能的攻擊情境，有助判斷是否需要**抗釣魚**驗證，或僅需低摩擦登入。關於登入後所發權杖的安全，可參考我們的 [JWT 安全最佳實務](/zh-Hant/post/jwt-security-best-practices-common-vulnerabilities) 指南。
+不同平台面臨不同威脅。消費型 App 常面臨憑證填充與釣魚；企業系統可能面臨鎖定性攻擊。了解可能的攻擊情境，有助判斷是否需要**抗釣魚**驗證，或僅需低摩擦登入。關於登入後所發權杖的安全，可參考我們的 [JWT 安全最佳實務](/zh-hant/post/jwt-security-best-practices-common-vulnerabilities) 指南。
 
 ### 採用摩擦
 
@@ -192,7 +192,7 @@ OTP 常見於：
 
 例如平台可能以通行金鑰為主要登入，但允許 OTP 作為備援；另一系統可能先以魔法連結開始，之後提示使用者註冊通行金鑰。這些組合在不大幅犧牲安全下提供彈性。
 
-混合策略也支援**漸進推出**。團隊可隨時間引入更強驗證，而非強迫使用者立即切換。若系統同時使用 OAuth 2.0 委派存取，請搭配閱讀 <a href="/zh-Hant/post/oauth2-security-best-practices-pkce-state" target="_blank">OAuth 2.0 安全最佳實務</a>，在無密碼登入之外維持權杖流程安全。
+混合策略也支援**漸進推出**。團隊可隨時間引入更強驗證，而非強迫使用者立即切換。若系統同時使用 OAuth 2.0 委派存取，請搭配閱讀 <a href="/zh-hant/post/oauth2-security-best-practices-pkce-state" target="_blank">OAuth 2.0 安全最佳實務</a>，在無密碼登入之外維持權杖流程安全。
 
 ## 團隊常忽略的實作考量
 

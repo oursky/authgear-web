@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "我們在支持萬能鑰匙方面學到的 4 件事"
 metaDescription: "萬能鑰匙有可能完全取代密碼，但它還不夠完美。詳細了解您在支持他們時可能遇到的情況。"
-canonicalUrl: /zh-Hant/post/4-things-we-learned-supporing-passkeys
+canonicalUrl: /zh-hant/post/4-things-we-learned-supporing-passkeys
 publishedAt: 2022-08-29T03:24:43.364Z
 updatedAt: 2026-02-12T02:33:17.663Z
 draft: false
@@ -53,7 +53,7 @@ draft: false
 
 密碼易於使用，使其成為最常見的身份驗證方法。然而，人們傾向於使用容易被破解的簡單密碼。此外，用戶可能會被欺騙，在不知情的情況下向駭客提供密碼。
 
-2022年，我們終於迎來了好消息！行業領導者喜歡 <a href="https://developer.apple.com/passkeys/" target="_blank">蘋果</a>, <a href="https://developers.google.com/identity/fido#who_supports_passkeys" target="_blank">Google</a> 微軟正在研究一種稱為金鑰的新身份驗證方法。萬能鑰匙有可能完全取代密碼。儘管如此， <a href="/zh-Hant/post/passkeys-compatibility" target="_blank">在技​​術更加成熟之前，存在各種相容性和支援問題</a>.
+2022年，我們終於迎來了好消息！行業領導者喜歡 <a href="https://developer.apple.com/passkeys/" target="_blank">蘋果</a>, <a href="https://developers.google.com/identity/fido#who_supports_passkeys" target="_blank">Google</a> 微軟正在研究一種稱為金鑰的新身份驗證方法。萬能鑰匙有可能完全取代密碼。儘管如此， <a href="/zh-hant/post/passkeys-compatibility" target="_blank">在技​​術更加成熟之前，存在各種相容性和支援問題</a>.
 
 在這篇文章中，我們將簡要討論金鑰的基礎以及我們在透過 Authgear 幫助開發人員在其應用程式上輕鬆支援金鑰時遇到的問題。
 
@@ -61,7 +61,7 @@ draft: false
 
 金鑰是基於用戶身份驗證行業標準的數位憑證。它們遵循使用公鑰加密的 FIDO 和 WebAuthn 標準，這是最受歡迎和最安全的協定。每當用戶建立新帳戶時，都會建立一對公鑰和私鑰。公鑰是公開的，而相應的私鑰通常是在用戶的裝置內保密的。用公鑰加密的資料只能用對應的私鑰解密。用戶只需使用 PIN、生物辨識感應器等解鎖設備，即可解鎖私鑰並存取應用程式或網站。這樣，與基於密碼的身份驗證不同，用戶永遠不必向任何人透露他們的私鑰。
 
-雖然科技巨頭努力將金鑰引入行動設備，但我們的團隊正在努力支援以下領域的金鑰 <a href="/zh-Hant/" target="_blank">Authgear</a> 以便每個人都可以輕鬆地在其應用程式上使用密碼登入。由於對密鑰的支援還遠未成熟，我們在將密鑰與各種設備和平台整合時遇到了一些問題。
+雖然科技巨頭努力將金鑰引入行動設備，但我們的團隊正在努力支援以下領域的金鑰 <a href="/zh-hant/" target="_blank">Authgear</a> 以便每個人都可以輕鬆地在其應用程式上使用密碼登入。由於對密鑰的支援還遠未成熟，我們在將密鑰與各種設備和平台整合時遇到了一些問題。
 
 對於嘗試開發支援金鑰的網站和我們的解決方案的開發人員來說，以下是 4 個問題（也許也是您可能想要使用 Authgear 而不是開發解決方案的原因）：
 
@@ -171,4 +171,4 @@ draft: false
 
 雖然整合只涉及兩個功能，但如果我們決心讓密鑰的使用體驗像密碼一樣簡單易用，這並不是一件容易的事。對於想要在其 Web 或應用程式上啟用金鑰的開發人員來說，平台之間相容性的差異和錯誤處理的不一致是一個挑戰。
 
-如果穩健性對您的應用程式和使用者至關重要，那麼手動實施您的實作可能並不好。 <a href="https://accounts.portal.authgear.com/signup" target="_blank">開始免費試用</a> 或者 <a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a> 了解如何從 Authgear 中受益，並為您的用戶提供順暢的體驗，而不會遇到任何麻煩。
+如果穩健性對您的應用程式和使用者至關重要，那麼手動實施您的實作可能並不好。 <a href="https://accounts.portal.authgear.com/signup" target="_blank">開始免費試用</a> 或者 <a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a> 了解如何從 Authgear 中受益，並為您的用戶提供順暢的體驗，而不會遇到任何麻煩。

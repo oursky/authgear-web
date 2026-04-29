@@ -193,7 +193,7 @@ SCIM 標準化停用方式：
 
 SCIM 不是驗證協定，而是補足驗證系統，確保登入前使用者身分已存在且最新。典型架構：
 
-- <a href="/zh-Hant/post/oidc-vs-saml" target="_blank">OIDC 或 SAML</a> 負責驗證
+- <a href="/zh-hant/post/oidc-vs-saml" target="_blank">OIDC 或 SAML</a> 負責驗證
 - SCIM 負責佈建與屬性同步
 - RBAC/ABAC 依 SCIM 資料做授權
 
@@ -250,7 +250,7 @@ JIT 適合較輕量、按需建立身分的情境：
 
 SCIM Provisioning 可高效率管理使用者與群組，自動化入職、更新與離職停權，讓跨系統資料維持準確，降低錯誤並提升安全。
 
-<a href="/zh-Hant/" target="_blank">立即了解 Authgear</a>，以更一致且安全的方式管理所有應用的身分與存取。
+<a href="/zh-hant/" target="_blank">立即了解 Authgear</a>，以更一致且安全的方式管理所有應用的身分與存取。
 
 ## **FAQs**
 

@@ -148,7 +148,7 @@ FusionAuth 也提供企業級驗證能力，常與其他開源身分方案一起
 
 關鍵在於：選擇把前線工作者視為「核心使用者」的平台，而不是把他們當成傳統辦公 IAM 的例外情境。
 
-**想了解 Authgear 如何支援前線工作者驗證？** [預約 Demo](/zh-Hant/schedule-demo) 與我們討論你的需求。
+**想了解 Authgear 如何支援前線工作者驗證？** [預約 Demo](/zh-hant/schedule-demo) 與我們討論你的需求。
 
 ## 常見問題
 

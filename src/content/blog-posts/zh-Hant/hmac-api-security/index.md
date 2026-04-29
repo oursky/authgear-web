@@ -54,7 +54,7 @@ HMAC 使用對稱式密碼學，**每秒可執行數百萬次驗證**，非常�
 ### 5. 幾乎所有語言都易於實作
 
 從 Python 到 Go 到 Node.js，幾乎所有現代語言都有內建 HMAC 函式庫。  
-你可在數分鐘內完成安全簽章流程，或使用 Authgear 的 [HMAC Signature Generator & Verifier](/zh-Hant/tools/hmac-signature-generator-verifier) 立即測試簽章。
+你可在數分鐘內完成安全簽章流程，或使用 Authgear 的 [HMAC Signature Generator & Verifier](/zh-hant/tools/hmac-signature-generator-verifier) 立即測試簽章。
 
 ## HMAC 如何保護 API 請求
 
@@ -79,7 +79,7 @@ Client 以 HMAC 對每個請求簽章，server 在接受前先驗證。
 
 ## 範例：簽發與驗證 API 請求（Node.js）
 
-**立即試用** [HMAC Signature Generator & Verifier](/zh-Hant/tools/hmac-signature-generator-verifier) 確認你的訊息是否產生預期雜湊。
+**立即試用** [HMAC Signature Generator & Verifier](/zh-hant/tools/hmac-signature-generator-verifier) 確認你的訊息是否產生預期雜湊。
 
 ## 為什麼開發者仍選擇 HMAC
 

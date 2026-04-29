@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "身份驗證與授權：一張表中的差異"
 metaDescription: "透過一張簡單的表格詳細了解身分驗證和授權這兩個重要的安全流程之間的差異。 "
-canonicalUrl: /zh-Hant/post/authentication-vs-authorization
+canonicalUrl: /zh-hant/post/authentication-vs-authorization
 publishedAt: 2023-01-13T05:44:08.288Z
 updatedAt: 2026-02-12T02:33:17.656Z
 draft: false
@@ -132,7 +132,7 @@ draft: false
 ![](./figure-1.jpeg)
 <!--/FIGURE-->
 
-如今大多數企業都選擇使用 <a href="/zh-Hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多重身份驗證</a> （MFA）以更強有力地防禦網路安全威脅。
+如今大多數企業都選擇使用 <a href="/zh-hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多重身份驗證</a> （MFA）以更強有力地防禦網路安全威脅。
 
 身份驗證要求使用者提供一定的身份驗證因素來驗證其身份。身份驗證的三種主要形式是繼承、佔有和知識，每種形式都依賴使用者的某些內容來驗證其身分：
 
@@ -142,11 +142,11 @@ draft: false
 
 <h3 id="possession">您擁有什麼（擁有驗證因素）</h3>
 
-擁有身份驗證因素的最簡單的例子是您的前門鑰匙 - 您必須隨身攜帶它才能進入您的家。這種身份驗證因素還可以採用多種其他形式，無論是透過金鑰或卡片等實體安全物品，還是您在裝置上收到的物品，例如 <a href="/zh-Hant/features/whatsapp-otp" target="_blank">WhatsApp OTP</a> 和 <a href="/zh-Hant/post/sms-otp-vulnerabilities-and-alternatives" target="_blank">簡訊一次性密碼</a>.
+擁有身份驗證因素的最簡單的例子是您的前門鑰匙 - 您必須隨身攜帶它才能進入您的家。這種身份驗證因素還可以採用多種其他形式，無論是透過金鑰或卡片等實體安全物品，還是您在裝置上收到的物品，例如 <a href="/zh-hant/features/whatsapp-otp" target="_blank">WhatsApp OTP</a> 和 <a href="/zh-hant/post/sms-otp-vulnerabilities-and-alternatives" target="_blank">簡訊一次性密碼</a>.
 
 <h3 id="inherence">你是什​​麼（固有的認證因素）</h3>
 
-這聽起來可能有點不祥，但「繼承認證因素」只是一個大標題。 <a href="/zh-Hant/features/biometric-authentication" target="_blank">生物辨識認證</a> 我們中的許多人每天在掃描臉部或指紋來存取手機時都會使用它。無論是掃描您的臉部、視網膜還是指紋，此身份驗證因素都依賴您的身體或生物識別數據來驗證您的身份。
+這聽起來可能有點不祥，但「繼承認證因素」只是一個大標題。 <a href="/zh-hant/features/biometric-authentication" target="_blank">生物辨識認證</a> 我們中的許多人每天在掃描臉部或指紋來存取手機時都會使用它。無論是掃描您的臉部、視網膜還是指紋，此身份驗證因素都依賴您的身體或生物識別數據來驗證您的身份。
 
 ## 從哪裡開始
 

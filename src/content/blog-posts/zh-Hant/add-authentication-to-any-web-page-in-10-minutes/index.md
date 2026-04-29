@@ -6,19 +6,19 @@ category: engineering
 featured: false
 metaTitle: "10 分鐘內為任何網頁新增身份驗證"
 metaDescription: "這篇文章示範如何使用 Authgear 輕鬆地將身分驗證新增至任何 Javascript 單頁應用程式 (SPA)。"
-canonicalUrl: /zh-Hant/post/add-authentication-to-any-web-page-in-10-minutes
+canonicalUrl: /zh-hant/post/add-authentication-to-any-web-page-in-10-minutes
 publishedAt: 2023-08-04T06:16:24.312Z
 updatedAt: 2026-02-12T02:33:17.666Z
 draft: false
 ---
 
-如今，所有網路應用程式都需要用戶登入並分享他們的資訊以建立自己的個人資料。這有助於應用程式安全地為他們提供個人化體驗。開發人員可以透過**兩種方式**對使用者進行身份驗證 - 他們可以創建自己的身份驗證系統，也可以使用 <a href="/zh-Hant/solutions/customer-identity-and-access-management" target="_blank">身分和存取管理服務</a> 透過內建登入頁面提供安全的使用者註冊和登入功能。
+如今，所有網路應用程式都需要用戶登入並分享他們的資訊以建立自己的個人資料。這有助於應用程式安全地為他們提供個人化體驗。開發人員可以透過**兩種方式**對使用者進行身份驗證 - 他們可以創建自己的身份驗證系統，也可以使用 <a href="/zh-hant/solutions/customer-identity-and-access-management" target="_blank">身分和存取管理服務</a> 透過內建登入頁面提供安全的使用者註冊和登入功能。
 
-這篇文章示範如何使用以下命令輕鬆地將身份驗證新增至 **任何 Javascript 單頁應用程式 (SPA)** <a href="/zh-Hant/" target="_blank">Authgear</a>.
+這篇文章示範如何使用以下命令輕鬆地將身份驗證新增至 **任何 Javascript 單頁應用程式 (SPA)** <a href="/zh-hant/" target="_blank">Authgear</a>.
 
 ## 為什麼選擇Authgear？
 
-如果您在應用程式中使用 Authgear，這就像將登入程序傳送到一個主登入頁面，類似於 Google 對 Gmail、YouTube 和其他應用程式的處理方式。您可以輕鬆地將**身份驗證功能**整合到您的應用程式中（<a href="https://docs.authgear.com/get-started/single-page-app/angular" target="_blank">角</a>, <a href="https://docs.authgear.com/get-started/single-page-app/vue" target="_blank">維埃</a>, <a href="https://docs.authgear.com/get-started/single-page-app/react" target="_blank">反應</a>，或任何 JavaScript 網站）。它通常只需要**幾行程式碼**來啟用**多種身份驗證方法**，例如 <a href="/zh-Hant/features/social-login" target="_blank">社群登入</a>, <a href="/zh-Hant/features/passwordless-authentication" target="_blank">無密碼</a>, <a href="/zh-Hant/features/biometric-authentication" target="_blank">生物辨識登入</a>, <a href="/zh-Hant/features/whatsapp-otp" target="_blank">一次性密碼 (OTP)</a> 具有 SMS/WhatsApp 和多重身份驗證 (MFA)。
+如果您在應用程式中使用 Authgear，這就像將登入程序傳送到一個主登入頁面，類似於 Google 對 Gmail、YouTube 和其他應用程式的處理方式。您可以輕鬆地將**身份驗證功能**整合到您的應用程式中（<a href="https://docs.authgear.com/get-started/single-page-app/angular" target="_blank">角</a>, <a href="https://docs.authgear.com/get-started/single-page-app/vue" target="_blank">維埃</a>, <a href="https://docs.authgear.com/get-started/single-page-app/react" target="_blank">反應</a>，或任何 JavaScript 網站）。它通常只需要**幾行程式碼**來啟用**多種身份驗證方法**，例如 <a href="/zh-hant/features/social-login" target="_blank">社群登入</a>, <a href="/zh-hant/features/passwordless-authentication" target="_blank">無密碼</a>, <a href="/zh-hant/features/biometric-authentication" target="_blank">生物辨識登入</a>, <a href="/zh-hant/features/whatsapp-otp" target="_blank">一次性密碼 (OTP)</a> 具有 SMS/WhatsApp 和多重身份驗證 (MFA)。
 
 ## 它是如何運作的
 
@@ -178,7 +178,7 @@ app.listen(3000, () => console.log("Application running on port 3000"));
   <head>
     <meta charset="UTF-8" />
     <title>Authgear SPA SDK Sample</title>
-    <link rel="stylesheet" type="text/css" href="/zh-Hant/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/zh-hant/css/main.css" />
   </head>
 
   <body>

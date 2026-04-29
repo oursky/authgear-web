@@ -17,7 +17,7 @@ technicalDetails:
   - 單一登入（SSO）
 metrics: []
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/zh-Hant/customer-stories/palace"
+canonicalUrl: "https://www.authgear.com/zh-hant/customer-stories/palace"
 ---
 
 ## 挑戰：簡化使用者註冊，並實現無縫跨平台登入

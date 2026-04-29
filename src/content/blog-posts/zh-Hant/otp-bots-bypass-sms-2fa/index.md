@@ -17,8 +17,8 @@ draft: false
  "@context":"https://schema.org",
  "@type":"BreadcrumbList",
  "itemListElement":[
-  {"@type":"ListItem","position":1,"name":"部落格","item":"/zh-Hant/blog"},
-  {"@type":"ListItem","position":2,"name":"OTP 機器人如何繞過 SMS 2FA","item":"/zh-Hant/blog/otp-bots-bypass-sms-2fa"}
+  {"@type":"ListItem","position":1,"name":"部落格","item":"/zh-hant/blog"},
+  {"@type":"ListItem","position":2,"name":"OTP 機器人如何繞過 SMS 2FA","item":"/zh-hant/blog/otp-bots-bypass-sms-2fa"}
  ]
 }
 </script>
@@ -135,7 +135,7 @@ fallback 是為了救帳號，不是為了救機器人。對高風險 session �
 
 你保留既有流程；只在風險需要時增加摩擦；同時停止為機器人測你 SMS gateway 買單。
 
-了解更多：<a href="/zh-Hant/features/sms-pumping-fraud" target="_blank">**Authgear SMS Pumping Fraud Protection**</a>
+了解更多：<a href="/zh-hant/features/sms-pumping-fraud" target="_blank">**Authgear SMS Pumping Fraud Protection**</a>
 
 ## FAQ：OTP 繞過實務問答
 
@@ -151,4 +151,4 @@ fallback 是為了救帳號，不是為了救機器人。對高風險 session �
 **如何及早偵測 SMS pumping 詐騙？**  
 觀察發送/驗證比過高、國家/電信商組合突變、同 ASN/子網尖峰、以及連號手機。看到這些模式時，先暫停發送、啟用挑戰驗證，並回溯檢視時間窗再恢復。
 
-*延伸閱讀：* [OTP Bots Explained](/zh-Hant/post/otp-bot-explained) 與 [SMS Pumping Fraud Protection](/zh-Hant/features/sms-pumping-fraud)，了解更完整技術脈絡與可直接部署的控制策略。
+*延伸閱讀：* [OTP Bots Explained](/zh-hant/post/otp-bot-explained) 與 [SMS Pumping Fraud Protection](/zh-hant/features/sms-pumping-fraud)，了解更完整技術脈絡與可直接部署的控制策略。

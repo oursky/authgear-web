@@ -17,7 +17,7 @@ Next.js 已從單純的 React 框架成長為全端平台——能力越強，�
 
 2026 年，Next.js 應用中最具影響力的安全事件，常見根因有三：**信錯層級**（例如只靠 middleware 做驗證）、**把機密洩漏到客戶端**，以及**未在伺服器端驗證輸入**。本指南逐一處理——附具體程式範例、標示最危險的反模式，以及可在 code review 時對照的清單。
 
-若要深入特定主題，請參考 [Next.js middleware 驗證](/zh-Hant/post/nextjs-middleware-authentication) 與 [Next.js 中的 JWT 驗證](/zh-Hant/post/nextjs-jwt-authentication)。
+若要深入特定主題，請參考 [Next.js middleware 驗證](/zh-hant/post/nextjs-middleware-authentication) 與 [Next.js 中的 JWT 驗證](/zh-hant/post/nextjs-jwt-authentication)。
 
 ## 1. 驗證最佳實踐
 

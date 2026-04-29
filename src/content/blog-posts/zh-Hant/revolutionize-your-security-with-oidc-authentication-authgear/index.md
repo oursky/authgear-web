@@ -16,19 +16,19 @@ draft: false
 
 ## 揭開 OIDC 驗證的核心價值：什麼是 OIDC Authentication？
 
-OIDC 驗證是一套建立在 [OAuth 2.0](/zh-Hant/post/what-is-oauth-2-0-and-how-it-works) 之上的現代化協定，用於安全且流暢地驗證使用者身分。在現今數位環境中，OIDC 驗證是一種兼顧體驗與安全的方案：它簡化身分驗證流程，同時維持高強度防護，降低未授權存取風險。對企業而言，OIDC 驗證不只提升使用者使用感受，也讓整體系統安全更可控。
+OIDC 驗證是一套建立在 [OAuth 2.0](/zh-hant/post/what-is-oauth-2-0-and-how-it-works) 之上的現代化協定，用於安全且流暢地驗證使用者身分。在現今數位環境中，OIDC 驗證是一種兼顧體驗與安全的方案：它簡化身分驗證流程，同時維持高強度防護，降低未授權存取風險。對企業而言，OIDC 驗證不只提升使用者使用感受，也讓整體系統安全更可控。
 
 從技術層面來看，OIDC 驗證提供標準化框架，並透過 JSON Web Token（JWT）安全傳遞使用者身分資訊。當你把 OIDC 驗證整合到應用程式中，就能在存取管理效率與安全性之間取得更佳平衡。這讓團隊能用成熟、業界標準的方法管理數位資產，把更多精力投入產品創新與成長。
 
 ## OIDC 驗證的運作原理
 
-OIDC 驗證是 OAuth 2.0 的延伸：它在授權流程之上加上一層身分層（identity layer），確保使用者確實是其宣稱的身分。當使用者登入成功後，系統會簽發安全權杖，封裝身分資訊。這個權杖通常是 [JSON Web Token（JWT）](/zh-Hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，可讓你的應用程式以一致且安全的方式驗證使用者。
+OIDC 驗證是 OAuth 2.0 的延伸：它在授權流程之上加上一層身分層（identity layer），確保使用者確實是其宣稱的身分。當使用者登入成功後，系統會簽發安全權杖，封裝身分資訊。這個權杖通常是 [JSON Web Token（JWT）](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，可讓你的應用程式以一致且安全的方式驗證使用者。
 
 典型 OIDC 驗證流程包含幾個步驟：啟動使用者登入、取得 authorization code、再以該 code 交換包含身分資訊的 token。每一步都旨在兼顧安全性與使用便利。導入 OIDC 驗證後，企業可優化登入體驗並降低安全漏洞，讓系統完整性與使用者體驗同時提升。
 
 ## OpenID Connect：OIDC 驗證的未來方向
 
-[OpenID Connect](/zh-Hant/post/authentication-for-asp-net-apps-with-authgear-and-openid-connect) 是賦予 OIDC 驗證高可用性與可擴展性的現代身分層。它可無縫整合既有 OAuth 2.0 架構，透過額外端點與標準化的使用者資訊格式，讓驗證流程更清楚、更一致，也更好管理。
+[OpenID Connect](/zh-hant/post/authentication-for-asp-net-apps-with-authgear-and-openid-connect) 是賦予 OIDC 驗證高可用性與可擴展性的現代身分層。它可無縫整合既有 OAuth 2.0 架構，透過額外端點與標準化的使用者資訊格式，讓驗證流程更清楚、更一致，也更好管理。
 
 有了 OpenID Connect，OIDC 驗證不只更安全，也更符合開發者習慣。透過業界標準協定，團隊可以更快速地建構安全且可擴展的驗證體系。作為現代資安實務的重要支柱，OpenID Connect 強化了 OIDC 驗證在各種數位平台上的落地能力。
 
@@ -94,12 +94,12 @@ OIDC 驗證不只是技術升級，更是對企業未來的策略投資。以下
 
 OIDC 驗證與 SAML 各有優缺點。OIDC 驗證在需要敏捷、可擴展、快速導入的場景表現突出，特別適合推動數位轉型的企業。SAML 則在大型企業 [單一登入（SSO）](https://docs.authgear.com/how-to-guide/single-sign-on) 場景具備成熟實績，但對新技術整合可能較繁瑣。企業在兩者間選擇時，應回到自身架構與業務需求。
 
-若你想更深入了解，推薦閱讀這篇文章：[OIDC 與 SAML 比較：如何選擇最適合的 SSO 架構](/zh-Hant/post/oidc-vs-saml)。文中更詳細分析 OIDC 驗證與 SAML 的差異，並說明為何 OIDC 驗證常是現代敏捷企業的優先選擇。
+若你想更深入了解，推薦閱讀這篇文章：[OIDC 與 SAML 比較：如何選擇最適合的 SSO 架構](/zh-hant/post/oidc-vs-saml)。文中更詳細分析 OIDC 驗證與 SAML 的差異，並說明為何 OIDC 驗證常是現代敏捷企業的優先選擇。
 
 ## 下一步：把 OIDC 驗證真正落地
 
-別錯過升級驗證安全的機會。[Authgear Once](/zh-Hant/campaign/once) 可協助你快速簡化身分驗證流程。透過一次付費，Authgear 提供完整能力，善用 OIDC 驗證保護應用程式並簡化身分管理。
+別錯過升級驗證安全的機會。[Authgear Once](/zh-hant/campaign/once) 可協助你快速簡化身分驗證流程。透過一次付費，Authgear 提供完整能力，善用 OIDC 驗證保護應用程式並簡化身分管理。
 
-現在就是導入可隨業務擴展的 OIDC 驗證系統的好時機。[Authgear 的定價模式](/zh-Hant/pricing) 讓你一次投入，即可獲得完整支援，讓安全升級更順暢、也更具成本效益。
+現在就是導入可隨業務擴展的 OIDC 驗證系統的好時機。[Authgear 的定價模式](/zh-hant/pricing) 讓你一次投入，即可獲得完整支援，讓安全升級更順暢、也更具成本效益。
 
 今天就開始體驗下一代數位安全。選擇 Authgear，讓你的 OIDC 驗證策略更安全、更高效，也更具未來性。

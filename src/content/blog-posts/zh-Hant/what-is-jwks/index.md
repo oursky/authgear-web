@@ -74,7 +74,7 @@ API 生態系常見流程如下：
 提示：JWKS 一律走 HTTPS，並維持穩定的 `kid` 值，有助於輪替流程。
 
 <blockquote>
-<p>&#x1F4A1; <strong>快速找出任何提供者的 JWKS URI：</strong>使用 <a href="/zh-Hant/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a>。輸入 issuer URL 後，就能在 Key Endpoints 摘要看到 <code>jwks_uri</code>、authorization endpoint、token endpoint，不需自行 curl。</p>
+<p>&#x1F4A1; <strong>快速找出任何提供者的 JWKS URI：</strong>使用 <a href="/zh-hant/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a>。輸入 issuer URL 後，就能在 Key Endpoints 摘要看到 <code>jwks_uri</code>、authorization endpoint、token endpoint，不需自行 curl。</p>
 </blockquote>
 
 ## JWK 格式解說（含範例）
@@ -153,13 +153,13 @@ openssl ec -in ec-private.pem -pubout -out ec-public.pem
 
 取得 public PEM 後，可用 JOSE 函式庫（node-jose、python-jose 等）或轉換工具轉成 JWK。轉換結果會包含 JWKS 所需欄位，例如 RSA 的 `kty`、`n`/`e`，或 EC 的 `x`/`y`/`crv`。
 
-若想要快速圖形化操作，可使用 Authgear [JWK Generator](/zh-Hant/tools/jwk-generator) 把 PEM 公鑰轉成格式正確的 JWK（RSA/EC），可直接放進 JWKS。
+若想要快速圖形化操作，可使用 Authgear [JWK Generator](/zh-hant/tools/jwk-generator) 把 PEM 公鑰轉成格式正確的 JWK（RSA/EC），可直接放進 JWKS。
 
 **安全提醒：** 私鑰 PEM 絕不能發布在 JWKS。JWKS 只能放公鑰材料，且必須以 HTTPS 提供，並搭配安全的金鑰輪替策略。
 
 ## 為你的應用建立與管理 JWKS
 
-**產生金鑰：** 你可透過各種函式庫（OpenSSL 產生後轉 JWK，或直接用 JOSE 函式庫）建立 JWK。若想快速且符合標準地建立 JWK，或把現有 PEM 轉成 JWK，可用 Authgear [JWK Generator](/zh-Hant/tools/jwk-generator) ——可輸出 RSA/EC 金鑰對，也能將 PEM 公鑰轉成 JWK，方便開發與測試。
+**產生金鑰：** 你可透過各種函式庫（OpenSSL 產生後轉 JWK，或直接用 JOSE 函式庫）建立 JWK。若想快速且符合標準地建立 JWK，或把現有 PEM 轉成 JWK，可用 Authgear [JWK Generator](/zh-hant/tools/jwk-generator) ——可輸出 RSA/EC 金鑰對，也能將 PEM 公鑰轉成 JWK，方便開發與測試。
 
 **發布 JWKS：**
 
@@ -199,7 +199,7 @@ JWKS 通常是**公開**的——它只含**公鑰**。私鑰必須保留在簽�
 
 ### 我該如何產生 JWK？
 
-你可用函式庫（OpenSSL 轉 JWK 或 JOSE 函式庫）產生；也可用像 Authgear [JWK Generator](/zh-Hant/tools/jwk-generator) 這類工具，快速產出可用於測試或 staging 的 JWK 格式金鑰。
+你可用函式庫（OpenSSL 轉 JWK 或 JOSE 函式庫）產生；也可用像 Authgear [JWK Generator](/zh-hant/tools/jwk-generator) 這類工具，快速產出可用於測試或 staging 的 JWK 格式金鑰。
 
 ## 與 JWT / JWE 的關係
 
@@ -212,4 +212,4 @@ JWKS 通常是**公開**的——它只含**公鑰**。私鑰必須保留在簽�
 
 ## 結語
 
-**JWKS**（JSON Web Key Set）是現代 token 安全中的小而關鍵一環：它標準化了公鑰（JWK）如何透過 `jwks_uri` 發布與抓取，讓跨服務驗簽與加密更順暢。請確保 JWK 格式正確、安全託管 JWKS、落實輪替策略；也可善用 Authgear [JWK Generator](/zh-Hant/tools/jwk-generator) 加速開發、轉換 PEM 公鑰並簡化測試。若要快速找任一 OIDC provider 的 `jwks_uri`，可使用 [OIDC Discovery Endpoint Explorer](/zh-Hant/tools/oidc-discovery-endpoint)。
+**JWKS**（JSON Web Key Set）是現代 token 安全中的小而關鍵一環：它標準化了公鑰（JWK）如何透過 `jwks_uri` 發布與抓取，讓跨服務驗簽與加密更順暢。請確保 JWK 格式正確、安全託管 JWKS、落實輪替策略；也可善用 Authgear [JWK Generator](/zh-hant/tools/jwk-generator) 加速開發、轉換 PEM 公鑰並簡化測試。若要快速找任一 OIDC provider 的 `jwks_uri`，可使用 [OIDC Discovery Endpoint Explorer](/zh-hant/tools/oidc-discovery-endpoint)。

@@ -52,7 +52,7 @@ draft: false
 
 PWC 比較 2018 與 2021 的 6000 名保戶調查後發現，偏好行動理賠申請的比例上升 77%，而因數位體驗差而想換保險公司的比例上升 80%。關鍵訊息很清楚：數位能力在保險業已是競爭核心。
 
-如今「具備數位能力」不再是加分，而是基本門檻。保險公司要同時滿足數位體驗、資料安全與營運效率，保險業 IAM 正是解法之一。以下以 <a href="/zh-Hant/" target="_blank">Authgear</a> 為例說明。
+如今「具備數位能力」不再是加分，而是基本門檻。保險公司要同時滿足數位體驗、資料安全與營運效率，保險業 IAM 正是解法之一。以下以 <a href="/zh-hant/" target="_blank">Authgear</a> 為例說明。
 
 <nav id="table-of-content"> Table of Content
     <ul>
@@ -94,7 +94,7 @@ IAM（Identity and Access Management）可拆成不同使用類型，每種都�
 
 在全面數位化的今天，客戶預期所有線上互動都要快且順。好不好用，已是評價保險服務的重要指標。CIAM（Customer IAM）可讓保險公司在任何時間、任何地點安全驗證客戶並授權服務存取。
 
-CIAM 的亮點之一是多種無密碼登入。使用者可透過 <a href="/zh-Hant/features/whatsapp-otp" target="_blank">OTP</a>（SMS/WhatsApp）或生物辨識登入。Authgear 的 <a href="/zh-Hant/features/biometric-authentication" target="_blank">生物辨識驗證</a>有一個關鍵差異：**不會逾時失效**。也就是說，客戶在裝置上啟用後，可長期安全使用生物辨識再次登入，特別適合一年只登入一兩次的保險客戶。
+CIAM 的亮點之一是多種無密碼登入。使用者可透過 <a href="/zh-hant/features/whatsapp-otp" target="_blank">OTP</a>（SMS/WhatsApp）或生物辨識登入。Authgear 的 <a href="/zh-hant/features/biometric-authentication" target="_blank">生物辨識驗證</a>有一個關鍵差異：**不會逾時失效**。也就是說，客戶在裝置上啟用後，可長期安全使用生物辨識再次登入，特別適合一年只登入一兩次的保險客戶。
 
 <!--FIGURE-->
 ![](./figure-2.png)
@@ -108,7 +108,7 @@ CIAM 的亮點之一是多種無密碼登入。使用者可透過 <a href="/zh-H
 
 保險公司常需和代理人、經紀人與第三方協作，這些角色可能要存取內部資源。如何在資訊流動與資料安全間取得平衡，會帶來複雜 IAM 挑戰，傳統內部系統常難以應對。
 
-Authgear 已協助許多企業集中管理<a href="/zh-Hant/solutions/wiam-for-extended-workforces-and-access-management-for-frontline-contractors" target="_blank">內外部身分</a>：把客戶應用接入 Authgear 管理外部工作人員，再串接既有內部 WIAM（Workforce IAM）系統。重點是整合與優化現有架構，而不是增加負擔。
+Authgear 已協助許多企業集中管理<a href="/zh-hant/solutions/wiam-for-extended-workforces-and-access-management-for-frontline-contractors" target="_blank">內外部身分</a>：把客戶應用接入 Authgear 管理外部工作人員，再串接既有內部 WIAM（Workforce IAM）系統。重點是整合與優化現有架構，而不是增加負擔。
 
 <h2 id="ciam">保險 IAM 如何幫助建立長期客戶關係？</h2>
 
@@ -122,7 +122,7 @@ Authgear 提供可客製的預建註冊頁，遵循最佳實踐降低註冊摩�
 ![](./figure-3.png)
 <!--/FIGURE-->
 
-註冊後，Authgear 以 OTP、生物辨識、<a href="/zh-Hant/features/passkeys" target="_blank">Passkey</a> 等無密碼驗證，讓登入更簡單、更安全。使用者不再需要記住複雜密碼，也能降低密碼相關風險。
+註冊後，Authgear 以 OTP、生物辨識、<a href="/zh-hant/features/passkeys" target="_blank">Passkey</a> 等無密碼驗證，讓登入更簡單、更安全。使用者不再需要記住複雜密碼，也能降低密碼相關風險。
 
 這些能力既保護資料，也降低忘記密碼帶來的挫折。只要線上流程有摩擦，都可能讓客戶離開。Authgear 的保險 IAM 方案可幫助保戶體驗更穩定，進而保護保險公司的業務成果。
 
@@ -170,4 +170,4 @@ Authgear 可讓開發者輕鬆配置 2FA 與無密碼驗證，為保險 IAM 加�
 
 若你想同時打造更好的客戶體驗與更有效率的外部協作，Authgear 的 IAM 技術是經驗成熟且可快速落地的解法。
 
-歡迎<a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a>，聊聊你的保險業需求，看看 Authgear 如何幫你提升獲客、留客與外部團隊協作成效。
+歡迎<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，聊聊你的保險業需求，看看 Authgear 如何幫你提升獲客、留客與外部團隊協作成效。

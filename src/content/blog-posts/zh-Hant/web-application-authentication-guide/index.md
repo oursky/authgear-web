@@ -129,7 +129,7 @@ Cookie 通常用於處理網頁應用程式中的用戶身份驗證。以下是�
 
 了解更多關於 OIDC 和 SAML 的資訊：
 
-[OIDC 與 SAML：解碼 SSO 之爭（以及為何這對您的企業至關重要）](/zh-Hant/post/oidc-vs-saml)
+[OIDC 與 SAML：解碼 SSO 之爭（以及為何這對您的企業至關重要）](/zh-hant/post/oidc-vs-saml)
 
 <h2 id="access-token">存取權杖如何在網頁應用程式中運作？</h2>
 
@@ -428,6 +428,6 @@ authgear.<span class="function">finishAuthorization</span>().<span class="functi
   
 ```
 
-<a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a>，了解更多關於 Authgear 如何幫助您改善用戶體驗、提升轉換率並確保您的應用程式安全。
+<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，了解更多關於 Authgear 如何幫助您改善用戶體驗、提升轉換率並確保您的應用程式安全。
 
 您也可以參考我們的 <a href="https://docs.authgear.com/" target="_blank">Authgear 文件</a>獲取更多說明。或加入我們的 [Discord 伺服器](https://discord.gg/Kdn5vcYwAS)，了解更多關於網頁應用程式身份驗證的資訊。

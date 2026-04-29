@@ -43,7 +43,7 @@ Passkey 提供了現代解法。但 **what is a passkey**，以及 **how do pass
 
 ### **What is a passkey?**
 
-Passkey 是一種[無密碼驗證](/zh-Hant/post/passwordless-authentication-complete-guide)憑證，使用公私鑰密碼學取代共享秘密。當使用者建立 passkey 時，系統會產生一組金鑰：私鑰安全儲存在使用者裝置，公鑰註冊到服務端。
+Passkey 是一種[無密碼驗證](/zh-hant/post/passwordless-authentication-complete-guide)憑證，使用公私鑰密碼學取代共享秘密。當使用者建立 passkey 時，系統會產生一組金鑰：私鑰安全儲存在使用者裝置，公鑰註冊到服務端。
 
 私鑰永遠不離開裝置。驗證是透過證明持有私鑰完成，通常由生物辨識或裝置 PIN 解鎖，使用者不再需要記憶或管理密碼。
 
@@ -202,7 +202,7 @@ Apple 已將 passkey 深度整合進生態系。Passkey 可透過 iCloud Keychai
 
 - 已註冊 passkey 的使用者比例
 - Passkey 驗證成功率
-- [密碼重設](/zh-Hant/post/authentication-security-password-reset-best-practices-and-more)工單減少幅度
+- [密碼重設](/zh-hant/post/authentication-security-password-reset-best-practices-and-more)工單減少幅度
 - 釣魚相關事件下降幅度
 - 使用者對登入體驗滿意度
 

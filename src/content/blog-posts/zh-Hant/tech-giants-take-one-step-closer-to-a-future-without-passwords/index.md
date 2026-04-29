@@ -61,7 +61,7 @@ draft: false
 
 <h2 id="passwords">密碼有什麼問題？</h2>
 
-密碼存在多項安全漏洞。首先，密碼是共享的秘密。當用戶建立新帳號時，密碼會儲存在伺服器上，伺服器透過比對儲存的密碼與用戶輸入的內容來驗證身份。駭客可以攻擊伺服器並取得用戶的密碼。即使開發者正確地以<a href="/zh-Hant/post/password-hashing-salting" target="_blank">雜湊和加鹽</a>方式儲存密碼，伺服器軟體仍可能透過其他漏洞洩露密碼，例如<a href="https://www.theregister.com/2022/05/27/github_publishes_a_post_mortem/" target="_blank">將密碼記錄在日誌中</a>。此外，密碼也極易受到網路釣魚、中間人攻擊（MITM）等各類攻擊手段的威脅。
+密碼存在多項安全漏洞。首先，密碼是共享的秘密。當用戶建立新帳號時，密碼會儲存在伺服器上，伺服器透過比對儲存的密碼與用戶輸入的內容來驗證身份。駭客可以攻擊伺服器並取得用戶的密碼。即使開發者正確地以<a href="/zh-hant/post/password-hashing-salting" target="_blank">雜湊和加鹽</a>方式儲存密碼，伺服器軟體仍可能透過其他漏洞洩露密碼，例如<a href="https://www.theregister.com/2022/05/27/github_publishes_a_post_mortem/" target="_blank">將密碼記錄在日誌中</a>。此外，密碼也極易受到網路釣魚、中間人攻擊（MITM）等各類攻擊手段的威脅。
 
 此外，據統計，<a href="https://dataprot.net/statistics/password-statistics/" target="_blank">一個密碼平均用於存取五個帳號</a>，這是人們遭到駭客入侵的主要原因之一。使用不同的密碼也可能是風險因素，因為人們往往難以記住所有密碼。正因如此，Apple、Google 和 Microsoft 等科技巨頭正攜手合作，以 passkeys 打造無密碼的未來。
 
@@ -86,4 +86,4 @@ draft: false
 
 此外，Authgear 還提供一套完整的認證與用戶管理功能，包括預建的註冊頁面和用戶個人資料頁面、用戶數據分析、WhatsApp OTP、社交登入等，協助您提升用戶體驗、提高應用程式轉換率，並提升用戶留存率。
 
-進一步了解我們的 <a href="/features/passkeys" target="_blank">Passkey API</a>，或<a href="/zh-Hant/talk-with-us" target="_blank">申請示範</a>，了解您如何從 Authgear 中獲益。
+進一步了解我們的 <a href="/features/passkeys" target="_blank">Passkey API</a>，或<a href="/zh-hant/talk-with-us" target="_blank">申請示範</a>，了解您如何從 Authgear 中獲益。

@@ -13,7 +13,7 @@ draft: false
 
 **TOTP**（*time-based one-time password*）仍是數百萬應用程式雙重驗證的核心；到了 2026 年，它也常是 passkey 登入流程背後的備援 2FA。六位數、30 秒、看似簡單。但只要實作細節出錯，就可能在無聲中讓整批使用者無法登入。
 
-如果你遇到 **「invalid TOTP code」**，幾乎可以確定是下列五個錯誤之一。每節都包含症狀、根因與可直接落地的修補方式，並附上 Python 與 JavaScript 程式碼。你也可以用我們免費的 [**TOTP Authenticator 工具**](/zh-Hant/tools/totp-authenticator) 立即驗證修補結果（支援 SHA-1/256/512、6–8 位數、自訂週期）。
+如果你遇到 **「invalid TOTP code」**，幾乎可以確定是下列五個錯誤之一。每節都包含症狀、根因與可直接落地的修補方式，並附上 Python 與 JavaScript 程式碼。你也可以用我們免費的 [**TOTP Authenticator 工具**](/zh-hant/tools/totp-authenticator) 立即驗證修補結果（支援 SHA-1/256/512、6–8 位數、自訂週期）。
 
 ## 5 大 TOTP 錯誤總覽
 
@@ -389,9 +389,9 @@ function verifyTOTPSecure(secret, code, userId, {
 - 重放保護：每個碼在每個 step 只接受一次
 - 速率限制：N 次失敗後鎖定帳號
 
-想更快定位？用 [Authgear TOTP Authenticator](/zh-Hant/tools/totp-authenticator) 即時測 secret 與參數——先確認客戶端與伺服器產生同一組碼再上線。
+想更快定位？用 [Authgear TOTP Authenticator](/zh-hant/tools/totp-authenticator) 即時測 secret 與參數——先確認客戶端與伺服器產生同一組碼再上線。
 
-若你想更深入理解 TOTP 原理，可閱讀 [什麼是 TOTP 與其運作方式](/zh-Hant/post/what-is-totp)。若你正在評估 passkeys 作為比 TOTP 更強的替代方案，也可參考 [Passkeys vs Passwords：Passkeys 更安全嗎？](/zh-Hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security)
+若你想更深入理解 TOTP 原理，可閱讀 [什麼是 TOTP 與其運作方式](/zh-hant/post/what-is-totp)。若你正在評估 passkeys 作為比 TOTP 更強的替代方案，也可參考 [Passkeys vs Passwords：Passkeys 更安全嗎？](/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security)
 
 <script type='application/ld+json'>
 {

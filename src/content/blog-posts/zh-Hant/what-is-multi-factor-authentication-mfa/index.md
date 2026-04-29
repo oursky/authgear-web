@@ -84,7 +84,7 @@ draft: false
 
 MFA 代表多因素驗證，其特點在於要求使用者提供不只一個驗證因素，才能存取應用程式、線上帳戶等。
 
-MFA 是任何<a href="/zh-Hant/post/what-is-customer-identity-and-access-management-ciam" target="_blank">客戶身份與存取管理</a> (CIAM) 的核心組成部分，因為它將使用者名稱和密碼與一個或多個額外的驗證因素相結合。MFA 僅透過分層驗證方式，就能降低網路攻擊成功的可能性。它如此簡單的特性絲毫不影響其有效性。如果有什麼的話，這正是它最大的優勢之一——它易於採用和使用，同時仍能提供出色的攻擊防護。
+MFA 是任何<a href="/zh-hant/post/what-is-customer-identity-and-access-management-ciam" target="_blank">客戶身份與存取管理</a> (CIAM) 的核心組成部分，因為它將使用者名稱和密碼與一個或多個額外的驗證因素相結合。MFA 僅透過分層驗證方式，就能降低網路攻擊成功的可能性。它如此簡單的特性絲毫不影響其有效性。如果有什麼的話，這正是它最大的優勢之一——它易於採用和使用，同時仍能提供出色的攻擊防護。
 
 *在 Authgear，我們確保創建了*<a href="/solutions/customer-identity-and-access-management" target="_blank">*MFA 解決方案*</a>*，無需您額外進行開發或管理——企業可以在毫不麻煩的情況下獲得增強安全性和更滿意用戶的所有好處。*
 
@@ -104,7 +104,7 @@ MFA 是任何<a href="/zh-Hant/post/what-is-customer-identity-and-access-managem
 
 即使使用者確實選擇了稍微複雜的密碼，他們也常常犯下在多個帳戶使用相同密碼的錯誤。同樣，這使人們容易遭受攻擊。密碼本身是對抗網路攻擊的低效保護措施。您可以為每個帳戶創建高度複雜且唯一的密碼，但仍可能遇到麻煩，因為如果密碼被竊取且沒有 MFA，將沒有任何其他東西能阻止駭客進入。
 
-網路釣魚郵件和<a href="/zh-Hant/post/credential-stuffing" target="_blank">憑證填充</a>攻擊意味著您的個人隱私始終面臨風險。更令人擔憂的是，一旦密碼和使用者名稱組合被獲取，駭客就會互相出售被竊取的密碼。這意味著人們的個人資料往往在網路上流通，而他們通常在為時已晚時才發現。
+網路釣魚郵件和<a href="/zh-hant/post/credential-stuffing" target="_blank">憑證填充</a>攻擊意味著您的個人隱私始終面臨風險。更令人擔憂的是，一旦密碼和使用者名稱組合被獲取，駭客就會互相出售被竊取的密碼。這意味著人們的個人資料往往在網路上流通，而他們通常在為時已晚時才發現。
 
 <h2 id="how">MFA 是如何運作的？</h2>
 
@@ -144,7 +144,7 @@ MFA 最常見的例子之一，OTP 被算作持有因素，因為您必須持有
 
 #### 指紋
 
-可能是最廣為人知和廣泛使用的<a href="/zh-Hant/post/biometric-authentication" target="_blank">生物特徵驗證</a>形式，指紋掃描利用每個人指紋的獨特紋路，系統可以儲存您的獨特紋路，然後與您在想要驗證存取時呈現的生理證據進行比較。
+可能是最廣為人知和廣泛使用的<a href="/zh-hant/post/biometric-authentication" target="_blank">生物特徵驗證</a>形式，指紋掃描利用每個人指紋的獨特紋路，系統可以儲存您的獨特紋路，然後與您在想要驗證存取時呈現的生理證據進行比較。
 
 #### 人臉識別
 
@@ -196,4 +196,4 @@ Authgear 為希望在其應用程式中添加身份驗證的開發人員提供�
 ![](./figure-6.png)
 <!--/FIGURE-->
 
-<a href="https://accounts.portal.authgear.com/signup" target="_blank">立即註冊</a>，輕鬆啟用 Authgear 的 MFA，或<a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a>，進一步討論最適合您和您的安全需求的解決方案。
+<a href="https://accounts.portal.authgear.com/signup" target="_blank">立即註冊</a>，輕鬆啟用 Authgear 的 MFA，或<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，進一步討論最適合您和您的安全需求的解決方案。

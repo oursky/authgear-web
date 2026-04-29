@@ -457,7 +457,7 @@ app.post('/login/mfa', async (req, res) => {
 });
 ```
 
-若要更強的 MFA，可考慮通行金鑰（FIDO2／WebAuthn），依設計具抗釣魚性。完整說明見 [什麼是 FIDO2？FIDO 驗證完整指南](/zh-Hant/post/what-is-fido2-complete-guide-fido-authentication)。
+若要更強的 MFA，可考慮通行金鑰（FIDO2／WebAuthn），依設計具抗釣魚性。完整說明見 [什麼是 FIDO2？FIDO 驗證完整指南](/zh-hant/post/what-is-fido2-complete-guide-fido-authentication)。
 
 ## 8. 使用驗證平台 vs. 自行打造
 
@@ -485,7 +485,7 @@ app.get('/api/me', authgear.middleware(), (req, res) => {
 });
 ```
 
-你可將通行金鑰與傳統密碼登入並用——從零正確實作通常需數週。詳見 [通行金鑰實作指南](/zh-Hant/post/how-to-implement-passkeys-developer-guide)。
+你可將通行金鑰與傳統密碼登入並用——從零正確實作通常需數週。詳見 [通行金鑰實作指南](/zh-hant/post/how-to-implement-passkeys-developer-guide)。
 
 若驗證並非產品核心差異化，使用 Authgear 這類平台通常是正確選擇。你能更快獲得更好的安全覆蓋，工程師可專注在產品獨特之處。
 

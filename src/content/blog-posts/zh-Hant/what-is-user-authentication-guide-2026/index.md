@@ -118,7 +118,7 @@ faq:
 
 若要採用密碼驗證，務必遵守：
 
-- [**絕對不要明文儲存密碼**——請使用 bcrypt、Argon2、scrypt 等強雜湊](/zh-Hant/post/password-hashing-how-to-pick-the-right-hashing-function)
+- [**絕對不要明文儲存密碼**——請使用 bcrypt、Argon2、scrypt 等強雜湊](/zh-hant/post/password-hashing-how-to-pick-the-right-hashing-function)
 - **加入 salt** 防止彩虹表攻擊
 - **設定最低密碼要求**（至少 12 碼、混合字元類型）
 - **實作 rate limiting** 抵擋暴力破解
@@ -132,7 +132,7 @@ OTP 是一次性且具時效的驗證碼，常作為 MFA 第二因子，提供�
 
 #### 時間型 OTP（TOTP）
 
-[TOTP](/zh-Hant/post/what-is-totp) 使用演算法產生每 30–60 秒更新的驗證碼。伺服器與用戶端共用 secret key，不需網路連線也可同步產碼。
+[TOTP](/zh-hant/post/what-is-totp) 使用演算法產生每 30–60 秒更新的驗證碼。伺服器與用戶端共用 secret key，不需網路連線也可同步產碼。
 
 **常見 TOTP App：**
 
@@ -147,7 +147,7 @@ OTP 是一次性且具時效的驗證碼，常作為 MFA 第二因子，提供�
 
 #### 簡訊 OTP（SMS OTP）
 
-[透過簡訊傳送一次性驗證碼](/zh-Hant/post/sms-authentication-should-you-implement) 到註冊手機號碼。
+[透過簡訊傳送一次性驗證碼](/zh-hant/post/sms-authentication-should-you-implement) 到註冊手機號碼。
 
 **優點：** 不需安裝 App、使用者熟悉、任何手機都可用
 
@@ -240,11 +240,11 @@ MFA 會同時使用兩種以上、且來自不同類別的驗證因子（例如�
 - 使用者未必有你提供的供應者帳號
 - 需完全掌控憑證的高安全場景未必適用
 
-**最佳實務：** [社群登入應作為補充，而非取代傳統驗證](/zh-Hant/post/add-social-login-laravel-using-any-provider)。同時支援多個供應者，提供使用者選擇。
+**最佳實務：** [社群登入應作為補充，而非取代傳統驗證](/zh-hant/post/add-social-login-laravel-using-any-provider)。同時支援多個供應者，提供使用者選擇。
 
 ### 6. Token 型驗證（JWT、Session Token）
 
-完成首次登入後，伺服器會[簽發 token](/zh-Hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，讓使用者在後續請求中提交，避免每次都重新登入。
+完成首次登入後，伺服器會[簽發 token](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，讓使用者在後續請求中提交，避免每次都重新登入。
 
 **運作方式：**
 
@@ -270,7 +270,7 @@ MFA 會同時使用兩種以上、且來自不同類別的驗證因子（例如�
 - token 安全儲存（httpOnly cookie 或安全儲存）
 - 實作 token 撤銷（登出、風險事件）
 
-延伸閱讀：[如何用 JWKs 驗證 JWT](/zh-Hant/post/what-is-jwks)
+延伸閱讀：[如何用 JWKs 驗證 JWT](/zh-hant/post/what-is-jwks)
 
 ### 7. 憑證型驗證（PKI）
 
@@ -316,7 +316,7 @@ MFA 會同時使用兩種以上、且來自不同類別的驗證因子（例如�
 
 #### WebAuthn / FIDO2（Passkeys）
 
-[新一代驗證方式，以裝置儲存的金鑰進行認證](/zh-Hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security)。使用者可用生物辨識（指紋、臉部）或裝置 PIN 登入。
+[新一代驗證方式，以裝置儲存的金鑰進行認證](/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security)。使用者可用生物辨識（指紋、臉部）或裝置 PIN 登入。
 
 - **優點：** 安全性極高（抗釣魚）、體驗優秀、無需密碼管理
 - **缺點：** 需現代瀏覽器／裝置支援，且需使用者教育
@@ -567,7 +567,7 @@ MFA 會同時使用兩種以上、且來自不同類別的驗證因子（例如�
 - 所有憑證僅經 HTTPS/TLS 傳輸
 - 不要把憑證放在 URL 參數（用 POST body）
 - 正確管理 session
-- [Session token 請用安全、httpOnly cookie](/zh-Hant/post/session-management)
+- [Session token 請用安全、httpOnly cookie](/zh-hant/post/session-management)
 - 啟用 HSTS（HTTP Strict Transport Security）
 
 #### 4. 預設啟用 MFA
@@ -585,7 +585,7 @@ MFA 會同時使用兩種以上、且來自不同類別的驗證因子（例如�
 - 提供 MFA 備援 recovery code
 - 高價值帳號可加上人工審核
 
-延伸閱讀：[**密碼重設最佳實務**](/zh-Hant/post/authentication-security-password-reset-best-practices-and-more)
+延伸閱讀：[**密碼重設最佳實務**](/zh-hant/post/authentication-security-password-reset-best-practices-and-more)
 
 #### 6. 監控與記錄驗證活動
 
@@ -599,7 +599,7 @@ MFA 會同時使用兩種以上、且來自不同類別的驗證因子（例如�
 
 從零打造驗證系統既複雜又容易出錯。可優先評估具備安全最佳實務的專門服務：
 
-[**主流驗證平台：**](/zh-Hant/post/top-10-sso-providers-in-2026-secure-convenient-and-scalable)
+[**主流驗證平台：**](/zh-hant/post/top-10-sso-providers-in-2026-secure-convenient-and-scalable)
 
 - **Authgear** - 可高度自訂的開源驗證平台
 - **Auth0** - 完整託管式驗證服務
@@ -608,7 +608,7 @@ MFA 會同時使用兩種以上、且來自不同類別的驗證因子（例如�
 - **Amazon Cognito** - AWS 託管使用者驗證
 - **Supabase Auth** - 開源 Firebase 替代方案
 
-**使用**[**驗證服務的好處：**](/zh-Hant/post/authentication-as-a-service)
+**使用**[**驗證服務的好處：**](/zh-hant/post/authentication-as-a-service)
 
 - 內建安全最佳實務
 - 具備合規認證（SOC 2、GDPR 等）
@@ -622,8 +622,8 @@ MFA 會同時使用兩種以上、且來自不同類別的驗證因子（例如�
 
 例如：
 
-- [IDOR 弱點](/zh-Hant/post/idor-insecure-direct-object-reference)
-- [Broken access control](/zh-Hant/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it)
+- [IDOR 弱點](/zh-hant/post/idor-insecure-direct-object-reference)
+- [Broken access control](/zh-hant/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it)
 
 ### Credential Stuffing
 
@@ -736,7 +736,7 @@ MFA 要求使用者提供兩種以上、且來自不同類別的驗證因子（�
 
 ### 依情境給你的建議
 
-**對大多數應用：** 採用 MFA，將密碼搭配 [TOTP 驗證器 App](/zh-Hant/post/how-do-authenticator-apps-work) 或 SMS。這在安全與普及性之間通常最平衡。
+**對大多數應用：** 採用 MFA，將密碼搭配 [TOTP 驗證器 App](/zh-hant/post/how-do-authenticator-apps-work) 或 SMS。這在安全與普及性之間通常最平衡。
 
 **對現代 Web 與行動 App：** 優先考慮 Passkeys（WebAuthn/FIDO2）等無密碼驗證，兼顧高安全與高體驗。Apple、Google、Microsoft 正推動生態普及，是更具前瞻性的選擇。
 

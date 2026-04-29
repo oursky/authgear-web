@@ -28,7 +28,7 @@ draft: false
 
 ### 先備條件
 
-- 一個可用的 **Authgear 帳號**。若尚未註冊，可前往[免費註冊](/zh-Hant/cloud)。
+- 一個可用的 **Authgear 帳號**。若尚未註冊，可前往[免費註冊](/zh-hant/cloud)。
 - 一個 **Webflow 帳號**，以及你希望加入驗證功能的專案。
 
 ## 步驟 1：建立你的 Authgear 專案
@@ -155,4 +155,4 @@ draft: false
 
 透過這份教學，你已看到 Authgear 如何無縫補上 Webflow 原生 User Accounts 退場後的空缺，讓你持續提供安全、直覺的驗證流程與個人化體驗。藉由易整合、可客製 UI 與完整使用者管理能力，Authgear 能幫助你更有信心地保護內容並打造蓬勃社群。
 
-準備好保護你的 Webflow 網站並提升使用者體驗了嗎？<a href="/zh-Hant/cloud" target="_blank">立即免費註冊 Authgear</a>，今天就開始打造！
+準備好保護你的 Webflow 網站並提升使用者體驗了嗎？<a href="/zh-hant/cloud" target="_blank">立即免費註冊 Authgear</a>，今天就開始打造！

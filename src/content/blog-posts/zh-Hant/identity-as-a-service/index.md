@@ -75,7 +75,7 @@ Identity as a Service（IDaaS）可以視為 IAM 的雲端化版本，讓組織�
 
 隨著企業成長，IAM 每年都變得更昂貴、也更複雜。再加上技術演進與資安壓力，如何同時兼顧安全與使用者體驗愈來愈困難。將 IAM 外包給成熟方案，可同時減輕開發與長期維護負擔，是許多企業更務實的選擇。
 
-實際做過 IAM 的團隊都知道，不論是地端或雲端，自建都需投入大量人力與預算。對非核心業務而言，這類投入通常不具成本效益。另一方面，現代企業要提供流暢的<a href="/zh-Hant/post/digital-customer-experience" target="_blank">數位體驗</a>已是基本要求。綜合以上原因，IDaaS 能幫助企業更好管理內外部身分、優化體驗、降低成本，並提升拉新與留存。
+實際做過 IAM 的團隊都知道，不論是地端或雲端，自建都需投入大量人力與預算。對非核心業務而言，這類投入通常不具成本效益。另一方面，現代企業要提供流暢的<a href="/zh-hant/post/digital-customer-experience" target="_blank">數位體驗</a>已是基本要求。綜合以上原因，IDaaS 能幫助企業更好管理內外部身分、優化體驗、降低成本，並提升拉新與留存。
 
 IDaaS 的價值還不只如此，以下是更具體的商業效益：
 
@@ -87,21 +87,21 @@ IDaaS 的價值還不只如此，以下是更具體的商業效益：
 
 ### 改善使用者體驗
 
-IDaaS 提供多種可直接改善體驗的能力，例如 <a href="/zh-Hant/post/customer-sso" target="_blank">SSO（單一登入）</a>，讓使用者用一組憑證即可在多個平台間存取；也支援<a href="/zh-Hant/features/passwordless-authentication" target="_blank">無密碼驗證</a>、<a href="/zh-Hant/post/biometric-authentication" target="_blank">生物辨識</a>（如 Face ID）與 OTP，減少密碼疲勞與重設麻煩。
+IDaaS 提供多種可直接改善體驗的能力，例如 <a href="/zh-hant/post/customer-sso" target="_blank">SSO（單一登入）</a>，讓使用者用一組憑證即可在多個平台間存取；也支援<a href="/zh-hant/features/passwordless-authentication" target="_blank">無密碼驗證</a>、<a href="/zh-hant/post/biometric-authentication" target="_blank">生物辨識</a>（如 Face ID）與 OTP，減少密碼疲勞與重設麻煩。
 
 另一項改善是自助服務能力擴充。像重設密碼、更新登入資訊可由使用者自行完成，不必每次都找 IT 或客服，讓內外部 IAM 問題都能更快解決、摩擦更少。
 
 ### 提升營收與客戶忠誠度
 
-無密碼與 SSO 能打造更<a href="/zh-Hant/post/frictionless-authentication" target="_blank">低摩擦驗證</a>流程，進一步提升轉換、留存與營收。登入體驗是企業與客戶建立關係的第一步，優化它通常會帶來顯著影響。
+無密碼與 SSO 能打造更<a href="/zh-hant/post/frictionless-authentication" target="_blank">低摩擦驗證</a>流程，進一步提升轉換、留存與營收。登入體驗是企業與客戶建立關係的第一步，優化它通常會帶來顯著影響。
 
-使用者偏好簡單、順暢的線上流程。為此，Authgear 提供可提升轉換的<a href="/zh-Hant/solutions/customer-identity-and-access-management" target="_blank">預建註冊與登入頁面</a>，協助訪客更容易成為用戶。從填資料到建立帳號，IDaaS 都能降低摩擦並強化忠誠度。
+使用者偏好簡單、順暢的線上流程。為此，Authgear 提供可提升轉換的<a href="/zh-hant/solutions/customer-identity-and-access-management" target="_blank">預建註冊與登入頁面</a>，協助訪客更容易成為用戶。從填資料到建立帳號，IDaaS 都能降低摩擦並強化忠誠度。
 
 ### 強化資料安全
 
 IDaaS 可從兩個面向提升安全：第一，讓更安全的登入方式更容易落地；第二，由專責團隊持續維護與升級防護能力，協助企業應對新型攻擊。
 
-在登入安全方面，IDaaS 通常涵蓋無密碼、<a href="/zh-Hant/features/passkeys" target="_blank">Passkey</a>、OTP 與 MFA。企業不必為單一驗證方法重建整套基礎設施，就能採用成熟、可信的安全能力保護資料。
+在登入安全方面，IDaaS 通常涵蓋無密碼、<a href="/zh-hant/features/passkeys" target="_blank">Passkey</a>、OTP 與 MFA。企業不必為單一驗證方法重建整套基礎設施，就能採用成熟、可信的安全能力保護資料。
 
 有專責 IAM 團隊的價值不只在成本，更在風險控管。維護問題往往同時有財務與資料代價，一個錯誤就可能影響隱私合規。相較內部團隊，Authgear 更能在日常維運與策略層面同步應對資安威脅與隱私挑戰。
 
@@ -120,7 +120,7 @@ PWC 在 <a href="https://www.pwc.com/us/en/services/consulting/cybersecurity-ris
 - **Single Sign-On（SSO）**：提供更一致、順暢的跨平台登入體驗。
 - **無密碼選項**：如 OTP、生物辨識、社群登入，降低密碼管理負擔。
 - **管理後台（Admin Portals）**：客服能快速建立、更新、刪除帳號；同時提供使用者可自助管理憑證與驗證方式的設定頁。
-- **存取控制（Access Controls）**：可依角色授權資源存取，協助企業更好管理<a href="/zh-Hant/solutions/wiam-for-extended-workforces-and-access-management-for-frontline-contractors" target="_blank">外部身分</a>（如供應商、經紀人等）。
+- **存取控制（Access Controls）**：可依角色授權資源存取，協助企業更好管理<a href="/zh-hant/solutions/wiam-for-extended-workforces-and-access-management-for-frontline-contractors" target="_blank">外部身分</a>（如供應商、經紀人等）。
 
 <h2 id="future">IDaaS 的未來</h2>
 
@@ -128,4 +128,4 @@ PWC 在 <a href="https://www.pwc.com/us/en/services/consulting/cybersecurity-ris
 
 在 Authgear 看來，IDaaS 的未來是幫助企業持續領先這些變化。這也是我們選擇以雲端架構與多元驗證選項打造方案的原因：讓身分管理更安全、更易用，也更具成本效益。
 
-若你對委外 IAM 仍有疑慮，歡迎<a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a>。我們很樂意了解你的痛點，並說明 Authgear 如何協助你解決外部身分與存取管理問題，同時支援業務目標成長。
+若你對委外 IAM 仍有疑慮，歡迎<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>。我們很樂意了解你的痛點，並說明 Authgear 如何協助你解決外部身分與存取管理問題，同時支援業務目標成長。

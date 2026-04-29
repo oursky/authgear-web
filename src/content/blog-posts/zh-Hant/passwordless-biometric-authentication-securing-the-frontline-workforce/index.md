@@ -187,7 +187,7 @@ draft: false
 
 透過 Authgear，組織可在維持優質使用體驗的同時，賦能前線團隊、保護關鍵系統，並為持續演變的威脅做好準備。
 
-<a href="/zh-Hant/" target="_blank">立即探索 Authgear</a>，用更簡單的方式升級前線驗證並保護你的勞動力。
+<a href="/zh-hant/" target="_blank">立即探索 Authgear</a>，用更簡單的方式升級前線驗證並保護你的勞動力。
 
 ## FAQs
 

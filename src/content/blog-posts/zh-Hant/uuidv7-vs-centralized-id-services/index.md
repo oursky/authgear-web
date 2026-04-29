@@ -277,7 +277,7 @@ UUIDv7 提供更簡潔的方法：它同時具備全域唯一、可時間排序�
 
 對希望穩健採用 UUIDv7 的團隊，Authgear 的 UUIDv7 工具可作為實務起點。你可用它生成符合規範的識別碼、檢視內嵌時間戳，並更直觀理解時間可排序 UUID 在真實系統中的行為。
 
-[探索 Authgear UUIDv7 工具](/zh-Hant/tools/uuidv7-generator)，產生符合規範的識別碼、驗證格式，打造不依賴集中式 ID 服務也能高效擴展的分散式系統。
+[探索 Authgear UUIDv7 工具](/zh-hant/tools/uuidv7-generator)，產生符合規範的識別碼、驗證格式，打造不依賴集中式 ID 服務也能高效擴展的分散式系統。
 
 ## FAQs
 

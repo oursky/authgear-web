@@ -135,7 +135,7 @@ Machine-to-machine（M2M）驗證讓兩個服務——伺服器、daemon、CI/CD
 
 ## Authgear 如何協助
 
-Authgear 提供 M2M token 的快速落地路徑：client 註冊體驗、token endpoint、JWKS 託管、短時效 JWT、稽核日誌，以及雲端與自架部署選項。詳見 [**Machine-to-Machine Token** 功能](/zh-Hant/features/machine-to-machine-token)。
+Authgear 提供 M2M token 的快速落地路徑：client 註冊體驗、token endpoint、JWKS 託管、短時效 JWT、稽核日誌，以及雲端與自架部署選項。詳見 [**Machine-to-Machine Token** 功能](/zh-hant/features/machine-to-machine-token)。
 
 ## 序列圖範例
 
@@ -159,4 +159,4 @@ A: 若支援雙 secret，採分階段輪替最安全；不支援則安排維護�
 
 ## 結語
 
-M2M token 是機器與服務驗證最安全、最符合標準的方式。若你希望用開發者友善體驗快速落地這些最佳實務，可參考 Authgear 的 [Machine-to-Machine Token 功能](/zh-Hant/features/machine-to-machine-token)——*幾分鐘內完成後端安全基線。*
+M2M token 是機器與服務驗證最安全、最符合標準的方式。若你希望用開發者友善體驗快速落地這些最佳實務，可參考 Authgear 的 [Machine-to-Machine Token 功能](/zh-hant/features/machine-to-machine-token)——*幾分鐘內完成後端安全基線。*

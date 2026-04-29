@@ -229,7 +229,7 @@ Snowflake ID 是為極高寫入吞吐優化的 64 位元整數。
 
 Authgear 的 UUID v7 Generator & Timestamp Extractor（RFC 9562）可輕鬆產生時間有序 UUID 並擷取內含時間戳，協助團隊更有信心地採用 UUIDv7。
 
-[探索 Authgear UUIDv7 工具](/zh-Hant/tools/uuidv7-generator)，產生符合規範的識別碼、理解其結構，並從一開始就打造可高效擴展的系統。
+[探索 Authgear UUIDv7 工具](/zh-hant/tools/uuidv7-generator)，產生符合規範的識別碼、理解其結構，並從一開始就打造可高效擴展的系統。
 
 ## FAQs
 

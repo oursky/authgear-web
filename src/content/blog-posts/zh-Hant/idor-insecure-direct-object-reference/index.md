@@ -12,7 +12,7 @@ updatedAt: 2026-02-12T02:35:14.222Z
 draft: false
 ---
 
-當應用程式或 API 從 client 接收識別碼（如 `user_id=123` 或 `/invoices/42`），並在 **未確認呼叫者是否有權限** 的情況下直接讀取／修改資料，就會發生 IDOR（Insecure Direct Object Reference）。這是 [Broken Access Control](/zh-Hant/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it) 在實務系統中最常見的型態之一，尤其在 API 場景。
+當應用程式或 API 從 client 接收識別碼（如 `user_id=123` 或 `/invoices/42`），並在 **未確認呼叫者是否有權限** 的情況下直接讀取／修改資料，就會發生 IDOR（Insecure Direct Object Reference）。這是 [Broken Access Control](/zh-hant/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it) 在實務系統中最常見的型態之一，尤其在 API 場景。
 
 ## 什麼是 IDOR？
 
@@ -22,7 +22,7 @@ draft: false
 
 ## IDOR 與 BOLA（API1:2023）
 
-在 API 系統中，OWASP 將此歸類為 <a href="https://owasp.org/API-Security/editions/2023/en/0x11-t10/" target="_blank">Broken Object Level Authorization（BOLA）</a>，也是 API 風險第 1 名，因為 API 通常有大量接受物件 ID 的端點。修復原則相同：**凡是使用使用者可控制 ID 操作資料來源的函式，都必須做物件層級授權檢查**，不論 ID 是整數、UUID 還是字串。若要看更完整授權失敗議題，可參考我們的 [Broken Access Control 防護指南](/zh-Hant/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it)。
+在 API 系統中，OWASP 將此歸類為 <a href="https://owasp.org/API-Security/editions/2023/en/0x11-t10/" target="_blank">Broken Object Level Authorization（BOLA）</a>，也是 API 風險第 1 名，因為 API 通常有大量接受物件 ID 的端點。修復原則相同：**凡是使用使用者可控制 ID 操作資料來源的函式，都必須做物件層級授權檢查**，不論 ID 是整數、UUID 還是字串。若要看更完整授權失敗議題，可參考我們的 [Broken Access Control 防護指南](/zh-hant/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it)。
 
 ## IDOR 如何發生，以及該如何思考
 
@@ -140,6 +140,6 @@ IDOR 是一個簡單卻高衝擊的漏洞，因為它直接打在授權核心。
   },
   "datePublished": "2025-09-09",
   "dateModified": "2025-09-09",
-  "mainEntityOfPage": "/zh-Hant/post/idor-insecure-direct-object-reference"
+  "mainEntityOfPage": "/zh-hant/post/idor-insecure-direct-object-reference"
 }
 </script>

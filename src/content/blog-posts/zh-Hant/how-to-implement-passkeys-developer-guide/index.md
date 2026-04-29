@@ -201,7 +201,7 @@ WebAuthn 在所有現代瀏覽器支援良好；客戶端程式相對直觀；�
 
 若不想自行維運基礎建設，[Authgear](https://portal.authgear.com/) 提供開箱即用的通行金鑰註冊與登入，讓團隊專注在產品本身。
 
-<ul><li><a href="/zh-Hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security">通行金鑰 vs 密碼：為何通行金鑰是安全未來</a></li><li><a href="/zh-Hant/post/what-is-fido2-complete-guide-fido-authentication">什麼是 FIDO2？FIDO 驗證完整指南</a></li></ul>
+<ul><li><a href="/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security">通行金鑰 vs 密碼：為何通行金鑰是安全未來</a></li><li><a href="/zh-hant/post/what-is-fido2-complete-guide-fido-authentication">什麼是 FIDO2？FIDO 驗證完整指南</a></li></ul>
 
 ## 常見問題
 

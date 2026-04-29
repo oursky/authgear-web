@@ -400,7 +400,7 @@ export async function updateDisplayName(formData: FormData) {
 
 若要**整區**把未登入使用者導走，middleware 是正確工具。它在 Edge 於頁面渲染前執行，未驗證使用者根本不會觸發 Server Component 渲染。
 
-細節見姊妹篇 [Next.js Middleware 驗證：在 Edge 保護路由](/zh-Hant/post/nextjs-middleware-authentication)。Middleware API 與 Authgear 設定請參考 [Authgear Next.js 文件](https://docs.authgear.com/get-started/regular-web-app/nextjs)。
+細節見姊妹篇 [Next.js Middleware 驗證：在 Edge 保護路由](/zh-hant/post/nextjs-middleware-authentication)。Middleware API 與 Authgear 設定請參考 [Authgear Next.js 文件](https://docs.authgear.com/get-started/regular-web-app/nextjs)。
 
 重要提醒：middleware 是第一道防線，但**仍應**在 Server Components 與 Route Handlers 再次檢查驗證——多層防禦代表不依賴單一層。
 
@@ -416,7 +416,7 @@ export async function updateDisplayName(formData: FormData) {
     <li>短效 access token + 長效 refresh token 是正確組合——可限制權杖外洩時的暴露窗口。</li>
   </ul>
 
-JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安全地驗證與使用權杖](/zh-Hant/post/nextjs-jwt-authentication)。
+JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安全地驗證與使用權杖](/zh-hant/post/nextjs-jwt-authentication)。
 
 ## 工作階段管理
 
@@ -430,7 +430,7 @@ JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安
     <li><strong>登出：</strong>前往 <code>/api/auth/logout</code> 會清除工作階段 Cookie，並在 Authgear 端撤銷 refresh token。</li>
   </ul>
 
-工作階段長度、滑動過期、並行工作階段（例如同一使用者同時在筆電與手機登入）等細節，見 [Next.js 工作階段管理：Cookie、JWT 與伺服器端 Session](/zh-Hant/post/nextjs-session-management)。
+工作階段長度、滑動過期、並行工作階段（例如同一使用者同時在筆電與手機登入）等細節，見 [Next.js 工作階段管理：Cookie、JWT 與伺服器端 Session](/zh-hant/post/nextjs-session-management)。
 
 ## 常見問題
 

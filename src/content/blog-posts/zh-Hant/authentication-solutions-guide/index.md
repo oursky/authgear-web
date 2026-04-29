@@ -39,7 +39,7 @@ draft: false
 
 無密碼**完全移除**共享密鑰。改以**持有之物**或**身體特徵**證明身分。常見方式：
 
-<ul><li><strong>魔法連結</strong>——一次性網址寄到使用者信箱；無需密碼，信箱即身分證明。</li><li><strong>通行金鑰</strong>——密碼學憑證存在使用者裝置，以生物辨識或 PIN 解鎖。設計上具釣魚抗性，因私密金鑰不離開裝置。實作見我們的 <a href="/zh-Hant/post/how-to-implement-passkeys-developer-guide">WebAuthn 實作通行金鑰完整指南</a>。</li><li><strong>生物辨識</strong>——Face ID、Touch ID 等，通常與通行金鑰並用，較少單獨作網路層驗證。</li></ul>
+<ul><li><strong>魔法連結</strong>——一次性網址寄到使用者信箱；無需密碼，信箱即身分證明。</li><li><strong>通行金鑰</strong>——密碼學憑證存在使用者裝置，以生物辨識或 PIN 解鎖。設計上具釣魚抗性，因私密金鑰不離開裝置。實作見我們的 <a href="/zh-hant/post/how-to-implement-passkeys-developer-guide">WebAuthn 實作通行金鑰完整指南</a>。</li><li><strong>生物辨識</strong>——Face ID、Touch ID 等，通常與通行金鑰並用，較少單獨作網路層驗證。</li></ul>
 
 無密碼一般比密碼更安全，登入轉換率也較佳——產業正朝此方向移動。
 
@@ -51,7 +51,7 @@ MFA 在第一因子之外再要求第二證明。因子分類：
 
 常見實作：
 
-<ul><li><strong>TOTP</strong>——Google Authenticator、Authhy 等每 30 秒換六碼；廣泛支援且不需電話號碼。</li><li><strong>SMS OTP</strong>——簡訊寄代碼；使用者容易，但易受 SIM 換卡攻擊。低風險可接受；高價值帳戶不建議單靠 SMS。</li><li><strong>硬體金鑰</strong>——如實作 FIDO2／WebAuthn 的 YubiKey；MFA 中最強選項。細節見 <a href="/zh-Hant/post/what-is-fido2-complete-guide-fido-authentication">FIDO2 指南</a>。</li><li><strong>推播通知</strong>——在驗證器 App 核准登入；體驗與安全兼具。</li></ul>
+<ul><li><strong>TOTP</strong>——Google Authenticator、Authhy 等每 30 秒換六碼；廣泛支援且不需電話號碼。</li><li><strong>SMS OTP</strong>——簡訊寄代碼；使用者容易，但易受 SIM 換卡攻擊。低風險可接受；高價值帳戶不建議單靠 SMS。</li><li><strong>硬體金鑰</strong>——如實作 FIDO2／WebAuthn 的 YubiKey；MFA 中最強選項。細節見 <a href="/zh-hant/post/what-is-fido2-complete-guide-fido-authentication">FIDO2 指南</a>。</li><li><strong>推播通知</strong>——在驗證器 App 核准登入；體驗與安全兼具。</li></ul>
 
 依 Microsoft 對 Azure AD 遭入侵帳戶的分析，MFA 約可降低 **99%** 帳戶接管風險。持有敏感資料的 App 應將 MFA 視為必備。
 
@@ -63,7 +63,7 @@ SSO 讓使用者向中央 IdP 驗證一次即可存取多個應用而無需重�
 
 SSO 是 **B2B SaaS** 關鍵功能；企業採購常列為必要條件。若面向企業客戶，應**一開始**就規劃 SAML——事後補極痛苦。
 
-可使用我們的 [OIDC Discovery 端點探索工具](/zh-Hant/tools/oidc-discovery-endpoint) 檢視任何 OIDC 提供者的設定。
+可使用我們的 [OIDC Discovery 端點探索工具](/zh-hant/tools/oidc-discovery-endpoint) 檢視任何 OIDC 提供者的設定。
 
 ### 社交登入（OAuth）
 
@@ -121,7 +121,7 @@ M2M 宜及早規劃。若使用者與服務共用同一驗證平台，權杖發�
 
 ### 開發者體驗
 
-<ul><li>你技術棧的 SDK（React、Next.js、iOS、Android、Flutter 等）</li><li>文件清楚且含可執行範例</li><li>本地開發流程不必直連正式環境</li><li>驗證事件的 webhooks（使用者建立、登入失敗、MFA 註冊）——模式背景見 <a href="/zh-Hant/post/webhooks-vs-apis-difference">Webhooks 與 API 說明</a></li><li>以 REST 或 GraphQL 程式化管理使用者</li><li>活躍社群或即時支援</li></ul>
+<ul><li>你技術棧的 SDK（React、Next.js、iOS、Android、Flutter 等）</li><li>文件清楚且含可執行範例</li><li>本地開發流程不必直連正式環境</li><li>驗證事件的 webhooks（使用者建立、登入失敗、MFA 註冊）——模式背景見 <a href="/zh-hant/post/webhooks-vs-apis-difference">Webhooks 與 API 說明</a></li><li>以 REST 或 GraphQL 程式化管理使用者</li><li>活躍社群或即時支援</li></ul>
 
 ### 合規與資料處理
 
@@ -189,7 +189,7 @@ await authgear.startAuthentication({ redirectURI: "https://your-app.com/callback
 
 ### 步驟 4：保護路由與 API
 
-以驗證伺服器發放的 access token 保護 API。後端應驗證權杖簽章（使用提供者的 JWKS 端點——可用 [OIDC Discovery 探索工具](/zh-Hant/tools/oidc-discovery-endpoint) 查找）、檢查過期與 audience 等宣告。
+以驗證伺服器發放的 access token 保護 API。後端應驗證權杖簽章（使用提供者的 JWKS 端點——可用 [OIDC Discovery 探索工具](/zh-hant/tools/oidc-discovery-endpoint) 查找）、檢查過期與 audience 等宣告。
 
 ### 步驟 5：啟用 MFA
 

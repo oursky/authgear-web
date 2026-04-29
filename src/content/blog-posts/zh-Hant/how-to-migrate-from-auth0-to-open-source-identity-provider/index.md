@@ -157,7 +157,7 @@ MFA 是關鍵安全層。若未遷移 MFA 設定或未規劃重新註冊流程�
 
 正在規劃從 Auth0 遷移？
 
-<a href="/zh-Hant/schedule-demo" target="_blank">預約免費諮詢</a>，與我們的驗證專家一起設計低風險遷移方案。
+<a href="/zh-hant/schedule-demo" target="_blank">預約免費諮詢</a>，與我們的驗證專家一起設計低風險遷移方案。
 
 ## **FAQs**
 

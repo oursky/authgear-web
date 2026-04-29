@@ -321,7 +321,7 @@ JWT 在現代驗證架構中扮演重要角色。它能支援可擴展的身分�
 
 若你的團隊想更有把握地導入 JWT，Authgear 提供實用的驗證工具，可協助簡化 token 管理、強化驗證流程，並從一開始就建立可上線的身分系統。
 
-<a href="/zh-Hant/tools/jwt-jwe-debugger" target="_blank">探索 Authgear 的 JWT 工具</a>，可用於產生安全 token、正確驗證簽章，並建置能安全擴展的驗證流程。
+<a href="/zh-hant/tools/jwt-jwe-debugger" target="_blank">探索 Authgear 的 JWT 工具</a>，可用於產生安全 token、正確驗證簽章，並建置能安全擴展的驗證流程。
 
 ## FAQs
 

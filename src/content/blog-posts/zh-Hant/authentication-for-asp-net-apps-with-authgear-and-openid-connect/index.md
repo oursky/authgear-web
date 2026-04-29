@@ -6,15 +6,15 @@ category: engineering
 featured: false
 metaTitle: "使用 Authgear 和 OpenID Connect 對 ASP.NET 應用程式進行身份驗證"
 metaDescription: "這篇部落格文章示範如何透過實作 OpenID Connect 流程，使用 Authgear 將驗證功能新增至 ASP.NET 應用程式。"
-canonicalUrl: /zh-Hant/post/authentication-for-asp-net-apps-with-authgear-and-openid-connect
+canonicalUrl: /zh-hant/post/authentication-for-asp-net-apps-with-authgear-and-openid-connect
 publishedAt: 2023-08-15T10:53:36.816Z
 updatedAt: 2026-02-12T02:33:17.669Z
 draft: false
 ---
 
-<a href="/zh-Hant/" target="_blank">Authgear</a> 充當 IAM 提供者，它是您以 Web 和行動應用程式、API 等形式提供給客戶的資源**的看門人。看門人啟動授權，如 <a href="https://oauth.net/2/" target="_blank">OAuth 2.0</a>。添加的 <a href="https://openid.net/developers/how-connect-works/" target="_blank">OpenID 連接</a> 層添加身份驗證以保護使用者的數位身分和產品。
+<a href="/zh-hant/" target="_blank">Authgear</a> 充當 IAM 提供者，它是您以 Web 和行動應用程式、API 等形式提供給客戶的資源**的看門人。看門人啟動授權，如 <a href="https://oauth.net/2/" target="_blank">OAuth 2.0</a>。添加的 <a href="https://openid.net/developers/how-connect-works/" target="_blank">OpenID 連接</a> 層添加身份驗證以保護使用者的數位身分和產品。
 
-這篇部落格文章提供了一個使用 [網路平台](http://ASP.NET) 創建的基本演示 Web 應用程序，並演示瞭如何添加身份驗證功能 <a href="/zh-Hant/" target="_blank">Authgear</a> 透過實作 [OpenID 連線](https://docs.authgear.com/concepts/identity-fundamentals#open-id-connect) 流程，然後擷取 OAuth 令牌，以便呼叫 API。看法 <a href="https://github.com/authgear/authgear-example-dotnet/blob/main/README.md" target="_blank">執行</a> 在 GitHub 上。
+這篇部落格文章提供了一個使用 [網路平台](http://ASP.NET) 創建的基本演示 Web 應用程序，並演示瞭如何添加身份驗證功能 <a href="/zh-hant/" target="_blank">Authgear</a> 透過實作 [OpenID 連線](https://docs.authgear.com/concepts/identity-fundamentals#open-id-connect) 流程，然後擷取 OAuth 令牌，以便呼叫 API。看法 <a href="https://github.com/authgear/authgear-example-dotnet/blob/main/README.md" target="_blank">執行</a> 在 GitHub 上。
 
 ## 學習目標
 
@@ -324,7 +324,7 @@ dotnet 建置 dotnet 運行
 ![](./figure-7.png)
 <!--/FIGURE-->
 
-您的用戶可以透過 Authgear 託管的頁面登入您的應用程序，該頁面為他們提供安全、基於標準的登入體驗，您可以使用自己的品牌和各種身份驗證方法進行自訂，例如 <a href="/zh-Hant/features/social-login" target="_blank">社群登入</a>, <a href="/zh-Hant/features/passwordless-authentication" target="_blank">無密碼</a>, [生物登錄](/zh-Hant/features/biometric-authentication), <a href="/zh-Hant/features/whatsapp-otp" target="_blank">一次性密碼 (OTP)</a> 具有 SMS/WhatsApp 和多重身份驗證 (MFA)。
+您的用戶可以透過 Authgear 託管的頁面登入您的應用程序，該頁面為他們提供安全、基於標準的登入體驗，您可以使用自己的品牌和各種身份驗證方法進行自訂，例如 <a href="/zh-hant/features/social-login" target="_blank">社群登入</a>, <a href="/zh-hant/features/passwordless-authentication" target="_blank">無密碼</a>, [生物登錄](/zh-hant/features/biometric-authentication), <a href="/zh-hant/features/whatsapp-otp" target="_blank">一次性密碼 (OTP)</a> 具有 SMS/WhatsApp 和多重身份驗證 (MFA)。
 
 <!--FIGURE-->
 ![](./figure-8.png)

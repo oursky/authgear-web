@@ -157,7 +157,7 @@ UUIDv7 專為現代分散式系統設計。它以 Unix 毫秒時間戳搭配隨�
 
 UUIDv7 完整支援時間排序，能與既有 UUID 生態相容，且可在各服務節點獨立生成。它把排序、隱私與維運簡潔性整合在同一方案中。
 
-導入 UUIDv7 時，可使用 [Authgear 的 UUIDv7 工具](/zh-Hant/tools/uuidv7-generator) 生成合規識別碼、檢視內嵌時間戳並驗證結構，協助順利落地。
+導入 UUIDv7 時，可使用 [Authgear 的 UUIDv7 工具](/zh-hant/tools/uuidv7-generator) 生成合規識別碼、檢視內嵌時間戳並驗證結構，協助順利落地。
 
 ### 何時使用 UUIDv7
 
@@ -238,7 +238,7 @@ UUIDv7 完整支援時間排序，能與既有 UUID 生態相容，且可在各�
 
 對高寫入或分散式系統而言，UUIDv7 多半能提供最佳的整體效能與可擴展性。
 
-在設計驗證系統時，也可同步評估 [session 與 token 驗證取捨](/zh-Hant/post/session-vs-token-authentication) 以完善整體架構。
+在設計驗證系統時，也可同步評估 [session 與 token 驗證取捨](/zh-hant/post/session-vs-token-authentication) 以完善整體架構。
 
 ## 安全與隱私考量
 
@@ -250,7 +250,7 @@ UUIDv7 完整支援時間排序，能與既有 UUID 生態相容，且可在各�
 
 若 UUID 會出現在 URL、API 或日誌中，務必把隱私與威脅模型納入評估。
 
-可延伸參考 [session 管理最佳實踐](/zh-Hant/post/session-management) 以建立更完整的身分安全策略。
+可延伸參考 [session 管理最佳實踐](/zh-hant/post/session-management) 以建立更完整的身分安全策略。
 
 ## 維運實務建議
 
@@ -289,7 +289,7 @@ UUID 版本選擇非常關鍵。它會影響可擴展性、資料庫效率、維
 
 若你想更穩健導入 UUIDv7，Authgear 的 UUIDv7 工具可協助你生成合規識別碼、檢視時間資訊，並從一開始就設計可擴展架構。
 
-[探索 Authgear UUIDv7 工具](/zh-Hant/tools/uuidv7-generator)，產生合規識別碼、理解其結構，打造可長期擴展的系統。
+[探索 Authgear UUIDv7 工具](/zh-hant/tools/uuidv7-generator)，產生合規識別碼、理解其結構，打造可長期擴展的系統。
 
 ## FAQs
 
@@ -311,7 +311,7 @@ v1 使用時間戳與 node ID，具部分排序性；v4 完全隨機，隱私最
 
 UUIDv7 可在各節點獨立生成，同時保有全域唯一與時間排序。你可使用 Authgear UUIDv7 工具生成合規識別碼、檢視時間戳並驗證格式，降低導入風險與維運複雜度。
 
-在正式環境中，建議同步評估 UUID 生成策略如何和 [JWT 驗證策略](/zh-Hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications) 配合，建立完整的無狀態安全架構。
+在正式環境中，建議同步評估 UUID 生成策略如何和 [JWT 驗證策略](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications) 配合，建立完整的無狀態安全架構。
 
 ### 5. 既有系統可以從 UUIDv1 或 v4 遷移到 UUIDv7 嗎？
 

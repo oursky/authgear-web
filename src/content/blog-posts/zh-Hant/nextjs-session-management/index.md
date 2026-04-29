@@ -321,7 +321,7 @@ export async function GET() {
 
 在 Middleware 請從 `request.cookies` 讀取——不要用 `next/headers` 的 `cookies()`。Middleware 脈絡下無法使用 `next/headers` 的 `cookies()`。滑動工作階段範例已示範 `request.cookies.get('session')`。
 
-Middleware 適合在頁面渲染**之前**把未驗證使用者**導走**。權限檢查或查資料庫請放在 Server Components 或 Route Handlers——Middleware 應保持輕量。更深入說明見我們的 [Next.js Middleware 驗證](/zh-Hant/post/nextjs-middleware-authentication)指南。
+Middleware 適合在頁面渲染**之前**把未驗證使用者**導走**。權限檢查或查資料庫請放在 Server Components 或 Route Handlers——Middleware 應保持輕量。更深入說明見我們的 [Next.js Middleware 驗證](/zh-hant/post/nextjs-middleware-authentication)指南。
 
 ## 工作階段過期與登出
 
@@ -374,7 +374,7 @@ JWT 工作階段在登出時刪除 Cookie 即足夠：Cookie 消失後權杖不�
 
 若還需要社交登入、通行金鑰或多因素驗證，Authgear 的託管驗證 UI 也能涵蓋——讓你專心做產品，而不是維護一整層驗證。
 
-若要搭配工作階段管理補強 JWT 實務，可參考 [Next.js JWT 驗證](/zh-Hant/post/nextjs-jwt-authentication)一文。
+若要搭配工作階段管理補強 JWT 實務，可參考 [Next.js JWT 驗證](/zh-hant/post/nextjs-jwt-authentication)一文。
 
 ## 常見問題
 

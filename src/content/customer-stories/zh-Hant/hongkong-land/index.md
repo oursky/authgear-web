@@ -18,7 +18,7 @@ metrics:
   - num: "3000+"
     text: "使用者涵蓋逾 30 家合作機構"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/zh-Hant/customer-stories/hongkong-land"
+canonicalUrl: "https://www.authgear.com/zh-hant/customer-stories/hongkong-land"
 ---
 
 香港置地著手在數位轉型中現代化驗證體驗。挑戰在於：為**內部員工**與**外部合作仲介**兩類截然不同的對象，提供統一且安全的體驗，同時避免冗長上線週期與額外摩擦。透過 Authgear，他們在數週內（而非數月）推出雙重受眾驗證：員工使用 ADFS 登入、仲介使用電子郵件／密碼加 2FA、雙方皆可於行動裝置使用生物辨識，並搭配管理後台自動化。

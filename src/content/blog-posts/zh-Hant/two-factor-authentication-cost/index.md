@@ -31,7 +31,7 @@ draft: false
 
 **別忽略的隱藏成本：**
 
-<ul><li>SMS 詐欺（pumping 攻擊可能帶來意外帳單——見我們的 <a href="/zh-Hant/post/sms-pumping-attack">SMS pumping 攻擊</a>指南）</li><li>部分設定下，送達失敗仍計費</li><li>部分市場的 A2P（應用到人）註冊費（美國、印度等）</li><li>建置速率限制、詐欺偵測與後援流程的工程時間</li></ul>
+<ul><li>SMS 詐欺（pumping 攻擊可能帶來意外帳單——見我們的 <a href="/zh-hant/post/sms-pumping-attack">SMS pumping 攻擊</a>指南）</li><li>部分設定下，送達失敗仍計費</li><li>部分市場的 A2P（應用到人）註冊費（美國、印度等）</li><li>建置速率限制、詐欺偵測與後援流程的工程時間</li></ul>
 
 ### 2. WhatsApp OTP——每則較便宜、模式類似
 
@@ -51,7 +51,7 @@ WhatsApp 驗證訊息使用 Meta 商業平台，以「驗證對話」計價。�
 
 **取捨：**
 
-<ul><li>使用者須安裝並管理驗證器 App（消費型 App 摩擦較高、採用率較低）</li><li>使用者遺失裝置時，帳戶復原流程須審慎設計</li><li>非釣魚抗性——即時釣魚仍可能騙取代碼</li><li>最佳實務見 <a href="/zh-Hant/post/5-common-totp-mistakes">5 個常見 TOTP 錯誤</a></li></ul>
+<ul><li>使用者須安裝並管理驗證器 App（消費型 App 摩擦較高、採用率較低）</li><li>使用者遺失裝置時，帳戶復原流程須審慎設計</li><li>非釣魚抗性——即時釣魚仍可能騙取代碼</li><li>最佳實務見 <a href="/zh-hant/post/5-common-totp-mistakes">5 個常見 TOTP 錯誤</a></li></ul>
 
 **最適合：** B2B SaaS、開發者工具、管理後台——使用者技術程度高、願意使用驗證器 App 的情境。消費型 App 若便利優先，較不適合。
 
@@ -61,7 +61,7 @@ WhatsApp 驗證訊息使用 Meta 商業平台，以「驗證對話」計價。�
 
 **成本結構：** 無按次費用。工程投資以實作 WebAuthn／FIDO2（複雜度中等——完整實作常需約 1–3 週）。可選驗證平台以縮短工期。
 
-長期而言，通行金鑰是大規模下**最便宜的 2FA**：每次驗證的邊際成本實質為零。回訪使用者愈多，相對 SMS OTP 省愈多。實作細節見我們的 [通行金鑰指南](/zh-Hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security)。
+長期而言，通行金鑰是大規模下**最便宜的 2FA**：每次驗證的邊際成本實質為零。回訪使用者愈多，相對 SMS OTP 省愈多。實作細節見我們的 [通行金鑰指南](/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security)。
 
 ## 不同規模下的每月總成本
 
@@ -93,7 +93,7 @@ WhatsApp 驗證訊息使用 Meta 商業平台，以「驗證對話」計價。�
 
 ### Authgear
 
-內建 WhatsApp OTP、SMS OTP、TOTP、通行金鑰與 SSO 的驗證平台。目標不只是「管理」OTP，而是**降低** OTP 成本。含 SMS pumping 防護、生物辨識登入與跨 App 的 SSO。採用量計價並有寬鬆免費額度。**平台費 + 較低的每則成本（WhatsApp 對 SMS）** 組合下，總成本常低於 Auth0／Okta 另加獨立 SMS 閘道。個人化估算見 [SMS 成本優化方案](/zh-Hant/solutions/reduce-sms-otp-cost)。
+內建 WhatsApp OTP、SMS OTP、TOTP、通行金鑰與 SSO 的驗證平台。目標不只是「管理」OTP，而是**降低** OTP 成本。含 SMS pumping 防護、生物辨識登入與跨 App 的 SSO。採用量計價並有寬鬆免費額度。**平台費 + 較低的每則成本（WhatsApp 對 SMS）** 組合下，總成本常低於 Auth0／Okta 另加獨立 SMS 閘道。個人化估算見 [SMS 成本優化方案](/zh-hant/solutions/reduce-sms-otp-cost)。
 
 ## 成本曲線：為何 2FA 會隨時間變便宜（若規劃得當）
 
@@ -124,4 +124,4 @@ WhatsApp 驗證訊息使用 Meta 商業平台，以「驗證對話」計價。�
 - 長期最聰明組合：**新使用者用 WhatsApp OTP + 回訪用通行金鑰**——成本曲線趨近零  
 - 驗證平台（Auth0、Authgear、Firebase）會增加月費，但降低工程負擔——須兩邊一併評估  
 
-若想依你的實際用量與市場組合試算，可使用 [Authgear SMS 成本試算](/zh-Hant/solutions/reduce-sms-otp-cost)。
+若想依你的實際用量與市場組合試算，可使用 [Authgear SMS 成本試算](/zh-hant/solutions/reduce-sms-otp-cost)。
