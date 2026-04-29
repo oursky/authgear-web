@@ -1,3 +1,12 @@
+# Internal canonical redirects (previously prerendered as Astro stubs)
+/why-authgear                                                                       /about                                                                                                                  301
+/zh-Hant/why-authgear                                                               /zh-Hant/about                                                                                                          301
+/features/sms-passcode                                                              /features/multi-factor-authentication                                                                                   301
+/zh-Hant/features/sms-passcode                                                      /zh-Hant/features/multi-factor-authentication                                                                           301
+/zh-Hant/features/identity-security                                                 /zh-Hant/features/attack-protection                                                                                     301
+/blog/*                                                                             /post/:splat                                                                                                            301
+/zh-Hant/blog/*                                                                     /zh-Hant/post/:splat                                                                                                    301
+
 # Legacy Webflow redirects — exported from docs/redirects.csv
 /talk-with-us                                                                       /schedule-demo                                                                                                          301
 /post/digital-customer-experience-ciam                                              /post/digital-customer-experience                                                                                       301

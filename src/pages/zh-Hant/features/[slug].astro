@@ -51,14 +51,12 @@ export function getStaticPaths() {
     'biometric-login',
     'customization',
     'extensibility',
-    'identity-security', // 301-redirected to /zh-Hant/features/attack-protection below.
     'machine-to-machine-token',
     'multi-factor-authentication',
     'passkeys',
     'passwordless-authentication',
     'self-serve-settings-page',
     'single-sign-on',
-    'sms-passcode', // 301-redirected to /zh-Hant/features/multi-factor-authentication below.
     'sms-pumping-fraud',
     'social-login',
     'user-management',
@@ -67,12 +65,6 @@ export function getStaticPaths() {
 }
 
 const { slug } = Astro.params as { slug: string };
-if (slug === 'identity-security') {
-  return Astro.redirect('/zh-Hant/features/attack-protection', 301);
-}
-if (slug === 'sms-passcode') {
-  return Astro.redirect('/zh-Hant/features/multi-factor-authentication', 301);
-}
 const Component = pageMap[slug as keyof typeof pageMap];
 const meta = featuresMeta[slug as FeatureSlug];
 if (!Component || !meta) {

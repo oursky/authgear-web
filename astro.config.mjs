@@ -11,19 +11,10 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      // Drop legacy/redirect-only paths and any /en/* internal routes.
-      filter: (page) =>
-        !page.includes('/en/') &&
-        !/\/blog\/[a-z0-9-]+\/?$/.test(page) && // /blog/{slug} is a 301 redirect
-        !/\/post\/category\//.test(page) && // legacy redirect
-        !/\/features\/identity-security\/?$/.test(page) && // 301 → attack-protection
-        !/\/features\/sms-passcode\/?$/.test(page) && // 301 → multi-factor-authentication
-        !/\/why-authgear\/?$/.test(page) && // 301 → /about
-        !/\/zh-Hant\/blog\/[a-z0-9-]+\/?$/.test(page) &&
-        !/\/zh-Hant\/post\/category\//.test(page) &&
-        !/\/zh-Hant\/features\/identity-security\/?$/.test(page) &&
-        !/\/zh-Hant\/features\/sms-passcode\/?$/.test(page) &&
-        !/\/zh-Hant\/why-authgear\/?$/.test(page),
+      // Drop /en/* internal routes (canonical English paths are unprefixed).
+      // All legacy redirects now live in public/_redirects, so they aren't
+      // prerendered and will never appear in the sitemap to begin with.
+      filter: (page) => !page.includes('/en/'),
     }),
   ],
   vite: { plugins: [tailwindcss()] },
