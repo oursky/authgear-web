@@ -4,8 +4,10 @@
 /features/sms-passcode                                                              /features/multi-factor-authentication                                                                                   301
 /zh-Hant/features/sms-passcode                                                      /zh-Hant/features/multi-factor-authentication                                                                           301
 /zh-Hant/features/identity-security                                                 /zh-Hant/features/attack-protection                                                                                     301
-/blog/*                                                                             /post/:splat                                                                                                            301
-/zh-Hant/blog/*                                                                     /zh-Hant/post/:splat                                                                                                    301
+# /blog/{slug} → /post/{slug} is handled by per-slug Astro stubs in
+# src/pages/blog/[slug].astro and src/pages/zh-Hant/blog/[slug].astro,
+# not by a wildcard rule here. A wildcard would also catch /blog/2..N
+# pagination pages and break the listing.
 
 # Legacy Webflow redirects — exported from docs/redirects.csv
 /talk-with-us                                                                       /schedule-demo                                                                                                          301
