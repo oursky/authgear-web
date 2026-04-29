@@ -11,14 +11,15 @@ export default defineConfig({
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {
+    // The Netlify adapter has no `astro preview` support, so tests run
+    // against `astro dev`. It exercises the same code paths (prerendered
+    // pages, SSR endpoints, middleware) — just JIT-compiled instead of
+    // built ahead of time.
     command:
       `PUBLIC_GTM_ID=GTM-TEST0000 ` +
       `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA ` +
       `TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA ` +
-      `npm run build && ` +
-      `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA ` +
-      `TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA ` +
-      `PORT=${PORT} npm start`,
+      `astro dev --port ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
