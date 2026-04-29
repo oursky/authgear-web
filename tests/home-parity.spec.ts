@@ -24,6 +24,9 @@ test.describe('home page parity — islands hydrate', () => {
   test('ContactForm hydrates — fields are interactive', async ({ page }) => {
     await page.goto('/');
     const nameInput = page.locator('input[name="Name"]').first();
+    // ContactForm uses client:visible — scroll the form into view so the
+    // IntersectionObserver fires before we try to interact.
+    await nameInput.scrollIntoViewIfNeeded();
     await expect(nameInput).toBeVisible();
     await nameInput.fill('Hydration Test');
     await expect(nameInput).toHaveValue('Hydration Test');

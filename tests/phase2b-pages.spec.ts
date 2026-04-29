@@ -41,6 +41,8 @@ test.describe('Phase 2b routes — zh-TW', () => {
 test('schedule-demo has a hydrated ContactForm', async ({ page }) => {
   await page.goto('/schedule-demo');
   const nameInput = page.locator('input[name="Name"]').first();
+  // ContactForm uses client:visible — scroll into view to trigger hydration.
+  await nameInput.scrollIntoViewIfNeeded();
   await expect(nameInput).toBeVisible();
   await nameInput.fill('Demo Seeker');
   await expect(nameInput).toHaveValue('Demo Seeker');
