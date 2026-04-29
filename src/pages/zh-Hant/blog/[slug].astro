@@ -5,10 +5,10 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const [zhEntries, enEntries] = await Promise.all([
-    getCollection('blog-posts', ({ id, data }) => id.startsWith('zh-Hant/') && !data.draft),
+    getCollection('blog-posts', ({ id, data }) => id.startsWith('zh-hant/') && !data.draft),
     getCollection('blog-posts', ({ id, data }) => id.startsWith('en/') && !data.draft),
   ]);
-  const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  const slugOf = (id: string) => id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
   const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
   const merged = [
     ...zhEntries,

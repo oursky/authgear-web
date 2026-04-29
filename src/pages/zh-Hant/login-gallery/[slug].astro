@@ -11,10 +11,10 @@ import { localizedPath } from '@/lib/i18n';
 
 export async function getStaticPaths() {
   const [zhEntries, enEntries] = await Promise.all([
-    getCollection('login-gallery', ({ id, data }) => id.startsWith('zh-Hant/') && !data.draft),
+    getCollection('login-gallery', ({ id, data }) => id.startsWith('zh-hant/') && !data.draft),
     getCollection('login-gallery', ({ id, data }) => id.startsWith('en/') && !data.draft),
   ]);
-  const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  const slugOf = (id: string) => id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
   const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
   const merged = [
     ...zhEntries,

@@ -7,10 +7,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { localizedPath } from '@/lib/i18n';
 
 const locale = 'zh-Hant';
-const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const slugOf = (id: string) => id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
 
 const [zhEntries, enEntries] = await Promise.all([
-  getCollection('integrations', ({ id }) => id.startsWith('zh-Hant/')),
+  getCollection('integrations', ({ id }) => id.startsWith('zh-hant/')),
   getCollection('integrations', ({ id }) => id.startsWith('en/')),
 ]);
 const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));

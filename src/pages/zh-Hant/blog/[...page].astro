@@ -12,9 +12,9 @@ import { t } from '@/i18n';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const slugOf = (id: string) =>
-    id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+    id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
   const [zhEntries, enEntries] = await Promise.all([
-    getCollection('blog-posts', ({ id, data }) => id.startsWith('zh-Hant/') && !data.draft),
+    getCollection('blog-posts', ({ id, data }) => id.startsWith('zh-hant/') && !data.draft),
     getCollection('blog-posts', ({ id, data }) => id.startsWith('en/') && !data.draft),
   ]);
   const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));

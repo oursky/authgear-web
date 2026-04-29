@@ -10,7 +10,7 @@ const { locale } = Astro.props;
 const featuredSlugs = ['global-qsr', 'hongkong-land', 'hongkong-mtr'];
 const allStories = await getCollection('customer-stories', ({ id }) => id.startsWith('en/'));
 const caseStudies = featuredSlugs
-  .map((slug) => allStories.find((e) => e.id === `en/${slug}/index.md`))
+  .map((slug) => allStories.find((e) => e.id === `en/${slug}/index`))
   .filter((e): e is NonNullable<typeof e> => e !== undefined)
   .map((entry) => ({
     slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, ''),

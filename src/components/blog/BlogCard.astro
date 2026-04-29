@@ -11,7 +11,7 @@ interface Props {
 
 const { entry, locale } = Astro.props;
 const data = entry.data;
-const slug = entry.id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const slug = entry.id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
 
 let categoryName: string | undefined;
 if (data.category) {
