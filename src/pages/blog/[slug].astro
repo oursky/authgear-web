@@ -1,0 +1,17 @@
+---
+// Legacy redirect: /blog/{slug} → /post/{slug}. The canonical URL for a
+// blog post detail page is /post/{slug} (matches the live Webflow site).
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('blog-posts', ({ id, data }) => id.startsWith('en/') && !data.draft);
+  return entries.map((entry) => ({
+    params: { slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, '') },
+  }));
+}
+
+const { slug } = Astro.params as { slug: string };
+return Astro.redirect(`/post/${slug}`, 301);
+---

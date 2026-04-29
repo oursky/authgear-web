@@ -7,7 +7,7 @@ Architecture of the Authgear marketing website after the Next.js → Astro migra
 ## Stack
 
 **Frontend**
-- Astro 5 — primarily prerendered with `@astrojs/netlify` adapter for the rare SSR routes
+- Astro 6 — primarily prerendered with `@astrojs/netlify` adapter for the rare SSR routes
 - React 19 — used only for interactive islands
 - TypeScript
 - Tailwind CSS v4 via `@tailwindcss/vite`

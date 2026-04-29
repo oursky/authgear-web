@@ -2,7 +2,7 @@
 export const prerender = true;
 
 import { Image } from 'astro:assets';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
@@ -29,7 +29,7 @@ interface Props { entry: CollectionEntry<'whats-new'> }
 const locale = 'zh-Hant';
 const { entry } = Astro.props;
 const { data } = entry;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const date = data.publishedAt.toLocaleDateString('zh-Hant', {
   year: 'numeric',
   month: 'long',

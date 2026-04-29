@@ -1,7 +1,9 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob, file } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const customerStories = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/customer-stories' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -28,7 +30,7 @@ const customerStories = defineCollection({
 });
 
 const loginGallery = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/login-gallery' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -47,7 +49,7 @@ const loginGallery = defineCollection({
 });
 
 const whatsNew = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/whats-new' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -60,7 +62,7 @@ const whatsNew = defineCollection({
 });
 
 const blogPosts = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/blog-posts' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -89,7 +91,7 @@ const blogPosts = defineCollection({
 });
 
 const blogCategories = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '*.json', base: './src/content/blog-categories' }),
   schema: z.object({
     name: z.string(),
     /** Traditional Chinese label for `/zh-Hant/...` blog UI; falls back to `name`. */
@@ -100,20 +102,20 @@ const blogCategories = defineCollection({
 });
 
 const integrations = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/integrations' }),
   schema: ({ image }) =>
     z.object({
       name: z.string(),
       excerpt: z.string(),
       icon: image(),
-      website: z.string().url(),
+      website: z.url(),
       category: z.string().optional(),
       publishedAt: z.coerce.date().optional(),
     }),
 });
 
 const integrationCategories = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '*.json', base: './src/content/integration-categories' }),
   schema: z.object({
     name: z.string(),
     slug: z.string(),

@@ -2,7 +2,7 @@
 export const prerender = true;
 
 import { Image } from 'astro:assets';
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BlogPostSeo from '@/components/blog/BlogPostSeo.astro';
 import BlogSidebar from '@/components/blog/BlogSidebar.astro';
@@ -29,7 +29,7 @@ interface Props {
 const locale = 'en';
 const { entry } = Astro.props;
 const data = entry.data;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 let categoryName: string | undefined;
 let categorySlug: string | undefined;
