@@ -7,7 +7,7 @@ Architecture of the Authgear marketing website after the Next.js → Astro migra
 ## Stack
 
 **Frontend**
-- Astro 5 — primarily prerendered with `@astrojs/node` (standalone) adapter for the rare SSR routes
+- Astro 5 — primarily prerendered with `@astrojs/netlify` adapter for the rare SSR routes
 - React 19 — used only for interactive islands
 - TypeScript
 - Tailwind CSS v4 via `@tailwindcss/vite`
@@ -19,9 +19,7 @@ Architecture of the Authgear marketing website after the Next.js → Astro migra
 - `astro:assets` optimises images referenced from frontmatter and markdown
 
 **Infrastructure**
-- Fly.io — Node machine running the Astro SSR entry for the remaining dynamic routes (`/api/contact`, sitemap)
-- Nginx — reverse proxy fronting Fly
-- Docker Compose — unchanged; `frontend` service runs `node ./dist/server/entry.mjs`
+- Netlify — builds from `main`; SSR for `/api/contact` runs as a Netlify Function via `@astrojs/netlify`
 
 No external CMS. No rebuild-on-publish webhook. Editing = editing markdown + image files in the repo; changes ship through git.
 
@@ -104,7 +102,7 @@ authgear-web/
 | `/api/contact`, `/sitemap.xml` | SSR (Astro endpoint) |
 | Legacy redirects (`/post/{slug}`, `/blog/{slug}`, `/zh/*`, `/zh-Hant-TW/*`, `/post-category/*`, etc.) | Prerendered `Astro.redirect(..., 301)` stubs |
 
-The default adapter is still `@astrojs/node` in standalone mode so SSR endpoints work. But almost every page is static HTML.
+The adapter is `@astrojs/netlify`, so SSR endpoints run as Netlify Functions. But almost every page is static HTML.
 
 ## Content collections
 
@@ -261,35 +259,18 @@ npm run preview
 
 ## Deployment
 
-Fly.io. `fly.toml` (simplified):
+Netlify. The site is wired up to build from `main`; the `@astrojs/netlify` adapter emits the static site plus a single SSR Function for `/api/contact`. Configuration lives in `netlify.toml`:
 
 ```toml
-app = "authgear-web"
-primary_region = "nrt"
-
 [build]
-  dockerfile = "Dockerfile"
+  command = "npm run build"
+  publish = "dist"
 
-[env]
-  HOST = "0.0.0.0"
-  PORT = "3000"
-  NODE_ENV = "production"
-
-[http_service]
-  internal_port = 3000
-  force_https = true
-  auto_stop_machines = "suspend"
-  auto_start_machines = true
-  min_machines_running = 0
-
-[[vm]]
-  size = "shared-cpu-1x"
-  memory = "512mb"
+[build.environment]
+  NODE_VERSION = "20"
 ```
 
-Secrets via `fly secrets set CONTACT_WEBHOOK_URL=...`.
-
-Dockerfile: standard multi-stage Node image — `npm ci && npm run build`, then `node ./dist/server/entry.mjs`.
+Secrets via the Netlify UI (Site settings → Environment variables), e.g. `CONTACT_WEBHOOK_URL`.
 
 ## What changed vs. the original Astro proposal
 

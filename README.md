@@ -11,7 +11,7 @@ The Authgear marketing website, built with **Astro 5**. All content — blog pos
 | **Content** | Astro Content Collections (markdown + JSON) validated with zod |
 | **Images** | Astro's built-in image pipeline (WebP + responsive srcsets) |
 | **Syntax highlighting** | Shiki (`github-light` theme) |
-| **Adapter** | `@astrojs/node` in standalone mode (SSR for the few dynamic endpoints) |
+| **Adapter** | `@astrojs/netlify` (SSR for the few dynamic endpoints) |
 
 Most routes are prerendered; only `/api/contact` and `/sitemap.xml` run at request time.
 
@@ -75,4 +75,4 @@ PUBLIC_GOOGLE_SITE_VERIFICATION=
 
 ## Deployment
 
-Fly.io (Node machine serving the Astro standalone entry). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
+Netlify (build from `main`, SSR via the Netlify adapter). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.

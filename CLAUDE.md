@@ -68,7 +68,7 @@ Set in `.env` (or your deployment secret store). The contact form POSTs to `/api
 
 ## Deployment
 
-Fly.io (Node machine serving the Astro standalone entry). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
+Netlify (build from `main`, SSR via the Netlify adapter). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
 
 ## Legacy
 
