@@ -253,7 +253,7 @@ SAML provider 是企業身分系統的基礎元件。IdP 負責驗證使用者�
 
 像 Authgear 這類平台能開箱協助處理 IdP/SP 角色、assertion 驗證、憑證管理與安全最佳實務，讓開發與安全團隊把精力放在建置與擴展應用，而非被身分協定細節拖慢。
 
-<a href="/zh-Hant/" target="_blank">立即探索 Authgear</a>，簡化 SAML 整合、落實企業級安全，並為所有應用啟用順暢 SSO。
+<a href="/zh-hant/" target="_blank">立即探索 Authgear</a>，簡化 SAML 整合、落實企業級安全，並為所有應用啟用順暢 SSO。
 
 ## FAQs
 

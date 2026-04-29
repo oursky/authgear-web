@@ -6,7 +6,7 @@ category: industry
 featured: false
 metaTitle: "身份驗證即服務：它是什麼以及為什麼需要它"
 metaDescription: "透過將應用程式或軟體與身份驗證即服務解決方案集成，企業可以提供無摩擦的註冊/登入體驗等"
-canonicalUrl: /zh-Hant/post/authentication-as-a-service
+canonicalUrl: /zh-hant/post/authentication-as-a-service
 publishedAt: 2022-09-25T14:09:07.433Z
 updatedAt: 2026-02-12T02:33:17.651Z
 draft: false
@@ -112,11 +112,11 @@ MFA 比單因素身份驗證更安全，因為駭客更難破壞多個身份驗�
 
 一次性密碼 (OTP) 是一種臨時的一次性密碼，透過簡訊、電子郵件或訊息應用程式傳送到使用者的裝置。然後，使用者輸入 OTP 來驗證其身分。
 
-由於大多數消費者現在都擁有行動設備，簡訊 OTP 是最常見的輔助身份驗證方法。然而，駭客已經找到了攔截或竊取 OTP 的方法。 <a href="/zh-Hant/features/whatsapp-otp" target="_blank">WhatsApp 免洗密碼</a>另一方面，它更安全，因為它是端對端加密的，與 SMS OTP 相比實施起來更便宜。
+由於大多數消費者現在都擁有行動設備，簡訊 OTP 是最常見的輔助身份驗證方法。然而，駭客已經找到了攔截或竊取 OTP 的方法。 <a href="/zh-hant/features/whatsapp-otp" target="_blank">WhatsApp 免洗密碼</a>另一方面，它更安全，因為它是端對端加密的，與 SMS OTP 相比實施起來更便宜。
 
 ### Passkey，真正的無密碼體驗
 
-<a href="/zh-Hant/features/passkeys" target="_blank">萬能鑰匙</a> 是一種新型數位憑證，有可能完全取代密碼。借助這項新技術，用戶在建立帳戶時不再需要考慮新密碼。此外，金鑰允許使用者跨裝置和平台登入相同的服務，而無需一次又一次地重新輸入相同的使用者名稱和密碼。
+<a href="/zh-hant/features/passkeys" target="_blank">通行密鑰</a> 是一種新型數位憑證，有可能完全取代密碼。借助這項新技術，用戶在建立帳戶時不再需要考慮新密碼。此外，金鑰允許使用者跨裝置和平台登入相同的服務，而無需一次又一次地重新輸入相同的使用者名稱和密碼。
 
 ### 社群登入
 
@@ -196,4 +196,4 @@ AaaS 供應商投入大量時間和金錢來開發強大的身份驗證軟體和
 
 對於開發人員，我們提供了易於使用的身份驗證 API，可以輕鬆地將 Authgear 整合到您現有的應用程式中。如果您需要協助，我們的專家支援團隊隨時為您提供協助。
 
-<a href="https://accounts.portal.authgear.com/signup" target="_blank">免費註冊</a> 或者 <a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a> 詳細了解您的應用程式如何與 Authgear 一起發展。
+<a href="https://accounts.portal.authgear.com/signup" target="_blank">免費註冊</a> 或者 <a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a> 詳細了解您的應用程式如何與 Authgear 一起發展。

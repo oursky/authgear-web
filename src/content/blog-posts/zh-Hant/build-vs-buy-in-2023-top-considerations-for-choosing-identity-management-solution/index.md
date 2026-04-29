@@ -26,7 +26,7 @@ draft: false
 
 在 B2B 情境中，越來越多客戶希望以企業既有登入資訊存取你的產品。這代表你需要提供「*Enterprise Federation*」，讓他們可透過 Active Directory 等系統登入，同時保留一般使用者名稱/密碼選項。若目前發生登入問題時，客戶無法由其內部 IT 團隊快速協助處理，這也會成為導入阻力。
 
-若你的業務是 B2C，且目前主要透過表單或問卷蒐集使用者資料，加入能從其他來源整合資料的能力，會更有助於你理解客戶（也可參考文章 <a href="/zh-Hant/post/how-profile-enrichment-can-boost-your-product" target="_blank">How Profile Enrichment can boost your product</a>），進而透過精準優惠提升銷售。此外，若你是直接面向消費者銷售，而使用者無法快速透過社群帳號註冊，也會錯失轉換機會。特別是在使用者規模持續成長時，效能瓶頸也會浮現，顯示系統需要升級。
+若你的業務是 B2C，且目前主要透過表單或問卷蒐集使用者資料，加入能從其他來源整合資料的能力，會更有助於你理解客戶（也可參考文章 <a href="/zh-hant/post/how-profile-enrichment-can-boost-your-product" target="_blank">How Profile Enrichment can boost your product</a>），進而透過精準優惠提升銷售。此外，若你是直接面向消費者銷售，而使用者無法快速透過社群帳號註冊，也會錯失轉換機會。特別是在使用者規模持續成長時，效能瓶頸也會浮現，顯示系統需要升級。
 
 若你需要替員工設定 **不同層級的存取權限**，就必須有一套完善系統。尤其在新進人員加入或員工離職時，你應能快速更新誰能存取哪些資源，才能同時兼顧效率與安全。
 
@@ -69,4 +69,4 @@ draft: false
 
 Authgear 提供理想整合方案，讓團隊能導入 SSO 與現代化驗證方式，同時維持舊系統不需大幅變動，並逐步執行遷移策略。相較於自建身分管理系統通常需耗時數月，使用 Authgear 往往不到一天即可完成導入。你可以先看看 Authgear 的<a href="https://docs.authgear.com/concepts/authgear-use-cases" target="_blank">使用情境</a>。
 
-Authgear 也提供完整的<a href="https://docs.authgear.com/" target="_blank">文件</a>，涵蓋 API、SDK、quickstarts 與更多內容。你也可在 <a href="/zh-Hant/blog" target="_blank">authgear.com/blog</a> 看到最新消息，以及各種新興與熱門技術、資安主題教學。你可以免費試用 Authgear，設定只需幾分鐘；也可在此查看 Authgear 方案頁 <a href="/zh-Hant/pricing" target="_blank">authgear.com/pricing</a>
+Authgear 也提供完整的<a href="https://docs.authgear.com/" target="_blank">文件</a>，涵蓋 API、SDK、quickstarts 與更多內容。你也可在 <a href="/zh-hant/blog" target="_blank">authgear.com/blog</a> 看到最新消息，以及各種新興與熱門技術、資安主題教學。你可以免費試用 Authgear，設定只需幾分鐘；也可在此查看 Authgear 方案頁 <a href="/zh-hant/pricing" target="_blank">authgear.com/pricing</a>

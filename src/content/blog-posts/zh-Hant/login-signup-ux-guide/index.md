@@ -92,7 +92,7 @@ draft: false
 
 **如何選擇：** 先理解你的使用者與風險模型。消費型產品可偏重社群登入與 passkey；企業 SaaS 可能優先 SSO + MFA。現在很常見 **並列多種登入選項**（例如 email/password *或* Google *或* phone）。但要確保 **體驗一致**：不管選哪種方式，流程都應一致且符合品牌。
 
-像 [Authgear Login Gallery](/zh-Hant/login-gallery) 就展示多選項登入案例。許多現代產品混搭方法：例如 [*Molto*](/zh-Hant/login-gallery/molto) 提供 email/password、magic link、**社群登入**、passcode，兼顧便利與安全；而 [*WorkKing*](/zh-Hant/login-gallery/work-king) 面向手機優先族群，則走全無密碼 phone OTP。兩者都可成功，關鍵在是否符合用戶需求。
+像 [Authgear Login Gallery](/zh-hant/login-gallery) 就展示多選項登入案例。許多現代產品混搭方法：例如 [*Molto*](/zh-hant/login-gallery/molto) 提供 email/password、magic link、**社群登入**、passcode，兼顧便利與安全；而 [*WorkKing*](/zh-hant/login-gallery/work-king) 面向手機優先族群，則走全無密碼 phone OTP。兩者都可成功，關鍵在是否符合用戶需求。
 
 <!--FIGURE-->
 ![](./figure-1.jpg)
@@ -265,7 +265,7 @@ draft: false
 
 ## 真實範例：登入與註冊畫面實戰 🎨
 
-可在 [Authgear Login Gallery](/zh-Hant/login-gallery) 查看真實應用驗證 UI 範例，對照本文原則與模式。
+可在 [Authgear Login Gallery](/zh-hant/login-gallery) 查看真實應用驗證 UI 範例，對照本文原則與模式。
 
 ## FAQ：常見問題（Login & Signup UX）
 

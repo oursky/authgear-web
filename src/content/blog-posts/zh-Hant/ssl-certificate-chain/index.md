@@ -17,7 +17,7 @@ draft: false
 
 可想像成連環保證：你網站的憑證由**中繼 CA** 背書，中繼 CA 再由**根 CA** 背書。瀏覽器預裝受信任根 CA 清單。若能從你的憑證一路連到受信任根且**無斷鏈**，連線即受信任。若鏈上缺一環，瀏覽器會顯示安全錯誤——**即使你的網站憑證本身完全有效**。
 
-> 💡 **剛接觸 SSL？** 深入鏈結前可先讀 [什麼是 SSL 憑證？開發者指南](/zh-Hant/post/what-is-ssl-certificate)，了解憑證如何運作。
+> 💡 **剛接觸 SSL？** 深入鏈結前可先讀 [什麼是 SSL 憑證？開發者指南](/zh-hant/post/what-is-ssl-certificate)，了解憑證如何運作。
 
 ## 憑證鏈的三個層級
 
@@ -53,7 +53,7 @@ draft: false
 
 ### 選項 1：Authgear SSL 檢查工具（建議）
 
-使用 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker) 視覺化完整憑證鏈。會顯示各層——末端、中繼、根——並立即標示是否缺中繼或無法連到受信任根。
+使用 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker) 視覺化完整憑證鏈。會顯示各層——末端、中繼、根——並立即標示是否缺中繼或無法連到受信任根。
 
 > 🔒 **每次憑證續約後都請跑一次。** Let's Encrypt 的 Certbot 使用 `fullchain.pem` 時會正確設定鏈——但若手動安裝付費 CA 憑證，很容易只部署末端。SSL 檢查工具可立刻抓出問題。
 
@@ -133,17 +133,17 @@ yourdomain.com {
 cat yourdomain.crt intermediate.crt > fullchain.crt
 ```
 
-更新設定後重新載入伺服器，並以 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker) 驗證。
+更新設定後重新載入伺服器，並以 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker) 驗證。
 
 ## 如何避免鏈結問題
 
 - 使用 Certbot 時**一律用 `fullchain.pem`**——不要單獨引用 `cert.pem`。
-- **在乾淨環境測試**——使用 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker)，每次連線皆新鮮、無快取中繼。
+- **在乾淨環境測試**——使用 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker)，每次連線皆新鮮、無快取中繼。
 - **每次憑證變更後立即檢查**——部署當下驗證鏈，再關部署窗口。
 - **設定到期監控**——UptimeRobot、Checkly、Datadog 等可在憑證將到期或鏈失效前告警。
 
 ## 下一步
 
-- 用免費 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker) [檢查你的憑證鏈](/zh-Hant/tools/ssl-checker)
-- 基礎觀念見 [什麼是 SSL 憑證？開發者指南](/zh-Hant/post/what-is-ssl-certificate)
-- 協定演進見 [SSL 與 TLS 有何不同、為何重要](/zh-Hant/post/ssl-vs-tls)
+- 用免費 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker) [檢查你的憑證鏈](/zh-hant/tools/ssl-checker)
+- 基礎觀念見 [什麼是 SSL 憑證？開發者指南](/zh-hant/post/what-is-ssl-certificate)
+- 協定演進見 [SSL 與 TLS 有何不同、為何重要](/zh-hant/post/ssl-vs-tls)

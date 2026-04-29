@@ -83,7 +83,7 @@ OTP bot 正迅速成為驗證系統開發者必須正視的威脅。它成本低
 
 解法是採取主動防禦：部署 rate limiting、CAPTCHA、fraud detection，並在可行範圍內逐步降低對 SMS OTP 的依賴。透過 Authgear 內建防護，開發者可在不重造輪子的前提下，快速強化 OTP 工作流程。
 
-[立即用 Authgear 保護你的 App](/zh-Hant/schedule-demo)**。**
+[立即用 Authgear 保護你的 App](/zh-hant/schedule-demo)**。**
 
 ---
 

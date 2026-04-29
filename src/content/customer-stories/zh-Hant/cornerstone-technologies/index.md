@@ -13,7 +13,7 @@ technicalDetails:
   - 多因素驗證
 metrics: []
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/zh-Hant/customer-stories/cornerstone-technologies"
+canonicalUrl: "https://www.authgear.com/zh-hant/customer-stories/cornerstone-technologies"
 ---
 
 ## Cornerstone Technologies：驅動全球電動車基礎建設

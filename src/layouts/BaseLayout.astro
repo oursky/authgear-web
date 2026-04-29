@@ -22,15 +22,15 @@ const siteName = t(locale, 'Seo.siteName');
 
 // Canonical + locale-paired hreflang alternates. Astro.url is the
 // request URL; site is the canonical origin from astro.config.mjs.
-// Compute the "language-neutral" path by stripping the /zh-Hant/
+// Compute the "language-neutral" path by stripping the /zh-hant/
 // prefix, then re-add it for the zh-Hant alternate.
 const siteOrigin = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const pathname = Astro.url.pathname;
-const neutralPath = pathname.startsWith('/zh-Hant')
-  ? pathname.replace(/^\/zh-Hant(\/|$)/, '/').replace(/\/\//g, '/')
+const neutralPath = pathname.startsWith('/zh-hant')
+  ? pathname.replace(/^\/zh-hant(\/|$)/, '/').replace(/\/\//g, '/')
   : pathname;
 const enUrl = `${siteOrigin}${neutralPath}`;
-const zhHantUrl = `${siteOrigin}/zh-Hant${neutralPath === '/' ? '/' : neutralPath}`;
+const zhHantUrl = `${siteOrigin}/zh-hant${neutralPath === '/' ? '/' : neutralPath}`;
 const canonical = locale === 'zh-Hant' ? zhHantUrl : enUrl;
 const ogLocale = locale === 'zh-Hant' ? 'zh_TW' : 'en_US';
 const ogLocaleAlternate = locale === 'zh-Hant' ? 'en_US' : 'zh_TW';

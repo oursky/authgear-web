@@ -168,4 +168,4 @@ Authgear 的 Hooks 提供了可客製化的方式來回應使用者相關事件�
 
 ### Related resources
 
-<a href="/zh-Hant/post/how-profile-enrichment-can-boost-your-product" target="_blank">How Profile Enrichment can boost your product</a>
+<a href="/zh-hant/post/how-profile-enrichment-can-boost-your-product" target="_blank">How Profile Enrichment can boost your product</a>

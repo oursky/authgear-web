@@ -50,7 +50,7 @@ draft: false
 
 > **2022 年限時優惠：**
 > 在 WhatsApp 上發送 OTP，每月僅需 **$199 美元**
-> [> 立即聯絡我們 <](/zh-Hant/talk-with-us)
+> [> 立即聯絡我們 <](/zh-hant/talk-with-us)
 
 幾乎所有智慧型手機用戶都會使用某種即時通訊平台與朋友和家人交流。WhatsApp 是其中最受歡迎的選擇，全球超過 **20 億**用戶在 WhatsApp 上積極溝通。
 
@@ -66,4 +66,4 @@ OTP（一次性密碼）是許多系統廣泛採用的安全措施，用於驗�
 - 可整合聊天機器人到這些帳戶
 - 每則訊息的費用更低廉
 
-了解更多關於我們的 <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP 解決方案</a>如何為您帶來效益，或直接<a href="/zh-Hant/talk-with-us" target="_blank">聯絡我們</a>取得更多資訊。
+了解更多關於我們的 <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP 解決方案</a>如何為您帶來效益，或直接<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>取得更多資訊。

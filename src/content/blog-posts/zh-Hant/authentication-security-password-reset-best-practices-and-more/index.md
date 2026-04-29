@@ -6,7 +6,7 @@ category: engineering
 featured: false
 metaTitle: "密碼重設最佳實踐：避免常見陷阱並保護您的用戶"
 metaDescription: "了解重要的密碼重設最佳實踐，以保護您的身分驗證系統。了解如何防止常見的安全漏洞、保護使用者資料並增強使用者體驗。透過專家見解和可行的提示來增強應用程式的安全性。"
-canonicalUrl: /zh-Hant/post/authentication-security-password-reset-best-practices-and-more
+canonicalUrl: /zh-hant/post/authentication-security-password-reset-best-practices-and-more
 publishedAt: 2021-11-17T01:35:53.381Z
 updatedAt: 2026-02-12T02:36:01.228Z
 draft: false
@@ -109,7 +109,7 @@ draft: false
 
 您可能想知道為什麼 bcrypt 優於 SHA-256 或 SHA-512 等更簡單的雜湊值。關鍵在於*計算阻力*。 SHA-256 和 SHA-512 等通用雜湊函數可以使用 GPU 等專用硬體進行加速，從而降低其抵禦暴力攻擊的有效性。另一方面，Bcrypt 專門設計用於抵抗硬體加速。
 
-若想更深入了解不同雜湊演算法和雜湊最佳實踐之間的細微差別，請參閱[我們關於密碼加密和加鹽的部落格文章](/zh-Hant/post/password-hashing-salting-function-and-algorithm-explained)。
+若想更深入了解不同雜湊演算法和雜湊最佳實踐之間的細微差別，請參閱[我們關於密碼加密和加鹽的部落格文章](/zh-hant/post/password-hashing-salting-function-and-algorithm-explained)。
 
 ### 不要強制密碼定期過期
 
@@ -310,4 +310,4 @@ OWASP 和 Microsoft 建議的這些準則有助於在安全性和使用者體驗
 }
 </script>
 
-**需要專家指導來保護您的密碼重設流程？ ** 我們的安全專家團隊可以幫助您識別漏洞並實施強大的解決方案。 [今天聯絡我們](/zh-Hant/schedule-demo)進行全面評估。
+**需要專家指導來保護您的密碼重設流程？ ** 我們的安全專家團隊可以幫助您識別漏洞並實施強大的解決方案。 [今天聯絡我們](/zh-hant/schedule-demo)進行全面評估。

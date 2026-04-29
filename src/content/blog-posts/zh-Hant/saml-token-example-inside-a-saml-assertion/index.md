@@ -175,7 +175,7 @@ SAML assertion 是一份結構化且已簽章的身分文件，可支援跨系�
 
 即使新式驗證標準持續發展，SAML 仍是企業身分系統的重要組成。像 Authgear 這類現代平台，能讓組織更容易把 SAML 與 OAuth、DPoP 等新協定一起落地。
 
-<a href="/zh-Hant/" target="_blank">立即開始你的 Authgear 免費試用</a>，以現代安全能力（如 DPoP 與 OAuth）簡化 SAML 整合並強化整體驗證流程。
+<a href="/zh-hant/" target="_blank">立即開始你的 Authgear 免費試用</a>，以現代安全能力（如 DPoP 與 OAuth）簡化 SAML 整合並強化整體驗證流程。
 
 ## FAQs
 

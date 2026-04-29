@@ -66,7 +66,7 @@ Attribute-based access control 會評估多個屬性，動態決定是否授權�
 
 ## Attribute-Based Access Control vs RBAC：完整比較
 
-要設計強韌安全策略，理解 attribute-based access control 與 [role-based access control（RBAC）](/zh-Hant/post/what-is-role-based-access-control-rbac-benefits-comparisons-and-best-practices) 的差異非常重要。attribute-based access control 透過即時屬性提供動態且細粒度決策；RBAC 則以固定角色來賦予權限。這個比較能幫助你理解，為何在當代複雜環境中，attribute-based access control 往往更具適應力。
+要設計強韌安全策略，理解 attribute-based access control 與 [role-based access control（RBAC）](/zh-hant/post/what-is-role-based-access-control-rbac-benefits-comparisons-and-best-practices) 的差異非常重要。attribute-based access control 透過即時屬性提供動態且細粒度決策；RBAC 則以固定角色來賦予權限。這個比較能幫助你理解，為何在當代複雜環境中，attribute-based access control 往往更具適應力。
 
 下表整理 attribute-based access control 與 RBAC 的關鍵差異：
 
@@ -114,10 +114,10 @@ Attribute-based access control 會評估多個屬性，動態決定是否授權�
 - **高彈性：** 透過 attribute-based access control，組織可快速調整權限以回應變化。
 - **高細緻度：** 屬性級判斷讓 attribute-based access control 更能滿足複雜安全需求。
 
-若你想更深入了解 RBAC 與 attribute-based access control 的差異，可參考這篇文章：[Role-Based Access Control (RBAC): Unlocking Secure and Efficient Authentication](/zh-Hant/post/what-is-role-based-access-control-rbac-benefits-comparisons-and-best-practices)。
+若你想更深入了解 RBAC 與 attribute-based access control 的差異，可參考這篇文章：[Role-Based Access Control (RBAC): Unlocking Secure and Efficient Authentication](/zh-hant/post/what-is-role-based-access-control-rbac-benefits-comparisons-and-best-practices)。
 
 ## 準備好用 Authgear 體驗 Attribute-Based Access Control
 
-現在就開始透過 Authgear 發揮 attribute-based access control 的完整潛力。你可以試用 [Authgear Once](/zh-Hant/campaign/once)：一次付費，滿足所有驗證需求，享有以 attribute-based access control 為核心的安全、彈性、可擴展方案，動態保護你的軟體資產。
+現在就開始透過 Authgear 發揮 attribute-based access control 的完整潛力。你可以試用 [Authgear Once](/zh-hant/campaign/once)：一次付費，滿足所有驗證需求，享有以 attribute-based access control 為核心的安全、彈性、可擴展方案，動態保護你的軟體資產。
 
 立刻邁向更強韌的安全架構，親自體驗 attribute-based access control 如何提升你的系統表現。今天就用 Authgear 升級存取控制策略，重新定義安全標準。

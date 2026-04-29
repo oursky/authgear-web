@@ -59,9 +59,9 @@ SIM 換卡（說服電信業者把號碼轉到攻擊者持有的 SIM）可攻破
 
 ### 較低的詐欺暴露
 
-**SMS pumping**（機器人濫用你的 OTP 端點，對高費率號碼發送詐騙簡訊）是 SMS 特有現象。WhatsApp 在 Meta 網路上運作，沒有相同的電信分潤話費機制；改用 WhatsApp 可消除整類詐欺風險。更多說明見 [SMS pumping 攻擊原理與防範](/zh-Hant/post/sms-pumping-attack)。
+**SMS pumping**（機器人濫用你的 OTP 端點，對高費率號碼發送詐騙簡訊）是 SMS 特有現象。WhatsApp 在 Meta 網路上運作，沒有相同的電信分潤話費機制；改用 WhatsApp 可消除整類詐欺風險。更多說明見 [SMS pumping 攻擊原理與防範](/zh-hant/post/sms-pumping-attack)。
 
-<blockquote><p><strong>重要提醒：</strong>WhatsApp OTP 與 SMS OTP 一樣，仍屬「使用者所收到之物」的知識因子，無法防範釣魚——攻擊者誘使使用者在假網站輸入 OTP 仍可能成功。若要釣魚抗性驗證，請見 <a href="/zh-Hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security">通行金鑰與 FIDO2</a>。</p></blockquote>
+<blockquote><p><strong>重要提醒：</strong>WhatsApp OTP 與 SMS OTP 一樣，仍屬「使用者所收到之物」的知識因子，無法防範釣魚——攻擊者誘使使用者在假網站輸入 OTP 仍可能成功。若要釣魚抗性驗證，請見 <a href="/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security">通行密鑰與 FIDO2</a>。</p></blockquote>
 
 ## 何時仍應使用 SMS OTP
 
@@ -93,7 +93,7 @@ SIM 換卡（說服電信業者把號碼轉到攻擊者持有的 SIM）可攻破
 
 ### 選項 2：使用內建 WhatsApp OTP 的驗證平台
 
-像 [Authgear](/zh-Hant/solutions/reduce-sms-otp-cost) 等平台內建 WhatsApp OTP 與 SMS 後援——無須另建 WABA 流程。Authgear 預設走 WhatsApp，失敗自動改 SMS，並對兩管道內建詐欺防護。若想省下成本又不想自建路由邏輯，這是最快路徑。
+像 [Authgear](/zh-hant/solutions/reduce-sms-otp-cost) 等平台內建 WhatsApp OTP 與 SMS 後援——無須另建 WABA 流程。Authgear 預設走 WhatsApp，失敗自動改 SMS，並對兩管道內建詐欺防護。若想省下成本又不想自建路由邏輯，這是最快路徑。
 
 ## 重點整理
 

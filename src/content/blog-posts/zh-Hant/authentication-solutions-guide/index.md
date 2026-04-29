@@ -23,7 +23,7 @@ draft: false
 
 完整的驗證系統通常涵蓋：
 
-<ul><li><strong>憑證驗證</strong>（密碼、通行金鑰、權杖、生物辨識）</li><li><strong>工作階段管理</strong>（發放與撤銷權杖）</li><li><strong>多因素挑戰</strong>（OTP、推播通知）</li><li><strong>身分聯盟</strong>（SSO、社交登入）</li><li><strong>權杖標準</strong>（JWT、OIDC、SAML）</li></ul>
+<ul><li><strong>憑證驗證</strong>（密碼、通行密鑰、權杖、生物辨識）</li><li><strong>工作階段管理</strong>（發放與撤銷權杖）</li><li><strong>多因素挑戰</strong>（OTP、推播通知）</li><li><strong>身分聯盟</strong>（SSO、社交登入）</li><li><strong>權杖標準</strong>（JWT、OIDC、SAML）</li></ul>
 
 現代 App 需要以上多項，因此「驗證方案」自成一類產品。
 
@@ -39,7 +39,7 @@ draft: false
 
 無密碼**完全移除**共享密鑰。改以**持有之物**或**身體特徵**證明身分。常見方式：
 
-<ul><li><strong>魔法連結</strong>——一次性網址寄到使用者信箱；無需密碼，信箱即身分證明。</li><li><strong>通行金鑰</strong>——密碼學憑證存在使用者裝置，以生物辨識或 PIN 解鎖。設計上具釣魚抗性，因私密金鑰不離開裝置。實作見我們的 <a href="/zh-Hant/post/how-to-implement-passkeys-developer-guide">WebAuthn 實作通行金鑰完整指南</a>。</li><li><strong>生物辨識</strong>——Face ID、Touch ID 等，通常與通行金鑰並用，較少單獨作網路層驗證。</li></ul>
+<ul><li><strong>魔法連結</strong>——一次性網址寄到使用者信箱；無需密碼，信箱即身分證明。</li><li><strong>通行密鑰</strong>——密碼學憑證存在使用者裝置，以生物辨識或 PIN 解鎖。設計上具釣魚抗性，因私密金鑰不離開裝置。實作見我們的 <a href="/zh-hant/post/how-to-implement-passkeys-developer-guide">WebAuthn 實作通行密鑰完整指南</a>。</li><li><strong>生物辨識</strong>——Face ID、Touch ID 等，通常與通行密鑰並用，較少單獨作網路層驗證。</li></ul>
 
 無密碼一般比密碼更安全，登入轉換率也較佳——產業正朝此方向移動。
 
@@ -51,7 +51,7 @@ MFA 在第一因子之外再要求第二證明。因子分類：
 
 常見實作：
 
-<ul><li><strong>TOTP</strong>——Google Authenticator、Authhy 等每 30 秒換六碼；廣泛支援且不需電話號碼。</li><li><strong>SMS OTP</strong>——簡訊寄代碼；使用者容易，但易受 SIM 換卡攻擊。低風險可接受；高價值帳戶不建議單靠 SMS。</li><li><strong>硬體金鑰</strong>——如實作 FIDO2／WebAuthn 的 YubiKey；MFA 中最強選項。細節見 <a href="/zh-Hant/post/what-is-fido2-complete-guide-fido-authentication">FIDO2 指南</a>。</li><li><strong>推播通知</strong>——在驗證器 App 核准登入；體驗與安全兼具。</li></ul>
+<ul><li><strong>TOTP</strong>——Google Authenticator、Authhy 等每 30 秒換六碼；廣泛支援且不需電話號碼。</li><li><strong>SMS OTP</strong>——簡訊寄代碼；使用者容易，但易受 SIM 換卡攻擊。低風險可接受；高價值帳戶不建議單靠 SMS。</li><li><strong>硬體金鑰</strong>——如實作 FIDO2／WebAuthn 的 YubiKey；MFA 中最強選項。細節見 <a href="/zh-hant/post/what-is-fido2-complete-guide-fido-authentication">FIDO2 指南</a>。</li><li><strong>推播通知</strong>——在驗證器 App 核准登入；體驗與安全兼具。</li></ul>
 
 依 Microsoft 對 Azure AD 遭入侵帳戶的分析，MFA 約可降低 **99%** 帳戶接管風險。持有敏感資料的 App 應將 MFA 視為必備。
 
@@ -63,7 +63,7 @@ SSO 讓使用者向中央 IdP 驗證一次即可存取多個應用而無需重�
 
 SSO 是 **B2B SaaS** 關鍵功能；企業採購常列為必要條件。若面向企業客戶，應**一開始**就規劃 SAML——事後補極痛苦。
 
-可使用我們的 [OIDC Discovery 端點探索工具](/zh-Hant/tools/oidc-discovery-endpoint) 檢視任何 OIDC 提供者的設定。
+可使用我們的 [OIDC Discovery 端點探索工具](/zh-hant/tools/oidc-discovery-endpoint) 檢視任何 OIDC 提供者的設定。
 
 ### 社交登入（OAuth）
 
@@ -112,7 +112,7 @@ M2M 宜及早規劃。若使用者與服務共用同一驗證平台，權杖發�
 ### 安全功能
 
 - MFA：TOTP、SMS、硬體金鑰、推播  
-- 通行金鑰／FIDO2  
+- 通行密鑰／FIDO2  
 - 異常偵測與機器人防護（可疑登入告警、速率限制）  
 - 外洩密碼偵測  
 - 暴力破解防護與鎖帳政策  
@@ -121,7 +121,7 @@ M2M 宜及早規劃。若使用者與服務共用同一驗證平台，權杖發�
 
 ### 開發者體驗
 
-<ul><li>你技術棧的 SDK（React、Next.js、iOS、Android、Flutter 等）</li><li>文件清楚且含可執行範例</li><li>本地開發流程不必直連正式環境</li><li>驗證事件的 webhooks（使用者建立、登入失敗、MFA 註冊）——模式背景見 <a href="/zh-Hant/post/webhooks-vs-apis-difference">Webhooks 與 API 說明</a></li><li>以 REST 或 GraphQL 程式化管理使用者</li><li>活躍社群或即時支援</li></ul>
+<ul><li>你技術棧的 SDK（React、Next.js、iOS、Android、Flutter 等）</li><li>文件清楚且含可執行範例</li><li>本地開發流程不必直連正式環境</li><li>驗證事件的 webhooks（使用者建立、登入失敗、MFA 註冊）——模式背景見 <a href="/zh-hant/post/webhooks-vs-apis-difference">Webhooks 與 API 說明</a></li><li>以 REST 或 GraphQL 程式化管理使用者</li><li>活躍社群或即時支援</li></ul>
 
 ### 合規與資料處理
 
@@ -145,13 +145,13 @@ M2M 宜及早規劃。若使用者與服務共用同一驗證平台，權杖發�
 
 以下為高層比較；各平台細節繁多——僅作起點。**定價變動頻繁**，請以各廠商官網為準。
 
-<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>平台</th><th>最適合</th><th>MFA</th><th>通行金鑰</th><th>SSO</th><th>自架</th><th>定價</th></tr></thead><tbody><tr><td><strong>Authgear</strong></td><td>新創到企業；需雲端或自架彈性</td><td>是（TOTP、SMS、生物辨識）</td><td>是</td><td>是（OIDC + SAML）</td><td>是（開源）</td><td>MAU 計價；有免費額度</td></tr><tr><td><strong>Auth0</strong></td><td>要受管雲端與大生態系</td><td>是</td><td>是</td><td>是（OIDC + SAML）</td><td>否</td><td>MAU；規模大時較昂貴</td></tr><tr><td><strong>Okta</strong></td><td>企業 IT 與工作力身分</td><td>是（完整）</td><td>是</td><td>是（OIDC + SAML）</td><td>否</td><td>按使用者；企業報價</td></tr><tr><td><strong>Keycloak</strong></td><td>能自行維運基礎建設的團隊</td><td>是</td><td>是</td><td>是（OIDC + SAML）</td><td>是（開源）</td><td>免費；自付基礎建設與維運</td></tr><tr><td><strong>Supertokens</strong></td><td>開發者優先；開源＋雲端選項</td><td>是</td><td>路線圖中</td><td>是（OIDC）</td><td>是（開源）</td><td>自架免費；雲端 MAU</td></tr><tr><td><strong>Firebase Auth</strong></td><td>已在 Google 生態的行動優先 App</td><td>有限（TOTP、電話）</td><td>否</td><td>有限</td><td>否</td><td>10K MAU 內免費；以上依 Google Cloud</td></tr></tbody></table></div>
+<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>平台</th><th>最適合</th><th>MFA</th><th>通行密鑰</th><th>SSO</th><th>自架</th><th>定價</th></tr></thead><tbody><tr><td><strong>Authgear</strong></td><td>新創到企業；需雲端或自架彈性</td><td>是（TOTP、SMS、生物辨識）</td><td>是</td><td>是（OIDC + SAML）</td><td>是（開源）</td><td>MAU 計價；有免費額度</td></tr><tr><td><strong>Auth0</strong></td><td>要受管雲端與大生態系</td><td>是</td><td>是</td><td>是（OIDC + SAML）</td><td>否</td><td>MAU；規模大時較昂貴</td></tr><tr><td><strong>Okta</strong></td><td>企業 IT 與工作力身分</td><td>是（完整）</td><td>是</td><td>是（OIDC + SAML）</td><td>否</td><td>按使用者；企業報價</td></tr><tr><td><strong>Keycloak</strong></td><td>能自行維運基礎建設的團隊</td><td>是</td><td>是</td><td>是（OIDC + SAML）</td><td>是（開源）</td><td>免費；自付基礎建設與維運</td></tr><tr><td><strong>Supertokens</strong></td><td>開發者優先；開源＋雲端選項</td><td>是</td><td>路線圖中</td><td>是（OIDC）</td><td>是（開源）</td><td>自架免費；雲端 MAU</td></tr><tr><td><strong>Firebase Auth</strong></td><td>已在 Google 生態的行動優先 App</td><td>有限（TOTP、電話）</td><td>否</td><td>有限</td><td>否</td><td>10K MAU 內免費；以上依 Google Cloud</td></tr></tbody></table></div>
 
 ### 進一步看 Authgear
 
 Authgear 是面向開發者的開源驗證與身分平台。差異化重點：
 
-<ul><li><strong>部署彈性</strong>：Authgear 雲端或自行在任何 Kubernetes 叢集部署。程式碼 MIT 授權，見 GitHub。</li><li><strong>完整驗證堆疊</strong>：通行金鑰、TOTP、SMS OTP、生物辨識登入、社交登入（Google、Apple、GitHub 等）、SAML 與 OIDC SSO、M2M client credentials——多數無需加購。</li><li><strong>驗證入口網站</strong>：代管登入、註冊與 MFA 畫面，可品牌化並嵌入 App，省自建前端驗證 UI。</li><li><strong>管理入口</strong>：網頁 UI 管理使用者、工作階段、角色與稽核。</li><li><strong>開發者友善</strong>：React、React Native、iOS、Android、Flutter 等 SDK；本地開發 CLI。</li></ul>
+<ul><li><strong>部署彈性</strong>：Authgear 雲端或自行在任何 Kubernetes 叢集部署。程式碼 MIT 授權，見 GitHub。</li><li><strong>完整驗證堆疊</strong>：通行密鑰、TOTP、SMS OTP、生物辨識登入、社交登入（Google、Apple、GitHub 等）、SAML 與 OIDC SSO、M2M client credentials——多數無需加購。</li><li><strong>驗證入口網站</strong>：代管登入、註冊與 MFA 畫面，可品牌化並嵌入 App，省自建前端驗證 UI。</li><li><strong>管理入口</strong>：網頁 UI 管理使用者、工作階段、角色與稽核。</li><li><strong>開發者友善</strong>：React、React Native、iOS、Android、Flutter 等 SDK；本地開發 CLI。</li></ul>
 
 若需要自架彈性又不想從零寫驗證，Authgear 值得列入首選評估。
 
@@ -189,7 +189,7 @@ await authgear.startAuthentication({ redirectURI: "https://your-app.com/callback
 
 ### 步驟 4：保護路由與 API
 
-以驗證伺服器發放的 access token 保護 API。後端應驗證權杖簽章（使用提供者的 JWKS 端點——可用 [OIDC Discovery 探索工具](/zh-Hant/tools/oidc-discovery-endpoint) 查找）、檢查過期與 audience 等宣告。
+以驗證伺服器發放的 access token 保護 API。後端應驗證權杖簽章（使用提供者的 JWKS 端點——可用 [OIDC Discovery 探索工具](/zh-hant/tools/oidc-discovery-endpoint) 查找）、檢查過期與 audience 等宣告。
 
 ### 步驟 5：啟用 MFA
 
@@ -235,6 +235,6 @@ await authgear.startAuthentication({ redirectURI: "https://your-app.com/callback
 
 驗證不是做一次就忘的功能；它是對使用者安全、工程生產力與合規的**持續投資**。對的驗證方案能卸下團隊負擔，讓你專注在產品本質。
 
-對多數 App，問題不是「要不要用驗證平台」，而是「用哪一個」。請用本指南檢查清單對照真實需求，特別留意 **SSO、通行金鑰成熟度**，以及若資料落地重要時的**自架選項**。
+對多數 App，問題不是「要不要用驗證平台」，而是「用哪一個」。請用本指南檢查清單對照真實需求，特別留意 **SSO、通行密鑰成熟度**，以及若資料落地重要時的**自架選項**。
 
 **準備開始？** Authgear 提供無需信用卡的雲端免費額度，約一小時內即可把驗證入口接到你的 App。[開始使用 Authgear](https://portal.authgear.com/)。

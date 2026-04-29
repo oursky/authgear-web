@@ -19,7 +19,7 @@ draft: false
 
 **SSL（Secure Sockets Layer）** 是 1990 年代中期 Netscape 為 Web 加密的原始協定。**TLS（Transport Layer Security）** 於 1999 年取代 SSL。每個 SSL 版本都因嚴重、可利用的安全漏洞而被廢止，現代伺服器與瀏覽器均已停用。但在 SSL 退役時，它已成為「網頁加密」的通稱——產業詞彙從未完全更新。
 
-今天任何人說「SSL 憑證」或「SSL 連線」，指的幾乎都是 **TLS**。X.509 憑證格式未變；變的是**協定**。憑證內含與連線如何運作，見 [什麼是 SSL 憑證？開發者指南](/zh-Hant/post/what-is-ssl-certificate)。
+今天任何人說「SSL 憑證」或「SSL 連線」，指的幾乎都是 **TLS**。X.509 憑證格式未變；變的是**協定**。憑證內含與連線如何運作，見 [什麼是 SSL 憑證？開發者指南](/zh-hant/post/what-is-ssl-certificate)。
 
 ## 歷史：從 SSL 到 TLS
 
@@ -57,7 +57,7 @@ BEAST（Browser Exploit Against SSL／TLS）利用 TLS 1.0（承自 SSL）CBC �
 
 DROWN 顯示：若**任何**伺服器——即使是另一台——共用同一組 RSA 私密金鑰且仍支援 SSL 2.0，攻擊者可用該弱點解密**主要**伺服器的 TLS 1.2 工作階段。自認已完全遷移到 TLS 的組織，仍可能因共用金鑰而暴露。
 
-> 🔒 **今日意涵：** 若伺服器正確設定為僅 **TLS 1.2 或 1.3**，即不受上述攻擊影響。請用 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker) 確認實際協商的協定版本。
+> 🔒 **今日意涵：** 若伺服器正確設定為僅 **TLS 1.2 或 1.3**，即不受上述攻擊影響。請用 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker) 確認實際協商的協定版本。
 
 ## TLS 1.2 與 TLS 1.3：該升級嗎？
 
@@ -80,7 +80,7 @@ ssl_prefer_server_ciphers off;
 
 ### 選項 1：Authgear SSL 檢查工具（無需設定）
 
-[Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker) 會在完整憑證資訊旁顯示伺服器協商的 **TLS 協定版本**。不確定伺服器用哪一版？跑一遍 SSL 檢查——TLS 版本、cipher suite 與憑證細節會一併呈現。
+[Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker) 會在完整憑證資訊旁顯示伺服器協商的 **TLS 協定版本**。不確定伺服器用哪一版？跑一遍 SSL 檢查——TLS 版本、cipher suite 與憑證細節會一併呈現。
 
 ### 選項 2：OpenSSL
 
@@ -118,6 +118,6 @@ openssl s_client -connect yourdomain.com:443 -tls1_1  # TLS 1.1 — 應失敗
 
 ## 下一步
 
-- 用免費 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker) [檢查你的 TLS 版本](/zh-Hant/tools/ssl-checker)  
-- 在 [什麼是 SSL 憑證？開發者指南](/zh-Hant/post/what-is-ssl-certificate) 了解憑證內容  
-- 在 [SSL 憑證鏈：是什麼、如何修復中斷的鏈](/zh-Hant/post/ssl-certificate-chain) 診斷鏈結問題  
+- 用免費 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker) [檢查你的 TLS 版本](/zh-hant/tools/ssl-checker)  
+- 在 [什麼是 SSL 憑證？開發者指南](/zh-hant/post/what-is-ssl-certificate) 了解憑證內容  
+- 在 [SSL 憑證鏈：是什麼、如何修復中斷的鏈](/zh-hant/post/ssl-certificate-chain) 診斷鏈結問題  

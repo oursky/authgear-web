@@ -90,11 +90,11 @@ JWE 由 **五段 base64url 編碼內容**組成，以點（`.`）分隔：
 
 ### JWK Generator 的角色
 
-我們的 [**免費 JWK Generator**](/zh-Hant/tools/jwk-generator) 可大幅簡化金鑰建立流程。你可以：
+我們的 [**免費 JWK Generator**](/zh-hant/tools/jwk-generator) 可大幅簡化金鑰建立流程。你可以：
 
 - 一鍵產生 RSA 或 EC 金鑰對
 - 匯出標準 JWK 格式
-- 搭配 [JWT & JWE Debugger](/zh-Hant/tools/jwt-jwe-debugger) 測試簽章、驗簽、加密、解密
+- 搭配 [JWT & JWE Debugger](/zh-hant/tools/jwt-jwe-debugger) 測試簽章、驗簽、加密、解密
 
 這在以下情境特別實用：
 
@@ -187,8 +187,8 @@ JWE 由 **五段 base64url 編碼內容**組成，以點（`.`）分隔：
 
 你可以很容易實驗 **JWT** 與 **JWE**：
 
-- [**JWT & JWE Debugger**](/zh-Hant/tools/jwt-jwe-debugger) – 幾秒內完成 token 解碼、驗證與除錯
-- [**JWK Generator**](/zh-Hant/tools/jwk-generator) – 產生簽章與加密用 JSON Web Keys
+- [**JWT & JWE Debugger**](/zh-hant/tools/jwt-jwe-debugger) – 幾秒內完成 token 解碼、驗證與除錯
+- [**JWK Generator**](/zh-hant/tools/jwk-generator) – 產生簽章與加密用 JSON Web Keys
 
 這些工具可節省大量時間，並降低實務開發中的錯誤率。
 
@@ -198,4 +198,4 @@ JWE 由 **五段 base64url 編碼內容**組成，以點（`.`）分隔：
 JWT 適合可讀但有簽章保護的 token；JWE 則適合需要加密保護的情境。
 
 下次要選擇時，先問自己：**你更在意速度，還是機密性？**  
-不確定時，直接用免費的 [JWT & JWE Debugger](/zh-Hant/tools/jwt-jwe-debugger) 與 [JWK Generator](/zh-Hant/tools/jwk-generator) 幫你更快、更安全地完成工作。
+不確定時，直接用免費的 [JWT & JWE Debugger](/zh-hant/tools/jwt-jwe-debugger) 與 [JWK Generator](/zh-hant/tools/jwk-generator) 幫你更快、更安全地完成工作。

@@ -20,9 +20,9 @@ draft: false
 
 OAuth 2.0 是一個開放式授權框架，讓使用者可以把自己在某個服務上的帳號，授予第三方應用程式有限存取權限——而不需要分享密碼。
 
-你可以把它想像成飯店房卡系統。你不會把萬能鑰匙（密碼）交給房客；飯店（授權伺服器）會發一張有時效、只能開特定門（scope）的房卡（access token）。
+你可以把它想像成飯店房卡系統。你不會把通行密鑰（密碼）交給房客；飯店（授權伺服器）會發一張有時效、只能開特定門（scope）的房卡（access token）。
 
-OAuth 2.0 是 *授權（authorization）*，不是驗證（authentication）。它回答的是「這個 App 可以存取什麼？」而不是「這個使用者是誰？」（後者由 [OpenID Connect](/zh-Hant/post/oidc-vs-saml) 在 OAuth 之上補齊。）
+OAuth 2.0 是 *授權（authorization）*，不是驗證（authentication）。它回答的是「這個 App 可以存取什麼？」而不是「這個使用者是誰？」（後者由 [OpenID Connect](/zh-hant/post/oidc-vs-saml) 在 OAuth 之上補齊。）
 
 ## OAuth 2.0 的四個角色
 
@@ -91,9 +91,9 @@ https://accounts.google.com/o/oauth2/v2/auth?
 <ul>
   <li><code>client_id</code> — 向授權伺服器識別你的應用程式</li>
   <li><code>redirect_uri</code> — 使用者同意後要被導回的位置</li>
-  <li><code>scope</code> — 你請求的權限範圍（例如 <code>calendar.readonly</code>）。注意：若在 scope 加上 <code>openid</code>，就會在 OAuth 2.0 上啟用 <a href='/zh-Hant/post/oidc-vs-saml'>OpenID Connect</a>，適合你同時需要識別使用者時。</li>
+  <li><code>scope</code> — 你請求的權限範圍（例如 <code>calendar.readonly</code>）。注意：若在 scope 加上 <code>openid</code>，就會在 OAuth 2.0 上啟用 <a href='/zh-hant/post/oidc-vs-saml'>OpenID Connect</a>，適合你同時需要識別使用者時。</li>
   <li><code>state</code> — 用來防止 CSRF 攻擊的隨機值</li>
-  <li><code>code_challenge</code> — <a href='/zh-Hant/post/pkce-in-oauth-2-0-how-to-protect-your-api-from-attacks'>PKCE 擴充</a>的一部分（public client 必備）</li>
+  <li><code>code_challenge</code> — <a href='/zh-hant/post/pkce-in-oauth-2-0-how-to-protect-your-api-from-attacks'>PKCE 擴充</a>的一部分（public client 必備）</li>
 </ul>
 
 ### Step 2: 使用者登入並同意授權
@@ -204,7 +204,7 @@ Resource server 會驗證 token 並回傳受保護資料。當 access token 過�
   </tbody>
 </table></div>
 
-若想更深入了解各 grant type 的差異與使用時機，可參考這篇：[OAuth 2.0 grant types](/zh-Hant/post/common-oauth-2-0-grant-types)。
+若想更深入了解各 grant type 的差異與使用時機，可參考這篇：[OAuth 2.0 grant types](/zh-hant/post/common-oauth-2-0-grant-types)。
 
 ## OAuth 2.0 vs OpenID Connect (OIDC)
 
@@ -252,7 +252,7 @@ OIDC 建立在 OAuth 2.0 之上。它在標準 OAuth 流程中加入 `id_token`�
   </tbody>
 </table></div>
 
-現代實作通常兩者一起用。若想看與 SAML 的更深入比較，可參考 [OIDC vs SAML](/zh-Hant/post/oidc-vs-saml)。你也可以使用 [OIDC Discovery Endpoint Explorer](/zh-Hant/tools/oidc-discovery-endpoint) 檢查任一 OIDC 供應者設定。
+現代實作通常兩者一起用。若想看與 SAML 的更深入比較，可參考 [OIDC vs SAML](/zh-hant/post/oidc-vs-saml)。你也可以使用 [OIDC Discovery Endpoint Explorer](/zh-hant/tools/oidc-discovery-endpoint) 檢查任一 OIDC 供應者設定。
 
 ## OAuth 2.0 vs JWT
 
@@ -287,7 +287,7 @@ scope=openid email profile calendar.readonly
 
 PKCE 透過下列機制防止授權碼攔截攻擊：client 先產生隨機 `code_verifier`，再雜湊成 `code_challenge` 並隨授權請求送出。之後用授權碼換 token 時，client 再送出原始 verifier，證明它就是啟動該流程的同一方。
 
-可參考完整教學：[PKCE 在 OAuth 2.0 中如何運作](/zh-Hant/post/pkce-in-oauth-2-0-how-to-protect-your-api-from-attacks)。
+可參考完整教學：[PKCE 在 OAuth 2.0 中如何運作](/zh-hant/post/pkce-in-oauth-2-0-how-to-protect-your-api-from-attacks)。
 
 ## 常見 OAuth 2.0 錯誤與避免方式
 
@@ -303,7 +303,7 @@ PKCE 透過下列機制防止授權碼攔截攻擊：client 先產生隨機 `cod
 
 從零實作 OAuth 2.0，代表你要自己處理 token 儲存、refresh 邏輯、PKCE、state 驗證、scope 管理與各種安全邊界情境。對多數團隊來說，使用現成驗證平台通常更實際。
 
-[Authgear](/zh-Hant/) 提供完整符合 OAuth 2.0 與 OIDC 的授權伺服器，包含預建登入 UI、token 管理、refresh rotation，以及開箱即用的社群登入供應者（Google、Apple、Facebook）。你可以不用自建整套基礎設施，就取得可上線的 OAuth 2.0 實作。
+[Authgear](/zh-hant/) 提供完整符合 OAuth 2.0 與 OIDC 的授權伺服器，包含預建登入 UI、token 管理、refresh rotation，以及開箱即用的社群登入供應者（Google、Apple、Facebook）。你可以不用自建整套基礎設施，就取得可上線的 OAuth 2.0 實作。
 
 ## 總結
 

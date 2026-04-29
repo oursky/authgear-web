@@ -180,7 +180,7 @@ Base64 會讓資料變大約 33%。大型物件建議改用 binary 儲存或串�
 
 ## **在 Base64 除錯時使用 Authgear**
 
-開發者常需要快速檢查編碼資料。Authgear 提供免費的 [Base64 Decode & Encode 工具](/zh-Hant/tools/base64-decode-encode)，可直接測試 payload、檢視驗證 token，並確認 Base64URL 行為，不必自己寫腳本。
+開發者常需要快速檢查編碼資料。Authgear 提供免費的 [Base64 Decode & Encode 工具](/zh-hant/tools/base64-decode-encode)，可直接測試 payload、檢視驗證 token，並確認 Base64URL 行為，不必自己寫腳本。
 
 在驗證情境特別有用，因為工程師常需檢查 JWT header/payload 或 API request body。
 
@@ -228,7 +228,7 @@ Base64 是把二進位安全表示為文字的基礎工具。無論是內嵌圖�
 
 掌握正確編解碼方法、使用邊界與常見錯誤，可讓整合更穩定、更安全。
 
-<a href="https://portal.authgear.com/" target="_blank">立即開始 Authgear 免費試用</a>，並用<a href="/zh-Hant/tools/base64-decode-encode" target="_blank">免費 Decode & Encode 工具</a>快速檢查 Base64 與 token。
+<a href="https://portal.authgear.com/" target="_blank">立即開始 Authgear 免費試用</a>，並用<a href="/zh-hant/tools/base64-decode-encode" target="_blank">免費 Decode & Encode 工具</a>快速檢查 Base64 與 token。
 
 ## **FAQs**
 

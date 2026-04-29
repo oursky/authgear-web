@@ -23,7 +23,7 @@ draft: false
 
 在社群登入中，提供者只是用戶已經擁有帳戶的社群媒體網站。流行的社交登入提供者的範例包括 Facebook、Twitter（現為 X）、Google、LinkedIn、Apple、Microsoft 和 Github。
 
-大多數受歡迎的社群媒體登入供應商都依賴[開放認證](/zh-Hant/post/what-is-oauth-2-0-and-how-it-works)標準。因此，您可以使用幾乎任何支援 OAuth 標準的服務作為社交登入提供者。在這篇文章中，我們將看到一個範例，說明如何使用 Laravel 支援的常見提供者以外的任何提供者。
+大多數受歡迎的社群媒體登入供應商都依賴[開放認證](/zh-hant/post/what-is-oauth-2-0-and-how-it-works)標準。因此，您可以使用幾乎任何支援 OAuth 標準的服務作為社交登入提供者。在這篇文章中，我們將看到一個範例，說明如何使用 Laravel 支援的常見提供者以外的任何提供者。
 
 ### Laravel 社交名流
 
@@ -52,7 +52,7 @@ Socialite 是 Laravel 中正式社群登入的方案。這是一個超級有用�
 若要繼續操作，您需要具備以下條件：
 
 - 現有的 Laravel 專案。或建立一個新專案。
-- Authgear 帳號。免費創建一個[這裡](/zh-Hant/)。
+- Authgear 帳號。免費創建一個[這裡](/zh-hant/)。
 
 ### 第 1 步：從提供者的網站取得 OAuth 憑證
 
@@ -116,7 +116,7 @@ php artisan breeze:install
 
 <div class="mt-4">
    <p>Or</p>
-   <a href="/zh-Hant/oauth/login" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white">Login with Auth Provider</a>
+   <a href="/zh-hant/oauth/login" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white">Login with Auth Provider</a>
 </div>
 
 ```

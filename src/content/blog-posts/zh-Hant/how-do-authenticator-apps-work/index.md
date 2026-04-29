@@ -16,9 +16,9 @@ draft: false
 
 ## What is an authenticator app?
 
-驗證器 App（Google Authenticator、Microsoft Authenticator、Authy 等）是多因素驗證（MFA）的**第二因子**。相較 SMS，這些 App 可在裝置上**離線**產生驗證碼。多數實作 [TOTP 標準（RFC 6238）](/zh-Hant/post/what-is-totp)，並基於 **HMAC-SHA1/256/512** 與時間計數器。
+驗證器 App（Google Authenticator、Microsoft Authenticator、Authy 等）是多因素驗證（MFA）的**第二因子**。相較 SMS，這些 App 可在裝置上**離線**產生驗證碼。多數實作 [TOTP 標準（RFC 6238）](/zh-hant/post/what-is-totp)，並基於 **HMAC-SHA1/256/512** 與時間計數器。
 
-想直接體驗 TOTP？可使用我們的 [TOTP Authenticator 工具](/zh-Hant/tools/totp-authenticator)。
+想直接體驗 TOTP？可使用我們的 [TOTP Authenticator 工具](/zh-hant/tools/totp-authenticator)。
 
 **為何用 App 而不是 SMS？**
 
@@ -27,7 +27,7 @@ draft: false
 - 通常比 SMS 更快且穩定
 - 標準化高、支援廣泛
 
-背景理論可參考：[**什麼是 TOTP？**](/zh-Hant/post/what-is-totp)
+背景理論可參考：[**什麼是 TOTP？**](/zh-hant/post/what-is-totp)
 
 ## How TOTP actually works (step-by-step)
 
@@ -115,7 +115,7 @@ Recommended apps:
   "headline": "How Do Authenticator Apps Work? (TOTP, Secrets, Clock Drift & Safer Alternatives)",
   "description": "Plain-English guide to authenticator apps: how TOTP works, secret provisioning via QR, clock drift and resync, recovery codes, and phishing-resistant passkeys (WebAuthn).",
   "author": {"@type": "Organization", "name": "Authgear"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "/zh-Hant/post/how-do-authenticator-apps-work"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "/zh-hant/post/how-do-authenticator-apps-work"},
   "datePublished": "2025-11-07",
   "dateModified": "2025-11-07"
 }

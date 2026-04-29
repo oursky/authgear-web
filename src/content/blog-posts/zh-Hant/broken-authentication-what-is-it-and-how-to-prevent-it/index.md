@@ -202,13 +202,13 @@ Web 應用程式會在特定時間點自動結束 Session。這可能發生在�
 
 <h4 id="mfa">導入多因素驗證</h4>
 
-<a href="/zh-Hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多因素驗證</a>（MFA）是一種需要兩種以上因子來驗證使用者身分的方法。最常見因子是使用者知道的資訊（通常是密碼）、使用者持有的物件（如安全權杖）、以及使用者本身特徵（如指紋）。
+<a href="/zh-hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多因素驗證</a>（MFA）是一種需要兩種以上因子來驗證使用者身分的方法。最常見因子是使用者知道的資訊（通常是密碼）、使用者持有的物件（如安全權杖）、以及使用者本身特徵（如指紋）。
 
 舉例來說，當使用者登入你的網站應用程式時，除了密碼外，還可能需要輸入發送至手機的驗證碼。MFA 為登入流程增加了額外安全層。即使網路犯罪者成功竊取密碼，沒有第二因子仍無法存取帳號。
 
 <h4 id="hash-salt">使用強健的密碼雜湊演算法</h4>
 
-另一項防範密碼型攻擊的措施，是對密碼進行<a href="/zh-Hant/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">雜湊與加鹽</a>。雜湊是把密碼轉換為隨機字串（雜湊值）；加鹽是在雜湊前加入隨機資料（salt）。
+另一項防範密碼型攻擊的措施，是對密碼進行<a href="/zh-hant/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">雜湊與加鹽</a>。雜湊是把密碼轉換為隨機字串（雜湊值）；加鹽是在雜湊前加入隨機資料（salt）。
 
 這會讓攻擊者更難破解密碼，因為他們必須知道 salt 值才能逆向推回原密碼。<a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms" target="_blank">OWASP 建議多種適合儲存密碼的雜湊演算法</a>，如 Argon2id、scrypt、bcrypt 與 PBKDF2。
 

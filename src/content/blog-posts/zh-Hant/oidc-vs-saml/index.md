@@ -21,7 +21,7 @@ draft: false
 
 ## **OIDC：總覽**
 
-很多團隊會搜尋 **「什麼是 OIDC？」** 或 **「OpenID Connect vs OAuth2」**，理解 [OIDC 如何現代化驗證](/zh-Hant/post/revolutionize-your-security-with-oidc-authentication-authgear)。OIDC 是建立在 OAuth 2.0 之上的輕量身分層，使用 JSON、REST 與 JWT 來安全驗證使用者。OAuth 2.0 專注授權，OIDC 專注驗證。
+很多團隊會搜尋 **「什麼是 OIDC？」** 或 **「OpenID Connect vs OAuth2」**，理解 [OIDC 如何現代化驗證](/zh-hant/post/revolutionize-your-security-with-oidc-authentication-authgear)。OIDC 是建立在 OAuth 2.0 之上的輕量身分層，使用 JSON、REST 與 JWT 來安全驗證使用者。OAuth 2.0 專注授權，OIDC 專注驗證。
 
 ### **現代設計特性**
 
@@ -136,7 +136,7 @@ SAML 與 OIDC 的驗證流程不同，會影響整合複雜度與應用設計。
 
 ### **OIDC 流程：現代 Token 驗證**
 
-作為 **OIDC vs OAuth** 討論的一部分，OIDC 建立在 [OAuth 2.0](/zh-Hant/post/what-is-oauth-2-0-and-how-it-works) 之上。典型流程如下：
+作為 **OIDC vs OAuth** 討論的一部分，OIDC 建立在 [OAuth 2.0](/zh-hant/post/what-is-oauth-2-0-and-how-it-works) 之上。典型流程如下：
 
 1. 使用者進入應用
 1. Client 轉址至 IdP 的授權端點

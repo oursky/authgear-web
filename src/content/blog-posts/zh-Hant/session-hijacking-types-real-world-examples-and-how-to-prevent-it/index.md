@@ -118,7 +118,7 @@ Firesheep 推動產業加速全面 HTTPS 化；今天 HTTPS 已成為防範會�
 ### 3. Yahoo Mail Cookie 竊取（2013-2014）
 
 Yahoo 大規模事件中，攻擊者利用會話管理弱點與 Cookie 偽造，繞過密碼驗證。  
-攻擊者利用 Yahoo 的[會話管理系統](/zh-Hant/post/session-management)漏洞，偽造會話 Cookie 並冒充合法使用者登入信箱。
+攻擊者利用 Yahoo 的[會話管理系統](/zh-hant/post/session-management)漏洞，偽造會話 Cookie 並冒充合法使用者登入信箱。
 
 **發生了什麼？**  
 攻擊者利用了會話權杖未妥善輪換／重生的缺陷。一旦取得有效 Cookie，便可重複使用。該事件最終估計影響 **30 億個 Yahoo 帳號**。
@@ -215,8 +215,8 @@ Facebook 透過強制受影響使用者登出並重新驗證權杖應對。此�
 
 想深入了解如何保護使用者會話並強化驗證系統？可先閱讀以下資源：
 
-- 🔐 [**什麼是會話管理：威脅與最佳實務**](/zh-Hant/post/session-management) — 掌握安全會話管理原則，降低被劫持風險。  
-- ⚠️ [**失效驗證是什麼？如何預防？**](/zh-Hant/post/broken-authentication-what-is-it-and-how-to-prevent-it) — 了解攻擊者常利用的驗證弱點。  
-- 🚪 [**如何防禦失效存取控制漏洞：完整指南**](/zh-Hant/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it) — 預防未授權存取與敏感資源暴露。
+- 🔐 [**什麼是會話管理：威脅與最佳實務**](/zh-hant/post/session-management) — 掌握安全會話管理原則，降低被劫持風險。  
+- ⚠️ [**失效驗證是什麼？如何預防？**](/zh-hant/post/broken-authentication-what-is-it-and-how-to-prevent-it) — 了解攻擊者常利用的驗證弱點。  
+- 🚪 [**如何防禦失效存取控制漏洞：完整指南**](/zh-hant/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it) — 預防未授權存取與敏感資源暴露。
 
-想進一步強化你的驗證安全？[**了解 Authgear 如何協助你防止會話劫持與其他威脅**](/zh-Hant/)。
+想進一步強化你的驗證安全？[**了解 Authgear 如何協助你防止會話劫持與其他威脅**](/zh-hant/)。

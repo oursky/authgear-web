@@ -63,7 +63,7 @@ Stripe、Shopify、GitHub、AWS、Slack 等大型平台都用 HMAC 來驗證 web
 
 Python 的 `hmac` 與 `hashlib` 函式庫讓 HMAC 生成很直覺。
 
-驗證時務必使用 `compare_digest()`，可避免 timing attack。你可以用 [Authgear 免費 **HMAC Signature Generator & Verifier**](/zh-Hant/tools/hmac-signature-generator-verifier) 嘗試自己的訊息與簽章。
+驗證時務必使用 `compare_digest()`，可避免 timing attack。你可以用 [Authgear 免費 **HMAC Signature Generator & Verifier**](/zh-hant/tools/hmac-signature-generator-verifier) 嘗試自己的訊息與簽章。
 
 ## 在 Node.js 中產生與驗證 HMAC
 
@@ -156,7 +156,7 @@ Go 的 `crypto/hmac` 套件提供簡潔介面，可用於 HMAC 產生與驗證�
 
 ## 線上測試你的 HMAC
 
-你可使用 Authgear 免費線上工具立即產生與驗證 HMAC： [HMAC Signature Generator & Verifier](/zh-Hant/tools/hmac-signature-generator-verifier)
+你可使用 Authgear 免費線上工具立即產生與驗證 HMAC： [HMAC Signature Generator & Verifier](/zh-hant/tools/hmac-signature-generator-verifier)
 
 工具支援：
 

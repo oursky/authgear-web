@@ -127,11 +127,11 @@ Credential stuffing 最可怕的一點在於：若未啟用雙因素驗證，你
 
 <h3 id="company">從企業端著手</h3>
 
-<a href="/zh-Hant/post/how-to-protect-your-users-from-automated-attacks" target="_blank">保護使用者免受自動化攻擊</a>不只是為了避免法律後果，更是為了確保整體線上使用體驗的安全。企業必須做得更多，以避免 credential stuffing 帶來的破壞。這不只關乎企業形象，更關乎使用者最基本的隱私。對任何公司而言，懂得如何防止 credential stuffing 都是維持資安的基礎。以下是可採用的工具：
+<a href="/zh-hant/post/how-to-protect-your-users-from-automated-attacks" target="_blank">保護使用者免受自動化攻擊</a>不只是為了避免法律後果，更是為了確保整體線上使用體驗的安全。企業必須做得更多，以避免 credential stuffing 帶來的破壞。這不只關乎企業形象，更關乎使用者最基本的隱私。對任何公司而言，懂得如何防止 credential stuffing 都是維持資安的基礎。以下是可採用的工具：
 
 #### **多因素驗證（MFA）**
 
-<a href="/zh-Hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多因素驗證</a>（MFA）顧名思義，是要求超過一種因子來驗證使用者身分。最常見的因子包括：
+<a href="/zh-hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多因素驗證</a>（MFA）顧名思義，是要求超過一種因子來驗證使用者身分。最常見的因子包括：
 
 - 使用者知道的事（通常是密碼）
 - 使用者擁有的事（例如安全權杖）

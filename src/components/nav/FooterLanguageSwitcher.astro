@@ -1,5 +1,5 @@
 ---
-import { LOCALES, localizedPath } from '@/lib/i18n';
+import { LOCALES, localizedPath, stripLocaleSegment } from '@/lib/i18n';
 
 interface Props {
   locale: string;
@@ -13,20 +13,7 @@ const LOCALE_LABELS: Record<string, string> = {
   'zh-Hant': '中文',
 };
 
-function getBasePath(pathname: string): string {
-  for (const loc of LOCALES) {
-    if (loc === 'en') continue;
-    if (pathname.startsWith(`/${loc}/`)) {
-      return pathname.slice(`/${loc}`.length);
-    }
-    if (pathname === `/${loc}`) {
-      return '/';
-    }
-  }
-  return pathname;
-}
-
-const basePath = getBasePath(currentPath);
+const basePath = stripLocaleSegment(currentPath);
 const currentLabel = LOCALE_LABELS[locale] ?? 'Language';
 ---
 

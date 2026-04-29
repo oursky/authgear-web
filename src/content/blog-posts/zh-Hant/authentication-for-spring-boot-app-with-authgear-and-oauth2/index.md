@@ -6,13 +6,13 @@ category: engineering
 featured: false
 metaTitle: "使用 Authgear 和 OAuth2 對 Spring Boot 應用程式進行身份驗證"
 metaDescription: "了解如何使用 OAuth2 和 Authgear 作為身分提供者向 Java Spring Boot 應用程式新增身分驗證。"
-canonicalUrl: /zh-Hant/post/authentication-for-spring-boot-app-with-authgear-and-oauth2
+canonicalUrl: /zh-hant/post/authentication-for-spring-boot-app-with-authgear-and-oauth2
 publishedAt: 2023-07-12T06:42:04.582Z
 updatedAt: 2026-02-12T02:33:17.668Z
 draft: false
 ---
 
-<a href="/zh-Hant/" target="_blank">Authgear</a> 是一個免費使用的身份平台，用於管理對您的應用程式的存取。它使用特殊的 **OpenID Connect (OIDC)** 協定和 **OAuth 2.0 授權框架** 來確認使用者是誰並允許/禁止他們存取受保護的資源。借助 Authgear，您可以輕鬆地為使用者添加不同的方式來登入和存取您的應用程式和 API，而無需擔心其工作原理的技術細節。 Authgear 負責驗證使用者並授予他們權限的複雜部分，因此您可以專注於建立應用程式和業務價值功能。
+<a href="/zh-hant/" target="_blank">Authgear</a> 是一個免費使用的身份平台，用於管理對您的應用程式的存取。它使用特殊的 **OpenID Connect (OIDC)** 協定和 **OAuth 2.0 授權框架** 來確認使用者是誰並允許/禁止他們存取受保護的資源。借助 Authgear，您可以輕鬆地為使用者添加不同的方式來登入和存取您的應用程式和 API，而無需擔心其工作原理的技術細節。 Authgear 負責驗證使用者並授予他們權限的複雜部分，因此您可以專注於建立應用程式和業務價值功能。
 
 在這篇文章中，您將學習 **如何使用 Java Spring Boot 應用程式新增身份驗證** <a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth2</a> 使用 Authgear 作為身分提供者 (IdP)。
 

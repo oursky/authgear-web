@@ -5,7 +5,7 @@ coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Next.js 驗證：App Router 完整指南（2026）"
-metaDescription: "2026 年為 Next.js App Router 加入驗證：比較自建、NextAuth 與 Authgear——含通行金鑰、SSO、MFA 與 TypeScript 範例。"
+metaDescription: "2026 年為 Next.js App Router 加入驗證：比較自建、NextAuth 與 Authgear——含通行密鑰、SSO、MFA 與 TypeScript 範例。"
 publishedAt: 2026-03-27T15:27:15.707Z
 updatedAt: 2026-03-27T15:32:43.121Z
 draft: false
@@ -14,19 +14,19 @@ faq:
     a: "可以。`@authgear/nextjs` SDK 同時支援 App Router 與 Pages Router。在 Pages Router 會改用 `getServerSideProps` 或 API routes，而非 Server Components，但底層驗證函式用法相同。本篇以 App Router 為主，因為它是 2026 年新專案的建議做法。"
   - q: "`currentUser()` 會回傳什麼？"
     a: "`currentUser()` 會從 Authgear userinfo 端點回傳使用者設定檔（姓名、電子郵件、大頭照、使用者 ID）；若沒有有效工作階段則為 `null`。呼叫前也會在背景靜默重新整理過期的 access token，因此你通常不必手動處理權杖過期。在任何 Server Component、Route Handler 或 Server Action 中，只要要知道「是誰在發請求」即可使用。"
-  - q: "通行金鑰與密碼如何並存？"
-    a: "Authgear 同時支援兩者。你可在入口網站設定讓使用者把通行金鑰註冊為額外或主要登入方式。已有密碼帳戶的使用者可從個人設定新增通行金鑰——無須重新註冊。若要走完全無密碼，也可要求所有新註冊僅能使用通行金鑰。"
+  - q: "通行密鑰與密碼如何並存？"
+    a: "Authgear 同時支援兩者。你可在入口網站設定讓使用者把通行密鑰註冊為額外或主要登入方式。已有密碼帳戶的使用者可從個人設定新增通行密鑰——無須重新註冊。若要走完全無密碼，也可要求所有新註冊僅能使用通行密鑰。"
   - q: "Authgear 是否符合 GDPR／SOC 2？"
     a: "是。Authgear 通過 SOC 2 Type II，並符合 GDPR。使用者資料可區域設定落地位置。企業部署另提供地端選項。完整合規文件見 <a href=\"https://www.authgear.com/security\">authgear.com/security</a>。"
   - q: "如何在本地測試驗證？"
-    a: "將 `AUTHGEAR_REDIRECT_URI` 設為 `http://localhost:3000/api/auth/callback`，並在 Authgear 入口將同一網址加入允許的重新導向 URI。SDK 在本地開發行為與線上相同——你可使用真實的 Authgear 登入頁，含通行金鑰、社交登入、MFA 等功能測試。"
+    a: "將 `AUTHGEAR_REDIRECT_URI` 設為 `http://localhost:3000/api/auth/callback`，並在 Authgear 入口將同一網址加入允許的重新導向 URI。SDK 在本地開發行為與線上相同——你可使用真實的 Authgear 登入頁，含通行密鑰、社交登入、MFA 等功能測試。"
 ---
 
 ## 導言：Next.js 驗證已經不一樣了
 
 若你上次碰 Next.js 驗證還在 Pages Router 時代，接下來會是明顯升級。App Router 自 Next.js 13 穩定，並在 2026 年成為新專案預設——它**預設把驗證放在伺服器**。這代表不再依賴大量 `getServerSideProps` 樣板、不會先閃出未登入內容，也不用在瀏覽器執行敏感的權杖驗證邏輯。
 
-但「搬到伺服器」**不代表**「已經解決」。2026 年的 Next.js 開發者仍要面對真實取捨：該自建嗎？用 NextAuth（Auth.js v5）？還是採用代管平台？通行金鑰呢？企業 SSO？防詐？Middleware 怎麼接？
+但「搬到伺服器」**不代表**「已經解決」。2026 年的 Next.js 開發者仍要面對真實取捨：該自建嗎？用 NextAuth（Auth.js v5）？還是採用代管平台？通行密鑰呢？企業 SSO？防詐？Middleware 怎麼接？
 
 本篇一次回答。我們會涵蓋**從選型到第一個受保護的 Server Component** 的完整脈絡，並全程附上可運行的 TypeScript。讀完後，你會對 App Router 驗證有清楚心智模型，並知道如何實際上線。
 
@@ -38,7 +38,7 @@ faq:
 
 <ul>
   <li><strong>App Router 相容</strong>——與 Server Components、Route Handlers、<code>next/headers</code> 原生協作，不需怪招。</li>
-  <li><strong>通行金鑰（Passkeys）</strong>——WebAuthn 通行金鑰是抗釣魚、無密碼的登入未來；若方案今天不支援，日後多半要補洞。</li>
+  <li><strong>通行密鑰（Passkeys）</strong>——WebAuthn 通行密鑰是抗釣魚、無密碼的登入未來；若方案今天不支援，日後多半要補洞。</li>
   <li><strong>社交登入（OAuth）</strong>——Google、GitHub、Apple 等已是基本期待。</li>
   <li><strong>SSO／企業登入</strong>——SAML 與 OIDC 串接，讓企業客戶用自家 IdP 登入。</li>
   <li><strong>多因素驗證（MFA）</strong>——TOTP、簡訊 OTP，以及敏感操作時的升級 MFA（step-up）。</li>
@@ -59,7 +59,7 @@ Next.js 驗證大致有三條路，各自在控制力、複雜度與涵蓋範圍
         <tr>
           <th>做法</th>
           <th>上線前設定時間</th>
-          <th>通行金鑰</th>
+          <th>通行密鑰</th>
           <th>SSO（SAML/OIDC）</th>
           <th>防詐</th>
           <th>計價</th>
@@ -97,17 +97,17 @@ Next.js 驗證大致有三條路，各自在控制力、複雜度與涵蓋範圍
 
 從零打造驗證可得到最大控制力。你自己寫密碼雜湊（`bcrypt`）、工作階段儲存（Redis 或資料庫）、JWT 簽署，以及每條 OAuth 流程。你會學到很多——也會花數週在**非核心產品**的工作上。
 
-自建的隱藏成本是**維運**：每多一種登入方式（通行金鑰、魔術連結、TOTP）都是新專案；你自實作裡的每個安全漏洞都得自己修。對多數產品團隊，自建往往是錯的取捨。
+自建的隱藏成本是**維運**：每多一種登入方式（通行密鑰、魔術連結、TOTP）都是新專案；你自實作裡的每個安全漏洞都得自己修。對多數產品團隊，自建往往是錯的取捨。
 
 ### NextAuth／Auth.js v5
 
 Auth.js v5（NextAuth 的後繼）是穩健的開源函式庫，處理 OAuth 提供者、電子郵件／密碼與基本工作階段管理。透過單一 `auth()` 函式與 App Router 整合良好，也原生支援 middleware。
 
-需求成長後限制會浮現：通行金鑰仍偏實驗、SAML SSO 需要大量客製、沒有內建防詐。對簡單的消費型應用很合理；對 B2B SaaS 或有企業需求的產品，很快就會撞到天花板。
+需求成長後限制會浮現：通行密鑰仍偏實驗、SAML SSO 需要大量客製、沒有內建防詐。對簡單的消費型應用很合理；對 B2B SaaS 或有企業需求的產品，很快就會撞到天花板。
 
 ### Authgear
 
-[Authgear](https://www.authgear.com) 是驗證平台，透過單一整合提供可上正式環境的身分层——通行金鑰、社交登入、TOTP MFA、SAML SSO 與機器人防護。`@authgear/nextjs` SDK 專為 App Router 打造，可在 Server Components、Route Handlers 與 middleware 使用，無需變通手法。
+[Authgear](https://www.authgear.com) 是驗證平台，透過單一整合提供可上正式環境的身分层——通行密鑰、社交登入、TOTP MFA、SAML SSO 與機器人防護。`@authgear/nextjs` SDK 專為 App Router 打造，可在 Server Components、Route Handlers 與 middleware 使用，無需變通手法。
 
 可把 Authgear 想成：自己拉電與找合格電工並含 24/7 監控的差別。本篇後續程式範例以 Authgear 為主，因為它**開箱即符合**上述檢查清單。
 
@@ -285,9 +285,9 @@ export default async function DashboardPage() {
 
 代管驗證平台的一大優勢，是你**不必多寫程式**就能得到的東西。專案接好 Authgear 後，立刻具備：
 
-### 通行金鑰（Passkeys）
+### 通行密鑰（Passkeys）
 
-通行金鑰以裝置上的密碼學金鑰取代密碼。註冊時，使用者的裝置（手機、筆電、安全金鑰）建立金鑰對；公鑰送到 Authgear，私鑰不離開裝置。登入時裝置以生物辨識（Face ID、指紋、Windows Hello）證明持有私鑰——密碼不會在網路上傳送。
+通行密鑰以裝置上的密碼學金鑰取代密碼。註冊時，使用者的裝置（手機、筆電、安全金鑰）建立金鑰對；公鑰送到 Authgear，私鑰不離開裝置。登入時裝置以生物辨識（Face ID、指紋、Windows Hello）證明持有私鑰——密碼不會在網路上傳送。
 
 在 Authgear 入口 **Authentication > Passwordless > Passkeys** 即可啟用。不需改 SDK——登入 UI 會自動處理 WebAuthn 儀式。
 
@@ -400,7 +400,7 @@ export async function updateDisplayName(formData: FormData) {
 
 若要**整區**把未登入使用者導走，middleware 是正確工具。它在 Edge 於頁面渲染前執行，未驗證使用者根本不會觸發 Server Component 渲染。
 
-細節見姊妹篇 [Next.js Middleware 驗證：在 Edge 保護路由](/zh-Hant/post/nextjs-middleware-authentication)。Middleware API 與 Authgear 設定請參考 [Authgear Next.js 文件](https://docs.authgear.com/get-started/regular-web-app/nextjs)。
+細節見姊妹篇 [Next.js Middleware 驗證：在 Edge 保護路由](/zh-hant/post/nextjs-middleware-authentication)。Middleware API 與 Authgear 設定請參考 [Authgear Next.js 文件](https://docs.authgear.com/get-started/regular-web-app/nextjs)。
 
 重要提醒：middleware 是第一道防線，但**仍應**在 Server Components 與 Route Handlers 再次檢查驗證——多層防禦代表不依賴單一層。
 
@@ -416,7 +416,7 @@ export async function updateDisplayName(formData: FormData) {
     <li>短效 access token + 長效 refresh token 是正確組合——可限制權杖外洩時的暴露窗口。</li>
   </ul>
 
-JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安全地驗證與使用權杖](/zh-Hant/post/nextjs-jwt-authentication)。
+JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安全地驗證與使用權杖](/zh-hant/post/nextjs-jwt-authentication)。
 
 ## 工作階段管理
 
@@ -430,7 +430,7 @@ JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安
     <li><strong>登出：</strong>前往 <code>/api/auth/logout</code> 會清除工作階段 Cookie，並在 Authgear 端撤銷 refresh token。</li>
   </ul>
 
-工作階段長度、滑動過期、並行工作階段（例如同一使用者同時在筆電與手機登入）等細節，見 [Next.js 工作階段管理：Cookie、JWT 與伺服器端 Session](/zh-Hant/post/nextjs-session-management)。
+工作階段長度、滑動過期、並行工作階段（例如同一使用者同時在筆電與手機登入）等細節，見 [Next.js 工作階段管理：Cookie、JWT 與伺服器端 Session](/zh-hant/post/nextjs-session-management)。
 
 ## 常見問題
 
@@ -442,9 +442,9 @@ JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安
 
 `currentUser()` 會從 Authgear userinfo 端點回傳使用者設定檔（姓名、電子郵件、大頭照、使用者 ID）；若沒有有效工作階段則為 `null`。呼叫前也會在背景靜默重新整理過期的 access token，因此你通常不必手動處理權杖過期。在任何 Server Component、Route Handler 或 Server Action 中，只要要知道「是誰在發請求」即可使用。
 
-### 通行金鑰與密碼如何並存？
+### 通行密鑰與密碼如何並存？
 
-Authgear 同時支援兩者。你可在入口網站設定讓使用者把通行金鑰註冊為額外或主要登入方式。已有密碼帳戶的使用者可從個人設定新增通行金鑰——無須重新註冊。若要走完全無密碼，也可要求所有新註冊僅能使用通行金鑰。
+Authgear 同時支援兩者。你可在入口網站設定讓使用者把通行密鑰註冊為額外或主要登入方式。已有密碼帳戶的使用者可從個人設定新增通行密鑰——無須重新註冊。若要走完全無密碼，也可要求所有新註冊僅能使用通行密鑰。
 
 ### Authgear 是否符合 GDPR／SOC 2？
 
@@ -452,13 +452,13 @@ Authgear 同時支援兩者。你可在入口網站設定讓使用者把通行�
 
 ### 如何在本地測試驗證？
 
-將 `AUTHGEAR_REDIRECT_URI` 設為 `http://localhost:3000/api/auth/callback`，並在 Authgear 入口將同一網址加入允許的重新導向 URI。SDK 在本地開發行為與線上相同——你可使用真實的 Authgear 登入頁，含通行金鑰、社交登入、MFA 等功能測試。
+將 `AUTHGEAR_REDIRECT_URI` 設為 `http://localhost:3000/api/auth/callback`，並在 Authgear 入口將同一網址加入允許的重新導向 URI。SDK 在本地開發行為與線上相同——你可使用真實的 Authgear 登入頁，含通行密鑰、社交登入、MFA 等功能測試。
 
 ## 結論
 
 Next.js App Router 的驗證架構確實優於以往：Server Component 在渲染時檢查身分、middleware 在 Edge 守路由、Server Action 讓「已驗證的變更」變得直接。框架扛了重工——主要問題是背後要接哪一套驗證系統。
 
-自建驗證是長期且沉重的投資。NextAuth／Auth.js 能很快做出登入頁，但在企業功能前會先碰到上限。像 Authgear 這類代管平台從第一天就涵蓋通行金鑰、SSO、MFA、防詐等完整清單，且 `@authgear/nextjs` 專為 App Router 設計。
+自建驗證是長期且沉重的投資。NextAuth／Auth.js 能很快做出登入頁，但在企業功能前會先碰到上限。像 Authgear 這類代管平台從第一天就涵蓋通行密鑰、SSO、MFA、防詐等完整清單，且 `@authgear/nextjs` 專為 App Router 設計。
 
 把驗證做對的最佳時機是還沒有使用者之前；次佳時機就是現在。
 

@@ -1,11 +1,19 @@
+# Locale path lowercased: /zh-Hant/* → /zh-hant/*. The trailing `!`
+# is a Netlify "force" flag — required because Netlify's edge does
+# case-insensitive file lookup, so /zh-Hant/foo would otherwise hit
+# the existing /zh-hant/foo/index.html static file and skip the
+# redirect entirely.
+/zh-Hant                                                                            /zh-hant/                                                                                                               301!
+/zh-Hant/*                                                                          /zh-hant/:splat                                                                                                         301!
+
 # Internal canonical redirects (previously prerendered as Astro stubs)
 /why-authgear                                                                       /about                                                                                                                  301
-/zh-Hant/why-authgear                                                               /zh-Hant/about                                                                                                          301
+/zh-hant/why-authgear                                                               /zh-hant/about                                                                                                          301
 /features/sms-passcode                                                              /features/multi-factor-authentication                                                                                   301
-/zh-Hant/features/sms-passcode                                                      /zh-Hant/features/multi-factor-authentication                                                                           301
-/zh-Hant/features/identity-security                                                 /zh-Hant/features/attack-protection                                                                                     301
+/zh-hant/features/sms-passcode                                                      /zh-hant/features/multi-factor-authentication                                                                           301
+/zh-hant/features/identity-security                                                 /zh-hant/features/attack-protection                                                                                     301
 # /blog/{slug} → /post/{slug} is handled by per-slug Astro stubs in
-# src/pages/blog/[slug].astro and src/pages/zh-Hant/blog/[slug].astro,
+# src/pages/blog/[slug].astro and src/pages/zh-hant/blog/[slug].astro,
 # not by a wildcard rule here. A wildcard would also catch /blog/2..N
 # pagination pages and break the listing.
 

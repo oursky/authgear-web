@@ -37,7 +37,7 @@ export const productsDropdownColumns: NavColumn[] = [
       { path: '/features/social-login', label: { en: 'Social Login', 'zh-Hant': '社群登入' } },
       { path: '/features/passwordless-authentication', label: { en: 'Passwordless', 'zh-Hant': '無密碼登入' } },
       { path: '/features/whatsapp-otp', label: { en: 'WhatsApp OTP', 'zh-Hant': 'WhatsApp OTP' } },
-      { path: '/features/passkeys', label: { en: 'Passkeys', 'zh-Hant': '通行金鑰' } },
+      { path: '/features/passkeys', label: { en: 'Passkeys', 'zh-Hant': '通行密鑰' } },
       { path: '/features/biometric-authentication', label: { en: 'Biometric', 'zh-Hant': '生物辨識' } },
       { path: '/features/machine-to-machine-token', label: { en: 'Machine-to-Machine Token', 'zh-Hant': '機器對機器權杖' } },
     ],

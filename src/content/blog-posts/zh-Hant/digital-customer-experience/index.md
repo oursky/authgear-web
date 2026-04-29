@@ -88,13 +88,13 @@ draft: false
 
 為了幫助企業維持客戶參與度，Authgear 提供遵循高註冊轉換最佳實務的預建註冊樣板，讓註冊流程成為促成新客戶轉換的關鍵，而不是把人嚇跑的障礙。
 
-我們也提供 <a href="/zh-Hant/post/social-login-guide" target="_blank">社群登入選項</a>，像是使用 Facebook、Google、Apple 等帳號登入。使用者可以直接用既有憑證在你的 App 或網站完成註冊。對數位客戶體驗來說，最大好處是使用者能略過大部分（甚至全部）最麻煩的註冊步驟。
+我們也提供 <a href="/zh-hant/post/social-login-guide" target="_blank">社群登入選項</a>，像是使用 Facebook、Google、Apple 等帳號登入。使用者可以直接用既有憑證在你的 App 或網站完成註冊。對數位客戶體驗來說，最大好處是使用者能略過大部分（甚至全部）最麻煩的註冊步驟。
 
 此外，我們也支援 <a href="/features/passkeys" target="_blank">Passkey</a>。這是一種有機會徹底取代帳號密碼的替代式驗證方式。有了 Passkey，使用者不再需要建立並記住複雜密碼，只要像平常解鎖手機那樣，透過生物辨識或 PIN 即可完成驗證，進一步簡化註冊流程並提升數位客戶體驗。
 
 <h3 id="login">讓登入更順暢</h3>
 
-當註冊完成後，接下來要跨越的關卡就是登入。幸好，透過 Passkey 與前文提到的其他 <a href="/zh-Hant/post/passwordless-authentication-complete-guide" target="_blank">無密碼驗證</a>方式，記住複雜密碼不再是必要負擔。Authgear 也提供其他無密碼選項，包括 <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP</a>、<a href="/features/biometric-authentication" target="_blank">生物辨識驗證</a> 與 SMS OTP。
+當註冊完成後，接下來要跨越的關卡就是登入。幸好，透過 Passkey 與前文提到的其他 <a href="/zh-hant/post/passwordless-authentication-complete-guide" target="_blank">無密碼驗證</a>方式，記住複雜密碼不再是必要負擔。Authgear 也提供其他無密碼選項，包括 <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP</a>、<a href="/features/biometric-authentication" target="_blank">生物辨識驗證</a> 與 SMS OTP。
 
 <!--FIGURE-->
 ![](./figure-2.png)
@@ -102,7 +102,7 @@ draft: false
 
 讓客戶更容易登入，是思考「如何改善數位客戶體驗」時最直接有效的方法之一。你可以把註冊與登入流程想像成商店大門：如果門太重、難開，或在應該自動開啟時沒有反應，顧客很可能直接放棄，改去更容易進入的地方。
 
-透過 CIAM 提供 <a href="/zh-Hant/post/frictionless-authentication" target="_blank">無摩擦驗證</a>體驗，你就能掌握顧客對品牌最早、也最關鍵的第一印象。這正是讓顧客持續參與，而非中途離開的關鍵。
+透過 CIAM 提供 <a href="/zh-hant/post/frictionless-authentication" target="_blank">無摩擦驗證</a>體驗，你就能掌握顧客對品牌最早、也最關鍵的第一印象。這正是讓顧客持續參與，而非中途離開的關鍵。
 
 <h3 id="sso">以 SSO 串起多平台體驗</h3>
 

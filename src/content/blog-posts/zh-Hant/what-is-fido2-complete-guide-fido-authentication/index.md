@@ -1,11 +1,11 @@
 ---
 title: "什麼是 FIDO2？FIDO 驗證完整指南"
-excerpt: "FIDO2 是開放標準，讓使用者無需密碼即可登入。說明 FIDO2 為何、如何運作、與 FIDO U2F 的比較，以及通行金鑰如何建構其上。"
+excerpt: "FIDO2 是開放標準，讓使用者無需密碼即可登入。說明 FIDO2 為何、如何運作、與 FIDO U2F 的比較，以及通行密鑰如何建構其上。"
 coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是 FIDO2？FIDO 驗證完整指南"
-metaDescription: "了解 FIDO2、FIDO 驗證如何運作，以及為何以密碼學金鑰取代密碼。涵蓋 WebAuthn、通行金鑰與實作基礎。"
+metaDescription: "了解 FIDO2、FIDO 驗證如何運作，以及為何以密碼學金鑰取代密碼。涵蓋 WebAuthn、通行密鑰與實作基礎。"
 publishedAt: 2026-03-10T18:59:49.213Z
 updatedAt: 2026-03-13T17:54:05.976Z
 draft: false
@@ -15,7 +15,7 @@ FIDO2 是開放驗證標準，讓使用者無需密碼即可登入網站與 App�
 
 由 **FIDO 聯盟**與 **W3C** 制定，FIDO2 結合兩份規格：**WebAuthn**（瀏覽器 API）與 **CTAP**（與驗證器通訊的協定）。兩者並用，可在所有主流瀏覽器與作業系統上實現無密碼驗證。
 
-本指南說明 FIDO2 是什麼、FIDO2 驗證如何運作、與較舊標準如 FIDO U2F 的差異，以及**通行金鑰**如何在其上發展。
+本指南說明 FIDO2 是什麼、FIDO2 驗證如何運作、與較舊標準如 FIDO U2F 的差異，以及**通行密鑰**如何在其上發展。
 
 ## 理解「什麼是 FIDO2」
 
@@ -123,19 +123,19 @@ FIDO 聯盟多年來發布多項標準。釐清 FIDO 與 FIDO2 差異有助掌�
 
 ### FIDO2 與 FIDO U2F 對照
 
-<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>特性</th><th>FIDO U2F</th><th>FIDO2</th></tr></thead><tbody><tr><td>無密碼登入</td><td>否（僅第二因子）</td><td>是</td></tr><tr><td>瀏覽器整合</td><td>需擴充或外掛</td><td>原生 WebAuthn API</td></tr><tr><td>生物辨識</td><td>否</td><td>是（平台驗證器）</td></tr><tr><td>通行金鑰</td><td>否</td><td>是</td></tr><tr><td>安全金鑰</td><td>是</td><td>是（經 CTAP）</td></tr><tr><td>釣魚抗性</td><td>是</td><td>是</td></tr><tr><td>支援的驗證器</td><td>僅漫遊（USB／NFC 金鑰）</td><td>平台 + 漫遊</td></tr></tbody></table></div>
+<div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>特性</th><th>FIDO U2F</th><th>FIDO2</th></tr></thead><tbody><tr><td>無密碼登入</td><td>否（僅第二因子）</td><td>是</td></tr><tr><td>瀏覽器整合</td><td>需擴充或外掛</td><td>原生 WebAuthn API</td></tr><tr><td>生物辨識</td><td>否</td><td>是（平台驗證器）</td></tr><tr><td>通行密鑰</td><td>否</td><td>是</td></tr><tr><td>安全金鑰</td><td>是</td><td>是（經 CTAP）</td></tr><tr><td>釣魚抗性</td><td>是</td><td>是</td></tr><tr><td>支援的驗證器</td><td>僅漫遊（USB／NFC 金鑰）</td><td>平台 + 漫遊</td></tr></tbody></table></div>
 
 若組織仍使用 FIDO U2F 金鑰，好消息是 **CTAP1** 提供回溯相容：既有 U2F 金鑰在 FIDO2 架構下仍可作為第二因子使用。
 
-## 通行金鑰與 FIDO2 的關係
+## 通行密鑰與 FIDO2 的關係
 
-**通行金鑰（passkeys）** 是與 FIDO2 最常被一併討論的創新。通行金鑰本質上是使用者友善的 FIDO 憑證實作，密碼學原理與 FIDO2 相同，但大幅簡化體驗。
+**通行密鑰（passkeys）** 是與 FIDO2 最常被一併討論的創新。通行密鑰本質上是使用者友善的 FIDO 憑證實作，密碼學原理與 FIDO2 相同，但大幅簡化體驗。
 
-通行金鑰有兩類。**同步型通行金鑰**可透過 iCloud 鑰匙圈、Google 密碼管理員、Microsoft 帳戶等平台，安全備份並跨裝置同步——在 iPhone 建立的通行金鑰，同一 Apple 帳戶下的 Mac、iPad 也可使用。**裝置綁定型**則綁在特定硬體（如 YubiKey 或裝置 TPM），無法複製或同步。
+通行密鑰有兩類。**同步型通行密鑰**可透過 iCloud 鑰匙圈、Google 密碼管理員、Microsoft 帳戶等平台，安全備份並跨裝置同步——在 iPhone 建立的通行密鑰，同一 Apple 帳戶下的 Mac、iPad 也可使用。**裝置綁定型**則綁在特定硬體（如 YubiKey 或裝置 TPM），無法複製或同步。
 
-使用者以通行金鑰進行 FIDO 登入時，底層仍是密碼學驗證；體驗上尤其同步型更無縫、跨裝置無須重新註冊。
+使用者以通行密鑰進行 FIDO 登入時，底層仍是密碼學驗證；體驗上尤其同步型更無縫、跨裝置無須重新註冊。
 
-因通行金鑰建構在 FIDO2 標準上，是推動無密碼普及的重要一步。
+因通行密鑰建構在 FIDO2 標準上，是推動無密碼普及的重要一步。
 
 ## 在應用中實作 FIDO 登入
 
@@ -179,13 +179,13 @@ FIDO 登入也防**憑證重用**：每個服務取得獨一無二的金鑰對�
 
 使用者對裝置端驗證也愈熟悉——指紋、臉部、裝置 PIN 已普遍。FIDO2 將這些熟悉互動延伸到線上服務，無需記憶或管理密碼。
 
-**通行金鑰**採用與 FIDO 相同原則，並透過可信生態同步憑證，強化無密碼基礎。隨技術成熟，傳統密碼依賴預期將顯著下降。對規劃下一代安全數位服務的組織而言，理解 FIDO2 與其運作方式，是建置更安全、可擴展身分系統的關鍵一步。
+**通行密鑰**採用與 FIDO 相同原則，並透過可信生態同步憑證，強化無密碼基礎。隨技術成熟，傳統密碼依賴預期將顯著下降。對規劃下一代安全數位服務的組織而言，理解 FIDO2 與其運作方式，是建置更安全、可擴展身分系統的關鍵一步。
 
 ## 結論
 
 FIDO2 以存在受信任裝置上的密碼學憑證取代密碼，消除釣魚、撞庫與伺服器端密碼外洩風險，並以生物辨識或安全金鑰加快登入。
 
-開發團隊若評估無密碼驗證，Authgear 內建 [通行金鑰](https://www.authgear.com/features/passkeys) 與 FIDO2 安全金鑰支援，並可搭配 [TOTP](/zh-Hant/post/what-is-totp)、[SMS OTP](/zh-Hant/post/sms-authentication-should-you-implement)、[社交登入](/zh-Hant/post/social-login-guide)與[使用者驗證概覽](/zh-Hant/post/what-is-user-authentication-guide-2026)等其他管道——無須從零整合 WebAuthn。
+開發團隊若評估無密碼驗證，Authgear 內建 [通行密鑰](https://www.authgear.com/features/passkeys) 與 FIDO2 安全金鑰支援，並可搭配 [TOTP](/zh-hant/post/what-is-totp)、[SMS OTP](/zh-hant/post/sms-authentication-should-you-implement)、[社交登入](/zh-hant/post/social-login-guide)與[使用者驗證概覽](/zh-hant/post/what-is-user-authentication-guide-2026)等其他管道——無須從零整合 WebAuthn。
 
 <a href="https://portal.authgear.com/" target="_blank" rel="noopener">開始使用 Authgear</a>，為應用加入無密碼登入。
 
@@ -211,9 +211,9 @@ FIDO2 安全金鑰是小型硬體裝置——常見為 USB、NFC 或藍牙接收
 
 FIDO 指 2018 年前的原始標準組合（FIDO UAF 與 FIDO U2F）。FIDO2 為後繼標準，將 WebAuthn 與 CTAP2 合為單一、瀏覽器原生標準。主要升級是 FIDO2 支援**完全無密碼**登入，而原始 FIDO U2F 僅能作為密碼之外的第二因子。
 
-### FIDO2 與通行金鑰的關係？
+### FIDO2 與通行密鑰的關係？
 
-通行金鑰是 FIDO2 憑證的**使用者向名稱**；底層同樣是 WebAuthn／CTAP2。差別在於**同步型通行金鑰**可經 iCloud 鑰匙圈、Google 密碼管理員等平台備份與跨裝置同步；**裝置綁定型**（如 YubiKey 上的憑證）則留在單一裝置。
+通行密鑰是 FIDO2 憑證的**使用者向名稱**；底層同樣是 WebAuthn／CTAP2。差別在於**同步型通行密鑰**可經 iCloud 鑰匙圈、Google 密碼管理員等平台備份與跨裝置同步；**裝置綁定型**（如 YubiKey 上的憑證）則留在單一裝置。
 
 ### FIDO2 驗證安全嗎？
 

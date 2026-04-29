@@ -11,7 +11,7 @@ updatedAt: 2026-03-30T16:58:12.782Z
 draft: false
 faq:
   - q: "可以把 Authgear 和 Supabase 資料庫一起用嗎？"
-    a: "可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href=\"/zh-Hant/post/supabase-any-auth-provider\" target=\"_blank\" rel=\"noopener\">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。"
+    a: "可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href=\"/zh-hant/post/supabase-any-auth-provider\" target=\"_blank\" rel=\"noopener\">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。"
   - q: "Supabase Auth 支援 Next.js App Router 嗎？"
     a: "支援。`@supabase/ssr` 完整支援 Next.js App Router，含 Server Components、Route Handlers 與 middleware。舊套件 `@supabase/auth-helpers-nextjs` 已棄用——新專案請使用 `@supabase/ssr`。"
   - q: "Authgear 的 Next.js SDK 能上正式環境嗎？"
@@ -22,7 +22,7 @@ faq:
 
 若你正在開發 Next.js 並研究驗證，很可能會遇到兩條截然不同的路：**Supabase Auth** 與 **Authgear**。兩者皆可用於正式環境、皆與 Next.js App Router 相容，也都有免費方案。但它們對「驗證」的取徑根本不同——而這會依你的技術堆疊大幅影響取捨。
 
-本篇是給開發者在 **Next.js** 專案中，於 **Supabase Auth** 與 **Authgear** 之間做選擇的務實、平衡比較。不預設誰贏——正解取決於你在做什麼。若想先看 Next.js 驗證的全景，可讀我們的 [Next.js 驗證指南](/zh-Hant/post/nextjs-authentication-guide)，再回來看這篇專題比較。
+本篇是給開發者在 **Next.js** 專案中，於 **Supabase Auth** 與 **Authgear** 之間做選擇的務實、平衡比較。不預設誰贏——正解取決於你在做什麼。若想先看 Next.js 驗證的全景，可讀我們的 [Next.js 驗證指南](/zh-hant/post/nextjs-authentication-guide)，再回來看這篇專題比較。
 
 ## 快速概覽
 
@@ -36,7 +36,7 @@ Supabase 是開源的 Firebase 替代方案，將託管 Postgres、即時訂閱�
 
 Authgear 是專注的客戶身分與存取管理（CIAM）平台。它只做一件事——驗證與身分管理——但做得很深。可把它想成「專家」而非「通才」：不包含資料庫或檔案儲存，但內建的驗證功能比多數「順便附的」方案更完整。
 
-Authgear 建於開放標準（OpenID Connect、OAuth 2.0、SAML），內建可自訂的登入 UI，並內建 SAML SSO、通行金鑰（passkeys）、防詐與多租戶 B2B 等企業功能。`@authgear/nextjs` SDK 是針對 Next.js App Router 打造。
+Authgear 建於開放標準（OpenID Connect、OAuth 2.0、SAML），內建可自訂的登入 UI，並內建 SAML SSO、通行密鑰（passkeys）、防詐與多租戶 B2B 等企業功能。`@authgear/nextjs` SDK 是針對 Next.js App Router 打造。
 
 ## 功能對照
 
@@ -51,9 +51,9 @@ Authgear 建於開放標準（OpenID Connect、OAuth 2.0、SAML），內建可�
       </thead>
       <tbody>
         <tr>
-          <td>通行金鑰（WebAuthn）</td>
+          <td>通行密鑰（WebAuthn）</td>
           <td>不支援（截至 2026 年 3 月）</td>
-          <td>支援——專用通行金鑰流程與裝置同步</td>
+          <td>支援——專用通行密鑰流程與裝置同步</td>
         </tr>
         <tr>
           <td>社交登入（Google、GitHub 等）</td>
@@ -263,7 +263,7 @@ export default async function DashboardPage() {
   <li><strong>你做的是中小型專案</strong>，不需要進階企業功能。免費層（5 萬 MAU）多數獨立開發與新創情境已夠用。</li>
   <li><strong>你想要與 Postgres 緊密整合。</strong> Supabase 的驗證與資料庫功能深度綁定。若存取邏輯主要放在資料庫層，Supabase 很自然。</li>
   <li><strong>你重視開源、可自架堆疊。</strong> Supabase 端到端開源；若需要資料主權又不想自建整套驗證，整平台可自架。</li>
-  <li><strong>你不需要通行金鑰、進階企業 SSO 或內建防詐</strong>——或願意在需求成長時另外補上。</li>
+  <li><strong>你不需要通行密鑰、進階企業 SSO 或內建防詐</strong>——或願意在需求成長時另外補上。</li>
 </ul>
 
 ## 何時選 Authgear
@@ -273,7 +273,7 @@ export default async function DashboardPage() {
 <ul>
   <li><strong>驗證是你產品最難的一塊。</strong> 若你在做 B2B SaaS、金融科技或任何把身分與存取當核心能力的產品，專用 CIAM 能扛複雜度，讓團隊不必自己造輪子。</li>
   <li><strong>你需要企業 SSO。</strong> Authgear 在全方案（含免費）即支援 SAML 2.0 與 OIDC，並含代管 IdP 連線。Supabase 的 SAML 需 Pro 以上。</li>
-  <li><strong>通行金鑰是優先需求。</strong> Authgear 支援專用流程、裝置同步、備援驗證方式與終端使用者帳戶入口。Supabase Auth 目前不支援通行金鑰。</li>
+  <li><strong>通行密鑰是優先需求。</strong> Authgear 支援專用流程、裝置同步、備援驗證方式與終端使用者帳戶入口。Supabase Auth 目前不支援通行密鑰。</li>
   <li><strong>你要開箱即用的防詐。</strong> Authgear 含機器人防護、暴力嘗試鎖定與異常偵測；用 Supabase 則需自建或另接服務。</li>
   <li><strong>你在做多租戶 B2B。</strong> Authgear 內建組織與角色模型；Supabase 沒有原生「組織」概念——需在資料庫自行建模。</li>
   <li><strong>你沒有用 Supabase 資料庫。</strong> 若你用 PlanetScale、Neon 或其他 Postgres，Supabase Auth 的綑綁效益較低；像 Authgear 這類專用驗證平台彈性較大。</li>
@@ -286,7 +286,7 @@ export default async function DashboardPage() {
 
 最簡單的決策句：**你在用 Supabase 嗎？** 若是，請用 Supabase Auth。資料庫整合、RLS 與一站式計價，對已在 Supabase 生態的專案幾乎是不假思索的選擇。
 
-若你不在 Supabase 上，或需要通行金鑰、企業 SSO、防詐或多租戶 B2B，Authgear 的「專注」會帶來回報——整個團隊聚焦在身分，功能廣度往往不需額外堆設定即可取得。
+若你不在 Supabase 上，或需要通行密鑰、企業 SSO、防詐或多租戶 B2B，Authgear 的「專注」會帶來回報——整個團隊聚焦在身分，功能廣度往往不需額外堆設定即可取得。
 
 兩者皆可開源自架，若你需要完整掌控基礎設施。<a href="https://portal.authgear.com/" target="_blank" rel="noopener">Authgear 免費方案沒有 MAU 上限</a>——可先註冊試用，再決定是否升級付費。
 
@@ -294,7 +294,7 @@ export default async function DashboardPage() {
 
 ### 可以把 Authgear 和 Supabase 資料庫一起用嗎？
 
-可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href="/zh-Hant/post/supabase-any-auth-provider" target="_blank" rel="noopener">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。
+可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href="/zh-hant/post/supabase-any-auth-provider" target="_blank" rel="noopener">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。
 
 ### Supabase Auth 支援 Next.js App Router 嗎？
 

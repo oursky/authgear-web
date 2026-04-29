@@ -104,4 +104,4 @@ WebAuthn 提供將強驗證整合到網路服務的標準化框架。它利用�
 隨著生物辨識持續進化，未來將出現更精密、更安全的方案，持續重塑我們與數位系統互動的方式。
 
 準備好以生物辨識提升你的應用安全了嗎？   
-[了解 Authgear 如何簡化 Web 與行動應用的生物辨識整合](/zh-Hant/features/biometric-authentication/)。
+[了解 Authgear 如何簡化 Web 與行動應用的生物辨識整合](/zh-hant/features/biometric-authentication/)。

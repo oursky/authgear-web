@@ -103,4 +103,4 @@ Supabase 的 Postgres RLS 會期待請求攜帶 **Supabase 簽發** 的 JWT，�
 
 ### 結論
 
-你不必在 Supabase 與既有 SSO 之間二選一。透過驗證 IdP JWT，並在邊緣簽發 Supabase JWT，你可以同時得到乾淨的 RLS、單一身分來源與零使用者遷移。這是把 Supabase 納入既有 JWT 架構最簡單的方式。你也能持續使用驗證提供者的全部能力，例如 [Authgear](/zh-Hant/)。
+你不必在 Supabase 與既有 SSO 之間二選一。透過驗證 IdP JWT，並在邊緣簽發 Supabase JWT，你可以同時得到乾淨的 RLS、單一身分來源與零使用者遷移。這是把 Supabase 納入既有 JWT 架構最簡單的方式。你也能持續使用驗證提供者的全部能力，例如 [Authgear](/zh-hant/)。

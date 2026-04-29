@@ -72,7 +72,7 @@ Client (browser)
 
 ### 6. 代理與上游之間 TLS 交握失敗
 
-代理以 HTTPS 連上游（微服務常見）時，憑證不符或過期會導致交握失敗，代理常報為 502。請用 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker) 驗證上游憑證。
+代理以 HTTPS 連上游（微服務常見）時，憑證不符或過期會導致交握失敗，代理常報為 502。請用 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker) 驗證上游憑證。
 
 ### 7. 上游資源耗盡
 
@@ -251,7 +251,7 @@ Cloudflare 無法連上源站時會回 502。檢查：
 <ol>
 <li><strong>源站是否在跑</strong>——SSH 確認應用。</li>
 <li><strong>防火牆未擋 Cloudflare IP</strong>——允許 <a href="https://www.cloudflare.com/ips/">Cloudflare IP 範圍</a> 的 80／443。</li>
-<li><strong>SSL 模式</strong>——儀表板 SSL／TLS。若源站無有效憑證，勿用「Full (strict)」。憑證不符亦可能 502。以 <a href="/zh-Hant/tools/ssl-checker">Authgear SSL Checker</a> 檢查源站憑證。</li>
+<li><strong>SSL 模式</strong>——儀表板 SSL／TLS。若源站無有效憑證，勿用「Full (strict)」。憑證不符亦可能 502。以 <a href="/zh-hant/tools/ssl-checker">Authgear SSL Checker</a> 檢查源站憑證。</li>
 <li><strong>源站回應時間</strong>——Cloudflare 約 100 秒逾時；更慢常見為 524，但部分設定仍可能呈現 502。</li>
 </ol>
 
@@ -329,7 +329,7 @@ RestartSec=5
 
 **5. 斷路器。** 微服務架構下以 Resilience4j 等避免請求堆在已故障的上游，改回可控降級而非連鎖 502。
 
-**6. 維持 TLS 憑證有效。** 上游憑證過期會導致 TLS 失敗而在代理端呈現 502。使用 Let's Encrypt／cert-manager 自動續約，並以 [Authgear SSL Checker](/zh-Hant/tools/ssl-checker) 定期檢查。
+**6. 維持 TLS 憑證有效。** 上游憑證過期會導致 TLS 失敗而在代理端呈現 502。使用 Let's Encrypt／cert-manager 自動續約，並以 [Authgear SSL Checker](/zh-hant/tools/ssl-checker) 定期檢查。
 
 ## 502 與驗證流程
 

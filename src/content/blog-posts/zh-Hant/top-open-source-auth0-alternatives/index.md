@@ -297,7 +297,7 @@ Auth0 的 rules、actions 與自訂腳本常承載業務邏輯。遷移時需用
 
 Authgear 是其中相當突出的現代化 Auth0 類型方案，適合想要彈性但不想增加複雜度的 SaaS 團隊。它原生支援 OAuth、OIDC、SAML 與 MFA，可簡化企業 SSO、使用者佈建與安全擴展。
 
-<a href="/zh-Hant/schedule-demo" target="_blank">立即探索 Authgear</a>，讓你的身分管理更一致、更安全，也更容易擴展。
+<a href="/zh-hant/schedule-demo" target="_blank">立即探索 Authgear</a>，讓你的身分管理更一致、更安全，也更容易擴展。
 
 ## FAQs
 

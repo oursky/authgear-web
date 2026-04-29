@@ -11,11 +11,11 @@ updatedAt: 2026-02-12T02:36:33.462Z
 draft: false
 ---
 
-TOTP（Time-based One-Time Password）是一種簡單且廣泛使用的方法：用共享密鑰與當前時間產生短時效數字驗證碼（RFC 6238）。典型情境是每 30 秒更新的 6 位數驗證碼。本文會說明其運作原理、常見陷阱，並提供 Node、Python、Go 的快速範例。你也可以直接試用 <a href="/zh-Hant/tools/totp-authenticator" target="_blank">線上 TOTP 產生器</a>。
+TOTP（Time-based One-Time Password）是一種簡單且廣泛使用的方法：用共享密鑰與當前時間產生短時效數字驗證碼（RFC 6238）。典型情境是每 30 秒更新的 6 位數驗證碼。本文會說明其運作原理、常見陷阱，並提供 Node、Python、Go 的快速範例。你也可以直接試用 <a href="/zh-hant/tools/totp-authenticator" target="_blank">線上 TOTP 產生器</a>。
 
 ## 什麼是 TOTP
 
-TOTP 是 **Time-based One-Time Password** 的縮寫。它會利用共享密鑰（通常為 Base32 字串）與目前時間產生短時效數字碼——常見為每 30 秒過期。TOTP 由 <a href="https://datatracker.ietf.org/doc/html/rfc6238" target="_blank">**IETF RFC 6238**</a> 標準化，也是多數驗證器 App（<a href="https://en.wikipedia.org/wiki/Google_Authenticator" target="_blank">Google Authenticator</a>、<a href="https://www.authy.com/" target="_blank">Authy</a>、[Authgear TOTP Generator](/zh-Hant/tools/totp-authenticator) 等）的核心機制。
+TOTP 是 **Time-based One-Time Password** 的縮寫。它會利用共享密鑰（通常為 Base32 字串）與目前時間產生短時效數字碼——常見為每 30 秒過期。TOTP 由 <a href="https://datatracker.ietf.org/doc/html/rfc6238" target="_blank">**IETF RFC 6238**</a> 標準化，也是多數驗證器 App（<a href="https://en.wikipedia.org/wiki/Google_Authenticator" target="_blank">Google Authenticator</a>、<a href="https://www.authy.com/" target="_blank">Authy</a>、[Authgear TOTP Generator](/zh-hant/tools/totp-authenticator) 等）的核心機制。
 
 ## TOTP 如何運作
 
@@ -63,7 +63,7 @@ TOTP 是 **Time-based One-Time Password** 的縮寫。它會利用共享密鑰�
 
 - **適合：** 人員登入、管理員存取、開發測試流程、內部工具。
 - **較不適合：** 高風險的無人值守 API 存取（建議用 client cert、OAuth token 或硬體保護金鑰）。
-- **替代 MFA：** 推播 MFA、FIDO2/WebAuthn（即 [Passkeys](/zh-Hant/features/passkeys)，具抗釣魚能力）、硬體 token。
+- **替代 MFA：** 推播 MFA、FIDO2/WebAuthn（即 [Passkeys](/zh-hant/features/passkeys)，具抗釣魚能力）、硬體 token。
 
 ## 如何測試你的整合
 
@@ -71,7 +71,7 @@ TOTP 是 **Time-based One-Time Password** 的縮寫。它會利用共享密鑰�
 1. 用上述任一函式庫範例在本地產生 TOTP。
 1. 伺服器端以小 window（±1 step）驗證，以容忍時鐘偏差。
 1. 刻意測試 algorithm/digits 不一致情境，確認伺服器日誌能清楚報錯。
-1. 使用僅測試用工具預覽驗證碼，避免暴露正式 secret——可試：**Authgear TOTP Authenticator**：<a href="/zh-Hant/tools/totp-authenticator" target="_blank">/zh-Hant/tools/totp-authenticator</a>
+1. 使用僅測試用工具預覽驗證碼，避免暴露正式 secret——可試：**Authgear TOTP Authenticator**：<a href="/zh-hant/tools/totp-authenticator" target="_blank">/zh-hant/tools/totp-authenticator</a>
 
 ## FAQ
 

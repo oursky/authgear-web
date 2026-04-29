@@ -17,7 +17,7 @@ draft: false
 
 當網址列顯示 `https://` 與鎖頭圖示，即表示連線受 SSL 憑證保護。若網站缺少憑證、憑證過期或設定錯誤，所有主流瀏覽器都會顯示警告——「不安全」標籤或整頁阻擋。
 
-> 💡 **命名說明：**「SSL」代表 Secure Sockets Layer，是 1990 年代的原始協定，1999 年起由 **TLS（Transport Layer Security）** 取代。所有 SSL 版本皆有已知安全漏洞，現代伺服器均已停用。但產業仍慣稱「SSL 憑證」——SSL 與 TLS 常混用。完整脈絡見 [SSL 與 TLS 有何不同、為何重要](/zh-Hant/post/ssl-vs-tls)。
+> 💡 **命名說明：**「SSL」代表 Secure Sockets Layer，是 1990 年代的原始協定，1999 年起由 **TLS（Transport Layer Security）** 取代。所有 SSL 版本皆有已知安全漏洞，現代伺服器均已停用。但產業仍慣稱「SSL 憑證」——SSL 與 TLS 常混用。完整脈絡見 [SSL 與 TLS 有何不同、為何重要](/zh-hant/post/ssl-vs-tls)。
 
 ## SSL／TLS 連線如何建立
 
@@ -45,7 +45,7 @@ SSL 憑證採 **X.509** 格式。檢視時會看到多個結構化欄位：
 
 <div class='ag-table-wrap'><table class='ag-table'><thead><tr><th>欄位</th><th>內容</th><th>範例</th></tr></thead><tbody><tr><td>Subject（主旨）</td><td>憑證核發給的網域（或組織）</td><td><code>CN=www.authgear.com</code></td></tr><tr><td>Issuer（發行者）</td><td>簽發此憑證的 CA</td><td><code>Let's Encrypt R11</code></td></tr><tr><td>Valid From／Valid To</td><td>憑證有效日期區間</td><td><code>2025-09-01 — 2025-11-30</code></td></tr><tr><td>Subject Alternative Names（SANs）</td><td>憑證涵蓋的所有網域與子網域</td><td><code>authgear.com, www.authgear.com, *.authgear.com</code></td></tr><tr><td>公開金鑰（Public Key）</td><td>TLS 交握時伺服器使用的公開金鑰</td><td>RSA 2048-bit 或 ECDSA P-256</td></tr><tr><td>簽章演算法（Signature Algorithm）</td><td>CA 簽署憑證時使用的演算法</td><td><code>SHA-256 with RSA</code></td></tr><tr><td>序號（Serial Number）</td><td>CA 指派的唯一 ID，用於撤銷追蹤</td><td>長十六進位字串</td></tr></tbody></table></div>
 
-你可對任何網域檢視上述欄位——到期日、發證者、SANs、鏈結狀態等——使用 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker)。輸入網域後按檢視即可。
+你可對任何網域檢視上述欄位——到期日、發證者、SANs、鏈結狀態等——使用 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker)。輸入網域後按檢視即可。
 
 ## Subject Alternative Names（SANs）為何重要
 
@@ -71,9 +71,9 @@ SSL 憑證採 **X.509** 格式。檢視時會看到多個結構化欄位：
 
 ### 選項 1：Authgear SSL 檢查工具（無需設定）
 
-開啟 [Authgear SSL 檢查工具](/zh-Hant/tools/ssl-checker)，輸入網域，即可一次看到憑證欄位、到期日、SANs、發證者與完整憑證鏈狀態——無需登入。
+開啟 [Authgear SSL 檢查工具](/zh-hant/tools/ssl-checker)，輸入網域，即可一次看到憑證欄位、到期日、SANs、發證者與完整憑證鏈狀態——無需登入。
 
-> 🔒 **建議：** 每次正式部署前跑一次 SSL 檢查，確認憑證有效、鏈結完整，且 SANs 涵蓋所有使用的子網域。鏈結議題見 [SSL 憑證鏈是什麼、如何修復中斷的鏈](/zh-Hant/post/ssl-certificate-chain)。
+> 🔒 **建議：** 每次正式部署前跑一次 SSL 檢查，確認憑證有效、鏈結完整，且 SANs 涵蓋所有使用的子網域。鏈結議題見 [SSL 憑證鏈是什麼、如何修復中斷的鏈](/zh-hant/post/ssl-certificate-chain)。
 
 ### 選項 2：OpenSSL（命令列）
 
@@ -97,12 +97,12 @@ SSL 憑證不只是官網上的鎖頭。在驗證系統中，它們是基礎安�
 - **API 客戶端預設拒絕無效憑證**——各主要語言的現代 HTTP 函式庫會拒絕過期或設定錯誤的伺服器憑證，影響伺服器對伺服器的 API 呼叫，不僅瀏覽器請求。  
 - **mTLS（雙向 TLS）**——進階模式，客戶端與伺服器互呈憑證。用於零信任架構、內部服務網格與高安全 API 端點。
 
-Authgear 在所有驗證端點自動強制 HTTPS。若你自建驗證層，正確設定的 SSL 憑證是第一步。接著可讀 [SSL 憑證鏈](/zh-Hant/post/ssl-certificate-chain)——許多在本機測試通過、上線後卻故障的靜默 SSL 設定問題，根源常在憑證鏈。
+Authgear 在所有驗證端點自動強制 HTTPS。若你自建驗證層，正確設定的 SSL 憑證是第一步。接著可讀 [SSL 憑證鏈](/zh-hant/post/ssl-certificate-chain)——許多在本機測試通過、上線後卻故障的靜默 SSL 設定問題，根源常在憑證鏈。
 
 ## SSL 憑證檢查清單
 
 - 憑證來自受信任 CA（Let's Encrypt、DigiCert、Sectigo 等）  
-- 憑證未過期——[查到期日](/zh-Hant/tools/ssl-checker)  
+- 憑證未過期——[查到期日](/zh-hant/tools/ssl-checker)  
 - Subject 中的網域與實際服務的網域一致  
 - SANs 涵蓋你使用的所有子網域  
 - 憑證鏈完整（有提供中繼 CA 憑證）  

@@ -146,6 +146,6 @@ SSO 的獨特之處在於，它能提升平台間的一致性，不只讓使用�
 
 透過 Authgear 導入 Customer SSO，可建立更無縫、具成本效益的使用體驗，讓使用者保持黏著，同時在過程中自然接觸你更多服務。
 
-我們的 SSO 解決方案不只容易整合至你的系統，也提供多種 <a href="/features/passkeys" target="_blank">驗證方式</a> 來保護登入安全，包括 <a href="/features/passwordless-authentication" target="_blank">無密碼</a> 選項與 <a href="/zh-Hant/post/what-is-multi-factor-authentication-mfa" target="_blank">雙因素驗證</a>，讓你和客戶都更安全。
+我們的 SSO 解決方案不只容易整合至你的系統，也提供多種 <a href="/features/passkeys" target="_blank">驗證方式</a> 來保護登入安全，包括 <a href="/features/passwordless-authentication" target="_blank">無密碼</a> 選項與 <a href="/zh-hant/post/what-is-multi-factor-authentication-mfa" target="_blank">雙因素驗證</a>，讓你和客戶都更安全。
 
 點擊<a href="/talk-with-us" target="_blank">這裡</a>預約 Demo，或點擊<a href="https://accounts.portal.authgear.com/signup" target="_blank">這裡</a>立即註冊。你的客戶正在等你。

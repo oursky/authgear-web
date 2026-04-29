@@ -37,7 +37,7 @@ Next.js App Router 專案一超過原型階段，每個開發者都會碰到：*
 
 把 JWT 想成演唱會手環：進場（登入）時查證件後發給你印有區域的手環；整晚任何工作人員看到手環就知道你可坐哪——不必每次都打電話回售票處。
 
-技術上，JWT 為以點分隔的三段 Base64URL：**header**（簽章演算法）、**payload**（使用者 ID、電子郵件、過期時間等 claims）、**signature**（無人竄改密碼學證明）。Next.js 伺服器收到帶 JWT 的請求時，以密鑰重算簽章並與權杖內比對；相符即可信任 payload。格式深入說明見 [JWT 驗證指南](/zh-Hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，或即時檢視權杖請用 [Authgear JWT Debugger](/zh-Hant/tools/jwt-jwe-debugger)。
+技術上，JWT 為以點分隔的三段 Base64URL：**header**（簽章演算法）、**payload**（使用者 ID、電子郵件、過期時間等 claims）、**signature**（無人竄改密碼學證明）。Next.js 伺服器收到帶 JWT 的請求時，以密鑰重算簽章並與權杖內比對；相符即可信任 payload。格式深入說明見 [JWT 驗證指南](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，或即時檢視權杖請用 [Authgear JWT Debugger](/zh-hant/tools/jwt-jwe-debugger)。
 
 ## JWT 該存在哪裡
 
@@ -285,7 +285,7 @@ export default async function ProfilePage() {
 
 自建 JWT 適合學習，但正式環境還需要 refresh 輪替、PKCE、全裝置登出、社交登入、MFA 等——每一塊都是安全關鍵、實作不簡單。
 
-Authgear 的 [`@authgear/nextjs` SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 內建上述能力。你仍取得應用 JWKS 簽署的標準 JWT，但權杖生命週期、Cookie 管理與 middleware 整合已預先完成。若團隊想專注產品而非維護驗證函式庫，這是較快路徑。亦可搭配我們的 [WebAuthn 實作通行金鑰指南](/zh-Hant/post/how-to-implement-passkeys-developer-guide)，在 JWT 之上加入無密碼登入。
+Authgear 的 [`@authgear/nextjs` SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 內建上述能力。你仍取得應用 JWKS 簽署的標準 JWT，但權杖生命週期、Cookie 管理與 middleware 整合已預先完成。若團隊想專注產品而非維護驗證函式庫，這是較快路徑。亦可搭配我們的 [WebAuthn 實作通行密鑰指南](/zh-hant/post/how-to-implement-passkeys-developer-guide)，在 JWT 之上加入無密碼登入。
 
 ## 常見問題
 

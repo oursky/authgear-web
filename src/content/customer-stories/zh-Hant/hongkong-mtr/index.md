@@ -20,7 +20,7 @@ metrics:
   - num: "90%"
     text: "填補值班職缺的時間顯著縮短"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/zh-Hant/customer-stories/hongkong-mtr"
+canonicalUrl: "https://www.authgear.com/zh-hant/customer-stories/hongkong-mtr"
 ---
 
 作為香港主要鐵路營運商，港鐵公司建立數位平台以簡化兼職站務人員的招聘與管理。平台需服務兩類對象——內部車站主管與外部應徵者，並與港鐵企業身分架構整合。透過 Authgear，港鐵推出雙軌驗證：主管使用 Azure AD、兼職使用者使用 WhatsApp OTP，在企業級安全下提供行動優先、低摩擦的體驗。
