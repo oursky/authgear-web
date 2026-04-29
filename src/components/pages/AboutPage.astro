@@ -22,7 +22,7 @@ const featuredCaseSlugs = ['hongkong-mtr', 'global-qsr'];
 
 const allStories = await getCollection('customer-stories', ({ id }) => id.startsWith('en/'));
 const findStory = (slug: string) =>
-  allStories.find((e) => e.id === `en/${slug}/index.md`);
+  allStories.find((e) => e.id === `en/${slug}/index`);
 
 const logoWall = logoWallSlugs
   .map(findStory)

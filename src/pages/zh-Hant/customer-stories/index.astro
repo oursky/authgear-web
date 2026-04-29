@@ -11,10 +11,10 @@ const locale = 'zh-Hant';
 
 // Prefer zh-Hant entries; fall back to en entries for slugs missing a translation.
 const [zhEntries, enEntries] = await Promise.all([
-  getCollection('customer-stories', ({ id }) => id.startsWith('zh-Hant/')),
+  getCollection('customer-stories', ({ id }) => id.startsWith('zh-hant/')),
   getCollection('customer-stories', ({ id }) => id.startsWith('en/')),
 ]);
-const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const slugOf = (id: string) => id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
 const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
 const merged = [
   ...zhEntries,

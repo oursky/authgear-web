@@ -8,10 +8,10 @@ import { localizedPath } from '@/lib/i18n';
 
 export async function getStaticPaths() {
   const [zhEntries, enEntries] = await Promise.all([
-    getCollection('integrations', ({ id }) => id.startsWith('zh-Hant/')),
+    getCollection('integrations', ({ id }) => id.startsWith('zh-hant/')),
     getCollection('integrations', ({ id }) => id.startsWith('en/')),
   ]);
-  const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  const slugOf = (id: string) => id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
   const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
   const merged = [
     ...zhEntries,
@@ -33,7 +33,7 @@ if (data.category) {
 }
 
 const all = await getCollection('integrations', ({ id }) => id.startsWith('en/'));
-const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+const slugOf = (id: string) => id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
 const mySlug = slugOf(entry.id);
 const related = all
   .filter((e) => slugOf(e.id) !== mySlug)

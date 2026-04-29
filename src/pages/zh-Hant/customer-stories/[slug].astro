@@ -10,10 +10,10 @@ import { localizedPath } from '@/lib/i18n';
 
 export async function getStaticPaths() {
   const [zhEntries, enEntries] = await Promise.all([
-    getCollection('customer-stories', ({ id }) => id.startsWith('zh-Hant/')),
+    getCollection('customer-stories', ({ id }) => id.startsWith('zh-hant/')),
     getCollection('customer-stories', ({ id }) => id.startsWith('en/')),
   ]);
-  const slugOf = (id: string) => id.replace(/^(zh-Hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  const slugOf = (id: string) => id.replace(/^(zh-hant|en)\//, '').replace(/\/index(\.(md|mdx))?$/, '');
   const zhSlugs = new Set(zhEntries.map((e) => slugOf(e.id)));
   // Emit one path per slug: prefer zh-Hant entry, fall back to en for missing translations.
   const merged = [
