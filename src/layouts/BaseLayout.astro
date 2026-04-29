@@ -3,6 +3,7 @@ import '@/styles/global.css';
 import SiteNav from '@/components/nav/SiteNav.astro';
 import SiteFooter from '@/components/nav/SiteFooter.astro';
 import { localeToHtmlLang } from '@/lib/i18n';
+import { t } from '@/i18n';
 
 interface Props {
   locale: string;
@@ -10,13 +11,29 @@ interface Props {
   description?: string;
 }
 
+const { locale } = Astro.props;
 const {
-  locale,
-  title = 'Authgear',
-  description = 'Authgear makes it easier for developers to meet complex authentication requirements.',
+  title = t(locale, 'Seo.siteName'),
+  description = t(locale, 'Seo.siteDescription'),
 } = Astro.props;
 
 const htmlLang = localeToHtmlLang(locale);
+const siteName = t(locale, 'Seo.siteName');
+
+// Canonical + locale-paired hreflang alternates. Astro.url is the
+// request URL; site is the canonical origin from astro.config.mjs.
+// Compute the "language-neutral" path by stripping the /zh-Hant/
+// prefix, then re-add it for the zh-Hant alternate.
+const siteOrigin = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const pathname = Astro.url.pathname;
+const neutralPath = pathname.startsWith('/zh-Hant')
+  ? pathname.replace(/^\/zh-Hant(\/|$)/, '/').replace(/\/\//g, '/')
+  : pathname;
+const enUrl = `${siteOrigin}${neutralPath}`;
+const zhHantUrl = `${siteOrigin}/zh-Hant${neutralPath === '/' ? '/' : neutralPath}`;
+const canonical = locale === 'zh-Hant' ? zhHantUrl : enUrl;
+const ogLocale = locale === 'zh-Hant' ? 'zh_TW' : 'en_US';
+const ogLocaleAlternate = locale === 'zh-Hant' ? 'en_US' : 'zh_TW';
 const gtmId = import.meta.env.PUBLIC_GTM_ID ?? '';
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN ?? '';
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION ?? '';
@@ -41,6 +58,25 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
     )}
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="zh-Hant" href={zhHantUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
+
+    {/* OpenGraph (Webflow used "copy SEO title/description" — same here). */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+
+    {/* Twitter (summary card — no image). */}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
 
     <link rel="icon" href="/images/favicon.png" />
     <link rel="apple-touch-icon" href="/images/webclip.png" />

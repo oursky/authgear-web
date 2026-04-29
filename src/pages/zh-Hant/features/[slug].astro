@@ -66,7 +66,7 @@ export function getStaticPaths() {
 
 const { slug } = Astro.params as { slug: string };
 const Component = pageMap[slug as keyof typeof pageMap];
-const meta = featuresMeta[slug as FeatureSlug];
+const meta = featuresMeta['zh-Hant'][slug as FeatureSlug];
 if (!Component || !meta) {
   return Astro.redirect('/404');
 }

@@ -1,4 +1,12 @@
 {
+  "Seo": {
+    "siteName": "Authgear",
+    "siteDescription": "Authgear 讓開發者更輕鬆地滿足複雜的身份驗證需求，為使用者打造順暢且卓越的數位體驗。",
+    "home": {
+      "title": "Authgear CLOUD — 為您託管的 IAM 解決方案",
+      "description": "Authgear 讓開發者更輕鬆地滿足複雜的身份驗證需求，為使用者打造順暢且卓越的數位體驗。"
+    }
+  },
   "Navigation": {
     "logoAlt": "Authgear 標誌",
     "products": "產品",
@@ -222,8 +230,8 @@
     "description": ""
   },
   "DataPrivacy": {
-    "title": "Privacy Policy - Authgear",
-    "description": ""
+    "title": "隱私政策 — Authgear",
+    "description": "Authgear 如何處理、儲存與保護個人資料。符合 GDPR，並通過 ISO 27001 與 SOC 2 Type II 合規認證。"
   },
   "Glossary": {
     "title": "名詞解釋 - Authgear",
@@ -261,7 +269,7 @@
   },
   "Once": {
     "title": "Authgear ONCE – 買斷授權，自主掌握 IAM",
-    "description": "以買斷授權自建 IAM——Authgear ONCE。無訂閱費，完整掌控身份與存取基礎架構。",
+    "description": "自託管 IAM，買斷授權——無訂閱費、完整掌握資料，並提供開發者友善的 SDK。Authgear ONCE 讓你完全掌控自己的身份基礎架構。",
     "heroTagline": "像 Auth0，<br></br>但無需<gradient>訂閱</gradient>",
     "heroDescription": "以 Authgear ONCE 掌握身份與存取管理：自架 IAM 平台，永久擁有。無訂閱、無隱藏費用。",
     "productHuntBadgeAlt": "Authgear ONCE 於 Product Hunt",
@@ -355,8 +363,8 @@
     "getStartedSubtitle": "搶先體驗 Authgear ONCE，改變您為客戶實作驗證的方式。"
   },
   "Policy": {
-    "title": "Acceptable Use Policy - Authgear",
-    "description": ""
+    "title": "可接受使用政策 — Authgear",
+    "description": "Authgear 可接受使用政策，規範驗證與身份服務的合理使用，保障客戶與終端使用者安全。"
   },
   "Promises": {
     "title": "Authgear 的承諾",
@@ -387,24 +395,24 @@
     "trustedBy": "信賴 Authgear 的客戶"
   },
   "Security": {
-    "title": "Security - Authgear",
-    "description": ""
+    "title": "安全性 — Authgear",
+    "description": "Authgear 服務的安全評估與合規。已取得 ISO 27001 與 SOC 2 Type II 認證，內建 DDoS 防護、靜態資料加密與持續監控。"
   },
   "Sla": {
-    "title": "Service Level Agreement - Authgear",
-    "description": ""
+    "title": "服務等級協議 — Authgear",
+    "description": "Authgear 服務等級協議：可用性承諾、支援回應時間，以及雲端與自建部署客戶的補救政策。"
   },
   "Terms": {
-    "title": "Terms of Services - Authgear",
-    "description": ""
+    "title": "服務條款 — Authgear",
+    "description": "閱讀 Authgear 的服務條款。可接受使用範圍、帳戶責任與服務可用性說明。"
   },
   "TermsEnterprise": {
-    "title": "Enterprise Subscription Terms - Authgear",
-    "description": ""
+    "title": "企業訂閱條款 — Authgear",
+    "description": "Authgear 企業客戶訂閱條款，涵蓋部署選項、支援等級與合約承諾。"
   },
   "AuthToolkit": {
-    "title": "Auth Developer Mini-Toolkit",
-    "description": ""
+    "title": "驗證開發者迷你工具組 — Authgear",
+    "description": "免費、免註冊的開發者驗證工具——JWT 與 JWE 偵錯器、JWK 產生器、OIDC Discovery、密碼雜湊、HMAC、TOTP 等。"
   },
   "Features": {
     "startForFree": "免費開始",
@@ -1555,5 +1563,8 @@
   },
   "Go": {},
   "Events": {},
-  "Campaign": {}
+  "Campaign": {},
+  "LoginGallery": {
+    "detailDescription": "瀏覽 {title} 在 Authgear 的登入體驗。Passkey、社群登入、OTP 等實際品牌驗證介面範例。"
+  }
 }
