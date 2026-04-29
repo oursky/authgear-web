@@ -21,7 +21,7 @@ authgear-web/
 
 1. **Static marketing pages** — Astro components under `src/pages/` and `src/components/pages/`.
 2. **Content-collection pages** — blog posts, customer stories, login gallery, what's new items, and integrations live under `src/content/{collection}/` as markdown + JSON, validated with zod schemas in `src/content/config.ts`.
-3. **SSR endpoints** — only `/api/contact` (contact-form forwarder) and `/sitemap.xml` (via `@astrojs/sitemap`) run at request time. Everything else is prerendered.
+3. **SSR endpoints** — only `/sitemap.xml` (via `@astrojs/sitemap`) runs at request time. Contact form submissions go to Netlify Forms (no SSR endpoint). Everything else is prerendered.
 
 ### Routing / i18n
 
@@ -46,13 +46,7 @@ npm run preview
 
 ## Environment Variables
 
-Only one:
-
-```env
-CONTACT_WEBHOOK_URL=
-```
-
-Set in `.env` (or your deployment secret store). The contact form POSTs to `/api/contact`; if `CONTACT_WEBHOOK_URL` is set, submissions are forwarded there. Without it, submissions are logged to stdout.
+None required for the contact form — submissions are handled by Netlify Forms (build-time detection via `public/__forms.html` stub; configure notifications in the Netlify dashboard).
 
 ## Authoring content
 

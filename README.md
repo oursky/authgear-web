@@ -13,7 +13,7 @@ The Authgear marketing website, built with **Astro 6**. All content — blog pos
 | **Syntax highlighting** | Shiki (`github-light` theme) |
 | **Adapter** | `@astrojs/netlify` (SSR for the few dynamic endpoints) |
 
-Most routes are prerendered; only `/api/contact` and `/sitemap.xml` run at request time.
+Most routes are prerendered; only `/sitemap.xml` runs at request time. Contact-form submissions are handled by Netlify Forms (no SSR endpoint).
 
 ## Repository layout
 
@@ -45,10 +45,9 @@ npm run preview
 
 ## Environment variables
 
-All four are optional — the site runs without any of them. Set them in `.env` locally or in your deployment's secret store. See [`.env.example`](.env.example) for the full template.
+All three are optional — the site runs without any of them. Set them in `.env` locally or in your deployment's secret store. See [`.env.example`](.env.example) for the full template.
 
 ```env
-CONTACT_WEBHOOK_URL=
 PUBLIC_GTM_ID=
 PUBLIC_PLAUSIBLE_DOMAIN=
 PUBLIC_GOOGLE_SITE_VERIFICATION=
@@ -56,10 +55,11 @@ PUBLIC_GOOGLE_SITE_VERIFICATION=
 
 | Var | Effect |
 |-----|--------|
-| `CONTACT_WEBHOOK_URL` | `/api/contact` forwards form submissions here as JSON. If unset, submissions are logged to server stdout. |
 | `PUBLIC_GTM_ID` | Google Tag Manager container ID (e.g. `GTM-XXXXXXX`). The GTM `<script>` and `<noscript>` iframe only render when set — leave blank in staging/local to avoid polluting the prod container. |
 | `PUBLIC_PLAUSIBLE_DOMAIN` | Plausible Analytics site identifier (conventionally the canonical prod hostname, e.g. `authgear.com`). A label used by Plausible to bucket events — not a runtime hostname check. Script only loads when set. |
 | `PUBLIC_GOOGLE_SITE_VERIFICATION` | Google Search Console verification token. The `<meta name="google-site-verification">` tag only renders when set, so staging/local builds don't carry the prod token. |
+
+Contact form submissions are handled by [Netlify Forms](https://docs.netlify.com/manage/forms/setup/); configure recipient emails / webhooks in the Netlify dashboard.
 
 ## Authoring content
 

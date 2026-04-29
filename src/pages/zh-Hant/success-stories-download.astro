@@ -22,7 +22,6 @@ const stories = merged
 
 const title = '從真實成功案例獲得啟發';
 const description = '了解各家企業如何運用 Authgear 簡化身份驗證、提升使用者體驗,並安全擴展業務。';
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 ---
 
 <BaseLayout locale={locale} title={title} description={description}>
@@ -35,8 +34,24 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
           <p class="ds-hero-banner__description">{description}</p>
           <form
             class="stories-dl__form"
+            name="success-stories-download"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="website"
             data-pdf="/downloads/authgear-case-study.pdf"
+            data-locale="zh-Hant"
           >
+            <input type="hidden" name="form-name" value="success-stories-download" />
+            <input type="hidden" name="locale" value="zh-Hant" />
+            <input type="hidden" name="source" value="success-stories-download" />
+            <input
+              type="text"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+              style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"
+            />
             <label for="stories-dl-email" class="stories-dl__form-label">電子郵件</label>
             <div class="stories-dl__form-row">
               <input
@@ -53,14 +68,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
                 <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m0 0 3-3m-3 3-3-3M3.75 5.625c0-.621.504-1.125 1.125-1.125h14.25c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125H4.875a1.125 1.125 0 0 1-1.125-1.125V5.625Z" /></svg>
               </button>
             </div>
-            {turnstileSiteKey && (
-              <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-size="flexible" style="margin-top: 12px;"></div>
-            )}
             <p class="stories-dl__form-status" role="status" aria-live="polite"></p>
           </form>
-          {turnstileSiteKey && (
-            <script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
-          )}
         </div>
       </div>
     </div>
@@ -161,26 +170,28 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
   const form = document.querySelector('.stories-dl__form');
   if (form) {
     const pdfUrl = form.dataset.pdf;
+    const locale = form.dataset.locale || 'zh-Hant';
     const status = form.querySelector('.stories-dl__form-status');
     const submit = form.querySelector('.stories-dl__form-submit');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = form.querySelector('input[name="Email"]').value.trim();
+      const honeypot = form.querySelector('input[name="website"]').value;
       if (!email) return;
-      const tokenInput = form.querySelector('input[name="cf-turnstile-response"]');
-      const cfTurnstileToken = tokenInput ? tokenInput.value : undefined;
       submit.disabled = true;
       status.textContent = '送出中⋯';
       try {
-        const res = await fetch('/api/contact', {
+        const params = new URLSearchParams();
+        params.append('form-name', 'success-stories-download');
+        params.append('Email', email);
+        params.append('locale', locale);
+        params.append('page', window.location.pathname);
+        params.append('source', 'success-stories-download');
+        if (honeypot) params.append('website', honeypot);
+        const res = await fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            Email: email,
-            source: 'success-stories-download',
-            locale: 'zh-Hant',
-            cfTurnstileToken,
-          }),
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString(),
         });
         if (!res.ok) throw new Error(`status ${res.status}`);
         status.textContent = '感謝您!正在為您開啟 PDF⋯';
