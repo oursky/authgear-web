@@ -231,7 +231,7 @@
   },
   "DataPrivacy": {
     "title": "Privacy Policy - Authgear",
-    "description": ""
+    "description": "How Authgear handles, stores, and protects personal data. GDPR-aligned, ISO 27001 and SOC 2 Type II compliant."
   },
   "Glossary": {
     "title": "Glossary - Authgear",
@@ -269,7 +269,7 @@
   },
   "Once": {
     "title": "Authgear ONCE – Own Your IAM with a Perpetual License",
-    "description": "Self-hosted IAM with a perpetual license — Authgear ONCE. No subscriptions; full control of your identity stack.",
+    "description": "Self-hosted IAM with a perpetual license — no subscriptions, full data ownership, and developer-friendly SDKs. Authgear ONCE puts you in control of your identity stack.",
     "heroTagline": "Like Auth0,<br></br>But Without the <gradient>Subscription</gradient>",
     "heroDescription": "Take control of your identity and access management with Authgear ONCE — a self-hosted IAM platform you own forever. No subscriptions, no surprises.",
     "productHuntBadgeAlt": "Authgear ONCE on Product Hunt",
@@ -364,7 +364,7 @@
   },
   "Policy": {
     "title": "Acceptable Use Policy - Authgear",
-    "description": ""
+    "description": "Authgear acceptable use policy. Guidelines for legitimate use of our authentication and identity services to keep customers and end users safe."
   },
   "Promises": {
     "title": "Authgear Promises",
@@ -396,23 +396,23 @@
   },
   "Security": {
     "title": "Security - Authgear",
-    "description": ""
+    "description": "Security assessments and compliance for Authgear services. ISO 27001 and SOC 2 Type II certified, with built-in DDoS protection, encryption at rest, and continuous monitoring."
   },
   "Sla": {
     "title": "Service Level Agreement - Authgear",
-    "description": ""
+    "description": "Authgear service level agreement: uptime commitments, support response times, and remediation policy for cloud and self-hosted customers."
   },
   "Terms": {
     "title": "Terms of Services - Authgear",
-    "description": ""
+    "description": "Read the Terms of Service for using Authgear, the open-source CIAM platform. Acceptable use, account responsibilities, and service availability."
   },
   "TermsEnterprise": {
     "title": "Enterprise Subscription Terms - Authgear",
-    "description": ""
+    "description": "Enterprise subscription terms for Authgear customers, covering deployment options, support tiers, and contractual commitments."
   },
   "AuthToolkit": {
     "title": "Auth Developer Mini-Toolkit",
-    "description": ""
+    "description": "Free, no-signup tools for auth developers — JWT and JWE debugger, JWK generator, OIDC discovery, password hash, HMAC, TOTP, and more."
   },
   "Features": {
     "startForFree": "Start for Free",
@@ -1563,5 +1563,8 @@
   },
   "Go": {},
   "Events": {},
-  "Campaign": {}
+  "Campaign": {},
+  "LoginGallery": {
+    "detailDescription": "Browse the {title} login experience on Authgear. Real-world brand examples of authentication UIs built with passkeys, social login, OTP, and more."
+  }
 }

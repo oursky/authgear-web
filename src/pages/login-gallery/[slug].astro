@@ -58,7 +58,11 @@ const carouselLabels = {
 };
 ---
 
-<BaseLayout locale={locale} title={data.title} description="">
+<BaseLayout
+  locale={locale}
+  title={data.title}
+  description={tFn(locale, 'LoginGallery.detailDescription').replace('{title}', data.title)}
+>
   <section class="ds-section ds-login-gallery-page">
     <header class="ds-login-gallery-page__header">
       <div class="ds-container ds-login-gallery-page__container">
