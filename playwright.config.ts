@@ -15,11 +15,7 @@ export default defineConfig({
     // against `astro dev`. It exercises the same code paths (prerendered
     // pages, SSR endpoints, middleware) — just JIT-compiled instead of
     // built ahead of time.
-    command:
-      `PUBLIC_GTM_ID=GTM-TEST0000 ` +
-      `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA ` +
-      `TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA ` +
-      `astro dev --port ${PORT}`,
+    command: `PUBLIC_GTM_ID=GTM-TEST0000 astro dev --port ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

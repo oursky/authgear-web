@@ -4,7 +4,6 @@ import type { IntlTelInputRef } from 'intl-tel-input/react';
 import type { Iso2 } from 'intl-tel-input/data';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import { trackEvent } from '@/lib/plausible';
-import { Turnstile } from '@marsidev/react-turnstile';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -13,8 +12,16 @@ type Locale = 'en' | 'zh-Hant';
 interface Props {
   /** Page locale — drives user-facing copy. Payload field names stay locale-neutral. */
   locale?: string;
-  /** Optional: override the POST target (default `/api/contact`). */
-  action?: string;
+}
+
+const NETLIFY_FORM_NAME = 'contact';
+
+function encodeFormData(data: Record<string, string>): string {
+  const params = new URLSearchParams();
+  for (const [k, v] of Object.entries(data)) {
+    if (v) params.append(k, v);
+  }
+  return params.toString();
 }
 
 /**
@@ -73,7 +80,7 @@ function getSubmissionPage(): string {
   return window.location.pathname + window.location.search;
 }
 
-export default function ContactForm({ locale = 'en', action = '/api/contact' }: Props) {
+export default function ContactForm({ locale = 'en' }: Props) {
   const l: Locale = locale === 'zh-Hant' ? 'zh-Hant' : 'en';
   const t = MESSAGES[l];
   const [name, setName] = useState('');
@@ -84,8 +91,6 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
   const [useCase, setUseCase] = useState('');
   const [status, setStatus] = useState<Status>('idle');
   const [honeypot, setHoneypot] = useState('');
-  const [turnstileToken, setTurnstileToken] = useState('');
-  const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
   const itiRef = useRef<IntlTelInputRef | null>(null);
 
   useEffect(() => {
@@ -107,29 +112,30 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
         : rawPhone);
     setStatus('submitting');
     try {
-      const res = await fetch(action, {
+      // Netlify Forms accepts URL-encoded POSTs to any path on the site;
+      // the body must include `form-name` matching the registered form.
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeFormData({
+          'form-name': NETLIFY_FORM_NAME,
           Name: name,
           Email: email,
-          Phone: phoneToSend || undefined,
-          Country: country || undefined,
+          Phone: phoneToSend,
+          Country: country,
           Company: company,
           'how-hear': howHear,
-          'Use-Case': useCase || undefined,
-          utm_source: getQueryParam('utm_source') || undefined,
-          utm_medium: getQueryParam('utm_medium') || undefined,
-          utm_campaign: getQueryParam('utm_campaign') || undefined,
-          page: getSubmissionPage() || undefined,
+          'Use-Case': useCase,
+          utm_source: getQueryParam('utm_source'),
+          utm_medium: getQueryParam('utm_medium'),
+          utm_campaign: getQueryParam('utm_campaign'),
+          page: getSubmissionPage(),
           locale: l,
           source: 'contact-form',
-          website: honeypot || undefined,
-          cfTurnstileToken: turnstileToken || undefined,
+          website: honeypot,
         }),
       });
       setStatus(res.ok ? 'success' : 'error');
-      setTurnstileToken('');
     } catch {
       setStatus('error');
     }
@@ -164,7 +170,15 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
 
   return (
     <div className="form-block ds-form">
-      <form onSubmit={handleSubmit} className="ds-form__form">
+      <form
+        name={NETLIFY_FORM_NAME}
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="website"
+        onSubmit={handleSubmit}
+        className="ds-form__form"
+      >
+        <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
         <input
           type="text"
           name="website"
@@ -303,21 +317,10 @@ export default function ContactForm({ locale = 'en', action = '/api/contact' }: 
           </div>
         )}
 
-        {turnstileSiteKey && (
-          <div className="ds-form__turnstile" style={{ marginTop: 12 }}>
-            <Turnstile
-              siteKey={turnstileSiteKey}
-              onSuccess={(t) => setTurnstileToken(t)}
-              onExpire={() => setTurnstileToken('')}
-              onError={() => setTurnstileToken('')}
-            />
-          </div>
-        )}
-
         <button
           type="submit"
           className="ds-btn ds-btn-primary ds-form__submit"
-          disabled={status === 'submitting' || (!!turnstileSiteKey && !turnstileToken)}
+          disabled={status === 'submitting'}
           aria-busy={status === 'submitting'}
         >
           {status === 'submitting' ? t.submitting : t.submit}

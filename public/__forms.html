@@ -1,0 +1,39 @@
+<!doctype html>
+<!--
+  Static form stub for Netlify Forms build-time detection. The real form
+  is rendered client-side by src/components/islands/ContactForm.tsx, so
+  Netlify's HTML scanner cannot see it in prerendered output. This file
+  registers the "contact" form with Netlify so submissions are accepted.
+
+  Field names here MUST stay in sync with the React form.
+-->
+<html lang="en">
+<head><meta charset="utf-8"><title>Netlify form stub</title></head>
+<body>
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="website" hidden>
+    <input type="text" name="Name" />
+    <input type="email" name="Email" />
+    <input type="tel" name="Phone" />
+    <input type="text" name="Country" />
+    <input type="text" name="Company" />
+    <input type="text" name="how-hear" />
+    <textarea name="Use-Case"></textarea>
+    <input type="text" name="utm_source" />
+    <input type="text" name="utm_medium" />
+    <input type="text" name="utm_campaign" />
+    <input type="text" name="page" />
+    <input type="text" name="locale" />
+    <input type="text" name="source" />
+    <input type="text" name="website" />
+  </form>
+
+  <!-- /success-stories-download lead-magnet form. Single email field. -->
+  <form name="success-stories-download" method="POST" data-netlify="true" netlify-honeypot="website" hidden>
+    <input type="email" name="Email" />
+    <input type="text" name="locale" />
+    <input type="text" name="page" />
+    <input type="text" name="source" />
+    <input type="text" name="website" />
+  </form>
+</body>
+</html>
