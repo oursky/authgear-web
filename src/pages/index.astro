@@ -5,5 +5,12 @@ import HomePage from '@/components/pages/HomePage.astro';
 ---
 
 <BaseLayout locale="en" title="Authgear">
+  <Fragment slot="head">
+    {/* Hero is a CSS background that swaps at 768px. Preload the matching
+        asset per breakpoint so we don't waste the LCP budget on the wrong
+        image — webflow.css renders -m2x below 768px and -pc2x above. */}
+    <link rel="preload" as="image" href="/images/home_kv_bg-m2x.webp" fetchpriority="high" media="(max-width: 767px)" />
+    <link rel="preload" as="image" href="/images/home_kv_bg-pc2x.webp" fetchpriority="high" media="(min-width: 768px)" />
+  </Fragment>
   <HomePage locale="en" />
 </BaseLayout>

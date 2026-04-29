@@ -46,6 +46,8 @@ test('reduce-sms-otp-cost: SmsCostCalculator island hydrates', async ({ page }) 
 test('ContactForm hydrates on /solutions/enterprise-sso', async ({ page }) => {
   await page.goto('/solutions/enterprise-sso');
   const nameInput = page.locator('input[name="Name"]').first();
+  // ContactForm uses client:visible — scroll into view to trigger hydration.
+  await nameInput.scrollIntoViewIfNeeded();
   await expect(nameInput).toBeVisible();
   await nameInput.fill('Enterprise Lead');
   await expect(nameInput).toHaveValue('Enterprise Lead');
