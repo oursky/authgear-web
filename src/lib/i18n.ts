@@ -30,6 +30,22 @@ export function localizedPath(locale: string, path: string): string {
   return `${prefix}${pathname === '/' ? '' : pathname}${search}`;
 }
 
+/**
+ * Strip a recognized locale URL segment from a pathname so the result is
+ * locale-neutral. `/zh-hant/about` → `/about`; `/about` → `/about`. Used
+ * by the footer language switcher and any other place that needs to map
+ * the current URL onto a sibling locale.
+ */
+export function stripLocaleSegment(pathname: string): string {
+  for (const loc of LOCALES) {
+    const seg = LOCALE_URL_SEGMENT[loc];
+    if (!seg) continue;
+    if (pathname === seg) return '/';
+    if (pathname.startsWith(`${seg}/`)) return pathname.slice(seg.length);
+  }
+  return pathname;
+}
+
 /** Legacy URL segment; middleware redirects `/zh-Hant-TW/...` → `/zh-hant/...`. */
 export const LEGACY_ZH_PATH_LOCALE = 'zh-Hant-TW' as const;
 
