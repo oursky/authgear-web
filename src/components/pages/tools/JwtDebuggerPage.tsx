@@ -1,4 +1,5 @@
-import { t as tFn } from '@/i18n';
+import { t as tFn } from "@/i18n";
+import { localizedPath } from "@/lib/i18n";
 import ToolHero from '@/components/tools/ToolHero';
 import ToolWidget from '@/components/tools/ToolWidget';
 import MoreDevTools from '@/components/tools/MoreDevTools';
@@ -87,7 +88,7 @@ export default function JwtDebuggerPage({ locale }: Props) {
             icon="/images/tools-qa-what-is.svg"
             title={
               <>
-                <a href="/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications">
+                <a href={localizedPath(locale, "/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications")}>
                   {t('faqJwtLinkText')}
                 </a>{' '}
                 {t('faqJwtTitleSuffix')}

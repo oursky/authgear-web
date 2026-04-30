@@ -1,8 +1,9 @@
 ---
 import LegalPageLayout from '@/components/legal/LegalPageLayout.astro';
 interface Props { locale: string }
+const { locale } = Astro.props;
 ---
-<LegalPageLayout title="Data Privacy Policy">
+<LegalPageLayout title="Data Privacy Policy" locale={locale}>
   <h2>Who we are</h2>
   <p>When we refer to "Authgear," "we," or "us" in this policy, we mean SkyMakers Digital Limited, which controls the information Authgear collects when you use Authgear's Services. Authgear owns and operates a number of websites.</p>
   <p>This Privacy Policy applies to our customers, prospective customers, our customers' customers/users and visitors to <a href="/">www.authgear.com</a>, an authentication as a service owned by Authgear. We refer to Authgear and its related services as "Services" in this policy.</p>
