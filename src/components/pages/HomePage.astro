@@ -140,7 +140,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
           <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.ciamSubheading')}</div>
         </div>
         <div class="w-layout-grid feature-grid-3x1 home-cards-grid-wrap">
-          <a href="/solutions/ciam-solution" class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
+          <a href={localizedPath(locale, "/solutions/ciam-solution")} class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
             <div class="home-card-wrap home-card-content">
               <div class="home-card-image hover-to-white">
                 <div class="home-card-svg"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +172,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
             </div>
             <div class="home-card-arrow hover-to-white"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_h_a)"><path d="M18 0C8.07497 0 0 8.07497 0 18C0 27.925 8.07497 36 18 36C27.925 36 36 27.925 36 18C36 8.07497 27.925 0 18 0ZM18 33.75C9.31528 33.75 2.25 26.6847 2.25 18C2.25 9.31528 9.31528 2.25 18 2.25C26.6847 2.25 33.75 9.31528 33.75 18C33.75 26.6847 26.6847 33.75 18 33.75ZM25.5454 17.2046C25.985 17.6442 25.985 18.3561 25.5454 18.7954L19.9204 24.4204C19.7007 24.64 19.4127 24.75 19.125 24.75C18.8373 24.75 18.5493 24.64 18.3296 24.4204C17.89 23.9808 17.89 23.2689 18.3296 22.8296L22.0343 19.125H11.25C10.6287 19.125 10.125 18.6218 10.125 18C10.125 17.3782 10.6287 16.875 11.25 16.875H22.0343L18.3296 13.1704C17.89 12.7308 17.89 12.0189 18.3296 11.5796C18.7692 11.1403 19.4811 11.14 19.9204 11.5796L25.5454 17.2046Z" fill="currentColor" /></g><defs><clipPath id="clip_h_a"><rect width="36" height="36" fill="white" /></clipPath></defs></svg></div>
           </a>
-          <a href="/solutions/frontline-workers-identity" class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
+          <a href={localizedPath(locale, "/solutions/frontline-workers-identity")} class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
             <div class="home-card-wrap home-card-content">
               <div class="home-card-image hover-to-white">
                 <div class="home-card-svg"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -194,7 +194,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
             </div>
             <div class="home-card-arrow hover-to-white"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_h_b)"><path d="M18 0C8.07497 0 0 8.07497 0 18C0 27.925 8.07497 36 18 36C27.925 36 36 27.925 36 18C36 8.07497 27.925 0 18 0ZM18 33.75C9.31528 33.75 2.25 26.6847 2.25 18C2.25 9.31528 9.31528 2.25 18 2.25C26.6847 2.25 33.75 9.31528 33.75 18C33.75 26.6847 26.6847 33.75 18 33.75ZM25.5454 17.2046C25.985 17.6442 25.985 18.3561 25.5454 18.7954L19.9204 24.4204C19.7007 24.64 19.4127 24.75 19.125 24.75C18.8373 24.75 18.5493 24.64 18.3296 24.4204C17.89 23.9808 17.89 23.2689 18.3296 22.8296L22.0343 19.125H11.25C10.6287 19.125 10.125 18.6218 10.125 18C10.125 17.3782 10.6287 16.875 11.25 16.875H22.0343L18.3296 13.1704C17.89 12.7308 17.89 12.0189 18.3296 11.5796C18.7692 11.1403 19.4811 11.14 19.9204 11.5796L25.5454 17.2046Z" fill="currentColor" /></g><defs><clipPath id="clip_h_b"><rect width="36" height="36" fill="white" /></clipPath></defs></svg></div>
           </a>
-          <a href="/solutions/b2b-saas-authentication" class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
+          <a href={localizedPath(locale, "/solutions/b2b-saas-authentication")} class="home-card radius-48 bg-1c1d3c with-button p-0 w-inline-block">
             <div class="home-card-wrap home-card-content">
               <div class="home-card-image hover-to-white">
                 <div class="home-card-svg"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -460,13 +460,13 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
           <div class="w-layout-vflex flex-block-87">
             <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-place2x.png" loading="lazy" alt="" class="image-95" />
               <div class="customer-story-description">{t(locale, 'Home.storyPlaceDesc')}</div>
-              <a href="/customer-stories/palace" class="customer-story-link w-inline-block">
+              <a href={localizedPath(locale, "/customer-stories/palace")} class="customer-story-link w-inline-block">
                 <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
               </a>
             </div>
             <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-HKL2x.png" loading="lazy" alt="" class="image-95" />
               <div class="customer-story-description">{t(locale, 'Home.storyHKLDesc')}</div>
-              <a href="/customer-stories/hongkong-land" class="customer-story-link w-inline-block">
+              <a href={localizedPath(locale, "/customer-stories/hongkong-land")} class="customer-story-link w-inline-block">
                 <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
               </a>
             </div>
@@ -475,13 +475,13 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
             <div class="w-layout-vflex container-1470 no-logo">
               <div class="customer-story-title">{t(locale, 'Home.storyFnBTitle')}</div>
               <div class="customer-story-description">{t(locale, 'Home.storyFnBDesc')}</div>
-              <a href="/customer-stories/global-qsr" class="customer-story-link w-inline-block">
+              <a href={localizedPath(locale, "/customer-stories/global-qsr")} class="customer-story-link w-inline-block">
                 <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
               </a>
             </div>
             <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-MTR2x.png" loading="lazy" alt="" class="image-95" />
               <div class="customer-story-description">{t(locale, 'Home.storyMTRDesc')}</div>
-              <a href="/customer-stories/hongkong-mtr" class="customer-story-link w-inline-block">
+              <a href={localizedPath(locale, "/customer-stories/hongkong-mtr")} class="customer-story-link w-inline-block">
                 <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
               </a>
             </div>
@@ -489,13 +489,13 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
           <div class="w-layout-vflex flex-block-87">
             <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-Bupa2x.png" loading="lazy" alt="" class="image-95" />
               <div class="customer-story-description">{t(locale, 'Home.storyBupaDesc')}</div>
-              <a href="/customer-stories/bupa" class="customer-story-link w-inline-block">
+              <a href={localizedPath(locale, "/customer-stories/bupa")} class="customer-story-link w-inline-block">
                 <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
               </a>
             </div>
             <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-cornerstone2x.png" loading="lazy" alt="" class="image-95" />
               <div class="customer-story-description">{t(locale, 'Home.storyCornerstoneDesc')}</div>
-              <a href="/customer-stories/cornerstone-technologies" class="customer-story-link w-inline-block">
+              <a href={localizedPath(locale, "/customer-stories/cornerstone-technologies")} class="customer-story-link w-inline-block">
                 <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
               </a>
             </div>

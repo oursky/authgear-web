@@ -1,5 +1,6 @@
 ---
 import ContactForm from '@/components/islands/ContactForm';
+import { localizedPath } from '@/lib/i18n';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
@@ -11,7 +12,7 @@ const { locale } = Astro.props;
       <p class="features-hero-description">Simplify user experience and boost security with Authgear's OIDC-based SSO solution. Experience the benefits of enhanced user engagement and reduced friction.</p>
       <div class="features-hero-cta-wrapper">
         <a href="https://portal.authgear.com/?utm_source=feature-sso&amp;utm_medium=link&amp;utm_campaign=start-for-free" target="_blank" class="button-primary feature-hero-btn-v2 w-button">Start for Free</a>
-        <a href="/schedule-demo" target="_blank" class="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span class="text-span-23">{">"}</span></a>
+        <a href={localizedPath(locale, "/schedule-demo")} target="_blank" class="button-secondary feature-hero-btn-v2 noscale w-button">Schedule Demo  <span class="text-span-23">{">"}</span></a>
       </div>
     </div><img src="/images/features-sso-hero-kv.svg" alt="" class="image features-hero-image-v2" />
   </div>
@@ -189,14 +190,14 @@ const { locale } = Astro.props;
       </div>
       <div class="secondary-block">
         <div class="_2-card-grid">
-          <a href="/post/customer-sso" target="_blank" class="secondary-block-card-link bg-white w-inline-block">
+          <a href={localizedPath(locale, "/post/customer-sso")} target="_blank" class="secondary-block-card-link bg-white w-inline-block">
             <div class="secondary-block-card-image-container"><img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" class="secondary-block-card-image" /></div>
             <div class="blog-post-link-with-desc">
               <div class="secondary-block-card-content">What is Customer SSO and Why Should You Implement it?</div>
               <div class="blog-post-link-desc">Learn more about the advantages of Single Sign-On for your customers and how your business can benefit from a unified login experience.</div>
             </div>
           </a>
-          <a href="/post/oidc-vs-saml-decoding-the-sso-showdown-and-why-it-matters-for-your-business" target="_blank" class="secondary-block-card-link bg-white w-inline-block">
+          <a href={localizedPath(locale, "/post/oidc-vs-saml-decoding-the-sso-showdown-and-why-it-matters-for-your-business")} target="_blank" class="secondary-block-card-link bg-white w-inline-block">
             <div class="secondary-block-card-image-container"><img src="/images/features-mfa-deepdive-article.svg" loading="lazy" alt="" class="secondary-block-card-image" /></div>
             <div class="blog-post-link-with-desc">
               <div class="secondary-block-card-content">OIDC vs. SAML: Decoding the SSO Showdown (And Why It Matters for Your Business)</div>

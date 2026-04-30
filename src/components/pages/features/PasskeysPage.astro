@@ -1,5 +1,6 @@
 ---
 import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 import ContactForm from '@/components/islands/ContactForm';
 import MfaOptionsTabs from '@/components/islands/MfaOptionsTabs';
 interface Props { locale: string }
@@ -59,7 +60,7 @@ const PASSKEYS_HOW_TO_IMAGES = [
                 {t(locale, 'Features.startForFree')}
                 <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
               </a>
-              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+              <a href={localizedPath(locale, "/schedule-demo")} target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
                 {t(locale, 'Features.scheduleDemo')}
                 <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
               </a>
@@ -111,7 +112,7 @@ const PASSKEYS_HOW_TO_IMAGES = [
       <div class="ds-split-row__body">
         <h2 class="heading-on-dark">{t(locale, 'Passkeys.apiTitle')}</h2>
         <p class="section-lede-on-dark">{t(locale, 'Passkeys.apiDesc')}</p>
-        <a href="/schedule-demo" class="ds-btn ds-btn-outline-light">
+        <a href={localizedPath(locale, "/schedule-demo")} class="ds-btn ds-btn-outline-light">
           {t(locale, 'Passkeys.learnMore')}
           <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
         </a>
@@ -153,7 +154,7 @@ const PASSKEYS_HOW_TO_IMAGES = [
       </div>
     </div>
     <a
-      href="/post/passkey-vs-password-why-passkeys-are-the-future-of-security"
+      href={localizedPath(locale, "/post/passkey-vs-password-why-passkeys-are-the-future-of-security")}
       class="ds-btn ds-btn-subtle"
     >
       {t(locale, 'Passkeys.readBlog')}

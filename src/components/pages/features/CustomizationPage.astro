@@ -1,5 +1,6 @@
 ---
 import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
@@ -22,7 +23,7 @@ const { locale } = Astro.props;
                 {t(locale, 'Features.startForFree')}
                 <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
               </a>
-              <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
+              <a href={localizedPath(locale, "/schedule-demo")} target="_blank" rel="noreferrer" class="ds-btn ds-btn-tertiary">
                 {t(locale, 'Features.scheduleDemo')}
                 <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
               </a>
@@ -116,7 +117,7 @@ const { locale } = Astro.props;
       <div class="ds-split-row__body">
         <h3 class="heading-on-dark">{t(locale, 'Customization.galleryTitle')}</h3>
         <p class="section-lede-on-dark">{t(locale, 'Customization.galleryDesc')}</p>
-        <a href="/login-gallery" class="ds-btn ds-btn-outline-light">{t(locale, 'Customization.galleryBtn')}</a>
+        <a href={localizedPath(locale, "/login-gallery")} class="ds-btn ds-btn-outline-light">{t(locale, 'Customization.galleryBtn')}</a>
       </div>
     </div>
   </div>
@@ -136,7 +137,7 @@ const { locale } = Astro.props;
         <div class="ds-split-row__body">
           <h3 class="heading-on-light">{t(locale, 'Customization.feature1Title')}</h3>
           <p class="section-lede-on-light">{t(locale, 'Customization.feature1Desc')}</p>
-          <a href="/features/self-serve-settings-page" class="ds-btn ds-btn-subtle">
+          <a href={localizedPath(locale, "/features/self-serve-settings-page")} class="ds-btn ds-btn-subtle">
             {t(locale, 'Customization.feature1Cta')}
             <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
@@ -185,7 +186,7 @@ const { locale } = Astro.props;
         <div class="ds-split-row__body">
           <h3 class="heading-on-light">{t(locale, 'Customization.feature6Title')}</h3>
           <p class="section-lede-on-light">{t(locale, 'Customization.feature6Desc')}</p>
-          <a href="/features/extensibility" class="ds-btn ds-btn-subtle">
+          <a href={localizedPath(locale, "/features/extensibility")} class="ds-btn ds-btn-subtle">
             {t(locale, 'Customization.feature6Cta')}
             <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
@@ -209,7 +210,7 @@ const { locale } = Astro.props;
       >
         {t(locale, 'Features.startForFree')}
       </a>
-      <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+      <a href={localizedPath(locale, "/schedule-demo")} target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
         {t(locale, 'Features.getDemo')}
       </a>
     </div>

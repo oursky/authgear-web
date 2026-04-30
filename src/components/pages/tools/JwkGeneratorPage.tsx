@@ -1,4 +1,5 @@
-import { t as tFn } from '@/i18n';
+import { t as tFn } from "@/i18n";
+import { localizedPath } from "@/lib/i18n";
 import ToolHero from '@/components/tools/ToolHero';
 import ToolWidget from '@/components/tools/ToolWidget';
 import MoreDevTools from '@/components/tools/MoreDevTools';
@@ -15,7 +16,7 @@ export default function JwkGeneratorPage({ locale }: Props) {
   const policy = (
     <>
       {t('policyLine1')}{' '}
-      <a href="/post/what-is-jwks">{t('policyLearnMore')}</a> <br />
+      <a href={localizedPath(locale, "/post/what-is-jwks")}>{t('policyLearnMore')}</a> <br />
       {t('policyLine2')}{' '}
       <a href={t('policyGithub')} target="_blank" rel="noreferrer">
         {t('policyGithub')}
@@ -80,7 +81,7 @@ export default function JwkGeneratorPage({ locale }: Props) {
             icon="/images/tools-qa-what-is.svg"
             title={
               <>
-                <a href="/post/what-is-jwks">{t('faqJwkLinkText')}</a> {t('faqJwkTitleSuffix')}
+                <a href={localizedPath(locale, "/post/what-is-jwks")}>{t('faqJwkLinkText')}</a> {t('faqJwkTitleSuffix')}
               </>
             }
           >

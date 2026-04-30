@@ -1,9 +1,11 @@
 ---
+import { localizedPath } from '@/lib/i18n';
 interface Props {
   title: string;
   eyebrow?: string;
+  locale?: string;
 }
-const { title, eyebrow = 'Legal' } = Astro.props;
+const { title, eyebrow = 'Legal', locale = 'en' } = Astro.props;
 ---
 <section class="ds-hero-banner--gradient legal-hero">
   <div class="ds-container ds-container--gradient-hero-shell">
@@ -40,7 +42,7 @@ const { title, eyebrow = 'Legal' } = Astro.props;
       >
         Start for free
       </a>
-      <a href="/schedule-demo" target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
+      <a href={localizedPath(locale, "/schedule-demo")} target="_blank" rel="noreferrer" class="ds-btn ds-btn-outline-light">
         Schedule a demo
       </a>
     </div>

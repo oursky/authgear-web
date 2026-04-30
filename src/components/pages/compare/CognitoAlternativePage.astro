@@ -1,5 +1,6 @@
 ---
 import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 
 interface Props {
   locale: string;
@@ -21,7 +22,7 @@ const { locale } = Astro.props;
           <a href="https://accounts.portal.authgear.com/signup" target="_blank" class="button-primary feature-hero-btn-v2 vs-mobile w-button">
             {t(locale, 'Features.startForFree')}
           </a>
-          <a href="/schedule-demo" target="_blank" class="button-secondary feature-hero-btn-v2 noscale button-secondary-with-boarder w-button">
+          <a href={localizedPath(locale, "/schedule-demo")} target="_blank" class="button-secondary feature-hero-btn-v2 noscale button-secondary-with-boarder w-button">
             {t(locale, 'Features.scheduleDemo')}
           </a>
         </div>
@@ -220,7 +221,7 @@ const { locale } = Astro.props;
         <div class="split-content features-hero-left nomargin">
           <p class="features-hero-description inverse">{t(locale, 'CognitoAlternative.ctaMigrateDescription')}</p>
           <div class="features-hero-cta-wrapper in-ready-to-switch">
-            <a href="/schedule-demo" target="_blank" class="button-primary feature-hero-btn-v2 nomargin w-button">
+            <a href={localizedPath(locale, "/schedule-demo")} target="_blank" class="button-primary feature-hero-btn-v2 nomargin w-button">
               {t(locale, 'Compare.talkToUs')}
             </a>
             <a href="https://accounts.portal.authgear.com/signup" target="_blank" class="button-secondary feature-hero-btn-v2 noscale button-secondary-with-boarder inverse w-button">

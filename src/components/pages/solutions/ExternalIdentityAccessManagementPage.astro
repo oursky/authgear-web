@@ -1,5 +1,6 @@
 ---
 import ContactForm from '@/components/islands/ContactForm';
+import { localizedPath } from '@/lib/i18n';
 
 interface Props { locale: string }
 const { locale } = Astro.props;
@@ -12,7 +13,7 @@ const { locale } = Astro.props;
         <h1 class="title features-hero">Enterprise External Identity and Access Management</h1>
         <p class="paragraph-large">Integrate your business apps with Authgear to centralize and manage the identity and access of your extended team, including non-desk workers, contractors, agents, vendors, etc., to maximize productivity and reduce IT complexity.</p>
         <div class="features-hero-cta-wrapper">
-          <a href="/talk-with-us" target="_blank" class="button-primary feature-hero-btn w-button">Request Demo<span class="muted"></span></a>
+          <a href={localizedPath(locale, "/talk-with-us")} target="_blank" class="button-primary feature-hero-btn w-button">Request Demo<span class="muted"></span></a>
           <a href="https://accounts.portal.authgear.com/signup" target="_blank" class="button-secondary feature-hero-btn w-button">Get Started</a>
         </div>
       </div>
