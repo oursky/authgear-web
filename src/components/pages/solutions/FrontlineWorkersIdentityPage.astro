@@ -100,7 +100,7 @@ const { locale } = Astro.props;
             {t(locale, 'FrontlineWorkersIdentity.discoverDesc')}
           </p>
           <a
-            href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security"
+            href={localizedPath(locale, "/customer-stories")}
             class="button-secondary insection-cta features-text-block-cta-left w-button"
           >
             {t(locale, 'FrontlineWorkersIdentity.discoverCta')} {'>'}
@@ -126,7 +126,7 @@ const { locale } = Astro.props;
             {t(locale, 'FrontlineWorkersIdentity.discoverDesc')}
           </p>
           <a
-            href="https://www.authgear.com/post/passkey-vs-password-why-passkeys-are-the-future-of-security"
+            href={localizedPath(locale, "/customer-stories")}
             class="button-secondary insection-cta features-text-block-cta-left w-button"
           >
             {t(locale, 'FrontlineWorkersIdentity.discoverCta')} {'>'}
