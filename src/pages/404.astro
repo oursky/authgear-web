@@ -1,0 +1,28 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const locale = 'en';
+const title = 'Page not found — Authgear';
+const description = 'The page you were looking for could not be found.';
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <section class="ds-hero-banner--gradient">
+    <div class="ds-container ds-container--gradient-hero-shell">
+      <div class="ds-hero-banner--gradient__inner">
+        <div class="ds-container ds-container--hero" style="text-align:center">
+          <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">404</p>
+          <h1 class="ds-hero-banner__title">Page not found</h1>
+          <p class="ds-hero-banner__description">
+            The page you're looking for doesn't exist or has moved.
+          </p>
+          <div class="ds-footer-cta__actions" style="margin-top:1.5rem">
+            <a href="/" class="ds-btn ds-btn-secondary">Back to home</a>
+            <a href="/post" class="ds-btn ds-btn-outline-light">Read the blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
