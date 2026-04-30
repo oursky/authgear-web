@@ -6,6 +6,9 @@
 /zh-Hant                                                                            /zh-hant/                                                                                                               301!
 /zh-Hant/*                                                                          /zh-hant/:splat                                                                                                         301!
 
+# @astrojs/sitemap emits sitemap-index.xml; alias the conventional path.
+/sitemap.xml                                                                        /sitemap-index.xml                                                                                                      301
+
 # Internal canonical redirects (previously prerendered as Astro stubs)
 /why-authgear                                                                       /about                                                                                                                  301
 /zh-hant/why-authgear                                                               /zh-hant/about                                                                                                          301
