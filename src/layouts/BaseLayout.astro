@@ -129,7 +129,9 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
       <SiteNav locale={locale} />
     </div>
 
-    <slot />
+    <main>
+      <slot />
+    </main>
 
     <footer class="footer dark">
       <SiteFooter locale={locale} />

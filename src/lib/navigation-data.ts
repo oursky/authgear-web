@@ -98,7 +98,7 @@ export const solutionsSideImage: {
 } = {
   path: '/migrate-to-authgear',
   src: '/images/nav_solutions_migrate2x.webp',
-  width: 405,
+  width: 810,
   alt: { en: '', 'zh-Hant': '' },
 };
 
