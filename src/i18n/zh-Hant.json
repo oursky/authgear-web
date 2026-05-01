@@ -1566,5 +1566,23 @@
   "Campaign": {},
   "LoginGallery": {
     "detailDescription": "瀏覽 {title} 在 Authgear 的登入體驗。Passkey、社群登入、OTP 等實際品牌驗證介面範例。"
+  },
+  "CookieConsent": {
+    "bannerTitle": "我們使用 Cookie",
+    "bannerDescription": "我們使用 Cookie 分析網站流量並改善您的使用體驗。",
+    "acceptAll": "接受全部",
+    "rejectAll": "拒絕全部",
+    "managePreferences": "管理偏好設定",
+    "preferencesTitle": "Cookie 偏好設定",
+    "savePreferences": "儲存偏好設定",
+    "close": "關閉",
+    "necessaryTitle": "必要 Cookie",
+    "necessaryDescription": "網站正常運作所需，無法停用。",
+    "analyticsTitle": "分析 Cookie",
+    "analyticsDescription": "協助我們了解訪客如何使用本網站（Google Analytics，透過 GTM）。",
+    "marketingTitle": "行銷 Cookie",
+    "marketingDescription": "用於顯示相關內容及評估廣告活動成效。",
+    "privacyPolicy": "隱私權政策",
+    "footerLink": "Cookie 設定"
   }
 }

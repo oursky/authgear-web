@@ -2,6 +2,7 @@
 import '@/styles/global.css';
 import SiteNav from '@/components/nav/SiteNav.astro';
 import SiteFooter from '@/components/nav/SiteFooter.astro';
+import CookieConsentBanner from '@/components/CookieConsentBanner.astro';
 import { localeToHtmlLang } from '@/lib/i18n';
 import { t } from '@/i18n';
 
@@ -96,10 +97,15 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
       }
     </style>
 
-    {/* Google Tag Manager (loaded only if PUBLIC_GTM_ID is set) */}
+    {/* Google Tag Manager — deferred until analytics cookie consent is granted */}
     {gtmId && (
       <script is:inline define:vars={{ gtmId }}>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',gtmId);
+        window.dataLayer = window.dataLayer || [];
+        window.__loadGtm = function () {
+          if (window.__gtmLoaded) return;
+          window.__gtmLoaded = true;
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',gtmId);
+        };
       </script>
     )}
 
@@ -136,5 +142,7 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
     <footer class="footer dark">
       <SiteFooter locale={locale} />
     </footer>
+
+    {gtmId && <CookieConsentBanner locale={locale} />}
   </body>
 </html>

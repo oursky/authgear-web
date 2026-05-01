@@ -1,0 +1,99 @@
+---
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+
+const langCode = locale === 'zh-Hant' ? 'zh-Hant' : 'en';
+const privacyHref = localizedPath(locale, '/data-privacy');
+const privacyLink = `<a href="${privacyHref}" class="cc__link">${t(locale, 'CookieConsent.privacyPolicy')}</a>`;
+
+const i18n = {
+  lang: langCode,
+  translations: {
+    [langCode]: {
+      consentModal: {
+        title: t(locale, 'CookieConsent.bannerTitle'),
+        description: t(locale, 'CookieConsent.bannerDescription'),
+        acceptAllBtn: t(locale, 'CookieConsent.acceptAll'),
+        acceptNecessaryBtn: t(locale, 'CookieConsent.rejectAll'),
+        showPreferencesBtn: t(locale, 'CookieConsent.managePreferences'),
+        footer: privacyLink,
+      },
+      preferencesModal: {
+        title: t(locale, 'CookieConsent.preferencesTitle'),
+        acceptAllBtn: t(locale, 'CookieConsent.acceptAll'),
+        acceptNecessaryBtn: t(locale, 'CookieConsent.rejectAll'),
+        savePreferencesBtn: t(locale, 'CookieConsent.savePreferences'),
+        closeIconLabel: t(locale, 'CookieConsent.close'),
+        sections: [
+          {
+            title: t(locale, 'CookieConsent.necessaryTitle'),
+            description: t(locale, 'CookieConsent.necessaryDescription'),
+            linkedCategory: 'necessary',
+          },
+          {
+            title: t(locale, 'CookieConsent.analyticsTitle'),
+            description: t(locale, 'CookieConsent.analyticsDescription'),
+            linkedCategory: 'analytics',
+          },
+          {
+            title: t(locale, 'CookieConsent.marketingTitle'),
+            description: t(locale, 'CookieConsent.marketingDescription'),
+            linkedCategory: 'marketing',
+          },
+        ],
+      },
+    },
+  },
+};
+---
+
+<script type="application/json" id="cc-i18n" set:html={JSON.stringify(i18n)}></script>
+
+<script>
+  import * as CookieConsent from 'vanilla-cookieconsent';
+
+  const el = document.getElementById('cc-i18n')!;
+  const { lang, translations } = JSON.parse(el.textContent!);
+
+  CookieConsent.run({
+    cookie: { name: 'authgear_cc' },
+    guiOptions: {
+      consentModal: { layout: 'box', position: 'bottom right' },
+      preferencesModal: { layout: 'box' },
+    },
+    categories: {
+      necessary: { readOnly: true, enabled: true },
+      analytics: {
+        autoClear: {
+          cookies: [
+            { name: /^_ga/ },
+            { name: '_gid' },
+            { name: /^_gat/ },
+            { name: '_gcl_au' },
+          ],
+        },
+      },
+      marketing: {},
+    },
+    language: { default: lang, translations },
+    onConsent: ({ cookie }) => {
+      if (cookie.categories.includes('analytics')) {
+        (window as any).__loadGtm?.();
+      }
+    },
+    onChange: ({ cookie, changedCategories }) => {
+      if (changedCategories.includes('analytics') && cookie.categories.includes('analytics')) {
+        (window as any).__loadGtm?.();
+      }
+    },
+  });
+
+  (window as any).__cc = CookieConsent;
+</script>
