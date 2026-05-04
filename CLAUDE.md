@@ -62,7 +62,7 @@ None required for the contact form — submissions are handled by Netlify Forms 
 
 ## Deployment
 
-Netlify (build from `main`, SSR via the Netlify adapter). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
+Netlify (build from `live`, SSR via the Netlify adapter). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
 
 ## Legacy
 

@@ -19,7 +19,7 @@ Architecture of the Authgear marketing website after the Next.js → Astro migra
 - `astro:assets` optimises images referenced from frontmatter and markdown
 
 **Infrastructure**
-- Netlify — builds from `main`; SSR for `/api/contact` runs as a Netlify Function via `@astrojs/netlify`
+- Netlify — builds from `live`; the site is fully prerendered, with `/sitemap.xml` as the lone SSR endpoint via `@astrojs/netlify`. Contact form submissions go to Netlify Forms.
 
 No external CMS. No rebuild-on-publish webhook. Editing = editing markdown + image files in the repo; changes ship through git.
 
@@ -44,9 +44,7 @@ authgear-web/
 │   │   ├── whats-new/[index|slug].astro
 │   │   ├── integrations/[index|slug].astro
 │   │   ├── sitemap.xml.ts                     # Generated sitemap
-│   │   ├── zh-TW/                             # Mirrored tree for Traditional Chinese
-│   │   └── api/
-│   │       └── contact.ts                     # POST — forwards to CONTACT_WEBHOOK_URL
+│   │   └── zh-TW/                             # Mirrored tree for Traditional Chinese
 │   ├── content/                               # Content collections (markdown + JSON)
 │   │   ├── config.ts                          # zod schemas
 │   │   ├── blog-posts/{en,zh-TW}/{slug}/      # index.md + cover + inline figures
@@ -99,7 +97,7 @@ authgear-web/
 |---|---|
 | Static marketing pages (home, features, solutions, pricing, legal, tools, ONCE) | `export const prerender = true` — fully built at `npm run build` |
 | Content-collection routes (blog, customer stories, login gallery, what's new, integrations) | `export const prerender = true` — each detail page built from its markdown entry via `getStaticPaths` |
-| `/api/contact`, `/sitemap.xml` | SSR (Astro endpoint) |
+| `/sitemap.xml` | SSR (Astro endpoint) |
 | Legacy redirects (`/post/{slug}`, `/blog/{slug}`, `/zh/*`, `/zh-Hant-TW/*`, `/post-category/*`, etc.) | Prerendered `Astro.redirect(..., 301)` stubs |
 
 The adapter is `@astrojs/netlify`, so SSR endpoints run as Netlify Functions. But almost every page is static HTML.
@@ -218,10 +216,9 @@ Rule: if a component only reads props and renders, it's `.astro`. If it holds st
 
 | Route | Method | Description |
 |---|---|---|
-| `/api/contact` | POST | Forwards JSON body to `CONTACT_WEBHOOK_URL` |
 | `/sitemap.xml` | GET | Emits sitemap listing all public URLs |
 
-Implemented as Astro endpoints (`export const POST: APIRoute`). Everything else is static.
+Implemented as an Astro endpoint. Everything else is static. The contact form posts directly to Netlify Forms (build-time form detection via the `public/__forms.html` stub) — no SSR endpoint is involved.
 
 ## Middleware
 
@@ -229,10 +226,9 @@ Implemented as Astro endpoints (`export const POST: APIRoute`). Everything else 
 
 ## Caching & revalidation
 
-- Content is prerendered at build time, so "revalidation" = redeploy (which happens on every merge to main). No rebuild-on-publish webhook because there is no external CMS.
-- `/api/*` endpoints: `Cache-Control: no-store`.
+- Content is prerendered at build time, so "revalidation" = redeploy (which happens on every push to `live`). No rebuild-on-publish webhook because there is no external CMS.
 - Assets: long-cache via Astro's content-hashed output (`_astro/*.[hash].{js,css,webp}`).
-- Fly: `auto_stop_machines = "suspend"` + `min_machines_running = 0`. Static HTML is served by whatever sits in front of Fly (nginx); SSR only wakes the Node machine for `/api/contact` and `/sitemap.xml`.
+- `/sitemap.xml` runs as a Netlify Function on demand; everything else is served as static HTML from Netlify's CDN.
 
 ## Authoring
 
@@ -242,24 +238,20 @@ Other collections follow the same pattern — create a new folder under `src/con
 
 ## Environment variables
 
-```env
-CONTACT_WEBHOOK_URL=
-```
-
-That's it — no more `STRAPI_URL`, no more `STRAPI_API_TOKEN`, no more `PUBLIC_STRAPI_URL`.
+None. Contact form notifications are configured in the Netlify dashboard (Site settings → Forms). No `STRAPI_URL`, `STRAPI_API_TOKEN`, `PUBLIC_STRAPI_URL`, or `CONTACT_WEBHOOK_URL`.
 
 ## Dev commands
 
 ```bash
 npm install
 npm run dev        # http://localhost:4321
-npm run build      # → dist/client/ (static) + dist/server/ (SSR entry for API + sitemap)
+npm run build      # → dist/client/ (static) + dist/server/ (SSR entry for /sitemap.xml)
 npm run preview
 ```
 
 ## Deployment
 
-Netlify. The site is wired up to build from `main`; the `@astrojs/netlify` adapter emits the static site plus a single SSR Function for `/api/contact`. Configuration lives in `netlify.toml`:
+Netlify. The site is wired up to build from `live`; the `@astrojs/netlify` adapter emits the static site plus a single SSR Function for `/sitemap.xml`. Contact form submissions are handled by Netlify Forms (build-time detection via `public/__forms.html`; configure notifications in the Netlify dashboard). Releases happen by fast-forwarding `live` to a tested commit on `main`. Configuration lives in `netlify.toml`:
 
 ```toml
 [build]
@@ -270,7 +262,7 @@ Netlify. The site is wired up to build from `main`; the `@astrojs/netlify` adapt
   NODE_VERSION = "20"
 ```
 
-Secrets via the Netlify UI (Site settings → Environment variables), e.g. `CONTACT_WEBHOOK_URL`.
+No build-time secrets are required today. If any are added later, set them via the Netlify UI (Site settings → Environment variables).
 
 ## What changed vs. the original Astro proposal
 
@@ -290,6 +282,6 @@ Secrets via the Netlify UI (Site settings → Environment variables), e.g. `CONT
 
 ## Open questions
 
-1. **CDN layer**: Fly doesn't have a built-in global CDN. Existing nginx in front handles most caching. If traffic grows, adding Cloudflare in front of nginx is the natural next step.
+1. **CDN layer**: Netlify's edge serves static HTML and hashed assets globally. If we ever need finer control (custom WAF rules, more aggressive caching of the SSR `/sitemap.xml`), Cloudflare in front is the natural next step.
 2. **Font self-hosting**: currently loading IBM Plex Sans + Inter + PT Sans + Red Hat Display via `<link href="https://fonts.googleapis.com">` in `BaseLayout.astro`. Astro's built-in `@astrojs/font` would self-host for better performance + privacy; deferred.
 3. **Re-migration workflow**: if the source Webflow CMS gets edited, re-running the migration script overwrites the whole collection. Incremental sync / diff tooling not built yet — acceptable while authoring primarily happens in the repo.
