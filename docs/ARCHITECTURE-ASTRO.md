@@ -1,13 +1,11 @@
 # Architecture (Astro)
 
-Architecture of the Authgear marketing website after the Next.js → Astro migration and the Strapi → Astro Content Collections migration. Source of truth for how the site is built today.
-
-**Status (2026-04-22):** Astro app lives at the repository root. All static marketing pages + every CMS collection (blog posts, customer stories, login gallery, what's new, integrations) render from local content files. Zero runtime Strapi dependency. The previous Next.js + Strapi stack has been fully removed from the repo.
+Source of truth for how the Authgear marketing website is built today.
 
 ## Stack
 
 **Frontend**
-- Astro 6 — primarily prerendered with `@astrojs/netlify` adapter for the rare SSR routes
+- Astro 6 — fully prerendered; deployed via `@astrojs/netlify`
 - React 19 — used only for interactive islands
 - TypeScript
 - Tailwind CSS v4 via `@tailwindcss/vite`
@@ -19,7 +17,7 @@ Architecture of the Authgear marketing website after the Next.js → Astro migra
 - `astro:assets` optimises images referenced from frontmatter and markdown
 
 **Infrastructure**
-- Netlify — builds from `live`; the site is fully prerendered, with `/sitemap.xml` as the lone SSR endpoint via `@astrojs/netlify`. Contact form submissions go to Netlify Forms.
+- Netlify — builds from `live`. Every page is prerendered to static HTML; the only runtime piece is the locale-redirect middleware, which the Netlify adapter compiles into a Netlify Edge Function. Contact form submissions go to Netlify Forms.
 
 No external CMS. No rebuild-on-publish webhook. Editing = editing markdown + image files in the repo; changes ship through git.
 
@@ -43,16 +41,15 @@ authgear-web/
 │   │   ├── login-gallery/[index|slug].astro
 │   │   ├── whats-new/[index|slug].astro
 │   │   ├── integrations/[index|slug].astro
-│   │   ├── sitemap.xml.ts                     # Generated sitemap
-│   │   └── zh-TW/                             # Mirrored tree for Traditional Chinese
+│   │   └── zh-hant/                           # Mirrored tree for Traditional Chinese (URL prefix; locale id in code is `zh-Hant`)
 │   ├── content/                               # Content collections (markdown + JSON)
 │   │   ├── config.ts                          # zod schemas
-│   │   ├── blog-posts/{en,zh-TW}/{slug}/      # index.md + cover + inline figures
+│   │   ├── blog-posts/{en,zh-Hant}/{slug}/    # index.md + cover + inline figures
 │   │   ├── blog-categories/{slug}.json
-│   │   ├── customer-stories/{en,zh-TW}/{slug}/
-│   │   ├── login-gallery/{en,zh-TW}/{slug}/   # main + web 1-4 + mobile 1-4 images
-│   │   ├── whats-new/{en,zh-TW}/{slug}/
-│   │   ├── integrations/{en,zh-TW}/{slug}/    # icon + frontmatter
+│   │   ├── customer-stories/{en,zh-Hant}/{slug}/
+│   │   ├── login-gallery/{en,zh-Hant}/{slug}/ # main + web 1-4 + mobile 1-4 images
+│   │   ├── whats-new/{en,zh-Hant}/{slug}/
+│   │   ├── integrations/{en,zh-Hant}/{slug}/  # icon + frontmatter
 │   │   └── integration-categories/{slug}.json
 │   ├── components/
 │   │   ├── nav/                               # SiteNav.astro, SiteFooter.astro
@@ -68,13 +65,13 @@ authgear-web/
 │   │       ├── login-gallery/LoginGalleryCarousel.tsx
 │   │       └── …
 │   ├── layouts/BaseLayout.astro               # <html>, <head>, nav + footer, analytics, `<slot name="head" />`
-│   ├── lib/                                   # Shared helpers (no Strapi anymore)
+│   ├── lib/                                   # Shared helpers
 │   │   ├── i18n.ts                            # localizedPath, resolveLocale, localeToHtmlLang
 │   │   ├── navigation-data.ts
 │   │   ├── pricing/, compare/, features/, tools/
 │   │   └── plausible.ts                       # Event tagging helpers
-│   ├── i18n/{en,zh-TW}.json                   # Flat message dictionaries, t(locale, key) helper
-│   ├── middleware.ts                          # Legacy /zh/*, /zh-Hant-TW/* → /zh-TW/* (308)
+│   ├── i18n/{en,zh-Hant}.json                 # Flat message dictionaries, t(locale, key) helper
+│   ├── middleware.ts                          # Legacy /zh/*, /zh-TW/*, /zh-Hant/*, /zh-Hant-TW/* → /zh-hant/* (308)
 │   └── styles/
 │       ├── global.css                         # Tailwind entry + imports authgear-design-system.css
 │       └── authgear-design-system.css
@@ -97,10 +94,10 @@ authgear-web/
 |---|---|
 | Static marketing pages (home, features, solutions, pricing, legal, tools, ONCE) | `export const prerender = true` — fully built at `npm run build` |
 | Content-collection routes (blog, customer stories, login gallery, what's new, integrations) | `export const prerender = true` — each detail page built from its markdown entry via `getStaticPaths` |
-| `/sitemap.xml` | SSR (Astro endpoint) |
-| Legacy redirects (`/post/{slug}`, `/blog/{slug}`, `/zh/*`, `/zh-Hant-TW/*`, `/post-category/*`, etc.) | Prerendered `Astro.redirect(..., 301)` stubs |
+| Sitemap (`/sitemap-index.xml`, `/sitemap-0.xml`; `/sitemap.xml` 301-aliased) | Generated at build time by the `@astrojs/sitemap` integration |
+| Legacy redirects (`/post/{slug}`, `/blog/{slug}`, `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, `/zh-Hant-TW/*`, `/post-category/*`, etc.) | A mix of prerendered `Astro.redirect(..., 301)` stubs and rules in `public/_redirects` |
 
-The adapter is `@astrojs/netlify`, so SSR endpoints run as Netlify Functions. But almost every page is static HTML.
+Every page is static. The only request-time code path is the locale middleware, which the Netlify adapter ships as an Edge Function.
 
 ## Content collections
 
@@ -142,16 +139,9 @@ All CMS data lives in the repo as local files. Each collection has a zod schema 
 
 ## Migration scripts
 
-`scripts/webflow-to-markdown-*.mjs` — one-shot converters that were used to bootstrap each collection from the live Webflow CMS (pulled via the Webflow MCP tool as JSON bundles under `/tmp/webflow-export-*/`). They are **not run at build time**; they live in the repo as audit trail + to make re-migrations reproducible if the source Webflow CMS is updated.
+`scripts/webflow-to-markdown-*.mjs` — one-shot converters that bootstrapped each collection from the Webflow CMS (pulled via the Webflow MCP tool). They are **not run at build time**; they sit in the repo as audit trail and to make re-migrations reproducible if the source CMS changes. Each script loads an MCP JSON bundle, downloads referenced images, converts Webflow RichText HTML to markdown (preserving tables as `<div class="ag-table-wrap">` blocks), rewrites absolute `https://www.authgear.com/*` links to site-relative paths, and writes `src/content/{collection}/{locale}/{slug}/index.md` plus its images.
 
-Each script:
-1. Loads the MCP-dumped JSON bundle
-2. Walks items, downloads referenced images to disk
-3. Converts Webflow RichText HTML to markdown (headings, lists, blockquotes, code fences, inline figures, tables preserved as `<div class="ag-table-wrap">` HTML blocks)
-4. Rewrites absolute `https://www.authgear.com/*` links to site-relative paths so internal links don't depend on cross-platform redirects
-5. Writes `src/content/{collection}/{locale}/{slug}/index.md` plus images
-
-`scripts/fix-blog-*.mjs` are historical one-shot repair scripts for specific data issues found after the initial blog migration (dangling tables, single-quoted code-block attributes, stale publish dates, absolute self-domain links). They remain for history; the migration script itself has been patched to produce clean output on re-run.
+`scripts/fix-blog-*.mjs` — historical one-shot repair scripts kept for reproducibility. The main migration script has since been patched to produce clean output on re-run, so these should not be needed again.
 
 ## SEO
 
@@ -162,7 +152,7 @@ Each script:
   - OG + Twitter card meta
   - Article JSON-LD (`@type: Article`, `headline`, `datePublished`, `dateModified`, author + publisher set to the Authgear organization, `image`, `mainEntityOfPage`)
   - FAQPage JSON-LD when `faq[]` is set
-- `sitemap.xml.ts` enumerates every non-draft post, category page, and top-level marketing URL in both locales.
+- The `@astrojs/sitemap` integration (configured in `astro.config.mjs`) emits `sitemap-index.xml` + `sitemap-0.xml` at build time; `/sitemap.xml` is 301-aliased to `/sitemap-index.xml` via `public/_redirects`. The integration's `filter` drops internal `/en/*` routes so canonical English paths (unprefixed) are the ones indexed.
 - `astro.config.mjs` sets `site: 'https://www.authgear.com'` so canonical + OG URLs render absolute.
 
 ## URL preservation
@@ -178,18 +168,18 @@ The site's public URLs are stable across the Webflow → Astro transition:
 - `/whats-new`, `/whats-new/{slug}`
 - `/integrations`, `/integrations/{slug}`
 - `/terms`, `/policy`, `/data-privacy`, `/security`, `/sla`, `/terms-of-enterprise-license`
-- `/zh-TW/*` mirrors for zh-TW
+- `/zh-hant/*` mirrors for Traditional Chinese (locale id `zh-Hant` in code)
 
-Legacy `/zh/*` and `/zh-Hant-TW/*` redirect (308) to `/zh-TW/*` via `src/middleware.ts`.
+Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (308) to `/zh-hant/*` via `src/middleware.ts`.
 
 ## i18n
 
 - English: unprefixed URLs (`/blog`, `/pricing`)
-- Traditional Chinese: `/zh-TW/*`
-- `src/pages/zh-TW/` mirrors the top-level tree. Most route files are thin wrappers that pass `locale="zh-TW"` into a shared `.astro` component body.
-- Messages: flat JSON in `src/i18n/{en,zh-TW}.json`, accessed via `t(locale, 'Namespace.key')`.
+- Traditional Chinese: `/zh-hant/*` (locale id `zh-Hant` in code)
+- `src/pages/zh-hant/` mirrors the top-level tree. Most route files are thin wrappers that pass `locale="zh-Hant"` into a shared `.astro` component body.
+- Messages: flat JSON in `src/i18n/{en,zh-Hant}.json`, accessed via `t(locale, 'Namespace.key')`.
 - Legal pages render English content in both locales by user direction.
-- Content-collection routes prefer the `zh-TW/{slug}` entry and fall back to the `en/{slug}` entry when a translation is missing.
+- Content-collection routes prefer the `zh-Hant/{slug}` entry and fall back to the `en/{slug}` entry when a translation is missing.
 
 ## Interactivity (islands)
 
@@ -214,21 +204,17 @@ Rule: if a component only reads props and renders, it's `.astro`. If it holds st
 
 ## API routes
 
-| Route | Method | Description |
-|---|---|---|
-| `/sitemap.xml` | GET | Emits sitemap listing all public URLs |
-
-Implemented as an Astro endpoint. Everything else is static. The contact form posts directly to Netlify Forms (build-time form detection via the `public/__forms.html` stub) — no SSR endpoint is involved.
+None. The contact form posts directly to Netlify Forms (build-time form detection via the `public/__forms.html` stub). The sitemap is a pair of static XML files generated by `@astrojs/sitemap` at build time.
 
 ## Middleware
 
-`src/middleware.ts` — small: `/zh-Hant-TW/*` → `/zh-TW/*` and `/zh/*` → `/zh-TW/*` (308). Pass everything else through.
+`src/middleware.ts` — small: `/zh-Hant-TW/*`, `/zh-Hant/*`, `/zh-TW/*`, and `/zh/*` all redirect to `/zh-hant/*` (308). Pass everything else through. The Netlify adapter compiles this into a Netlify Edge Function — it's the only piece of code that runs at request time. (A few lowercase-locale rules are duplicated as static entries in `public/_redirects` so the edge can short-circuit before reaching the function.)
 
 ## Caching & revalidation
 
 - Content is prerendered at build time, so "revalidation" = redeploy (which happens on every push to `live`). No rebuild-on-publish webhook because there is no external CMS.
 - Assets: long-cache via Astro's content-hashed output (`_astro/*.[hash].{js,css,webp}`).
-- `/sitemap.xml` runs as a Netlify Function on demand; everything else is served as static HTML from Netlify's CDN.
+- All HTML and the sitemap are static; Netlify's CDN serves them directly. The locale-redirect Edge Function only intercepts requests whose path matches a legacy `/zh*` prefix.
 
 ## Authoring
 
@@ -245,13 +231,13 @@ None. Contact form notifications are configured in the Netlify dashboard (Site s
 ```bash
 npm install
 npm run dev        # http://localhost:4321
-npm run build      # → dist/client/ (static) + dist/server/ (SSR entry for /sitemap.xml)
+npm run build      # → dist/ (static HTML, hashed assets, sitemap, _redirects)
 npm run preview
 ```
 
 ## Deployment
 
-Netlify. The site is wired up to build from `live`; the `@astrojs/netlify` adapter emits the static site plus a single SSR Function for `/sitemap.xml`. Contact form submissions are handled by Netlify Forms (build-time detection via `public/__forms.html`; configure notifications in the Netlify dashboard). Releases happen by fast-forwarding `live` to a tested commit on `main`. Configuration lives in `netlify.toml`:
+Netlify. The site is wired up to build from `live`; the `@astrojs/netlify` adapter emits the prerendered HTML, the sitemap XML, and the locale-redirect Edge Function. Contact form submissions are handled by Netlify Forms (build-time detection via `public/__forms.html`; configure notifications in the Netlify dashboard). Releases happen by fast-forwarding `live` to a tested commit on `main`. Configuration lives in `netlify.toml`:
 
 ```toml
 [build]
@@ -264,14 +250,6 @@ Netlify. The site is wired up to build from `live`; the `@astrojs/netlify` adapt
 
 No build-time secrets are required today. If any are added later, set them via the Netlify UI (Site settings → Environment variables).
 
-## What changed vs. the original Astro proposal
-
-- Strapi was kept as CMS in the original plan. It's now gone entirely. All content lives in the repo as markdown + JSON.
-- Rich-text rendering was expected to use `@strapi/blocks-react-renderer`. That package has been removed; body content is rendered via Astro's built-in markdown pipeline with Shiki for code blocks.
-- Strapi webhook / SSR freshness model is replaced by redeploys — content edits = git commits.
-- `/api/blog-posts` endpoint removed (no longer needed; blog listings are prerendered).
-- `BlogPostInfiniteGrid` React island replaced by server-paginated `/blog/[...page]`.
-
 ## Decisions
 
 1. **Content in the repo over an external CMS.** All CMS collections migrated to local markdown — smaller surface area, typed schemas, no runtime CMS dependency, no revalidation infrastructure.
@@ -282,6 +260,6 @@ No build-time secrets are required today. If any are added later, set them via t
 
 ## Open questions
 
-1. **CDN layer**: Netlify's edge serves static HTML and hashed assets globally. If we ever need finer control (custom WAF rules, more aggressive caching of the SSR `/sitemap.xml`), Cloudflare in front is the natural next step.
+1. **CDN layer**: Netlify's edge serves static HTML and hashed assets globally. If we ever need finer control (custom WAF rules, more aggressive locale-redirect logic at the edge), Cloudflare in front is the natural next step.
 2. **Font self-hosting**: currently loading IBM Plex Sans + Inter + PT Sans + Red Hat Display via `<link href="https://fonts.googleapis.com">` in `BaseLayout.astro`. Astro's built-in `@astrojs/font` would self-host for better performance + privacy; deferred.
 3. **Re-migration workflow**: if the source Webflow CMS gets edited, re-running the migration script overwrites the whole collection. Incremental sync / diff tooling not built yet — acceptable while authoring primarily happens in the repo.
