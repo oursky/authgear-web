@@ -1566,5 +1566,23 @@
   "Campaign": {},
   "LoginGallery": {
     "detailDescription": "Browse the {title} login experience on Authgear. Real-world brand examples of authentication UIs built with passkeys, social login, OTP, and more."
+  },
+  "CookieConsent": {
+    "bannerTitle": "We use cookies",
+    "bannerDescription": "We use cookies to analyse traffic and improve your experience.",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "managePreferences": "Manage preferences",
+    "preferencesTitle": "Cookie preferences",
+    "savePreferences": "Save preferences",
+    "close": "Close",
+    "necessaryTitle": "Strictly necessary",
+    "necessaryDescription": "Required for the site to function. Cannot be disabled.",
+    "analyticsTitle": "Analytics",
+    "analyticsDescription": "Helps us understand how visitors use the site (Google Analytics via GTM).",
+    "marketingTitle": "Marketing",
+    "marketingDescription": "Used to show relevant content and measure campaign performance.",
+    "privacyPolicy": "Privacy Policy",
+    "footerLink": "Cookie settings"
   }
 }

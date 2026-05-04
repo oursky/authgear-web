@@ -391,6 +391,14 @@ const poweredSuffix = L('poweredBySuffix');
           <a href={lp('/sla')} class="ds-footer-bottom-bar__link">
             {L('sla')}
           </a>
+          <span class="ds-footer-bottom-bar__sep" aria-hidden="true">·</span>
+          <button
+            type="button"
+            class="ds-footer-bottom-bar__link"
+            onclick="window.__cc?.showPreferences()"
+          >
+            {L('cookieSettings')}
+          </button>
         </div>
         <FooterLanguageSwitcher locale={locale} />
       </div>

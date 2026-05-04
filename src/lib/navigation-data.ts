@@ -146,6 +146,7 @@ export const footerStrings: Record<string, Record<string, string>> = {
     'zh-Hant': 'Authgear 已通過 ISO 27001 與 SoC 2 Type II 認證。',
   },
   passkeyPledgeAlt: { en: 'Passkey Pledge Partner', 'zh-Hant': 'Passkey Pledge 合作夥伴' },
+  cookieSettings: { en: 'Cookie settings', 'zh-Hant': 'Cookie 設定' },
   termsOfService: { en: 'Terms', 'zh-Hant': '服務條款' },
   privacyPolicy: { en: 'Privacy', 'zh-Hant': '隱私權政策' },
   dataPrivacy: { en: 'Data Privacy', 'zh-Hant': '資料隱私' },
