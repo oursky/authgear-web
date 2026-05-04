@@ -8,7 +8,7 @@ The **Authgear marketing website**, built with **Astro 6**. All content — blog
 
 ```
 authgear-web/
-├── src/         # Astro 5 / React 19 islands / TypeScript site
+├── src/         # Astro 6 / React 19 islands / TypeScript site
 ├── public/      # Static assets served as-is
 ├── scripts/     # One-shot content-import scripts (audit trail)
 ├── tests/       # Playwright + Vitest suites
@@ -21,26 +21,26 @@ authgear-web/
 
 1. **Static marketing pages** — Astro components under `src/pages/` and `src/components/pages/`.
 2. **Content-collection pages** — blog posts, customer stories, login gallery, what's new items, and integrations live under `src/content/{collection}/` as markdown + JSON, validated with zod schemas in `src/content/config.ts`.
-3. **SSR endpoints** — only `/sitemap.xml` (via `@astrojs/sitemap`) runs at request time. Contact form submissions go to Netlify Forms (no SSR endpoint). Everything else is prerendered.
+3. **Runtime code** — every page is prerendered. The only request-time piece is `src/middleware.ts`, which the Netlify adapter ships as a Netlify Edge Function to lowercase legacy `/zh*` paths. The sitemap is generated at build time by `@astrojs/sitemap` (`/sitemap-index.xml` + `/sitemap-0.xml`; `/sitemap.xml` is 301-aliased via `public/_redirects`). Contact form submissions go to Netlify Forms.
 
 ### Routing / i18n
 
 - English is the default locale — served at unprefixed URLs (`/blog`, `/pricing`).
-- Traditional Chinese uses `/zh-TW/...` prefix.
+- Traditional Chinese uses `/zh-hant/...` prefix (URL is lowercase). Internal locale id is `zh-Hant` (BCP-47 mixed case) — that's what `src/content/{collection}/zh-Hant/`, `src/i18n/zh-Hant.json`, and the `locale` prop all use.
 - Locale helpers live in `src/i18n/`; `localizedPath()` builds locale-aware URLs.
-- For content collections, the zh-TW entry falls back to the English entry by slug when a translation is missing.
+- For content collections, the `zh-Hant` entry falls back to the English entry by slug when a translation is missing.
 
 ### URL preservation
 
 - Blog posts: `/post/{slug}` is canonical. `/blog/{slug}` 301-redirects to `/post/{slug}`.
-- Legacy `/zh/...` and `/zh-Hant-TW/...` paths permanently redirect (301) to `/zh-TW/...`.
+- Legacy `/zh/...`, `/zh-TW/...`, `/zh-Hant/...`, and `/zh-Hant-TW/...` paths redirect (308) to `/zh-hant/...` via `src/middleware.ts`.
 
 ## Development Commands
 
 ```bash
 npm install
 npm run dev        # http://localhost:4321
-npm run build      # → dist/client (static) + dist/server (SSR entry)
+npm run build      # → dist/ (static HTML, hashed assets, sitemap, _redirects) + the locale-redirect Edge Function
 npm run preview
 ```
 
@@ -62,8 +62,8 @@ None required for the contact form — submissions are handled by Netlify Forms 
 
 ## Deployment
 
-Netlify (build from `live`, SSR via the Netlify adapter). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
+Netlify (builds from `live`; the `@astrojs/netlify` adapter compiles `src/middleware.ts` into a Netlify Edge Function — every other route is static). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
 
-## Legacy
+## Stale references
 
-The site previously ran on Next.js 16 + Strapi 5, with the Astro app living under `frontend-astro/` during the migration. That stack is fully retired. If you find a reference to Next.js, Strapi, `cms/`, `frontend/`, or `frontend-astro/` in docs or scripts, treat it as stale and update it.
+Treat any reference to Next.js, Strapi, `cms/`, `frontend/`, or `frontend-astro/` in docs or scripts as stale — these belonged to a retired stack. Update or remove them when you encounter them.

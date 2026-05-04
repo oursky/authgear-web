@@ -11,9 +11,9 @@ The Authgear marketing website, built with **Astro 6**. All content — blog pos
 | **Content** | Astro Content Collections (markdown + JSON) validated with zod |
 | **Images** | Astro's built-in image pipeline (WebP + responsive srcsets) |
 | **Syntax highlighting** | Shiki (`github-light` theme) |
-| **Adapter** | `@astrojs/netlify` (SSR for the few dynamic endpoints) |
+| **Adapter** | `@astrojs/netlify` (compiles `src/middleware.ts` into a Netlify Edge Function) |
 
-Most routes are prerendered; only `/sitemap.xml` runs at request time. Contact-form submissions are handled by Netlify Forms (no SSR endpoint).
+Every page is prerendered to static HTML. The only request-time code is the locale-redirect middleware, which runs as a Netlify Edge Function. The sitemap is generated at build time (`/sitemap-index.xml` + `/sitemap-0.xml`; `/sitemap.xml` is 301-aliased). Contact-form submissions are handled by Netlify Forms.
 
 ## Repository layout
 
@@ -39,7 +39,7 @@ npm run dev        # http://localhost:4321
 Build + preview:
 
 ```bash
-npm run build      # → dist/client (static) + dist/server (SSR entry)
+npm run build      # → dist/ (static HTML, hashed assets, sitemap, _redirects) + the locale-redirect Edge Function
 npm run preview
 ```
 
@@ -75,4 +75,4 @@ Contact form submissions are handled by [Netlify Forms](https://docs.netlify.com
 
 ## Deployment
 
-Netlify (build from `main`, SSR via the Netlify adapter). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
+Netlify (builds from `live`; releases happen by fast-forwarding `live` to a tested commit on `main`). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.

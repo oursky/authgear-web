@@ -11,8 +11,8 @@ src/content/blog-posts/en/my-post-slug/
 └── figure-1.webp
 ```
 
-- `{locale}` is `en` or `zh-TW`.
-- `{slug}` is the URL slug — lowercase, hyphen-separated, no spaces or special characters. It determines the URL: `/blog/{slug}` (en) or `/zh-TW/blog/{slug}` (zh-TW).
+- `{locale}` is `en` or `zh-Hant`.
+- `{slug}` is the URL slug — lowercase, hyphen-separated, no spaces or special characters. It determines the URL: `/blog/{slug}` (en) or `/zh-hant/blog/{slug}` (zh-Hant). The on-disk locale folder uses the BCP-47 form `zh-Hant`; the URL prefix is lowercase `/zh-hant/`.
 - Keep images alongside `index.md` so references are relative (`./cover.webp`).
 
 ## 2. Write the frontmatter
@@ -124,7 +124,7 @@ The corresponding `faq: [{q, a}, …]` frontmatter drives the FAQPage JSON-LD. K
 
 ## 4. Translations
 
-zh-TW posts go in `src/content/blog-posts/zh-TW/{slug}/` using the **same slug** as the en post. Copy the frontmatter + body and translate. Missing zh-TW posts fall back to the en version automatically.
+Traditional Chinese posts go in `src/content/blog-posts/zh-Hant/{slug}/` using the **same slug** as the en post. Copy the frontmatter + body and translate. Missing zh-Hant posts fall back to the en version automatically.
 
 ## 5. Preview + ship
 
