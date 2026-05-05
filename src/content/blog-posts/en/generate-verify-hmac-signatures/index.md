@@ -13,7 +13,7 @@ draft: false
 ---
 
 APIs and webhooks depend heavily on HMAC (Hash-based Message Authentication Code) to ensure that every request you receive is authentic and unaltered.  
-Without signature verification, your application could be vulnerable to spoofing, data tampering, or replay attacks.
+Without signature verification, your application could be vulnerable to spoofing, data tampering, or replay attacks. For a deeper explanation of how HMAC fits into broader API security architecture, see our companion guide: [HMAC API Security: A Complete Developer's Guide](/post/hmac-api-security).
 
 In this guide, you’ll learn:
 

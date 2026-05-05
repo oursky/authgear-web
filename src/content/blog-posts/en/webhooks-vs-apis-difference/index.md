@@ -178,7 +178,7 @@ Anyone on the internet can POST to your webhook endpoint. Without proper validat
 
 ### Signature Verification
 
-Most webhook providers include a cryptographic signature in the request headers (e.g. `X-Signature-256`). Compute the expected HMAC using your shared secret and reject requests where the signatures don't match. This is the most important protection — do not skip it.
+Most webhook providers include a cryptographic signature in the request headers (e.g. `X-Signature-256`). Compute the expected [HMAC](/post/hmac-api-security) using your shared secret and reject requests where the signatures don't match. This is the most important protection — do not skip it.
 
 ### HTTPS Only
 

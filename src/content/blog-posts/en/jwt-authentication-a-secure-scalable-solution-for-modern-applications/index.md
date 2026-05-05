@@ -22,7 +22,7 @@ JWT authentication is a method of securely verifying the identity of users and t
 
 A JWT consists of three parts:
 
-1. Header: This section defines the type of token (JWT) and the algorithm used for signing (e.g., HMAC SHA256).
+1. Header: This section defines the type of token (JWT) and the algorithm used for signing (e.g., [HMAC](/post/hmac-api-security) SHA256).
 1. Payload: The payload holds the claims or statements about a user, such as their ID, role, or permissions.
 1. Signature: The signature is a cryptographic key that ensures the integrity of the token, making it tamper-proof.
 

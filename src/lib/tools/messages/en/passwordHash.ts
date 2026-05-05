@@ -1,28 +1,28 @@
 export const passwordHash = {
-  metaTitle: 'Password Hash Generator and Verifier',
+  metaTitle: 'Password Hash Generator and Verifier (Argon2id, bcrypt, scrypt, PBKDF2) — 2026',
   metaDescription:
-    'Free Password Hash Generator & Verifier. Create/verify Argon2id, bcrypt, scrypt, PBKDF2 hashes with salts, presets, and live timing, entirely client-side.',
+    'Free Password Hash Generator & Verifier with 2026 OWASP / NIST parameter presets. Create and verify Argon2id, bcrypt, scrypt, PBKDF2 hashes with salts and live timing — entirely client-side, nothing leaves your browser.',
   heroLine1: 'Password Hash Generator and Verifier',
-  heroLine2: '(Argon2id, bcrypt, scrypt, PBKDF2)',
+  heroLine2: '(Argon2id, bcrypt, scrypt, PBKDF2 — 2026 OWASP defaults)',
   heroDescription:
-    'Client-side tool to generate/verify password hashes with realistic parameters. Helpful for debugging integrations and understanding how salts, memory, and iterations affect cost. Runs locally—no passwords leave your browser.',
+    'Client-side tool to generate and verify password hashes with realistic, up-to-date parameters. Helpful for debugging integrations and for understanding how salts, memory, and iterations affect cost. Defaults follow the OWASP 2026 baseline (Argon2id m = 19 MiB, t = 2, p = 1) and NIST SP 800-63B PBKDF2 minimums. Runs locally — no passwords leave your browser.',
   iframeTitle: 'Password Hash Generator',
   policyPrefix:
     'Your data security is our top priority. All hashing and verification happen in this browser. This tool does not store or send your password nor hashes outside of the browser. See source code in: ',
   policyGithub: 'https://github.com/authgear/authgear-widget-password-hash',
   featureSectionTitle: 'Supported Password Hashing Functions',
-  f1Title: 'Argon2id Generator & Parameters',
+  f1Title: 'Argon2id Generator & Parameters (2026 settings)',
   f1Desc:
-    'Argon2id is a modern, memory-hard function that raises the attacker\'s cost on GPUs/ASICs. Tune memory, iterations (t), and parallelism (p) until your authentication path lands around 250–500ms on production hardware. Use a unique random salt per password (16–32 bytes).',
-  f2Title: 'bcrypt Generator (cost/rounds)',
+    'Argon2id is a modern, memory-hard function that raises the attacker\'s cost on GPUs and ASICs. The OWASP 2026 baseline is m = 19 MiB, t = 2, p = 1 with a 16-byte random salt. If hardware allows, m = 64 MiB / t = 3 / p = 4 is stronger. Tune until a single verification lands around 250–500 ms on production.',
+  f2Title: 'bcrypt Generator (cost / rounds)',
   f2Desc:
-    'bcrypt is battle-tested and widely available. Increase cost to slow brute-force attempts, while keeping login UX responsive. We output the $2b$ format for broad compatibility.',
+    'bcrypt is battle-tested and widely available. Cost factor 12 is the 2026 minimum; cost 13–14 is preferred for new systems. Costs above 14 noticeably affect login latency. We output the $2b$ format for broad compatibility. Note bcrypt only considers the first 72 bytes of input.',
   f3Title: 'scrypt Generator (N, r, p)',
   f3Desc:
-    'scrypt adds memory-hardness. Increase N (e.g., 2^15–2^19) to raise attacker cost; adjust r and p to balance memory and parallelism.',
+    'scrypt adds memory-hardness. The 2026 baseline is N = 2^17, r = 8, p = 1 (~128 MiB per verification). For interactive logins on modest hardware, N = 2^15 with r = 8, p = 1 is acceptable; never use values below 2^14.',
   f4Title: 'PBKDF2 Generator (SHA-256 / SHA-512)',
   f4Desc:
-    'PBKDF2 remains a compatibility workhorse. Use high iteration counts (hundreds of thousands or more) and revisit yearly as hardware improves.',
+    'PBKDF2 remains the compatibility / FIPS-compliant workhorse. NIST SP 800-63B (2024 update) requires at least 600,000 iterations for PBKDF2-HMAC-SHA256, or 210,000 for PBKDF2-HMAC-SHA512. Revisit yearly as hardware improves.',
   f5Title: 'Salts (and Optional Pepper)',
   f5DescBeforeLinks:
     'The tool generates cryptographically secure salts and lets you set length and encoding (Hex/Base64). Some deployments also add a pepper (site-wide server secret) that\'s not stored in the hash. Use peppers carefully and manage them like other secrets.',
@@ -65,4 +65,13 @@ export const passwordHash = {
   faq5Title: 'What salt length should I use?',
   faq5Body:
     '16–32 bytes of random data is standard. The tool defaults to secure randomness and shows length and encoding.',
+  faq6Title: 'Can I decrypt a password hash with this tool?',
+  faq6Body:
+    'No — and no other tool can either. Argon2id, bcrypt, scrypt, and PBKDF2 are one-way hash functions, not encryption. There is no key that "reverses" them. The only way to recover a password from a hash is to guess candidate passwords, hash each one, and compare. That is what password-cracking attacks do, and modern memory-hard parameters are tuned to make it economically prohibitive at scale. To verify a known password against a stored hash, use the Verify tab.',
+  faq7Title: 'Argon2id vs bcrypt vs scrypt: which should I pick in 2026?',
+  faq7Body:
+    'Argon2id is the recommended default for new systems — it is the PHC password-hashing competition winner and is memory-hard against GPU and ASIC attacks. bcrypt is fine for existing deployments at cost ≥ 12, but it is not memory-hard and has a 72-byte input limit. scrypt is also memory-hard and well-studied; pick it only if your runtime lacks a maintained Argon2id library. Use PBKDF2 only when FIPS / NIST compliance requires it.',
+  faq8Title: 'How do I migrate from bcrypt to Argon2id without forcing a password reset?',
+  faq8Body:
+    'Use opportunistic rehashing. Continue verifying existing users with bcrypt; on a successful login, hash the plain-text password they just typed with Argon2id and update the stored credential. Track a per-user hash-version field so you know which algorithm to verify with. Within a few weeks of normal user activity most accounts migrate; you can force the rest with a password-reset prompt for inactive users.',
 } as const;

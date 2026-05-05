@@ -7,9 +7,28 @@ featured: false
 metaTitle: "What is TOTP? A short guide for developers (RFC 6238 explained)"
 metaDescription: "What is TOTP (Time-based One-Time Password)? A concise RFC 6238 explanation for developers with code examples (Node, Python, Go), troubleshooting tips, and a free online TOTP tool."
 publishedAt: 2025-08-27T18:26:20.647Z
-updatedAt: 2026-02-12T02:36:33.462Z
+updatedAt: 2026-05-05T00:00:00.000Z
 draft: false
+faq:
+  - q: "What is TOTP?"
+    a: "TOTP (Time-based One-Time Password) is an algorithm defined in RFC 6238 that generates short numeric codes — typically 6 digits, refreshed every 30 seconds — from a shared secret and the current Unix time. It is the mechanism used by Google Authenticator, Authy, 1Password, and most other authenticator apps."
+  - q: "How does TOTP work?"
+    a: "The server and client share a Base32 secret at enrolment. Both sides divide the current Unix time by a 30-second time step to produce a moving counter, compute HMAC-SHA1 of that counter with the shared secret, then apply a dynamic-truncation step to extract a 6-digit code. Because both sides use the same secret and time, the codes match without any network communication during verification."
+  - q: "What is the standard TOTP time step?"
+    a: "30 seconds. This is the value RFC 6238 recommends and what every major authenticator app uses by default. Servers typically allow a ±1 step verification window (so codes from the previous and next 30-second window are also accepted) to tolerate small clock differences."
+  - q: "How many digits should a TOTP code have?"
+    a: "6 digits is the de-facto standard and what RFC 6238 uses in its examples. 8-digit codes add brute-force resistance but are noticeably harder for users to type — most apps and servers stick with 6 and rely on rate limiting for security."
+  - q: "Is TOTP secure?"
+    a: "TOTP is secure against remote password-only attacks and credential stuffing, provided the shared secret is stored safely on both sides. Its weaknesses are: phishability (users can be tricked into typing a code into a fake site), and shared-secret theft (if the server's TOTP secret store leaks, every user must re-enrol). For phishing-resistant MFA, prefer FIDO2 / passkeys."
+  - q: "What is the difference between TOTP and HOTP?"
+    a: "HOTP (HMAC-based OTP, RFC 4226) increments a counter on each use; the server and client must keep the counter in sync. TOTP (RFC 6238) replaces the counter with the current time divided by 30 seconds, eliminating the need to track per-use state. TOTP is the basis for almost every modern authenticator app."
+  - q: "Why does my TOTP code not match the server?"
+    a: "Three causes account for almost all TOTP mismatches: clock skew (one side's clock is wrong — sync via NTP), the wrong Base32 secret (spaces, padding, or copying from the QR's display name instead of the secret parameter), or algorithm/digit mismatch (the server uses SHA-256 + 8 digits but the client defaulted to SHA-1 + 6)."
+  - q: "Can the same TOTP code be reused?"
+    a: "It should not be. Although a code is mathematically valid for the entire 30-second window (and possibly the ±1-step grace window), the server should reject any code that has already been used by recording the last accepted time step per user. Otherwise an attacker who shoulder-surfs a code has up to 90 seconds to use it."
 ---
+
+> **tl;dr** — TOTP (Time-based One-Time Password, RFC 6238) is a 6-digit code that refreshes every 30 seconds, computed from a shared Base32 secret plus the current time using HMAC-SHA1. The server and the user's authenticator app independently produce the same code as long as their clocks agree — no network call, no state, just a shared secret and a clock.
 
 TOTP (Time-based One-Time Password) is a simple, widely used method for generating short-lived numeric codes from a shared secret and the current time (RFC 6238). Typical use: 6-digit codes that refresh every 30 seconds. This guide explains how it works, common pitfalls, and shows quick examples in Node, Python, and Go. Try the <a href="/tools/totp-authenticator" target="_blank">live TOTP generator</a>.
 
@@ -40,11 +59,76 @@ In short:
 
 Replace `SECRET_BASE32` with your Base32 secret. These examples use standard, well-maintained libraries.
 
-### Node (otplib)
+### Node.js (otplib)
+
+```javascript
+import { authenticator } from 'otplib';
+
+// Server: generate a secret on enrolment
+const secret = authenticator.generateSecret();        // Base32
+
+// Client/server: generate the current code
+const token = authenticator.generate(secret);
+console.log(token);                                   // e.g. "492039"
+
+// Server: verify a code submitted by the user
+const isValid = authenticator.verify({
+  token: '492039',
+  secret,
+  // window: 1,  // optional ±1 step tolerance
+});
+```
+
+`otplib` defaults to RFC 6238 standard parameters — 30-second step, 6 digits, SHA-1 — which match every major authenticator app.
 
 ### Python (pyotp)
 
+```python
+import pyotp
+
+# Server: generate a secret on enrolment
+secret = pyotp.random_base32()
+
+# Client/server: generate the current code
+totp = pyotp.TOTP(secret)
+print(totp.now())                  # e.g. "492039"
+
+# Server: verify a code submitted by the user
+ok = totp.verify("492039", valid_window=1)   # ±1 step tolerance
+```
+
+`pyotp` also generates an `otpauth://` provisioning URI (`totp.provisioning_uri(name=email, issuer_name="My App")`) which you can render as a QR code for users to scan with Google Authenticator.
+
 ### Go (pquerna/otp)
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+
+    "github.com/pquerna/otp/totp"
+)
+
+func main() {
+    // Server: generate a secret on enrolment
+    key, _ := totp.Generate(totp.GenerateOpts{
+        Issuer:      "My App",
+        AccountName: "alice@example.com",
+    })
+
+    // Client/server: generate the current code
+    code, _ := totp.GenerateCode(key.Secret(), time.Now())
+    fmt.Println(code) // e.g. "492039"
+
+    // Server: verify a code submitted by the user
+    valid := totp.Validate("492039", key.Secret())
+    fmt.Println(valid)
+}
+```
+
+`pquerna/otp` returns a `*otp.Key` whose `URL()` method produces a Google-Authenticator-compatible `otpauth://` URI for QR rendering.
 
 ## Common pitfalls & troubleshooting
 

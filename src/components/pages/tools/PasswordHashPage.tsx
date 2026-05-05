@@ -98,6 +98,15 @@ export default function PasswordHashPage({ locale }: Props) {
           <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq5Title')}>
             <div className="tools-faq-content">{t('faq5Body')}</div>
           </ToolFaqCard>
+          <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq6Title')}>
+            <div className="tools-faq-content">{t('faq6Body')}</div>
+          </ToolFaqCard>
+          <ToolFaqCard icon="/images/tools-qa-best-practice.svg" title={t('faq7Title')}>
+            <div className="tools-faq-content">{t('faq7Body')}</div>
+          </ToolFaqCard>
+          <ToolFaqCard icon="/images/tools-qa-what-is.svg" title={t('faq8Title')}>
+            <div className="tools-faq-content">{t('faq8Body')}</div>
+          </ToolFaqCard>
         </div>
       </ToolFaq>
       <ToolPopup locale={locale} />

@@ -11,18 +11,18 @@ export const passwordHash = {
     '您的資料安全是我們的首要考量。所有雜湊與驗證皆在此瀏覽器完成。本工具不會儲存或將密碼與雜湊傳送到瀏覽器以外。原始碼：',
   policyGithub: 'https://github.com/authgear/authgear-widget-password-hash',
   featureSectionTitle: '支援的密碼雜湊函式',
-  f1Title: 'Argon2id 參數',
+  f1Title: 'Argon2id 參數（2026 設定）',
   f1Desc:
-    'Argon2id 為現代記憶體困難函式，可提高 GPU／ASIC 攻擊成本。調整記憶體、迭代（t）與平行度（p），使驗證路徑在正式硬體上約 250–500ms。每個密碼使用唯一隨機 salt（16–32 bytes）。',
+    'Argon2id 為現代記憶體困難函式，可提高 GPU／ASIC 攻擊成本。OWASP 2026 基線為 m = 19 MiB、t = 2、p = 1，搭配 16 bytes 隨機 salt。硬體允許時可採 m = 64 MiB、t = 3、p = 4 提升強度。調整參數使單次驗證約落在 250–500 ms。',
   f2Title: 'bcrypt（成本／輪數）',
   f2Desc:
-    'bcrypt 經廣泛部署。提高 cost 以減緩暴力嘗試，同時維持可接受的登入體驗。輸出相容廣泛的 $2b$ 格式。',
+    'bcrypt 經廣泛部署。2026 最低 cost 為 12，新系統建議 13–14。cost 超過 14 會明顯影響登入延遲。輸出相容廣泛的 $2b$ 格式。注意 bcrypt 僅取輸入前 72 bytes。',
   f3Title: 'scrypt（N, r, p）',
   f3Desc:
-    'scrypt 具記憶體困難性。提高 N（例如 2^15–2^19）以提高攻擊成本；調整 r、p 以平衡記憶體與平行度。',
+    'scrypt 具記憶體困難性。2026 基線為 N = 2^17、r = 8、p = 1（每次驗證約 128 MiB）。在較弱硬體上做互動登入可採 N = 2^15、r = 8、p = 1；切勿低於 2^14。',
   f4Title: 'PBKDF2（SHA-256／SHA-512）',
   f4Desc:
-    'PBKDF2 仍常作相容用途。使用高迭代次數（數十萬以上）並隨硬體進步定期檢視。',
+    'PBKDF2 為相容性與 FIPS 規範下的工作主力。NIST SP 800-63B（2024 更新）要求 PBKDF2-HMAC-SHA256 至少 600,000 次迭代，PBKDF2-HMAC-SHA512 至少 210,000 次。請隨硬體進步逐年檢視。',
   f5Title: 'Salt（與選用的 Pepper）',
   f5DescBeforeLinks:
     '工具可產生密碼學安全的 salt 並設定長度與編碼（Hex／Base64）。部分部署另加 pepper（站點級密鑰）不存入雜湊。請謹慎使用並如其他密鑰般管理。',
@@ -63,4 +63,13 @@ export const passwordHash = {
     '常見原因：空白／換行、編碼不一致（hex 與 Base64）、bcrypt 前綴差異（$2a$ 與 $2b$），或遺漏 pepper。',
   faq5Title: 'Salt 長度該多少？',
   faq5Body: '標準為 16–32 bytes 隨機資料。工具預設使用安全亂數並顯示長度與編碼。',
+  faq6Title: '可以用這個工具解密 password hash 嗎？',
+  faq6Body:
+    '不行——任何工具都做不到。Argon2id、bcrypt、scrypt 與 PBKDF2 都是單向雜湊函式，不是加密，沒有任何金鑰可以「反推」原始密碼。要從 hash 還原密碼的唯一辦法，是逐一猜測候選密碼、計算 hash 再比對——也就是密碼破解攻擊本身。現代記憶體強化的雜湊參數，正是為了讓這個過程在大規模上經濟上難以負擔。要驗證已知密碼是否符合儲存的 hash，請使用 Verify 分頁。',
+  faq7Title: '2026 年該選 Argon2id、bcrypt 還是 scrypt？',
+  faq7Body:
+    '新系統建議優先使用 Argon2id：它是 PHC 密碼雜湊競賽的優勝者，並具備抗 GPU 與 ASIC 攻擊的記憶體強化特性。bcrypt 仍可接受，前提是 cost ≥ 12，但缺乏記憶體強化、且輸入只取前 72 bytes。scrypt 同樣具備記憶體強化與成熟研究，僅在運行環境缺乏可維護的 Argon2id 函式庫時選用。PBKDF2 僅在需要符合 FIPS／NIST 規範時使用。',
+  faq8Title: '如何把 bcrypt 遷移到 Argon2id 而不強制使用者重設密碼？',
+  faq8Body:
+    '採用機會式重新雜湊（opportunistic rehashing）。既有使用者持續以 bcrypt 驗證；當登入成功時，使用該次輸入的明文密碼以 Argon2id 重新計算 hash 並更新儲存。每位使用者記錄一個雜湊版本欄位，以便知道驗證時該採哪一種演算法。一般情況下幾週內大多數帳戶就會自然遷移完成，剩餘長期未登入的帳戶可透過密碼重設提示完成切換。',
 } as const;
