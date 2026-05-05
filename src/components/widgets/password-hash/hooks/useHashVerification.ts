@@ -7,7 +7,6 @@ import { validateCandidatePassword, validateEncodedHash } from '../lib/validatio
 export interface VerificationResult {
   isValid: boolean;
   algorithm: Algorithm | 'unknown';
-  message: string;
 }
 
 export function useHashVerification() {
@@ -36,11 +35,11 @@ export function useHashVerification() {
     const hashValidation = validateEncodedHash(encodedHash);
     const passwordValidation = validateCandidatePassword(candidatePassword);
     if (!hashValidation.isValid) {
-      setError(hashValidation.message);
+      setError(hashValidation.messageKey);
       return false;
     }
     if (!passwordValidation.isValid) {
-      setError(passwordValidation.message);
+      setError(passwordValidation.messageKey);
       return false;
     }
     return true;
@@ -55,18 +54,13 @@ export function useHashVerification() {
       const algorithm = parseAlgorithm(encodedHash);
       if (!algorithm) throw new Error('Unable to determine algorithm from hash format');
       const isValid = await verifyPassword(candidatePassword, encodedHash, algorithm);
-      setVerificationResult({
-        isValid,
-        algorithm,
-        message: isValid ? 'Password matches password hash' : 'Password does not match password hash',
-      });
+      setVerificationResult({ isValid, algorithm });
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
       if (message.includes('verification') || message.includes('does not match')) {
         setVerificationResult({
           isValid: false,
           algorithm: parseAlgorithm(encodedHash) ?? 'unknown',
-          message: 'Password does not match password hash',
         });
       } else {
         setError(message);

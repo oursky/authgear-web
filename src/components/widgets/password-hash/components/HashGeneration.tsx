@@ -9,20 +9,31 @@ import {
   showsExecutionTimeHint,
   supportsSaltFormat,
 } from '../lib/algorithmUtils';
+import { useT } from '../i18n';
 
 interface Props {
   selectedAlgorithm: Algorithm;
   setSelectedAlgorithm: (alg: Algorithm) => void;
 }
 
-const ALGORITHMS: { value: Algorithm; label: string; sub?: string; recommended?: boolean }[] = [
-  { value: 'argon2id', label: 'Argon2id', sub: 'memory-hard', recommended: true },
-  { value: 'scrypt', label: 'scrypt', sub: 'memory-hard' },
-  { value: 'bcrypt', label: 'bcrypt', sub: 'adaptive' },
-  { value: 'pbkdf2', label: 'PBKDF2', sub: 'NIST-compliant' },
+const ALGORITHMS: { value: Algorithm; label: string; subKey: string; recommended?: boolean }[] = [
+  { value: 'argon2id', label: 'Argon2id', subKey: 'algoSubtitleArgon2id', recommended: true },
+  { value: 'scrypt', label: 'scrypt', subKey: 'algoSubtitleScrypt' },
+  { value: 'bcrypt', label: 'bcrypt', subKey: 'algoSubtitleBcrypt' },
+  { value: 'pbkdf2', label: 'PBKDF2', subKey: 'algoSubtitlePbkdf2' },
 ];
 
+// Maps an algorithm + parameter key to its translation key under
+// Tools.passwordHash.widget.*. Parameter keys ('memory', 'iterations',
+// etc.) are reused across algorithms so we namespace by algorithm.
+function paramLabelKey(algorithm: Algorithm, paramKey: string): string {
+  const algoCap = algorithm.charAt(0).toUpperCase() + algorithm.slice(1);
+  const keyCap = paramKey.charAt(0).toUpperCase() + paramKey.slice(1);
+  return `param${algoCap}${keyCap}`;
+}
+
 export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm }: Props) {
+  const t = useT();
   const [saltEncoding, setSaltEncoding] = useState<SaltEncoding>('hex');
 
   const { parameters, warnings, handleParameterChange } = useAlgorithmConfig(selectedAlgorithm);
@@ -68,9 +79,7 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
     <div className="flex flex-col gap-6">
       {/* Algorithm picker */}
       <div>
-        <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
-          Algorithm
-        </label>
+        <SectionLabel>{t('sectionAlgorithm')}</SectionLabel>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {ALGORITHMS.map((alg) => {
             const active = selectedAlgorithm === alg.value;
@@ -88,9 +97,7 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
                 }
               >
                 <span className="text-sm font-semibold">{alg.label}</span>
-                {alg.sub && (
-                  <span className="text-[11px] text-slate-500">{alg.sub}</span>
-                )}
+                <span className="text-[11px] text-slate-500">{t(alg.subKey)}</span>
                 {alg.recommended && (
                   <span className="absolute top-1.5 right-1.5 text-[10px] font-semibold tracking-wide text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
                     2026
@@ -103,12 +110,12 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
       </div>
 
       {/* Password */}
-      <FieldGroup label="Plaintext password" error={validationErrors.password}>
+      <FieldGroup label={t('sectionPassword')} error={validationErrors.password ? t(validationErrors.password) : undefined}>
         <input
           type="text"
           value={password}
           onChange={(e) => handlePasswordChange(e.target.value)}
-          placeholder="Enter the password to hash"
+          placeholder={t('passwordPlaceholder')}
           className={inputClass(!!validationErrors.password)}
         />
       </FieldGroup>
@@ -116,19 +123,16 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
       {/* Parameters */}
       {algorithmConfig && (
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
-            Parameters
-          </label>
+          <SectionLabel>{t('sectionParameters')}</SectionLabel>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-lg bg-slate-50 border border-slate-200">
             {Object.keys(algorithmConfig.parameters)
               .filter((key) => key !== 'saltLength')
               .map((paramKey) => {
                 const param = algorithmConfig.parameters[paramKey];
+                const label = t(paramLabelKey(selectedAlgorithm, paramKey)) || param.label;
                 return (
                   <div key={paramKey} className="flex flex-col gap-1">
-                    <label className="text-xs font-medium text-slate-600" title={param.label}>
-                      {param.label}
-                    </label>
+                    <label className="text-xs font-medium text-slate-600">{label}</label>
                     <input
                       type="number"
                       value={parameters[paramKey] ?? param.default}
@@ -147,7 +151,7 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
               {warnings.map((w) => (
                 <li key={w} className="text-xs text-amber-700 flex items-start gap-1.5">
                   <span aria-hidden="true">⚠</span>
-                  <span>{w}</span>
+                  <span>{t(w)}</span>
                 </li>
               ))}
             </ul>
@@ -156,24 +160,24 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
       )}
 
       {/* Salt */}
-      <FieldGroup label="Salt" error={validationErrors.salt}>
+      <FieldGroup label={t('sectionSalt')} error={validationErrors.salt ? t(validationErrors.salt) : undefined}>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           <div className="flex-1 flex items-stretch border border-slate-300 rounded overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500">
             <input
               type="text"
               value={saltInput}
               onChange={(e) => handleSaltChangeCombined(e.target.value)}
-              placeholder="Generated automatically"
+              placeholder={t('saltPlaceholder')}
               className="flex-1 px-3 py-2 text-sm font-mono bg-white text-slate-800 focus:outline-none"
             />
             <span className="px-2 text-xs text-slate-500 self-center bg-slate-50 border-l border-slate-200 h-full flex items-center">
-              {saltByteLength} B
+              {saltByteLength} {t('saltByteUnit')}
             </span>
             <button
               type="button"
               onClick={handleGenerateSalt}
-              title="Generate new salt"
-              aria-label="Generate new salt"
+              title={t('saltGenerateAria')}
+              aria-label={t('saltGenerateAria')}
               className="px-3 bg-slate-50 border-l border-slate-200 hover:bg-slate-100 text-slate-700 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               ↻
@@ -208,7 +212,7 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
         disabled={isGenerating || !password.trim() || !saltInput.trim()}
         className="w-full px-4 py-3 rounded-lg bg-blue-600 text-white text-sm font-semibold transition-colors hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
       >
-        {isGenerating ? 'Generating…' : 'Generate password hash'}
+        {isGenerating ? t('buttonGenerating') : t('buttonGenerate')}
       </button>
 
       {error && (
@@ -223,6 +227,14 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
   );
 }
 
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
+      {children}
+    </div>
+  );
+}
+
 interface FieldGroupProps {
   label: string;
   error?: string;
@@ -232,9 +244,7 @@ interface FieldGroupProps {
 function FieldGroup({ label, error, children }: FieldGroupProps) {
   return (
     <div>
-      <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
-        {label}
-      </label>
+      <SectionLabel>{label}</SectionLabel>
       {children}
       {error && (
         <div className="mt-1.5 text-xs text-red-600 flex items-center gap-1.5">
@@ -261,6 +271,7 @@ interface HashResultCardProps {
 }
 
 function HashResultCard({ result, saltEncoding, algorithm }: HashResultCardProps) {
+  const t = useT();
   const [copiedHash, copyHash] = useClipboard();
   const [copiedSalt, copySalt] = useClipboard();
 
@@ -269,7 +280,7 @@ function HashResultCard({ result, saltEncoding, algorithm }: HashResultCardProps
       <div className="px-4 py-3 border-b border-slate-200 bg-white flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Encoded hash
+            {t('resultEncodedHash')}
           </span>
           <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
             {result.algorithm.toUpperCase()}
@@ -283,19 +294,21 @@ function HashResultCard({ result, saltEncoding, algorithm }: HashResultCardProps
       <div className="px-4 py-3 border-t border-slate-200 bg-white grid grid-cols-2 gap-3 text-xs">
         <div>
           <div className="font-medium text-slate-500 uppercase tracking-wide text-[10px] mb-0.5">
-            Execution time
+            {t('resultExecutionTime')}
           </div>
-          <div className="font-mono text-slate-800">{result.executionTime} ms</div>
+          <div className="font-mono text-slate-800">
+            {result.executionTime} {t('resultMillisecondsSuffix')}
+          </div>
           {showsExecutionTimeHint(algorithm) && (
             <div className="mt-1 text-[11px] text-slate-500 leading-snug">
-              Tune memory and iterations to land near 250–500 ms on production hardware.
+              {t('resultTuningHint')}
             </div>
           )}
         </div>
         <div>
           <div className="flex items-center justify-between mb-0.5">
             <span className="font-medium text-slate-500 uppercase tracking-wide text-[10px]">
-              Salt ({saltEncoding.toUpperCase()})
+              {t('resultSaltLabel')} ({saltEncoding.toUpperCase()})
             </span>
             <CopyButton copied={copiedSalt} onClick={() => copySalt(result.salt)} />
           </div>
@@ -312,6 +325,7 @@ interface CopyButtonProps {
 }
 
 function CopyButton({ copied, onClick }: CopyButtonProps) {
+  const t = useT();
   return (
     <button
       type="button"
@@ -324,7 +338,7 @@ function CopyButton({ copied, onClick }: CopyButtonProps) {
           : 'text-blue-700 hover:bg-blue-50')
       }
     >
-      {copied ? 'Copied' : 'Copy'}
+      {copied ? t('resultCopied') : t('resultCopy')}
     </button>
   );
 }

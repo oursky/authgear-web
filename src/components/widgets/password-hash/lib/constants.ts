@@ -64,23 +64,24 @@ export const SUPPORTED_ALGORITHMS: AlgorithmConfig[] = Object.values(HASHING_ALG
 
 export interface ParameterWarning {
   threshold: number;
-  message: string;
+  // i18n key under Tools.passwordHash.widget.*
+  messageKey: string;
 }
 
 export const PARAMETER_WARNINGS: Record<Algorithm, Record<string, ParameterWarning>> = {
   argon2id: {
-    memory: { threshold: 19, message: 'Memory below 19 MiB may be insecure' },
-    iterations: { threshold: 2, message: 'Iterations below 2 may be insecure' },
-    parallelism: { threshold: 1, message: 'Parallelism below 1 is invalid' },
+    memory: { threshold: 19, messageKey: 'warnArgon2idMemory' },
+    iterations: { threshold: 2, messageKey: 'warnArgon2idIterations' },
+    parallelism: { threshold: 1, messageKey: 'warnArgon2idParallelism' },
   },
   scrypt: {
-    r: { threshold: 8, message: 'r below 8 may be insecure' },
+    r: { threshold: 8, messageKey: 'warnScryptR' },
   },
   bcrypt: {
-    cost: { threshold: 10, message: 'Cost factor below 10 may be insecure' },
+    cost: { threshold: 10, messageKey: 'warnBcryptCost' },
   },
   pbkdf2: {
-    iterations: { threshold: 100000, message: 'Iterations below 100,000 may be insecure' },
+    iterations: { threshold: 100000, messageKey: 'warnPbkdf2Iterations' },
   },
 };
 

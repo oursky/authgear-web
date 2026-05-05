@@ -32,7 +32,7 @@ export function useHashGeneration({
       setResult(null);
       if (hasAttemptedSubmit) {
         const validation = validatePassword(value);
-        setValidationErrors((prev) => ({ ...prev, password: validation.message }));
+        setValidationErrors((prev) => ({ ...prev, password: validation.messageKey }));
       }
     },
     [hasAttemptedSubmit],
@@ -44,7 +44,7 @@ export function useHashGeneration({
       if (hasAttemptedSubmit) {
         setValidationErrors((prev) => ({
           ...prev,
-          salt: value.trim() ? '' : 'Please enter a salt or generate one',
+          salt: value.trim() ? '' : 'errorSaltRequired',
         }));
       }
     },
@@ -53,15 +53,12 @@ export function useHashGeneration({
 
   const validateForm = useCallback(() => {
     const passwordValidation = validatePassword(password);
-    const saltValidation = {
-      isValid: saltInput.trim() !== '',
-      message: saltInput.trim() ? '' : 'Please enter a salt or generate one',
-    };
+    const saltOk = saltInput.trim() !== '';
     setValidationErrors({
-      password: passwordValidation.message,
-      salt: saltValidation.message,
+      password: passwordValidation.messageKey,
+      salt: saltOk ? '' : 'errorSaltRequired',
     });
-    return passwordValidation.isValid && saltValidation.isValid;
+    return passwordValidation.isValid && saltOk;
   }, [password, saltInput]);
 
   const handleGenerate = useCallback(async () => {

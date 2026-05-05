@@ -3,9 +3,23 @@ import type { Algorithm } from './types';
 import type { TabKey } from './components/tabs';
 import HashGeneration from './components/HashGeneration';
 import HashVerification from './components/HashVerification';
+import { LocaleContext, useT } from './i18n';
 import './password-hash.css';
 
-export default function PasswordHashWidget() {
+interface Props {
+  locale?: string;
+}
+
+export default function PasswordHashWidget({ locale = 'en' }: Props) {
+  return (
+    <LocaleContext.Provider value={locale}>
+      <Shell />
+    </LocaleContext.Provider>
+  );
+}
+
+function Shell() {
+  const t = useT();
   const [activeTab, setActiveTab] = useState<TabKey>('generate');
   const [selectedAlgorithm, setSelectedAlgorithm] = useState<Algorithm>('argon2id');
 
@@ -14,12 +28,12 @@ export default function PasswordHashWidget() {
       data-testid="password-hash-widget"
       className="w-full max-w-3xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden font-sans text-slate-800"
     >
-      <div role="tablist" aria-label="Password hash mode" className="flex border-b border-slate-200">
+      <div role="tablist" aria-label={t('ariaLabel')} className="flex border-b border-slate-200">
         <TabButton active={activeTab === 'generate'} onClick={() => setActiveTab('generate')}>
-          Generate
+          {t('tabGenerate')}
         </TabButton>
         <TabButton active={activeTab === 'verify'} onClick={() => setActiveTab('verify')}>
-          Verify
+          {t('tabVerify')}
         </TabButton>
       </div>
 

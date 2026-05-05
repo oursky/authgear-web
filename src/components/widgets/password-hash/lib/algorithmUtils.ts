@@ -13,6 +13,8 @@ export function getAlgorithmConfig(algorithm: Algorithm): AlgorithmConfig | unde
   return Object.values(HASHING_ALGORITHMS).find((alg) => alg.value === algorithm);
 }
 
+// Returns i18n message keys (under Tools.passwordHash.widget.*) that
+// the rendering component looks up via its locale.
 export function getParameterWarnings(
   algorithm: Algorithm,
   parameters: Record<string, number>,
@@ -23,7 +25,7 @@ export function getParameterWarnings(
     .map((paramKey) => {
       const warning = algorithmWarnings[paramKey];
       const currentValue = parameters[paramKey];
-      if (currentValue !== undefined && currentValue < warning.threshold) return warning.message;
+      if (currentValue !== undefined && currentValue < warning.threshold) return warning.messageKey;
       return null;
     })
     .filter((m): m is string => Boolean(m));

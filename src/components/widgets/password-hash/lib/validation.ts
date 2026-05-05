@@ -1,47 +1,44 @@
+// Validation functions return semantic message keys (looked up via the
+// widget's message bundle) so they stay locale-agnostic.
+
+export type ValidationKey =
+  | 'errorPasswordRequired'
+  | 'errorSaltRequired'
+  | 'errorHashRequired'
+  | 'errorCandidateRequired'
+  | '';
+
 export interface ValidationResult {
   isValid: boolean;
-  message: string;
+  messageKey: ValidationKey;
 }
+
+const ok: ValidationResult = { isValid: true, messageKey: '' };
 
 export function validatePassword(password: string): ValidationResult {
   if (!password || !password.trim()) {
-    return { isValid: false, message: 'Please enter a plaintext password' };
+    return { isValid: false, messageKey: 'errorPasswordRequired' };
   }
-  return { isValid: true, message: '' };
+  return ok;
 }
 
 export function validateSalt(salt: string): ValidationResult {
   if (!salt || !salt.trim()) {
-    return { isValid: false, message: 'Please enter a salt or generate one' };
+    return { isValid: false, messageKey: 'errorSaltRequired' };
   }
-  return { isValid: true, message: '' };
+  return ok;
 }
 
 export function validateEncodedHash(hash: string): ValidationResult {
   if (!hash || !hash.trim()) {
-    return { isValid: false, message: 'Please enter an encoded password hash' };
+    return { isValid: false, messageKey: 'errorHashRequired' };
   }
-  return { isValid: true, message: '' };
+  return ok;
 }
 
 export function validateCandidatePassword(password: string): ValidationResult {
   if (!password || !password.trim()) {
-    return { isValid: false, message: 'Please enter a candidate password' };
+    return { isValid: false, messageKey: 'errorCandidateRequired' };
   }
-  return { isValid: true, message: '' };
-}
-
-export function validateField(field: string, value: string): string {
-  switch (field) {
-    case 'password':
-      return validatePassword(value).message;
-    case 'salt':
-      return validateSalt(value).message;
-    case 'encodedHash':
-      return validateEncodedHash(value).message;
-    case 'candidatePassword':
-      return validateCandidatePassword(value).message;
-    default:
-      return '';
-  }
+  return ok;
 }

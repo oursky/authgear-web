@@ -49,7 +49,7 @@ export default function PasswordHashPage({ locale }: Props) {
         description={t('heroDescription')}
       />
       <ToolWidget locale={locale} iframeTitle={t('iframeTitle')} policy={policy}>
-        <PasswordHashWidget />
+        <PasswordHashWidget locale={locale} />
       </ToolWidget>
       <MoreDevTools locale={locale} currentSlug="password-hash-generator" />
       <ToolFeatureCards

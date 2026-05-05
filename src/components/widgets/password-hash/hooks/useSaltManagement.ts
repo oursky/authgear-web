@@ -57,7 +57,7 @@ export function useSaltManagement({ selectedAlgorithm, parameters, saltEncoding 
     (hasAttemptedSubmit: boolean) => {
       if (hasAttemptedSubmit) {
         const validation = validateSalt(saltInput);
-        setValidationError(validation.message);
+        setValidationError(validation.messageKey);
         return validation.isValid;
       }
       return true;

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useHashVerification } from '../hooks/useHashVerification';
+import { useT } from '../i18n';
 
 const SUPPORTED_FORMATS: { name: string; example: string }[] = [
   { name: 'Argon2id', example: '$argon2id$v=19$m=19456,t=2,p=1$…' },
@@ -9,6 +10,7 @@ const SUPPORTED_FORMATS: { name: string; example: string }[] = [
 ];
 
 export default function HashVerification() {
+  const t = useT();
   const [formatsOpen, setFormatsOpen] = useState(false);
   const {
     encodedHash,
@@ -21,36 +23,42 @@ export default function HashVerification() {
     handleVerify,
   } = useHashVerification();
 
+  const errorText = error
+    ? error.startsWith('error')
+      ? t(error)
+      : error
+    : '';
+
   return (
     <div className="flex flex-col gap-6">
       <div>
         <div className="flex items-baseline justify-between mb-2">
           <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Encoded hash
+            {t('verifyEncodedHash')}
           </label>
           <button
             type="button"
             onClick={() => setFormatsOpen(!formatsOpen)}
             className="text-xs text-blue-700 hover:underline focus:outline-none focus-visible:underline"
           >
-            {formatsOpen ? 'Hide formats' : 'Supported formats'}
+            {formatsOpen ? t('verifySupportedFormatsHide') : t('verifySupportedFormatsShow')}
           </button>
         </div>
         <textarea
           value={encodedHash}
           onChange={(e) => handleEncodedHashChange(e.target.value)}
           rows={3}
-          placeholder="Paste an encoded password hash (e.g. $argon2id$v=19$m=19456,t=2,p=1$…)"
+          placeholder={t('verifyEncodedHashPlaceholder')}
           className={
             'w-full px-3 py-2 text-sm font-mono border rounded resize-y ' +
             'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ' +
-            (error ? 'border-red-400' : 'border-slate-300')
+            (errorText ? 'border-red-400' : 'border-slate-300')
           }
         />
-        {error && (
+        {errorText && (
           <div className="mt-1.5 text-xs text-red-600 flex items-center gap-1.5">
             <span aria-hidden="true">⚠</span>
-            <span>{error}</span>
+            <span>{errorText}</span>
           </div>
         )}
         {formatsOpen && (
@@ -67,13 +75,13 @@ export default function HashVerification() {
 
       <div>
         <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
-          Candidate password
+          {t('verifyCandidatePassword')}
         </label>
         <input
           type="text"
           value={candidatePassword}
           onChange={(e) => handleCandidatePasswordChange(e.target.value)}
-          placeholder="Password to verify against the hash"
+          placeholder={t('verifyCandidatePlaceholder')}
           className="w-full px-3 py-2 text-sm font-mono border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
@@ -84,7 +92,7 @@ export default function HashVerification() {
         disabled={isVerifying || !encodedHash.trim() || !candidatePassword.trim()}
         className="w-full px-4 py-3 rounded-lg bg-blue-600 text-white text-sm font-semibold transition-colors hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
       >
-        {isVerifying ? 'Verifying…' : 'Verify password'}
+        {isVerifying ? t('buttonVerifying') : t('buttonVerify')}
       </button>
 
       {verificationResult && (
@@ -114,10 +122,11 @@ export default function HashVerification() {
                 (verificationResult.isValid ? 'text-emerald-900' : 'text-red-900')
               }
             >
-              {verificationResult.isValid ? 'Password matches' : 'Password does not match'}
+              {verificationResult.isValid ? t('verifyMatch') : t('verifyNoMatch')}
             </div>
             <div className="text-xs text-slate-600 mt-0.5">
-              Detected algorithm: <span className="font-mono font-medium text-slate-800">{verificationResult.algorithm.toUpperCase()}</span>
+              {t('verifyDetectedAlgorithm')}{' '}
+              <span className="font-mono font-medium text-slate-800">{verificationResult.algorithm.toUpperCase()}</span>
             </div>
           </div>
         </div>
