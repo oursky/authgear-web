@@ -83,8 +83,8 @@ export const passwordHash = {
     sectionParameters: '參數',
     sectionSalt: 'Salt',
 
-    algoSubtitleArgon2id: '記憶體強化',
-    algoSubtitleScrypt: '記憶體強化',
+    algoSubtitleArgon2id: '記憶體困難',
+    algoSubtitleScrypt: '記憶體困難',
     algoSubtitleBcrypt: '可調整成本',
     algoSubtitlePbkdf2: '符合 NIST 規範',
 
