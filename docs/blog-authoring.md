@@ -12,7 +12,7 @@ src/content/blog-posts/en/my-post-slug/
 ```
 
 - `{locale}` is `en` or `zh-Hant`.
-- `{slug}` is the URL slug — lowercase, hyphen-separated, no spaces or special characters. It determines the URL: `/blog/{slug}` (en) or `/zh-hant/blog/{slug}` (zh-Hant). The on-disk locale folder uses the BCP-47 form `zh-Hant`; the URL prefix is lowercase `/zh-hant/`.
+- `{slug}` is the URL slug — lowercase, hyphen-separated, no spaces or special characters. It determines the canonical URL: `/post/{slug}` (en) or `/zh-hant/post/{slug}` (zh-Hant). The on-disk locale folder uses the BCP-47 form `zh-Hant`; the URL prefix is lowercase `/zh-hant/`. (Legacy `/blog/{slug}` URLs 301-redirect to `/post/{slug}`.)
 - Keep images alongside `index.md` so references are relative (`./cover.webp`).
 
 ## 2. Write the frontmatter
@@ -36,7 +36,7 @@ updatedAt: 2026-04-22           # last meaningful edit. Defaults to publishedAt.
 
 # Optional
 h1: "On-page H1 (if different from `title`)"
-canonicalUrl: https://www.authgear.com/blog/my-post-slug
+canonicalUrl: https://www.authgear.com/post/my-post-slug
 featured: false
 publishedAtOverride: 2025-11-01  # for backdated posts; listing order uses this first
 draft: false                     # drafts do not build and are not in the sitemap
@@ -96,12 +96,12 @@ Markdown tables work. For the wider styled table seen in migrated posts, use the
 
 ### Internal links
 
-Link to other posts using `/blog/{slug}` — not `/post/{slug}`. Legacy `/post/*` URLs still work via a 301 redirect, but new authoring should use the canonical path.
+Link to other posts using the canonical `/post/{slug}` path. Legacy `/blog/*` URLs 301-redirect to `/post/*`, so they work, but linking directly to the canonical URL avoids a hop.
 
 Example:
 
 ```md
-See our [JWT guide](/blog/nextjs-jwt-authentication) for context.
+See our [JWT guide](/post/nextjs-jwt-authentication) for context.
 ```
 
 ### FAQ section
@@ -134,9 +134,9 @@ npm run dev
 
 Open <http://localhost:4321/blog>. The post appears on:
 
-- `/blog` (paginated)
-- `/blog/{slug}` (detail page with SEO tags + JSON-LD)
-- `/blog/category/{category-slug}` if the category is set
+- `/blog` (paginated listing)
+- `/post/{slug}` (canonical detail page with SEO tags + JSON-LD; `/blog/{slug}` 301-redirects here)
+- `/post-category/{category-slug}` if the category is set
 - `/sitemap.xml`
 
 Commit the folder (markdown + images) in one PR. Image optimization happens at build, so raw sources live in the repo.
