@@ -7,6 +7,7 @@ import ToolHowItWorks from '@/components/tools/ToolHowItWorks';
 import ToolReadyTo from '@/components/tools/ToolReadyTo';
 import ToolFaq, { ToolFaqCard } from '@/components/tools/ToolFaq';
 import ToolPopup from '@/components/tools/ToolPopup';
+import PasswordHashWidget from '@/components/widgets/password-hash';
 
 interface Props { locale: string }
 
@@ -47,13 +48,9 @@ export default function PasswordHashPage({ locale }: Props) {
         }
         description={t('heroDescription')}
       />
-      <ToolWidget
-        locale={locale}
-        src="https://authgear.github.io/authgear-widget-password-hash/"
-        iframeTitle={t('iframeTitle')}
-        height="1000px"
-        policy={policy}
-      />
+      <ToolWidget locale={locale} iframeTitle={t('iframeTitle')} policy={policy}>
+        <PasswordHashWidget />
+      </ToolWidget>
       <MoreDevTools locale={locale} currentSlug="password-hash-generator" />
       <ToolFeatureCards
         sectionTitle={t('featureSectionTitle')}

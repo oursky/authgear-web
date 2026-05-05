@@ -3,34 +3,41 @@ import { t as tFn } from '@/i18n';
 
 type Props = {
   locale: string;
-  src: string;
+  src?: string;
   iframeTitle: string;
-  height: string;
+  height?: string;
   policy?: ReactNode;
   iframeId?: string;
   iframeStyle?: CSSProperties;
+  children?: ReactNode;
 };
 
-export default function ToolWidget({ locale, src, iframeTitle, height, policy, iframeId, iframeStyle }: Props) {
+export default function ToolWidget({ locale, src, iframeTitle, height, policy, iframeId, iframeStyle, children }: Props) {
   const t = (key: string): string => tFn(locale, `Tools.common.${key}`);
   const defaultStyle: CSSProperties = { border: 'none', width: '100%', height, minHeight: '600px' };
   return (
     <section>
       <div className="w-layout-blockcontainer tools-container w-container">
-        <div className="w-iframe">
-          <iframe
-            {...(iframeId ? { id: iframeId } : {})}
-            src={src}
-            title={iframeTitle}
-            width="100%"
-            height={height}
-            frameBorder="0"
-            scrolling="yes"
-            style={iframeStyle ?? defaultStyle}
-            allow="clipboard-read; clipboard-write"
-            allowFullScreen
-          />
-        </div>
+        {children ? (
+          <div className="tools-widget-native" data-testid="tool-widget-native" aria-label={iframeTitle}>
+            {children}
+          </div>
+        ) : (
+          <div className="w-iframe">
+            <iframe
+              {...(iframeId ? { id: iframeId } : {})}
+              src={src}
+              title={iframeTitle}
+              width="100%"
+              height={height}
+              frameBorder="0"
+              scrolling="yes"
+              style={iframeStyle ?? defaultStyle}
+              allow="clipboard-read; clipboard-write"
+              allowFullScreen
+            />
+          </div>
+        )}
         <div className="tools-banner-wrapper">
           <div className="div-block-33">
             <a href="/" target="_blank" className="tools-authgear-tag plausible-event-name--tool-tag-click">

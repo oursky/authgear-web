@@ -9,7 +9,7 @@ export const passwordHash = {
   iframeTitle: 'Password Hash Generator',
   policyPrefix:
     'Your data security is our top priority. All hashing and verification happen in this browser. This tool does not store or send your password nor hashes outside of the browser. See source code in: ',
-  policyGithub: 'https://github.com/authgear/authgear-widget-password-hash',
+  policyGithub: 'https://github.com/oursky/authgear-web/tree/main/src/components/widgets/password-hash',
   featureSectionTitle: 'Supported Password Hashing Functions',
   f1Title: 'Argon2id Generator & Parameters (2026 settings)',
   f1Desc:
