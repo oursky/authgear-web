@@ -23,7 +23,7 @@ The private key stays securely on the user’s device, while the public key is r
 
 For organisations with existing users, the challenge is not whether to adopt passkeys, but how. Removing passwords too quickly can confuse users and disrupt workflows.
 
-A phased migration gradually introduces passkeys alongside passwords, ensuring a smooth transition. This guide explains **what a passkey is**, explores **how do passkeys work**, and provides a step-by-step approach to migrate users safely and confidently.
+A phased migration gradually introduces passkeys alongside passwords, ensuring a smooth transition. This guide explains **what a passkey is**, explores **how do passkeys work**, and provides a step-by-step approach to migrate users safely and confidently. (If you are still weighing the decision, see our [passkey vs password](/post/passkey-vs-password-why-passkeys-are-the-future-of-security) comparison first.)
 
 ## The Growing Problem With Password-Based Authentication
 

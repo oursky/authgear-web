@@ -13,7 +13,7 @@ draft: false
 
 The future of authentication is passwordless, and the technologies leading the charge are WebAuthn, FIDO2, and the user-friendly abstraction known as passkeys. For developers building modern applications, offering phishing-resistant, biometric-powered login is no longer a luxury—it's a competitive necessity. While SaaS solutions provide a quick entry point, many development teams turn to open-source platforms for greater control, flexibility, and long-term cost predictability.
 
-This developer-focused guide dives into the world of open-source passkey authentication. We'll explore why open-source is a compelling choice, compare the approaches of leading platforms like Authgear and Keycloak, and provide a framework for choosing the right solution for your passkey-first application.
+This developer-focused guide dives into the world of open-source passkey authentication. We'll explore why open-source is a compelling choice, compare the approaches of leading platforms like Authgear and Keycloak, and provide a framework for choosing the right solution for your passkey-first application. (If you are still building the case internally, our [passkey vs password](/post/passkey-vs-password-why-passkeys-are-the-future-of-security) comparison covers the security and UX trade-offs.)
 
 ## Why Choose Open Source for WebAuthn and Passkeys?
 
