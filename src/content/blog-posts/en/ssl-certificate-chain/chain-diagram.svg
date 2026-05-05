@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-label="SSL certificate chain of trust diagram showing leaf certificate, intermediate certificate, and root certificate">
+  <title>SSL certificate chain of trust</title>
+  <desc>The leaf certificate is signed by the intermediate certificate, which is signed by the root certificate. The server sends the leaf and intermediate; the root is pre-installed in the client's trust store.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2F80ED"/>
+    </marker>
+  </defs>
+  <style>
+    .box { fill: #ffffff; stroke: #2F80ED; stroke-width: 2; }
+    .box-root { fill: #EBF3FE; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 18px; font-weight: 600; fill: #111827; }
+    .sublabel { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; fill: #4B5563; }
+    .annotation { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #6B7280; font-style: italic; }
+    .pill { fill: #ECFDF5; stroke: #10B981; stroke-width: 1.5; }
+    .pill-root { fill: #FEF3C7; stroke: #D97706; stroke-width: 1.5; }
+    .pill-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 600; fill: #065F46; }
+    .pill-text-root { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 600; fill: #92400E; }
+    .arrow-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #2F80ED; font-weight: 500; }
+  </style>
+
+  <!-- Title -->
+  <text x="360" y="30" class="label" text-anchor="middle" style="font-size: 16px;">SSL Certificate Chain of Trust</text>
+
+  <!-- Leaf certificate -->
+  <rect x="40" y="80" width="200" height="100" rx="10" class="box"/>
+  <text x="140" y="115" class="label" text-anchor="middle">Leaf Certificate</text>
+  <text x="140" y="138" class="sublabel" text-anchor="middle">yourdomain.com</text>
+  <text x="140" y="158" class="sublabel" text-anchor="middle">issued to your site</text>
+  <rect x="60" y="170" width="160" height="22" rx="11" class="pill"/>
+  <text x="140" y="186" class="pill-text" text-anchor="middle">SERVED BY YOUR SERVER</text>
+
+  <!-- Intermediate certificate -->
+  <rect x="260" y="80" width="200" height="100" rx="10" class="box"/>
+  <text x="360" y="115" class="label" text-anchor="middle">Intermediate</text>
+  <text x="360" y="138" class="sublabel" text-anchor="middle">e.g. Let's Encrypt R3</text>
+  <text x="360" y="158" class="sublabel" text-anchor="middle">issued by the root CA</text>
+  <rect x="280" y="170" width="160" height="22" rx="11" class="pill"/>
+  <text x="360" y="186" class="pill-text" text-anchor="middle">SERVED BY YOUR SERVER</text>
+
+  <!-- Root certificate -->
+  <rect x="480" y="80" width="200" height="100" rx="10" class="box box-root"/>
+  <text x="580" y="115" class="label" text-anchor="middle">Root CA</text>
+  <text x="580" y="138" class="sublabel" text-anchor="middle">e.g. ISRG Root X1</text>
+  <text x="580" y="158" class="sublabel" text-anchor="middle">offline, self-signed</text>
+  <rect x="490" y="170" width="180" height="22" rx="11" class="pill-root"/>
+  <text x="580" y="186" class="pill-text-root" text-anchor="middle">PRE-INSTALLED IN CLIENT</text>
+
+  <!-- Arrows: signed-by relationships -->
+  <line x1="240" y1="130" x2="260" y2="130" stroke="#2F80ED" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="460" y1="130" x2="480" y2="130" stroke="#2F80ED" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- "signs" annotations under arrows -->
+  <text x="250" y="220" class="arrow-label" text-anchor="middle">signed by →</text>
+  <text x="470" y="220" class="arrow-label" text-anchor="middle">signed by →</text>
+
+  <!-- Bottom annotation -->
+  <text x="360" y="265" class="annotation" text-anchor="middle">A browser trusts your leaf certificate by walking the chain back to a root it already trusts.</text>
+  <text x="360" y="285" class="annotation" text-anchor="middle">If the intermediate is missing from your server's response, the chain breaks and the connection fails.</text>
+
+  <!-- Bracket showing what's transmitted -->
+  <line x1="40" y1="240" x2="460" y2="240" stroke="#10B981" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="40" y1="240" x2="40" y2="232" stroke="#10B981" stroke-width="1.5"/>
+  <line x1="460" y1="240" x2="460" y2="232" stroke="#10B981" stroke-width="1.5"/>
+  <text x="250" y="328" class="annotation" text-anchor="middle" fill="#065F46" style="font-style: normal; font-weight: 600; font-size: 11px;">SENT BY SERVER (your responsibility)</text>
+  <text x="250" y="345" class="annotation" text-anchor="middle" fill="#065F46">leaf cert + intermediate cert(s)</text>
+
+  <!-- Bracket for client side -->
+  <line x1="480" y1="240" x2="680" y2="240" stroke="#D97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="480" y1="240" x2="480" y2="232" stroke="#D97706" stroke-width="1.5"/>
+  <line x1="680" y1="240" x2="680" y2="232" stroke="#D97706" stroke-width="1.5"/>
+  <text x="580" y="328" class="annotation" text-anchor="middle" fill="#92400E" style="font-style: normal; font-weight: 600; font-size: 11px;">IN CLIENT TRUST STORE</text>
+  <text x="580" y="345" class="annotation" text-anchor="middle" fill="#92400E">root certs ship with browser/OS</text>
+</svg>
