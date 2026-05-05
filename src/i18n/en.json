@@ -218,10 +218,7 @@
     "snapshotCloudLabel": "Runs on",
     "snapshotCloudValue": "Microsoft Azure + Google Cloud",
     "customersTitle": "Teams building on Authgear",
-    "caseStudy1Title": "MTR Corporation simplifies part-time hiring login",
-    "caseStudy1Cta": "Read the story",
-    "caseStudy2Title": "Global QSR streamlines frontline login",
-    "caseStudy2Cta": "Read the story",
+    "customersCta": "Read customer stories",
     "footerTitle": "Ready to put auth behind you?",
     "footerBody": "Get a demo, or start building on the free tier. We'll show you what opinionated, open-source CIAM looks like."
   },

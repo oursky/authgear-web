@@ -218,10 +218,7 @@
     "snapshotCloudLabel": "運行於",
     "snapshotCloudValue": "Microsoft Azure + Google Cloud",
     "customersTitle": "採用 Authgear 的團隊",
-    "caseStudy1Title": "港鐵簡化兼職應徵登入流程",
-    "caseStudy1Cta": "閱讀案例",
-    "caseStudy2Title": "跨國速食品牌強化前線員工登入",
-    "caseStudy2Cta": "閱讀案例",
+    "customersCta": "閱讀客戶案例",
     "footerTitle": "準備把身份驗證交給我們?",
     "footerBody": "預約展示，或從免費方案開始。我們會示範什麼叫做有主見的開源 CIAM。"
   },
