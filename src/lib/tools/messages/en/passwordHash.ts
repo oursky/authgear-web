@@ -8,8 +8,7 @@ export const passwordHash = {
     'Client-side tool to generate and verify password hashes with realistic, up-to-date parameters. Helpful for debugging integrations and for understanding how salts, memory, and iterations affect cost. Defaults follow the OWASP 2026 baseline (Argon2id m = 19 MiB, t = 2, p = 1) and NIST SP 800-63B PBKDF2 minimums. Runs locally — no passwords leave your browser.',
   iframeTitle: 'Password Hash Generator',
   policyPrefix:
-    'Your data security is our top priority. All hashing and verification happen in this browser. This tool does not store or send your password nor hashes outside of the browser. See source code in: ',
-  policyGithub: 'https://github.com/authgear/authgear-widget-password-hash',
+    'Your data security is our top priority. All hashing and verification happen in this browser. This tool does not store or send your password nor hashes outside of the browser.',
   featureSectionTitle: 'Supported Password Hashing Functions',
   f1Title: 'Argon2id Generator & Parameters (2026 settings)',
   f1Desc:
@@ -74,4 +73,72 @@ export const passwordHash = {
   faq8Title: 'How do I migrate from bcrypt to Argon2id without forcing a password reset?',
   faq8Body:
     'Use opportunistic rehashing. Continue verifying existing users with bcrypt; on a successful login, hash the plain-text password they just typed with Argon2id and update the stored credential. Track a per-user hash-version field so you know which algorithm to verify with. Within a few weeks of normal user activity most accounts migrate; you can force the rest with a password-reset prompt for inactive users.',
+
+  widget: {
+    ariaLabel: 'Password hash mode',
+    tabGenerate: 'Generate',
+    tabVerify: 'Verify',
+
+    sectionAlgorithm: 'Algorithm',
+    sectionPassword: 'Plaintext password',
+    sectionParameters: 'Parameters',
+    sectionSalt: 'Salt',
+
+    algoSubtitleArgon2id: 'memory-hard',
+    algoSubtitleScrypt: 'memory-hard',
+    algoSubtitleBcrypt: 'adaptive',
+    algoSubtitlePbkdf2: 'NIST-compliant',
+
+    passwordPlaceholder: 'Enter the password to hash',
+    saltPlaceholder: 'Generated automatically',
+    saltGenerateAria: 'Generate new salt',
+    saltByteUnit: 'B',
+
+    buttonGenerate: 'Generate password hash',
+    buttonGenerating: 'Generating…',
+    buttonVerify: 'Verify password',
+    buttonVerifying: 'Verifying…',
+
+    resultEncodedHash: 'Encoded hash',
+    resultCopy: 'Copy',
+    resultCopied: 'Copied',
+    resultExecutionTime: 'Execution time',
+    resultTuningHint: 'Tune memory and iterations to land near 250–500 ms on production hardware.',
+    resultSaltLabel: 'Salt',
+    resultMillisecondsSuffix: 'ms',
+
+    verifyEncodedHash: 'Encoded hash',
+    verifyEncodedHashPlaceholder: 'Paste an encoded password hash (e.g. $argon2id$v=19$m=19456,t=2,p=1$…)',
+    verifyCandidatePassword: 'Candidate password',
+    verifyCandidatePlaceholder: 'Password to verify against the hash',
+    verifySupportedFormatsShow: 'Supported formats',
+    verifySupportedFormatsHide: 'Hide formats',
+    verifyMatch: 'Password matches',
+    verifyNoMatch: 'Password does not match',
+    verifyDetectedAlgorithm: 'Detected algorithm:',
+
+    errorPasswordRequired: 'Please enter a plaintext password',
+    errorSaltRequired: 'Please enter a salt or generate one',
+    errorHashRequired: 'Please enter an encoded password hash',
+    errorCandidateRequired: 'Please enter a candidate password',
+
+    paramArgon2idMemory: 'Memory (MiB) (m)',
+    paramArgon2idIterations: 'Iterations (t)',
+    paramArgon2idParallelism: 'Parallelism (p)',
+    paramArgon2idKeyLength: 'Hash Length (bytes)',
+    paramBcryptCost: 'Cost Factor',
+    paramScryptN: 'N (CPU/Memory cost) (ln)',
+    paramScryptR: 'r (Block size)',
+    paramScryptP: 'p (Parallelization)',
+    paramScryptKeyLength: 'Key Length (bytes)',
+    paramPbkdf2Iterations: 'Iterations',
+    paramPbkdf2KeyLength: 'Key Length (bytes)',
+
+    warnArgon2idMemory: 'Memory below 19 MiB may be insecure',
+    warnArgon2idIterations: 'Iterations below 2 may be insecure',
+    warnArgon2idParallelism: 'Parallelism below 1 is invalid',
+    warnScryptR: 'r below 8 may be insecure',
+    warnBcryptCost: 'Cost factor below 10 may be insecure',
+    warnPbkdf2Iterations: 'Iterations below 100,000 may be insecure',
+  },
 } as const;

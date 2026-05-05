@@ -8,8 +8,7 @@ export const passwordHash = {
     '在客戶端產生／驗證密碼雜湊，參數貼近實務。便於除錯整合並理解 salt、記憶體與迭代對成本的影響。僅在本機執行—密碼不離開瀏覽器。',
   iframeTitle: '密碼雜湊產生器',
   policyPrefix:
-    '您的資料安全是我們的首要考量。所有雜湊與驗證皆在此瀏覽器完成。本工具不會儲存或將密碼與雜湊傳送到瀏覽器以外。原始碼：',
-  policyGithub: 'https://github.com/authgear/authgear-widget-password-hash',
+    '您的資料安全是我們的首要考量。所有雜湊與驗證皆在此瀏覽器完成。本工具不會儲存或將密碼與雜湊傳送到瀏覽器以外。',
   featureSectionTitle: '支援的密碼雜湊函式',
   f1Title: 'Argon2id 參數（2026 設定）',
   f1Desc:
@@ -72,4 +71,72 @@ export const passwordHash = {
   faq8Title: '如何把 bcrypt 遷移到 Argon2id 而不強制使用者重設密碼？',
   faq8Body:
     '採用機會式重新雜湊（opportunistic rehashing）。既有使用者持續以 bcrypt 驗證；當登入成功時，使用該次輸入的明文密碼以 Argon2id 重新計算 hash 並更新儲存。每位使用者記錄一個雜湊版本欄位，以便知道驗證時該採哪一種演算法。一般情況下幾週內大多數帳戶就會自然遷移完成，剩餘長期未登入的帳戶可透過密碼重設提示完成切換。',
+
+  widget: {
+    ariaLabel: '密碼雜湊模式',
+    tabGenerate: '產生',
+    tabVerify: '驗證',
+
+    sectionAlgorithm: '演算法',
+    sectionPassword: '明文密碼',
+    sectionParameters: '參數',
+    sectionSalt: 'Salt',
+
+    algoSubtitleArgon2id: '記憶體困難',
+    algoSubtitleScrypt: '記憶體困難',
+    algoSubtitleBcrypt: '可調整成本',
+    algoSubtitlePbkdf2: '符合 NIST 規範',
+
+    passwordPlaceholder: '輸入要雜湊的密碼',
+    saltPlaceholder: '自動產生',
+    saltGenerateAria: '重新產生 Salt',
+    saltByteUnit: 'B',
+
+    buttonGenerate: '產生密碼雜湊',
+    buttonGenerating: '產生中⋯',
+    buttonVerify: '驗證密碼',
+    buttonVerifying: '驗證中⋯',
+
+    resultEncodedHash: '編碼後雜湊',
+    resultCopy: '複製',
+    resultCopied: '已複製',
+    resultExecutionTime: '執行時間',
+    resultTuningHint: '調整記憶體與迭代次數，讓正式環境硬體上的單次驗證落在 250–500 ms。',
+    resultSaltLabel: 'Salt',
+    resultMillisecondsSuffix: 'ms',
+
+    verifyEncodedHash: '編碼後雜湊',
+    verifyEncodedHashPlaceholder: '貼上編碼後的密碼雜湊（例如 $argon2id$v=19$m=19456,t=2,p=1$⋯）',
+    verifyCandidatePassword: '候選密碼',
+    verifyCandidatePlaceholder: '要對雜湊驗證的密碼',
+    verifySupportedFormatsShow: '支援的格式',
+    verifySupportedFormatsHide: '收起格式',
+    verifyMatch: '密碼相符',
+    verifyNoMatch: '密碼不相符',
+    verifyDetectedAlgorithm: '偵測到的演算法：',
+
+    errorPasswordRequired: '請輸入明文密碼',
+    errorSaltRequired: '請輸入或產生 Salt',
+    errorHashRequired: '請輸入編碼後的密碼雜湊',
+    errorCandidateRequired: '請輸入候選密碼',
+
+    paramArgon2idMemory: '記憶體（MiB）(m)',
+    paramArgon2idIterations: '迭代次數 (t)',
+    paramArgon2idParallelism: '平行度 (p)',
+    paramArgon2idKeyLength: '雜湊長度（bytes）',
+    paramBcryptCost: '成本因子',
+    paramScryptN: 'N（CPU/記憶體成本）(ln)',
+    paramScryptR: 'r（區塊大小）',
+    paramScryptP: 'p（平行度）',
+    paramScryptKeyLength: '金鑰長度（bytes）',
+    paramPbkdf2Iterations: '迭代次數',
+    paramPbkdf2KeyLength: '金鑰長度（bytes）',
+
+    warnArgon2idMemory: '記憶體低於 19 MiB 可能不安全',
+    warnArgon2idIterations: '迭代次數低於 2 可能不安全',
+    warnArgon2idParallelism: '平行度低於 1 無效',
+    warnScryptR: 'r 低於 8 可能不安全',
+    warnBcryptCost: '成本因子低於 10 可能不安全',
+    warnPbkdf2Iterations: '迭代次數低於 100,000 可能不安全',
+  },
 } as const;

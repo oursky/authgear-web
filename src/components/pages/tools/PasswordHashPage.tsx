@@ -1,4 +1,5 @@
 import { t as tFn } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 import ToolHero from '@/components/tools/ToolHero';
 import ToolWidget from '@/components/tools/ToolWidget';
 import MoreDevTools from '@/components/tools/MoreDevTools';
@@ -7,30 +8,24 @@ import ToolHowItWorks from '@/components/tools/ToolHowItWorks';
 import ToolReadyTo from '@/components/tools/ToolReadyTo';
 import ToolFaq, { ToolFaqCard } from '@/components/tools/ToolFaq';
 import ToolPopup from '@/components/tools/ToolPopup';
+import PasswordHashWidget from '@/components/widgets/password-hash';
 
 interface Props { locale: string }
 
 export default function PasswordHashPage({ locale }: Props) {
   const t = (key: string): string => tFn(locale, `Tools.passwordHash.${key}`);
-  const policy = (
-    <>
-      {t('policyPrefix')}
-      <a href={t('policyGithub')} target="_blank" rel="noreferrer">
-        {t('policyGithub')}
-      </a>
-    </>
-  );
+  const policy = <>{t('policyPrefix')}</>;
   const f5desc = (
     <>
       {t('f5DescBeforeLinks')}
       <br />
       {t('f5ReadMore')}
       <br />
-      <a href={t('f5Link1Href')} target="_blank">
+      <a href={localizedPath(locale, t('f5Link1Href'))} target="_blank">
         {t('f5Link1')}
       </a>
       {'  •  '}
-      <a href={t('f5Link2Href')} target="_blank">
+      <a href={localizedPath(locale, t('f5Link2Href'))} target="_blank">
         {t('f5Link2')}
       </a>
     </>
@@ -47,13 +42,9 @@ export default function PasswordHashPage({ locale }: Props) {
         }
         description={t('heroDescription')}
       />
-      <ToolWidget
-        locale={locale}
-        src="https://authgear.github.io/authgear-widget-password-hash/"
-        iframeTitle={t('iframeTitle')}
-        height="1000px"
-        policy={policy}
-      />
+      <ToolWidget locale={locale} iframeTitle={t('iframeTitle')} policy={policy}>
+        <PasswordHashWidget locale={locale} />
+      </ToolWidget>
       <MoreDevTools locale={locale} currentSlug="password-hash-generator" />
       <ToolFeatureCards
         sectionTitle={t('featureSectionTitle')}

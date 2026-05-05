@@ -47,3 +47,10 @@ test('Tool page body renders (uuidV7 hero visible)', async ({ page }) => {
   await expect(page.locator('h1.tools-h1').first()).toBeVisible();
   await expect(page.locator('iframe').first()).toBeVisible();
 });
+
+test('Password hash generator renders the native widget (not iframe)', async ({ page }) => {
+  await page.goto('/tools/password-hash-generator');
+  await expect(page.locator('h1.tools-h1').first()).toBeVisible();
+  // Migrated from iframe to a native React island in this repo
+  await expect(page.locator('[data-testid="password-hash-widget"]')).toBeVisible();
+});
