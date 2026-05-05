@@ -1,4 +1,5 @@
 import { t as tFn } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 import ToolHero from '@/components/tools/ToolHero';
 import ToolWidget from '@/components/tools/ToolWidget';
 import MoreDevTools from '@/components/tools/MoreDevTools';
@@ -20,11 +21,11 @@ export default function PasswordHashPage({ locale }: Props) {
       <br />
       {t('f5ReadMore')}
       <br />
-      <a href={t('f5Link1Href')} target="_blank">
+      <a href={localizedPath(locale, t('f5Link1Href'))} target="_blank">
         {t('f5Link1')}
       </a>
       {'  •  '}
-      <a href={t('f5Link2Href')} target="_blank">
+      <a href={localizedPath(locale, t('f5Link2Href'))} target="_blank">
         {t('f5Link2')}
       </a>
     </>
