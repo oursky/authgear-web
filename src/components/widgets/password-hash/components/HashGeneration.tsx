@@ -65,7 +65,7 @@ export default function HashGeneration({ selectedAlgorithm, setSelectedAlgorithm
   const showSaltFormat = supportsSaltFormat(selectedAlgorithm);
 
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-6">
       {/* Algorithm picker */}
       <div>
         <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">

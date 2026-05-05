@@ -22,7 +22,7 @@ export default function HashVerification() {
   } = useHashVerification();
 
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-6">
       <div>
         <div className="flex items-baseline justify-between mb-2">
           <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
