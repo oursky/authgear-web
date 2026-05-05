@@ -12,6 +12,7 @@
 # Internal canonical redirects (previously prerendered as Astro stubs)
 /why-authgear                                                                       /about                                                                                                                  301
 /zh-hant/why-authgear                                                               /zh-hant/about                                                                                                          301
+/ciam                                                                               /solutions/ciam-solution                                                                                                301
 /features/sms-passcode                                                              /features/multi-factor-authentication                                                                                   301
 /zh-hant/features/sms-passcode                                                      /zh-hant/features/multi-factor-authentication                                                                           301
 /zh-hant/features/identity-security                                                 /zh-hant/features/attack-protection                                                                                     301
@@ -34,7 +35,7 @@
 /post/feature-in-app-account-deletion                                               /whats-new/2022-02-24                                                                                                   301
 /talk-with-us-old                                                                   /talk-with-us                                                                                                           301
 /external-identity-access-management                                                /wiam-extended-workforce-secure-manage-access-for-frontline-contractors-more                                            301
-/b2c-ciam                                                                           /ciam-solution                                                                                                          301
+/b2c-ciam                                                                           /solutions/ciam-solution                                                                                                301
 /b2c-saas                                                                           /b2b-saas-authentication                                                                                                301
 /features/security-and-threat-prevention                                            /features/identity-security                                                                                             301
 /events/authgear-x-identityweek-sso-workshop                                        /                                                                                                                       301
