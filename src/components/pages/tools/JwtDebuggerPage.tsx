@@ -97,7 +97,7 @@ export default function JwtDebuggerPage({ locale }: Props) {
           >
             <div className="tools-faq-content">
               {t('faqJwtBodyP1')}
-              <a href={t('faqJwtBodyLinkMidHref')}>{t('faqJwtBodyLinkMid')}</a>
+              <a href={localizedPath(locale, t('faqJwtBodyLinkMidHref'))}>{t('faqJwtBodyLinkMid')}</a>
               {t('faqJwtBodyP2')}
             </div>
             <ToolFaqCheckItem>{t('faqJwtBullet1')}</ToolFaqCheckItem>
