@@ -105,6 +105,10 @@ export default function SslCheckerPage({ locale }: Props) {
             <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>
               {t('faq2Body')}
             </div>
+            <div className="tools-faq-content">
+              {t('faq2LearnMoreBefore')}
+              <a href={t('faq2LearnMoreHref')}>{t('faq2LearnMoreLinkText')}</a>
+            </div>
           </ToolFaqCard>
           <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faq3Title')}>
             <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>

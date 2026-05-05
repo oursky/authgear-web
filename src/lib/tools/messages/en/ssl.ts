@@ -34,6 +34,9 @@ export const ssl = {
   faq2Title: 'What Is a Certificate Chain?',
   faq2Body:
     "A certificate chain is a sequence of certificates that links your website's certificate back to a root Certificate Authority (CA) that browsers trust. The chain has three levels:\n\nLeaf certificate (your site's certificate) — issued directly to your domain.\n\nIntermediate certificate(s) — issued by the root CA to an intermediate CA, which then issues certificates to websites. This keeps the root CA offline and protected.\n\nRoot certificate — self-signed by a trusted CA. Pre-installed in browsers and operating systems.\n\nWhy does this matter?\nIf the intermediate certificate is missing from the server's configuration, browsers can't verify the chain and will show a security error — even if your leaf certificate is perfectly valid. This is one of the most common SSL configuration mistakes. Our checker visualizes the full chain so you can spot gaps instantly.",
+  faq2LearnMoreBefore: 'Read more in our deep-dive: ',
+  faq2LearnMoreLinkText: 'SSL Certificate Chain — What It Is and How to Fix It',
+  faq2LearnMoreHref: '/post/ssl-certificate-chain',
   faq3Title: 'How long do SSL certificates last?',
   faq3Body:
     "Let's Encrypt certificates expire every 90 days (auto-renewing). Paid CA certificates typically last 1–2 years. Since September 2020, the maximum validity period for publicly trusted certificates is 398 days. Apple and Google are pushing toward 90-day maximums industry-wide.\n\nWhat happens when an SSL certificate expires?\n\nBrowsers immediately show a \"Your connection is not private\" error and block users from reaching the site. This is why monitoring expiry dates matters.",
