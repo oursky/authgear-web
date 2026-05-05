@@ -7,11 +7,30 @@ featured: false
 metaTitle: "HTTP 502 Bad Gateway: Causes & Fixes | Authgear"
 metaDescription: "A 502 Bad Gateway error means your proxy couldn't reach the upstream server. Learn what causes it, how to diagnose it, and how to fix it fast."
 publishedAt: 2026-03-13T22:25:51.671Z
-updatedAt: 2026-03-17T15:52:41.327Z
+updatedAt: 2026-05-05T00:00:00.000Z
 draft: false
+faq:
+  - q: "What does HTTP 502 Bad Gateway mean?"
+    a: "A 502 Bad Gateway error means a server acting as a gateway or proxy (such as Nginx, Apache, Cloudflare, or an AWS load balancer) received an invalid response — or no response at all — from the upstream application server. The proxy is working; the upstream behind it is what failed."
+  - q: "How do I fix a 502 Bad Gateway error?"
+    a: "Start by checking that your upstream application server is running and listening on the configured port. Then check the proxy's error log for the underlying cause (connection refused, upstream timed out, no live upstreams). The three most common fixes are: restart the crashed app, correct a wrong port or socket path in the proxy config, or raise proxy_read_timeout if the backend is slow."
+  - q: "What is the difference between 502 and 504?"
+    a: "Both involve a proxy failing to relay a response. A 502 means the upstream returned an invalid response or refused the connection. A 504 means the upstream was reachable but took longer than the proxy's timeout to respond."
+  - q: "Can a client cause a 502 error?"
+    a: "No. A 502 is always a server-side problem. The client sent a valid request; something between the proxy and the upstream application failed. Client behaviour (like a slow upload) can trigger conditions that cause a 502, but the root cause and the fix are on the server."
+  - q: "Why do I see 502 errors only under heavy load?"
+    a: "This usually means the upstream is running out of capacity — no available workers, exhausted connection pool, or CPU/memory pressure. The upstream is alive at normal load but overwhelmed at peak. Profile the slow endpoint, scale horizontally, or add request queuing."
+  - q: "Does Cloudflare cache 502 errors?"
+    a: "By default Cloudflare does not cache 5xx responses, but a custom Page Rule or Cache Rule can override this. If 502s persist after the origin recovers, check your Cloudflare cache configuration."
+  - q: "How can I tell if a 502 came from Nginx or my application?"
+    a: "Check the Server response header (Nginx returns Server: nginx). Use curl -v and inspect the response headers to identify which layer in your stack returned the error. For multi-layer setups, add a custom X-Proxy-ID header in each proxy config to make the source unambiguous."
+  - q: "How do I fix a 502 on Kubernetes?"
+    a: "A 502 from a Kubernetes Ingress usually means the Service has no ready Pod endpoints. Check kubectl get pods (CrashLoopBackOff or NotReady), the Service's EndpointSlice (kubectl get endpointslice), and that the Pod's containerPort matches the Service's targetPort. Readiness probe failures will quietly remove a Pod from the load balancer."
 ---
 
 A **502 Bad Gateway** error means the server acting as a gateway or proxy received an invalid response — or no response at all — from the upstream server it was trying to reach. The proxy is up and running; the problem is what lies behind it.
+
+> **tl;dr** — A 502 means your reverse proxy (Nginx, Apache, Cloudflare, AWS ALB) could not get a valid response from your upstream application server. Nine times out of ten the cause is one of three things: the upstream process has crashed, the proxy is pointing at the wrong port or socket, or `proxy_read_timeout` is shorter than how long the backend takes to respond.
 
 For developers, a 502 is a mid-tier headache: it is not a client mistake (that would be a 4xx), and it is not a catch-all server crash (that would be a 500). It tells you something specific: the gateway could not talk to the backend. That narrows down where to look.
 
@@ -290,6 +309,52 @@ resource "aws_lb_target_group" "app" {
   }
 }
 ```
+
+### Fix: Kubernetes Ingress returns 502
+
+A 502 from an Ingress controller (Nginx Ingress, Traefik, ALB Controller) almost always means the Service has no ready Pod endpoints to route to. Work through these:
+
+```
+# 1. Are the Pods running and ready?
+kubectl get pods -l app=myapp
+# Look for Running + READY 1/1, not CrashLoopBackOff or 0/1
+
+# 2. Does the Service have endpoints?
+kubectl get endpointslice -l kubernetes.io/service-name=myapp
+# Empty addresses[] = no Pod is passing its readiness probe
+
+# 3. Does the Service targetPort match the Pod containerPort?
+kubectl describe svc myapp
+kubectl describe pod <pod-name> | grep -A 2 Ports
+
+# 4. Are readiness probes passing?
+kubectl describe pod <pod-name> | grep -A 5 Readiness
+```
+
+Common causes:
+
+- **Readiness probe path 404s.** The probe hits `/health` but the app only serves `/api/health`. Pod stays NotReady, gets pulled from the Service, Ingress has nothing to route to.
+- **Wrong `targetPort`.** App listens on 8080, Service forwards to 3000. No connection ever lands on the app.
+- **App binds to `127.0.0.1`** instead of `0.0.0.0`. The container port is unreachable from outside the Pod's loopback. Fix by binding to `0.0.0.0` inside the container.
+- **Crash loop on startup.** Run `kubectl logs <pod-name> --previous` to see the last crash reason.
+
+### Fix: Heroku H12 / H13 manifesting as 502
+
+Heroku's router returns 503 by default for app-side failures, but reverse proxies in front of Heroku (Cloudflare, custom domains via a CDN) often surface them as 502.
+
+- **H12 (request timeout)** — your dyno did not respond within 30 seconds. Either optimise the slow endpoint, move work to a background worker (`worker` dyno), or stream a partial response sooner.
+- **H13 (connection closed without response)** — the dyno crashed mid-request. Check `heroku logs --tail` for the stack trace.
+- **R14 (memory quota exceeded)** — dyno is being restarted. Upgrade the dyno tier or fix the leak.
+
+### Fix: Vercel / Netlify Edge function 502
+
+Serverless platforms return 502 (or `FUNCTION_INVOCATION_FAILED` / similar) when:
+
+- The function exceeds the platform's execution timeout (10s default on Vercel Hobby, 60s on Pro for serverless functions).
+- The function throws an unhandled exception. Always wrap async handlers in try/catch and return an explicit error response — uncaught rejections terminate the function with no useful response.
+- The deployed bundle exceeds the size limit (250MB unzipped on Vercel). Trim dependencies; use `serverComponentsExternalPackages` for heavy native modules.
+
+Check the platform's function logs (Vercel: Deployments → Functions → Logs) to see the actual error before guessing.
 
 ### Fix: Nginx DNS caching stale upstream
 

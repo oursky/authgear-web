@@ -1,9 +1,10 @@
 export const uuidV7 = {
-  metaTitle: 'UUID v7 Generator & Timestamp Extractor — Free Online Tool (RFC 9562)',
+  metaTitle: 'UUID v7 / UUIDv7 Generator & Timestamp Extractor — Free Online Tool (RFC 9562)',
   metaDescription:
-    'Generate, inspect, and copy UUID v7 values in your browser. Choose a timestamp (ISO or Unix), batch-generate multiple IDs, decode field segments, and extract timestamps from existing UUIDv7 strings.',
-  heroTitle: 'UUID v7 Generator & Timestamp Extractor (RFC 9562)',
-  heroDescription: 'Generate and inspect UUID v7 values directly in your browser.',
+    'Free online UUID v7 (UUIDv7) generator and timestamp extractor. Generate, inspect, and copy time-ordered UUIDs in your browser, decode the embedded Unix timestamp, and batch-generate up to 10 IDs. Standardised in RFC 9562.',
+  heroTitle: 'UUID v7 (UUIDv7) Generator & Timestamp Extractor — RFC 9562',
+  heroDescription:
+    'UUID v7 — also written UUIDv7 — is a 128-bit identifier standardised in RFC 9562 that embeds a millisecond Unix timestamp, so the IDs sort by creation time while staying globally unique. Use this free tool to generate UUIDv7 values, decode the timestamp from an existing one, and inspect every field — all in your browser, with nothing sent to a server.',
   iframeTitle: 'UUIDv7 Generator & Timestamp Extractor (RFC 9562)',
   policyLine1:
     'Your data security is our top priority. Everything runs locally in your browser.',
@@ -43,9 +44,9 @@ export const uuidV7 = {
   faq2b1: 'Database keys: time-ordered inserts with good index locality.',
   faq2b2: 'Event IDs: sortable by creation time without extra columns.',
   faq2b3: 'Log correlation: embedded millisecond timestamp for triage.',
-  bpTitle: 'Why Use UUID v7 Instead of UUID v4?',
+  bpTitle: 'Why Use UUID v7 (UUIDv7) Instead of UUID v4?',
   bpBody:
-    'UUID v4 is fully random and does not preserve creation order. UUID v7 improves database write performance and index locality by generating identifiers that are roughly sorted by time.',
+    'UUID v4 is fully random, which means newly inserted rows scatter across a B-tree index and force expensive page splits — a real performance problem at high write volume. UUIDv7 prepends a 48-bit millisecond Unix timestamp before the random bits, so newly generated IDs sort lexicographically by creation time, cluster together in the index, and behave well under concurrent inserts. You keep the global uniqueness of v4 and gain the index locality of an auto-increment integer, without the privacy or coordination cost of either.',
   gridTitle: 'Is UUID v7 globally unique?',
   gridBody:
     'UUIDs are designed for extremely low collision probability when generated correctly. v7 combines a timestamp with large random sections to maintain that property.',

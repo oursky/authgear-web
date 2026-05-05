@@ -16,7 +16,7 @@ Authenticator apps generate short-lived 6–8 digit codes using **TOTP** (Time-b
 
 ## What is an authenticator app?
 
-An authenticator app (Google Authenticator, Microsoft Authenticator, Authy, etc.) is a **second factor** in multi-factor authentication (MFA). Instead of SMS codes, the app generates codes **offline** on your device. Most apps implement the [TOTP standard (RFC 6238)](/post/what-is-totp), which is built on **HMAC-SHA1/256/512** with a rotating time counter.
+An authenticator app (Google Authenticator, Microsoft Authenticator, Authy, etc.) is a **second factor** in multi-factor authentication (MFA). Instead of SMS codes, the app generates codes **offline** on your device. Most apps implement the [TOTP standard (RFC 6238)](/post/what-is-totp), which is built on [HMAC](/post/hmac-api-security)-SHA1/256/512 with a rotating time counter.
 
 Want to see TOTP in action? Try our [TOTP Authenticator tool](/tools/totp-authenticator).
 
