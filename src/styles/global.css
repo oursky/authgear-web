@@ -1096,12 +1096,20 @@ button.ds-sms-warning-faq__trigger {
   margin: 1.5rem 0;
 }
 .blog-post__body blockquote {
-  border-left: 3px solid #0043e0;
-  padding: 0.125rem 0 0.125rem 1rem;
-  margin: 1.5rem 0;
+  border-top: none;
+  border-left: 4px solid #0043e0;
+  border-radius: 0.375rem;
+  background-color: #f8fafc;
   color: #334155;
+  text-align: left;
+  letter-spacing: normal;
+  font-size: 1rem;
+  line-height: 1.7;
   font-style: normal;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
 }
+.blog-post__body blockquote p { margin-bottom: 0.75rem; }
 .blog-post__body blockquote p:last-child { margin-bottom: 0; }
 
 /* Code: light theme (Shiki github-light handles <pre>/token coloring).
