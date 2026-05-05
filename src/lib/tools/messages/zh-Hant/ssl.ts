@@ -32,6 +32,9 @@ export const ssl = {
   faq2Title: '什麼是憑證鏈？',
   faq2Body:
     '憑證鏈將您網站的憑證連結回瀏覽器信任的根 CA。包含三層：\n\n葉節點憑證（您的網域）—直接簽發給您的網域。\n\n中介憑證—根 CA 簽發給中介 CA，再由中介簽發給網站，以保護離線的根。\n\n根憑證—由受信任 CA 自簽。預先內建於瀏覽器與作業系統。\n\n為何重要？若伺服器設定缺少中介憑證，瀏覽器無法完成驗證並顯示錯誤—即使葉憑證本身有效。本工具可視覺化完整鏈結以利找出斷鏈。',
+  faq2LearnMoreBefore: '深入閱讀：',
+  faq2LearnMoreLinkText: 'SSL 憑證鏈：是什麼、如何修復',
+  faq2LearnMoreHref: '/zh-hant/post/ssl-certificate-chain',
   faq3Title: 'SSL 憑證效期多久？',
   faq3Body:
     'Let\'s Encrypt 約 90 天（通常自動續約）。付費 CA 常為 1–2 年。自 2020 年 9 月起，公開信任憑證最長約 398 天。產業趨勢朝向更短效期。\n\n憑證過期會怎樣？\n\n瀏覽器會立即顯示「連線不安全」並阻擋使用者進入網站，因此監控到期日很重要。',
