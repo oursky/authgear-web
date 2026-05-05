@@ -5,7 +5,7 @@ coverImage: ./cover.jpg
 category: engineering
 featured: false
 metaTitle: "What is Salting in Security? Password Hashing and Salting Explained"
-metaDescription: "Salting is the practice of adding unique, random data (a \"salt\") to a password before it is hashed, to ensures distinct hashes, neutralizing rainbow table attacks."
+metaDescription: "Salting is the practice of adding unique, random data (a \"salt\") to a password before it is hashed, ensuring distinct hashes and neutralizing rainbow table attacks."
 canonicalUrl: /post/password-hashing-salting-function-and-algorithm-explained
 publishedAt: 2022-02-24T02:51:02.195Z
 updatedAt: 2026-05-05T00:00:00.000Z
@@ -47,7 +47,7 @@ faq:
 ![Salting in security: how a per-user random salt + the password are combined and hashed to produce a unique stored hash.](./figure-1.png)
 <!--/FIGURE-->
 
-Salting in security is the practice of adding unique, random data (a "salt") to each user's password before it is hashed and stored. The technical workflow involves generating a cryptographically secure random salt, combining it with the user's input, and hashing the pair to create a unique digital fingerprint for future verification. This method improves security by neutralising rainbow table attacks, protecting duplicate passwords from sharing the same hash, and forcing attackers to crack accounts individually. For robust implementation, best practices require using unique per-user salts of at least 16 bytes paired with modern algorithms and defence-in-depth techniques like peppering.
+Salting in security is the practice of adding unique, random data (a "salt") to each user's password before it is hashed and stored. The technical workflow involves generating a cryptographically secure random salt, combining it with the user's input, and hashing the pair to create a unique digital fingerprint for future verification. This method improves security by neutralizing rainbow table attacks, protecting duplicate passwords from sharing the same hash, and forcing attackers to crack accounts individually. For robust implementation, best practices require using unique per-user salts of at least 16 bytes paired with modern algorithms and defense-in-depth techniques like peppering.
 
 ## How Does Salting Work?
 
@@ -124,7 +124,7 @@ Salting removes the ability for hackers to attack an entire database in bulk. In
 
 ## What are the Password Salting Best Practices?
 
-Password salting best practices require generating a unique, cryptographically secure random salt for every user that is at least 16 bytes long and stored alongside the hashed password. Effective implementation includes using unique per-user salts, ensuring sufficient salt length, utilising modern hashing algorithms, practising proper storage, avoiding predictable values, and implementing password peppering for defence-in-depth.
+Password salting best practices require generating a unique, cryptographically secure random salt for every user that is at least 16 bytes long and stored alongside the hashed password. Effective implementation includes using unique per-user salts, ensuring sufficient salt length, utilizing modern hashing algorithms, practicing proper storage, avoiding predictable values, and implementing password peppering for defense-in-depth.
 
 ### Unique Per-User Salt
 
@@ -148,7 +148,7 @@ Never use usernames, email addresses, or other static user data as salts, as the
 
 ### Password Peppering
 
-For an additional layer of security, implement a password pepper — a secret key stored separately from the database (e.g., in a secure vault or environment variable). Unlike a salt, the pepper is not stored with the hash. If the database is compromised, the pepper provides a final line of defence because the attacker lacks the secret value required to verify the hashes.
+For an additional layer of security, implement a password pepper — a secret key stored separately from the database (e.g., in a secure vault or environment variable). Unlike a salt, the pepper is not stored with the hash. If the database is compromised, the pepper provides a final line of defense because the attacker lacks the secret value required to verify the hashes.
 
 ## Salt vs Pepper: Quick Comparison
 
@@ -179,7 +179,7 @@ For an additional layer of security, implement a password pepper — a secret ke
     </tr>
     <tr>
       <td>Security goal</td>
-      <td>Neutralises rainbow tables</td>
+      <td>Neutralizes rainbow tables</td>
       <td>Protects if the database is leaked</td>
     </tr>
   </tbody>
