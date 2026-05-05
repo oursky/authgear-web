@@ -13,14 +13,7 @@ interface Props { locale: string }
 
 export default function PasswordHashPage({ locale }: Props) {
   const t = (key: string): string => tFn(locale, `Tools.passwordHash.${key}`);
-  const policy = (
-    <>
-      {t('policyPrefix')}
-      <a href={t('policyGithub')} target="_blank" rel="noreferrer">
-        {t('policyGithub')}
-      </a>
-    </>
-  );
+  const policy = <>{t('policyPrefix')}</>;
   const f5desc = (
     <>
       {t('f5DescBeforeLinks')}

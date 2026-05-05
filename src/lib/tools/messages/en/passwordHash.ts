@@ -8,8 +8,7 @@ export const passwordHash = {
     'Client-side tool to generate and verify password hashes with realistic, up-to-date parameters. Helpful for debugging integrations and for understanding how salts, memory, and iterations affect cost. Defaults follow the OWASP 2026 baseline (Argon2id m = 19 MiB, t = 2, p = 1) and NIST SP 800-63B PBKDF2 minimums. Runs locally — no passwords leave your browser.',
   iframeTitle: 'Password Hash Generator',
   policyPrefix:
-    'Your data security is our top priority. All hashing and verification happen in this browser. This tool does not store or send your password nor hashes outside of the browser. See source code in: ',
-  policyGithub: 'https://github.com/oursky/authgear-web/tree/main/src/components/widgets/password-hash',
+    'Your data security is our top priority. All hashing and verification happen in this browser. This tool does not store or send your password nor hashes outside of the browser.',
   featureSectionTitle: 'Supported Password Hashing Functions',
   f1Title: 'Argon2id Generator & Parameters (2026 settings)',
   f1Desc:

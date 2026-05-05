@@ -8,8 +8,7 @@ export const passwordHash = {
     '在客戶端產生／驗證密碼雜湊，參數貼近實務。便於除錯整合並理解 salt、記憶體與迭代對成本的影響。僅在本機執行—密碼不離開瀏覽器。',
   iframeTitle: '密碼雜湊產生器',
   policyPrefix:
-    '您的資料安全是我們的首要考量。所有雜湊與驗證皆在此瀏覽器完成。本工具不會儲存或將密碼與雜湊傳送到瀏覽器以外。原始碼：',
-  policyGithub: 'https://github.com/oursky/authgear-web/tree/main/src/components/widgets/password-hash',
+    '您的資料安全是我們的首要考量。所有雜湊與驗證皆在此瀏覽器完成。本工具不會儲存或將密碼與雜湊傳送到瀏覽器以外。',
   featureSectionTitle: '支援的密碼雜湊函式',
   f1Title: 'Argon2id 參數（2026 設定）',
   f1Desc:
