@@ -56,10 +56,13 @@ None required for the contact form — submissions are handled by Netlify Forms 
 
 ## Docs
 
-- [`docs/ARCHITECTURE-ASTRO.md`](docs/ARCHITECTURE-ASTRO.md) — full architecture overview (routing, rendering, SEO, i18n, deployment).
-- [`docs/blog-authoring.md`](docs/blog-authoring.md) — how to write a new blog post.
-- [`docs/tool-pages.md`](docs/tool-pages.md) — how to add or migrate a `/tools/<slug>` page (iframe-embedded vs self-hosted React island; CSS scoping; webflow collision resets).
-- [`docs/superpowers/specs/`](docs/superpowers/specs/) — design specs for each migration slice.
+| Doc | Purpose |
+|---|---|
+| [`docs/ARCHITECTURE-ASTRO.md`](docs/ARCHITECTURE-ASTRO.md) | Full architecture overview — routing, rendering, SEO, i18n, deployment. Start here. |
+| [`docs/blog-authoring.md`](docs/blog-authoring.md) | Authoring a new blog post — frontmatter schema, body conventions, FAQ handling, SEO fields. |
+| [`docs/tool-pages.md`](docs/tool-pages.md) | Adding or migrating a `/tools/<slug>` page — iframe-embedded vs self-hosted React island, CSS prefix-scoping script, Webflow collision resets, crypto-library guidance. |
+| [`docs/plausible-tagging-plan.md`](docs/plausible-tagging-plan.md) | Inventory of custom Plausible events and the naming convention they follow. |
+| [`docs/superpowers/specs/`](docs/superpowers/specs/) | Design specs for each Astro-migration slice (historical, useful when revisiting a migrated subsystem). |
 
 ## Deployment
 
