@@ -71,7 +71,7 @@ How to use the `jwks_uri`:
   <li>Implement a refresh strategy (e.g., periodic refresh or refresh on verification failures) so your service handles key rotation smoothly.</li>
 </ul>
 
-Tip: Always serve JWKS over HTTPS and include stable `kid` values for easier rotation handling.
+Tip: Always serve JWKS over HTTPS and include stable `kid` values for easier rotation handling. If you're configuring TLS for your JWKS endpoint, make sure your server returns the full [SSL certificate chain](/post/ssl-certificate-chain) — a missing intermediate certificate is the most common cause of API clients failing to fetch the JWKS even when the URL works in a browser.
 
 <blockquote>
 <p>&#x1F4A1; <strong>Find any provider's JWKS URI instantly:</strong> Use the <a href="/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a>. Enter the issuer URL and the <code>jwks_uri</code> is shown in the Key Endpoints summary alongside the authorization endpoint and token endpoint &mdash; no curl required.</p>
