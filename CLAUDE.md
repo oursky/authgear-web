@@ -58,6 +58,7 @@ None required for the contact form — submissions are handled by Netlify Forms 
 
 - [`docs/ARCHITECTURE-ASTRO.md`](docs/ARCHITECTURE-ASTRO.md) — full architecture overview (routing, rendering, SEO, i18n, deployment).
 - [`docs/blog-authoring.md`](docs/blog-authoring.md) — how to write a new blog post.
+- [`docs/tool-pages.md`](docs/tool-pages.md) — how to add or migrate a `/tools/<slug>` page (iframe-embedded vs self-hosted React island; CSS scoping; webflow collision resets).
 - [`docs/superpowers/specs/`](docs/superpowers/specs/) — design specs for each migration slice.
 
 ## Deployment
