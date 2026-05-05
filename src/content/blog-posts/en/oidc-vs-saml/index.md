@@ -259,7 +259,7 @@ Implementation complexity, SDK availability, and metadata handling vary between 
 - Misconfigured SAML assertion lifetimes → login failures
 - OIDC SPAs require PKCE → security risk if omitted
 - Token storage in OIDC must be secure → prevent XSS attacks
-- Certificate updates in SAML must be synchronized between the IdP and the SP
+- Certificate updates in SAML must be synchronized between the IdP and the SP — and a missing intermediate in the [SSL certificate chain](/post/ssl-certificate-chain) on either side will silently break SSO for mobile clients while desktop browsers continue working from cached intermediates.
 
 ## **How To Choose the Right Protocol for Your Apps?**
 

@@ -72,7 +72,7 @@ If the proxy resolves the upstream hostname at startup (Nginx does this by defau
 
 ### 6. TLS handshake failure between proxy and upstream
 
-When the proxy connects to the upstream over HTTPS (common in microservices), a certificate mismatch or expired cert on the upstream side causes the handshake to fail, which the proxy reports as 502. Use the [Authgear SSL Checker](/tools/ssl-checker) to verify your upstream certificates.
+When the proxy connects to the upstream over HTTPS (common in microservices), a certificate mismatch or expired cert on the upstream side causes the handshake to fail, which the proxy reports as 502. A particularly sneaky variant: the upstream's [SSL certificate chain](/post/ssl-certificate-chain) is broken (a missing intermediate certificate) — desktop browsers may still work because they cache intermediates from previous sites, but proxies and API clients reject the connection outright. Use the [Authgear SSL Checker](/tools/ssl-checker) to verify your upstream certificates.
 
 ### 7. Resource exhaustion on the upstream
 
