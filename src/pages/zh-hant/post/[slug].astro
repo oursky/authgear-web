@@ -60,9 +60,10 @@ const updatedStr = updatedDate.toLocaleDateString('zh-Hant', {
 const pageTitle = data.metaTitle ?? data.title;
 const pageDescription = data.metaDescription ?? data.excerpt;
 const headingText = data.h1 ?? data.title;
+const canonicalHref = data.canonicalUrl ?? new URL(Astro.url.pathname, Astro.site).href;
 ---
 
-<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
+<BaseLayout locale={locale} title={pageTitle} description={pageDescription} canonical={canonicalHref} ogType="article" twitterCard="summary_large_image">
   <BlogPostSeo entry={entry} slot="head" />
   <article class="blog-post">
     <header class="blog-post__header">

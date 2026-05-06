@@ -22,7 +22,7 @@ export default defineConfig({
     }),
   ],
   vite: { plugins: [tailwindcss()] },
-  trailingSlash: 'ignore',
+  trailingSlash: 'never',
   build: { format: 'directory' },
   markdown: {
     shikiConfig: {

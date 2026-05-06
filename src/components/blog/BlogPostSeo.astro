@@ -61,25 +61,13 @@ const faqLd = hasFaq
     }
   : null;
 ---
-<title>{title}</title>
-<meta name="description" content={description} />
-<link rel="canonical" href={canonicalHref} />
-
-<meta property="og:type" content="article" />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageAbsolute} />
-<meta property="og:url" content={canonicalHref} />
-<meta property="og:site_name" content="Authgear" />
 <meta property="article:published_time" content={publishedISO} />
 <meta property="article:modified_time" content={modifiedISO} />
 {data.category && (
   <meta property="article:section" content={data.category} />
 )}
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageAbsolute} />
 
 <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />

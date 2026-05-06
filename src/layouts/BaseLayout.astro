@@ -10,12 +10,18 @@ interface Props {
   locale: string;
   title?: string;
   description?: string;
+  canonical?: string;
+  ogType?: 'website' | 'article';
+  twitterCard?: 'summary' | 'summary_large_image';
 }
 
 const { locale } = Astro.props;
 const {
   title = t(locale, 'Seo.siteName'),
   description = t(locale, 'Seo.siteDescription'),
+  canonical: canonicalProp,
+  ogType = 'website',
+  twitterCard = 'summary',
 } = Astro.props;
 
 const htmlLang = localeToHtmlLang(locale);
@@ -32,7 +38,7 @@ const neutralPath = pathname.startsWith('/zh-hant')
   : pathname;
 const enUrl = `${siteOrigin}${neutralPath}`;
 const zhHantUrl = `${siteOrigin}/zh-hant${neutralPath === '/' ? '/' : neutralPath}`;
-const canonical = locale === 'zh-Hant' ? zhHantUrl : enUrl;
+const canonical = canonicalProp ?? (locale === 'zh-Hant' ? zhHantUrl : enUrl);
 const ogLocale = locale === 'zh-Hant' ? 'zh_TW' : 'en_US';
 const ogLocaleAlternate = locale === 'zh-Hant' ? 'en_US' : 'zh_TW';
 const gtmId = import.meta.env.PUBLIC_GTM_ID ?? '';
@@ -66,7 +72,7 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
     <link rel="alternate" hreflang="x-default" href={enUrl} />
 
     {/* OpenGraph (Webflow used "copy SEO title/description" — same here). */}
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -75,7 +81,7 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
     <meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
     {/* Twitter (summary card — no image). */}
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={twitterCard} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
