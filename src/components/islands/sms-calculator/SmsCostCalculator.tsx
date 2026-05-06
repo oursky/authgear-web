@@ -346,7 +346,7 @@ export default function SmsCostCalculator({ locale }: Props) {
         </div>
 
         <div className="ag-cta-row">
-          <a className="ag-cta-btn plausible-event-name--signup-calculator" href="https://portal.authgear.com">
+          <a className="ag-cta-btn plausible-event-name--signup-calculator" href="/schedule-demo">
             {t('ctaButton')}
           </a>
         </div>
