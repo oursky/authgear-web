@@ -9,6 +9,27 @@ metaDescription: "Learn how passkey authentication works and how to implement it
 publishedAt: 2026-03-13T17:35:55.681Z
 updatedAt: 2026-05-06T00:00:00.000Z
 draft: false
+faq:
+  - q: "What is passkey authentication?"
+    a: "Passkey authentication is a passwordless login method that uses public-key cryptography instead of passwords. The user's device holds a private key; the server stores the matching public key. At login, the server issues a challenge, the device signs it using the private key (after biometric/PIN verification), and the server confirms the signature. No password is ever created, stored, or transmitted."
+  - q: "What is a passkey?"
+    a: "A passkey is the credential created during passkey authentication. It consists of a cryptographic key pair: a public key on the server and a private key locked to the user's device. Users authenticate with biometrics or a device PIN — the private key never leaves the device."
+  - q: "How do passkeys work technically?"
+    a: "Passkeys use public-key cryptography. The device holds a private key; the server stores the corresponding public key. At login, the server issues a challenge, the device signs it with the private key, and the server verifies the signature. No shared secret is ever transmitted."
+  - q: "What is WebAuthn?"
+    a: "WebAuthn (Web Authentication API) is the browser API that applications use to create and use passkeys. It's a W3C standard supported in all major browsers."
+  - q: "Are passkeys more secure than passwords?"
+    a: "Yes. Passkeys can't be phished (they're domain-bound), can't be leaked in a server breach (only public keys are stored), and can't be reused across sites. They're also resistant to brute-force attacks since there's no secret to guess."
+  - q: "Can passkeys sync across multiple devices?"
+    a: "Yes. Apple (iCloud Keychain), Google (Password Manager), and Microsoft (Windows Hello) sync passkeys across a user's devices. Third-party password managers like 1Password and Dashlane also support passkey sync."
+  - q: "Is there a WebAuthn example I can run locally?"
+    a: "Yes. webauthn.io is an interactive WebAuthn demo you can test in your browser without any setup. For a local example, Google's 'Build your first WebAuthn app' codelab walks through a full registration and authentication flow. The code examples in this article show the client-side WebAuthn calls you'd use in your own app."
+  - q: "How do I create a passkey on iPhone?"
+    a: "To create a passkey on iPhone from a native iOS app, use the AuthenticationServices framework. Your app needs an Associated Domains entitlement (webcredentials:yourdomain.com) and your server must serve an apple-app-site-association file at /.well-known/apple-app-site-association. Call ASAuthorizationPlatformPublicKeyCredentialProvider.createCredentialRegistrationRequest() with a server-issued challenge — the OS handles Face ID or Touch ID automatically."
+  - q: "What is the difference between WebAuthn and a passkey?"
+    a: "WebAuthn is the W3C API (navigator.credentials.create() / .get()) that your code calls to create and verify credentials. A passkey is a WebAuthn credential that syncs across a user's devices via iCloud Keychain, Google Password Manager, or a similar platform service. All passkeys are WebAuthn credentials, but not all WebAuthn credentials are passkeys — a FIDO2 hardware key (like a YubiKey) is WebAuthn but device-bound and does not sync."
+  - q: "Does Windows Hello support passkeys?"
+    a: "Yes. Windows Hello is a platform authenticator that exposes passkey support through the standard WebAuthn API in Chrome and Edge on Windows 11. There is no Windows-specific SDK — you use the same navigator.credentials.create() call as any other WebAuthn implementation, with authenticatorAttachment of 'platform' and userVerification of 'required' to trigger Windows Hello. Credentials are bound to the device's TPM 2.0 chip and do not sync across devices."
 ---
 
 Passwords have been the default way to authenticate users for decades, but they continue to create security and usability challenges. Users forget them, reuse them across services, and often store them insecurely. For developers, password-based systems mean account recovery queues, phishing risk, and credential breach exposure.
@@ -622,5 +643,3 @@ WebAuthn is the W3C API (`navigator.credentials.create()` / `.get()`) that your 
 ### Does Windows Hello support passkeys?
 
 Yes. Windows Hello is a platform authenticator that exposes passkey support through the standard WebAuthn API in Chrome and Edge on Windows 11. There is no Windows-specific SDK — you use the same `navigator.credentials.create()` call as any other WebAuthn implementation, with `authenticatorAttachment: 'platform'` and `userVerification: 'required'` to trigger Windows Hello. Credentials are bound to the device's TPM 2.0 chip and do not sync across devices.
-
-<script type='application/ld+json'>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is passkey authentication?","acceptedAnswer":{"@type":"Answer","text":"Passkey authentication is a passwordless login method that uses public-key cryptography instead of passwords."}},{"@type":"Question","name":"What is a passkey?","acceptedAnswer":{"@type":"Answer","text":"A passkey is a cryptographic credential: a public key on the server and a private key locked to the user's device."}},{"@type":"Question","name":"What is WebAuthn?","acceptedAnswer":{"@type":"Answer","text":"WebAuthn (Web Authentication API) is the browser API that applications use to create and use passkeys. It's a W3C standard supported in all major browsers."}},{"@type":"Question","name":"Are passkeys more secure than passwords?","acceptedAnswer":{"@type":"Answer","text":"Yes. Passkeys can't be phished, can't be leaked in a server breach, and can't be reused across sites."}},{"@type":"Question","name":"Can passkeys sync across multiple devices?","acceptedAnswer":{"@type":"Answer","text":"Yes. Apple (iCloud Keychain), Google (Password Manager), and Microsoft (Windows Hello) sync passkeys across devices."}}]}</script>
