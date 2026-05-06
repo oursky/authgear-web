@@ -5,6 +5,15 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# HTML pages: no browser cache (browsers revalidate on every visit) but a
+# short CDN edge cache with stale-while-revalidate so deploys don't cause
+# a traffic surge on revalidation. More-specific rules below take precedence
+# over this wildcard for static assets.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate, s-maxage=300, stale-while-revalidate=86400"
+
 # Long-cache static assets that ship with the deploy. The Astro build
 # emits hashed _astro/* assets which are already covered by Netlify's
 # default immutable headers; this block extends the same treatment to

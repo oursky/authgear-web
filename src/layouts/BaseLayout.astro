@@ -82,8 +82,12 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
     <link rel="icon" href="/images/favicon.png" />
     <link rel="apple-touch-icon" href="/images/webclip.png" />
 
+    <slot name="head" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {plausibleDomain && <link rel="preconnect" href="https://plausible.io" crossorigin />}
+    {gtmId && <link rel="dns-prefetch" href="https://www.googletagmanager.com" />}
     <link href={fontsUrl} rel="stylesheet" />
 
     <link href="/css/webflow.css" rel="stylesheet" />
@@ -117,7 +121,6 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
       window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };
     </script>
 
-    <slot name="head" />
   </head>
   <body class="bg-neutral-200">
     {gtmId && (

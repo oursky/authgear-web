@@ -1,10 +1,14 @@
-# Locale path lowercased: /zh-Hant/* → /zh-hant/*. The trailing `!`
-# is a Netlify "force" flag — required because Netlify's edge does
-# case-insensitive file lookup, so /zh-Hant/foo would otherwise hit
-# the existing /zh-hant/foo/index.html static file and skip the
-# redirect entirely.
+# Locale path normalisation. The `!` force flag is required because Netlify's
+# edge does case-insensitive file lookup: without it, /zh-Hant/foo would hit
+# the existing /zh-hant/foo/index.html and silently skip the redirect.
+/zh-Hant-TW                                                                         /zh-hant/                                                                                                               301!
+/zh-Hant-TW/*                                                                       /zh-hant/:splat                                                                                                         301!
 /zh-Hant                                                                            /zh-hant/                                                                                                               301!
 /zh-Hant/*                                                                          /zh-hant/:splat                                                                                                         301!
+/zh-TW                                                                              /zh-hant/                                                                                                               301!
+/zh-TW/*                                                                            /zh-hant/:splat                                                                                                         301!
+/zh                                                                                 /zh-hant/                                                                                                               301!
+/zh/*                                                                               /zh-hant/:splat                                                                                                         301!
 
 # @astrojs/sitemap emits sitemap-index.xml; alias the conventional path.
 /sitemap.xml                                                                        /sitemap-index.xml                                                                                                      301
