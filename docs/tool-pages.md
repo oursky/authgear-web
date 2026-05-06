@@ -245,11 +245,6 @@ Page chrome (hero, feature cards, FAQ) is in `src/lib/tools/messages/{en,zh-Hant
 
 Widget internals (form labels, button text, error messages) **don't have to be in the message bundle for v1** — English-only inside the widget mirrors how the iframe-embedded tools look today. Plumb in `t()` later if you need zh-Hant translation.
 
-If you migrate a widget that previously linked back to a `github.com/authgear/authgear-widget-<x>` URL in the policy banner, update `policyGithub` in both locale message files to point at the in-repo path:
-
-```
-https://github.com/oursky/authgear-web/tree/main/src/components/widgets/<slug>
-```
 
 ### Testing
 
@@ -276,13 +271,12 @@ For converting an existing iframe-embedded tool to self-hosted:
 3. **Create the widget folder.** Copy structure from `src/components/widgets/password-hash/` and adapt.
 4. **Port the CSS** with the script above; reset known webflow collisions; run the collision-check grep for new ones.
 5. **Wire the page.** In `<Name>Page.tsx`, drop `src=…` and put `<MyWidget />` inside `<ToolWidget>`.
-6. **Update `policyGithub`** in both en + zh-Hant message files (in-repo path).
-7. **Update the Playwright spec** to assert the native widget for this slug.
-8. **Verify locally:**
+6. **Update the Playwright spec** to assert the native widget for this slug.
+7. **Verify locally:**
    - `npm run check` → 0 errors
    - `npm run dev` → exercise every algorithm / mode in the widget; copy-to-clipboard; tab switching; verify outputs against the source widget's reference values
    - `npm run build` → clean
-9. **Push the branch and open a PR.** Don't merge until reviewed; don't push to `live` until merged.
+8. **Push the branch and open a PR.** Don't merge until reviewed; don't push to `live` until merged.
 
 ---
 

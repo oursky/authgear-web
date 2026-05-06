@@ -1,0 +1,55 @@
+/* Element resets — outrank Webflow's bare-element rules
+   (button { border:0 }, input { background:... }, label { color:... })
+   so plain Tailwind utilities can drive every visual decision. */
+[data-testid='base64-widget'] label {
+  color: inherit;
+  margin-bottom: 0;
+  font-weight: inherit;
+  line-height: inherit;
+  display: inline-flex;
+}
+[data-testid='base64-widget'] button {
+  cursor: pointer;
+  font: inherit;
+}
+[data-testid='base64-widget'] input,
+[data-testid='base64-widget'] select,
+[data-testid='base64-widget'] textarea {
+  font: inherit;
+  color: inherit;
+  background-color: #ffffff;
+}
+/* Custom checkbox — `appearance: none` + own SVG so we don't depend on
+   the native renderer (which paints the box dark on this site for
+   reasons not pinned down via the CSSOM). */
+[data-testid='base64-widget'] input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin: 0;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1; /* slate-300 */
+  border-radius: 3px;
+  display: inline-grid;
+  place-content: center;
+  flex: 0 0 auto;
+  vertical-align: middle;
+  transition: background-color 0.1s, border-color 0.1s;
+}
+[data-testid='base64-widget'] input[type='checkbox']:hover {
+  border-color: #94a3b8; /* slate-400 */
+}
+[data-testid='base64-widget'] input[type='checkbox']:checked {
+  background-color: #2563eb; /* blue-600 */
+  border-color: #2563eb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6 L5 9 L10 3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+[data-testid='base64-widget'] input[type='checkbox']:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+}

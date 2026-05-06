@@ -6,6 +6,7 @@ import ToolHowItWorks from '@/components/tools/ToolHowItWorks';
 import ToolReadyTo from '@/components/tools/ToolReadyTo';
 import ToolFaq, { ToolFaqCard } from '@/components/tools/ToolFaq';
 import ToolPopup from '@/components/tools/ToolPopup';
+import Base64Widget from '@/components/widgets/base64';
 import { t as tFn } from '@/i18n';
 
 interface Props { locale: string }
@@ -15,13 +16,9 @@ export default function Base64Page({ locale }: Props) {
   return (
     <>
       <ToolHero title={t('heroTitle')} description={t('heroDescription')} />
-      <ToolWidget
-        locale={locale}
-        src="https://base64-encoder-decoder-authgear.vercel.app/"
-        iframeTitle={t('iframeTitle')}
-        height="640px"
-        policy={t('policy')}
-      />
+      <ToolWidget locale={locale} iframeTitle={t('iframeTitle')} policy={t('policy')}>
+        <Base64Widget locale={locale} />
+      </ToolWidget>
       <MoreDevTools locale={locale} currentSlug="base64-decode-encode" />
       <ToolFeatureCards
         cards={[

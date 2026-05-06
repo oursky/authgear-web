@@ -34,4 +34,28 @@ export const base64 = {
   faqUrlTitle: 'What Is the Difference Between Base64 and Base64URL?',
   faqUrlBody:
     'Base64URL is a version of Base64 designed for URLs and token formats. It replaces the characters + with - and / with _, and padding characters (=) are often removed for URL safety.\nThis format is commonly used in JWTs, OAuth tokens, and OpenID Connect.',
+
+  widget: {
+    charsetLabel: 'Charset',
+    urlSafeLabel: 'URL safe',
+    withoutPaddingLabel: 'Without padding',
+
+    plainTextLabel: 'Plain text',
+    plainTextHint: 'Type or paste text to encode',
+    plainTextPlaceholder: 'Enter text to encode…',
+
+    base64Label: 'Base64',
+    base64Hint: 'Type or paste Base64 to decode',
+    base64Placeholder: 'Enter Base64 text to decode…',
+
+    buttonEncode: 'Encode',
+    buttonDecode: 'Decode',
+    buttonReset: 'Reset',
+    buttonCopy: 'Copy',
+    buttonCopied: 'Copied',
+    buttonClear: 'Clear',
+
+    errorEncode: 'Could not encode the input',
+    errorDecode: 'Could not decode — invalid Base64 input',
+  },
 } as const;
