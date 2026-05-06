@@ -1,8 +1,65 @@
-/* Resets for global element rules in public/css/{webflow,authgear-new.webflow}.css
-   that bleed into the widget at element specificity (which beats
-   Tailwind utilities when the cascade order falls the wrong way).
-   Without these, plain `button` / `input` / `label` lose their Tailwind
-   bg / border / color treatment inside the widget root. */
+/*
+ * Base64 widget — terminal/code-editor aesthetic to match the
+ * /whatsapp-otp-pricing hero treatment. Dark, glassy card with a
+ * traffic-light chrome bar; sits as a self-contained island on the
+ * surrounding light tools page.
+ *
+ * All selectors are prefixed with [data-testid='base64-widget'] so
+ * (a) they cannot leak into the rest of the site and (b) they outrank
+ * Webflow's bare-element rules (button { border:0 }, input { ... },
+ * label { color: var(--primary-1) }) at element specificity.
+ */
+
+[data-testid='base64-widget'] {
+  --b64-bg-1: #050418;
+  --b64-bg-2: #0a0a24;
+  --b64-bg-3: #0b0722;
+  --b64-text: rgba(255, 255, 255, 0.88);
+  --b64-text-dim: rgba(255, 255, 255, 0.5);
+  --b64-text-mono-accent: #b8d1ff;
+  --b64-line: rgba(255, 255, 255, 0.08);
+  --b64-line-strong: rgba(255, 255, 255, 0.18);
+  --b64-surface: rgba(255, 255, 255, 0.04);
+  --b64-surface-2: rgba(255, 255, 255, 0.06);
+  --b64-grad-primary: linear-gradient(91deg, #391ce9, #31b7ff);
+  --b64-grad-primary-shadow: 0 10px 30px -10px rgba(57, 28, 233, 0.6);
+  --b64-grad-text: linear-gradient(91deg, #b8d1ff 0%, #a88bff 50%, #63f2c2 100%);
+
+  position: relative;
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(122, 46, 255, 0.32), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(31, 124, 255, 0.32), transparent 55%),
+    linear-gradient(180deg, var(--b64-bg-1) 0%, var(--b64-bg-2) 55%, var(--b64-bg-3) 100%);
+  color: var(--b64-text);
+  box-shadow:
+    0 30px 80px -20px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Gradient hairline border, matching the wa-terminal trick */
+[data-testid='base64-widget']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(168, 139, 255, 0.5), transparent 40%, rgba(99, 242, 194, 0.4));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* --- element resets that win over Webflow --- */
 [data-testid='base64-widget'] label {
   color: inherit;
   margin-bottom: 0;
@@ -22,14 +79,264 @@
 [data-testid='base64-widget'] textarea {
   font: inherit;
   color: inherit;
-  background-color: #ffffff;
+  background-color: transparent;
 }
-[data-testid='base64-widget'] input[type='checkbox'] {
-  -webkit-appearance: auto;
-  appearance: auto;
-  accent-color: rgb(37 99 235); /* blue-600 */
-  width: 1rem;
-  height: 1rem;
+
+/* --- chrome bar (traffic lights + path) --- */
+.b64-chrome {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--b64-line);
+  background: rgba(0, 0, 0, 0.2);
+}
+.b64-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.b64-dot--r { background: #ff6063; }
+.b64-dot--y { background: #febb2e; }
+.b64-dot--g { background: #27c93f; }
+.b64-chrome__path {
+  margin-left: 10px;
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  color: var(--b64-text-dim);
+  letter-spacing: 0.02em;
+}
+
+/* --- body --- */
+.b64-body {
+  position: relative;
+  z-index: 1;
+  padding: 22px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- KV row (charset + toggles) --- */
+.b64-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--b64-line);
+}
+.b64-row:first-of-type { padding-top: 0; }
+.b64-row:last-of-type { border-bottom: 0; }
+
+.b64-kv-label {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--b64-text-dim);
+  white-space: nowrap;
+}
+
+/* --- charset select --- */
+.b64-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 7px 32px 7px 12px;
+  font-size: 13px;
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--b64-text);
+  background-color: var(--b64-surface);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-opacity='0.6' stroke-width='1.6'><path d='M3 5l3 3 3-3' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  border: 1px solid var(--b64-line-strong);
+  border-radius: 8px;
   cursor: pointer;
-  margin: 0;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.b64-select:hover { background-color: var(--b64-surface-2); }
+.b64-select:focus-visible {
+  outline: 2px solid #31b7ff;
+  outline-offset: 1px;
+}
+.b64-select option {
+  background: #0a0a24;
+  color: var(--b64-text);
+}
+
+/* --- toggle switch --- */
+.b64-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 38px;
+  height: 22px;
+  background: var(--b64-surface-2);
+  border: 1px solid var(--b64-line-strong);
+  border-radius: 999px;
+  transition: background 0.2s;
+  flex: 0 0 auto;
+}
+.b64-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transition: transform 0.2s, background 0.2s;
+}
+.b64-switch[aria-checked='true'] {
+  background: var(--b64-grad-primary);
+  border-color: transparent;
+}
+.b64-switch[aria-checked='true']::after {
+  transform: translateX(16px);
+  background: #fff;
+}
+.b64-switch:focus-visible {
+  outline: 2px solid #31b7ff;
+  outline-offset: 2px;
+}
+
+/* --- panel (dark textarea card with header + action footer) --- */
+.b64-panel {
+  border: 1px solid var(--b64-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--b64-surface);
+}
+.b64-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--b64-line);
+  background: rgba(0, 0, 0, 0.18);
+}
+.b64-panel__title {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--b64-text-dim);
+}
+.b64-panel__title-prefix {
+  color: rgba(255, 255, 255, 0.3);
+  margin-right: 6px;
+}
+.b64-panel__actions {
+  display: flex;
+  gap: 4px;
+}
+.b64-textarea {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--b64-text);
+  background: transparent;
+  border: 0;
+  resize: vertical;
+  min-height: 7rem;
+}
+.b64-textarea::placeholder { color: rgba(255, 255, 255, 0.3); }
+.b64-textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.02);
+}
+.b64-panel__footer {
+  padding: 10px 12px;
+  border-top: 1px solid var(--b64-line);
+  background: rgba(0, 0, 0, 0.16);
+}
+
+/* --- buttons --- */
+.b64-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  transition: transform 0.15s, box-shadow 0.2s, background 0.2s, color 0.2s;
+}
+.b64-btn:disabled { cursor: not-allowed; }
+
+.b64-btn--primary {
+  width: 100%;
+  background: var(--b64-grad-primary);
+  color: #fff;
+  box-shadow: var(--b64-grad-primary-shadow);
+}
+.b64-btn--primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px -10px rgba(57, 28, 233, 0.7);
+}
+.b64-btn--primary:disabled {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.35);
+  box-shadow: none;
+}
+
+.b64-btn--icon {
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--b64-text-dim);
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.b64-btn--icon:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--b64-text);
+}
+.b64-btn--icon[data-state='copied'] { color: #63f2c2; }
+.b64-btn--icon:disabled { opacity: 0.35; }
+
+.b64-btn--reset {
+  margin-left: auto;
+  padding: 6px 12px;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--b64-text-dim);
+  border: 1px solid var(--b64-line-strong);
+  border-radius: 8px;
+}
+.b64-btn--reset:hover { background: var(--b64-surface); color: var(--b64-text); }
+
+/* --- error --- */
+.b64-error {
+  margin-top: 4px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255, 96, 99, 0.12);
+  border: 1px solid rgba(255, 96, 99, 0.35);
+  color: #ffc1c2;
+  font-size: 13px;
+}
+
+/* --- toggle row label (visible label for toggles) --- */
+.b64-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
 }
