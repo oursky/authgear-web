@@ -7,7 +7,7 @@ featured: false
 metaTitle: "How to Implement Passkeys with WebAuthn: Developer Guide"
 metaDescription: "Learn how passkey authentication works and how to implement it using the WebAuthn API. Includes registration and login code examples, best practices, and testing tips."
 publishedAt: 2026-03-13T17:35:55.681Z
-updatedAt: 2026-03-13T17:53:28.938Z
+updatedAt: 2026-05-06T00:00:00.000Z
 draft: false
 ---
 
@@ -26,6 +26,8 @@ During authentication, the server sends a random challenge to the device. The de
 Passkeys are built on the **FIDO2 standard**, which combines two components:
 
 <ul><li><strong>WebAuthn</strong> (Web Authentication API) — the browser-side API developers interact with directly</li><li><strong>CTAP</strong> (Client to Authenticator Protocol) — handles communication between the browser and external authenticators like hardware security keys</li></ul>
+
+<blockquote><p><strong>WebAuthn vs passkey — what's the difference?</strong> <em>WebAuthn</em> is the W3C API your code calls (<code>navigator.credentials.create()</code> / <code>.get()</code>). <em>Passkey</em> is the user-facing name for a WebAuthn credential that syncs across a user's devices via iCloud Keychain, Google Password Manager, or a similar platform service. Every passkey is a WebAuthn credential — but a hardware key like a YubiKey is also WebAuthn and is <strong>not</strong> a passkey (it doesn't sync). All the code in this article is WebAuthn. It produces passkeys when the platform authenticator (Face ID, Windows Hello, Android Credential Manager) creates a syncable credential.</p></blockquote>
 
 ## Why Developers Are Adopting Passkeys
 
@@ -153,6 +155,382 @@ The `base64urlToBuffer` and `bufferToBase64url` helpers convert between base64ur
 
 <blockquote><p>⚠️ <strong>Common mistake:</strong> Sending the raw challenge as a string instead of an <code>ArrayBuffer</code> will cause <code>navigator.credentials.create()</code> to throw. Always decode base64url values from your server before passing them to the WebAuthn API.</p></blockquote>
 
+## Implementing Passkeys on iOS (Swift)
+
+If you're building a native iOS app and want to know how to create a passkey on iPhone or how to set up passkey on iPhone, the `AuthenticationServices` framework is where you start. Apple added passkey support in iOS 16 — no third-party library needed.
+
+### Requirements
+
+Before writing any Swift code, make sure three things are in place:
+
+**1. Associated Domains entitlement.** Add the entitlement `com.apple.developer.authentication-services.autofill-credential-provider` to your app target, and add an associated domain entry `webcredentials:yourdomain.com` in your app's entitlements file (or via Xcode's Signing & Capabilities → Associated Domains).
+
+**2. `apple-app-site-association` file on your server.** Your web server must serve the following JSON at `https://yourdomain.com/.well-known/apple-app-site-association` (no file extension, over HTTPS only):
+
+```json
+{
+  "webcredentials": {
+    "apps": ["TEAMID.com.example.yourapp"]
+  }
+}
+```
+
+Replace `TEAMID` with your Apple Developer Team ID and the bundle identifier with your app's bundle ID. The file must be served with `Content-Type: application/json`.
+
+**3. `rpId` matches the domain.** The `rpId` you pass to the WebAuthn server (and that the server includes in its challenge response) must match the domain in your `apple-app-site-association`. A mismatch causes the OS to silently refuse the credential.
+
+Face ID or Touch ID is invoked by the OS automatically during the passkey ceremony — you do not need to call `LocalAuthentication` directly.
+
+### Registration (creating a passkey on iPhone)
+
+```swift
+import AuthenticationServices
+
+class PasskeyManager: NSObject, ASAuthorizationControllerDelegate,
+                      ASAuthorizationControllerPresentationContextProviding {
+
+    // Step 1: Fetch a challenge from your server, then call this.
+    func registerPasskey(username: String, challenge: Data, userID: Data) {
+        let provider = ASAuthorizationPlatformPublicKeyCredentialProvider(
+            relyingPartyIdentifier: "yourdomain.com"
+        )
+
+        let registrationRequest = provider.createCredentialRegistrationRequest(
+            challenge: challenge,
+            name: username,       // displayed to the user in the system sheet
+            userID: userID        // your app's user identifier, stored on device
+        )
+
+        // Optional: set attestation preference
+        // registrationRequest.attestationPreference = .none
+
+        let controller = ASAuthorizationController(
+            authorizationRequests: [registrationRequest]
+        )
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
+
+    // Delegate: registration succeeded
+    func authorizationController(
+        controller: ASAuthorizationController,
+        didCompleteWithAuthorization authorization: ASAuthorization
+    ) {
+        guard let credential = authorization.credential
+            as? ASAuthorizationPlatformPublicKeyCredentialRegistration
+        else { return }
+
+        // Send these to your server to store against the user account
+        let credentialID = credential.credentialID
+        let attestationObject = credential.rawAttestationObject
+        let clientDataJSON = credential.rawClientDataJSON
+
+        // POST /auth/passkey/register/complete with the above data
+    }
+
+    func authorizationController(
+        controller: ASAuthorizationController,
+        didCompleteWithError error: Error
+    ) {
+        // Handle cancellation (ASAuthorizationError.canceled) separately
+        // from other errors — users cancel legitimately
+        print("Passkey registration error: \(error)")
+    }
+
+    func presentationAnchor(
+        for controller: ASAuthorizationController
+    ) -> ASPresentationAnchor {
+        return UIApplication.shared.connectedScenes
+            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+            .first!
+    }
+}
+```
+
+### Sign-in (passkey login on iPhone)
+
+```swift
+func signInWithPasskey(challenge: Data) {
+    let provider = ASAuthorizationPlatformPublicKeyCredentialProvider(
+        relyingPartyIdentifier: "yourdomain.com"
+    )
+
+    let assertionRequest = provider.createCredentialAssertionRequest(
+        challenge: challenge
+    )
+
+    // Optional: restrict to specific credentials
+    // assertionRequest.allowedCredentials = [...]
+
+    let controller = ASAuthorizationController(
+        authorizationRequests: [assertionRequest]
+    )
+    controller.delegate = self
+    controller.presentationContextProvider = self
+    controller.performRequests()
+}
+
+// Delegate: authentication succeeded
+func authorizationController(
+    controller: ASAuthorizationController,
+    didCompleteWithAuthorization authorization: ASAuthorization
+) {
+    guard let credential = authorization.credential
+        as? ASAuthorizationPlatformPublicKeyCredentialAssertion
+    else { return }
+
+    // Send these to your server for verification
+    let credentialID = credential.credentialID
+    let authenticatorData = credential.rawAuthenticatorData
+    let clientDataJSON = credential.rawClientDataJSON
+    let signature = credential.signature
+    let userID = credential.userID  // your app's user identifier
+
+    // POST /auth/passkey/login/complete with the above data
+}
+```
+
+### Common pitfalls
+
+<ul><li><strong>Missing Associated Domains entitlement.</strong> The system sheet will never appear. Check Xcode → Signing &amp; Capabilities → Associated Domains and confirm the entry is <code>webcredentials:yourdomain.com</code>.</li><li><strong><code>apple-app-site-association</code> not served correctly.</strong> It must be at <code>/.well-known/apple-app-site-association</code>, served over HTTPS with a valid certificate, and with <code>Content-Type: application/json</code>. Apple's CDN caches this file aggressively — allow up to 24 hours for changes to propagate.</li><li><strong>Mismatched <code>rpId</code>.</strong> The <code>relyingPartyIdentifier</code> in Swift must exactly match the <code>rpId</code> your server sends in the challenge response and the domain in the <code>apple-app-site-association</code> file.</li><li><strong>Simulator limitations.</strong> Passkey registration and assertion on the iOS simulator may behave differently from a physical device. Use a real iPhone for final testing.</li></ul>
+
+## Implementing Passkeys on Android (Kotlin)
+
+Android's modern approach to passkeys is the **Credential Manager API** (`androidx.credentials`), introduced as stable in late 2023. It replaces the older FIDO2 API — if you find tutorials referencing `Fido2ApiClient`, those are outdated. Use Credential Manager instead.
+
+Credential Manager requires API level 28 (Android 9) or higher. On Android 9–13, passkeys require Google Play Services. On Android 14+, full native support is available.
+
+### Requirements
+
+**Digital Asset Links file.** Your server must host a `assetlinks.json` file at `https://yourdomain.com/.well-known/assetlinks.json`:
+
+```json
+[{
+  "relation": ["delegate_permission/common.handle_all_urls",
+               "delegate_permission/common.get_login_creds"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.yourapp",
+    "sha256_cert_fingerprints": [
+      "AA:BB:CC:DD:EE:FF:..."
+    ]
+  }
+}]
+```
+
+Get your SHA-256 certificate fingerprint with:
+
+```bash
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey \
+  -storepass android -keypass android
+```
+
+Use your **release keystore** fingerprint in production. Debug and release builds have different signing keys — a common source of `assetlinks.json` mismatches.
+
+In your `AndroidManifest.xml`, add the Digital Asset Links association:
+
+```xml
+<activity ...>
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+    </intent-filter>
+    <meta-data
+        android:name="asset_statements"
+        android:resource="@string/asset_statements" />
+</activity>
+```
+
+Also add your domain to `strings.xml`:
+
+```xml
+<string name="asset_statements" translatable="false">
+[{"include": "https://yourdomain.com/.well-known/assetlinks.json"}]
+</string>
+```
+
+Add the dependency to `build.gradle`:
+
+```kotlin
+dependencies {
+    implementation("androidx.credentials:credentials:1.3.0")
+    implementation("androidx.credentials:credentials-play-services-auth:1.3.0")
+}
+```
+
+The fingerprint biometric prompt is shown automatically by the OS — no `BiometricPrompt` setup is required.
+
+### Registration
+
+```kotlin
+import androidx.credentials.CreatePublicKeyCredentialRequest
+import androidx.credentials.CredentialManager
+import androidx.credentials.exceptions.CreateCredentialCancellationException
+import androidx.credentials.exceptions.CreateCredentialException
+
+suspend fun registerPasskey(activity: Activity, requestJson: String) {
+    // requestJson is the JSON-serialised PublicKeyCredentialCreationOptions
+    // from your server — challenge, rp, user, pubKeyCredParams, etc.
+    val createRequest = CreatePublicKeyCredentialRequest(
+        requestJson = requestJson,
+        preferImmediatelyAvailableCredentials = false
+    )
+
+    val credentialManager = CredentialManager.create(activity)
+
+    try {
+        val result = credentialManager.createCredential(
+            context = activity,
+            request = createRequest
+        )
+        // result.data contains the attestation response as a JSON string
+        val responseJson = result.data
+            .getString("androidx.credentials.BUNDLE_KEY_REGISTRATION_RESPONSE_JSON")
+        // POST responseJson to your server at /auth/passkey/register/complete
+    } catch (e: CreateCredentialCancellationException) {
+        // User dismissed the prompt — handle gracefully
+    } catch (e: CreateCredentialException) {
+        // Other failure — log and surface an error to the user
+        Log.e("Passkey", "Registration failed: ${e.message}")
+    }
+}
+```
+
+### Sign-in
+
+```kotlin
+import androidx.credentials.CredentialManager
+import androidx.credentials.GetCredentialRequest
+import androidx.credentials.GetPublicKeyCredentialOption
+import androidx.credentials.PublicKeyCredential
+import androidx.credentials.exceptions.GetCredentialCancellationException
+import androidx.credentials.exceptions.GetCredentialException
+
+suspend fun signInWithPasskey(activity: Activity, requestJson: String) {
+    // requestJson is the JSON-serialised PublicKeyCredentialRequestOptions
+    // from your server — challenge, rpId, allowCredentials, userVerification
+    val getCredentialOption = GetPublicKeyCredentialOption(
+        requestJson = requestJson
+    )
+
+    val getRequest = GetCredentialRequest(
+        credentialOptions = listOf(getCredentialOption)
+    )
+
+    val credentialManager = CredentialManager.create(activity)
+
+    try {
+        val result = credentialManager.getCredential(
+            context = activity,
+            request = getRequest
+        )
+        val credential = result.credential
+        if (credential is PublicKeyCredential) {
+            val responseJson = credential.authenticationResponseJson
+            // POST responseJson to your server at /auth/passkey/login/complete
+        }
+    } catch (e: GetCredentialCancellationException) {
+        // User dismissed
+    } catch (e: GetCredentialException) {
+        Log.e("Passkey", "Sign-in failed: ${e.message}")
+    }
+}
+```
+
+### Common pitfalls
+
+<ul><li><strong>Missing or wrong <code>assetlinks.json</code>.</strong> The file must be at <code>/.well-known/assetlinks.json</code>, served over HTTPS, and the SHA-256 fingerprint must match the signing certificate used to build the APK you're testing.</li><li><strong>Debug vs release signing key mismatch.</strong> Your debug build and release build use different signing keys. Add both fingerprints to <code>assetlinks.json</code> during development, then remove the debug fingerprint before shipping.</li><li><strong>Too-low <code>minSdk</code>.</strong> Credential Manager's passkey flow requires API 28+. Users on Android 8 (API 27) or earlier cannot use passkeys.</li><li><strong>Using <code>Fido2ApiClient</code> instead of Credential Manager.</strong> The older FIDO2 API is deprecated. Credential Manager is the supported path as of 2024 and handles both passkeys and passwords in a unified sheet.</li></ul>
+
+## Implementing Passkeys with Windows Hello
+
+Unlike iOS and Android, there is no Windows-specific SDK to call from a web application. Windows Hello is a **platform authenticator** that exposes itself through the standard WebAuthn API in the browser. Chrome and Edge on Windows 11 both support Windows Hello via `navigator.credentials.create()` and `navigator.credentials.get()` — the same calls shown earlier in this guide.
+
+The key is in the `authenticatorSelection` options you pass.
+
+### Registration with Windows Hello
+
+```javascript
+// Fetch the challenge JSON from your server first
+const response = await fetch('/auth/passkey/register/begin', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ userId: currentUser.id }),
+});
+const options = await response.json();
+
+options.challenge = base64urlToBuffer(options.challenge);
+options.user.id = base64urlToBuffer(options.user.id);
+
+// Force Windows Hello (platform authenticator) and require user verification
+options.authenticatorSelection = {
+  authenticatorAttachment: 'platform',   // Windows Hello, Face ID, etc. — not a roaming key
+  userVerification: 'required',          // Forces Hello PIN / face / fingerprint prompt
+  residentKey: 'required',               // Required for discoverable passkey credentials
+};
+
+// Set attestation to 'none' — 'direct' triggers a separate user consent dialog
+// that surprises most users and rarely adds value for typical web apps
+options.attestation = 'none';
+
+const credential = await navigator.credentials.create({ publicKey: options });
+
+// Send the credential to your server
+await fetch('/auth/passkey/register/complete', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    id: credential.id,
+    rawId: bufferToBase64url(credential.rawId),
+    response: {
+      attestationObject: bufferToBase64url(credential.response.attestationObject),
+      clientDataJSON: bufferToBase64url(credential.response.clientDataJSON),
+    },
+    type: credential.type,
+  }),
+});
+```
+
+### Sign-in with Windows Hello
+
+```javascript
+const response = await fetch('/auth/passkey/login/begin', { method: 'POST' });
+const options = await response.json();
+
+options.challenge = base64urlToBuffer(options.challenge);
+options.userVerification = 'required';
+
+// Optional: restrict to platform authenticators only
+// options.rpId = 'yourdomain.com';
+
+const assertion = await navigator.credentials.get({ publicKey: options });
+
+await fetch('/auth/passkey/login/complete', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    id: assertion.id,
+    rawId: bufferToBase64url(assertion.rawId),
+    response: {
+      authenticatorData: bufferToBase64url(assertion.response.authenticatorData),
+      clientDataJSON: bufferToBase64url(assertion.response.clientDataJSON),
+      signature: bufferToBase64url(assertion.response.signature),
+      userHandle: assertion.response.userHandle
+        ? bufferToBase64url(assertion.response.userHandle)
+        : null,
+    },
+    type: assertion.type,
+  }),
+});
+```
+
+### How Windows Hello stores passkey credentials
+
+Windows 11 binds the passkey private key to the device's **TPM 2.0** chip. The credential cannot be exported — it is device-bound and does not sync through a cloud account the way iCloud Keychain or Google Password Manager credentials do. If a user sets up a Windows Hello passkey and later gets a new PC, they will need to re-register.
+
+### Common pitfalls
+
+<ul><li><strong><code>attestation: 'direct'</code> triggers a consent dialog.</strong> Windows will show a secondary prompt asking the user to consent to sharing attestation data with the relying party. Most apps don't need attestation data. Set <code>attestation: 'none'</code> unless you have a specific enterprise requirement.</li><li><strong>The Windows Hello PIN is a valid authenticator.</strong> If a user has not configured facial recognition or a fingerprint reader, Windows Hello falls back to the PIN. This is expected behaviour — the PIN is a <em>platform credential</em>, not a password. The WebAuthn call still succeeds.</li><li><strong>No hardware key when <code>authenticatorAttachment: 'platform'</code> is set.</strong> Setting this forces the OS to use the local platform authenticator only. If you also want to support FIDO2 hardware keys (e.g., YubiKey), omit <code>authenticatorAttachment</code> or set it to <code>'cross-platform'</code> separately.</li><li><strong>Windows 10 support is limited.</strong> Windows Hello passkey support is most reliable on Windows 11. Windows 10 supports WebAuthn but passkey sync and certain credential management features require Windows 11.</li></ul>
+
 ## Integrating with an Authentication Platform
 
 Building WebAuthn from scratch is doable, but it's a significant surface area — challenge management, attestation validation, signature counter verification, multi-device sync, and more. Many teams use an authentication platform to handle this instead.
@@ -232,5 +610,17 @@ Yes. Apple (iCloud Keychain), Google (Password Manager), and Microsoft (Windows 
 ### Is there a WebAuthn example I can run locally?
 
 Yes. [webauthn.io](https://webauthn.io/) is an interactive WebAuthn demo you can test in your browser without any setup. For a local example, Google's [Build your first WebAuthn app](https://developers.google.com/codelabs/webauthn-reauth) codelab walks through a full registration and authentication flow. The code examples in this article show the client-side WebAuthn calls you'd use in your own app.
+
+### How do I create a passkey on iPhone?
+
+To create a passkey on iPhone from a native iOS app, use the `AuthenticationServices` framework. Your app needs an Associated Domains entitlement (`webcredentials:yourdomain.com`) and your server must serve an `apple-app-site-association` file at `/.well-known/apple-app-site-association`. Call `ASAuthorizationPlatformPublicKeyCredentialProvider.createCredentialRegistrationRequest()` with a server-issued challenge — the OS handles Face ID or Touch ID automatically. See the iOS section above for a full Swift example.
+
+### What is the difference between WebAuthn and a passkey?
+
+WebAuthn is the W3C API (`navigator.credentials.create()` / `.get()`) that your code calls to create and verify credentials. A passkey is a WebAuthn credential that syncs across a user's devices via iCloud Keychain, Google Password Manager, or a similar platform service. All passkeys are WebAuthn credentials, but not all WebAuthn credentials are passkeys — a FIDO2 hardware key (like a YubiKey) is WebAuthn but device-bound and does not sync.
+
+### Does Windows Hello support passkeys?
+
+Yes. Windows Hello is a platform authenticator that exposes passkey support through the standard WebAuthn API in Chrome and Edge on Windows 11. There is no Windows-specific SDK — you use the same `navigator.credentials.create()` call as any other WebAuthn implementation, with `authenticatorAttachment: 'platform'` and `userVerification: 'required'` to trigger Windows Hello. Credentials are bound to the device's TPM 2.0 chip and do not sync across devices.
 
 <script type='application/ld+json'>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is passkey authentication?","acceptedAnswer":{"@type":"Answer","text":"Passkey authentication is a passwordless login method that uses public-key cryptography instead of passwords."}},{"@type":"Question","name":"What is a passkey?","acceptedAnswer":{"@type":"Answer","text":"A passkey is a cryptographic credential: a public key on the server and a private key locked to the user's device."}},{"@type":"Question","name":"What is WebAuthn?","acceptedAnswer":{"@type":"Answer","text":"WebAuthn (Web Authentication API) is the browser API that applications use to create and use passkeys. It's a W3C standard supported in all major browsers."}},{"@type":"Question","name":"Are passkeys more secure than passwords?","acceptedAnswer":{"@type":"Answer","text":"Yes. Passkeys can't be phished, can't be leaked in a server breach, and can't be reused across sites."}},{"@type":"Question","name":"Can passkeys sync across multiple devices?","acceptedAnswer":{"@type":"Answer","text":"Yes. Apple (iCloud Keychain), Google (Password Manager), and Microsoft (Windows Hello) sync passkeys across devices."}}]}</script>

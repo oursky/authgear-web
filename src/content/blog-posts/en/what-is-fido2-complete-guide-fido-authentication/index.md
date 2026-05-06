@@ -15,7 +15,7 @@ FIDO2 is an open authentication standard that lets users sign in to websites and
 
 Developed by the FIDO Alliance and the W3C, FIDO2 combines two specifications: WebAuthn (the browser API) and CTAP (the protocol that talks to authenticators). Together they enable passwordless authentication across every major browser and operating system.
 
-This guide explains what FIDO2 is, how FIDO2 authentication works, how it compares to older standards like FIDO U2F, and how passkeys build on top of it.
+This guide explains what FIDO2 is, how FIDO2 authentication works, how it compares to older standards like FIDO U2F, and how passkeys build on top of it. For a side-by-side comparison of the two security models, see [passkey vs password](/post/passkey-vs-password-why-passkeys-are-the-future-of-security).
 
 ## Understanding What Is FIDO2
 

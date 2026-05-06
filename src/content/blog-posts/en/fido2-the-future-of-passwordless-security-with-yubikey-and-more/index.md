@@ -56,7 +56,7 @@ If you’d like to dive deeper, we’ve covered the advantages of YubiKey in our
 
 ## FIDO2 and Passkey Compatibility
 
-As **FIDO2 authentication** garners broader support, more services are embracing passkeys—credentials that move beyond the traditional password paradigm. To see how **FIDO2** standards underlie passkey technology and what this shift means for both developers and end-users, visit [Authgear’s blog post about Passkey Compatibility](/post/passkeys-compatibility). There, you’ll find an in-depth look at passkeys, how they align with **FIDO2**, and why they’re crucial for creating seamless, user-friendly login experiences.
+As **FIDO2 authentication** garners broader support, more services are embracing passkeys—credentials that move beyond the traditional password paradigm. To see how **FIDO2** standards underlie passkey technology and what this shift means for both developers and end-users, visit [Authgear’s blog post about Passkey Compatibility](/post/passkeys-compatibility). There, you’ll find an in-depth look at passkeys, how they align with **FIDO2**, and why they’re crucial for creating seamless, user-friendly login experiences. For a head-to-head security comparison, see [passkey vs password](/post/passkey-vs-password-why-passkeys-are-the-future-of-security).
 
 ## In Conclusion
 
