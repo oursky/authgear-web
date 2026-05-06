@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "密碼噴射：它是什麼以及如何預防？"
 metaDescription: "了解有關密碼噴射的更多資訊以及使用 Authgear 保護使用者免受密碼噴射的不同方法。"
-canonicalUrl: /post/password-spraying
 publishedAt: 2023-02-02T08:15:27.184Z
 updatedAt: 2026-02-12T02:36:01.268Z
 draft: false

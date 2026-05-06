@@ -18,7 +18,6 @@ metrics:
   - num: "3000+"
     text: "users across over 30 partner agencies"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/customer-stories/hongkong-land"
 ---
 
 Hongkong Land set out to modernize authentication as part of its digital transformation. The challenge: deliver a unified, secure experience for two very different audiences, **internal staff** and **external partner agents**, without long rollout cycles or added friction. With Authgear, they launched a dual‑audience authentication system featuring ADFS sign‑in for staff, email/password + 2FA for agents, mobile biometrics for both, and admin automation, delivered in weeks, not months.

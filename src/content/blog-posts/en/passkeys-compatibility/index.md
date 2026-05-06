@@ -6,7 +6,6 @@ category: highlight
 featured: false
 metaTitle: "Passkeys Compatibility: Which Platforms Support Passkeys?"
 metaDescription: "Passkeys are now supported by iOS, macOS, Chrome and Android. Learn more about passkeys and their compatibility with major browsers and platforms."
-canonicalUrl: /post/passkeys-compatibility
 publishedAt: 2022-08-25T02:34:49.697Z
 updatedAt: 2026-02-12T02:36:01.233Z
 draft: false

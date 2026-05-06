@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "App Store 自 2022 年 6 月 30 日起要求 App 內提供刪除帳號功能"
 metaDescription: "Apple 將要求 App 必須允許使用者在 App 內發起刪除帳號。了解最新政策內容與你該如何準備。"
-canonicalUrl: /post/in-app-account-deletion-required-by-app-store
 publishedAt: 2022-01-11T10:08:18.211Z
 updatedAt: 2026-02-12T02:35:14.207Z
 draft: false

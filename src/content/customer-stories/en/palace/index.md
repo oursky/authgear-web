@@ -17,7 +17,6 @@ technicalDetails:
   - "Single Sign-On"
 metrics: []
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/customer-stories/palace"
 ---
 
 ## The Challenge: Streamlining User Onboarding and Enabling Seamless Multi-Platform Access

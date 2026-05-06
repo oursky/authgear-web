@@ -7,7 +7,6 @@ category: industry
 featured: false
 metaTitle: "什麼是 Customer SSO？它如何運作？"
 metaDescription: "Customer SSO 讓使用者以一組憑證登入多個應用，改善體驗、降低密碼疲勞，並集中安全治理。"
-canonicalUrl: /post/customer-sso
 publishedAt: 2023-03-02T05:32:25.324Z
 updatedAt: 2026-02-28T12:51:35.509Z
 draft: false

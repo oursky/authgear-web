@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "保險業 IAM：如何幫助獲客、留客並強化外部協作？"
 metaDescription: "對保險公司而言，IAM 不只提升資安，也能幫助獲客與留客，並改善與外部團隊合作效率。本文帶你完整了解。"
-canonicalUrl: /post/insurance-iam
 publishedAt: 2022-12-14T04:15:33.655Z
 updatedAt: 2026-02-12T02:35:14.210Z
 draft: false

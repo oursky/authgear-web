@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "如何透過 CIAM 提升數位客戶體驗？"
 metaDescription: "了解 CIAM 如何成為優化數位客戶體驗的關鍵基礎，打造順暢互動並建立忠誠度。"
-canonicalUrl: /post/digital-customer-experience
 publishedAt: 2023-05-29T06:47:56.701Z
 updatedAt: 2026-02-12T02:35:14.195Z
 draft: false

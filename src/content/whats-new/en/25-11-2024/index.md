@@ -3,7 +3,6 @@ title: "Authgear as Your SAML IdP: Powering Enterprise Identity Management"
 excerpt: "Enterprises often require a flexible and robust solution for managing identity and access across their ecosystem. With Authgear's new feature, your organization can now use Authgear as a SAML Identity Provider (IdP), unlocking a seamless authentication experience and enabling deeper integration with enterprise applications."
 coverImage: ./cover.jpg
 publishedAt: 2025-11-25T18:10:19.647Z
-canonicalUrl: https://www.authgear.com/whats-new/25-11-2024
 draft: false
 ---
 

@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "身份驗證即服務：它是什麼以及為什麼需要它"
 metaDescription: "透過將應用程式或軟體與身份驗證即服務解決方案集成，企業可以提供無摩擦的註冊/登入體驗等"
-canonicalUrl: /zh-hant/post/authentication-as-a-service
 publishedAt: 2022-09-25T14:09:07.433Z
 updatedAt: 2026-02-12T02:33:17.651Z
 draft: false

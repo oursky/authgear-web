@@ -7,7 +7,6 @@ category: industry
 featured: false
 metaTitle: "什麼是多因素驗證 (MFA)？它是如何運作的？"
 metaDescription: "事實是，如果您沒有使用多因素驗證 (MFA)，您的帳戶並不如您所想的那樣安全。"
-canonicalUrl: /post/what-is-multi-factor-authentication-mfa
 publishedAt: 2021-11-16T06:40:07.909Z
 updatedAt: 2026-02-12T02:36:33.467Z
 draft: false

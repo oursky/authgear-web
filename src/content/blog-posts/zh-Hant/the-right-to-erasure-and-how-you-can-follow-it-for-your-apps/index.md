@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "被遺忘權：您的應用程式如何遵循資料刪除規定"
 metaDescription: "根據 GDPR，行動應用程式或軟體的用戶有權要求刪除其資料，這被稱為刪除權或被遺忘權。"
-canonicalUrl: /post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps
 publishedAt: 2022-03-01T08:36:27.117Z
 updatedAt: 2026-02-12T02:36:33.465Z
 draft: false

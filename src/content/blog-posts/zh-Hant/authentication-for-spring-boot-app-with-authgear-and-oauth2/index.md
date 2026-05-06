@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "使用 Authgear 和 OAuth2 對 Spring Boot 應用程式進行身份驗證"
 metaDescription: "了解如何使用 OAuth2 和 Authgear 作為身分提供者向 Java Spring Boot 應用程式新增身分驗證。"
-canonicalUrl: /zh-hant/post/authentication-for-spring-boot-app-with-authgear-and-oauth2
 publishedAt: 2023-07-12T06:42:04.582Z
 updatedAt: 2026-02-12T02:33:17.668Z
 draft: false

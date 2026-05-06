@@ -13,7 +13,6 @@ technicalDetails:
   - MFA
 metrics: []
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/customer-stories/cornerstone-technologies"
 ---
 
 ## Cornerstone Technologies: Powering Global EV Infrastructure

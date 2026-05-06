@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "How Profile Enrichment can boost your product"
 metaDescription: "Explore how enriching user profiles work, their benefits, and how you can enable it using Authgear to boost your product usage by understanding who your customers are."
-canonicalUrl: /post/how-profile-enrichment-can-boost-your-product
 publishedAt: 2023-07-28T12:38:13.692Z
 updatedAt: 2026-02-12T02:33:54.763Z
 draft: false

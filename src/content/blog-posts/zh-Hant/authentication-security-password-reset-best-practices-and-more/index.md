@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "密碼重設最佳實踐：避免常見陷阱並保護您的用戶"
 metaDescription: "了解重要的密碼重設最佳實踐，以保護您的身分驗證系統。了解如何防止常見的安全漏洞、保護使用者資料並增強使用者體驗。透過專家見解和可行的提示來增強應用程式的安全性。"
-canonicalUrl: /zh-hant/post/authentication-security-password-reset-best-practices-and-more
 publishedAt: 2021-11-17T01:35:53.381Z
 updatedAt: 2026-02-12T02:36:01.228Z
 draft: false

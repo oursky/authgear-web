@@ -20,7 +20,6 @@ metrics:
   - num: "5x"
     text: "新身分與存取管理功能整合速度更快"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/zh-hant/customer-stories/global-qsr"
 ---
 
 全球速食（QSR）龍頭需為數千名前線員工現代化驗證——又不能拖慢營運或違反嚴格的企業安全規範。透過 Authgear，當地市場團隊在直覺的介面中上線 2FA、SSO 與生物辨識登入，在符合全球合規的同時，讓日常存取更快、更簡單。

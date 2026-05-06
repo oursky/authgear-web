@@ -5,7 +5,6 @@ coverImage: ./cover.png
 featured: false
 metaTitle: "用 Magic Link 與 Authgear 打造輕鬆無密碼登入體驗"
 metaDescription: "本文介紹什麼是 Magic Link，以及如何用 Authgear 建立以 Email 為核心的無密碼登入流程。"
-canonicalUrl: /post/easy-passwordless-login-experience-with-magic-links-and-authgear
 publishedAt: 2023-07-21T07:13:22.684Z
 updatedAt: 2026-02-12T02:33:54.727Z
 draft: false

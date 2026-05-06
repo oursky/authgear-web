@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "Why You Need Customer Identity and Access Management (CIAM)? "
 metaDescription: "Customer Identity and Access Management (CIAM) does more than managing and verifying users' identities. See why you need a CIAM solution."
-canonicalUrl: /post/what-is-customer-identity-and-access-management-ciam
 publishedAt: 2022-04-25T03:19:50.207Z
 updatedAt: 2026-02-12T02:36:33.476Z
 draft: false

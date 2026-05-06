@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "10 分鐘內為任何網頁新增身份驗證"
 metaDescription: "這篇文章示範如何使用 Authgear 輕鬆地將身分驗證新增至任何 Javascript 單頁應用程式 (SPA)。"
-canonicalUrl: /zh-hant/post/add-authentication-to-any-web-page-in-10-minutes
 publishedAt: 2023-08-04T06:16:24.312Z
 updatedAt: 2026-02-12T02:33:17.666Z
 draft: false

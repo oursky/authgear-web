@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "身份驗證與授權：一張表中的差異"
 metaDescription: "透過一張簡單的表格詳細了解身分驗證和授權這兩個重要的安全流程之間的差異。 "
-canonicalUrl: /zh-hant/post/authentication-vs-authorization
 publishedAt: 2023-01-13T05:44:08.288Z
 updatedAt: 2026-02-12T02:33:17.656Z
 draft: false

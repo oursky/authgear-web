@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "什麼是 Identity as a Service（IDaaS）？為什麼企業需要它？"
 metaDescription: "深入了解 IDaaS 與雲端 IAM 如何提升擴展性、簡化存取管理，並帶來更流暢的使用者體驗。"
-canonicalUrl: /post/identity-as-a-service
 publishedAt: 2023-06-13T06:41:29.160Z
 updatedAt: 2026-02-12T02:36:33.490Z
 draft: false

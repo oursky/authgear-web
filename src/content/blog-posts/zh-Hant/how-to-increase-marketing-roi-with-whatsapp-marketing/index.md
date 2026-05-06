@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "如何用 WhatsApp Marketing 提高行銷 ROI"
 metaDescription: "在 WhatsApp 上做行銷，是更高效率且更具成本效益的品牌推廣方式，有助提高 ROI 並強化客戶互動。"
-canonicalUrl: /post/how-to-increase-marketing-roi-with-whatsapp-marketing
 publishedAt: 2022-06-02T02:46:31.541Z
 updatedAt: 2026-02-12T02:35:14.196Z
 draft: false

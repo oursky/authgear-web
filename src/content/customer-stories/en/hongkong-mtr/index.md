@@ -21,7 +21,6 @@ metrics:
   - num: "90%"
     text: "reduction in time to fill a work duty"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/customer-stories/hongkong-mtr"
 ---
 
 As Hong Kong’s major mass transit railway operator, MTR Corporation built a digital platform to streamline recruitment and management of part‑time station staff. The platform needed to serve two distinct audiences—internal station managers and external candidates, while integrating with MTR’s enterprise identity stack. With Authgear, MTR launched a dual‑authentication solution: Azure AD for managers and WhatsApp OTP for part‑time users, delivering enterprise‑grade security with a mobile‑first, low‑friction experience.

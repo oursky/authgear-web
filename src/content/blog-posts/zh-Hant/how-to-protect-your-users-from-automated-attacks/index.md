@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "如何保護你的使用者免受自動化攻擊"
 metaDescription: "一起來看看保護使用者免受快速演進的自動化攻擊威脅的最佳做法。"
-canonicalUrl: /post/how-to-protect-your-users-from-automated-attacks
 publishedAt: 2021-12-13T05:04:41.126Z
 updatedAt: 2026-02-12T02:35:14.204Z
 draft: false

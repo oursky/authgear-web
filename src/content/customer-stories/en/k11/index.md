@@ -22,7 +22,6 @@ metrics:
   - num: "50%"
     text: "users login with email links"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/customer-stories/k11"
 ---
 
 K11 / NWD standardized authentication across the K11, Artisanal Living, and K Dollar apps with Authgear—enabling SSO, MFA, and passwordless login in an embedded, brand‑perfect UI. The result is a consistent, secure sign‑in, lower friction, and faster iteration across a growing lifestyle ecosystem.

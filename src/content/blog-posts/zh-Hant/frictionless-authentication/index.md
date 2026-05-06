@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "無摩擦驗證是什麼？如何實作 Frictionless Authentication"
 metaDescription: "了解無摩擦驗證的核心概念，以及如何透過無密碼、實務策略與前瞻做法，同時提升使用體驗與安全性。"
-canonicalUrl: /post/frictionless-authentication
 publishedAt: 2023-05-15T03:27:15.290Z
 updatedAt: 2026-02-12T02:33:54.746Z
 draft: false

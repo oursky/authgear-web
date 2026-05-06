@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "Profile Enrichment 如何提升你的產品成效"
 metaDescription: "了解使用者檔案增豐（Profile Enrichment）如何運作、帶來哪些效益，以及如何用 Authgear 啟用它來更理解你的客戶。"
-canonicalUrl: /post/how-profile-enrichment-can-boost-your-product
 publishedAt: 2023-07-28T12:38:13.692Z
 updatedAt: 2026-02-12T02:33:54.763Z
 draft: false

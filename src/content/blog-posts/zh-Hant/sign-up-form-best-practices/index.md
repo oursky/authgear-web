@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "註冊表單最佳實務：大幅提升您的應用程式轉換率"
 metaDescription: "探索前 5 名註冊頁面優化技術，以最大限度地提高應用程式的註冊率並擴大用戶群。"
-canonicalUrl: /post/sign-up-form-best-practices
 publishedAt: 2022-03-29T09:55:37.027Z
 updatedAt: 2026-02-12T02:36:01.273Z
 draft: false

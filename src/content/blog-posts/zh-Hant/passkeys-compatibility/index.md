@@ -6,7 +6,6 @@ category: highlight
 featured: false
 metaTitle: "Passkeys Compatibility: Which Platforms Support Passkeys?"
 metaDescription: "iOS、macOS、Chrome 和 Android 現在支援金鑰。了解有關密鑰及其與主要瀏覽器和平台的兼容性的更多資訊。"
-canonicalUrl: /post/passkeys-compatibility
 publishedAt: 2022-08-25T02:34:49.697Z
 updatedAt: 2026-02-12T02:36:01.233Z
 draft: false
