@@ -37,8 +37,7 @@ function Shell() {
     try {
       setEncoded(encodeBase64(plain, opts));
     } catch (e) {
-      const message = e instanceof Error ? e.message : String(e);
-      setError(t('errorEncode') + ' — ' + message);
+      setError(t('errorEncode') + ' — ' + (e instanceof Error ? e.message : String(e)));
     }
   }, [plain, opts, t]);
 
@@ -51,215 +50,106 @@ function Shell() {
     try {
       setPlain(decodeBase64(encoded, opts));
     } catch (e) {
-      const message = e instanceof Error ? e.message : String(e);
-      setError(t('errorDecode') + ' — ' + message);
+      setError(t('errorDecode') + ' — ' + (e instanceof Error ? e.message : String(e)));
     }
   }, [encoded, opts, t]);
 
-  const handleReset = () => {
-    setPlain('');
-    setEncoded('');
-    setError('');
-    setCharset(DEFAULT_CHARSET);
-    setUrlSafe(false);
-    setWithoutPadding(false);
-  };
-
   return (
-    <div data-testid="base64-widget">
-      <div className="b64-chrome">
-        <span className="b64-dot b64-dot--r" aria-hidden="true"></span>
-        <span className="b64-dot b64-dot--y" aria-hidden="true"></span>
-        <span className="b64-dot b64-dot--g" aria-hidden="true"></span>
-        <span className="b64-chrome__path">authgear · base64 · encode-decode</span>
-      </div>
-
-      <div className="b64-body">
-        <div className="b64-row">
-          <span className="b64-kv-label">{t('charsetLabel')}</span>
-          <select
-            className="b64-select"
-            value={charset}
-            onChange={(e) => setCharset(e.target.value as Charset)}
-            aria-label={t('charsetLabel')}
-          >
-            {CHARSETS.map((c) => (
-              <option key={c.value} value={c.value}>
-                {c.label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <ToggleRow
-          label={t('urlSafeLabel')}
-          checked={urlSafe}
-          onChange={setUrlSafe}
-        />
-        <ToggleRow
-          label={t('withoutPaddingLabel')}
-          checked={withoutPadding}
-          onChange={setWithoutPadding}
-        />
-
-        <Panel
-          label={t('plainTextLabel')}
-          panelKind="input"
-          value={plain}
-          onChange={setPlain}
-          placeholder={t('plainTextPlaceholder')}
-          actionLabel={t('buttonEncode')}
-          actionGlyph="↓"
-          onAction={handleEncode}
-          actionDisabled={!plain}
-          copyLabel={t('buttonCopy')}
-          copiedLabel={t('buttonCopied')}
-          clearLabel={t('buttonClear')}
-        />
-
-        <Panel
-          label={t('base64Label')}
-          panelKind="output"
-          value={encoded}
-          onChange={setEncoded}
-          placeholder={t('base64Placeholder')}
-          actionLabel={t('buttonDecode')}
-          actionGlyph="↑"
-          onAction={handleDecode}
-          actionDisabled={!encoded}
-          copyLabel={t('buttonCopy')}
-          copiedLabel={t('buttonCopied')}
-          clearLabel={t('buttonClear')}
-        />
-
-        {error && (
-          <div role="alert" className="b64-error">
-            {error}
-          </div>
-        )}
-
-        <div style={{ display: 'flex' }}>
-          <button type="button" className="b64-btn b64-btn--reset" onClick={handleReset}>
-            {t('buttonReset')}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-interface ToggleRowProps {
-  label: string;
-  checked: boolean;
-  onChange: (v: boolean) => void;
-}
-
-function ToggleRow({ label, checked, onChange }: ToggleRowProps) {
-  return (
-    <div className="b64-row">
-      <label className="b64-toggle-label">
-        <span className="b64-kv-label">{label}</span>
-      </label>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={checked}
-        aria-label={label}
-        className="b64-switch"
-        onClick={() => onChange(!checked)}
-      />
-    </div>
-  );
-}
-
-interface PanelProps {
-  label: string;
-  panelKind: 'input' | 'output';
-  value: string;
-  onChange: (v: string) => void;
-  placeholder: string;
-  actionLabel: string;
-  actionGlyph: string;
-  onAction: () => void;
-  actionDisabled: boolean;
-  copyLabel: string;
-  copiedLabel: string;
-  clearLabel: string;
-}
-
-function Panel({
-  label,
-  panelKind,
-  value,
-  onChange,
-  placeholder,
-  actionLabel,
-  actionGlyph,
-  onAction,
-  actionDisabled,
-  copyLabel,
-  copiedLabel,
-  clearLabel,
-}: PanelProps) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    if (!value) return;
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch {
-      // ignore — copy is a convenience action
-    }
-  };
-
-  return (
-    <div className="b64-panel">
-      <div className="b64-panel__header">
-        <span className="b64-panel__title">
-          <span className="b64-panel__title-prefix">{panelKind === 'input' ? '>' : '<'}</span>
-          {label}
-        </span>
-        <div className="b64-panel__actions">
-          <button
-            type="button"
-            className="b64-btn b64-btn--icon"
-            onClick={handleCopy}
-            disabled={!value}
-            data-state={copied ? 'copied' : undefined}
-          >
-            {copied ? copiedLabel : copyLabel}
-          </button>
-          <button
-            type="button"
-            className="b64-btn b64-btn--icon"
-            onClick={() => onChange('')}
-            disabled={!value}
-          >
-            {clearLabel}
-          </button>
-        </div>
-      </div>
+    <div
+      data-testid="base64-widget"
+      className="w-full max-w-2xl mx-auto flex flex-col gap-3 text-slate-800"
+    >
       <textarea
-        className="b64-textarea"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        rows={5}
+        value={plain}
+        onChange={(e) => setPlain(e.target.value)}
+        placeholder={t('plainTextPlaceholder')}
+        rows={4}
         spellCheck={false}
+        aria-label={t('plainTextLabel')}
+        className="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
       />
-      <div className="b64-panel__footer">
+
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-700">
         <button
           type="button"
-          className="b64-btn b64-btn--primary"
-          onClick={onAction}
-          disabled={actionDisabled}
+          onClick={handleEncode}
+          disabled={!plain}
+          className={
+            'inline-flex items-center gap-1 px-3.5 py-2 rounded-md text-sm font-semibold border ' +
+            'transition-colors duration-100 ease-out ' +
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ' +
+            (!plain
+              ? 'bg-white border-slate-300 text-slate-400 cursor-not-allowed'
+              : 'bg-white border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 hover:text-blue-800 active:bg-blue-100')
+          }
         >
-          <span aria-hidden="true">{actionGlyph}</span>
-          {actionLabel}
+          {t('buttonEncode')} <span aria-hidden="true">↓</span>
         </button>
+        <button
+          type="button"
+          onClick={handleDecode}
+          disabled={!encoded}
+          className={
+            'inline-flex items-center gap-1 px-3.5 py-2 rounded-md text-sm font-semibold border ' +
+            'transition-colors duration-100 ease-out ' +
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ' +
+            (!encoded
+              ? 'bg-white border-slate-300 text-slate-400 cursor-not-allowed'
+              : 'bg-white border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 hover:text-blue-800 active:bg-blue-100')
+          }
+        >
+          <span aria-hidden="true">↑</span> {t('buttonDecode')}
+        </button>
+
+        <span className="ml-auto flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-500">
+          <label className="inline-flex items-center gap-1.5 cursor-pointer select-none">
+            <span>{t('charsetLabel')}</span>
+            <select
+              value={charset}
+              onChange={(e) => setCharset(e.target.value as Charset)}
+              className="px-1.5 py-0.5 text-xs bg-white border border-slate-300 rounded text-slate-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            >
+              {CHARSETS.map((c) => (
+                <option key={c.value} value={c.value}>
+                  {c.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="inline-flex items-center gap-1 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={urlSafe}
+              onChange={(e) => setUrlSafe(e.target.checked)}
+            />
+            {t('urlSafeLabel')}
+          </label>
+          <label className="inline-flex items-center gap-1 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={withoutPadding}
+              onChange={(e) => setWithoutPadding(e.target.checked)}
+            />
+            {t('withoutPaddingLabel')}
+          </label>
+        </span>
       </div>
+
+      <textarea
+        value={encoded}
+        onChange={(e) => setEncoded(e.target.value)}
+        placeholder={t('base64Placeholder')}
+        rows={4}
+        spellCheck={false}
+        aria-label={t('base64Label')}
+        className="w-full px-3 py-2 text-sm font-mono bg-white border border-slate-300 rounded resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      />
+
+      {error && (
+        <div role="alert" className="text-xs text-red-700">
+          {error}
+        </div>
+      )}
     </div>
   );
 }

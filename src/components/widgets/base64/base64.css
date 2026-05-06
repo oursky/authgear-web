@@ -1,42 +1,6 @@
-/*
- * Base64 widget — light dev-tool / code-editor aesthetic.
- * Self-contained card, monospace labels, terminal-style chrome bar,
- * brand blue accents. Tighter spacing than the password-hash widget so
- * it reads as a focused single-purpose tool rather than a section.
- *
- * All selectors are prefixed with [data-testid='base64-widget'] so
- * (a) they cannot leak into the rest of the site and (b) they outrank
- * Webflow's bare-element rules (button { border:0 }, label { color:
- * var(--primary-1) }, input { background: ... }) at element specificity.
- */
-
-[data-testid='base64-widget'] {
-  --b64-bg: #ffffff;
-  --b64-bg-subtle: #f8fafc;
-  --b64-bg-chrome: #f1f5f9;
-  --b64-text: #0f172a;
-  --b64-text-dim: #64748b;
-  --b64-text-mono: #1e293b;
-  --b64-line: #e2e8f0;
-  --b64-line-strong: #cbd5e1;
-  --b64-accent: #2563eb;
-  --b64-accent-hover: #1d4ed8;
-  --b64-accent-soft: #eff6ff;
-
-  position: relative;
-  width: 100%;
-  max-width: 36rem;
-  margin: 0 auto;
-  border: 1px solid var(--b64-line);
-  border-radius: 12px;
-  overflow: hidden;
-  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-  background: var(--b64-bg);
-  color: var(--b64-text);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-}
-
-/* element resets — outrank Webflow at element specificity */
+/* Element resets — outrank Webflow's bare-element rules
+   (button { border:0 }, input { background:... }, label { color:... })
+   so plain Tailwind utilities can drive every visual decision. */
 [data-testid='base64-widget'] label {
   color: inherit;
   margin-bottom: 0;
@@ -45,265 +9,47 @@
   display: inline-flex;
 }
 [data-testid='base64-widget'] button {
-  background: transparent;
-  border: 0;
   cursor: pointer;
   font: inherit;
-  color: inherit;
 }
 [data-testid='base64-widget'] input,
 [data-testid='base64-widget'] select,
 [data-testid='base64-widget'] textarea {
   font: inherit;
   color: inherit;
-  background-color: transparent;
+  background-color: #ffffff;
 }
-
-/* --- chrome bar --- */
-.b64-chrome {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--b64-line);
-  background: var(--b64-bg-chrome);
-}
-.b64-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  display: inline-block;
-}
-.b64-dot--r { background: #f87171; }
-.b64-dot--y { background: #fbbf24; }
-.b64-dot--g { background: #34d399; }
-.b64-chrome__path {
-  margin-left: 8px;
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  color: var(--b64-text-dim);
-  letter-spacing: 0.02em;
-}
-
-/* --- body --- */
-.b64-body {
-  padding: 12px 14px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* --- KV row (charset + toggles) --- */
-.b64-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  min-height: 28px;
-  padding: 4px 0;
-  border-bottom: 1px dashed var(--b64-line);
-}
-.b64-row:last-of-type { border-bottom: 0; padding-bottom: 0; }
-
-.b64-kv-label {
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--b64-text-dim);
-  white-space: nowrap;
-}
-
-/* --- charset select --- */
-.b64-select {
-  appearance: none;
+/* Custom checkbox — `appearance: none` + own SVG so we don't depend on
+   the native renderer (which paints the box dark on this site for
+   reasons not pinned down via the CSSOM). */
+[data-testid='base64-widget'] input[type='checkbox'] {
   -webkit-appearance: none;
-  padding: 5px 26px 5px 10px;
-  font-size: 12.5px;
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  color: var(--b64-text-mono);
-  background-color: var(--b64-bg);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%2364748b' stroke-width='1.6'><path d='M3 5l3 3 3-3' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 10px;
-  border: 1px solid var(--b64-line-strong);
-  border-radius: 6px;
+  appearance: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin: 0;
   cursor: pointer;
-  transition: border-color 0.15s, background-color 0.15s;
-}
-.b64-select:hover { border-color: #94a3b8; }
-.b64-select:focus-visible {
-  outline: 2px solid var(--b64-accent);
-  outline-offset: 1px;
-}
-
-/* --- toggle switch --- */
-.b64-switch {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  width: 32px;
-  height: 18px;
-  background: #cbd5e1;
-  border: 0;
-  border-radius: 999px;
-  transition: background 0.15s;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1; /* slate-300 */
+  border-radius: 3px;
+  display: inline-grid;
+  place-content: center;
   flex: 0 0 auto;
-  padding: 0;
+  vertical-align: middle;
+  transition: background-color 0.1s, border-color 0.1s;
 }
-.b64-switch::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 14px;
-  height: 14px;
-  background: #ffffff;
-  border-radius: 50%;
-  transition: transform 0.15s;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.18);
+[data-testid='base64-widget'] input[type='checkbox']:hover {
+  border-color: #94a3b8; /* slate-400 */
 }
-.b64-switch[aria-checked='true'] {
-  background: var(--b64-accent);
+[data-testid='base64-widget'] input[type='checkbox']:checked {
+  background-color: #2563eb; /* blue-600 */
+  border-color: #2563eb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6 L5 9 L10 3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
 }
-.b64-switch[aria-checked='true']::after {
-  transform: translateX(14px);
-}
-.b64-switch:focus-visible {
-  outline: 2px solid var(--b64-accent);
-  outline-offset: 2px;
-}
-
-/* --- panel --- */
-.b64-panel {
-  border: 1px solid var(--b64-line);
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--b64-bg);
-}
-.b64-panel__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 10px;
-  border-bottom: 1px solid var(--b64-line);
-  background: var(--b64-bg-subtle);
-}
-.b64-panel__title {
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--b64-text-dim);
-}
-.b64-panel__title-prefix {
-  color: #94a3b8;
-  margin-right: 5px;
-}
-.b64-panel__actions {
-  display: flex;
-  gap: 2px;
-}
-.b64-textarea {
-  display: block;
-  width: 100%;
-  padding: 10px 12px;
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--b64-text-mono);
-  background: var(--b64-bg);
-  border: 0;
-  resize: vertical;
-  min-height: 4.5rem;
-}
-.b64-textarea::placeholder { color: #94a3b8; }
-.b64-textarea:focus {
-  outline: none;
-  background: #fafbfc;
-}
-
-/* --- buttons --- */
-.b64-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 1;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-}
-.b64-btn:disabled { cursor: not-allowed; }
-
-.b64-btn--primary {
-  width: 100%;
-  padding: 9px 14px;
-  border-radius: 6px;
-  background: var(--b64-accent);
-  color: #ffffff;
-  margin: 6px;
-  width: calc(100% - 12px);
-}
-.b64-btn--primary:hover:not(:disabled) {
-  background: var(--b64-accent-hover);
-}
-.b64-btn--primary:disabled {
-  background: var(--b64-bg-subtle);
-  color: #94a3b8;
-}
-.b64-panel__footer {
-  background: var(--b64-bg-subtle);
-  border-top: 1px solid var(--b64-line);
-  display: flex;
-}
-
-.b64-btn--icon {
-  padding: 3px 7px;
-  font-size: 10.5px;
-  font-weight: 500;
-  color: var(--b64-text-dim);
-  border-radius: 4px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.b64-btn--icon:hover:not(:disabled) {
-  background: #e2e8f0;
-  color: var(--b64-text);
-}
-.b64-btn--icon[data-state='copied'] { color: #059669; }
-.b64-btn--icon:disabled { opacity: 0.4; }
-
-.b64-btn--reset {
-  margin-left: auto;
-  padding: 5px 10px;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--b64-text-dim);
-  border: 1px solid var(--b64-line-strong);
-  border-radius: 5px;
-}
-.b64-btn--reset:hover { background: var(--b64-bg-subtle); color: var(--b64-text); }
-
-/* --- error --- */
-.b64-error {
-  padding: 8px 12px;
-  border-radius: 6px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #991b1b;
-  font-size: 12.5px;
-}
-
-/* --- toggle row label wrapper --- */
-.b64-toggle-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  user-select: none;
+[data-testid='base64-widget'] input[type='checkbox']:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
 }
