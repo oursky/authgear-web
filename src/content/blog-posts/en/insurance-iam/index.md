@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "Insurance IAM: How It Helps Acquire More Clients and Facilitate Collaboration?"
 metaDescription: "IAM does more than just enhancing data security for insurance companies. IAM also helps acquire and retain more users and facilitate collaboration with external team members for insurance. See how IAM achieves these with our guide."
-canonicalUrl: /post/insurance-iam
 publishedAt: 2022-12-14T04:15:33.655Z
 updatedAt: 2026-02-12T02:35:14.210Z
 draft: false

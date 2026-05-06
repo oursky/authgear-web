@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "How to Elevate Digital Customer Experience with CIAM?"
 metaDescription: "Discover how CIAM solutions serve as the essential foundation to elevate digital customer experience, unlock seamless interactions and build customer loyalty."
-canonicalUrl: /post/digital-customer-experience
 publishedAt: 2023-05-29T06:47:56.701Z
 updatedAt: 2026-02-12T02:35:14.195Z
 draft: false

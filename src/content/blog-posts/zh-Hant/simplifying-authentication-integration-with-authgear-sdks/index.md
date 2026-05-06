@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "使用 Authgear SDK 簡化開發人員的身份驗證集成"
 metaDescription: "Authgear SDK 程式庫使開發人員可以輕鬆地與 Authgear 整合並互動。"
-canonicalUrl: /post/simplifying-authentication-integration-with-authgear-sdks
 publishedAt: 2023-07-07T05:35:25.745Z
 updatedAt: 2026-02-12T02:36:01.271Z
 draft: false

@@ -6,7 +6,6 @@ category: features
 featured: false
 metaTitle: "2021 年 12 月更新：Authgear 現已支援使用者檔案"
 metaDescription: "我們很高興把使用者檔案管理能力帶進你的專案！"
-canonicalUrl: /post/dec-2021-update-authgear-now-with-user-profile
 publishedAt: 2021-12-10T08:52:05.430Z
 updatedAt: 2026-02-12T02:33:54.729Z
 draft: true

@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "為什麼您需要客戶身份與存取管理（CIAM）？"
 metaDescription: "客戶身份與存取管理（CIAM）的功能遠不止於管理和驗證用戶身份。了解您為何需要 CIAM 解決方案。"
-canonicalUrl: /post/what-is-customer-identity-and-access-management-ciam
 publishedAt: 2022-04-25T03:19:50.207Z
 updatedAt: 2026-02-12T02:36:33.476Z
 draft: false

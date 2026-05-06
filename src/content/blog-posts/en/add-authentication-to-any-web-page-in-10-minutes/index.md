@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "Add Authentication to Any Web Page in 10 Minutes"
 metaDescription: "This post demonstrates how to easily add authentication to any Javascript Single Page Application (SPA) using Authgear."
-canonicalUrl: /post/add-authentication-to-any-web-page-in-10-minutes
 publishedAt: 2023-08-04T06:16:24.312Z
 updatedAt: 2026-02-12T02:33:17.666Z
 draft: false

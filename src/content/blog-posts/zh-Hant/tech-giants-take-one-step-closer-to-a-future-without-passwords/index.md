@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "科技巨頭向無密碼的未來邁進一步"
 metaDescription: "Apple、Google 和 Microsoft 已承諾讓密碼成為過去式，向無密碼的未來再踏出一步。"
-canonicalUrl: /post/tech-giants-take-one-step-closer-to-a-future-without-passwords
 publishedAt: 2022-08-23T05:34:31.215Z
 updatedAt: 2026-02-12T02:36:01.291Z
 draft: false

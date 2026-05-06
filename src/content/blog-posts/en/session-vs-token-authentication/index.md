@@ -7,7 +7,6 @@ category: highlight
 featured: false
 metaTitle: "Session vs Token Based Authentication: Cookies, JWT, & Best Practices"
 metaDescription: "Session-based authentication manages state on the server using cookies, whereas token authentication uses stateless JWTs to authorize users across domains."
-canonicalUrl: /post/session-vs-token-authentication
 publishedAt: 2021-11-25T09:10:30.130Z
 updatedAt: 2026-02-28T12:45:07.918Z
 draft: false

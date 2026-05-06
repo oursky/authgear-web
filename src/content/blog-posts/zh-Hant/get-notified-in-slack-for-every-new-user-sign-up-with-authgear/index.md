@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "用 Authgear 讓每次新用戶註冊都即時通知到 Slack"
 metaDescription: "本文帶你整合 Authgear Hooks 與 Slack，當有新使用者註冊時，立即在 Slack 收到通知。"
-canonicalUrl: /post/get-notified-in-slack-for-every-new-user-sign-up-with-authgear
 publishedAt: 2023-08-10T10:34:50.370Z
 updatedAt: 2026-02-12T02:33:54.751Z
 draft: false

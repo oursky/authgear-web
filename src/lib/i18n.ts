@@ -23,11 +23,12 @@ export function localizedPath(locale: string, path: string): string {
   const q = raw.indexOf('?');
   const pathname = q === -1 ? raw : raw.slice(0, q);
   const search = q === -1 ? '' : raw.slice(q);
+  const normalized = pathname.endsWith('/') ? pathname : pathname + '/';
   if (locale === DEFAULT_LOCALE || locale === 'en') {
-    return pathname + search;
+    return normalized + search;
   }
   const prefix = LOCALE_URL_SEGMENT[locale as Locale] ?? '';
-  return `${prefix}${pathname === '/' ? '' : pathname}${search}`;
+  return `${prefix}${normalized}${search}`;
 }
 
 /**

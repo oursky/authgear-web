@@ -6,7 +6,6 @@ category: highlight
 featured: false
 metaTitle: "Broken Authentication: What Is It and How to Prevent It"
 metaDescription: "Broken authentication is one of the OWASP Top 10 vulnerabilities that involves hackers impersonating users to compromise data security. See what the causes are and how to avoid broken authentication."
-canonicalUrl: /post/broken-authentication-what-is-it-and-how-to-prevent-it
 publishedAt: 2022-11-03T08:22:30.152Z
 updatedAt: 2026-02-12T02:33:17.660Z
 draft: false

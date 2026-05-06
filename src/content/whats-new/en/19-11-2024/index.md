@@ -3,7 +3,6 @@ title: "Enhancing Security and User Experience"
 excerpt: "We’re excited to introduce four major updates in Authgear designed to improve user security, streamline management, and deliver a modern, seamless user experience. Read on to learn more about these features."
 coverImage: ./cover.jpg
 publishedAt: 2025-11-25T18:10:19.647Z
-canonicalUrl: https://www.authgear.com/whats-new/19-11-2024
 draft: false
 ---
 

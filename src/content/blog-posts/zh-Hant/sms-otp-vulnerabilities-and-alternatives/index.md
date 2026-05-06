@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "什麼是 SMS OTP？SMS OTP 的漏洞與替代方案"
 metaDescription: "SMS OTP 是透過簡訊發送的臨時安全驗證碼，用於雙重因素驗證。雖然普遍使用，但它容易受到 SIM 卡換號和網路釣魚等攻擊。"
-canonicalUrl: /post/sms-otp-vulnerabilities-and-alternatives
 publishedAt: 2022-07-07T15:24:32.915Z
 updatedAt: 2026-02-28T13:02:01.685Z
 draft: false

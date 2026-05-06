@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "什麼是簡訊驗證以及您應該實施它嗎？"
 metaDescription: "簡訊驗證是最常見的驗證方法之一，透過簡訊驗證用戶身份。"
-canonicalUrl: /post/sms-authentication-should-you-implement
 publishedAt: 2022-07-20T07:47:37.362Z
 updatedAt: 2026-02-12T02:36:33.494Z
 draft: false

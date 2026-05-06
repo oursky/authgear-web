@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "Credential Stuffing 是什麼？如何防範？"
 metaDescription: "Credential stuffing 是攻擊者利用外洩帳密與機器人入侵帳號的常見手法。本文帶你了解原理與防禦策略。"
-canonicalUrl: /post/credential-stuffing
 publishedAt: 2022-12-06T08:10:05.702Z
 updatedAt: 2026-02-12T02:33:54.733Z
 draft: false

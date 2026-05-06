@@ -6,7 +6,6 @@ category: features
 featured: false
 metaTitle: "2022 年 2 月更新：App 內刪除帳號功能"
 metaDescription: "我們協助你把資料主導權交還給使用者。現在只需幾個步驟，就能把「刪除帳號」按鈕帶進你的 App。"
-canonicalUrl: /post/feature-in-app-account-deletion
 publishedAt: 2022-02-28T08:57:38.051Z
 updatedAt: 2026-02-12T02:33:17.650Z
 draft: true

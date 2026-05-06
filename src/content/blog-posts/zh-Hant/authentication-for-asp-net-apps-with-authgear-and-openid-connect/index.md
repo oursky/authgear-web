@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "使用 Authgear 和 OpenID Connect 對 ASP.NET 應用程式進行身份驗證"
 metaDescription: "這篇部落格文章示範如何透過實作 OpenID Connect 流程，使用 Authgear 將驗證功能新增至 ASP.NET 應用程式。"
-canonicalUrl: /zh-hant/post/authentication-for-asp-net-apps-with-authgear-and-openid-connect
 publishedAt: 2023-08-15T10:53:36.816Z
 updatedAt: 2026-02-12T02:33:17.669Z
 draft: false

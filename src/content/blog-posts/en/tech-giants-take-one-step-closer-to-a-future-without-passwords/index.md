@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "Tech Giants Take One Step Closer to a Future without Passwords"
 metaDescription: "Apple, Google, and Microsoft have committed to make passwords a thing of the past, taking another step towards a future without passwords. "
-canonicalUrl: /post/tech-giants-take-one-step-closer-to-a-future-without-passwords
 publishedAt: 2022-08-23T05:34:31.215Z
 updatedAt: 2026-02-12T02:36:01.291Z
 draft: false

@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "Authentication-as-a-Service: What Is It and Why You Need It"
 metaDescription: "By integrating their apps or software with authentication-as-a-service solution, businesses can provide frictinoless signup/login experiences and more"
-canonicalUrl: /post/authentication-as-a-service
 publishedAt: 2022-09-25T14:09:07.433Z
 updatedAt: 2026-02-12T02:33:17.651Z
 draft: false

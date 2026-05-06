@@ -7,7 +7,6 @@ category: industry
 featured: false
 metaTitle: "What Is Multi-Factor Authentication (Mfa) And How Does It Work?"
 metaDescription: "The fact is, if you aren't using multi-factor authentication (MFA), then your accounts are not as secure as you think."
-canonicalUrl: /post/what-is-multi-factor-authentication-mfa
 publishedAt: 2021-11-16T06:40:07.909Z
 updatedAt: 2026-02-12T02:36:33.467Z
 draft: false

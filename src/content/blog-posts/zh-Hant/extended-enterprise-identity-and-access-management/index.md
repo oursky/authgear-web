@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "延伸型企業與身分存取管理：挑戰與解法"
 metaDescription: "延伸型企業雖能提升效率與成長，但也帶來 IAM 管理難題。了解常見挑戰與 Authgear 的解決方式。"
-canonicalUrl: /post/extended-enterprise-identity-and-access-management
 publishedAt: 2022-10-21T10:16:56.770Z
 updatedAt: 2026-02-12T02:33:54.761Z
 draft: false

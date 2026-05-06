@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "Sign Up Form Best Practices: Skyrocket Your App Conversion Rate"
 metaDescription: "Explore the top 5 sign up page optimization techniques to maximize the sign up rate for your apps and grow your user base. "
-canonicalUrl: /post/sign-up-form-best-practices
 publishedAt: 2022-03-29T09:55:37.027Z
 updatedAt: 2026-02-12T02:36:01.273Z
 draft: false

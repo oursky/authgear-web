@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "從登入到鎖定：構建安全的身份驗證應用程式"
 metaDescription: "掌握構建安全身份驗證應用程式的藝術。了解身份驗證方法、存取權杖，並使用 Authgear 實現強健的安全性。您的用戶數據安全保護全面指南。"
-canonicalUrl: /post/web-application-authentication-guide
 publishedAt: 2022-06-24T06:05:49.487Z
 updatedAt: 2026-02-12T02:33:54.722Z
 draft: false

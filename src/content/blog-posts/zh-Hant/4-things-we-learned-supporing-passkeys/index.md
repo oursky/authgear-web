@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "我們在支持通行密鑰方面學到的 4 件事"
 metaDescription: "通行密鑰有可能完全取代密碼，但它還不夠完美。詳細了解您在支持他們時可能遇到的情況。"
-canonicalUrl: /zh-hant/post/4-things-we-learned-supporing-passkeys
 publishedAt: 2022-08-29T03:24:43.364Z
 updatedAt: 2026-02-12T02:33:17.663Z
 draft: false

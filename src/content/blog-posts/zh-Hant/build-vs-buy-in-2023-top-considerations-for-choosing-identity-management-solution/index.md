@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "2023 自建或採購身分管理方案：關鍵評估重點"
 metaDescription: "自建或採購身分管理方案沒有標準答案。本文整理決策時應優先評估的核心因素。"
-canonicalUrl: /post/build-vs-buy-in-2023-top-considerations-for-choosing-identity-management-solution
 publishedAt: 2023-09-13T18:10:13.253Z
 updatedAt: 2026-02-12T02:33:17.618Z
 draft: false

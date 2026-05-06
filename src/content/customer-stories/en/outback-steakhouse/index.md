@@ -19,7 +19,6 @@ metrics:
   - num: "97%"
     text: "reduction of login friction"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/customer-stories/outback-steakhouse"
 ---
 
 To improve login experience and reduce operational friction, Outback Steakhouse partnered with Authgear to modernize how members access their loyalty app. From simplifying sign-ins with SMS to reducing duplicate accounts and support overhead, here’s a snapshot of the key results.

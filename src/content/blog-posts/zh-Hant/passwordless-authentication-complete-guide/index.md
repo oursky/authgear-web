@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "無密碼身份驗證：提高安全性所需了解的一切"
 metaDescription: "詳細了解為什麼所有行業都採用無密碼身份驗證以及如何輕鬆實施它。"
-canonicalUrl: /post/passwordless-authentication-complete-guide
 publishedAt: 2022-02-08T16:22:00.547Z
 updatedAt: 2026-02-12T02:36:01.236Z
 draft: false

@@ -3,7 +3,6 @@ title: "2022 February Update: In-app Account Deletion"
 excerpt: "We are helping you to give your users more control over their data. Now you can bring the Delete your account button to your app with a few clicks."
 coverImage: ./cover.jpg
 publishedAt: 2025-05-27T17:55:36.324Z
-canonicalUrl: https://www.authgear.com/whats-new/2022-02-24
 draft: false
 ---
 

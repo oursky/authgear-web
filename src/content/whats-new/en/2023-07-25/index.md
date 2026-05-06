@@ -3,7 +3,6 @@ title: "Account Lockout Policy"
 excerpt: "Eeasily configure account lockout policy with Authgear to protect your users from brute-force attack. "
 coverImage: ./cover.jpg
 publishedAt: 2025-05-27T17:55:36.324Z
-canonicalUrl: https://www.authgear.com/whats-new/2023-07-25
 draft: false
 ---
 

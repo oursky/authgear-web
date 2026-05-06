@@ -6,7 +6,6 @@ category: highlight
 featured: false
 metaTitle: "失效驗證（Broken Authentication）是什麼？如何預防？"
 metaDescription: "失效驗證是 OWASP Top 10 常見漏洞之一，攻擊者可冒用使用者身分危及資料安全。本文說明成因與防範做法。"
-canonicalUrl: /post/broken-authentication-what-is-it-and-how-to-prevent-it
 publishedAt: 2022-11-03T08:22:30.152Z
 updatedAt: 2026-02-12T02:33:17.660Z
 draft: false

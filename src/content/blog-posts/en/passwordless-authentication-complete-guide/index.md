@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "Passwordless Authentication: All You Need to Know For Better Security "
 metaDescription: "Learn more about why passwordless authentication has been adopted by all industries and how you can implement it with ease. "
-canonicalUrl: /post/passwordless-authentication-complete-guide
 publishedAt: 2022-02-08T16:22:00.547Z
 updatedAt: 2026-02-12T02:36:01.236Z
 draft: false

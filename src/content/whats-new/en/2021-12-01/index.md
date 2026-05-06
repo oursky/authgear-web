@@ -3,7 +3,6 @@ title: "Dec 2021 Update - Authgear, now with User Profile"
 excerpt: "We are excited to bring User Profile Management into your projects!"
 coverImage: ./cover.jpg
 publishedAt: 2025-05-27T17:55:36.324Z
-canonicalUrl: https://www.authgear.com/whats-new/2021-12-01
 draft: false
 ---
 

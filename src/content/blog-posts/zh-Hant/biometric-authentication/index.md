@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "生物辨識驗證：為什麼你的應用程式在 2024 年需要它？"
 metaDescription: "生物辨識驗證可同時提升資料安全與使用者體驗。深入了解不同的生物辨識方式。"
-canonicalUrl: /post/biometric-authentication
 publishedAt: 2022-02-07T01:08:11.802Z
 updatedAt: 2026-02-12T02:33:17.664Z
 draft: false

@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "什麼是安全加鹽？密碼雜湊和加鹽解釋"
 metaDescription: "加鹽是在對密碼進行雜湊處理之前向密碼添加唯一的隨機資料（“鹽”）的做法，以確保不同的雜湊值，從而抵消彩虹表攻擊。"
-canonicalUrl: /post/password-hashing-salting-function-and-algorithm-explained
 publishedAt: 2022-02-24T02:51:02.195Z
 updatedAt: 2026-03-11T15:50:48.875Z
 draft: false

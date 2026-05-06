@@ -6,7 +6,6 @@ category: features
 featured: false
 metaTitle: "2022 February Update: In-app Account Deletion"
 metaDescription: "We are helping you to give your users more control over their data. Now you can bring the Delete your account button to your app with a few clicks."
-canonicalUrl: /post/feature-in-app-account-deletion
 publishedAt: 2022-02-28T08:57:38.051Z
 updatedAt: 2026-02-12T02:33:17.650Z
 draft: true

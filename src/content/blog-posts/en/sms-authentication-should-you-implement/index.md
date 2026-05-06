@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "What Is SMS Authentication and Should You Implement It?"
 metaDescription: "SMS authentication is one of the most common methods of authentication that verifies user identity via text messages."
-canonicalUrl: /post/sms-authentication-should-you-implement
 publishedAt: 2022-07-20T07:47:37.362Z
 updatedAt: 2026-02-12T02:36:33.494Z
 draft: false

@@ -6,7 +6,6 @@ category: industry
 featured: false
 metaTitle: "社群登入（Social Login）：為什麼你應該導入"
 metaDescription: "了解如何在網站或 App 輕鬆啟用社群登入，提升轉換率並帶來更流暢的使用者體驗。"
-canonicalUrl: /post/social-login-guide
 publishedAt: 2023-02-13T07:53:11.200Z
 updatedAt: 2026-02-12T02:36:01.280Z
 draft: false

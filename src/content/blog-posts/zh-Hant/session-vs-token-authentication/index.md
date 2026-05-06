@@ -7,7 +7,6 @@ category: highlight
 featured: false
 metaTitle: "會話與基於令牌的身份驗證：Cookie、JWT 和最佳實踐"
 metaDescription: "基於會話的身份驗證使用 cookie 管理伺服器上的狀態，而令牌身份驗證使用無狀態 JWT 跨網域授權使用者。"
-canonicalUrl: /post/session-vs-token-authentication
 publishedAt: 2021-11-25T09:10:30.130Z
 updatedAt: 2026-02-28T12:45:07.918Z
 draft: false

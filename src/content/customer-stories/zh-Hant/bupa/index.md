@@ -17,7 +17,6 @@ metrics:
   - num: "80%"
     text: "密碼重設／找回請求顯著減少"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/zh-hant/customer-stories/bupa"
 ---
 
 Bupa 以 Authgear 取代 Azure AD B2C，為較少登入的使用者啟用 Face ID／Touch ID，在降低密碼重設與支援成本、提升滿意度的同時，為未來的驗證需求奠定可擴充平台。

@@ -19,7 +19,6 @@ metrics:
   - num: "97%"
     text: "登入摩擦顯著降低"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/zh-hant/customer-stories/outback-steakhouse"
 ---
 
 為改善登入體驗並降低營運摩擦，Outback Steakhouse 與 Authgear 合作，現代化會員存取禮遇應用的方式。從以簡訊簡化登入，到減少重複帳戶與支援成本——以下是重點成果摘要。

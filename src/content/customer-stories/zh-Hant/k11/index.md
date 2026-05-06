@@ -22,7 +22,6 @@ metrics:
   - num: "50%"
     text: "使用者以電子郵件連結登入"
 publishedAt: 2025-11-28T18:51:18.660Z
-canonicalUrl: "https://www.authgear.com/zh-hant/customer-stories/k11"
 ---
 
 K11／新世界發展（NWD）以 Authgear 在 K11、Artisanal Living 與 K Dollar 等應用程式間標準化驗證——在內嵌、符合品牌的介面中提供 SSO、MFA 與無密碼登入。成果是**一致且安全**的登入、**更低摩擦**，以及成長中的生活風格生態系**更快迭代**。

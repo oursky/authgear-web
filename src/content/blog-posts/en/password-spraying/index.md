@@ -6,7 +6,6 @@ category: engineering
 featured: false
 metaTitle: "Password Spraying: What It Is and How to Prevent It?"
 metaDescription: "Learn more about password spraying and the different methods to protect your users from it with Authgear."
-canonicalUrl: /post/password-spraying
 publishedAt: 2023-02-02T08:15:27.184Z
 updatedAt: 2026-02-12T02:36:01.268Z
 draft: false
