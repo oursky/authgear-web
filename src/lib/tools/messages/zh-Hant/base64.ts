@@ -33,4 +33,28 @@ export const base64 = {
   faqUrlTitle: 'Base64 與 Base64URL 有什麼不同？',
   faqUrlBody:
     'Base64URL 是為網址與權杖格式設計的 Base64 變體，將 + 換成 -、/ 換成 _，並常省略填充字元 = 以符合網址安全。\n常見於 JWT、OAuth 權杖與 OpenID Connect。',
+
+  widget: {
+    charsetLabel: '字元集',
+    urlSafeLabel: '網址安全',
+    withoutPaddingLabel: '不含填充',
+
+    plainTextLabel: '明文',
+    plainTextHint: '輸入或貼上要編碼的文字',
+    plainTextPlaceholder: '輸入要編碼的文字⋯',
+
+    base64Label: 'Base64',
+    base64Hint: '輸入或貼上要解碼的 Base64',
+    base64Placeholder: '輸入要解碼的 Base64⋯',
+
+    buttonEncode: '編碼',
+    buttonDecode: '解碼',
+    buttonReset: '重設',
+    buttonCopy: '複製',
+    buttonCopied: '已複製',
+    buttonClear: '清除',
+
+    errorEncode: '無法編碼輸入內容',
+    errorDecode: '無法解碼——Base64 格式無效',
+  },
 } as const;

@@ -1,0 +1,35 @@
+/* Resets for global element rules in public/css/{webflow,authgear-new.webflow}.css
+   that bleed into the widget at element specificity (which beats
+   Tailwind utilities when the cascade order falls the wrong way).
+   Without these, plain `button` / `input` / `label` lose their Tailwind
+   bg / border / color treatment inside the widget root. */
+[data-testid='base64-widget'] label {
+  color: inherit;
+  margin-bottom: 0;
+  font-weight: inherit;
+  line-height: inherit;
+  display: inline-flex;
+}
+[data-testid='base64-widget'] button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+[data-testid='base64-widget'] input,
+[data-testid='base64-widget'] select,
+[data-testid='base64-widget'] textarea {
+  font: inherit;
+  color: inherit;
+  background-color: #ffffff;
+}
+[data-testid='base64-widget'] input[type='checkbox'] {
+  -webkit-appearance: auto;
+  appearance: auto;
+  accent-color: rgb(37 99 235); /* blue-600 */
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  margin: 0;
+}

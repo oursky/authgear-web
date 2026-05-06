@@ -38,8 +38,8 @@ test('Tool page body renders (base64 hero visible)', async ({ page }) => {
   await page.goto('/tools/base64-decode-encode');
   // The ToolHero h1 should be present
   await expect(page.locator('h1.tools-h1').first()).toBeVisible();
-  // The iframe for the actual widget should be present
-  await expect(page.locator('iframe').first()).toBeVisible();
+  // Migrated from iframe to a native React island in this repo
+  await expect(page.locator('[data-testid="base64-widget"]')).toBeVisible();
 });
 
 test('Tool page body renders (uuidV7 hero visible)', async ({ page }) => {
