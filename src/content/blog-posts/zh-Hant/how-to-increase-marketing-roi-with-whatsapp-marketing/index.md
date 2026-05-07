@@ -112,4 +112,4 @@ Authgear 的 WhatsApp OTP 流程設計讓**由使用者主動開啟對話**：�
 
 僅用帳號密碼註冊時，註冊表單流失率可能高達約 60%，因為使用者對冗長註冊流程已相當疲憊。改用 WhatsApp OTP，使用者不必承受密碼型註冊的摩擦，有助提升轉換並強化安全性。
 
-想了解更多，請參考 <a href="/zh-hant/features/whatsapp-otp" target="_blank">WhatsApp OTP 功能頁</a>，或直接<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>評估你的商業場景。
+想了解更多，請參考 <a href="/zh-hant/features/whatsapp-otp" target="_blank">WhatsApp OTP 功能頁</a>，或直接<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>評估你的商業場景。

@@ -31,7 +31,7 @@ draft: false
 
 簡單來說，生物辨識驗證是透過比對使用者提供的生理特徵（inherence factors）與資料庫中的資料來驗證身分。這些特徵例如臉部特徵、指紋等，具有高度個人性且難以複製。正因為這些生理特徵具獨特性，才讓多種生物辨識技術得以落地，並成為日常生活的一部分。
 
-生物辨識與密碼驗證的差異不只在「驗證因子」。一般而言，密碼會透過<a href="/post/password-hashing-salting" target="_blank">雜湊與加鹽</a>安全儲存於伺服器；而生物資料通常不會在伺服器與裝置間來回傳遞。當你使用生物辨識登入時，實際上解鎖的是用來驗證使用者的數位憑證或私鑰，而不是直接「把生物資料送出去」。
+生物辨識與密碼驗證的差異不只在「驗證因子」。一般而言，密碼會透過<a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">雜湊與加鹽</a>安全儲存於伺服器；而生物資料通常不會在伺服器與裝置間來回傳遞。當你使用生物辨識登入時，實際上解鎖的是用來驗證使用者的數位憑證或私鑰，而不是直接「把生物資料送出去」。
 
 生物辨識常作為次要驗證方式（在輸入帳密後），或提供給回訪使用者作為主要登入方式。以多數銀行 App 為例，首次登入需要帳密，之後可直接用 Face ID 或 Touch ID，速度更快且通常更安全。
 
@@ -67,7 +67,7 @@ draft: false
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">使用 Authgear 提供更安全、體驗更佳的登入流程</h2>
   <p class="cta-v2-paragraph">快速為你的 App 加上生物辨識與其他驗證能力</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">預約 Demo
 
 <h2 id="benefits">使用 Authgear 導入生物辨識登入的好處</h2>
@@ -126,4 +126,4 @@ Authgear 提供應用程式所需的完整功能，例如無密碼與生物辨�
 ![](./figure-3.png)
 <!--/FIGURE-->
 
-歡迎<a href="/talk-with-us" target="_blank">聯絡我們</a>，了解 Authgear 如何幫助你打造流暢體驗並提升資料安全。
+歡迎<a href="/schedule-demo/" target="_blank">聯絡我們</a>，了解 Authgear 如何幫助你打造流暢體驗並提升資料安全。

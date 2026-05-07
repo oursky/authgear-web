@@ -147,4 +147,4 @@ Implementing customer SSO with Authgear can help create a more seamless and cost
 
 Not only is our SSO solution easy to integrate into your systems, we also offer multiple <a href="/features/passkeys" target="_blank">authentication methods</a> to protect logins. This includes <a href="/features/passwordless-authentication" target="_blank">passwordless</a> options and <a href="/post/what-is-multi-factor-authentication-mfa" target="_blank">two-factor authentication</a> to keep you and your customers safer.
 
-Click <a href="/talk-with-us" target="_blank">here</a> for a demo or <a href="https://accounts.portal.authgear.com/signup" target="_blank">here</a> to sign up right now. Your customers are waiting.
+Click <a href="/schedule-demo/" target="_blank">here</a> for a demo or <a href="https://accounts.portal.authgear.com/signup" target="_blank">here</a> to sign up right now. Your customers are waiting.

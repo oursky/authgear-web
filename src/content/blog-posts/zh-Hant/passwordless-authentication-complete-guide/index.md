@@ -93,7 +93,7 @@ draft: false
 <h2 class="title cta-split-content-left">使用 Authgear 實作無密碼和 2FA
 </h2>
 <p class="cta-v2-paragraph">您需要的唯一驗證和使用者管理解決方案</p>
-<a href="/talk-with-us" target="_blank" class="w-inline-block">
+<a href="/schedule-demo/" target="_blank" class="w-inline-block">
 <div class="cta-v2-ctabtn button-primary">取得演示
 
 <h2 id="how-it-works">無密碼身份驗證如何運作？ </h2>
@@ -159,4 +159,4 @@ As mentioned above, there are several methods of passwordless authentication, ra
 
 開發和維護內部身份驗證系統可能非常耗時且費力。 Authgear提供多種安全功能，例如SSO、社交登入、無密碼身份驗證、2FA等，為您的應用程式提供更好的安全性和更流暢的使用者體驗。此外，透過將您的應用程式與 Authgear 集成，您的應用程式還將配備其他功能，例如註冊頁面和管理門戶，幫助您優化轉換率並更好地管理用戶。
 
-立即<a href="/talk-with-us" target="_blank">聯絡我們</a>，讓我們詳細了解您的需求以及 Authgear 如何為您提供協助。
+立即<a href="/schedule-demo/" target="_blank">聯絡我們</a>，讓我們詳細了解您的需求以及 Authgear 如何為您提供協助。

@@ -75,3 +75,8 @@
 /tools/ssl-certificate-inspector                                                    /tools/ssl-checker/                                                                                                     301
 /post/top-10-sso-providers-in-2025-secure-convenient-and-scalable                   /post/top-10-sso-providers-in-2026-secure-convenient-and-scalable/                                                      301
 /tools/password-hash                                                                 https://www.authgear.com/tools/password-hash-generator/                                                                301
+
+# Pages that exist only in English: redirect /zh-hant/* to the English route so
+# the BaseLayout-emitted zh-Hant hreflang alternate resolves rather than 404s.
+/zh-hant/integration-category/*                                                     /integration-category/:splat                                                                                            301
+/zh-hant/once/license                                                               /once/license/                                                                                                          301

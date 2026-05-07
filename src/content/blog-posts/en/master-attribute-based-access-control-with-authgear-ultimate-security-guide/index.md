@@ -118,6 +118,6 @@ For a deeper understanding of RBAC and how it contrasts with attribute-based acc
 
 ## Ready to Experience Attribute-Based Access Control with Authgear
 
-Don't miss your chance to harness the power of attribute-based access control with Authgear. With our unique offer, you can try [Authgear once](/campaign/once), pay just a single fee, and use it for all your authentication needs. This means you can enjoy a secure, flexible, and scalable solution that leverages attribute-based access control to dynamically manage access and protect your software.
+Don't miss your chance to harness the power of attribute-based access control with Authgear. With our unique offer, you can try [Authgear once](/once/), pay just a single fee, and use it for all your authentication needs. This means you can enjoy a secure, flexible, and scalable solution that leverages attribute-based access control to dynamically manage access and protect your software.
 
 Take the first step towards a robust security framework and see how attribute-based access control can transform your system's performance. Upgrade your access control strategy today with Authgear and experience security redefined.

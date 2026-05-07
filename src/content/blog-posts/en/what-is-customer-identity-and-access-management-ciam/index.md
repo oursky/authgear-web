@@ -98,7 +98,7 @@ A CIAM solution provides a smooth and frictionless registration process powered 
 
 According to <a href="https://www.ibm.com/security/data-breach" target="_blank">IBM’s Cost of a Data Breach Report 2021</a>, the average costs of data breach rose from USD 3.86 million to 4.24 million, where compromised credentials accounted for 20% of the data breaches. Businesses can no longer consider data security an afterthought as costs of data breaches continue to rise and studies show that <a href="https://businessinsights.bitdefender.com/businesses-can-lose-up-to-58-of-customers-after-a-data-breach-research-shows" target="_blank">more than 50% of consumers will not make another purchase for months after a security breach in the U.S</a>.
 
-CIAM solutions do more than just provide an authentication server to verify users’ identities. It also secures users’ credentials through <a href="/post/password-hashing-salting" target="_blank">password hashing and salting</a>, requires multi-factor authentication to add another layer of security, and provides different authentication methods to eliminate password fatigue. By integrating their apps or software with CIAM solutions, businesses will not have to devote resources to developing and maintaining their own CIAM system and better protect their users’ credentials.
+CIAM solutions do more than just provide an authentication server to verify users’ identities. It also secures users’ credentials through <a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">password hashing and salting</a>, requires multi-factor authentication to add another layer of security, and provides different authentication methods to eliminate password fatigue. By integrating their apps or software with CIAM solutions, businesses will not have to devote resources to developing and maintaining their own CIAM system and better protect their users’ credentials.
 
 <h2 id="features">What Are The Key Features of CIAM?</h2>
 
@@ -146,4 +146,4 @@ CIAM technology can be deployed or delivered in several ways, such as on a publi
 
 Authgear is a Customer Identity and Access Management solution that provides all features, including social login, frictionless registration process, biometric authentication, two-factor authentication, user and session management, etc., that your consumer-facing apps need to grow user base and build customer loyalty.
 
-<a href="/talk-with-us" target="_blank">Contact us</a> now to see how easy it is to enjoy all the benefits that our CIAM can bring you.
+<a href="/schedule-demo/" target="_blank">Contact us</a> now to see how easy it is to enjoy all the benefits that our CIAM can bring you.

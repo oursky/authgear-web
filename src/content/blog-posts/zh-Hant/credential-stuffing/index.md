@@ -174,4 +174,4 @@ CAPTCHA 有助於阻擋自動化登入嘗試，但這項工具本身仍有可被
 ![](./figure-4.png)
 <!--/FIGURE-->
 
-Credential 攻擊對使用者安全與資料隱私造成的威脅不容忽視。想了解 Authgear 如何協助你建立對抗這些威脅的防線，歡迎<a href="/talk-with-us" target="_blank">聯絡我們</a>。
+Credential 攻擊對使用者安全與資料隱私造成的威脅不容忽視。想了解 Authgear 如何協助你建立對抗這些威脅的防線，歡迎<a href="/schedule-demo/" target="_blank">聯絡我們</a>。

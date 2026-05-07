@@ -76,7 +76,7 @@ Gartner 預測，<a href="https://www.gartner.com/en/newsroom/press-releases/202
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">用 Authgear 領先防禦網路攻擊</h2>
   <p class="cta-v2-paragraph">為你的應用加入使用者驗證與更多安全功能</p>
-  <a href="/zh-hant/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/zh-hant/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">預約示範
 
 ## 緩解自動化攻擊的最佳做法
@@ -117,4 +117,4 @@ CAPTCHA 能降低自動化登入嘗試，但部分實作仍可被繞過。因此
 
 面對駭客可用工具愈來愈多，企業必須持續升級防禦。保護使用者免受自動化網攻，不是一次性任務，而是持續優化與提高警覺的過程。
 
-Authgear 提供可快速整合的身分驗證與使用者管理方案，讓你無縫加入驗證與多種安全功能。像是無密碼驗證、社群登入與 2FA，都能有效降低自動化攻擊風險。<a href="/zh-hant/talk-with-us" target="_blank">想了解 Authgear？歡迎與我們聊聊</a>。
+Authgear 提供可快速整合的身分驗證與使用者管理方案，讓你無縫加入驗證與多種安全功能。像是無密碼驗證、社群登入與 2FA，都能有效降低自動化攻擊風險。<a href="/zh-hant/schedule-demo/" target="_blank">想了解 Authgear？歡迎與我們聊聊</a>。

@@ -107,7 +107,7 @@ CIAM 的亮點之一是多種無密碼登入。使用者可透過 <a href="/zh-h
 
 保險公司常需和代理人、經紀人與第三方協作，這些角色可能要存取內部資源。如何在資訊流動與資料安全間取得平衡，會帶來複雜 IAM 挑戰，傳統內部系統常難以應對。
 
-Authgear 已協助許多企業集中管理<a href="/zh-hant/solutions/wiam-for-extended-workforces-and-access-management-for-frontline-contractors" target="_blank">內外部身分</a>：把客戶應用接入 Authgear 管理外部工作人員，再串接既有內部 WIAM（Workforce IAM）系統。重點是整合與優化現有架構，而不是增加負擔。
+Authgear 已協助許多企業集中管理<a href="/zh-hant/solutions/frontline-workers-identity/" target="_blank">內外部身分</a>：把客戶應用接入 Authgear 管理外部工作人員，再串接既有內部 WIAM（Workforce IAM）系統。重點是整合與優化現有架構，而不是增加負擔。
 
 <h2 id="ciam">保險 IAM 如何幫助建立長期客戶關係？</h2>
 
@@ -169,4 +169,4 @@ Authgear 可讓開發者輕鬆配置 2FA 與無密碼驗證，為保險 IAM 加�
 
 若你想同時打造更好的客戶體驗與更有效率的外部協作，Authgear 的 IAM 技術是經驗成熟且可快速落地的解法。
 
-歡迎<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，聊聊你的保險業需求，看看 Authgear 如何幫你提升獲客、留客與外部團隊協作成效。
+歡迎<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>，聊聊你的保險業需求，看看 Authgear 如何幫你提升獲客、留客與外部團隊協作成效。

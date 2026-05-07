@@ -230,7 +230,7 @@ SMS OTP 是驗證登入和交易最常見的方式之一。
 
 ****透過 Authgear，您可以在數天內——而非數月——推出**通行密鑰**、**WhatsApp OTP** 和**社交登入**。從通行密鑰開始，獲得安全性和轉換率的最大提升；在 SMS 成本高或不可靠的地方添加 WhatsApp OTP；並保留社交登入用於即時注冊。
 
-[獲取即時演示](/zh-hant/talk-with-us)，了解您的團隊能夠以多快的速度推出安全、低阻力的登入方式。
+[獲取即時演示](/zh-hant/schedule-demo/)，了解您的團隊能夠以多快的速度推出安全、低阻力的登入方式。
 
 <script type="application/ld+json">
 {

@@ -118,6 +118,6 @@ Attribute-based access control 會評估多個屬性，動態決定是否授權�
 
 ## 準備好用 Authgear 體驗 Attribute-Based Access Control
 
-現在就開始透過 Authgear 發揮 attribute-based access control 的完整潛力。你可以試用 [Authgear Once](/zh-hant/campaign/once)：一次付費，滿足所有驗證需求，享有以 attribute-based access control 為核心的安全、彈性、可擴展方案，動態保護你的軟體資產。
+現在就開始透過 Authgear 發揮 attribute-based access control 的完整潛力。你可以試用 [Authgear Once](/zh-hant/once/)：一次付費，滿足所有驗證需求，享有以 attribute-based access control 為核心的安全、彈性、可擴展方案，動態保護你的軟體資產。
 
 立刻邁向更強韌的安全架構，親自體驗 attribute-based access control 如何提升你的系統表現。今天就用 Authgear 升級存取控制策略，重新定義安全標準。

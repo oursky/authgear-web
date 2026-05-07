@@ -92,7 +92,7 @@ GDPR 列明了資料主體不能行使被遺忘權的情形。若處理行為是
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">使用 Authgear 輕鬆遵循刪除權規定</h2>
   <p class="cta-v2-paragraph">為您的應用程式配備保護用戶隱私所需的一切</p>
-  <a href="/zh-hant/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/zh-hant/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">獲取示範
 
 <h2 id="public-data">個人資料已被公開時</h2>
@@ -159,4 +159,4 @@ GDPR 並未規定組織確認身份的具體步驟。然而，大多數資料控
 
 Authgear 是您的應用程式所需的認證與用戶管理解決方案，提供各類功能，包括 SSO、2FA、生物辨識、管理員入口等，滿足消費者應用程式的各項需求。作為開發者，您將高度讚賞 Authgear 易於客製化的特點以及豐富的預設功能。
 
-<a href="/zh-hant/talk-with-us" target="_blank">立即聯絡我們</a>，進一步了解 Authgear 以及它如何幫助您的應用程式獲得競爭優勢。
+<a href="/zh-hant/schedule-demo/" target="_blank">立即聯絡我們</a>，進一步了解 Authgear 以及它如何幫助您的應用程式獲得競爭優勢。

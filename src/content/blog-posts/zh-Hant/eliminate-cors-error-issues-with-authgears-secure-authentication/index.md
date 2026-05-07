@@ -96,4 +96,4 @@ draft: false
 
 **CORS error** 常是開發流程中的絆腳石，但透過 Authgear，你可以減少 **CORS error** 帶來的整合摩擦，同時確保驗證流程穩健可靠。我們的方案可無縫整合，避免 **CORS error** 打斷登入流程，而且採用一次付費模式，即可涵蓋你所有專案。
 
-別再讓 **CORS error** 拖慢產品進度。Authgear 以先進驗證能力協助你把 **CORS error** 風險降到最低，同時提供兼具安全與易用性的登入體驗。立即[體驗 Authgear 的能力](/zh-hant/campaign/once)，用一次付費升級你整體驗證架構，讓 **CORS error** 不再是團隊負擔。
+別再讓 **CORS error** 拖慢產品進度。Authgear 以先進驗證能力協助你把 **CORS error** 風險降到最低，同時提供兼具安全與易用性的登入體驗。立即[體驗 Authgear 的能力](/zh-hant/once/)，用一次付費升級你整體驗證架構，讓 **CORS error** 不再是團隊負擔。

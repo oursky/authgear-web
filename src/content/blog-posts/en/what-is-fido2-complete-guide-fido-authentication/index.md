@@ -187,7 +187,7 @@ As these technologies continue to mature, the reliance on traditional passwords 
 
 FIDO2 replaces passwords with cryptographic credentials stored on trusted devices. This eliminates the risks of phishing, credential stuffing, and server-side password breaches while giving users a faster login experience through biometrics or security keys.
 
-For development teams evaluating passwordless authentication, Authgear provides built-in support for [passkeys](/features/passkeys) and FIDO2 security keys alongside other [user authentication methods](/post/top-three-types-of-user-authentication-methods) like [TOTP](/post/what-is-totp), [SMS OTP](/post/sms-authentication-a-complete-guide), and [social login](/post/social-login-guide). You can add FIDO2 authentication to your app without building the WebAuthn integration from scratch.
+For development teams evaluating passwordless authentication, Authgear provides built-in support for [passkeys](/features/passkeys) and FIDO2 security keys alongside other [user authentication methods](/post/what-is-user-authentication-guide-2026) like [TOTP](/post/what-is-totp), [SMS OTP](/post/sms-authentication-should-you-implement), and [social login](/post/social-login-guide). You can add FIDO2 authentication to your app without building the WebAuthn integration from scratch.
 
 <a href="https://portal.authgear.com/" target="_blank">Get started with Authgear</a> to add passwordless login to your application.
 

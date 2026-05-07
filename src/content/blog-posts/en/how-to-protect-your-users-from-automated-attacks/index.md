@@ -76,7 +76,7 @@ This is another type of brute force attack. In a Password spraying automated att
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">Stay Ahead of Cyberattacks with Authgear</h2>
   <p class="cta-v2-paragraph">Add user authentication and other security features to your apps</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 ## Best Practices for Mitigating Automated Attacks
@@ -117,4 +117,4 @@ With<a href="https://www.infosecurity-magazine.com/news/password-reuse-60-15-bil
 
 With a wide range of tools and resources at the disposal of hackers, businesses must remain ahead in the quest to prevent attacks. Protecting your users from automated cyberattacks isn’t a one-off process. It requires continuous finetuning and awareness.
 
-Authgear offers a Plug-and-play authentication and user management solution that allows you to seamlessly add user authentication and many other security features to your applications. These features like passwordless authentication, social logins, and 2FA can ultimately help to protect your users from automated attacks. <a href="/talk-with-us" target="_blank">Interested in Authgear? Let’s talk</a>.
+Authgear offers a Plug-and-play authentication and user management solution that allows you to seamlessly add user authentication and many other security features to your applications. These features like passwordless authentication, social logins, and 2FA can ultimately help to protect your users from automated attacks. <a href="/schedule-demo/" target="_blank">Interested in Authgear? Let’s talk</a>.

@@ -98,7 +98,7 @@ CIAM 解決方案透過多項功能提供流暢、無摩擦的註冊流程。CIA
 
 根據<a href="https://www.ibm.com/security/data-breach" target="_blank">IBM 2021 年數據洩露成本報告</a>，數據洩露的平均成本從 386 萬美元上升至 424 萬美元，其中憑證洩露佔數據洩露事件的 20%。隨著數據洩露成本持續攀升，且研究顯示<a href="https://businessinsights.bitdefender.com/businesses-can-lose-up-to-58-of-customers-after-a-data-breach-research-shows" target="_blank">在美國，超過 50% 的消費者在安全漏洞發生後數月內不會再次購買</a>，企業已不能再將數據安全視為事後才需考量的問題。
 
-CIAM 解決方案不僅僅提供認證伺服器來驗證用戶身份，還透過<a href="/zh-hant/post/password-hashing-salting" target="_blank">密碼雜湊和加鹽</a>保護用戶憑證，要求多因素認證以增加額外的安全層，並提供多種認證方式以消除密碼疲勞。透過將應用程式或軟體與 CIAM 解決方案整合，企業無需投入資源自行開發和維護 CIAM 系統，同時能更好地保護用戶的憑證。
+CIAM 解決方案不僅僅提供認證伺服器來驗證用戶身份，還透過<a href="/zh-hant/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">密碼雜湊和加鹽</a>保護用戶憑證，要求多因素認證以增加額外的安全層，並提供多種認證方式以消除密碼疲勞。透過將應用程式或軟體與 CIAM 解決方案整合，企業無需投入資源自行開發和維護 CIAM 系統，同時能更好地保護用戶的憑證。
 
 <h2 id="features">CIAM 的核心功能有哪些？</h2>
 
@@ -146,4 +146,4 @@ CIAM 技術可透過多種方式部署或交付，例如公有雲、私有雲，
 
 Authgear 是一套客戶身份與存取管理解決方案，提供面向消費者應用程式所需的所有功能，包括社交登入、無摩擦註冊流程、生物辨識認證、雙因素認證、用戶與工作階段管理等，助您擴大用戶群並建立客戶忠誠度。
 
-<a href="/zh-hant/talk-with-us" target="_blank">立即聯絡我們</a>，了解如何輕鬆享受我們的 CIAM 所帶來的所有好處。
+<a href="/zh-hant/schedule-demo/" target="_blank">立即聯絡我們</a>，了解如何輕鬆享受我們的 CIAM 所帶來的所有好處。

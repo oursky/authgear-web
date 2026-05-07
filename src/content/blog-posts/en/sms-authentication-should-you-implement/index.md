@@ -152,4 +152,4 @@ The method is fast as you don't have to wait for an OTP delivery. It is also mor
 
 Authgear is a Customer Identity and Access Management solution that has all the security and user management features that your applications need. By integrating your software or apps with Authgear, you can easily implement a variety of authentication methods, such as SMS OTP, WhatsApp OTP, Social logins, biometric authentication, etc., to not only provide a smooth user experience but more importantly enhance data security, increase user conversation rate, and reduce costs.
 
-<a href="/talk-with-us" target="_blank">Request a demo</a> or <a href="https://accounts.portal.authgear.com/signup" target="_blank">sign up for a free</a> trial to see how you can benefit from Authgear.
+<a href="/schedule-demo/" target="_blank">Request a demo</a> or <a href="https://accounts.portal.authgear.com/signup" target="_blank">sign up for a free</a> trial to see how you can benefit from Authgear.

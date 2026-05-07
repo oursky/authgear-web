@@ -105,7 +105,7 @@ OAuth 2.0 是**授權（authorization）**協定，讓使用者能安全地透�
 <div class="cta-v2">
   <h2 class="title cta-split-content-left">用 Authgear 輕鬆啟用社群登入</h2>
   <p class="cta-v2-paragraph">專注打造產品，而不是再造一組登入</p>
-  <a href="/zh-hant/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/zh-hant/schedule-demo/" target="_blank" class="w-inline-block">
     <div class="cta-v2-ctabtn button-primary">預約示範</div>
   </a>
 </div>
@@ -162,4 +162,4 @@ OAuth 2.0 是**授權（authorization）**協定，讓使用者能安全地透�
 
 如此一來，客戶在註冊與登入時能享有更一致的體驗，同時降低惡意行為對業務的威脅。
 
-歡迎<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，或<a href="https://accounts.portal.authgear.com/signup" target="_blank">開始免費試用</a>，了解如何透過更順暢、更安全的驗證提升體驗與轉換率。
+歡迎<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>，或<a href="https://accounts.portal.authgear.com/signup" target="_blank">開始免費試用</a>，了解如何透過更順暢、更安全的驗證提升體驗與轉換率。

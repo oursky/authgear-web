@@ -105,7 +105,7 @@ Session authentication is typically suitable for websites in the same root domai
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">Provide Secure & Frictionless Authentication with Authgear</h2>
   <p class="cta-v2-paragraph">Build your app, not another login</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 ## **What is Token Authentication**

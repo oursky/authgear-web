@@ -50,4 +50,4 @@ But wait, there's more! This ain't your grandpop's WIAM solution. We've got feat
 
 WIAM for the Extended Workforce: Your digital sheriff, keeping your data safe, your posse productive, and your business booming. So, saddle up, partner, and leave the days of dusty WIAM solutions behind. With the right solution, you can transform your extended workforce from a wild bunch into a well-oiled machine, ready to conquer any digital frontier.
 
-[Contact us](/talk-with-us) today and let us show you how our WIAM solution can wrangle your extended workforce and unleash the true potential of your diverse talent!
+[Contact us](/schedule-demo/) today and let us show you how our WIAM solution can wrangle your extended workforce and unleash the true potential of your diverse talent!

@@ -93,7 +93,7 @@ Some also argue that a few passwordless authentication, such as magic link, OTPs
 	<h2 class="title cta-split-content-left">Implement Passwordless & 2FA with Authgear
   </h2>
   <p class="cta-v2-paragraph">The only authentication & user management solution you need</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 <h2 id="how-it-works">How Does Passwordless Authentication Work?</h2>
@@ -159,4 +159,4 @@ From then, you can start developing your own passwordless authentication system.
 
 Developing and maintaining an authentication system in-house can be quite time-consuming and exhausting. Authgear provides various security features, such as SSO, social login, passwordless authentication, 2FA, and more, for your applications to provide better security and smoother user experience. Furthermore, by integrating your apps with Authgear, your apps will also be equipped with other features, such as signup page and admin portals, that help you optimize conversion rate and better manage your users.
 
-<a href="/talk-with-us" target="_blank">Contact us</a> now for us to learn more about your needs and how Authgear can help you.
+<a href="/schedule-demo/" target="_blank">Contact us</a> now for us to learn more about your needs and how Authgear can help you.

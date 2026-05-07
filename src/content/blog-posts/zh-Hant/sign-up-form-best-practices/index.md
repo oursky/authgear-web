@@ -105,7 +105,7 @@ Sign up forms are perhaps the most important part of your customer acquisition p
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">Increase Your App's Conversion Rate with Authgear</h2>
   <p class="cta-v2-paragraph">Tested and proven sign-up page template, following the best practices for user conversion</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 <h3 id="user-experience">3. Manage User Expectations</h3>
@@ -130,4 +130,4 @@ Mobile usage has increased steadily over the last few years. According to <a hre
 
 Authgear 是一種適用於 Web 和行動應用程式的身份驗證和使用者管理解決方案。透過將您的應用程式與 Authgear 集成，您可以為使用者提供安全、流暢的身份驗證體驗。此外，我們還提供遵循最佳實踐的可自訂註冊和登錄頁面，幫助您提高註冊率、擴大訂閱者群，並最終為您的應用程式創造更多收入。
 
-Ready to take your app to the next level? <a href="/talk-with-us" target="_blank">Get in touch with us</a> today to learn more about how we can help you and your apps reach new heights.
+Ready to take your app to the next level? <a href="/schedule-demo/" target="_blank">Get in touch with us</a> today to learn more about how we can help you and your apps reach new heights.

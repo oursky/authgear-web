@@ -67,7 +67,7 @@ In this blog post, we will talk about:
 
 In a nutshell, biometric authentication is the process of verifying a user’s identity by comparing the presented physical attributes, or inherence factors, with the one stored in the database. These inherence factors are integral to the user, such as facial patterns, fingerprints, etc., and therefore can be very hard to replicate. The uniqueness of these physiological characteristics allow researchers to come up with several biometric technologies that have become part of our everyday life.
 
-The difference between biometric and password-based authentication isn’t just the authentication factor. Usually, passwords are securely saved on the server via <a href="/post/password-hashing-salting" target="_blank">hashing and salting</a>. Biometric data, on the other hand, are not passed around between servers and devices. When you log into apps via biometric login, what you unlock isn’t the access to the application but the use of digital certificate or private key that’s actually used to verify the user.
+The difference between biometric and password-based authentication isn’t just the authentication factor. Usually, passwords are securely saved on the server via <a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">hashing and salting</a>. Biometric data, on the other hand, are not passed around between servers and devices. When you log into apps via biometric login, what you unlock isn’t the access to the application but the use of digital certificate or private key that’s actually used to verify the user.
 
 Biometric authentication is mostly used as a secondary authentication method after a user has entered the username and password, or as the main authentication method for returned users. For example, for most banking app, you only need to log in with username and password for the first time. Afterwards, you can log into these apps via Face ID or Touch ID, which is much faster and more secure compared to password-based authentication.
 
@@ -103,7 +103,7 @@ There are still some areas of improvement, such as accuracy, costs, and software
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">Provide Better and More Secure Login Experience with Authgear</h2>
   <p class="cta-v2-paragraph">Easily equip your apps with biometric and other authentication features</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 <h2 id="benefits">Benefits of Implementing Biometric Login with Authgear</h2>
@@ -162,4 +162,4 @@ Authgear provides all features needed for your applications such as passwordless
 ![](./figure-3.png)
 <!--/FIGURE-->
 
-<a href="/talk-with-us" target="_blank">Contact us</a> and learn more about how you can benefit from Authgear to deliver smooth user experience and improve data security.
+<a href="/schedule-demo/" target="_blank">Contact us</a> and learn more about how you can benefit from Authgear to deliver smooth user experience and improve data security.

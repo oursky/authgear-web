@@ -128,7 +128,7 @@ Security Assertion Markup Language (SAML) is an XML-based standard for exchangin
 
 Learn more about OIDC and SAML:
 
-[OIDC vs. SAML: Decoding the SSO Showdown (And Why It Matters for Your Business)](/post/oidc-vs-saml-decoding-the-sso-showdown-and-why-it-matters-for-your-business)
+[OIDC vs. SAML: Decoding the SSO Showdown (And Why It Matters for Your Business)](/post/oidc-vs-saml)
 
 <h2 id="access-token">How Does Access Token Work on a Web App?</h2>
 
@@ -427,6 +427,6 @@ authgear.<span class="function">finishAuthorization</span>().<span class="functi
   
 ```
 
-<a href="/talk-with-us" target="_blank">Contact us</a> to learn more about how Authgear can help you improve user experience, increase conversion rate, and ensure security for your apps.
+<a href="/schedule-demo/" target="_blank">Contact us</a> to learn more about how Authgear can help you improve user experience, increase conversion rate, and ensure security for your apps.
 
 You may also refer to our <a href="https://docs.authgear.com/" target="_blank">Authgear Docs</a> for more instructions. Or join our [Discord server ](https://discord.gg/Kdn5vcYwAS)to learn more about web application authentication

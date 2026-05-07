@@ -119,7 +119,7 @@ PWC 在 <a href="https://www.pwc.com/us/en/services/consulting/cybersecurity-ris
 - **Single Sign-On（SSO）**：提供更一致、順暢的跨平台登入體驗。
 - **無密碼選項**：如 OTP、生物辨識、社群登入，降低密碼管理負擔。
 - **管理後台（Admin Portals）**：客服能快速建立、更新、刪除帳號；同時提供使用者可自助管理憑證與驗證方式的設定頁。
-- **存取控制（Access Controls）**：可依角色授權資源存取，協助企業更好管理<a href="/zh-hant/solutions/wiam-for-extended-workforces-and-access-management-for-frontline-contractors" target="_blank">外部身分</a>（如供應商、經紀人等）。
+- **存取控制（Access Controls）**：可依角色授權資源存取，協助企業更好管理<a href="/zh-hant/solutions/frontline-workers-identity/" target="_blank">外部身分</a>（如供應商、經紀人等）。
 
 <h2 id="future">IDaaS 的未來</h2>
 
@@ -127,4 +127,4 @@ PWC 在 <a href="https://www.pwc.com/us/en/services/consulting/cybersecurity-ris
 
 在 Authgear 看來，IDaaS 的未來是幫助企業持續領先這些變化。這也是我們選擇以雲端架構與多元驗證選項打造方案的原因：讓身分管理更安全、更易用，也更具成本效益。
 
-若你對委外 IAM 仍有疑慮，歡迎<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>。我們很樂意了解你的痛點，並說明 Authgear 如何協助你解決外部身分與存取管理問題，同時支援業務目標成長。
+若你對委外 IAM 仍有疑慮，歡迎<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>。我們很樂意了解你的痛點，並說明 Authgear 如何協助你解決外部身分與存取管理問題，同時支援業務目標成長。

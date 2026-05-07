@@ -188,4 +188,4 @@ From the HR system, you can provision and de-provision users based on their stat
 
 <h2 id="authgear">Simplify Identity & Access Management for Extended Enterprise with Authgear</h2>
 
-Authgear helps you centralize internal and external identity and access management to maximize productivity, boost security, and enhance user experience. Integrating your business applications with Authgear is quite simple with our software development kits (SDKs). <a href="/talk-with-us" target="_blank">Contact us</a> for us to learn more about your use case and see how Authgear can help you maximize the productivity and proftability of your extended enterprise.
+Authgear helps you centralize internal and external identity and access management to maximize productivity, boost security, and enhance user experience. Integrating your business applications with Authgear is quite simple with our software development kits (SDKs). <a href="/schedule-demo/" target="_blank">Contact us</a> for us to learn more about your use case and see how Authgear can help you maximize the productivity and proftability of your extended enterprise.

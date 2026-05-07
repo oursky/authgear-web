@@ -170,4 +170,4 @@ Though the specification does specify what error to throw in some exceptional si
 
 Though the integration involves two functions only, it is not an easy task if we are determined to make the experience of using passkeys as simple and easy as passwords. The difference in compatibility and the inconsistency of error handling between platforms are challenging for developers who wants to enable Passkeys on their web or apps.
 
-Hand-rolling your implementation may not be good if robustness is crucial to your app and users. <a href="https://accounts.portal.authgear.com/signup" target="_blank">Start a free trial</a> or <a href="/talk-with-us" target="_blank">contact us</a> to see how you can benefit from Authgear and provide a frictionless experience for your users without all the hassles.
+Hand-rolling your implementation may not be good if robustness is crucial to your app and users. <a href="https://accounts.portal.authgear.com/signup" target="_blank">Start a free trial</a> or <a href="/schedule-demo/" target="_blank">contact us</a> to see how you can benefit from Authgear and provide a frictionless experience for your users without all the hassles.

@@ -310,7 +310,7 @@ export const config = {
 
 2025 年 3 月揭露重大漏洞（CVE-2025-29927，CVSS 9.1）：透過偽造的 `x-middleware-subrequest` 標頭可**完全繞過** middleware。此問題影響執行 `next start` 的自架 Next.js 部署——Vercel 與 Netlify 部署不受影響。已於 **12.3.5、13.5.9、14.2.25、15.2.3** 修復。請務必使用已修補版本。
 
-更重要的是：把 middleware 當第一道防線——多數未授權存取的 UX 便利——但**務必在 Server Components 與 API route handler 再次驗證身分**，再暴露敏感資料。多層防禦才是正途。若欲了解為何在資料層驗證權杖很重要，請讀 [JWT 如何運作](/zh-hant/post/what-is-jwt)。
+更重要的是：把 middleware 當第一道防線——多數未授權存取的 UX 便利——但**務必在 Server Components 與 API route handler 再次驗證身分**，再暴露敏感資料。多層防禦才是正途。若欲了解為何在資料層驗證權杖很重要，請讀 [JWT 如何運作](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)。
 
 ### 陷阱 4：使用僅限 Node.js 的函式庫
 
@@ -404,6 +404,6 @@ export default async function DashboardPage() {
 
 ```
 
-若要更完整了解工作階段管理與權杖處理，請見 [驗證方案指南](/zh-hant/post/authentication-solutions-guide)，或進一步閱讀 [JWT 如何承載使用者身分](/zh-hant/post/what-is-jwt)。
+若要更完整了解工作階段管理與權杖處理，請見 [驗證方案指南](/zh-hant/post/authentication-solutions-guide)，或進一步閱讀 [JWT 如何承載使用者身分](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)。
 
 若要完全跳過樣板程式，在幾分鐘內為 Next.js 加入可上線的驗證，請[免費試用 Authgear](https://portal.authgear.com/)——內建權杖發放、重新整理、工作階段管理與 MFA。

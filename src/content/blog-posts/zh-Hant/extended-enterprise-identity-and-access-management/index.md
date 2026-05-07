@@ -180,4 +180,4 @@ Authgear 能與你的 HR 系統以及 Workforce IAM（WIAM）整合，讓你從�
 
 <h2 id="authgear">用 Authgear 簡化延伸型企業的身分與存取管理</h2>
 
-Authgear 協助你集中管理內部與外部的身分與存取，以提升生產力、強化安全並改善體驗。透過我們的軟體開發套件（SDK），把商業應用與 Authgear 整合並不困難。歡迎<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，讓我們更了解你的使用情境，並看看 Authgear 如何協助你提升延伸型企業的生產力與獲利能力。
+Authgear 協助你集中管理內部與外部的身分與存取，以提升生產力、強化安全並改善體驗。透過我們的軟體開發套件（SDK），把商業應用與 Authgear 整合並不困難。歡迎<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>，讓我們更了解你的使用情境，並看看 Authgear 如何協助你提升延伸型企業的生產力與獲利能力。

@@ -175,4 +175,4 @@ A pre-built account setting page is also available for your users to enable MFA,
 ![](./figure-4.png)
 <!--/FIGURE-->
 
-The threat that credential attacks pose to user safety and data privacy is not something to be taken lightly. <a href="/talk-with-us" target="_blank">Contact us</a> at Authgear for more details on how we can help build your defense against these threats.
+The threat that credential attacks pose to user safety and data privacy is not something to be taken lightly. <a href="/schedule-demo/" target="_blank">Contact us</a> at Authgear for more details on how we can help build your defense against these threats.

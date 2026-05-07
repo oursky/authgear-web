@@ -195,4 +195,4 @@ AaaS 供應商投入大量時間和金錢來開發強大的身份驗證軟體和
 
 對於開發人員，我們提供了易於使用的身份驗證 API，可以輕鬆地將 Authgear 整合到您現有的應用程式中。如果您需要協助，我們的專家支援團隊隨時為您提供協助。
 
-<a href="https://accounts.portal.authgear.com/signup" target="_blank">免費註冊</a> 或者 <a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a> 詳細了解您的應用程式如何與 Authgear 一起發展。
+<a href="https://accounts.portal.authgear.com/signup" target="_blank">免費註冊</a> 或者 <a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a> 詳細了解您的應用程式如何與 Authgear 一起發展。

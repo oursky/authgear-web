@@ -121,7 +121,7 @@ With the aforementioned advantages of IDaaS in mind, here are some of the most i
 - **Single Sign On** for a better user experience and more unified experience across a business’s platforms or applications.
 - **Passwordless options** so that users no longer keep track of complex passwords eg. OTPs, biometrics, and social logins.
 - **Admin portals** so that your customer support can create, update, and delete user accounts with just a few clicks. Another important feature is the option for a self-service setting page that users can access to manage their credentials and authentication methods.
-- **Security access controls** that allow businesses to assign users specific roles that control what applications they have access to. This allows businesses to better manage <a href="/solutions/wiam-extended-workforce-secure-manage-access-for-frontline-contractors-more" target="_blank">external identities</a>. For example, suppliers or brokers who need access to internal applications.
+- **Security access controls** that allow businesses to assign users specific roles that control what applications they have access to. This allows businesses to better manage <a href="/solutions/frontline-workers-identity/" target="_blank">external identities</a>. For example, suppliers or brokers who need access to internal applications.
 
 <h2 id="future">The Future of IDaaS</h2>
 
@@ -129,4 +129,4 @@ Authentication methods are constantly evolving, as are the cybersecurity threats
 
 The future of IDaaS, as we see it at Authgear, is to help businesses stay ahead of these changes and expectations. That’s why we’ve made sure that our IDaaS solution leverages the best technology has to offer, from being cloud-based to having multiple authentication options, for a safer, easier, and more cost-effective identity management approach.
 
-That said, we know some are hesitant about sourcing these services externally. <a href="/talk-with-us" target="_blank">Contact us</a> to talk about what your pain points are regarding the outsourcing of external identity and access management. We’re more than happy to explain how Authgear can solve those issues and help support your business goals in the process.
+That said, we know some are hesitant about sourcing these services externally. <a href="/schedule-demo/" target="_blank">Contact us</a> to talk about what your pain points are regarding the outsourcing of external identity and access management. We’re more than happy to explain how Authgear can solve those issues and help support your business goals in the process.

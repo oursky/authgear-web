@@ -93,7 +93,7 @@ Key parameters:
   <li><code>redirect_uri</code> — where to send the user after they approve</li>
   <li><code>scope</code> — what access you're requesting (e.g. <code>calendar.readonly</code>). Note: adding <code>openid</code> to the scope activates <a href='/post/oidc-vs-saml'>OpenID Connect</a> on top of OAuth 2.0 — useful when you also need to identify the user.</li>
   <li><code>state</code> — a random value to prevent CSRF attacks</li>
-  <li><code>code_challenge</code> — part of the <a href='/post/pkce-in-oauth-2-0'>PKCE extension</a> (required for public clients)</li>
+  <li><code>code_challenge</code> — part of the <a href='/post/pkce-in-oauth-2-0-how-to-protect-your-api-from-attacks'>PKCE extension</a> (required for public clients)</li>
 </ul>
 
 ### Step 2: The User Logs In and Grants Consent
@@ -287,7 +287,7 @@ If your client is a mobile app, single-page app (SPA), or any application where 
 
 PKCE prevents authorization code interception attacks by having your client generate a random `code_verifier`, hash it into a `code_challenge`, and send the challenge with the authorization request. When exchanging the code for a token, your client sends the original verifier — proving it's the same client that started the flow.
 
-See our detailed guide on [how PKCE works in OAuth 2.0](/post/pkce-in-oauth-2-0).
+See our detailed guide on [how PKCE works in OAuth 2.0](/post/pkce-in-oauth-2-0-how-to-protect-your-api-from-attacks).
 
 ## Common OAuth 2.0 Mistakes to Avoid
 
