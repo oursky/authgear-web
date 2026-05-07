@@ -122,7 +122,7 @@ draft: false
 ![](./figure-2.png)
 <!--/圖-->
 
-例如，MFA 可以要求使用者先輸入使用者名，然後提供額外的身份驗證層，例如 <a href="/post/sms-otp-vulnerability-and-alternatives" target="_blank">SMS OTP</a> 或生物辨識驗證（例如人臉或指紋辨識）。
+例如，MFA 可以要求使用者先輸入使用者名，然後提供額外的身份驗證層，例如 <a href="/zh-hant/post/sms-otp-vulnerabilities-and-alternatives" target="_blank">SMS OTP</a> 或生物辨識驗證（例如人臉或指紋辨識）。
 
 #### 金鑰
 

@@ -308,7 +308,7 @@ If your matcher is too broad (e.g., `/:path*`), middleware runs on every request
 
 In March 2025, a critical vulnerability (CVE-2025-29927, CVSS 9.1) was disclosed in which middleware could be bypassed entirely by sending a crafted `x-middleware-subrequest` header. This affected self-hosted Next.js deployments running `next start` — Vercel and Netlify deployments were not affected. The vulnerability was patched in versions **12.3.5, 13.5.9, 14.2.25, and 15.2.3**. Always run a patched version of Next.js.
 
-More importantly, treat middleware as a first line of defense — a UX convenience that prevents most unauthorized access — but **always re-verify authentication in your Server Components and API route handlers** before exposing sensitive data. Defense in depth is the right approach. Read more about [how JWTs work](/post/what-is-jwt) to understand why token verification at the data layer matters.
+More importantly, treat middleware as a first line of defense — a UX convenience that prevents most unauthorized access — but **always re-verify authentication in your Server Components and API route handlers** before exposing sensitive data. Defense in depth is the right approach. Read more about [how JWTs work](/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications) to understand why token verification at the data layer matters.
 
 ### Pitfall 4: Using Node.js-Only Libraries
 
@@ -402,6 +402,6 @@ export default async function DashboardPage() {
 
 ```
 
-For a more complete approach to session management and token handling, see the [authentication solutions guide](/post/authentication-solutions-guide) or explore how [JWTs carry user identity](/post/what-is-jwt) so you understand what data is available in the token payload.
+For a more complete approach to session management and token handling, see the [authentication solutions guide](/post/authentication-solutions-guide) or explore how [JWTs carry user identity](/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications) so you understand what data is available in the token payload.
 
 To skip the boilerplate entirely and add production-ready authentication to your Next.js app in minutes, [try Authgear for free](https://portal.authgear.com/) — it handles token issuance, refresh, session management, and MFA out of the box.

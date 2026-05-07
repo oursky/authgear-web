@@ -280,7 +280,7 @@ If a fetch to `/.well-known/openid-configuration` fails, common causes are:
 
 The `jwks_uri` field in the discovery document is one of the most important. It points to the JSON Web Key Set — the public keys your application needs to verify JWT signatures. Every time your app receives an ID token or access token, it should verify the signature against the keys at this URI.
 
-To learn more about how the JWKS URI works and how to use it in token verification code, see [What Is a JWKS URI? JWT Key Sets Explained for Developers](/post/what-is-jwks-uri).
+To learn more about how the JWKS URI works and how to use it in token verification code, see [What Is a JWKS URI? JWT Key Sets Explained for Developers](/post/what-is-jwks).
 
 ## Using .well-known/openid-configuration with Authgear
 
@@ -290,5 +290,5 @@ Every Authgear project publishes a discovery document at `https://your-project.a
 
 <ul>
   <li><a href="/tools/oidc-discovery-endpoint">Inspect any provider's discovery document</a> with the free OIDC Discovery Endpoint Explorer</li>
-  <li>Learn about JWKS in <a href="/post/what-is-jwks-uri">What Is a JWKS URI? JWT Key Sets Explained for Developers</a></li>
+  <li>Learn about JWKS in <a href="/post/what-is-jwks">What Is a JWKS URI? JWT Key Sets Explained for Developers</a></li>
 </ul>
