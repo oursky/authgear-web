@@ -230,4 +230,4 @@ Web 應用程式會在特定時間點自動結束 Session。這可能發生在�
 
 將應用程式整合到 Authgear 後，你可輕鬆保護使用者免受前述網路攻擊。在 Portal 上，你可不寫任何程式碼就建立強密碼政策，降低憑證遭竊風險。此外，Authgear 也會為密碼做雜湊與加鹽，確保使用者密碼不會以明文儲存。
 
-Authgear 為你的應用程式提供完整的安全功能與驗證機制，確保更強防護與更佳使用者體驗。立即<a href="https://accounts.portal.authgear.com/signup" target="_blank">免費註冊 Authgear</a>，或<a href="/talk-with-us" target="_blank">聯絡我們</a>，了解如何使用 Authgear 擴展你的使用者基礎。
+Authgear 為你的應用程式提供完整的安全功能與驗證機制，確保更強防護與更佳使用者體驗。立即<a href="https://accounts.portal.authgear.com/signup" target="_blank">免費註冊 Authgear</a>，或<a href="/schedule-demo/" target="_blank">聯絡我們</a>，了解如何使用 Authgear 擴展你的使用者基礎。

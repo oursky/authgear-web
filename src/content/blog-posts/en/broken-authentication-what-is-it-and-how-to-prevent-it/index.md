@@ -208,11 +208,11 @@ For instance, when users log in to your website application, they may be require
 
 <h4 id="hash-salt">Use a Strong Password Hashing Algorithm</h4>
 
-Another measure to prevent password-related attacks is to <a href="/post/password-hashing-salting" target="_blank">hash and salt the passwords</a>. Hashing is the process of converting the password into a random string of characters, known as a hash value while salting is adding random data, known as a salt, to the password before it’s hashed.
+Another measure to prevent password-related attacks is to <a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">hash and salt the passwords</a>. Hashing is the process of converting the password into a random string of characters, known as a hash value while salting is adding random data, known as a salt, to the password before it’s hashed.
 
 This makes it harder for attackers to crack the password because they need to know the salt value to reverse the process. <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms" target="_blank">OWASP has recommended a few hashing algorithms</a> best for storing passwords such as Argon2id, scrypt, bcrypt, and PBKDF2.
 
-An important measure is to use a cryptographically strong password hashing algorithm that converts the password into a non-reversible string of characters. A strong algorithm <a href="/post/password-hashing-salting" target="_blank">hash and salts</a> the passwords so that even if hackers get access to the authentication servers, they won't be able to get the password in clear text.
+An important measure is to use a cryptographically strong password hashing algorithm that converts the password into a non-reversible string of characters. A strong algorithm <a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">hash and salts</a> the passwords so that even if hackers get access to the authentication servers, they won't be able to get the password in clear text.
 
 <h4 id="password-policies">Create Strong Password Policies</h4>
 
@@ -231,4 +231,4 @@ Dealing with all these security measures can be quite time-consuming and there�
 
 By integrating your applications with Authgear, you can easily protect your users from the aforementioned cyberattacks. On the portal, you can design strong password policies to minimize the risk of stolen credentials on the portal without writing a single line of code. Furthermore, Authgear also hashes and salts the passwords in your applications to ensure that users’ passwords aren’t stored in plain text.
 
-Authgear equips your applications with all security features and authentication mechanisms to ensure stronger security and an enhanced user experience. <a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up to Authgear</a> for free, or <a href="/talk-with-us" target="_blank">contact us</a> to learn more about how you can use Authfear to grow your user base.
+Authgear equips your applications with all security features and authentication mechanisms to ensure stronger security and an enhanced user experience. <a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up to Authgear</a> for free, or <a href="/schedule-demo/" target="_blank">contact us</a> to learn more about how you can use Authfear to grow your user base.

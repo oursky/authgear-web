@@ -105,7 +105,7 @@ OAuth 2.0 is an authorization protocol that allows users to securely access reso
 	<h2 class="title cta-split-content-left">Easily Enable Social Login with Authgear
   </h2>
   <p class="cta-v2-paragraph">Build your app not another login</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 <h2 id="benefits">How Can You Benefit from Social Logins?</h2>
@@ -160,4 +160,4 @@ Social logins are an effective way for businesses to obtain richer customer prof
 
 You can then ensure that your customers have a seamless experience when signing up or logging in and protect your business from malicious actors.
 
-<a href="/talk-with-us" target="_blank">Contact us</a> or <a href="https://accounts.portal.authgear.com/signup" target="_blank">start your free trial</a> to see how you can provide better user experience and boost conversion rate with smoother and more secure authentication.
+<a href="/schedule-demo/" target="_blank">Contact us</a> or <a href="https://accounts.portal.authgear.com/signup" target="_blank">start your free trial</a> to see how you can provide better user experience and boost conversion rate with smoother and more secure authentication.

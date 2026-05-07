@@ -169,4 +169,4 @@ Authgear 等 CIAM 還能透過自助式功能改善數位客戶體驗。過去�
 
 理解如何改善數位客戶體驗是一回事，而在 Authgear，我們已準備好把它提升到下一個層次。
 
-點擊<a href="/solutions/customer-identity-and-access-management" target="_blank">這裡</a>了解更多 CIAM 解決方案，或<a href="/talk-with-us" target="_blank">聯絡我們</a>，和我們聊聊你的業務需求，以及 Authgear 如何協助你在順暢數位客戶體驗與強健資料安全之間取得理想平衡。
+點擊<a href="/solutions/customer-identity-and-access-management" target="_blank">這裡</a>了解更多 CIAM 解決方案，或<a href="/schedule-demo/" target="_blank">聯絡我們</a>，和我們聊聊你的業務需求，以及 Authgear 如何協助你在順暢數位客戶體驗與強健資料安全之間取得理想平衡。

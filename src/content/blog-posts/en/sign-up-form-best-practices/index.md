@@ -104,7 +104,7 @@ Make sure that every field is absolutely necessary and remove any fields you don
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">Increase Your App's Conversion Rate with Authgear</h2>
   <p class="cta-v2-paragraph">Tested and proven sign-up page template, following the best practices for user conversion</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 <h3 id="user-experience">3. Manage User Expectations</h3>
@@ -129,4 +129,4 @@ Mobile usage has increased steadily over the last few years. According to <a hre
 
 Authgear is an authentication and user management solution for web and mobile apps. By integrating your apps with Authgear, you can provide a secure and smooth authentication experience for your users. Furthermore, we also offer customizable sign up and login pages that follow the best practices to help you boost the sign up rate, grow your subscriber base, and ultimately generate more revenue for your apps.
 
-Ready to take your app to the next level? <a href="/talk-with-us" target="_blank">Get in touch with us</a> today to learn more about how we can help you and your apps reach new heights.
+Ready to take your app to the next level? <a href="/schedule-demo/" target="_blank">Get in touch with us</a> today to learn more about how we can help you and your apps reach new heights.

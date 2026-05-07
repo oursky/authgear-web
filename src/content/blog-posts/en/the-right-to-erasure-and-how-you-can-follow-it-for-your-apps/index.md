@@ -92,7 +92,7 @@ The GDPR cites circumstances in which a data subject cannot invoke the right to 
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">Comply With the Right to Erasure Effortlessly With Authgear</h2>
   <p class="cta-v2-paragraph">Equip your apps with everything you need to protect users' privacy</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 <h2 id="public-data">When the Personal Data Is Public</h2>
@@ -159,4 +159,4 @@ As time goes by, the issue of data control is gaining traction. Now, more than e
 
 Authgear is the authentication and user management solution your apps need that comes with all sorts of features, such as SSO, 2FA, biometrics, admin portals, etc., that your consumer apps need. As a developer, you would highly appreciate Authgear for its ease of customization and a wide range of defaults.
 
-<a href="/talk-with-us" target="_blank">Contact us</a> now to learn more about Authgear and how it can help your applications gain a competitive edge.
+<a href="/schedule-demo/" target="_blank">Contact us</a> now to learn more about Authgear and how it can help your applications gain a competitive edge.

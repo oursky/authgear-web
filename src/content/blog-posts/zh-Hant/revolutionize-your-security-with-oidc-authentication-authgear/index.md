@@ -98,7 +98,7 @@ OIDC 驗證與 SAML 各有優缺點。OIDC 驗證在需要敏捷、可擴展、�
 
 ## 下一步：把 OIDC 驗證真正落地
 
-別錯過升級驗證安全的機會。[Authgear Once](/zh-hant/campaign/once) 可協助你快速簡化身分驗證流程。透過一次付費，Authgear 提供完整能力，善用 OIDC 驗證保護應用程式並簡化身分管理。
+別錯過升級驗證安全的機會。[Authgear Once](/zh-hant/once/) 可協助你快速簡化身分驗證流程。透過一次付費，Authgear 提供完整能力，善用 OIDC 驗證保護應用程式並簡化身分管理。
 
 現在就是導入可隨業務擴展的 OIDC 驗證系統的好時機。[Authgear 的定價模式](/zh-hant/pricing) 讓你一次投入，即可獲得完整支援，讓安全升級更順暢、也更具成本效益。
 

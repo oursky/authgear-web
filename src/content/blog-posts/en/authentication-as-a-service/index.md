@@ -195,4 +195,4 @@ Users will love the easy sign-up process and the fact that they can manage their
 
 For developers, we offer an easy-to-use authentication API that makes it simple to integrate Authgear into your existing app. And if you ever need help, our expert support team is always there to lend a hand.
 
-<a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up for free</a> or <a href="/talk-with-us" target="_blank">contact us</a> to learn more about how your applications can grow with Authgear.
+<a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up for free</a> or <a href="/schedule-demo/" target="_blank">contact us</a> to learn more about how your applications can grow with Authgear.

@@ -77,7 +77,7 @@ In this post, we will be discussing the details of the latest account deletion r
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">Not Ready for the In-App Account Deletion Requirement Yet?</h2>
   <p class="cta-v2-paragraph">Integrate with Authgear to enable in-app account deletion with just a few clicks</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
 <h2 id="difference">How Is the Latest Announcement Different From the Previous One Aside From the Deadline Extension?</h2>
@@ -137,4 +137,4 @@ Developing an in-app account deletion flow can be quite time-consuming and it ta
 <!--/FIGURE-->
 
 With Authgear, you can easily offer user-initiated account deletion with just a few clicks. Furthermore, your apps will be equipped with different authentication and security features for you to not only meet the complex authentication requirements but more importantly provide a secure user experience for your users.   
-<a href="/talk-with-us" target="_blank">Contact us</a> now to see how your apps can benefit from Authgear.
+<a href="/schedule-demo/" target="_blank">Contact us</a> now to see how your apps can benefit from Authgear.

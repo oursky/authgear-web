@@ -107,7 +107,7 @@ One of the biggest advantages of this form of insurance IAM is down to the fact 
 
 Insurers often have to work with external agents, brokers, and other third parties who might need access to internal resources. Trying to keep a steady flow of information between all the different players, while still protecting data security can create some complex identity and access management issues. Most traditional workforce systems just aren’t designed for these atypical situations.
 
-Authgear however has been very successful in helping businesses centralize the <a href="/solutions/wiam-extended-workforce-secure-manage-access-for-frontline-contractors-more" target="_blank">management of internal and external identities</a>. How we’ve done this is by integrating our clients’ apps with Authgear for IAM of the external workforce and then linking this system with their existing internal workforce IAM (also referred to as WIAM). Our insurance IAM is fully equipped to fit into existing systems and streamline what you have, rather than adding any extra stress.
+Authgear however has been very successful in helping businesses centralize the <a href="/solutions/frontline-workers-identity/" target="_blank">management of internal and external identities</a>. How we’ve done this is by integrating our clients’ apps with Authgear for IAM of the external workforce and then linking this system with their existing internal workforce IAM (also referred to as WIAM). Our insurance IAM is fully equipped to fit into existing systems and streamline what you have, rather than adding any extra stress.
 
 <h2 id="ciam">How Does Insurance IAM Help Insurers Acquire Life-Long Clients?</h2>
 
@@ -169,4 +169,4 @@ Not only does insurance IAM help businesses better meet the digital demands of c
 
 When it comes to creating a better customer experience and a more integrated external workforce, Authgear’s IAM technology is a tried and true solution.
 
-<a href="/talk-with-us" target="_blank">Contact us</a> to tell us more about your insurance business and see how Authgear can help you acquire and retain more customers and collaborate better with external team members.
+<a href="/schedule-demo/" target="_blank">Contact us</a> to tell us more about your insurance business and see how Authgear can help you acquire and retain more customers and collaborate better with external team members.

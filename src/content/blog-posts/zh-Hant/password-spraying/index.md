@@ -135,7 +135,7 @@ draft: false
 <div class="cta-v2">
 <h2 class="title cta-split-content-left">使用 Authgear 實作無密碼</h2>
 <p class="cta-v2-paragraph">讓 Authgear 保護您的使用者免於密碼噴灑</p>
-<a href="/talk-with-us" target="_blank" class="w-inline-block">
+<a href="/schedule-demo/" target="_blank" class="w-inline-block">
 <div class="cta-v2-ctabtn button-primary">請求演示
 
 <h3 id="user">來自用戶方</h3>
@@ -158,4 +158,4 @@ draft: false
 
 好消息是您可以保護您的組織免受密碼噴灑。透過<a href="/" target="_blank">Authgear</a>，您可以使用一系列高度先進的安全功能來保護企業免受密碼噴射和撞庫攻擊。生物辨識登入、Whatsapp OTP 作為 MFA 以及支援金鑰的無密碼登入是 Authgear 的一些出色工具，可確保防範這些攻擊。
 
-<a href="/talk-with-us" target="_blank">立即與我們聯繫</a>，了解我們如何幫助您建立針對潛在威脅的強大防禦。
+<a href="/schedule-demo/" target="_blank">立即與我們聯繫</a>，了解我們如何幫助您建立針對潛在威脅的強大防禦。

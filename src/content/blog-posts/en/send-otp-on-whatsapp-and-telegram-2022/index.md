@@ -49,7 +49,7 @@ draft: false
 
 > **2022 Special Deal:**  
 > Send OTPs on WhatsApp at **$199/mo**  
-> [> Contact us here <](/talk-with-us)
+> [> Contact us here <](/schedule-demo/)
 
 Almost all smartphone users use some kind of instant messaging platform to communicate with their friends and family. WhatsApp is a popular choice among them. More than 2 billions users communicate on WhatsApp actively.
 
@@ -58,7 +58,7 @@ OTPs are ubiquitous security measure adopted by many systems to verify transacti
 Moreover, SMS are not cheap to sent. Businesses used SMS API solutions like [Twilio](https://www.twilio.com/) to implement SMS OTPs. The cost can be expensive and becomes a financial burden depending on the serviced country.
 
 With Authgear, you can build a secure authentication and login system with OTP based on the favorite messaging platform your users love. Two-way communication channel is established on WhatsApp once the phone number is verified and the secure OTP is sent.[  
-](/talk-with-us?utm_source=authgear&utm_medium=internal_link&utm_id=whatsapp_otp)
+](/schedule-demo/?utm_source=authgear&utm_medium=internal_link&utm_id=whatsapp_otp)
 
 ### Benefits of using WhatsApp based OTP
 
@@ -66,4 +66,4 @@ With Authgear, you can build a secure authentication and login system with OTP b
 - Integrate Chatbots to these accounts
 - Cheaper cost per message
 
-Learn more about how you can benefit from our <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP solution</a> or <a href="/talk-with-us" target="_blank">contact us</a> directly for more information.
+Learn more about how you can benefit from our <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP solution</a> or <a href="/schedule-demo/" target="_blank">contact us</a> directly for more information.

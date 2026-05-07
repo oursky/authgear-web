@@ -427,6 +427,6 @@ authgear.<span class="function">finishAuthorization</span>().<span class="functi
   
 ```
 
-<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，了解更多關於 Authgear 如何幫助您改善用戶體驗、提升轉換率並確保您的應用程式安全。
+<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>，了解更多關於 Authgear 如何幫助您改善用戶體驗、提升轉換率並確保您的應用程式安全。
 
 您也可以參考我們的 <a href="https://docs.authgear.com/" target="_blank">Authgear 文件</a>獲取更多說明。或加入我們的 [Discord 伺服器](https://discord.gg/Kdn5vcYwAS)，了解更多關於網頁應用程式身份驗證的資訊。

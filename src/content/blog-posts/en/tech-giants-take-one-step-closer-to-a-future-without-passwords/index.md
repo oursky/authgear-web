@@ -60,7 +60,7 @@ Earlier this year, <a href="https://www.theverge.com/2022/5/5/23057646/apple-goo
 
 <h2 id="passwords">What Is Wrong With Passwords?</h2>
 
-Passwords have several vulnerabilities. First of all, passwords are shared secrets. When users create new accounts, their passwords are stored in a server. The server verifies a user’s identity by comparing the stored one with what the user enters. Hackers can attack the servers and gain access to users' passwords. Even if developers implement storage of passwords with <a href="/post/password-hashing-salting" target="_blank">hashing and salting</a> correctly, it is still possible that the server software leak passwords in other bugs: such as via <a href="https://www.theregister.com/2022/05/27/github_publishes_a_post_mortem/" target="_blank">leaving passwords in logs.</a> Passwords are also very susceptible to different types of attacks such as phishing, MITM, etc.
+Passwords have several vulnerabilities. First of all, passwords are shared secrets. When users create new accounts, their passwords are stored in a server. The server verifies a user’s identity by comparing the stored one with what the user enters. Hackers can attack the servers and gain access to users' passwords. Even if developers implement storage of passwords with <a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">hashing and salting</a> correctly, it is still possible that the server software leak passwords in other bugs: such as via <a href="https://www.theregister.com/2022/05/27/github_publishes_a_post_mortem/" target="_blank">leaving passwords in logs.</a> Passwords are also very susceptible to different types of attacks such as phishing, MITM, etc.
 
 In addition, it is said that <a href="https://dataprot.net/statistics/password-statistics/" target="_blank">a single password is used to access five accounts on average</a>, which is a leading factor in why people are hacked. Using different passwords can also be a risk factor since people might have a hard time remembering all of them. As a result, tech giants like Apple, Google and Microsoft are working together to create a future without passwords with passkeys.
 
@@ -85,4 +85,4 @@ Nevertheless, the current state of passwordless authentication isn't enough for 
 
 Furthermore, Authgear also comes with a set of authentication and user management features, such as pre-built signup and user profile pages, user analytics, WhatsApp OTP, social logins, etc., to help you provide better user experience, increase app conversion rate, and boost user retention rate.
 
-Learn more about our <a href="/features/passkeys" target="_blank">Passkey API</a> or <a href="/talk-with-us" target="_blank">request a demo</a> to see how you can benefit from Authgear.
+Learn more about our <a href="/features/passkeys" target="_blank">Passkey API</a> or <a href="/schedule-demo/" target="_blank">request a demo</a> to see how you can benefit from Authgear.

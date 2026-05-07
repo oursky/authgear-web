@@ -169,4 +169,4 @@ Customers should be able to use your platforms with ease and be reassured at eve
 
 Knowing how to improve digital customer experience is one thing, but at Authgear, we’re ready to elevate it.
 
-Click <a href="/solutions/customer-identity-and-access-management" target="_blank">here</a> to learn more about our CIAM solutions or <a href="/talk-with-us" target="_blank">contact us</a> to tell us more about your business and how Authgear can help you find the right balance between smooth digital customer experience and strong data security.
+Click <a href="/solutions/customer-identity-and-access-management" target="_blank">here</a> to learn more about our CIAM solutions or <a href="/schedule-demo/" target="_blank">contact us</a> to tell us more about your business and how Authgear can help you find the right balance between smooth digital customer experience and strong data security.

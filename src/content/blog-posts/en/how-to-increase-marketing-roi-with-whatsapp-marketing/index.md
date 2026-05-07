@@ -124,4 +124,4 @@ Authgear’s WhatsApp OTP process is designed for users to initiate the conversa
 
 The dropout rate of your signup form can be as high as 60% because users are so tired of registering with username and password. With WhatsApp OTP, your users can sign up for your apps without all the friction caused by password-based authentication, helping you increase conversion rate and enhance security.
 
-Learn more about our WhatsApp OTP<a href="/features/whatsapp-otp" target="_blank"> here</a> or <a href="/talk-with-us" target="_blank">contact us</a> directly to see how you can significantly benefit from integrating your apps with Authgear.
+Learn more about our WhatsApp OTP<a href="/features/whatsapp-otp" target="_blank"> here</a> or <a href="/schedule-demo/" target="_blank">contact us</a> directly to see how you can significantly benefit from integrating your apps with Authgear.

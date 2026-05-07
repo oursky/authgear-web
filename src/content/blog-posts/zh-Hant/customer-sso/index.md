@@ -147,4 +147,4 @@ SSO 的獨特之處在於，它能提升平台間的一致性，不只讓使用�
 
 我們的 SSO 解決方案不只容易整合至你的系統，也提供多種 <a href="/features/passkeys" target="_blank">驗證方式</a> 來保護登入安全，包括 <a href="/features/passwordless-authentication" target="_blank">無密碼</a> 選項與 <a href="/zh-hant/post/what-is-multi-factor-authentication-mfa" target="_blank">雙因素驗證</a>，讓你和客戶都更安全。
 
-點擊<a href="/talk-with-us" target="_blank">這裡</a>預約 Demo，或點擊<a href="https://accounts.portal.authgear.com/signup" target="_blank">這裡</a>立即註冊。你的客戶正在等你。
+點擊<a href="/schedule-demo/" target="_blank">這裡</a>預約 Demo，或點擊<a href="https://accounts.portal.authgear.com/signup" target="_blank">這裡</a>立即註冊。你的客戶正在等你。

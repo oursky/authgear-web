@@ -135,7 +135,7 @@ Passkeys are an advanced form of authentication that allows a user to log into a
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">Go Passwordless with Authgear</h2>
   <p class="cta-v2-paragraph">Let Authgear protect your users from password spraying</p>
-  <a href="/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Request Demo
 
 <h3 id="user">From the User’s Side</h3>
@@ -158,4 +158,4 @@ Password spraying can cause serious damage to companies and individuals. That's 
 
 The good news is that you can protect your organization against password spraying. With <a href="/" target="_blank">Authgear</a>, you have access to an array of highly advanced security features to protect businesses from password spraying and credential stuffing attacks. Biometric Logins, Whatsapp OTPs as MFA, and Passkey-enabled passwordless logins are some of Authgear's remarkable tools that guarantee protection against these attacks.
 
-<a href="/talk-with-us" target="_blank">Get in touch with us today</a> to find out how we can help you build a robust defense against potential threats.
+<a href="/schedule-demo/" target="_blank">Get in touch with us today</a> to find out how we can help you build a robust defense against potential threats.

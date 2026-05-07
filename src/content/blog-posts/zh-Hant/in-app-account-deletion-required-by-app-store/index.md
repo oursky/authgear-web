@@ -77,7 +77,7 @@ draft: false
 <div class="cta-v2">
 	<h2 class="title cta-split-content-left">還沒準備好 App 內刪除帳號要求？</h2>
   <p class="cta-v2-paragraph">整合 Authgear，幾個步驟即可啟用 App 內刪除帳號</p>
-  <a href="/zh-hant/talk-with-us" target="_blank" class="w-inline-block">
+  <a href="/zh-hant/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">預約示範
 
 <h2 id="difference">除了延長期限外，最新公告與前次公告有何不同？</h2>
@@ -137,4 +137,4 @@ App Store 不只要求提供隱私政策連結，更要求隱私政策必須：
 <!--/FIGURE-->
 
 透過 Authgear，你可以幾個步驟就提供使用者主動刪除帳號的能力。同時，App 還能獲得更多驗證與安全功能，讓你不只滿足複雜驗證需求，也能提供更安全的使用者體驗。  
-立即<a href="/zh-hant/talk-with-us" target="_blank">聯絡我們</a>，看看 Authgear 如何幫助你的 App。
+立即<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>，看看 Authgear 如何幫助你的 App。

@@ -94,11 +94,11 @@ When it comes to identity management, OIDC authentication and SAML serve similar
 
 Both OIDC authentication and SAML have their unique strengths and weaknesses. OIDC authentication excels in scenarios demanding agility, scalability, and ease of implementation, making it ideal for businesses embracing digital transformation. On the other hand, SAML is known for its established track record in secure [single sign-on (SSO)](https://docs.authgear.com/how-to-guide/single-sign-on) deployments, but it can be more cumbersome to integrate with newer technologies. These differences underscore why organizations need to evaluate their specific requirements when choosing between OIDC authentication and SAML.
 
-For those looking to dive deeper into the subject, I highly recommend reading the blog "[OIDC vs. SAML: Decoding the SSO Showdown (And Why It Matters for Your Business)](/post/oidc-vs-saml-decoding-the-sso-showdown-and-why-it-matters-for-your-business)" for a more detailed analysis. This resource offers further insights into how OIDC authentication compares to SAML and why OIDC authentication might be the preferred choice for modern, agile businesses.
+For those looking to dive deeper into the subject, I highly recommend reading the blog "[OIDC vs. SAML: Decoding the SSO Showdown (And Why It Matters for Your Business)](/post/oidc-vs-saml)" for a more detailed analysis. This resource offers further insights into how OIDC authentication compares to SAML and why OIDC authentication might be the preferred choice for modern, agile businesses.
 
 ## Your Next Step in OIDC Authentication Excellence
 
-Don't miss the chance to elevate your security with OIDC authentication—[Authgear once](/campaign/once) is here to help you streamline your user verification process. With a one-time payment, Authgear provides an all-inclusive solution that leverages the power of OIDC authentication to secure your applications and simplify your identity management.
+Don't miss the chance to elevate your security with OIDC authentication—[Authgear once](/once/) is here to help you streamline your user verification process. With a one-time payment, Authgear provides an all-inclusive solution that leverages the power of OIDC authentication to secure your applications and simplify your identity management.
 
 Seize this opportunity to integrate a cutting-edge OIDC authentication system that scales with your business. [Authgear’s pricing model](/pricing) means you pay once and enjoy comprehensive support for all your OIDC authentication needs, ensuring a seamless and cost-effective security upgrade.
 
