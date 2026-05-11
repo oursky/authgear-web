@@ -850,6 +850,7 @@
     "logoLookupMissingTokenHint": "Set PUBLIC_LOGO_DEV_TOKEN to enable logo lookup.",
     "logoSearchLoading": "Searching…",
     "logoSearchNoResults": "No matching brands found.",
+    "logoSearchAttribution": "Logos provided by Logo.dev",
     "logoImage": "Logo image",
     "logoImageUploadHint": "Add a PNG, JPG, or GIF image that can be resized.",
     "logoLightSubLabel": "Light mode",

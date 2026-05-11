@@ -1204,7 +1204,9 @@
   max-width: 100%;
 }
 
-.ag-login-play__logo-search-list {
+.ag-login-play__logo-search-panel {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   overflow: hidden;
@@ -1213,8 +1215,34 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  max-height: 16rem;
-  overflow: auto;
+  max-height: 18rem;
+}
+
+.ag-login-play__logo-search-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.ag-login-play__logo-search-attribution {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.7rem;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 0.75rem;
+  color: #64748b;
+  text-decoration: none;
+  text-align: center;
+}
+
+.ag-login-play__logo-search-attribution:hover {
+  color: #176df3;
+  text-decoration: underline;
+}
+
+.ag-login-play__logo-search-attribution:focus-visible {
+  outline: 2px solid #176df3;
+  outline-offset: -2px;
 }
 
 .ag-login-play__logo-search-item {

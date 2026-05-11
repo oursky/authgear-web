@@ -860,41 +860,51 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                 {selectedPresetId === 'your-brand' ? (
                   <div className="ag-login-play__logo-search">
                     {logoDevSearchState !== 'idle' ? (
-                      <div className="ag-login-play__logo-search-list" role="listbox">
-                        {logoDevResults.length > 0 ? (
-                          logoDevResults.map((r) => (
-                            <button
-                              key={`${instanceId}-${r.domain}-${r.name}`}
-                              type="button"
-                              className="ag-login-play__logo-search-item"
-                              onClick={() => onPickLogoDevResult(r)}
-                            >
-                              <img
-                                className="ag-login-play__logo-search-img"
-                                src={`https://img.logo.dev/${r.domain}?token=${encodeURIComponent(
-                                  logoDevToken,
-                                )}&format=webp&retina=true&size=64`}
-                                alt=""
-                                loading="lazy"
-                                onError={(e) => {
-                                  e.currentTarget.style.visibility = 'hidden';
-                                }}
-                              />
-                              <span className="ag-login-play__logo-search-text">
-                                <span className="ag-login-play__logo-search-name">{r.name}</span>
-                                <span className="ag-login-play__logo-search-domain">
-                                  {r.domain}
+                      <div className="ag-login-play__logo-search-panel">
+                        <div className="ag-login-play__logo-search-list" role="listbox">
+                          {logoDevResults.length > 0 ? (
+                            logoDevResults.map((r) => (
+                              <button
+                                key={`${instanceId}-${r.domain}-${r.name}`}
+                                type="button"
+                                className="ag-login-play__logo-search-item"
+                                onClick={() => onPickLogoDevResult(r)}
+                              >
+                                <img
+                                  className="ag-login-play__logo-search-img"
+                                  src={`https://img.logo.dev/${r.domain}?token=${encodeURIComponent(
+                                    logoDevToken,
+                                  )}&format=webp&retina=true&size=64`}
+                                  alt=""
+                                  loading="lazy"
+                                  onError={(e) => {
+                                    e.currentTarget.style.visibility = 'hidden';
+                                  }}
+                                />
+                                <span className="ag-login-play__logo-search-text">
+                                  <span className="ag-login-play__logo-search-name">{r.name}</span>
+                                  <span className="ag-login-play__logo-search-domain">
+                                    {r.domain}
+                                  </span>
                                 </span>
-                              </span>
-                            </button>
-                          ))
-                        ) : (
-                          <div className="ag-login-play__logo-search-empty">
-                            {logoDevSearchState === 'loading'
-                              ? t('logoSearchLoading')
-                              : t('logoSearchNoResults')}
-                          </div>
-                        )}
+                              </button>
+                            ))
+                          ) : (
+                            <div className="ag-login-play__logo-search-empty">
+                              {logoDevSearchState === 'loading'
+                                ? t('logoSearchLoading')
+                                : t('logoSearchNoResults')}
+                            </div>
+                          )}
+                        </div>
+                        <a
+                          className="ag-login-play__logo-search-attribution"
+                          href="https://logo.dev"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {t('logoSearchAttribution')}
+                        </a>
                       </div>
                     ) : null}
                   </div>

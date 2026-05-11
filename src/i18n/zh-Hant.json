@@ -850,6 +850,7 @@
     "logoLookupMissingTokenHint": "請設定 PUBLIC_LOGO_DEV_TOKEN 以啟用標誌搜尋。",
     "logoSearchLoading": "搜尋中⋯",
     "logoSearchNoResults": "找不到相符的品牌。",
+    "logoSearchAttribution": "標誌由 Logo.dev 提供",
     "logoImage": "標誌圖片",
     "logoImageUploadHint": "請新增 PNG、JPG 或 GIF 圖片，並可調整顯示大小。",
     "logoLightSubLabel": "淺色模式",
