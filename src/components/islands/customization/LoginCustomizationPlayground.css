@@ -127,13 +127,11 @@
     transform: translateY(100%);
     will-change: transform;
     z-index: 2;
+    transition: transform 200ms ease-in;
   }
 
   .ag-login-play__panel[data-open='true'] {
     transform: translateY(0);
-  }
-
-  .ag-login-play__panel {
     transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
@@ -243,11 +241,6 @@
   .ag-login-play__signup-chip:focus-visible {
     outline: 2px solid #2563eb;
     outline-offset: 2px;
-  }
-
-  /* Reserve room at the bottom of the scroll area so the last accordion doesn't sit under the sticky CTA. */
-  .ag-login-play__panel {
-    padding-bottom: 0;
   }
 
   .ag-login-play__sheet-cta {

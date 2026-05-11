@@ -501,7 +501,13 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
 
+  const hasMountedRef = useRef(false);
+
   useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
     if (!isNarrow) return;
     if (sheetOpen) {
       closeButtonRef.current?.focus();
@@ -807,7 +813,10 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
           ) : null}
           <aside
             className="ag-login-play__panel"
-            aria-label={t('configAria')}
+            aria-label={isNarrow ? undefined : t('configAria')}
+            aria-labelledby={isNarrow ? `${sheetId}-title` : undefined}
+            role={isNarrow ? 'dialog' : undefined}
+            aria-modal={isNarrow ? false : undefined}
             id={sheetId}
             data-open={isNarrow ? sheetOpen : undefined}
             aria-hidden={isNarrow && !sheetOpen ? true : undefined}
@@ -817,7 +826,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                 <div className="ag-login-play__sheet-handle" aria-hidden />
               ) : null}
               <div className="ag-login-play__panel-header">
-                <p className="ag-login-play__panel-intro">{t('panelIntro')}</p>
+                <p id={`${sheetId}-title`} className="ag-login-play__panel-intro">{t('panelIntro')}</p>
                 {isNarrow ? (
                   <button
                     type="button"
