@@ -95,9 +95,42 @@
 }
 
 @media (width < 900px) {
+  /* Mobile sheet pattern: the surface becomes a fixed-height stage. */
+  .ag-login-play__surface {
+    position: relative;
+    height: min(100svh - 6rem, 640px);
+    overflow: hidden;
+    padding: 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .ag-login-play__surface-main {
+    height: 40%;
+    overflow: hidden;
+  }
+
+  /* Panel becomes the bottom sheet. */
   .ag-login-play__panel {
-    padding-top: 1.5rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60%;
+    padding: 0.5rem 1rem 0;
     border-top: 1px solid #e2e8f0;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background: #fff;
+    box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.12);
+    overflow-y: auto;
+    transform: translateY(100%);
+    will-change: transform;
+    z-index: 2;
+  }
+
+  .ag-login-play__panel[data-open='true'] {
+    transform: translateY(0);
   }
 }
 
