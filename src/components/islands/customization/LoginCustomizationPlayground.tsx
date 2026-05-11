@@ -510,9 +510,9 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
     }
     if (!isNarrow) return;
     if (sheetOpen) {
-      closeButtonRef.current?.focus();
+      closeButtonRef.current?.focus({ preventScroll: true });
     } else {
-      triggerRef.current?.focus();
+      triggerRef.current?.focus({ preventScroll: true });
     }
   }, [isNarrow, sheetOpen]);
 
@@ -642,7 +642,6 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
 
       <div className="ag-login-play__surface">
           <div className="ag-login-play__surface-main">
-            <p className="ag-login-play__preview-label">{t('previewLabel')}</p>
             <div className="ag-login-play__preview-wrap">
               <div
                 className="ag-login-play__preview"

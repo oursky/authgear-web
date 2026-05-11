@@ -813,7 +813,6 @@
   },
   "CustomizationPlayground": {
     "description": "Customize colors, layouts, and authentication flows to create a seamless sign-in experience that matches your product and brand identity.",
-    "previewLabel": "Preview",
     "presetToolbarAria": "Demo brand presets",
     "presetYourBrand": "Your brand",
     "presetIndustryFinance": "Finance",

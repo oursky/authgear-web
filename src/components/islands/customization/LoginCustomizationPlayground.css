@@ -243,11 +243,6 @@
     outline-offset: 2px;
   }
 
-  .ag-login-play__preview-label {
-    margin: 0;
-    padding: 0.5rem 0.75rem 0.25rem;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .ag-login-play__panel {
       transition: none;
@@ -1404,21 +1399,6 @@
 .ag-login-play__reset:focus-visible {
   outline: 2px solid #a78bfa;
   outline-offset: 2px;
-}
-
-.ag-login-play__preview-label {
-  margin: 0 0 0.5rem;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: normal;
-  text-transform: none;
-  color: #64748b;
-}
-
-@media (width >= 900px) {
-  .ag-login-play__preview-label {
-    display: none;
-  }
 }
 
 @media (width >= 900px) {

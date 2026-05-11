@@ -813,7 +813,6 @@
   },
   "CustomizationPlayground": {
     "description": "自訂配色、版面與登入流程，打造與產品及品牌識別一致、順暢無縫的登入體驗。",
-    "previewLabel": "預覽",
     "presetToolbarAria": "示範品牌預設",
     "presetYourBrand": "您的品牌",
     "presetIndustryFinance": "金融",
