@@ -245,6 +245,27 @@
     outline-offset: 2px;
   }
 
+  /* Reserve room at the bottom of the scroll area so the last accordion doesn't sit under the sticky CTA. */
+  .ag-login-play__panel {
+    padding-bottom: 0;
+  }
+
+  .ag-login-play__sheet-cta {
+    position: sticky;
+    bottom: 0;
+    margin: 0.75rem -1rem 0;
+    padding: 0.75rem 1rem;
+    background: #fff;
+    border-top: 1px solid #e2e8f0;
+    z-index: 1;
+  }
+
+  .ag-login-play__sheet-cta-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .ag-login-play__panel {
       transition: none;
@@ -1413,7 +1434,8 @@
   .ag-login-play__signup-chip,
   .ag-login-play__sheet-handle,
   .ag-login-play__sheet-close,
-  .ag-login-play__sheet-backdrop {
+  .ag-login-play__sheet-backdrop,
+  .ag-login-play__sheet-cta {
     display: none;
   }
 }
