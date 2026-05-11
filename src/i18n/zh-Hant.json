@@ -812,7 +812,7 @@
   },
   "CustomizationPlayground": {
     "eyebrow": "互動示範",
-    "title": "讓身份驗證真正符合你的品牌。",
+    "title": "即時設計你的登入頁。",
     "description": "自訂配色、版面與登入流程，打造與產品及品牌識別一致、順暢無縫的登入體驗。",
     "previewLabel": "預覽",
     "presetToolbarAria": "示範品牌預設",
@@ -848,8 +848,6 @@
     "logoLookupMissingTokenHint": "請設定 PUBLIC_LOGO_DEV_TOKEN 以啟用標誌搜尋。",
     "logoSearchLoading": "搜尋中⋯",
     "logoSearchNoResults": "找不到相符的品牌。",
-    "logoSearchUnauthorized": "標誌搜尋目前不可用（伺服器 token 缺失或無效）。",
-    "logoSearchError": "搜尋失敗，請稍後再試。",
     "logoImage": "標誌圖片",
     "logoImageUploadHint": "請新增 PNG、JPG 或 GIF 圖片，並可調整顯示大小。",
     "logoLightSubLabel": "淺色模式",

@@ -812,7 +812,7 @@
   },
   "CustomizationPlayground": {
     "eyebrow": "Interactive demo",
-    "title": "Make authentication truly yours.",
+    "title": "Design your login, live.",
     "description": "Customize colors, layouts, and authentication flows to create a seamless sign-in experience that matches your product and brand identity.",
     "previewLabel": "Preview",
     "presetToolbarAria": "Demo brand presets",
@@ -848,8 +848,6 @@
     "logoLookupMissingTokenHint": "Set PUBLIC_LOGO_DEV_TOKEN to enable logo lookup.",
     "logoSearchLoading": "Searching…",
     "logoSearchNoResults": "No matching brands found.",
-    "logoSearchUnauthorized": "Logo search is unavailable (missing or invalid server token).",
-    "logoSearchError": "Search failed. Please try again.",
     "logoImage": "Logo image",
     "logoImageUploadHint": "Add a PNG, JPG, or GIF image that can be resized.",
     "logoLightSubLabel": "Light mode",

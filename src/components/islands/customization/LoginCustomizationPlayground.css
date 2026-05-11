@@ -6,6 +6,7 @@
   max-width: 100%;
   align-self: stretch;
   box-sizing: border-box;
+  margin-top: clamp(2rem, 5vw, 4rem);
 }
 
 .ag-login-play {
@@ -806,30 +807,15 @@
   outline-offset: 2px;
 }
 
-.ag-login-play__align-ic {
-  width: 14px;
-  height: 14px;
-  box-sizing: border-box;
-  border: 2px solid #0f172a;
-  border-radius: 2px;
+.ag-login-play__align-svg {
+  width: 18px;
+  height: 16px;
+  display: block;
+  color: #0f172a;
 }
 
-.ag-login-play__align-btn[data-active='true'] .ag-login-play__align-ic {
-  border-color: #2563eb;
-}
-
-.ag-login-play__align-ic--start {
-  justify-self: start;
-  margin-left: 6px;
-}
-
-.ag-login-play__align-ic--center {
-  justify-self: center;
-}
-
-.ag-login-play__align-ic--end {
-  justify-self: end;
-  margin-right: 6px;
+.ag-login-play__align-btn[data-active='true'] .ag-login-play__align-svg {
+  color: #2563eb;
 }
 
 /* Border radius style: same control chrome as card alignment; corner icons (larger than align squares for legibility) */
@@ -928,8 +914,6 @@
 
 .ag-login-play__fieldset--in-accordion + .ag-login-play__fieldset--in-accordion {
   margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e2e8f0;
 }
 
 .ag-login-play__accordion {

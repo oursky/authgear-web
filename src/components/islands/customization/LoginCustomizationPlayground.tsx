@@ -263,12 +263,14 @@ function RadiusStyleToggle({
         onClick={() => onChange('none')}
       >
         <svg className="ag-login-play__radius-svg" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path
-            d="M8 16V8h8"
+          <rect
+            x="4"
+            y="8"
+            width="16"
+            height="8"
+            rx="0"
             stroke="currentColor"
-            strokeWidth="2.25"
-            strokeLinecap="square"
-            strokeLinejoin="miter"
+            strokeWidth="2"
           />
         </svg>
       </button>
@@ -281,12 +283,14 @@ function RadiusStyleToggle({
         onClick={() => onChange('rounded')}
       >
         <svg className="ag-login-play__radius-svg" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path
-            d="M8 16V11a3 3 0 0 1 3-3h5"
+          <rect
+            x="4"
+            y="8"
+            width="16"
+            height="8"
+            rx="2"
             stroke="currentColor"
-            strokeWidth="2.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeWidth="2"
           />
         </svg>
       </button>
@@ -299,12 +303,14 @@ function RadiusStyleToggle({
         onClick={() => onChange('rounded-full')}
       >
         <svg className="ag-login-play__radius-svg" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path
-            d="M8 16V10a6 6 0 0 1 6-6h2"
+          <rect
+            x="4"
+            y="8"
+            width="16"
+            height="8"
+            rx="4"
             stroke="currentColor"
-            strokeWidth="2.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeWidth="2"
           />
         </svg>
       </button>
@@ -329,7 +335,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   const [logoLookup, setLogoLookup] = useState('');
   const [logoDevResults, setLogoDevResults] = useState<LogoDevSearchResult[]>([]);
   const [logoDevSearchState, setLogoDevSearchState] = useState<
-    'idle' | 'loading' | 'done' | 'error' | 'unauthorized'
+    'idle' | 'loading' | 'done'
   >('idle');
   const [logoImageScale, setLogoImageScale] = useState(1);
   const [cardAlignment, setCardAlignment] = useState<Alignment>(DEFAULTS.cardAlignment);
@@ -491,12 +497,10 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
       const url = new URL('/api/logo-dev/search/', window.location.origin);
       url.searchParams.set('q', q);
       const resp = await fetch(url.toString(), { method: 'GET', signal: ac.signal });
-      if (resp.status === 401 || resp.status === 403) {
-        setLogoDevSearchState('unauthorized');
-        return;
-      }
       if (!resp.ok) {
-        setLogoDevSearchState('error');
+        // Fail silently on 401/403 (config), 429 (quota), 5xx (upstream).
+        // The user can still upload a logo manually below.
+        setLogoDevSearchState('idle');
         return;
       }
       const data = (await resp.json()) as unknown;
@@ -514,7 +518,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
       setLogoDevSearchState('done');
     } catch (err) {
       if ((err as any)?.name === 'AbortError') return;
-      setLogoDevSearchState('error');
+      setLogoDevSearchState('idle');
     }
   };
 
@@ -703,9 +707,6 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
           <aside className="ag-login-play__panel" aria-label={t('configAria')}>
             {/* Organisation — portal DesignScreen OrganisationConfiguration */}
             <fieldset className="ag-login-play__fieldset ag-login-play__fieldset--organisation">
-              <legend className="ag-login-play__legend ag-login-play__legend--panel-section">
-                {t('organisationSection')}
-              </legend>
               <label className="ag-login-play__label" htmlFor={fid('brand')}>
                 {t('organisationNameLabel')}
               </label>
@@ -741,6 +742,9 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                                 )}&format=webp&retina=true&size=64`}
                                 alt=""
                                 loading="lazy"
+                                onError={(e) => {
+                                  e.currentTarget.style.visibility = 'hidden';
+                                }}
                               />
                               <span className="ag-login-play__logo-search-text">
                                 <span className="ag-login-play__logo-search-name">{r.name}</span>
@@ -754,11 +758,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                           <div className="ag-login-play__logo-search-empty">
                             {logoDevSearchState === 'loading'
                               ? t('logoSearchLoading')
-                              : logoDevSearchState === 'unauthorized'
-                                ? t('logoSearchUnauthorized')
-                                : logoDevSearchState === 'error'
-                                  ? t('logoSearchError')
-                                  : t('logoSearchNoResults')}
+                              : t('logoSearchNoResults')}
                           </div>
                         )}
                       </div>
@@ -862,7 +862,10 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   aria-label={t('alignStart')}
                   onClick={() => setCardAlignment('start')}
                 >
-                  <span className="ag-login-play__align-ic ag-login-play__align-ic--start" aria-hidden />
+                  <svg className="ag-login-play__align-svg" viewBox="0 0 16 14" aria-hidden>
+                    <rect x="0.75" y="0.75" width="14.5" height="12.5" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                    <rect x="2.5" y="5" width="4" height="4" rx="0.5" fill="currentColor" />
+                  </svg>
                 </button>
                 <button
                   type="button"
@@ -872,7 +875,10 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   aria-label={t('alignCenter')}
                   onClick={() => setCardAlignment('center')}
                 >
-                  <span className="ag-login-play__align-ic ag-login-play__align-ic--center" aria-hidden />
+                  <svg className="ag-login-play__align-svg" viewBox="0 0 16 14" aria-hidden>
+                    <rect x="0.75" y="0.75" width="14.5" height="12.5" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                    <rect x="6" y="5" width="4" height="4" rx="0.5" fill="currentColor" />
+                  </svg>
                 </button>
                 <button
                   type="button"
@@ -882,7 +888,10 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   aria-label={t('alignEnd')}
                   onClick={() => setCardAlignment('end')}
                 >
-                  <span className="ag-login-play__align-ic ag-login-play__align-ic--end" aria-hidden />
+                  <svg className="ag-login-play__align-svg" viewBox="0 0 16 14" aria-hidden>
+                    <rect x="0.75" y="0.75" width="14.5" height="12.5" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                    <rect x="9.5" y="5" width="4" height="4" rx="0.5" fill="currentColor" />
+                  </svg>
                 </button>
               </div>
             </AccordionSection>
@@ -1071,22 +1080,17 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                     fill="none"
                     aria-hidden
                   >
-                    <text
-                      x="12"
-                      y="14.5"
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fill="#0f172a"
-                      fontSize="13"
-                      fontWeight="600"
-                      fontFamily="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
-                    >
-                      U
-                    </text>
                     <path
-                      d="M6 17.25h12"
+                      d="M8 5v5a4 4 0 0 0 8 0V5"
                       stroke="#0f172a"
-                      strokeWidth="1.5"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M6.5 19.5h11"
+                      stroke="#0f172a"
+                      strokeWidth="1.75"
                       strokeLinecap="round"
                     />
                   </svg>
