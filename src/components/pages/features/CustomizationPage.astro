@@ -54,6 +54,11 @@ const { locale } = Astro.props;
   <div class="ds-container ds-container--split-stack  ds-container--split-stack--title-gap-m">
     <div class="title-content">
       <h2 class="heading-on-dark">{t(locale, 'Customization.darkSectionTitle')}</h2>
+      <p class="section-lede-on-dark">{t(locale, 'CustomizationPlayground.description')}</p>
+    </div>
+    <LoginCustomizationPlayground client:visible locale={locale} />
+    <div class="title-content">
+      <h3 class="heading-on-dark heading-on-dark--sub">{t(locale, 'Customization.cardsSubTitle')}</h3>
     </div>
     <div class="ds-grid-2">
       <div class="svg-card svg-card-deep">
@@ -105,7 +110,6 @@ const { locale } = Astro.props;
         </a>
       </div>
     </div>
-    <LoginCustomizationPlayground client:visible locale={locale} />
   </div>
 </section>
 
@@ -208,3 +212,14 @@ const { locale } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  /* Bridging subheading between the playground and the two delivery-mode cards. */
+  .heading-on-dark--sub {
+    margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+    font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+  }
+</style>

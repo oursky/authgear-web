@@ -6,7 +6,6 @@
   max-width: 100%;
   align-self: stretch;
   box-sizing: border-box;
-  margin-top: clamp(2rem, 5vw, 4rem);
 }
 
 .ag-login-play {

@@ -1171,10 +1171,6 @@ export default function LoginCustomizationPlayground({ locale }: Props) {
   return (
     <div className="ag-login-play-root">
       <div className="ag-login-play">
-        <header className="ag-login-play__intro">
-          <h2 className="ag-login-play__title">{t('title')}</h2>
-          <p className="ag-login-play__lede section-lede-on-dark">{t('description')}</p>
-        </header>
         <LoginCustomizationPlaygroundInstance locale={locale} />
         <div className="ag-login-play__below">
           <a

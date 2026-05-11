@@ -781,6 +781,7 @@
     "heroTitle": "讓驗證體驗看起來和感受上都像您的品牌",
     "heroDescription": "打造美觀且注重轉換率的登入帳號體驗。使用 Authgear，您可以在幾分鐘內為我們的預建頁面加入品牌元素。",
     "darkSectionTitle": "真正屬於您的登入頁面",
+    "cardsSubTitle": "兩種上線方式",
     "card1Title": "託管頁面，你的品牌",
     "card1Desc": "上傳標誌、色彩與文案，其餘交給我們。",
     "card1Cta": "閱讀文件",
@@ -811,8 +812,6 @@
     "unlimitedMAUs": "無限 MAU"
   },
   "CustomizationPlayground": {
-    "eyebrow": "互動示範",
-    "title": "即時設計你的登入頁。",
     "description": "自訂配色、版面與登入流程，打造與產品及品牌識別一致、順暢無縫的登入體驗。",
     "previewLabel": "預覽",
     "presetToolbarAria": "示範品牌預設",

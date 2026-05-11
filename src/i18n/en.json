@@ -781,6 +781,7 @@
     "heroTitle": "Make authentication look and feel like your brand",
     "heroDescription": "Craft login account experiences that are beautiful, and conversion-focused. With Authgear, you can brand our prebuilt pages in minutes.",
     "darkSectionTitle": "Login pages that are truly yours",
+    "cardsSubTitle": "Two ways to ship it",
     "card1Title": "Hosted pages, your brand",
     "card1Desc": "Upload your logo, colors, and copy. We handle the rest.",
     "card1Cta": "Read Docs",
@@ -811,8 +812,6 @@
     "unlimitedMAUs": "unlimited MAUs"
   },
   "CustomizationPlayground": {
-    "eyebrow": "Interactive demo",
-    "title": "Design your login, live.",
     "description": "Customize colors, layouts, and authentication flows to create a seamless sign-in experience that matches your product and brand identity.",
     "previewLabel": "Preview",
     "presetToolbarAria": "Demo brand presets",
