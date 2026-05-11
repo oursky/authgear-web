@@ -1266,19 +1266,6 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                 </>
               ) : null}
             </AccordionSection>
-          {isNarrow ? (
-            <div className="ag-login-play__sheet-cta">
-              <a
-                className="ds-btn ds-btn-primary ag-login-play__sheet-cta-btn"
-                href="https://portal.authgear.com/?utm_source=feature-customization&utm_medium=link&utm_campaign=playground-mobile-sheet"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent('signup', { location: 'playground-mobile-sheet' })}
-              >
-                {t('getStartedCta')} →
-              </a>
-            </div>
-          ) : null}
           </aside>
           {isNarrow ? (
             <button

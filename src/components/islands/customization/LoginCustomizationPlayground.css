@@ -106,7 +106,7 @@
   }
 
   .ag-login-play__surface-main {
-    height: 40%;
+    height: 100%;
     overflow: hidden;
   }
 
@@ -116,7 +116,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 60%;
+    height: 75%;
     padding: 0.5rem 1rem 0;
     border-top: 1px solid #e2e8f0;
     border-top-left-radius: 16px;
@@ -212,7 +212,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 40%;
+    height: 25%;
     padding: 0;
     margin: 0;
     border: none;
@@ -243,20 +243,13 @@
     outline-offset: 2px;
   }
 
-  .ag-login-play__sheet-cta {
-    position: sticky;
-    bottom: 0;
-    margin: 0.75rem -1rem 0;
-    padding: 0.75rem 1rem;
-    background: #fff;
-    border-top: 1px solid #e2e8f0;
-    z-index: 1;
+  .ag-login-play__preview-label {
+    margin: 0;
+    padding: 0.5rem 0.75rem 0.25rem;
   }
 
-  .ag-login-play__sheet-cta-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
+  .ag-login-play__preview-mask {
+    display: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1427,8 +1420,7 @@
   .ag-login-play__signup-chip,
   .ag-login-play__sheet-handle,
   .ag-login-play__sheet-close,
-  .ag-login-play__sheet-backdrop,
-  .ag-login-play__sheet-cta {
+  .ag-login-play__sheet-backdrop {
     display: none;
   }
 }

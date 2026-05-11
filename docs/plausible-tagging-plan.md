@@ -32,7 +32,6 @@ These indicate the user took a meaningful step toward becoming a customer.
 | `signup` | `HomePage` — hero CTA "Get Started" | Click | `portal.authgear.com` (with UTM) |
 | `signup` | `LoginCustomizationPlayground` — preview hover-mask CTA | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'playground-preview-hover'` |
 | `signup` | `LoginCustomizationPlayground` — mobile top-right chip | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'playground-mobile-chip'`. Visible only at `< 900px`. |
-| `signup` | `LoginCustomizationPlayground` — mobile sheet sticky bottom CTA | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'playground-mobile-sheet'`. Visible only when the mobile sheet is open. |
 | `login` | `SiteNav` — mobile login button | Click | `portal.authgear.com` |
 | `login` | `SiteNav` — desktop login button | Click | `portal.authgear.com` |
 | `contact-form-submit` | `ContactForm` | Form submit (any page with `ContactForm`) | Internal API `/api/contact` |
@@ -69,7 +68,7 @@ Adding properties unlocks filtering in Plausible's dashboard and removes the nee
 
 | Event | Property to add | Value example | Rationale |
 |-------|----------------|---------------|-----------|
-| `signup` | `location` | `"nav-mobile"`, `"nav-desktop"`, `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"playground-mobile-sheet"` | Distinguish where signups originate (playground variants implemented for desktop hover, mobile chip, mobile sheet) |
+| `signup` | `location` | `"nav-mobile"`, `"nav-desktop"`, `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"` | Distinguish where signups originate (playground variants implemented for desktop hover, mobile chip) |
 | `login` | `location` | `"nav-mobile"`, `"nav-desktop"` | Same as above |
 | `calculator-preset` | `preset` | `"10K"`, `"100K"`, `"500K"`, `"1M"` | See which preset is most popular |
 | `signup-calculator` | `location` | `"hero"`, `"bottom-cta"` | Two CTAs share the same event name |
@@ -109,6 +108,6 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 
 | Category | Count |
 |----------|-------|
-| Conversion | 11 event placements (5 distinct names) |
+| Conversion | 10 event placements (5 distinct names) |
 | Engagement | 7 event placements (7 distinct names) |
-| **Total** | **18 event placements across 12 distinct event names** |
+| **Total** | **17 event placements across 12 distinct event names** |
