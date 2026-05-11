@@ -30,6 +30,7 @@ These indicate the user took a meaningful step toward becoming a customer.
 |-------|-----------|---------|-------------|
 | `signup` | `SiteNav` — mobile signup button | Click | `portal.authgear.com` |
 | `signup` | `HomePage` — hero CTA "Get Started" | Click | `portal.authgear.com` (with UTM) |
+| `signup` | `LoginCustomizationPlayground` — preview hover-mask CTA | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'playground-preview-hover'` |
 | `login` | `SiteNav` — mobile login button | Click | `portal.authgear.com` |
 | `login` | `SiteNav` — desktop login button | Click | `portal.authgear.com` |
 | `contact-form-submit` | `ContactForm` | Form submit (any page with `ContactForm`) | Internal API `/api/contact` |
@@ -50,6 +51,8 @@ These indicate the user is exploring content or interacting with features.
 | `tool-github-click` | `ToolPopup` — "Star us on GitHub" | Click | `github.com/authgear/authgear-server` |
 | `tool-github-tag-click` | `ToolWidget` — GitHub star badge | Click | `github.com/authgear/authgear-server` |
 | `popup-close-click` | `ToolPopup` — "Close" button | Click | — |
+| `playground-interact` | `LoginCustomizationPlayground` — any meaningful control change | First interaction per page view | One-shot per session. Fires with `props.first_action` = `preset` / `logo` / `background` / `alignment` / `color` / `radius` / `link-decoration` / `accordion` |
+| `playground-cta` | `LoginCustomizationPlayground` — "Explore Login Gallery" button | Click | Links to `/login-gallery/` — mid-funnel signal |
 
 ---
 
@@ -63,7 +66,7 @@ Adding properties unlocks filtering in Plausible's dashboard and removes the nee
 
 | Event | Property to add | Value example | Rationale |
 |-------|----------------|---------------|-----------|
-| `signup` | `location` | `"nav-mobile"`, `"nav-desktop"`, `"home-hero"` | Distinguish where signups originate |
+| `signup` | `location` | `"nav-mobile"`, `"nav-desktop"`, `"home-hero"`, `"playground-preview-hover"` | Distinguish where signups originate (playground variant already implemented) |
 | `login` | `location` | `"nav-mobile"`, `"nav-desktop"` | Same as above |
 | `calculator-preset` | `preset` | `"10K"`, `"100K"`, `"500K"`, `"1M"` | See which preset is most popular |
 | `signup-calculator` | `location` | `"hero"`, `"bottom-cta"` | Two CTAs share the same event name |

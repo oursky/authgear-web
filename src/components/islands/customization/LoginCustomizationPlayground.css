@@ -889,6 +889,14 @@
   box-sizing: border-box;
 }
 
+.ag-login-play__panel-intro {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #0f172a;
+}
+
 .ag-login-play__fieldset {
   margin: 0 0 1rem;
   padding: 0 0 1rem;

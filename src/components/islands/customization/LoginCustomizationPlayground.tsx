@@ -1,8 +1,19 @@
 import { t as tFn } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
+import { trackEvent } from '@/lib/plausible';
 import type { ReactNode } from 'react';
 import { useMemo, useRef, useState } from 'react';
 import './LoginCustomizationPlayground.css';
+
+type PlaygroundFirstAction =
+  | 'preset'
+  | 'logo'
+  | 'background'
+  | 'alignment'
+  | 'color'
+  | 'radius'
+  | 'link-decoration'
+  | 'accordion';
 
 /** Mirrors portal `Alignment` / `AllAlignments` (themeAuthFlowV2.ts). */
 type Alignment = 'start' | 'center' | 'end';
@@ -326,6 +337,16 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   const logoFileInputRef = useRef<HTMLInputElement | null>(null);
   const logoDevToken = import.meta.env.PUBLIC_LOGO_DEV_TOKEN ?? '';
   const logoDevSearchAbortRef = useRef<AbortController | null>(null);
+
+  // One-shot engagement event: fires once per session on the first meaningful
+  // interaction with the playground. `first_action` records which control
+  // category drew the user in (see PlaygroundFirstAction).
+  const interactedRef = useRef(false);
+  const markInteract = (action: PlaygroundFirstAction) => {
+    if (interactedRef.current) return;
+    interactedRef.current = true;
+    trackEvent('playground-interact', { first_action: action });
+  };
   const yourBrandDraftRef = useRef<YourBrandDraft | null>(null);
 
   const [selectedPresetId, setSelectedPresetId] = useState<DemoPresetId>('your-brand');
@@ -355,7 +376,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   const [inputRadiusValue, setInputRadiusValue] = useState(DEFAULTS.inputRadiusValue);
   const [linkColorLight, setLinkColorLight] = useState(DEFAULTS.linkColorLight);
 
-  const [accBgOpen, setAccBgOpen] = useState(false);
+  const [accBgOpen, setAccBgOpen] = useState(true);
   const [accLogoOpen, setAccLogoOpen] = useState(false);
   const [accCardOpen, setAccCardOpen] = useState(false);
   const [accColorsOpen, setAccColorsOpen] = useState(false);
@@ -387,6 +408,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   }, [backgroundImageDataUrl, pageBgLight]);
 
   const applyDemoPreset = (preset: DemoPreset) => {
+    markInteract('preset');
     if (selectedPresetId === 'your-brand' && preset.id !== 'your-brand') {
       yourBrandDraftRef.current = {
         brandName,
@@ -450,6 +472,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   const onPickBackgroundImage: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    markInteract('background');
     const reader = new FileReader();
     reader.onload = () => setBackgroundImageDataUrl(String(reader.result || ''));
     reader.readAsDataURL(file);
@@ -458,6 +481,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   const onPickLogoImage: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    markInteract('logo');
     const reader = new FileReader();
     reader.onload = () => setLogoImageDataUrl(String(reader.result || ''));
     reader.readAsDataURL(file);
@@ -465,6 +489,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
 
   const onChangeLogoLookup: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const next = e.target.value;
+    markInteract('logo');
     setLogoLookup(next);
     setLogoDevResults([]);
     setLogoDevSearchState('idle');
@@ -523,6 +548,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   };
 
   const onPickLogoDevResult = (r: LogoDevSearchResult) => {
+    markInteract('logo');
     setLogoLookup(r.name);
     setBrandName(r.name);
     setLogoDevResults([]);
@@ -678,10 +704,11 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               </div>
               <div className="ag-login-play__preview-mask">
                 <a
-                  className="ds-btn ds-btn-secondary plausible-event-name--signup"
+                  className="ds-btn ds-btn-secondary"
                   href="https://portal.authgear.com/?utm_source=feature-customization&utm_medium=link&utm_campaign=playground-preview-hover"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('signup', { location: 'playground-preview-hover' })}
                 >
                   {t('previewHoverMaskCta')}
                   <svg
@@ -705,6 +732,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
           </div>
 
           <aside className="ag-login-play__panel" aria-label={t('configAria')}>
+            <p className="ag-login-play__panel-intro">{t('panelIntro')}</p>
             {/* Organisation — portal DesignScreen OrganisationConfiguration */}
             <fieldset className="ag-login-play__fieldset ag-login-play__fieldset--organisation">
               <label className="ag-login-play__label" htmlFor={fid('brand')}>
@@ -778,7 +806,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               id={`${instanceId}-logo`}
               title={t('logoSection')}
               open={accLogoOpen}
-              onToggle={() => setAccLogoOpen((v) => !v)}
+              onToggle={() => { markInteract('accordion'); setAccLogoOpen((v) => !v); }}
             >
               <label className="ag-login-play__label" htmlFor={fid('logo-file')}>
                 {t('logoImage')}
@@ -850,7 +878,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               id={`${instanceId}-card`}
               title={t('cardSection')}
               open={accCardOpen}
-              onToggle={() => setAccCardOpen((v) => !v)}
+              onToggle={() => { markInteract('accordion'); setAccCardOpen((v) => !v); }}
             >
               <span className="ag-login-play__label">{t('cardAlignmentLabel')}</span>
               <div className="ag-login-play__align" role="group" aria-label={t('cardAlignmentLabel')}>
@@ -860,7 +888,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   data-active={cardAlignment === 'start'}
                   aria-pressed={cardAlignment === 'start'}
                   aria-label={t('alignStart')}
-                  onClick={() => setCardAlignment('start')}
+                  onClick={() => { markInteract('alignment'); setCardAlignment('start'); }}
                 >
                   <svg className="ag-login-play__align-svg" viewBox="0 0 16 14" aria-hidden>
                     <rect x="0.75" y="0.75" width="14.5" height="12.5" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -873,7 +901,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   data-active={cardAlignment === 'center'}
                   aria-pressed={cardAlignment === 'center'}
                   aria-label={t('alignCenter')}
-                  onClick={() => setCardAlignment('center')}
+                  onClick={() => { markInteract('alignment'); setCardAlignment('center'); }}
                 >
                   <svg className="ag-login-play__align-svg" viewBox="0 0 16 14" aria-hidden>
                     <rect x="0.75" y="0.75" width="14.5" height="12.5" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -886,7 +914,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   data-active={cardAlignment === 'end'}
                   aria-pressed={cardAlignment === 'end'}
                   aria-label={t('alignEnd')}
-                  onClick={() => setCardAlignment('end')}
+                  onClick={() => { markInteract('alignment'); setCardAlignment('end'); }}
                 >
                   <svg className="ag-login-play__align-svg" viewBox="0 0 16 14" aria-hidden>
                     <rect x="0.75" y="0.75" width="14.5" height="12.5" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
@@ -901,7 +929,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               id={`${instanceId}-bg`}
               title={t('backgroundSection')}
               open={accBgOpen}
-              onToggle={() => setAccBgOpen((v) => !v)}
+              onToggle={() => { markInteract('accordion'); setAccBgOpen((v) => !v); }}
             >
               <label className="ag-login-play__label" htmlFor={fid('bg-color')}>
                 {t('backgroundColorLight')}
@@ -910,6 +938,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                 inputId={fid('bg-color')}
                 value={pageBgLight}
                 onValueChange={(next) => {
+                  markInteract('color');
                   setPageBgLight(next);
                 }}
                 ariaLabel={t('backgroundColorLight')}
@@ -967,7 +996,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               id={`${instanceId}-colors`}
               title={t('colorsSection')}
               open={accColorsOpen}
-              onToggle={() => setAccColorsOpen((v) => !v)}
+              onToggle={() => { markInteract('accordion'); setAccColorsOpen((v) => !v); }}
             >
             <fieldset className="ag-login-play__fieldset ag-login-play__fieldset--in-accordion">
               <legend className="ag-login-play__legend">{t('buttonsSection')}</legend>
@@ -977,7 +1006,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               <ColorHexField
                 inputId={fid('primary-bg')}
                 value={primaryBgLight}
-                onValueChange={setPrimaryBgLight}
+                onValueChange={(next) => { markInteract('color'); setPrimaryBgLight(next); }}
                 ariaLabel={t('primaryButtonLight')}
                 pickerFallback="#176df3"
               />
@@ -991,7 +1020,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               <ColorHexField
                 inputId={fid('primary-label')}
                 value={primaryLabelLight}
-                onValueChange={setPrimaryLabelLight}
+                onValueChange={(next) => { markInteract('color'); setPrimaryLabelLight(next); }}
                 ariaLabel={t('primaryButtonLabelLight')}
                 pickerFallback="#ffffff"
               />
@@ -1000,7 +1029,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               </span>
               <RadiusStyleToggle
                 value={buttonRadiusType}
-                onChange={setButtonRadiusType}
+                onChange={(next) => { markInteract('radius'); setButtonRadiusType(next); }}
                 groupAriaLabel={t('buttonBorderRadiusLabel')}
                 t={t}
               />
@@ -1014,7 +1043,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                     className="ag-login-play__text-input"
                     type="text"
                     value={buttonRadiusValue}
-                    onChange={(e) => setButtonRadiusValue(e.target.value)}
+                    onChange={(e) => { markInteract('radius'); setButtonRadiusValue(e.target.value); }}
                     placeholder="0.875em"
                     autoComplete="off"
                   />
@@ -1030,7 +1059,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               <ColorHexField
                 inputId={fid('link-color')}
                 value={linkColorLight}
-                onValueChange={setLinkColorLight}
+                onValueChange={(next) => { markInteract('color'); setLinkColorLight(next); }}
                 ariaLabel={t('linkColorLight')}
                 pickerFallback="#176df3"
               />
@@ -1048,7 +1077,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   data-active={linkDecoration === 'none'}
                   aria-pressed={linkDecoration === 'none'}
                   aria-label={t('decorationNone')}
-                  onClick={() => setLinkDecoration('none')}
+                  onClick={() => { markInteract('link-decoration'); setLinkDecoration('none'); }}
                 >
                   <svg
                     className="ag-login-play__link-dec-svg"
@@ -1072,7 +1101,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   data-active={linkDecoration === 'underline'}
                   aria-pressed={linkDecoration === 'underline'}
                   aria-label={t('decorationUnderline')}
-                  onClick={() => setLinkDecoration('underline')}
+                  onClick={() => { markInteract('link-decoration'); setLinkDecoration('underline'); }}
                 >
                   <svg
                     className="ag-login-play__link-dec-svg ag-login-play__link-dec-svg--underline"
@@ -1109,7 +1138,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               <span className="ag-login-play__label">{t('inputBorderRadiusLabel')}</span>
               <RadiusStyleToggle
                 value={inputRadiusType}
-                onChange={setInputRadiusType}
+                onChange={(next) => { markInteract('radius'); setInputRadiusType(next); }}
                 groupAriaLabel={t('inputBorderRadiusLabel')}
                 t={t}
               />
@@ -1123,7 +1152,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                     className="ag-login-play__text-input"
                     type="text"
                     value={inputRadiusValue}
-                    onChange={(e) => setInputRadiusValue(e.target.value)}
+                    onChange={(e) => { markInteract('radius'); setInputRadiusValue(e.target.value); }}
                     placeholder="0.875em"
                     autoComplete="off"
                   />
@@ -1149,7 +1178,7 @@ export default function LoginCustomizationPlayground({ locale }: Props) {
         <LoginCustomizationPlaygroundInstance locale={locale} />
         <div className="ag-login-play__below">
           <a
-            className="ds-btn ds-btn-outline-light ag-login-play__gallery-btn"
+            className="ds-btn ds-btn-outline-light ag-login-play__gallery-btn plausible-event-name--playground-cta"
             href={loginGalleryHref}
           >
             {t('exploreLoginGalleryCta')}
