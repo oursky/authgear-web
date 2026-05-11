@@ -33,3 +33,7 @@ playwright-report/
 .claude/
 .xdg-data
 .xdg-cache
+
+
+# Brainstorming session artifacts (visual companion mockups)
+.superpowers/

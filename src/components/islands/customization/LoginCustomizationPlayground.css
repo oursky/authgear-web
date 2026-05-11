@@ -1,0 +1,1412 @@
+/* Must be before any rules for PostCSS/Vite correctness. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.ag-login-play-root {
+  width: 100%;
+  max-width: 100%;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+
+.ag-login-play {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Stack two interactive demos (e.g. PM design options) */
+.ag-login-play__instance {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.ag-login-play__surface {
+  display: grid;
+  gap: 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+  padding: 1.25rem;
+}
+
+@media (width >= 900px) {
+  .ag-login-play__surface {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    /* Fixed height on desktop (Auth0-style). */
+    height: 44rem;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .ag-login-play__panel {
+    /* extra breathing room from the divider (portal-like) */
+    padding-left: 2rem;
+    border-left: 1px solid #e2e8f0;
+    overflow: auto;
+    max-height: 100%;
+    min-height: 0;
+    scrollbar-gutter: stable;
+    padding-right: 0.75rem;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(148, 163, 184, 0.55) transparent; /* thumb / track */
+    min-width: 0;
+  }
+
+  .ag-login-play__panel::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .ag-login-play__panel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .ag-login-play__panel::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.55);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .ag-login-play__panel:hover::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.75);
+    background-clip: padding-box;
+  }
+}
+
+.ag-login-play__surface-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (width < 900px) {
+  /* Mobile sheet pattern: the surface becomes a fixed-height stage. */
+  .ag-login-play__surface {
+    position: relative;
+    height: min(100svh - 6rem, 640px);
+    overflow: hidden;
+    padding: 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .ag-login-play__surface-main {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Panel becomes the bottom sheet. */
+  .ag-login-play__panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 75%;
+    padding: 0.5rem 1rem 0;
+    border-top: 1px solid #e2e8f0;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background: #fff;
+    box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.12);
+    overflow-y: auto;
+    transform: translateY(100%);
+    will-change: transform;
+    z-index: 2;
+    transition: transform 200ms ease-in;
+  }
+
+  .ag-login-play__panel[data-open='true'] {
+    transform: translateY(0);
+    transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .ag-login-play__trigger-pill {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    padding: 10px 18px;
+    border: none;
+    border-radius: 999px;
+    background: #0f172a;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .ag-login-play__trigger-pill:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  .ag-login-play__sheet-top {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+    margin: 0 -1rem;
+    padding: 0.5rem 1rem 0.25rem;
+  }
+
+  .ag-login-play__sheet-handle {
+    width: 36px;
+    height: 4px;
+    background: #cbd5e1;
+    border-radius: 2px;
+    margin: 0 auto 8px;
+  }
+
+  .ag-login-play__panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Reset the existing intro bottom margin since the header row owns spacing now. */
+  .ag-login-play__panel-header .ag-login-play__panel-intro {
+    margin-bottom: 0;
+  }
+
+  .ag-login-play__sheet-close {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 1.125rem;
+    line-height: 1;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .ag-login-play__sheet-close:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  .ag-login-play__sheet-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 25%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .ag-login-play__signup-chip {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+  }
+
+  .ag-login-play__signup-chip:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ag-login-play__panel {
+      transition: none;
+    }
+  }
+}
+
+.ag-login-play__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: center;
+  text-align: center;
+}
+
+.ag-login-play__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.ag-login-play__title {
+  margin: 0;
+  font-size: var(--text-h3);
+  line-height: var(--text-h3--line-height);
+  font-weight: var(--font-weight-medium);
+  color: #fff;
+}
+
+.ag-login-play__lede {
+  margin: 0;
+  margin-inline: auto;
+  max-width: 40rem;
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: var(--font-weight-regular);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+/* Match site typography (IBM) for the intro + preset toolbar only. */
+.ag-login-play__intro,
+.ag-login-play__preset-row,
+.ag-login-play__preset-btn {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Demo presets: below intro copy, above white interactive surface */
+.ag-login-play__preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+}
+
+@media (width >= 900px) {
+  .ag-login-play__preset-row {
+    justify-content: center;
+  }
+}
+
+.ag-login-play__below {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.ag-login-play__gallery-btn {
+  text-align: center;
+}
+
+.ag-login-play__preset-btn {
+  margin: 0;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.ag-login-play__preset-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.ag-login-play__preset-btn:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.ag-login-play__preset-btn[data-active='true'] {
+  background: #fff;
+  border-color: #fff;
+  color: #0f172a;
+}
+
+/*
+ * Preview styling aligned with authgear authui `authflowv2`:
+ * - layout.css (.layout--common + [alignment-card])
+ * - widget.css (--widget__max-width 400px, --widget__border-radius 1.25rem @ tablet, widget-content px-6 py-10)
+ * - screen-logo-layout.css (40px row-gap), screen-title.css, screen-description.css
+ * - input.css, primary-button.css, base.css tokens (Inter, neutrals, radii)
+ */
+.ag-login-play__preview-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Dark hover overlay — desktop / fine pointer only; keyboard users get focus-within. */
+.ag-login-play__preview-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: inherit;
+  background: rgba(15, 23, 42, 0.88);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+
+.ag-login-play__preview-wrap:hover .ag-login-play__preview-mask,
+.ag-login-play__preview-wrap:focus-within .ag-login-play__preview-mask {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (hover: none) {
+  .ag-login-play__preview-mask {
+    display: none;
+  }
+}
+
+/* Mobile sheet pattern hides the desktop hover-mask entirely — the
+   :focus-within trigger fires when the top-right chip is focused, which
+   otherwise blocks the trigger pill on touch. Placed after the base + hover
+   rules so source order wins. */
+@media (width < 900px) {
+  .ag-login-play__preview-mask {
+    display: none;
+  }
+}
+
+/* authui .layout--common: flex-col items-* justify-start + horizontal padding */
+.ag-login-play__preview {
+  --ag-login-play-preview-pad-x: clamp(0.75rem, 2.4vw, 1.8rem);
+  --ag-login-play-preview-pad-y: clamp(0.75rem, 2vw, 2.6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  /* Shrink gracefully on short viewports; full preview stays reachable via preview-wrap scroll. */
+  min-height: clamp(17rem, 42vh, 25.5rem);
+  min-height: clamp(17rem, 42dvh, 25.5rem);
+  width: 100%;
+  padding: var(--ag-login-play-preview-pad-y) var(--ag-login-play-preview-pad-x);
+  box-sizing: border-box;
+  /* Only transition solid color — animating `background` shorthand with images looks like a slide. */
+  transition: background-color 0.25s ease;
+  font-family:
+    'Inter',
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* authui .widget + .widget-content (tablet+) */
+.ag-login-play__widget {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 292px;
+  box-sizing: border-box;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.25rem 1.5rem;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ag-login-play__widget--light {
+  background-color: #ffffff;
+  box-shadow: none;
+}
+
+.ag-login-play__widget--dark {
+  background-color: #1c1c1e;
+  box-shadow: none;
+}
+
+.ag-login-play__status-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  margin-inline: auto;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* authui .screen-logo-layout */
+.ag-login-play__screen-logo-layout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 22px;
+}
+
+/* authui default alignment-logo center */
+.ag-login-play__brand-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Logo stand-in: neutral gray square (size from logo max-height control) */
+.ag-login-play__brand--color-block {
+  display: block;
+  flex-shrink: 0;
+  margin-inline: auto;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #e2e8f0;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+}
+
+.ag-login-play__widget--dark .ag-login-play__brand--color-block {
+  background-color: #3f3f46;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.ag-login-play__brand-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  margin-inline: auto;
+}
+
+/* authui .screen-title-description */
+.ag-login-play__screen-title-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+/* authui .screen-title (+ headline-medium tokens from base.css) */
+.ag-login-play__screen-title {
+  margin: 0;
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.ag-login-play__widget--light .ag-login-play__screen-title {
+  color: #131315;
+}
+
+.ag-login-play__widget--dark .ag-login-play__screen-title {
+  color: #e7e7e9;
+}
+
+/* authui .screen-description (+ title-medium tokens) */
+.ag-login-play__screen-description {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.009375rem;
+  font-weight: 500;
+}
+
+.ag-login-play__widget--light .ag-login-play__screen-description {
+  color: #73747b;
+}
+
+.ag-login-play__widget--dark .ag-login-play__screen-description {
+  color: #cacbce;
+}
+
+/* authui .input — inset ring instead of border */
+.ag-login-play__input--authui {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  appearance: none;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.03125rem;
+  font-weight: 500;
+  padding: 0.85em 1em;
+  border: none;
+  border-radius: 0.875em;
+  outline: none;
+}
+
+.ag-login-play__widget--light .ag-login-play__input--authui {
+  background-color: transparent;
+  color: #131315;
+  box-shadow: inset 0 0 0 1.5px #e7e7e9;
+}
+
+.ag-login-play__widget--light .ag-login-play__input--authui::placeholder {
+  color: #bfbfc3;
+}
+
+.ag-login-play__widget--dark .ag-login-play__input--authui {
+  background-color: transparent;
+  color: #e7e7e9;
+  box-shadow: inset 0 0 0 1.5px #505157;
+}
+
+.ag-login-play__widget--dark .ag-login-play__input--authui::placeholder {
+  color: #a3a4aa;
+}
+
+/* authui .primary-btn — label-large scale */
+.ag-login-play__btn--authui {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.85em 1em;
+  border: none;
+  cursor: default;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.00625rem;
+  font-weight: 600;
+  text-align: center;
+  transition:
+    background 0.2s ease,
+    border-radius 0.2s ease,
+    color 0.2s ease;
+}
+
+.ag-login-play__divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.15rem 0;
+}
+
+.ag-login-play__divider-line {
+  height: 1px;
+  flex: 1;
+  background: #e7e7e9;
+}
+
+.ag-login-play__divider-text {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.025rem;
+  font-weight: 600;
+  color: #73747b;
+}
+
+/* Matches authflowv2 login/signup: `<section class="flex flex-col gap-3">` around OAuth alternatives */
+.ag-login-play__social-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.ag-login-play__social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.78em 0.95em;
+  border-radius: 0.875em;
+  background: transparent;
+  border: 1.5px solid #e7e7e9;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.03125rem;
+  font-weight: 500;
+  color: #131315;
+  transition: border-radius 0.2s ease;
+}
+
+.ag-login-play__social-ic {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  flex: none;
+}
+
+.ag-login-play__social-btn svg {
+  display: block;
+}
+
+/* authui .link-btn — label-medium */
+.ag-login-play__link--authui {
+  display: block;
+  margin: 0;
+  text-align: center;
+  cursor: default;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.03125rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Lead matches .screen-description; accent color only on .link-action (portal-style). */
+.ag-login-play__widget--light .ag-login-play__link-lead {
+  color: #73747b;
+}
+
+.ag-login-play__widget--dark .ag-login-play__link-lead {
+  color: #cacbce;
+}
+
+.ag-login-play__hint {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+.ag-login-play__sub-label {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.ag-login-play__check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: #334155;
+  cursor: pointer;
+}
+
+.ag-login-play__check-row input {
+  margin-top: 0.2rem;
+  accent-color: #7c3aed;
+}
+
+.ag-login-play__upload-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.ag-login-play__logo-lookup-row {
+  display: flex;
+}
+
+.ag-login-play__logo-lookup-row .ag-login-play__text-input {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.ag-login-play__upload-row + .ag-login-play__hint {
+  margin-top: 0.85rem;
+}
+
+.ag-login-play__file {
+  font-size: 0.8125rem;
+  color: #334155;
+}
+
+.ag-login-play__upload-thumb {
+  width: 108px;
+  height: 108px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #f1f1f1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.ag-login-play__upload-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ag-login-play__upload-thumb-img--logo {
+  object-fit: contain;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.ag-login-play__file--hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ag-login-play__upload-btn {
+  height: 36px;
+  padding: 0 1.25rem;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid #a3a4aa;
+  color: #131315;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.03125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ag-login-play__upload-btn--danger {
+  background: #d60000;
+  border-color: #d60000;
+  color: #fff;
+}
+
+.ag-login-play__upload-btn--danger:hover {
+  background: #b80000;
+  border-color: #b80000;
+}
+
+.ag-login-play__remove-btn {
+  height: 36px;
+  padding: 0 1.25rem;
+  border-radius: 2px;
+  background: #d60000;
+  border: 1px solid #d60000;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.03125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Portal DesignScreen-style: single bordered field, swatch + hex inside */
+.ag-login-play__color-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.4rem;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  background: #fff;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ag-login-play__color-field:focus-within {
+  outline: none;
+  border-color: #176df3;
+  box-shadow: 0 0 0 2px rgba(23, 109, 243, 0.2);
+}
+
+.ag-login-play__color-swatch-wrap {
+  flex: none;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #fff;
+}
+
+.ag-login-play__color {
+  padding: 0;
+  cursor: pointer;
+}
+
+.ag-login-play__color--in-field {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.ag-login-play__color--in-field::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.ag-login-play__color--in-field::-webkit-color-swatch {
+  border: none;
+  border-radius: 3px;
+}
+
+.ag-login-play__color--in-field::-moz-color-swatch {
+  border: none;
+  border-radius: 3px;
+}
+
+.ag-login-play__color-hex-input {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0.25rem 0.15rem;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+.ag-login-play__color-hex-input::placeholder {
+  color: #94a3b8;
+}
+
+.ag-login-play__color-hex-input:focus {
+  outline: none;
+}
+
+.ag-login-play__text-input--mono {
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.ag-login-play__seg--wrap {
+  flex-wrap: wrap;
+}
+
+.ag-login-play__swatch--bordered {
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* Portal-like card alignment toggle (matches screenshot) */
+.ag-login-play__align {
+  display: inline-flex;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ag-login-play__align-btn {
+  width: 36px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.ag-login-play__align-btn + .ag-login-play__align-btn {
+  border-left: 1px solid #e2e8f0;
+}
+
+.ag-login-play__align-btn[data-active='true'] {
+  background: #eef2ff;
+}
+
+.ag-login-play__align-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.ag-login-play__align-svg {
+  width: 18px;
+  height: 16px;
+  display: block;
+  color: #0f172a;
+}
+
+.ag-login-play__align-btn[data-active='true'] .ag-login-play__align-svg {
+  color: #2563eb;
+}
+
+/* Border radius style: same control chrome as card alignment; corner icons (larger than align squares for legibility) */
+.ag-login-play__radius-svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  color: #0f172a;
+}
+
+.ag-login-play__align-btn[data-active='true'] .ag-login-play__radius-svg {
+  color: #2563eb;
+}
+
+/* Space between alignment-style preset row and numeric “Border radius” field */
+.ag-login-play__align + label.ag-login-play__label {
+  margin-top: 1.25rem;
+}
+
+/* Link decoration — DesignScreen-style segmented control (icon toggles) */
+.ag-login-play__link-decoration {
+  display: inline-flex;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ag-login-play__link-decoration-btn {
+  position: relative;
+  width: 44px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.ag-login-play__link-decoration-btn + .ag-login-play__link-decoration-btn {
+  border-left: 1px solid #e2e8f0;
+}
+
+.ag-login-play__link-decoration-btn[data-active='true'] {
+  background: #e8eaed;
+}
+
+.ag-login-play__link-decoration-btn:hover:not([data-active='true']) {
+  background: #f8fafc;
+}
+
+.ag-login-play__link-decoration-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.ag-login-play__link-dec-svg {
+  width: 24px;
+  height: 22px;
+  display: block;
+}
+
+.ag-login-play__link-dec-svg--underline text {
+  user-select: none;
+}
+
+.ag-login-play__panel {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.ag-login-play__panel-intro {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #0f172a;
+}
+
+.ag-login-play__fieldset {
+  margin: 0 0 1rem;
+  padding: 0 0 1rem;
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ag-login-play__fieldset:last-of-type {
+  border-bottom: none;
+}
+
+/* Tighter gap before Logo accordion (default fieldset uses 1rem + 1rem below). */
+.ag-login-play__fieldset.ag-login-play__fieldset--organisation {
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.5rem;
+}
+
+.ag-login-play__fieldset--in-accordion {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.ag-login-play__fieldset--in-accordion + .ag-login-play__fieldset--in-accordion {
+  margin-top: 1rem;
+}
+
+.ag-login-play__accordion {
+  margin: 0 0 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ag-login-play__accordion-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.55rem 0.75rem;
+  border: none;
+  background: #f8fafc;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #334155;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ag-login-play__accordion-trigger:hover {
+  background: #f1f5f9;
+}
+
+.ag-login-play__accordion-trigger:focus-visible {
+  outline: 2px solid #176df3;
+  outline-offset: -2px;
+}
+
+.ag-login-play__accordion-title {
+  font-size: inherit;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #0f172a;
+}
+
+.ag-login-play__accordion-chevron {
+  flex-shrink: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-bottom: 0.1rem;
+  border-right: 2px solid #64748b;
+  border-bottom: 2px solid #64748b;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.ag-login-play__accordion-trigger[aria-expanded='true'] .ag-login-play__accordion-chevron {
+  margin-bottom: -0.1rem;
+  transform: rotate(-135deg);
+}
+
+.ag-login-play__accordion-panel {
+  border-top: 1px solid #e2e8f0;
+}
+
+.ag-login-play__accordion-body {
+  padding: 0.65rem 0.75rem 0.8rem;
+}
+
+.ag-login-play__legend {
+  padding: 0;
+  margin-bottom: 0.65rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #64748b;
+}
+
+/* Top-level panel heading — matches .ag-login-play__accordion-title / trigger scale */
+.ag-login-play__legend--panel-section {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.ag-login-play__label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.ag-login-play__text-input {
+  width: 100%;
+  margin-bottom: 0.65rem;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+.ag-login-play__logo-search-wrap {
+  position: relative;
+  margin-bottom: 0.65rem; /* keep spacing to next section */
+}
+
+.ag-login-play__logo-search-wrap .ag-login-play__text-input {
+  margin-bottom: 0; /* spacing is handled by wrapper so dropdown can overlay */
+}
+
+.ag-login-play__logo-search {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ag-login-play__logo-search-list {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  max-height: 16rem;
+  overflow: auto;
+}
+
+.ag-login-play__logo-search-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.7rem;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ag-login-play__logo-search-item + .ag-login-play__logo-search-item {
+  border-top: 1px solid #f1f5f9;
+}
+
+.ag-login-play__logo-search-item:hover {
+  background: #f8fafc;
+}
+
+.ag-login-play__logo-search-item:focus-visible {
+  outline: 2px solid #176df3;
+  outline-offset: -2px;
+}
+
+.ag-login-play__logo-search-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: contain;
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  flex: none;
+}
+
+.ag-login-play__logo-search-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.ag-login-play__logo-search-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0f172a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ag-login-play__logo-search-domain {
+  font-size: 0.8125rem;
+  color: #64748b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ag-login-play__logo-search-empty {
+  padding: 0.6rem 0.7rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: #64748b;
+}
+
+.ag-login-play__text-input:focus {
+  outline: none;
+  border-color: #176df3;
+  box-shadow: 0 0 0 2px rgba(23, 109, 243, 0.2);
+}
+
+.ag-login-play__range-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.ag-login-play__range {
+  flex: 1;
+  min-width: 0;
+  accent-color: #176df3;
+}
+
+.ag-login-play__range-val {
+  min-width: 2.75rem;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  color: #475569;
+  text-align: right;
+}
+
+.ag-login-play__swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ag-login-play__swatch {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.ag-login-play__swatch:hover {
+  transform: scale(1.06);
+}
+
+.ag-login-play__swatch[data-active='true'] {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.35);
+}
+
+.ag-login-play__swatch:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+.ag-login-play__seg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ag-login-play__seg-btn {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #334155;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.ag-login-play__seg-btn:hover {
+  background: #e2e8f0;
+}
+
+.ag-login-play__seg-btn[data-active='true'] {
+  background: #ede9fe;
+  border-color: #a78bfa;
+  color: #5b21b6;
+}
+
+.ag-login-play__seg-btn:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+.ag-login-play__reset {
+  display: block;
+  width: 100%;
+  margin: 0.25rem 0 0;
+  padding: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #64748b;
+  background: transparent;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ag-login-play__reset:hover {
+  color: #334155;
+  border-color: #94a3b8;
+}
+
+.ag-login-play__reset:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+@media (width >= 900px) {
+  .ag-login-play__trigger-pill,
+  .ag-login-play__signup-chip,
+  .ag-login-play__sheet-handle,
+  .ag-login-play__sheet-close,
+  .ag-login-play__sheet-backdrop {
+    display: none;
+  }
+}

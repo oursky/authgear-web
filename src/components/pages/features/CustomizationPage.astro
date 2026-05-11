@@ -1,6 +1,7 @@
 ---
 import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
+import LoginCustomizationPlayground from '@/components/islands/customization/LoginCustomizationPlayground';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
@@ -50,33 +51,16 @@ const { locale } = Astro.props;
 </section>
 
 <section class="ds-section mm-empower-section-bg">
-  <div class="ds-container ds-container--split-stack">
+  <div class="ds-container ds-container--split-stack  ds-container--split-stack--title-gap-m">
     <div class="title-content">
       <h2 class="heading-on-dark">{t(locale, 'Customization.darkSectionTitle')}</h2>
+      <p class="section-lede-on-dark">{t(locale, 'CustomizationPlayground.description')}</p>
+    </div>
+    <LoginCustomizationPlayground client:visible locale={locale} />
+    <div class="title-content">
+      <h3 class="heading-on-dark heading-on-dark--sub">{t(locale, 'Customization.cardsSubTitle')}</h3>
     </div>
     <div class="ds-grid-2">
-      <div class="svg-card svg-card-deep">
-        <div class="icon-w48">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <path d="M42.4598 34.5312H36.6706M21.7294 34.5314H6.46094" stroke="#31B7FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M6.46094 13.4649H12.2502M30.0466 13.4648H42.4596" stroke="#31B7FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M23.9662 7.61328C27.1884 7.61328 29.8006 10.2254 29.8006 13.4475C29.8006 16.6697 27.1884 19.2818 23.9662 19.2818H18.2561C15.034 19.2818 12.4219 16.6697 12.4219 13.4475C12.4219 10.2254 15.034 7.61328 18.2561 7.61328" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M30.6652 40.3834C33.8872 40.3834 36.4994 37.7712 36.4994 34.5492C36.4994 31.327 33.8872 28.7148 30.6652 28.7148H27.686C24.4638 28.7148 21.8516 31.327 21.8516 34.5492C21.8516 36.8556 23.1902 38.8496 25.1328 39.7966" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </div>
-        <div class="ds-svg-card-content">
-          <div class="ds-svg-card-title">{t(locale, 'Customization.card1Title')}</div>
-          <div class="ds-svg-card-description">{t(locale, 'Customization.card1Desc')}</div>
-        </div>
-        <a
-          href="https://docs.authgear.com/customization/built-in-ui/branding"
-          target="_blank"
-          rel="noreferrer"
-          class="ds-btn ds-btn-tertiary"
-        >
-          {t(locale, 'Customization.card1Cta')}
-        </a>
-      </div>
       <div class="svg-card svg-card-deep">
         <div class="icon-w48">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -89,6 +73,29 @@ const { locale } = Astro.props;
           </svg>
         </div>
         <div class="ds-svg-card-content">
+          <div class="ds-svg-card-title">{t(locale, 'Customization.card1Title')}</div>
+          <div class="ds-svg-card-description">{t(locale, 'Customization.card1Desc')}</div>
+        </div>
+        <a
+          href="https://docs.authgear.com/customization/built-in-ui/branding"
+          target="_blank"
+          rel="noreferrer"
+          class="ds-btn ds-btn-tertiary customization-empower-cta--flush-inline"
+        >
+          {t(locale, 'Customization.card1Cta')}
+          <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+        </a>
+      </div>
+      <div class="svg-card svg-card-deep">
+        <div class="icon-w48">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <path d="M14.2139 17.5703L6.5 23.9978L14.2139 30.4274" stroke="#31B7FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M34.7891 17.5703L42.5029 23.9978L34.7891 30.4274" stroke="#31B7FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M24.5025 24L19.3594 38.1434" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M29.6419 9.85938L27.0703 16.9311" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="ds-svg-card-content">
           <div class="ds-svg-card-title">{t(locale, 'Customization.card2Title')}</div>
           <div class="ds-svg-card-description">{t(locale, 'Customization.card2Desc')}</div>
         </div>
@@ -96,28 +103,11 @@ const { locale } = Astro.props;
           href="https://docs.authgear.com/customization/custom-ui/authentication-flow-api"
           target="_blank"
           rel="noreferrer"
-          class="ds-btn ds-btn-tertiary"
+          class="ds-btn ds-btn-tertiary customization-empower-cta--flush-inline"
         >
           {t(locale, 'Customization.card2Cta')}
+          <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
         </a>
-      </div>
-    </div>
-    <div class="ds-split ds-split-row">
-      <div class="ds-split-row__media">
-        <img
-          src="/images/features-customization-loginpage-gallery2x.webp"
-          loading="lazy"
-          width="624"
-          sizes="(max-width: 767px) 100vw, 624px"
-          alt=""
-          srcset="/images/features-customization-loginpage-gallery2x-p-500.webp 500w, /images/features-customization-loginpage-gallery2x-p-800.webp 800w, /images/features-customization-loginpage-gallery2x-p-1080.webp 1080w, /images/features-customization-loginpage-gallery2x.webp 1248w"
-          class="ds-split-row__img"
-        />
-      </div>
-      <div class="ds-split-row__body">
-        <h3 class="heading-on-dark">{t(locale, 'Customization.galleryTitle')}</h3>
-        <p class="section-lede-on-dark">{t(locale, 'Customization.galleryDesc')}</p>
-        <a href={localizedPath(locale, "/login-gallery")} class="ds-btn ds-btn-outline-light">{t(locale, 'Customization.galleryBtn')}</a>
       </div>
     </div>
   </div>
@@ -222,3 +212,14 @@ const { locale } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  /* Bridging subheading between the playground and the two delivery-mode cards. */
+  .heading-on-dark--sub {
+    margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+    font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+  }
+</style>
