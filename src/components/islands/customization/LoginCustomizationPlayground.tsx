@@ -769,6 +769,20 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                   </svg>
                 </a>
               </div>
+              {isNarrow ? (
+                <a
+                  className="ag-login-play__signup-chip"
+                  href="https://portal.authgear.com/?utm_source=feature-customization&utm_medium=link&utm_campaign=playground-mobile-chip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    trackEvent('signup', { location: 'playground-mobile-chip' });
+                  }}
+                >
+                  {t('getStartedCta')} →
+                </a>
+              ) : null}
             </div>
           </div>
 

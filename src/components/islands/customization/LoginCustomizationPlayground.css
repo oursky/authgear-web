@@ -223,6 +223,28 @@
     z-index: 1;
   }
 
+  .ag-login-play__signup-chip {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+  }
+
+  .ag-login-play__signup-chip:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .ag-login-play__panel {
       transition: none;
@@ -1388,6 +1410,7 @@
 
 @media (width >= 900px) {
   .ag-login-play__trigger-pill,
+  .ag-login-play__signup-chip,
   .ag-login-play__sheet-handle,
   .ag-login-play__sheet-close,
   .ag-login-play__sheet-backdrop {
