@@ -489,6 +489,27 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
     ? normalizeHex(linkColorLight)
     : '#176df3';
 
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (!isNarrow) return;
+    if (sheetOpen) {
+      closeButtonRef.current?.focus();
+    } else {
+      triggerRef.current?.focus();
+    }
+  }, [isNarrow, sheetOpen]);
+
+  useEffect(() => {
+    if (!isNarrow || !sheetOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSheetOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isNarrow, sheetOpen]);
+
   const onPickBackgroundImage: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -751,13 +772,42 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
             </div>
           </div>
 
+          {isNarrow ? (
+            <button
+              type="button"
+              className="ag-login-play__sheet-backdrop"
+              aria-label={t('closeSheetAria')}
+              onClick={closeSheet}
+              tabIndex={-1}
+              hidden={!sheetOpen}
+            />
+          ) : null}
           <aside
             className="ag-login-play__panel"
             aria-label={t('configAria')}
             id={sheetId}
             data-open={isNarrow ? sheetOpen : undefined}
+            aria-hidden={isNarrow && !sheetOpen ? true : undefined}
           >
-            <p className="ag-login-play__panel-intro">{t('panelIntro')}</p>
+            <div className="ag-login-play__sheet-top">
+              {isNarrow ? (
+                <div className="ag-login-play__sheet-handle" aria-hidden />
+              ) : null}
+              <div className="ag-login-play__panel-header">
+                <p className="ag-login-play__panel-intro">{t('panelIntro')}</p>
+                {isNarrow ? (
+                  <button
+                    type="button"
+                    ref={closeButtonRef}
+                    className="ag-login-play__sheet-close"
+                    aria-label={t('closeSheetAria')}
+                    onClick={closeSheet}
+                  >
+                    ×
+                  </button>
+                ) : null}
+              </div>
+            </div>
             {/* Organisation — portal DesignScreen OrganisationConfiguration */}
             <fieldset className="ag-login-play__fieldset ag-login-play__fieldset--organisation">
               <label className="ag-login-play__label" htmlFor={fid('brand')}>
@@ -1188,6 +1238,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
           {isNarrow ? (
             <button
               type="button"
+              ref={triggerRef}
               className="ag-login-play__trigger-pill"
               aria-expanded={sheetOpen}
               aria-controls={sheetId}

@@ -837,6 +837,7 @@
     "organisationSection": "Organisation",
     "customizeCta": "⚙ Customize",
     "getStartedCta": "Get Started",
+    "closeSheetAria": "Close customization",
     "panelIntro": "Try it out",
     "organisationNameLabel": "Your company name",
     "themeSection": "Theme",

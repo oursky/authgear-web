@@ -159,6 +159,70 @@
     outline-offset: 2px;
   }
 
+  .ag-login-play__sheet-top {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+    margin: 0 -1rem;
+    padding: 0.5rem 1rem 0.25rem;
+  }
+
+  .ag-login-play__sheet-handle {
+    width: 36px;
+    height: 4px;
+    background: #cbd5e1;
+    border-radius: 2px;
+    margin: 0 auto 8px;
+  }
+
+  .ag-login-play__panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Reset the existing intro bottom margin since the header row owns spacing now. */
+  .ag-login-play__panel-header .ag-login-play__panel-intro {
+    margin-bottom: 0;
+  }
+
+  .ag-login-play__sheet-close {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 1.125rem;
+    line-height: 1;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .ag-login-play__sheet-close:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  .ag-login-play__sheet-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .ag-login-play__panel {
       transition: none;
@@ -1323,7 +1387,10 @@
 }
 
 @media (width >= 900px) {
-  .ag-login-play__trigger-pill {
+  .ag-login-play__trigger-pill,
+  .ag-login-play__sheet-handle,
+  .ag-login-play__sheet-close,
+  .ag-login-play__sheet-backdrop {
     display: none;
   }
 }
