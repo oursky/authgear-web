@@ -363,6 +363,10 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
     trackEvent('playground-interact', { first_action: action });
   };
   const isNarrow = !useMediaQuery('(min-width: 900px)');
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const sheetId = `ag-login-play-${instanceId}-sheet`;
+  const openSheet = () => setSheetOpen(true);
+  const closeSheet = () => setSheetOpen(false);
   const yourBrandDraftRef = useRef<YourBrandDraft | null>(null);
 
   const [selectedPresetId, setSelectedPresetId] = useState<DemoPresetId>('your-brand');
@@ -747,7 +751,12 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
             </div>
           </div>
 
-          <aside className="ag-login-play__panel" aria-label={t('configAria')}>
+          <aside
+            className="ag-login-play__panel"
+            aria-label={t('configAria')}
+            id={sheetId}
+            data-open={isNarrow ? sheetOpen : undefined}
+          >
             <p className="ag-login-play__panel-intro">{t('panelIntro')}</p>
             {/* Organisation — portal DesignScreen OrganisationConfiguration */}
             <fieldset className="ag-login-play__fieldset ag-login-play__fieldset--organisation">
@@ -1176,6 +1185,18 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               ) : null}
             </AccordionSection>
           </aside>
+          {isNarrow ? (
+            <button
+              type="button"
+              className="ag-login-play__trigger-pill"
+              aria-expanded={sheetOpen}
+              aria-controls={sheetId}
+              onClick={openSheet}
+              hidden={sheetOpen}
+            >
+              {t('customizeCta')}
+            </button>
+          ) : null}
         </div>
     </div>
   );

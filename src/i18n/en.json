@@ -835,6 +835,8 @@
     "secondaryLinkLead": "No account? ",
     "secondaryLinkAction": "Create one",
     "organisationSection": "Organisation",
+    "customizeCta": "⚙ Customize",
+    "getStartedCta": "Get Started",
     "panelIntro": "Try it out",
     "organisationNameLabel": "Your company name",
     "themeSection": "Theme",
