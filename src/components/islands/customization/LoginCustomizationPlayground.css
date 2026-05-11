@@ -248,10 +248,6 @@
     padding: 0.5rem 0.75rem 0.25rem;
   }
 
-  .ag-login-play__preview-mask {
-    display: none;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .ag-login-play__panel {
       transition: none;
@@ -410,6 +406,16 @@
 }
 
 @media (hover: none) {
+  .ag-login-play__preview-mask {
+    display: none;
+  }
+}
+
+/* Mobile sheet pattern hides the desktop hover-mask entirely — the
+   :focus-within trigger fires when the top-right chip is focused, which
+   otherwise blocks the trigger pill on touch. Placed after the base + hover
+   rules so source order wins. */
+@media (width < 900px) {
   .ag-login-play__preview-mask {
     display: none;
   }
