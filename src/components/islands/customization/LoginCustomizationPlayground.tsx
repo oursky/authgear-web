@@ -362,10 +362,19 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
     interactedRef.current = true;
     trackEvent('playground-interact', { first_action: action });
   };
+  const sheetOpenedRef = useRef(false);
+  const markSheetOpen = () => {
+    if (sheetOpenedRef.current) return;
+    sheetOpenedRef.current = true;
+    trackEvent('playground-sheet-open');
+  };
   const isNarrow = !useMediaQuery('(min-width: 900px)');
   const [sheetOpen, setSheetOpen] = useState(false);
   const sheetId = `ag-login-play-${instanceId}-sheet`;
-  const openSheet = () => setSheetOpen(true);
+  const openSheet = () => {
+    markSheetOpen();
+    setSheetOpen(true);
+  };
   const closeSheet = () => setSheetOpen(false);
   const yourBrandDraftRef = useRef<YourBrandDraft | null>(null);
 
