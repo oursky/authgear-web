@@ -488,7 +488,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
     setLogoDevSearchState('loading');
     setLogoDevResults([]);
     try {
-      const url = new URL('/api/logo-dev/search', window.location.origin);
+      const url = new URL('/api/logo-dev/search/', window.location.origin);
       url.searchParams.set('q', q);
       const resp = await fetch(url.toString(), { method: 'GET', signal: ac.signal });
       if (resp.status === 401 || resp.status === 403) {
