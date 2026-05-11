@@ -352,6 +352,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
   const logoFileInputRef = useRef<HTMLInputElement | null>(null);
   const logoDevToken = import.meta.env.PUBLIC_LOGO_DEV_TOKEN ?? '';
   const logoDevSearchAbortRef = useRef<AbortController | null>(null);
+  const logoSearchWrapRef = useRef<HTMLDivElement | null>(null);
 
   // One-shot engagement event: fires once per session on the first meaningful
   // interaction with the playground. `first_action` records which control
@@ -547,61 +548,80 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
     const next = e.target.value;
     markInteract('logo');
     setLogoLookup(next);
-    setLogoDevResults([]);
-    setLogoDevSearchState('idle');
-
-    // When a demo preset is selected, keep its preset logo/background.
-    // Company name editing should not replace the preset logo.
-    if (selectedPresetId !== 'your-brand') {
-      setBrandName(next.trim() ? next : DEFAULTS.brandName);
-      return;
-    }
-    // For "Your brand", typing is only for searching.
-    // Keep the preview logo as-is (default placeholder until a result is chosen).
     setBrandName(next.trim() ? next : DEFAULTS.brandName);
   };
 
-  const onSubmitLogoDevSearch: React.KeyboardEventHandler<HTMLInputElement> = async (e) => {
-    if (e.key !== 'Enter') return;
+  const onFocusLogoLookup: React.FocusEventHandler<HTMLInputElement> = () => {
     if (selectedPresetId !== 'your-brand') return;
-    const q = logoLookup.trim();
-    if (!q) return;
-
-    e.preventDefault();
-    logoDevSearchAbortRef.current?.abort();
-    const ac = new AbortController();
-    logoDevSearchAbortRef.current = ac;
-
-    setLogoDevSearchState('loading');
-    setLogoDevResults([]);
-    try {
-      const url = new URL('/api/logo-dev/search/', window.location.origin);
-      url.searchParams.set('q', q);
-      const resp = await fetch(url.toString(), { method: 'GET', signal: ac.signal });
-      if (!resp.ok) {
-        // Fail silently on 401/403 (config), 429 (quota), 5xx (upstream).
-        // The user can still upload a logo manually below.
-        setLogoDevSearchState('idle');
-        return;
-      }
-      const data = (await resp.json()) as unknown;
-      const arr = Array.isArray(data) ? data : [];
-      const results: LogoDevSearchResult[] = arr
-        .map((x) => {
-          if (!x || typeof x !== 'object') return null;
-          const name = (x as any).name;
-          const domain = (x as any).domain;
-          if (typeof name !== 'string' || typeof domain !== 'string') return null;
-          return { name, domain };
-        })
-        .filter(Boolean) as LogoDevSearchResult[];
-      setLogoDevResults(results);
+    if (logoLookup.trim().length < 2) return;
+    if (logoDevResults.length > 0 && logoDevSearchState === 'idle') {
       setLogoDevSearchState('done');
-    } catch (err) {
-      if ((err as any)?.name === 'AbortError') return;
-      setLogoDevSearchState('idle');
     }
   };
+
+  // Dismiss the dropdown when the user clicks anywhere outside the search
+  // input/results area. Pointerdown beats button-click on results because the
+  // dropdown buttons live inside the wrap, so their clicks are skipped here.
+  useEffect(() => {
+    if (logoDevSearchState === 'idle') return;
+    const onDocPointerDown = (e: MouseEvent) => {
+      const wrap = logoSearchWrapRef.current;
+      if (!wrap) return;
+      if (wrap.contains(e.target as Node)) return;
+      setLogoDevSearchState('idle');
+    };
+    document.addEventListener('mousedown', onDocPointerDown);
+    return () => document.removeEventListener('mousedown', onDocPointerDown);
+  }, [logoDevSearchState]);
+
+  // Debounced Logo.dev search: fires 400 ms after the user stops typing,
+  // and only when the trimmed query is >= 2 characters. Keeps API call
+  // volume low without forcing the user to press Enter.
+  useEffect(() => {
+    if (selectedPresetId !== 'your-brand') return;
+    const q = logoLookup.trim();
+    if (q.length < 2) {
+      logoDevSearchAbortRef.current?.abort();
+      setLogoDevResults([]);
+      setLogoDevSearchState('idle');
+      return;
+    }
+    const timer = setTimeout(async () => {
+      logoDevSearchAbortRef.current?.abort();
+      const ac = new AbortController();
+      logoDevSearchAbortRef.current = ac;
+
+      setLogoDevSearchState('loading');
+      try {
+        const url = new URL('/api/logo-dev/search/', window.location.origin);
+        url.searchParams.set('q', q);
+        const resp = await fetch(url.toString(), { method: 'GET', signal: ac.signal });
+        if (!resp.ok) {
+          // Fail silently on 401/403 (config), 429 (quota), 5xx (upstream).
+          // The user can still upload a logo manually below.
+          setLogoDevSearchState('idle');
+          return;
+        }
+        const data = (await resp.json()) as unknown;
+        const arr = Array.isArray(data) ? data : [];
+        const results: LogoDevSearchResult[] = arr
+          .map((x) => {
+            if (!x || typeof x !== 'object') return null;
+            const name = (x as any).name;
+            const domain = (x as any).domain;
+            if (typeof name !== 'string' || typeof domain !== 'string') return null;
+            return { name, domain };
+          })
+          .filter(Boolean) as LogoDevSearchResult[];
+        setLogoDevResults(results);
+        setLogoDevSearchState('done');
+      } catch (err) {
+        if ((err as any)?.name === 'AbortError') return;
+        setLogoDevSearchState('idle');
+      }
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [logoLookup, selectedPresetId]);
 
   const onPickLogoDevResult = (r: LogoDevSearchResult) => {
     markInteract('logo');
@@ -844,14 +864,14 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
               <label className="ag-login-play__label" htmlFor={fid('brand')}>
                 {t('organisationNameLabel')}
               </label>
-              <div className="ag-login-play__logo-search-wrap">
+              <div className="ag-login-play__logo-search-wrap" ref={logoSearchWrapRef}>
                 <input
                   id={fid('brand')}
                   className="ag-login-play__text-input"
                   type="text"
                   value={logoLookup}
                   onChange={onChangeLogoLookup}
-                  onKeyDown={onSubmitLogoDevSearch}
+                  onFocus={onFocusLogoLookup}
                   placeholder={t('logoLookupPlaceholder')}
                   maxLength={80}
                   autoComplete="off"
@@ -860,41 +880,51 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
                 {selectedPresetId === 'your-brand' ? (
                   <div className="ag-login-play__logo-search">
                     {logoDevSearchState !== 'idle' ? (
-                      <div className="ag-login-play__logo-search-list" role="listbox">
-                        {logoDevResults.length > 0 ? (
-                          logoDevResults.map((r) => (
-                            <button
-                              key={`${instanceId}-${r.domain}-${r.name}`}
-                              type="button"
-                              className="ag-login-play__logo-search-item"
-                              onClick={() => onPickLogoDevResult(r)}
-                            >
-                              <img
-                                className="ag-login-play__logo-search-img"
-                                src={`https://img.logo.dev/${r.domain}?token=${encodeURIComponent(
-                                  logoDevToken,
-                                )}&format=webp&retina=true&size=64`}
-                                alt=""
-                                loading="lazy"
-                                onError={(e) => {
-                                  e.currentTarget.style.visibility = 'hidden';
-                                }}
-                              />
-                              <span className="ag-login-play__logo-search-text">
-                                <span className="ag-login-play__logo-search-name">{r.name}</span>
-                                <span className="ag-login-play__logo-search-domain">
-                                  {r.domain}
+                      <div className="ag-login-play__logo-search-panel">
+                        <div className="ag-login-play__logo-search-list" role="listbox">
+                          {logoDevResults.length > 0 ? (
+                            logoDevResults.map((r) => (
+                              <button
+                                key={`${instanceId}-${r.domain}-${r.name}`}
+                                type="button"
+                                className="ag-login-play__logo-search-item"
+                                onClick={() => onPickLogoDevResult(r)}
+                              >
+                                <img
+                                  className="ag-login-play__logo-search-img"
+                                  src={`https://img.logo.dev/${r.domain}?token=${encodeURIComponent(
+                                    logoDevToken,
+                                  )}&format=webp&retina=true&size=64`}
+                                  alt=""
+                                  loading="lazy"
+                                  onError={(e) => {
+                                    e.currentTarget.style.visibility = 'hidden';
+                                  }}
+                                />
+                                <span className="ag-login-play__logo-search-text">
+                                  <span className="ag-login-play__logo-search-name">{r.name}</span>
+                                  <span className="ag-login-play__logo-search-domain">
+                                    {r.domain}
+                                  </span>
                                 </span>
-                              </span>
-                            </button>
-                          ))
-                        ) : (
-                          <div className="ag-login-play__logo-search-empty">
-                            {logoDevSearchState === 'loading'
-                              ? t('logoSearchLoading')
-                              : t('logoSearchNoResults')}
-                          </div>
-                        )}
+                              </button>
+                            ))
+                          ) : (
+                            <div className="ag-login-play__logo-search-empty">
+                              {logoDevSearchState === 'loading'
+                                ? t('logoSearchLoading')
+                                : t('logoSearchNoResults')}
+                            </div>
+                          )}
+                        </div>
+                        <a
+                          className="ag-login-play__logo-search-attribution"
+                          href="https://logo.dev"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {t('logoSearchAttribution')}
+                        </a>
                       </div>
                     ) : null}
                   </div>
