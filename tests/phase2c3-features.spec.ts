@@ -43,3 +43,40 @@ test.describe('Phase 2c-3: features/[slug] — zh-TW', () => {
     });
   }
 });
+
+test.describe('Phase 2c-3: features/customization — mobile sheet', () => {
+  test('sheet opens via pill and closes via X (narrow viewport)', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/features/customization/');
+    await page.waitForLoadState('networkidle');
+
+    // Scroll the playground island into view so client:visible hydrates.
+    const trigger = page.locator('button.ag-login-play__trigger-pill');
+    await trigger.scrollIntoViewIfNeeded();
+    await expect(trigger).toBeVisible();
+
+    // Wait for the astro-island to finish hydrating (Astro removes the `ssr`
+    // attribute once React has taken over; clicks before that point hit the
+    // static SSR HTML and are not processed by React event handlers).
+    const island = page
+      .locator('astro-island')
+      .filter({ has: page.locator('button.ag-login-play__trigger-pill') })
+      .first();
+    await expect(island).not.toHaveAttribute('ssr');
+
+    // Panel starts closed (no data-open or data-open='false').
+    const panel = page.locator('aside.ag-login-play__panel').first();
+    await expect(panel).not.toHaveAttribute('data-open', 'true');
+
+    // Open via pill.
+    await trigger.click();
+    await expect(panel).toHaveAttribute('data-open', 'true');
+    await expect(trigger).toBeHidden();
+
+    // Close via X.
+    const closeBtn = page.locator('button.ag-login-play__sheet-close');
+    await closeBtn.click();
+    await expect(panel).not.toHaveAttribute('data-open', 'true');
+    await expect(trigger).toBeVisible();
+  });
+});
