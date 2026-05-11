@@ -2,8 +2,23 @@ import { t as tFn } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
 import { trackEvent } from '@/lib/plausible';
 import type { ReactNode } from 'react';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import './LoginCustomizationPlayground.css';
+
+function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia(query).matches : false,
+  );
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mql = window.matchMedia(query);
+    const handler = (e: MediaQueryListEvent) => setMatches(e.matches);
+    setMatches(mql.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, [query]);
+  return matches;
+}
 
 type PlaygroundFirstAction =
   | 'preset'
@@ -347,6 +362,7 @@ function LoginCustomizationPlaygroundInstance({ locale }: { locale: string }) {
     interactedRef.current = true;
     trackEvent('playground-interact', { first_action: action });
   };
+  const isNarrow = !useMediaQuery('(min-width: 900px)');
   const yourBrandDraftRef = useRef<YourBrandDraft | null>(null);
 
   const [selectedPresetId, setSelectedPresetId] = useState<DemoPresetId>('your-brand');
