@@ -2256,6 +2256,15 @@ section.ds-section.passwordless-section-dark-bg .ds-container > .ds-grid-3 > .sv
   color: var(--color-text-primary);
 }
 
+/* Customization empower grid: second card docs CTA — no horizontal padding (page-specific class on `<a>`). */
+.svg-card.svg-card-deep a.ds-btn.customization-empower-cta--flush-inline {
+  padding: 1rem 0;
+}
+
+.svg-card.svg-card-deep a.ds-btn-tertiary.customization-empower-cta--flush-inline:hover {
+  background: transparent;
+}
+
 /*
  * Hero KV 主標題（深色底）：使用 H1 type tokens；須 unlayered 以覆蓋 Webflow 全域 `h1`。
  */
