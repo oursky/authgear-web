@@ -107,7 +107,20 @@
     "faqHeading": "Frequently asked questions",
     "month": "/ month",
     "onceSuffix": "/ one-time",
-    "enterpriseContactLabel": "Contact us"
+    "enterpriseContactLabel": "Contact us",
+    "planFinderHeading": "Which plan is right for me?",
+    "planFinderApplications": "Applications",
+    "planFinderProjectMembers": "Project members",
+    "planFinderMaus": "MAUs (monthly active users)",
+    "planFinderRecommended": "Recommended plan",
+    "planFinderAppsTenPlus": "10+",
+    "planFinderMauThirtyKPlus": "30,000+",
+    "planFinderMauScaleLast": "30K+",
+    "planFinderMauUnlimitedValue": "Unlimited",
+    "planFinderCompareTitle": "Compare with competitors",
+    "planFinderCompareDisclaimer": "Illustrative mid-tier estimates; actual vendor pricing varies.",
+    "planFinderPriceFree": "Free",
+    "planFinderOr": "/"
   },
   "Home": {
     "title": "Authgear CLOUD - Your Managed IAM Solution",

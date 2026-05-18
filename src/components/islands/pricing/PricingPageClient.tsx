@@ -1,6 +1,34 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type CSSProperties } from 'react';
 import type { PricingCell, PricingCopy, PricingNodeVariant } from '@/lib/pricing/types';
 import { PricingFaqItem } from '@/components/islands/pricing/PricingFaqItem';
+import './PricingPlanFinder.css';
+
+const APPS_MEMBERS_SLIDER_MAX = 9;
+/** Slider index 0..8 → 1..9; index 9 → 10+ (numeric 10 for limits). */
+const APPS_MEMBERS_PLUS_NUMERIC = 10;
+
+const MAU_STEPS = [500, 1000, 2000, 3500, 5000, 7500, 10000, 15000, 20000, 25000] as const;
+/** Max range index; values `0..MAU_STEPS.length-1` map to `MAU_STEPS[i]`, index `MAU_STEPS.length` is the 30K+ tier. */
+const MAU_RANGE_MAX = MAU_STEPS.length;
+
+/** Half of range thumb width (see `PricingPlanFinder.css`); tick centers use the same inset as native range thumb travel. */
+const RANGE_THUMB_INSET_PX = 10;
+
+type PlanFinderLabels = {
+  heading: string;
+  labelApplications: string;
+  labelProjectMembers: string;
+  labelMaus: string;
+  recommendedHeading: string;
+  appsTenPlus: string;
+  mauThirtyKPlus: string;
+  mauScaleLast: string;
+  mauUnlimitedValue: string;
+  compareTitle: string;
+  compareDisclaimer: string;
+  priceFree: string;
+  or: string;
+};
 
 type Props = {
   copy: PricingCopy;
@@ -10,7 +38,578 @@ type Props = {
   month: string;
   onceSuffix: string;
   enterpriseContactLabel: string;
+  planFinder: PlanFinderLabels;
 };
+
+function appsMembersNumericFromSliderIndex(idx: number): number {
+  return idx >= APPS_MEMBERS_SLIDER_MAX ? APPS_MEMBERS_PLUS_NUMERIC : idx + 1;
+}
+
+function formatCountDisplay(idx: number, plusLabel: string): string {
+  return idx >= APPS_MEMBERS_SLIDER_MAX ? plusLabel : String(idx + 1);
+}
+
+function mauNumericForLogic(mauIdx: number): number {
+  if (mauIdx >= MAU_STEPS.length) return 35_000;
+  return MAU_STEPS[mauIdx];
+}
+
+function formatMauDisplay(mauIdx: number, locale: string, mauThirtyKPlus: string): string {
+  if (mauIdx >= MAU_STEPS.length) return mauThirtyKPlus;
+  const n = MAU_STEPS[mauIdx];
+  const loc = locale === 'zh-Hant' ? 'zh-Hant' : 'en-US';
+  return new Intl.NumberFormat(loc).format(n);
+}
+
+/** Short labels under the MAU slider (e.g. 500, 1K, 7.5K). */
+function formatMauAxisLabel(n: number): string {
+  if (n < 1000) return String(n);
+  const k = n / 1000;
+  const rounded = Math.round(k * 10) / 10;
+  const s = Number.isInteger(rounded) ? String(rounded) : String(rounded).replace(/\.0$/, '');
+  return `${s}K`;
+}
+
+function appsMembersTickLabels(plusLabel: string): string[] {
+  return Array.from({ length: APPS_MEMBERS_SLIDER_MAX + 1 }, (_, i) =>
+    i < APPS_MEMBERS_SLIDER_MAX ? String(i + 1) : plusLabel
+  );
+}
+
+function mauTickLabels(mauScaleLast: string): string[] {
+  return [...MAU_STEPS.map(formatMauAxisLabel), mauScaleLast];
+}
+
+function RangeWithTicks({
+  labelledBy,
+  value,
+  max,
+  onChange,
+  tickLabels,
+  ariaValueText,
+  ariaValueNow,
+  disabled = false,
+}: {
+  labelledBy: string;
+  value: number;
+  max: number;
+  onChange: (next: number) => void;
+  tickLabels: string[];
+  ariaValueText: string;
+  ariaValueNow?: number;
+  disabled?: boolean;
+}) {
+  const denom = max > 0 ? max : 1;
+  const fillPct = max <= 0 ? 50 : (value / max) * 100;
+  const rangeStyle = { '--range-fill-pct': `${fillPct}%` } as CSSProperties;
+
+  return (
+    <div className={`plan-finder__slider-shell${disabled ? ' plan-finder__slider-shell--disabled' : ''}`}>
+      <input
+        type="range"
+        className="plan-finder__range"
+        min={0}
+        max={max}
+        step={1}
+        value={value}
+        disabled={disabled}
+        style={rangeStyle}
+        onChange={(e) => onChange(Number(e.target.value))}
+        aria-labelledby={labelledBy}
+        {...(ariaValueNow !== undefined ? { 'aria-valuenow': ariaValueNow } : {})}
+        aria-valuetext={ariaValueText}
+        aria-disabled={disabled}
+      />
+      <div className="plan-finder__ticks" aria-hidden>
+        {tickLabels.map((text, i) => {
+          const left =
+            max === 0
+              ? '50%'
+              : `calc(${RANGE_THUMB_INSET_PX}px + (100% - ${2 * RANGE_THUMB_INSET_PX}px) * ${i / denom})`;
+          const isActive = i === value;
+          return (
+            <span
+              key={i}
+              className={`plan-finder__tick${isActive ? ' plan-finder__tick--active' : ''}`}
+              style={{ left, transform: 'translateX(-50%)' }}
+            >
+              {text}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+const CLOUD_PLAN_INDEX_BUSINESS = 2;
+const BUSINESS_MAU_30K_PLUS_USD = 550;
+
+/** Maps needs to cloud plan index: 0 Free, 1 Developers, 2 Business, 3 Enterprise (aligned to copy.cloud.plans). */
+function resolveRecommendedPlanIndex(apps: number, members: number): number {
+  if (apps > 5 || members > 5) return 3;
+  if (apps > 2 || members > 2) return 2;
+  return 1;
+}
+
+/** Free + Developers share the same starter tier (unlimited MAU; seats ≤ 2). */
+function isStarterTier(apps: number, members: number): boolean {
+  return apps <= 2 && members <= 2;
+}
+
+function isFreeTierPlan(plan: PricingCopy['cloud']['plans'][0]): boolean {
+  if (plan.enterprise) return false;
+  return authgearMonthlyUsd(plan) === 0;
+}
+
+function clamp(n: number, lo: number, hi: number): number {
+  return Math.min(hi, Math.max(lo, n));
+}
+
+const COMPETITOR_ORDER = ['auth0', 'frontegg'] as const;
+
+const COMPETITOR_DISPLAY_NAME: Record<(typeof COMPETITOR_ORDER)[number], string> = {
+  auth0: 'Auth0',
+  frontegg: 'Frontegg',
+};
+
+/** Auth0 MAU → monthly USD (linear between anchors; capped at 30K+ = $2,100). */
+const AUTH0_MAU_PRICE_ANCHORS: readonly [mau: number, usd: number][] = [
+  [500, 35],
+  [1000, 70],
+  [2500, 175],
+  [5000, 350],
+  [7500, 525],
+  [10_000, 700],
+  [20_000, 1400],
+  [30_000, 2100],
+];
+
+/**
+ * Frontegg (piecewise): free ≤8K MAU; ramps to $250 @10K; then $100/1K MAU ($750 @15K).
+ */
+const FRONTEGG_FREE_MAU = 8_000;
+const FRONTEGG_ANCHOR_MAU_10K = 10_000;
+const FRONTEGG_ANCHOR_USD_10K = 250;
+const FRONTEGG_ANCHOR_MAU_15K = 15_000;
+const FRONTEGG_ANCHOR_USD_15K = 750;
+const FRONTEGG_USD_PER_MAU_ABOVE_10K =
+  (FRONTEGG_ANCHOR_USD_15K - FRONTEGG_ANCHOR_USD_10K) / (FRONTEGG_ANCHOR_MAU_15K - FRONTEGG_ANCHOR_MAU_10K);
+
+function compareMauNumeric(mauIdx: number, mauSliderLocked: boolean): number {
+  return mauSliderLocked ? 12_000 : mauNumericForLogic(mauIdx);
+}
+
+function auth0MonthlyUsd(mauN: number): number {
+  const [, capUsd] = AUTH0_MAU_PRICE_ANCHORS[AUTH0_MAU_PRICE_ANCHORS.length - 1];
+  const [minMau] = AUTH0_MAU_PRICE_ANCHORS[0];
+  if (mauN >= AUTH0_MAU_PRICE_ANCHORS[AUTH0_MAU_PRICE_ANCHORS.length - 1][0]) return capUsd;
+  if (mauN <= minMau) {
+    const [, minUsd] = AUTH0_MAU_PRICE_ANCHORS[0];
+    return (minUsd / minMau) * mauN;
+  }
+  for (let i = 0; i < AUTH0_MAU_PRICE_ANCHORS.length - 1; i++) {
+    const [m0, p0] = AUTH0_MAU_PRICE_ANCHORS[i];
+    const [m1, p1] = AUTH0_MAU_PRICE_ANCHORS[i + 1];
+    if (mauN <= m1) return p0 + ((p1 - p0) * (mauN - m0)) / (m1 - m0);
+  }
+  return capUsd;
+}
+
+function fronteggMonthlyUsd(mauN: number): number {
+  if (mauN <= FRONTEGG_FREE_MAU) return 0;
+  if (mauN <= FRONTEGG_ANCHOR_MAU_10K) {
+    return (FRONTEGG_ANCHOR_USD_10K * (mauN - FRONTEGG_FREE_MAU)) / (FRONTEGG_ANCHOR_MAU_10K - FRONTEGG_FREE_MAU);
+  }
+  return FRONTEGG_ANCHOR_USD_10K + (mauN - FRONTEGG_ANCHOR_MAU_10K) * FRONTEGG_USD_PER_MAU_ABOVE_10K;
+}
+
+function authgearMonthlyUsd(plan: PricingCopy['cloud']['plans'][0]): number | null {
+  if (plan.enterprise) return null;
+  const m = plan.priceLine.match(/\$[\d,]+/);
+  if (!m) return null;
+  return Number(m[0].replace(/[$,]/g, ''));
+}
+
+function isMauThirtyKPlusTier(mauIdx: number, mauSliderLocked: boolean): boolean {
+  return !mauSliderLocked && mauIdx >= MAU_STEPS.length;
+}
+
+function authgearPlanFinderMonthlyUsd(
+  plan: PricingCopy['cloud']['plans'][0],
+  planIndex: number,
+  mauIdx: number,
+  mauSliderLocked: boolean,
+): number | null {
+  const base = authgearMonthlyUsd(plan);
+  if (base === null) return null;
+  if (planIndex === CLOUD_PLAN_INDEX_BUSINESS && isMauThirtyKPlusTier(mauIdx, mauSliderLocked)) {
+    return BUSINESS_MAU_30K_PLUS_USD;
+  }
+  return base;
+}
+
+function formatCompetitorEstimateUsd(usd: number, locale: string): string {
+  const rounded = Math.round(usd);
+  if (locale === 'zh-Hant') {
+    return `約 US$${rounded.toLocaleString('en-US')}／月`;
+  }
+  return `~$${rounded.toLocaleString('en-US')}/mo`;
+}
+
+type PlanFinderCompareRow = {
+  id: string;
+  name: string;
+  priceLine: string;
+  barBasis: number;
+  highlight?: boolean;
+};
+
+function buildPlanFinderCompareRows(
+  plan: PricingCopy['cloud']['plans'][0],
+  planIndex: number,
+  month: string,
+  locale: string,
+  priceFree: string,
+  starterTier: boolean,
+  appsN: number,
+  membersN: number,
+  mauIdx: number,
+  mauSliderLocked: boolean,
+): PlanFinderCompareRow[] {
+  const mauN = compareMauNumeric(mauIdx, mauSliderLocked);
+  const competitors: PlanFinderCompareRow[] = COMPETITOR_ORDER.map((id) => {
+    const usd = id === 'frontegg' ? fronteggMonthlyUsd(mauN) : auth0MonthlyUsd(mauN);
+    return {
+      id,
+      name: COMPETITOR_DISPLAY_NAME[id],
+      priceLine: formatCompetitorEstimateUsd(usd, locale),
+      barBasis: usd,
+      highlight: false,
+    };
+  });
+
+  let authRow: PlanFinderCompareRow;
+  if (plan.enterprise) {
+    const maxComp = Math.max(1, ...competitors.map((c) => c.barBasis));
+    authRow = {
+      id: 'authgear',
+      name: 'Authgear',
+      priceLine: plan.priceLine,
+      barBasis: maxComp * 0.88,
+      highlight: true,
+    };
+  } else if (starterTier || isFreeTierPlan(plan)) {
+    authRow = {
+      id: 'authgear',
+      name: 'Authgear',
+      priceLine: priceFree,
+      barBasis: 0,
+      highlight: true,
+    };
+  } else {
+    const usd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, mauSliderLocked);
+    const amount = usd !== null ? usd.toLocaleString('en-US') : plan.priceLine.replace(/^\$/, '');
+    const priceLine =
+      usd !== null ? `$${amount}${month.startsWith('/') || month.startsWith('／') ? '' : ' '}${month}` : plan.priceLine;
+    authRow = {
+      id: 'authgear',
+      name: 'Authgear',
+      priceLine,
+      barBasis: usd ?? 0,
+      highlight: true,
+    };
+  }
+
+  return [authRow, ...competitors];
+}
+
+function PlanFinderCompetitorCompare({
+  labels,
+  plan,
+  planIndex,
+  month,
+  locale,
+  starterTier,
+  appsN,
+  membersN,
+  mauIdx,
+  mauSliderLocked,
+}: {
+  labels: Pick<PlanFinderLabels, 'compareTitle' | 'compareDisclaimer' | 'priceFree'>;
+  plan: PricingCopy['cloud']['plans'][0];
+  planIndex: number;
+  month: string;
+  locale: string;
+  starterTier: boolean;
+  appsN: number;
+  membersN: number;
+  mauIdx: number;
+  mauSliderLocked: boolean;
+}) {
+  const rows = useMemo(
+    () =>
+      buildPlanFinderCompareRows(
+        plan,
+        planIndex,
+        month,
+        locale,
+        labels.priceFree,
+        starterTier,
+        appsN,
+        membersN,
+        mauIdx,
+        mauSliderLocked,
+      ),
+    [plan, planIndex, month, locale, labels.priceFree, starterTier, appsN, membersN, mauIdx, mauSliderLocked],
+  );
+  const maxBasis = useMemo(() => Math.max(1, ...rows.map((r) => r.barBasis)), [rows]);
+
+  return (
+    <div className="plan-finder-compare">
+      <h3 className="plan-finder-compare__heading">{labels.compareTitle}</h3>
+      <div className="plan-finder-compare__panel">
+        <ul className="plan-finder-compare__list" aria-live="polite">
+          {rows.map((row) => {
+            const pct = Math.min(100, Math.round((row.barBasis / maxBasis) * 100));
+            return (
+              <li
+                key={row.id}
+                className={`plan-finder-compare__row${row.highlight ? '' : ' plan-finder-compare__row--competitor'}`}
+              >
+                <span className="plan-finder-compare__name">{row.name}</span>
+                <div className="plan-finder-compare__bar-track" aria-hidden>
+                  <div
+                    className={`plan-finder-compare__bar${
+                      row.highlight ? ' plan-finder-compare__bar--authgear' : ' plan-finder-compare__bar--other'
+                    }`}
+                    style={{ width: `${pct}%` }}
+                  />
+                </div>
+                <span
+                  className={`plan-finder-compare__price${
+                    row.highlight ? ' plan-finder-compare__price--authgear' : ''
+                  }`}
+                >
+                  {row.priceLine}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+        <p className="plan-finder-compare__disclaimer">{labels.compareDisclaimer}</p>
+      </div>
+    </div>
+  );
+}
+
+function PlanFinderPlanSummary({
+  plan,
+  planIndex,
+  freePlan,
+  developersPlan,
+  starterTier,
+  month,
+  contactPath,
+  labels,
+  locale,
+  appsN,
+  membersN,
+  mauIdx,
+  mauSliderLocked,
+}: {
+  plan: PricingCopy['cloud']['plans'][0];
+  planIndex: number;
+  freePlan: PricingCopy['cloud']['plans'][0];
+  developersPlan: PricingCopy['cloud']['plans'][0];
+  starterTier: boolean;
+  month: string;
+  contactPath: string;
+  labels: PlanFinderLabels;
+  locale: string;
+  appsN: number;
+  membersN: number;
+  mauIdx: number;
+  mauSliderLocked: boolean;
+}) {
+  const authgearUsd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, mauSliderLocked);
+  return (
+    <div className="plan-finder__summary">
+      {starterTier ? (
+        <>
+          <div className="plan-finder__plan-name plan-finder__plan-name--solo plan-finder__plan-name--starter">
+            {freePlan.name} {labels.or} {developersPlan.name}
+          </div>
+          <p className="plan-finder__price-custom plan-finder__price-line--starter">
+            {labels.priceFree} {labels.or} {developersPlan.priceLine}
+            <span className="plan-finder__price-period">{month}</span>
+          </p>
+          <div className="plan-finder__cta-wrap">
+            <PlanCta plan={freePlan} contactPath={contactPath} />
+          </div>
+        </>
+      ) : (
+        <>
+          {plan.badge && !plan.highlight ? (
+            <div className="plan-finder__name-row">
+              <span className="plan-finder__plan-name">{plan.name}</span>
+              <span className="plan-finder__pill">{plan.badge}</span>
+            </div>
+          ) : (
+            <div className="plan-finder__plan-name plan-finder__plan-name--solo">{plan.name}</div>
+          )}
+          {plan.enterprise ? (
+            <p className="plan-finder__price-custom">{plan.priceLine}</p>
+          ) : (
+            <div className="plan-finder__price-line">
+              <span className="plan-finder__currency">$</span>
+              <span className="plan-finder__price-amount">
+                {authgearUsd !== null ? authgearUsd.toLocaleString('en-US') : plan.priceLine.replace(/^\$/, '')}
+              </span>
+              <span className="plan-finder__price-period">{month}</span>
+            </div>
+          )}
+          <div className="plan-finder__cta-wrap">
+            <PlanCta plan={plan} contactPath={contactPath} />
+          </div>
+        </>
+      )}
+      <hr className="plan-finder__recommend-divider" />
+      <PlanFinderCompetitorCompare
+        labels={labels}
+        plan={plan}
+        planIndex={planIndex}
+        month={month}
+        locale={locale}
+        starterTier={starterTier}
+        appsN={appsN}
+        membersN={membersN}
+        mauIdx={mauIdx}
+        mauSliderLocked={mauSliderLocked}
+      />
+    </div>
+  );
+}
+
+function PlanFinderBlock({
+  labels,
+  locale,
+  copy,
+  contactPath,
+  month,
+}: {
+  labels: PlanFinderLabels;
+  locale: string;
+  copy: PricingCopy;
+  contactPath: string;
+  month: string;
+}) {
+  const [appsIdx, setAppsIdx] = useState(1);
+  const [membersIdx, setMembersIdx] = useState(1);
+  const [mauIdx, setMauIdx] = useState(3);
+
+  const appsN = appsMembersNumericFromSliderIndex(appsIdx);
+  const membersN = appsMembersNumericFromSliderIndex(membersIdx);
+  const starterTier = isStarterTier(appsN, membersN);
+  const planIndex = resolveRecommendedPlanIndex(appsN, membersN);
+  const plan = copy.cloud.plans[planIndex];
+  const freePlan = copy.cloud.plans[0];
+  const developersPlan = copy.cloud.plans[1];
+  const mauSliderLocked = starterTier;
+  const mauSliderValue = mauSliderLocked ? MAU_RANGE_MAX : mauIdx;
+  const mauAriaValueText = mauSliderLocked ? labels.mauUnlimitedValue : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus);
+  const mauAriaValueNow = mauSliderLocked ? undefined : mauNumericForLogic(mauIdx);
+  const appsTicks = appsMembersTickLabels(labels.appsTenPlus);
+  const mauTicks = mauTickLabels(labels.mauScaleLast);
+
+  return (
+    <div className="plan-finder">
+      <div className="plan-finder__grid">
+        <div className="plan-finder__controls">
+          <h2 className="plan-finder__title" id="plan-finder-heading">
+            {labels.heading}
+          </h2>
+          <div className="plan-finder__field">
+            <div className="plan-finder__label-row">
+              <span className="plan-finder__label" id="plan-finder-apps-label">
+                {labels.labelApplications}
+              </span>
+              <span className="plan-finder__value" aria-live="polite">
+                {formatCountDisplay(appsIdx, labels.appsTenPlus)}
+              </span>
+            </div>
+            <RangeWithTicks
+              labelledBy="plan-finder-apps-label"
+              value={appsIdx}
+              max={APPS_MEMBERS_SLIDER_MAX}
+              onChange={setAppsIdx}
+              tickLabels={appsTicks}
+              ariaValueNow={appsN}
+              ariaValueText={formatCountDisplay(appsIdx, labels.appsTenPlus)}
+            />
+          </div>
+          <div className="plan-finder__field">
+            <div className="plan-finder__label-row">
+              <span className="plan-finder__label" id="plan-finder-members-label">
+                {labels.labelProjectMembers}
+              </span>
+              <span className="plan-finder__value" aria-live="polite">
+                {formatCountDisplay(membersIdx, labels.appsTenPlus)}
+              </span>
+            </div>
+            <RangeWithTicks
+              labelledBy="plan-finder-members-label"
+              value={membersIdx}
+              max={APPS_MEMBERS_SLIDER_MAX}
+              onChange={setMembersIdx}
+              tickLabels={appsTicks}
+              ariaValueNow={membersN}
+              ariaValueText={formatCountDisplay(membersIdx, labels.appsTenPlus)}
+            />
+          </div>
+          <div className="plan-finder__field">
+            <div className="plan-finder__label-row">
+              <span className="plan-finder__label" id="plan-finder-mau-label">
+                {labels.labelMaus}
+              </span>
+              <span className="plan-finder__value" aria-live="polite">
+                {mauSliderLocked ? labels.mauUnlimitedValue : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus)}
+              </span>
+            </div>
+            <RangeWithTicks
+              labelledBy="plan-finder-mau-label"
+              value={mauSliderValue}
+              max={MAU_RANGE_MAX}
+              onChange={setMauIdx}
+              tickLabels={mauTicks}
+              ariaValueNow={mauAriaValueNow}
+              ariaValueText={mauAriaValueText}
+              disabled={mauSliderLocked}
+            />
+          </div>
+        </div>
+        <div className="plan-finder__result">
+          <div className="plan-finder__result-heading">{labels.recommendedHeading}</div>
+          <PlanFinderPlanSummary
+            plan={plan}
+            planIndex={planIndex}
+            freePlan={freePlan}
+            developersPlan={developersPlan}
+            starterTier={starterTier}
+            month={month}
+            contactPath={contactPath}
+            labels={labels}
+            locale={locale}
+            appsN={appsN}
+            membersN={membersN}
+            mauIdx={mauIdx}
+            mauSliderLocked={mauSliderLocked}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function resolveHref(href: string, contactPath: string): string {
   if (href === '__CONTACT__') return contactPath;
@@ -217,7 +816,16 @@ function PlanCardInner({
   );
 }
 
-export default function PricingPageClient({ copy, locale, contactPath, whatsappPath, month, onceSuffix, enterpriseContactLabel }: Props) {
+export default function PricingPageClient({
+  copy,
+  locale,
+  contactPath,
+  whatsappPath,
+  month,
+  onceSuffix,
+  enterpriseContactLabel,
+  planFinder,
+}: Props) {
   const [tab, setTab] = useState(0);
 
   const enterpriseLink = useMemo(() => {
@@ -305,6 +913,15 @@ export default function PricingPageClient({ copy, locale, contactPath, whatsappP
                 </div>
               )
             )}
+          </div>
+          <div className="plan-finder-section">
+            <PlanFinderBlock
+              labels={planFinder}
+              locale={locale}
+              copy={copy}
+              contactPath={contactPath}
+              month={month}
+            />
           </div>
         </div>
       </section>

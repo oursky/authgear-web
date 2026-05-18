@@ -107,7 +107,20 @@
     "faqHeading": "常見問題",
     "month": "／月",
     "onceSuffix": "／一次買斷",
-    "enterpriseContactLabel": "聯絡我們"
+    "enterpriseContactLabel": "聯絡我們",
+    "planFinderHeading": "哪個方案適合我？",
+    "planFinderApplications": "應用程式",
+    "planFinderProjectMembers": "專案成員",
+    "planFinderMaus": "MAU（每月活躍用戶）",
+    "planFinderRecommended": "建議方案",
+    "planFinderAppsTenPlus": "10+",
+    "planFinderMauThirtyKPlus": "30,000+",
+    "planFinderMauScaleLast": "30K+",
+    "planFinderMauUnlimitedValue": "無限制",
+    "planFinderCompareTitle": "與競品比較",
+    "planFinderCompareDisclaimer": "圖示為中階方案參考價，實際以各廠商定價為準。",
+    "planFinderPriceFree": "免費",
+    "planFinderOr": "/"
   },
   "Home": {
     "title": "Authgear CLOUD — 您的一站式身份管理方案",
