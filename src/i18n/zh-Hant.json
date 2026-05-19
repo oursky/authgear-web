@@ -118,7 +118,7 @@
     "planFinderMauScaleLast": "50K+",
     "planFinderMauUnlimitedValue": "無限制",
     "planFinderCompareTitle": "與競品比較",
-    "planFinderCompareDisclaimer": "Authgear Free 與 Developers 方案提供無限 MAU。競品價格以 50,000 MAU 估算供比較參考。以上為依公開定價之示意估算，實際費用可能有所不同。",
+    "planFinderCompareDisclaimer": "Authgear Free 與 Developers 方案提供無限 MAU。競品價格以 {mau} MAU 估算供比較參考。以上為依公開定價之示意估算，實際費用可能有所不同。",
     "planFinderPriceFree": "免費",
     "planFinderPriceFrom": "由",
     "planFinderOr": "/",

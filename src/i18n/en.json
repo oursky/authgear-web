@@ -118,7 +118,7 @@
     "planFinderMauScaleLast": "50K+",
     "planFinderMauUnlimitedValue": "Unlimited",
     "planFinderCompareTitle": "Compare with competitors",
-    "planFinderCompareDisclaimer": "Authgear Free & Developer plans have unlimited MAUs. Competitor pricing is estimated at 50,000 MAU for comparison purposes. Illustrative estimates based on publicly available pricing; actual costs may vary.",
+    "planFinderCompareDisclaimer": "Authgear Free & Developer plans have unlimited MAUs. Competitor pricing is estimated at {mau} MAU for comparison purposes. Illustrative estimates based on publicly available pricing; actual costs may vary.",
     "planFinderPriceFree": "Free",
     "planFinderPriceFrom": "From",
     "planFinderOr": "/",
