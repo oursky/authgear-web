@@ -7,9 +7,11 @@ const APPS_MEMBERS_SLIDER_MAX = 9;
 /** Slider index 0..8 → 1..9; index 9 → 10+ (numeric 10 for limits). */
 const APPS_MEMBERS_PLUS_NUMERIC = 10;
 
-const MAU_STEPS = [500, 1000, 2000, 3500, 5000, 7500, 10000, 15000, 20000, 25000] as const;
-/** Max range index; values `0..MAU_STEPS.length-1` map to `MAU_STEPS[i]`, index `MAU_STEPS.length` is the 30K+ tier. */
+const MAU_STEPS = [15_000, 20_000, 25_000, 30_000, 35_000, 40_000, 45_000] as const;
+/** Max range index; values `0..MAU_STEPS.length-1` map to `MAU_STEPS[i]`, index `MAU_STEPS.length` is the 50K+ tier. */
 const MAU_RANGE_MAX = MAU_STEPS.length;
+/** Numeric MAU used for 50K+ slider position (plan logic, competitor compare). */
+const MAU_FIFTY_K_PLUS_NUMERIC = 50_000;
 
 /** Half of range thumb width (see `PricingPlanFinder.css`); tick centers use the same inset as native range thumb travel. */
 const RANGE_THUMB_INSET_PX = 10;
@@ -19,6 +21,13 @@ type PlanFinderLabels = {
   labelApplications: string;
   labelProjectMembers: string;
   labelMaus: string;
+  labelSmsWhatsapp: string;
+  labelLogRetention: string;
+  logRetention1Day: string;
+  logRetention60Days: string;
+  logRetention180Days: string;
+  toggleYes: string;
+  toggleNo: string;
   recommendedHeading: string;
   appsTenPlus: string;
   mauThirtyKPlus: string;
@@ -27,7 +36,11 @@ type PlanFinderLabels = {
   compareTitle: string;
   compareDisclaimer: string;
   priceFree: string;
+  priceFrom: string;
   or: string;
+  enterpriseTitle: string;
+  enterpriseBody: string;
+  enterpriseFeatures: string[];
 };
 
 type Props = {
@@ -50,7 +63,7 @@ function formatCountDisplay(idx: number, plusLabel: string): string {
 }
 
 function mauNumericForLogic(mauIdx: number): number {
-  if (mauIdx >= MAU_STEPS.length) return 35_000;
+  if (mauIdx >= MAU_STEPS.length) return MAU_FIFTY_K_PLUS_NUMERIC;
   return MAU_STEPS[mauIdx];
 }
 
@@ -78,6 +91,96 @@ function appsMembersTickLabels(plusLabel: string): string[] {
 
 function mauTickLabels(mauScaleLast: string): string[] {
   return [...MAU_STEPS.map(formatMauAxisLabel), mauScaleLast];
+}
+
+type LogRetentionDays = 1 | 60 | 180;
+
+function PlanFinderLogRetentionToggle({
+  id,
+  label,
+  value,
+  onChange,
+  option1Day,
+  option60Days,
+  option180Days,
+}: {
+  id: string;
+  label: string;
+  value: LogRetentionDays;
+  onChange: (next: LogRetentionDays) => void;
+  option1Day: string;
+  option60Days: string;
+  option180Days: string;
+}) {
+  const options: { days: LogRetentionDays; text: string }[] = [
+    { days: 1, text: option1Day },
+    { days: 60, text: option60Days },
+    { days: 180, text: option180Days },
+  ];
+
+  return (
+    <div className="plan-finder__field plan-finder__field--toggle">
+      <span className="plan-finder__label" id={id}>
+        {label}
+      </span>
+      <div className="plan-finder__yes-no plan-finder__yes-no--triple" role="radiogroup" aria-labelledby={id}>
+        {options.map(({ days, text }) => (
+          <button
+            key={days}
+            type="button"
+            role="radio"
+            aria-checked={value === days}
+            className={`plan-finder__yes-no-btn${value === days ? ' plan-finder__yes-no-btn--active' : ''}`}
+            onClick={() => onChange(days)}
+          >
+            {text}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PlanFinderYesNoToggle({
+  id,
+  label,
+  value,
+  onChange,
+  yesLabel,
+  noLabel,
+}: {
+  id: string;
+  label: string;
+  value: boolean;
+  onChange: (next: boolean) => void;
+  yesLabel: string;
+  noLabel: string;
+}) {
+  return (
+    <div className="plan-finder__field plan-finder__field--toggle">
+      <span className="plan-finder__label" id={id}>
+        {label}
+      </span>
+      <div className="plan-finder__yes-no" role="group" aria-labelledby={id}>
+        <button
+          type="button"
+          className={`plan-finder__yes-no-btn${value ? ' plan-finder__yes-no-btn--active' : ''}`}
+          aria-pressed={value}
+          onClick={() => onChange(true)}
+        >
+          {yesLabel}
+        </button>
+        <button
+          type="button"
+          className={`plan-finder__yes-no-btn${!value ? ' plan-finder__yes-no-btn--active' : ''}`}
+          aria-pressed={!value}
+          onClick={() => onChange(false)}
+        >
+          {noLabel}
+        </button>
+      </div>
+    </div>
+  );
 }
 
 function RangeWithTicks({
@@ -142,19 +245,101 @@ function RangeWithTicks({
   );
 }
 
+const CLOUD_PLAN_INDEX_FREE = 0;
+const CLOUD_PLAN_INDEX_DEVELOPERS = 1;
 const CLOUD_PLAN_INDEX_BUSINESS = 2;
-const BUSINESS_MAU_30K_PLUS_USD = 550;
+const CLOUD_PLAN_INDEX_ENTERPRISE = 3;
+const BUSINESS_BASE_USD = 500;
+const BUSINESS_MAU_INCLUDED = 25_000;
+const BUSINESS_MAU_BUCKET = 5_000;
+const BUSINESS_MAU_BUCKET_USD = 50;
+const BUSINESS_EXTRA_APP_USD = 100;
+const BUSINESS_EXTRA_MEMBER_USD = 50;
+const DEVELOPERS_BASE_USD = 50;
+const DEVELOPERS_EXTRA_APP_USD = 100;
+const DEVELOPERS_EXTRA_MEMBER_USD = 50;
 
-/** Maps needs to cloud plan index: 0 Free, 1 Developers, 2 Business, 3 Enterprise (aligned to copy.cloud.plans). */
-function resolveRecommendedPlanIndex(apps: number, members: number): number {
-  if (apps > 5 || members > 5) return 3;
-  if (apps > 2 || members > 2) return 2;
-  return 1;
+function qualifiesForFreePlan(
+  apps: number,
+  members: number,
+  needsSmsWhatsapp: boolean,
+  logRetentionDays: LogRetentionDays,
+): boolean {
+  return !needsSmsWhatsapp && logRetentionDays === 1 && apps <= 2 && members <= 2;
 }
 
-/** Free + Developers share the same starter tier (unlimited MAU; seats ≤ 2). */
-function isStarterTier(apps: number, members: number): boolean {
-  return apps <= 2 && members <= 2;
+function qualifiesForDevelopersPlan(needsSmsWhatsapp: boolean, logRetentionDays: LogRetentionDays): boolean {
+  return needsSmsWhatsapp && logRetentionDays === 1;
+}
+
+function qualifiesForBusinessPlan(logRetentionDays: LogRetentionDays): boolean {
+  return logRetentionDays === 60;
+}
+
+function developersPlanFinderMonthlyUsd(apps: number, members: number): number {
+  const extraApps = Math.max(0, apps - 2) * DEVELOPERS_EXTRA_APP_USD;
+  const extraMembers = Math.max(0, members - 2) * DEVELOPERS_EXTRA_MEMBER_USD;
+  return DEVELOPERS_BASE_USD + extraApps + extraMembers;
+}
+
+/** Business: +$50 per 5,000 MAUs above 25,000. */
+function businessMauOverageUsd(mauN: number): number {
+  if (mauN <= BUSINESS_MAU_INCLUDED) return 0;
+  return Math.ceil((mauN - BUSINESS_MAU_INCLUDED) / BUSINESS_MAU_BUCKET) * BUSINESS_MAU_BUCKET_USD;
+}
+
+function businessPlanFinderMonthlyUsd(apps: number, members: number, mauIdx: number): number {
+  const extraApps = Math.max(0, apps - 5) * BUSINESS_EXTRA_APP_USD;
+  const extraMembers = Math.max(0, members - 5) * BUSINESS_EXTRA_MEMBER_USD;
+  const mauOverage = businessMauOverageUsd(mauNumericForLogic(mauIdx));
+  return BUSINESS_BASE_USD + extraApps + extraMembers + mauOverage;
+}
+
+function qualifiesForEnterprisePlan(
+  apps: number,
+  members: number,
+  mauIdx: number,
+  needsSmsWhatsapp: boolean,
+  logRetentionDays: LogRetentionDays,
+): boolean {
+  if (apps >= APPS_MEMBERS_PLUS_NUMERIC || members >= APPS_MEMBERS_PLUS_NUMERIC) return true;
+  if (logRetentionDays === 180) return true;
+  const mauSliderUnlocked =
+    !qualifiesForFreePlan(apps, members, needsSmsWhatsapp, logRetentionDays) &&
+    !qualifiesForDevelopersPlan(needsSmsWhatsapp, logRetentionDays);
+  return mauSliderUnlocked && mauIdx >= MAU_STEPS.length;
+}
+
+/** Maps needs to cloud plan index: 0 Free, 1 Developers, 2 Business, 3 Enterprise (aligned to copy.cloud.plans). */
+function resolveRecommendedPlanIndex(
+  apps: number,
+  members: number,
+  mauIdx: number,
+  needsSmsWhatsapp: boolean,
+  logRetentionDays: LogRetentionDays,
+): number {
+  if (qualifiesForEnterprisePlan(apps, members, mauIdx, needsSmsWhatsapp, logRetentionDays)) {
+    return CLOUD_PLAN_INDEX_ENTERPRISE;
+  }
+  if (qualifiesForFreePlan(apps, members, needsSmsWhatsapp, logRetentionDays)) return CLOUD_PLAN_INDEX_FREE;
+  if (qualifiesForBusinessPlan(logRetentionDays)) return CLOUD_PLAN_INDEX_BUSINESS;
+  if (qualifiesForDevelopersPlan(needsSmsWhatsapp, logRetentionDays)) return CLOUD_PLAN_INDEX_DEVELOPERS;
+  return CLOUD_PLAN_INDEX_DEVELOPERS;
+}
+
+function formatAuthgearPlanFinderPriceLine(
+  usd: number,
+  month: string,
+  planIndex: number,
+  priceFrom: string,
+): string {
+  const amount = usd.toLocaleString('en-US');
+  const fromPrefix =
+    planIndex === CLOUD_PLAN_INDEX_DEVELOPERS || planIndex === CLOUD_PLAN_INDEX_BUSINESS
+      ? `${priceFrom} `
+      : '';
+  const gap = month.startsWith('/') || month.startsWith('／') ? '' : ' ';
+  return `${fromPrefix}$${amount}${gap}${month}`;
 }
 
 function isFreeTierPlan(plan: PricingCopy['cloud']['plans'][0]): boolean {
@@ -173,55 +358,36 @@ const COMPETITOR_DISPLAY_NAME: Record<(typeof COMPETITOR_ORDER)[number], string>
   frontegg: 'Frontegg',
 };
 
-/** Auth0 MAU → monthly USD (linear between anchors; capped at 30K+ = $2,100). */
-const AUTH0_MAU_PRICE_ANCHORS: readonly [mau: number, usd: number][] = [
-  [500, 35],
-  [1000, 70],
-  [2500, 175],
-  [5000, 350],
-  [7500, 525],
-  [10_000, 700],
-  [20_000, 1400],
-  [30_000, 2100],
-];
+/** Auth0 plan-finder estimate: $0.07 per MAU (50K MAU → $3,500). */
+const AUTH0_USD_PER_MAU = 0.07;
 
 /**
- * Frontegg (piecewise): free ≤8K MAU; ramps to $250 @10K; then $100/1K MAU ($750 @15K).
+ * Frontegg plan-finder estimate: $250 @10K MAU, then +$100 per 1,000 MAU
+ * (15K→$750, 20K→$1,250, 25K→$1,750, 30K→$2,250, 35K→$2,750, 50K→$4,250).
+ * ≤8K MAU free; linear ramp from 8K→10K up to $250.
  */
 const FRONTEGG_FREE_MAU = 8_000;
-const FRONTEGG_ANCHOR_MAU_10K = 10_000;
-const FRONTEGG_ANCHOR_USD_10K = 250;
-const FRONTEGG_ANCHOR_MAU_15K = 15_000;
-const FRONTEGG_ANCHOR_USD_15K = 750;
-const FRONTEGG_USD_PER_MAU_ABOVE_10K =
-  (FRONTEGG_ANCHOR_USD_15K - FRONTEGG_ANCHOR_USD_10K) / (FRONTEGG_ANCHOR_MAU_15K - FRONTEGG_ANCHOR_MAU_10K);
+const FRONTEGG_BASE_MAU = 10_000;
+const FRONTEGG_BASE_USD = 250;
+/** $100 per 1,000 MAU above 10K (= $0.10 per MAU). */
+const FRONTEGG_USD_PER_MAU_ABOVE_BASE = 0.1;
+/** MAU basis for Auth0 / Frontegg when the plan finder shows Unlimited MAUs (Free, Developers). */
+const COMPETITOR_COMPARE_MAU_WHEN_UNLIMITED = 50_000;
 
 function compareMauNumeric(mauIdx: number, mauSliderLocked: boolean): number {
-  return mauSliderLocked ? 12_000 : mauNumericForLogic(mauIdx);
+  return mauSliderLocked ? COMPETITOR_COMPARE_MAU_WHEN_UNLIMITED : mauNumericForLogic(mauIdx);
 }
 
 function auth0MonthlyUsd(mauN: number): number {
-  const [, capUsd] = AUTH0_MAU_PRICE_ANCHORS[AUTH0_MAU_PRICE_ANCHORS.length - 1];
-  const [minMau] = AUTH0_MAU_PRICE_ANCHORS[0];
-  if (mauN >= AUTH0_MAU_PRICE_ANCHORS[AUTH0_MAU_PRICE_ANCHORS.length - 1][0]) return capUsd;
-  if (mauN <= minMau) {
-    const [, minUsd] = AUTH0_MAU_PRICE_ANCHORS[0];
-    return (minUsd / minMau) * mauN;
-  }
-  for (let i = 0; i < AUTH0_MAU_PRICE_ANCHORS.length - 1; i++) {
-    const [m0, p0] = AUTH0_MAU_PRICE_ANCHORS[i];
-    const [m1, p1] = AUTH0_MAU_PRICE_ANCHORS[i + 1];
-    if (mauN <= m1) return p0 + ((p1 - p0) * (mauN - m0)) / (m1 - m0);
-  }
-  return capUsd;
+  return mauN * AUTH0_USD_PER_MAU;
 }
 
 function fronteggMonthlyUsd(mauN: number): number {
   if (mauN <= FRONTEGG_FREE_MAU) return 0;
-  if (mauN <= FRONTEGG_ANCHOR_MAU_10K) {
-    return (FRONTEGG_ANCHOR_USD_10K * (mauN - FRONTEGG_FREE_MAU)) / (FRONTEGG_ANCHOR_MAU_10K - FRONTEGG_FREE_MAU);
+  if (mauN <= FRONTEGG_BASE_MAU) {
+    return (FRONTEGG_BASE_USD * (mauN - FRONTEGG_FREE_MAU)) / (FRONTEGG_BASE_MAU - FRONTEGG_FREE_MAU);
   }
-  return FRONTEGG_ANCHOR_USD_10K + (mauN - FRONTEGG_ANCHOR_MAU_10K) * FRONTEGG_USD_PER_MAU_ABOVE_10K;
+  return FRONTEGG_BASE_USD + (mauN - FRONTEGG_BASE_MAU) * FRONTEGG_USD_PER_MAU_ABOVE_BASE;
 }
 
 function authgearMonthlyUsd(plan: PricingCopy['cloud']['plans'][0]): number | null {
@@ -231,30 +397,37 @@ function authgearMonthlyUsd(plan: PricingCopy['cloud']['plans'][0]): number | nu
   return Number(m[0].replace(/[$,]/g, ''));
 }
 
-function isMauThirtyKPlusTier(mauIdx: number, mauSliderLocked: boolean): boolean {
-  return !mauSliderLocked && mauIdx >= MAU_STEPS.length;
-}
-
 function authgearPlanFinderMonthlyUsd(
   plan: PricingCopy['cloud']['plans'][0],
   planIndex: number,
   mauIdx: number,
   mauSliderLocked: boolean,
+  appsN: number,
+  membersN: number,
 ): number | null {
+  if (planIndex === CLOUD_PLAN_INDEX_DEVELOPERS) {
+    return developersPlanFinderMonthlyUsd(appsN, membersN);
+  }
+  if (planIndex === CLOUD_PLAN_INDEX_BUSINESS) {
+    return businessPlanFinderMonthlyUsd(appsN, membersN, mauIdx);
+  }
   const base = authgearMonthlyUsd(plan);
   if (base === null) return null;
-  if (planIndex === CLOUD_PLAN_INDEX_BUSINESS && isMauThirtyKPlusTier(mauIdx, mauSliderLocked)) {
-    return BUSINESS_MAU_30K_PLUS_USD;
-  }
   return base;
 }
 
-function formatCompetitorEstimateUsd(usd: number, locale: string): string {
-  const rounded = Math.round(usd);
+function formatCompetitorEstimateUsd(
+  usd: number,
+  locale: string,
+  priceFrom: string,
+  month: string,
+): string {
+  const rounded = Math.round(usd).toLocaleString('en-US');
   if (locale === 'zh-Hant') {
-    return `約 US$${rounded.toLocaleString('en-US')}／月`;
+    return `${priceFrom} US$${rounded}／月`;
   }
-  return `~$${rounded.toLocaleString('en-US')}/mo`;
+  const gap = month.startsWith('/') || month.startsWith('／') ? '' : ' ';
+  return `${priceFrom} $${rounded}${gap}${month}`;
 }
 
 type PlanFinderCompareRow = {
@@ -271,6 +444,7 @@ function buildPlanFinderCompareRows(
   month: string,
   locale: string,
   priceFree: string,
+  priceFrom: string,
   starterTier: boolean,
   appsN: number,
   membersN: number,
@@ -283,7 +457,7 @@ function buildPlanFinderCompareRows(
     return {
       id,
       name: COMPETITOR_DISPLAY_NAME[id],
-      priceLine: formatCompetitorEstimateUsd(usd, locale),
+      priceLine: formatCompetitorEstimateUsd(usd, locale, priceFrom, month),
       barBasis: usd,
       highlight: false,
     };
@@ -303,15 +477,16 @@ function buildPlanFinderCompareRows(
     authRow = {
       id: 'authgear',
       name: 'Authgear',
-      priceLine: priceFree,
+      priceLine: formatAuthgearPlanFinderPriceLine(0, month, CLOUD_PLAN_INDEX_FREE, priceFrom),
       barBasis: 0,
       highlight: true,
     };
   } else {
-    const usd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, mauSliderLocked);
-    const amount = usd !== null ? usd.toLocaleString('en-US') : plan.priceLine.replace(/^\$/, '');
+    const usd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, mauSliderLocked, appsN, membersN);
     const priceLine =
-      usd !== null ? `$${amount}${month.startsWith('/') || month.startsWith('／') ? '' : ' '}${month}` : plan.priceLine;
+      usd !== null
+        ? formatAuthgearPlanFinderPriceLine(usd, month, planIndex, priceFrom)
+        : plan.priceLine;
     authRow = {
       id: 'authgear',
       name: 'Authgear',
@@ -336,7 +511,7 @@ function PlanFinderCompetitorCompare({
   mauIdx,
   mauSliderLocked,
 }: {
-  labels: Pick<PlanFinderLabels, 'compareTitle' | 'compareDisclaimer' | 'priceFree'>;
+  labels: Pick<PlanFinderLabels, 'compareTitle' | 'compareDisclaimer' | 'priceFree' | 'priceFrom'>;
   plan: PricingCopy['cloud']['plans'][0];
   planIndex: number;
   month: string;
@@ -355,13 +530,26 @@ function PlanFinderCompetitorCompare({
         month,
         locale,
         labels.priceFree,
+        labels.priceFrom,
         starterTier,
         appsN,
         membersN,
         mauIdx,
         mauSliderLocked,
       ),
-    [plan, planIndex, month, locale, labels.priceFree, starterTier, appsN, membersN, mauIdx, mauSliderLocked],
+    [
+      plan,
+      planIndex,
+      month,
+      locale,
+      labels.priceFree,
+      labels.priceFrom,
+      starterTier,
+      appsN,
+      membersN,
+      mauIdx,
+      mauSliderLocked,
+    ],
   );
   const maxBasis = useMemo(() => Math.max(1, ...rows.map((r) => r.barBasis)), [rows]);
 
@@ -403,12 +591,80 @@ function PlanFinderCompetitorCompare({
   );
 }
 
+function PlanFinderEnterpriseIcon() {
+  return (
+    <svg
+      className="plan-finder__enterprise-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width={42}
+      height={42}
+      viewBox="0 0 48 48"
+      fill="none"
+      aria-hidden
+    >
+      <path
+        d="M6.5 41.8221H42.5"
+        stroke="#2E2E2E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M35.181 34.9416V10.2448C35.181 7.99718 33.3596 6.17578 31.114 6.17578H17.8893C15.6417 6.17578 13.8203 7.99718 13.8203 10.2448V41.8196"
+        stroke="#2E2E2E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M27.845 27.5546L27.849 27.5746M21.1484 27.5546L21.1522 27.5746"
+        stroke="#2E2E2E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M27.845 20.9668L27.849 20.9868M21.1484 20.9668L21.1522 20.9868"
+        stroke="#2E2E2E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M27.845 14.2324L27.849 14.2524M21.1484 14.2324L21.1522 14.2524"
+        stroke="#2E2E2E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20.4609 36.6056C20.4609 35.7612 21.1555 35.0664 22.0001 35.0664H27.0089C27.8515 35.0664 28.5463 35.7612 28.5463 36.6056V41.8208"
+        stroke="#2E2E2E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M35.1797 18.0156H37.6939C39.2701 18.0156 40.5643 19.2922 40.5643 20.8858V41.8224"
+        stroke="#2E2E2E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.67188 41.8224V20.8858C8.67188 19.2922 9.96592 18.0156 11.5421 18.0156H13.8111"
+        stroke="#2E2E2E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function PlanFinderPlanSummary({
   plan,
   planIndex,
-  freePlan,
-  developersPlan,
-  starterTier,
   month,
   contactPath,
   labels,
@@ -420,9 +676,6 @@ function PlanFinderPlanSummary({
 }: {
   plan: PricingCopy['cloud']['plans'][0];
   planIndex: number;
-  freePlan: PricingCopy['cloud']['plans'][0];
-  developersPlan: PricingCopy['cloud']['plans'][0];
-  starterTier: boolean;
   month: string;
   contactPath: string;
   labels: PlanFinderLabels;
@@ -432,61 +685,62 @@ function PlanFinderPlanSummary({
   mauIdx: number;
   mauSliderLocked: boolean;
 }) {
-  const authgearUsd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, mauSliderLocked);
+  if (planIndex === CLOUD_PLAN_INDEX_ENTERPRISE) {
+    return (
+      <div className="plan-finder__summary plan-finder__summary--enterprise">
+        <PlanFinderEnterpriseIcon />
+        <h3 className="plan-finder__enterprise-title">{labels.enterpriseTitle}</h3>
+        <p className="plan-finder__enterprise-body">{labels.enterpriseBody}</p>
+        <div className="plan-finder__enterprise-features">
+          {labels.enterpriseFeatures.map((feature) => (
+            <div key={feature} className="price-feature">
+              <img src="/images/pricing_CLOUD_plans_check.svg" loading="lazy" alt="" width={20} height={20} />
+              <div className="plan-finder__enterprise-feature">{feature}</div>
+            </div>
+          ))}
+        </div>
+        <div className="plan-finder__cta-wrap">
+          <PlanCta plan={plan} contactPath={contactPath} />
+        </div>
+      </div>
+    );
+  }
+
+  const authgearUsd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, mauSliderLocked, appsN, membersN);
+  const showPriceFrom =
+    planIndex === CLOUD_PLAN_INDEX_DEVELOPERS || planIndex === CLOUD_PLAN_INDEX_BUSINESS;
   return (
     <div className="plan-finder__summary">
-      {starterTier ? (
-        <>
-          <div className="plan-finder__plan-name plan-finder__plan-name--solo plan-finder__plan-name--starter">
-            {freePlan.name} {labels.or} {developersPlan.name}
-          </div>
-          <p className="plan-finder__price-custom plan-finder__price-line--starter">
-            {labels.priceFree} {labels.or} {developersPlan.priceLine}
-            <span className="plan-finder__price-period">{month}</span>
-          </p>
-          <div className="plan-finder__cta-wrap">
-            <PlanCta plan={freePlan} contactPath={contactPath} />
-          </div>
-        </>
+      {plan.badge && !plan.highlight ? (
+        <div className="plan-finder__name-row">
+          <span className="plan-finder__plan-name">{plan.name}</span>
+          <span className="plan-finder__pill">{plan.badge}</span>
+        </div>
       ) : (
-        <>
-          {plan.badge && !plan.highlight ? (
-            <div className="plan-finder__name-row">
-              <span className="plan-finder__plan-name">{plan.name}</span>
-              <span className="plan-finder__pill">{plan.badge}</span>
-            </div>
-          ) : (
-            <div className="plan-finder__plan-name plan-finder__plan-name--solo">{plan.name}</div>
-          )}
-          {plan.enterprise ? (
-            <p className="plan-finder__price-custom">{plan.priceLine}</p>
-          ) : (
-            <div className="plan-finder__price-line">
-              <span className="plan-finder__currency">$</span>
-              <span className="plan-finder__price-amount">
-                {authgearUsd !== null ? authgearUsd.toLocaleString('en-US') : plan.priceLine.replace(/^\$/, '')}
-              </span>
-              <span className="plan-finder__price-period">{month}</span>
-            </div>
-          )}
-          <div className="plan-finder__cta-wrap">
-            <PlanCta plan={plan} contactPath={contactPath} />
-          </div>
-        </>
+        <div className="plan-finder__plan-name plan-finder__plan-name--solo">{plan.name}</div>
       )}
-      <hr className="plan-finder__recommend-divider" />
-      <PlanFinderCompetitorCompare
-        labels={labels}
-        plan={plan}
-        planIndex={planIndex}
-        month={month}
-        locale={locale}
-        starterTier={starterTier}
-        appsN={appsN}
-        membersN={membersN}
-        mauIdx={mauIdx}
-        mauSliderLocked={mauSliderLocked}
-      />
+
+      {plan.enterprise ? (
+        <p className="plan-finder__price-custom">{plan.priceLine}</p>
+      ) : isFreeTierPlan(plan) ? (
+        <div className="plan-finder__price-line">
+          <span className="plan-finder__currency">$</span>
+          <span className="plan-finder__price-amount">0</span>
+          <span className="plan-finder__price-period">{month}</span>
+        </div>
+      ) : (
+        <div className="plan-finder__price-line">
+          {showPriceFrom ? <span className="plan-finder__price-from">{labels.priceFrom}</span> : null}
+          <span className="plan-finder__currency">$</span>
+          <span className="plan-finder__price-amount">
+            {authgearUsd !== null ? authgearUsd.toLocaleString('en-US') : plan.priceLine.replace(/^\$/, '')}
+          </span>
+          <span className="plan-finder__price-period">{month}</span>
+        </div>
+      )}
+      <div className="plan-finder__cta-wrap">
+        <PlanCta plan={plan} contactPath={contactPath} />
+      </div>
     </div>
   );
 }
@@ -506,19 +760,28 @@ function PlanFinderBlock({
 }) {
   const [appsIdx, setAppsIdx] = useState(1);
   const [membersIdx, setMembersIdx] = useState(1);
-  const [mauIdx, setMauIdx] = useState(3);
+  const [mauIdx, setMauIdx] = useState(0);
+  const [needsSmsWhatsapp, setNeedsSmsWhatsapp] = useState(false);
+  const [logRetentionDays, setLogRetentionDays] = useState<LogRetentionDays>(1);
 
-  const appsN = appsMembersNumericFromSliderIndex(appsIdx);
-  const membersN = appsMembersNumericFromSliderIndex(membersIdx);
-  const starterTier = isStarterTier(appsN, membersN);
-  const planIndex = resolveRecommendedPlanIndex(appsN, membersN);
+  const scaleSlidersDisabled = logRetentionDays === 180;
+  const appsIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : appsIdx;
+  const membersIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : membersIdx;
+  const appsN = appsMembersNumericFromSliderIndex(appsIdxEffective);
+  const membersN = appsMembersNumericFromSliderIndex(membersIdxEffective);
+  const appsOrMembersTenPlus =
+    appsIdxEffective >= APPS_MEMBERS_SLIDER_MAX || membersIdxEffective >= APPS_MEMBERS_SLIDER_MAX;
+  const planIndex = resolveRecommendedPlanIndex(appsN, membersN, mauIdx, needsSmsWhatsapp, logRetentionDays);
+  const isEnterprisePlan = planIndex === CLOUD_PLAN_INDEX_ENTERPRISE;
   const plan = copy.cloud.plans[planIndex];
-  const freePlan = copy.cloud.plans[0];
-  const developersPlan = copy.cloud.plans[1];
-  const mauSliderLocked = starterTier;
-  const mauSliderValue = mauSliderLocked ? MAU_RANGE_MAX : mauIdx;
-  const mauAriaValueText = mauSliderLocked ? labels.mauUnlimitedValue : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus);
-  const mauAriaValueNow = mauSliderLocked ? undefined : mauNumericForLogic(mauIdx);
+  const mauSliderLocked =
+    planIndex === CLOUD_PLAN_INDEX_FREE || planIndex === CLOUD_PLAN_INDEX_DEVELOPERS;
+  const mauSliderDisabled = mauSliderLocked || scaleSlidersDisabled || appsOrMembersTenPlus;
+  const mauSliderValue = mauSliderDisabled ? MAU_RANGE_MAX : mauIdx;
+  const mauAriaValueText = mauSliderDisabled
+    ? labels.mauUnlimitedValue
+    : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus);
+  const mauAriaValueNow = mauSliderDisabled ? undefined : mauNumericForLogic(mauIdx);
   const appsTicks = appsMembersTickLabels(labels.appsTenPlus);
   const mauTicks = mauTickLabels(labels.mauScaleLast);
 
@@ -526,26 +789,41 @@ function PlanFinderBlock({
     <div className="plan-finder">
       <div className="plan-finder__grid">
         <div className="plan-finder__controls">
-          <h2 className="plan-finder__title" id="plan-finder-heading">
-            {labels.heading}
-          </h2>
+          <PlanFinderYesNoToggle
+            id="plan-finder-sms-label"
+            label={labels.labelSmsWhatsapp}
+            value={needsSmsWhatsapp}
+            onChange={setNeedsSmsWhatsapp}
+            yesLabel={labels.toggleYes}
+            noLabel={labels.toggleNo}
+          />
+          <PlanFinderLogRetentionToggle
+            id="plan-finder-log-retention-label"
+            label={labels.labelLogRetention}
+            value={logRetentionDays}
+            onChange={setLogRetentionDays}
+            option1Day={labels.logRetention1Day}
+            option60Days={labels.logRetention60Days}
+            option180Days={labels.logRetention180Days}
+          />
           <div className="plan-finder__field">
             <div className="plan-finder__label-row">
               <span className="plan-finder__label" id="plan-finder-apps-label">
                 {labels.labelApplications}
               </span>
               <span className="plan-finder__value" aria-live="polite">
-                {formatCountDisplay(appsIdx, labels.appsTenPlus)}
+                {formatCountDisplay(appsIdxEffective, labels.appsTenPlus)}
               </span>
             </div>
             <RangeWithTicks
               labelledBy="plan-finder-apps-label"
-              value={appsIdx}
+              value={appsIdxEffective}
               max={APPS_MEMBERS_SLIDER_MAX}
               onChange={setAppsIdx}
               tickLabels={appsTicks}
               ariaValueNow={appsN}
-              ariaValueText={formatCountDisplay(appsIdx, labels.appsTenPlus)}
+              ariaValueText={formatCountDisplay(appsIdxEffective, labels.appsTenPlus)}
+              disabled={scaleSlidersDisabled}
             />
           </div>
           <div className="plan-finder__field">
@@ -554,17 +832,18 @@ function PlanFinderBlock({
                 {labels.labelProjectMembers}
               </span>
               <span className="plan-finder__value" aria-live="polite">
-                {formatCountDisplay(membersIdx, labels.appsTenPlus)}
+                {formatCountDisplay(membersIdxEffective, labels.appsTenPlus)}
               </span>
             </div>
             <RangeWithTicks
               labelledBy="plan-finder-members-label"
-              value={membersIdx}
+              value={membersIdxEffective}
               max={APPS_MEMBERS_SLIDER_MAX}
               onChange={setMembersIdx}
               tickLabels={appsTicks}
               ariaValueNow={membersN}
-              ariaValueText={formatCountDisplay(membersIdx, labels.appsTenPlus)}
+              ariaValueText={formatCountDisplay(membersIdxEffective, labels.appsTenPlus)}
+              disabled={scaleSlidersDisabled}
             />
           </div>
           <div className="plan-finder__field">
@@ -573,7 +852,7 @@ function PlanFinderBlock({
                 {labels.labelMaus}
               </span>
               <span className="plan-finder__value" aria-live="polite">
-                {mauSliderLocked ? labels.mauUnlimitedValue : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus)}
+                {mauSliderDisabled ? labels.mauUnlimitedValue : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus)}
               </span>
             </div>
             <RangeWithTicks
@@ -584,18 +863,19 @@ function PlanFinderBlock({
               tickLabels={mauTicks}
               ariaValueNow={mauAriaValueNow}
               ariaValueText={mauAriaValueText}
-              disabled={mauSliderLocked}
+              disabled={mauSliderDisabled}
             />
           </div>
         </div>
-        <div className="plan-finder__result">
-          <div className="plan-finder__result-heading">{labels.recommendedHeading}</div>
+        <div
+          className={`plan-finder__result${isEnterprisePlan ? ' plan-finder__result--enterprise' : ''}`}
+        >
+          {!isEnterprisePlan ? (
+            <div className="plan-finder__result-heading">{labels.recommendedHeading}</div>
+          ) : null}
           <PlanFinderPlanSummary
             plan={plan}
             planIndex={planIndex}
-            freePlan={freePlan}
-            developersPlan={developersPlan}
-            starterTier={starterTier}
             month={month}
             contactPath={contactPath}
             labels={labels}
@@ -605,6 +885,23 @@ function PlanFinderBlock({
             mauIdx={mauIdx}
             mauSliderLocked={mauSliderLocked}
           />
+          {!isEnterprisePlan ? (
+            <div className="plan-finder__result-tail">
+              <hr className="plan-finder__recommend-divider" />
+              <PlanFinderCompetitorCompare
+                labels={labels}
+                plan={plan}
+                planIndex={planIndex}
+                month={month}
+                locale={locale}
+                starterTier={isFreeTierPlan(plan)}
+                appsN={appsN}
+                membersN={membersN}
+                mauIdx={mauIdx}
+                mauSliderLocked={mauSliderLocked}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
@@ -614,6 +911,22 @@ function PlanFinderBlock({
 function resolveHref(href: string, contactPath: string): string {
   if (href === '__CONTACT__') return contactPath;
   return href;
+}
+
+function ComparisonLinkArrow() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="ds-btn__icon-arrow"
+      aria-hidden
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+    </svg>
+  );
 }
 
 function NodeVariantCell({
@@ -627,34 +940,15 @@ function NodeVariantCell({
 }) {
   const isZhHant = locale === 'zh-Hant';
   switch (variant) {
-    case 'smsWhatsappBusiness':
+    case 'whatsappOtpMeteredSeePricing':
       return (
         <>
-          <div className="plan-data-sub-row">
-            <strong>SMS</strong>
-            <br />
-            {isZhHant ? '美國/加拿大：$0.02' : 'US/Canada: $0.02'}
-            <br />
-            {isZhHant ? '其他：$0.1' : 'Others: $0.1'}
-          </div>
-          <div className="plan-data-sub-row">
-            <strong>WhatsApp</strong>
-            <br />
-            <a href={whatsappPath} className="comparison-label">
-              {isZhHant ? '請參閱定價' : 'See Pricing'}
-            </a>
-          </div>
-          <div className="plan-data-sub-row">{isZhHant ? '或自訂閘道' : 'Or Custom Gateway'}</div>
-        </>
-      );
-    case 'smsWhatsappDevelopers':
-      return (
-        <>
-          <strong>{isZhHant ? 'SMS 及 WhatsApp' : 'SMS and WhatsApp'}</strong>
+          <a href={whatsappPath} className="comparison-link">
+            {isZhHant ? '請參閱定價' : 'See Pricing'}
+            <ComparisonLinkArrow />
+          </a>
           <br />
-          {isZhHant ? '美國/加拿大：$0.02' : 'US/Canada: $0.02'}
-          <br />
-          {isZhHant ? '其他：$0.1' : 'Others: $0.1'}
+          {isZhHant ? '或自訂閘道' : 'Or custom gateway'}
         </>
       );
     case 'othersBusiness':
@@ -685,31 +979,23 @@ function NodeVariantCell({
           {isZhHant ? '資料駐留' : 'Data Residency'}
         </>
       );
-    case 'addonsDevelopers':
-      return (
-        <>
-          {isZhHant ? '每個環境 $100' : '$100/Environment'}
-          <br />
-          {isZhHant ? '每個應用程式 $100' : '$100/Applications'}
-          <br />
-          {isZhHant ? '每位專案成員 $50' : '$50/Project Member'}
-        </>
-      );
-    case 'addonsBusiness':
-      return (
-        <>
-          {isZhHant ? '每個環境 $100' : '$100/Environment'}
-          <br />
-          {isZhHant ? '每個應用程式 $100' : '$100/Applications'}
-          <br />
-          {isZhHant ? '每位專案成員 $50' : '$50/Project Member'}
-          <br />
-          {isZhHant ? '每 5,000 額外 MAU $50' : '$50/5,000 additional MAU'}
-        </>
-      );
     default:
       return null;
   }
+}
+
+function ComparisonCheckIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+      <path
+        d="M15.8327 5.98962L7.81185 14.0105L4.16602 10.3646"
+        stroke="#2E2E2E"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 function CellContent({
@@ -722,12 +1008,15 @@ function CellContent({
   locale: string;
 }) {
   if (cell.kind === 'check') {
-    return <img src="/images/pricing_CLOUD_full_comparison_check.svg" loading="lazy" alt="" width={20} height={20} />;
+    return <ComparisonCheckIcon />;
   }
   if (cell.kind === 'dash') return <>-</>;
   if (cell.kind === 'empty') return null;
   if (cell.kind === 'nodeVariant') {
     return <NodeVariantCell variant={cell.variant} whatsappPath={whatsappPath} locale={locale} />;
+  }
+  if (cell.value.includes('\n')) {
+    return <span className="whitespace-pre-line">{cell.value}</span>;
   }
   return <>{cell.value}</>;
 }
@@ -740,9 +1029,7 @@ function OnceCoreValue({ value }: { value: PricingCell | string }) {
     return <>{value}</>;
   }
   if (value.kind === 'check') {
-    return (
-      <img src="/images/pricing_CLOUD_full_comparison_check.svg" loading="lazy" alt="" width={20} height={20} />
-    );
+    return <ComparisonCheckIcon />;
   }
   return null;
 }
@@ -915,6 +1202,9 @@ export default function PricingPageClient({
             )}
           </div>
           <div className="plan-finder-section">
+            <div className="full-plan" id="plan-finder-heading">
+              {planFinder.heading}
+            </div>
             <PlanFinderBlock
               labels={planFinder}
               locale={locale}
@@ -941,19 +1231,28 @@ export default function PricingPageClient({
                 </div>
               ))}
             </div>
-            {copy.comparison.rows.map((row) => (
-              <div key={row.label} className={`comparison-row${row.odd ? ' odd' : ''}`}>
-                <div className="comparison-column first-column">{row.label}</div>
-                {row.cells.map((cell, i) => (
-                  <div
-                    key={i}
-                    className={`comparison-column plan-data ${['free-plan', 'developers-plan', 'business-plan', 'enterprise-plan'][i]}`}
-                  >
-                    <CellContent cell={cell} whatsappPath={whatsappPath} locale={locale} />
+            {copy.comparison.rows.map((row, rowIndex) => {
+                if (row.kind === 'section') {
+                  return (
+                    <div key={`section-${row.title}`} className="comparison-row comparison-row--section">
+                      <div className="comparison-column comparison-section-title">{row.title}</div>
+                    </div>
+                  );
+                }
+                return (
+                  <div key={`${row.label}-${rowIndex}`} className="comparison-row">
+                    <div className="comparison-column first-column whitespace-pre-line">{row.label}</div>
+                    {row.cells.map((cell, i) => (
+                      <div
+                        key={i}
+                        className={`comparison-column plan-data ${['free-plan', 'developers-plan', 'business-plan', 'enterprise-plan'][i]}`}
+                      >
+                        <CellContent cell={cell} whatsappPath={whatsappPath} locale={locale} />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            ))}
+                );
+            })}
           </div>
         </div>
       </section>
