@@ -2,12 +2,9 @@ export type PricingLocaleKey = 'en' | 'zh-Hant';
 
 /** Rich comparison cells — rendered in `PricingPageClient` (must be serializable; no functions). */
 export type PricingNodeVariant =
-  | 'smsWhatsappBusiness'
-  | 'smsWhatsappDevelopers'
+  | 'whatsappOtpMeteredSeePricing'
   | 'othersBusiness'
-  | 'othersEnterprise'
-  | 'addonsDevelopers'
-  | 'addonsBusiness';
+  | 'othersEnterprise';
 
 export type PricingCell =
   | { kind: 'check' }
@@ -27,6 +24,14 @@ export type CloudPlan = {
   enterprise?: boolean;
 };
 
+export type PricingComparisonRow =
+  | { kind: 'section'; title: string }
+  | {
+      kind: 'feature';
+      label: string;
+      cells: [PricingCell, PricingCell, PricingCell, PricingCell];
+    };
+
 export type PricingCopy = {
   meta: { title: string; description: string };
   tabs: { cloud: string; once: string };
@@ -44,11 +49,7 @@ export type PricingCopy = {
   };
   comparison: {
     planNames: [string, string, string, string];
-    rows: Array<{
-      label: string;
-      odd?: boolean;
-      cells: [PricingCell, PricingCell, PricingCell, PricingCell];
-    }>;
+    rows: PricingComparisonRow[];
   };
   once: {
     titleLine1: string;
