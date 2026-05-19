@@ -378,6 +378,15 @@ function compareMauNumeric(mauIdx: number, mauSliderLocked: boolean): number {
   return mauSliderLocked ? COMPETITOR_COMPARE_MAU_WHEN_UNLIMITED : mauNumericForLogic(mauIdx);
 }
 
+function formatCompareDisclaimerMau(mauN: number, locale: string): string {
+  const loc = locale === 'zh-Hant' ? 'zh-Hant' : 'en-US';
+  return new Intl.NumberFormat(loc).format(mauN);
+}
+
+function formatCompareDisclaimer(template: string, mauN: number, locale: string): string {
+  return template.replace('{mau}', formatCompareDisclaimerMau(mauN, locale));
+}
+
 function auth0MonthlyUsd(mauN: number): number {
   return mauN * AUTH0_USD_PER_MAU;
 }
@@ -552,6 +561,15 @@ function PlanFinderCompetitorCompare({
     ],
   );
   const maxBasis = useMemo(() => Math.max(1, ...rows.map((r) => r.barBasis)), [rows]);
+  const disclaimer = useMemo(
+    () =>
+      formatCompareDisclaimer(
+        labels.compareDisclaimer,
+        compareMauNumeric(mauIdx, mauSliderLocked),
+        locale,
+      ),
+    [labels.compareDisclaimer, mauIdx, mauSliderLocked, locale],
+  );
 
   return (
     <div className="plan-finder-compare">
@@ -585,7 +603,7 @@ function PlanFinderCompetitorCompare({
             );
           })}
         </ul>
-        <p className="plan-finder-compare__disclaimer">{labels.compareDisclaimer}</p>
+        <p className="plan-finder-compare__disclaimer">{disclaimer}</p>
       </div>
     </div>
   );
