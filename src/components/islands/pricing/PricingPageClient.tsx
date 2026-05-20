@@ -459,10 +459,6 @@ function isFreeTierPlan(plan: PricingCopy['cloud']['plans'][0]): boolean {
   return authgearMonthlyUsd(plan) === 0;
 }
 
-function clamp(n: number, lo: number, hi: number): number {
-  return Math.min(hi, Math.max(lo, n));
-}
-
 const COMPARISON_PLAN_COLUMN_CLASSES = [
   'free-plan',
   'developers-plan',
@@ -529,7 +525,6 @@ function authgearPlanFinderMonthlyUsd(
   plan: PricingCopy['cloud']['plans'][0],
   planIndex: number,
   mauIdx: number,
-  mauSliderLocked: boolean,
   appsN: number,
   membersN: number,
 ): number | null {
@@ -571,7 +566,6 @@ function buildPlanFinderCompareRows(
   planIndex: number,
   month: string,
   locale: string,
-  priceFree: string,
   priceFrom: string,
   starterTier: boolean,
   appsN: number,
@@ -610,7 +604,7 @@ function buildPlanFinderCompareRows(
       highlight: true,
     };
   } else {
-    const usd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, mauSliderLocked, appsN, membersN);
+    const usd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, appsN, membersN);
     const priceLine =
       usd !== null
         ? formatAuthgearPlanFinderPriceLine(usd, month, planIndex, priceFrom)
@@ -639,7 +633,7 @@ function PlanFinderCompetitorCompare({
   mauIdx,
   mauSliderLocked,
 }: {
-  labels: Pick<PlanFinderLabels, 'compareTitle' | 'compareDisclaimer' | 'priceFree' | 'priceFrom'>;
+  labels: Pick<PlanFinderLabels, 'compareTitle' | 'compareDisclaimer' | 'priceFrom'>;
   plan: PricingCopy['cloud']['plans'][0];
   planIndex: number;
   month: string;
@@ -657,7 +651,6 @@ function PlanFinderCompetitorCompare({
         planIndex,
         month,
         locale,
-        labels.priceFree,
         labels.priceFrom,
         starterTier,
         appsN,
@@ -670,7 +663,6 @@ function PlanFinderCompetitorCompare({
       planIndex,
       month,
       locale,
-      labels.priceFree,
       labels.priceFrom,
       starterTier,
       appsN,
@@ -805,22 +797,18 @@ function PlanFinderPlanSummary({
   month,
   contactPath,
   labels,
-  locale,
   appsN,
   membersN,
   mauIdx,
-  mauSliderLocked,
 }: {
   plan: PricingCopy['cloud']['plans'][0];
   planIndex: number;
   month: string;
   contactPath: string;
   labels: PlanFinderLabels;
-  locale: string;
   appsN: number;
   membersN: number;
   mauIdx: number;
-  mauSliderLocked: boolean;
 }) {
   if (planIndex === CLOUD_PLAN_INDEX_ENTERPRISE) {
     return (
@@ -848,7 +836,7 @@ function PlanFinderPlanSummary({
     );
   }
 
-  const authgearUsd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, mauSliderLocked, appsN, membersN);
+  const authgearUsd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, appsN, membersN);
   const showPriceFrom =
     planIndex === CLOUD_PLAN_INDEX_DEVELOPERS || planIndex === CLOUD_PLAN_INDEX_BUSINESS;
   return (
@@ -1085,11 +1073,9 @@ function PlanFinderBlock({
             month={month}
             contactPath={contactPath}
             labels={labels}
-            locale={locale}
             appsN={appsN}
             membersN={membersN}
             mauIdx={mauIdx}
-            mauSliderLocked={mauSliderLocked}
           />
           {!isEnterprisePlan ? (
             <div className="plan-finder__result-tail">
