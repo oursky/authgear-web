@@ -623,6 +623,10 @@
   place-items: stretch;
 }
 
+.comparison.static-table .comparison-row--section.once-row--section {
+  grid-template-columns: 1fr 1fr;
+}
+
 .comparison.static-table .comparison-row--section:first-of-type {
   margin-top: 4px;
 }
@@ -640,32 +644,63 @@
   border-radius: 12px;
 }
 
-.comparison.static-table .comparison-link {
+.comparison.static-table .comparison-link--btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  justify-content: center;
   margin: 0;
-  padding: 0;
-  background: none;
-  border-radius: 0;
+  padding: 4px 12px;
+  background: transparent;
+  border: 1px solid #365ef2;
+  border-radius: 8px;
   color: #365ef2;
   font-size: 14px;
-  font-weight: inherit;
+  font-weight: 500;
   line-height: 20px;
   text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
-.comparison.static-table .comparison-link:hover {
+.comparison.static-table .comparison-link--btn:hover {
+  background-color: #f0f4ff;
+  border-color: #2a4bc9;
   color: #2a4bc9;
 }
 
-.comparison.static-table .comparison-link .ds-btn__icon-arrow {
-  flex-shrink: 0;
-  width: 1.125rem;
-  height: 1.125rem;
-  transition: transform 180ms ease;
+.comparison.static-table .comparison-enterprise-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
-.comparison.static-table .comparison-link:hover .ds-btn__icon-arrow {
-  transform: translateX(4px);
+.comparison.static-table .comparison-enterprise-contact__suffix {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Mobile Cloud comparison — plan column tabs (ONCE table always shows label + value) */
+@media screen and (max-width: 767px) {
+  .cloud.pricing-info .comparison.static-table button.comparison-column.comparison-plan.plan-option {
+    margin: 0;
+    padding: 8px 0;
+    background: none;
+    font: inherit;
+    text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .cloud.pricing-info .comparison.static-table .comparison-column.plan-data {
+    display: none !important;
+  }
+
+  .cloud.pricing-info .comparison.static-table .comparison-column.plan-data.comparison-plan-col--active {
+    display: block !important;
+  }
 }

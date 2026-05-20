@@ -1,6 +1,7 @@
-import { useMemo, useState, type CSSProperties } from 'react';
+import { useMemo, useRef, useState, type CSSProperties } from 'react';
 import type { PricingCell, PricingCopy, PricingNodeVariant } from '@/lib/pricing/types';
 import { PricingFaqItem } from '@/components/islands/pricing/PricingFaqItem';
+import { trackEvent } from '@/lib/plausible';
 import './PricingPlanFinder.css';
 
 const APPS_MEMBERS_SLIDER_MAX = 9;
@@ -41,6 +42,8 @@ type PlanFinderLabels = {
   enterpriseTitle: string;
   enterpriseBody: string;
   enterpriseFeatures: string[];
+  /** CTA label for Developers / Business in the recommended-plan summary (e.g. "Get Started"). */
+  ctaGetStarted: string;
 };
 
 type Props = {
@@ -94,6 +97,9 @@ function mauTickLabels(mauScaleLast: string): string[] {
 }
 
 type LogRetentionDays = 1 | 60 | 180;
+
+/** First plan-finder control touched; sent once per page view with `pricing-plan-finder-interact`. */
+type PlanFinderFirstAction = 'sms' | 'log-retention' | 'apps' | 'members' | 'mau';
 
 function PlanFinderLogRetentionToggle({
   id,
@@ -249,6 +255,21 @@ const CLOUD_PLAN_INDEX_FREE = 0;
 const CLOUD_PLAN_INDEX_DEVELOPERS = 1;
 const CLOUD_PLAN_INDEX_BUSINESS = 2;
 const CLOUD_PLAN_INDEX_ENTERPRISE = 3;
+
+type PlanFinderSignupPlan = 'free' | 'developers' | 'business' | 'enterprise';
+
+function planFinderSignupPlan(planIndex: number): PlanFinderSignupPlan {
+  switch (planIndex) {
+    case CLOUD_PLAN_INDEX_DEVELOPERS:
+      return 'developers';
+    case CLOUD_PLAN_INDEX_BUSINESS:
+      return 'business';
+    case CLOUD_PLAN_INDEX_ENTERPRISE:
+      return 'enterprise';
+    default:
+      return 'free';
+  }
+}
 const BUSINESS_BASE_USD = 500;
 const BUSINESS_MAU_INCLUDED = 25_000;
 const BUSINESS_MAU_BUCKET = 5_000;
@@ -350,6 +371,13 @@ function isFreeTierPlan(plan: PricingCopy['cloud']['plans'][0]): boolean {
 function clamp(n: number, lo: number, hi: number): number {
   return Math.min(hi, Math.max(lo, n));
 }
+
+const COMPARISON_PLAN_COLUMN_CLASSES = [
+  'free-plan',
+  'developers-plan',
+  'business-plan',
+  'enterprise-plan',
+] as const;
 
 const COMPETITOR_ORDER = ['auth0', 'frontegg'] as const;
 
@@ -718,7 +746,12 @@ function PlanFinderPlanSummary({
           ))}
         </div>
         <div className="plan-finder__cta-wrap">
-          <PlanCta plan={plan} contactPath={contactPath} />
+          <PlanCta
+            plan={plan}
+            contactPath={contactPath}
+            label={planFinderCtaLabel(planIndex, labels)}
+            signupTracking={{ location: 'plan-finder', plan: planFinderSignupPlan(planIndex) }}
+          />
         </div>
       </div>
     );
@@ -757,7 +790,12 @@ function PlanFinderPlanSummary({
         </div>
       )}
       <div className="plan-finder__cta-wrap">
-        <PlanCta plan={plan} contactPath={contactPath} />
+        <PlanCta
+          plan={plan}
+          contactPath={contactPath}
+          label={planFinderCtaLabel(planIndex, labels)}
+          signupTracking={{ location: 'plan-finder', plan: planFinderSignupPlan(planIndex) }}
+        />
       </div>
     </div>
   );
@@ -781,6 +819,13 @@ function PlanFinderBlock({
   const [mauIdx, setMauIdx] = useState(0);
   const [needsSmsWhatsapp, setNeedsSmsWhatsapp] = useState(false);
   const [logRetentionDays, setLogRetentionDays] = useState<LogRetentionDays>(1);
+
+  const interactedRef = useRef(false);
+  const markInteract = (action: PlanFinderFirstAction) => {
+    if (interactedRef.current) return;
+    interactedRef.current = true;
+    trackEvent('pricing-plan-finder-interact', { first_action: action });
+  };
 
   const scaleSlidersDisabled = logRetentionDays === 180;
   const appsIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : appsIdx;
@@ -811,7 +856,10 @@ function PlanFinderBlock({
             id="plan-finder-sms-label"
             label={labels.labelSmsWhatsapp}
             value={needsSmsWhatsapp}
-            onChange={setNeedsSmsWhatsapp}
+            onChange={(next) => {
+              markInteract('sms');
+              setNeedsSmsWhatsapp(next);
+            }}
             yesLabel={labels.toggleYes}
             noLabel={labels.toggleNo}
           />
@@ -819,7 +867,10 @@ function PlanFinderBlock({
             id="plan-finder-log-retention-label"
             label={labels.labelLogRetention}
             value={logRetentionDays}
-            onChange={setLogRetentionDays}
+            onChange={(next) => {
+              markInteract('log-retention');
+              setLogRetentionDays(next);
+            }}
             option1Day={labels.logRetention1Day}
             option60Days={labels.logRetention60Days}
             option180Days={labels.logRetention180Days}
@@ -837,7 +888,10 @@ function PlanFinderBlock({
               labelledBy="plan-finder-apps-label"
               value={appsIdxEffective}
               max={APPS_MEMBERS_SLIDER_MAX}
-              onChange={setAppsIdx}
+              onChange={(next) => {
+                markInteract('apps');
+                setAppsIdx(next);
+              }}
               tickLabels={appsTicks}
               ariaValueNow={appsN}
               ariaValueText={formatCountDisplay(appsIdxEffective, labels.appsTenPlus)}
@@ -857,7 +911,10 @@ function PlanFinderBlock({
               labelledBy="plan-finder-members-label"
               value={membersIdxEffective}
               max={APPS_MEMBERS_SLIDER_MAX}
-              onChange={setMembersIdx}
+              onChange={(next) => {
+                markInteract('members');
+                setMembersIdx(next);
+              }}
               tickLabels={appsTicks}
               ariaValueNow={membersN}
               ariaValueText={formatCountDisplay(membersIdxEffective, labels.appsTenPlus)}
@@ -877,7 +934,10 @@ function PlanFinderBlock({
               labelledBy="plan-finder-mau-label"
               value={mauSliderValue}
               max={MAU_RANGE_MAX}
-              onChange={setMauIdx}
+              onChange={(next) => {
+                markInteract('mau');
+                setMauIdx(next);
+              }}
               tickLabels={mauTicks}
               ariaValueNow={mauAriaValueNow}
               ariaValueText={mauAriaValueText}
@@ -931,22 +991,6 @@ function resolveHref(href: string, contactPath: string): string {
   return href;
 }
 
-function ComparisonLinkArrow() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-      className="ds-btn__icon-arrow"
-      aria-hidden
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-    </svg>
-  );
-}
-
 function NodeVariantCell({
   variant,
   whatsappPath,
@@ -961,9 +1005,8 @@ function NodeVariantCell({
     case 'whatsappOtpMeteredSeePricing':
       return (
         <>
-          <a href={whatsappPath} className="comparison-link">
+          <a href={whatsappPath} className="comparison-link comparison-link--btn">
             {isZhHant ? '請參閱定價' : 'See Pricing'}
-            <ComparisonLinkArrow />
           </a>
           <br />
           {isZhHant ? '或自訂閘道' : 'Or custom gateway'}
@@ -1055,24 +1098,52 @@ function OnceCoreValue({ value }: { value: PricingCell | string }) {
 function PlanCta({
   plan,
   contactPath,
+  label,
+  signupTracking,
 }: {
   plan: PricingCopy['cloud']['plans'][0];
   contactPath: string;
+  label?: string;
+  signupTracking?: { location: string; plan: PlanFinderSignupPlan };
 }) {
   const href = resolveHref(plan.cta.href, contactPath);
+  const displayLabel = label ?? plan.cta.label;
   const cls = `pricing-buy-now w-button${plan.highlight ? ' developers-bg' : ''}${plan.enterprise ? ' enterprise' : ''}`;
+
+  const handleClick = () => {
+    if (signupTracking) {
+      trackEvent('signup', {
+        location: signupTracking.location,
+        plan: signupTracking.plan,
+      });
+    }
+  };
+
   if (plan.cta.external) {
     return (
-      <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
-        {plan.cta.label}
+      <a
+        href={href}
+        className={cls}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={signupTracking ? handleClick : undefined}
+      >
+        {displayLabel}
       </a>
     );
   }
   return (
-    <a href={href} className={cls}>
-      {plan.cta.label}
+    <a href={href} className={cls} onClick={signupTracking ? handleClick : undefined}>
+      {displayLabel}
     </a>
   );
+}
+
+function planFinderCtaLabel(planIndex: number, labels: PlanFinderLabels): string | undefined {
+  if (planIndex === CLOUD_PLAN_INDEX_DEVELOPERS || planIndex === CLOUD_PLAN_INDEX_BUSINESS) {
+    return labels.ctaGetStarted;
+  }
+  return undefined;
 }
 
 function PlanCardInner({
@@ -1132,15 +1203,18 @@ export default function PricingPageClient({
   planFinder,
 }: Props) {
   const [tab, setTab] = useState(0);
+  const [comparisonPlanIndex, setComparisonPlanIndex] = useState(0);
 
   const enterpriseLink = useMemo(() => {
     return (
-      <>
-        <a href={contactPath} className="comparison-label">
+      <div className="comparison-enterprise-contact">
+        <a href={contactPath} className="comparison-link comparison-link--btn">
           {enterpriseContactLabel}
         </a>
-        {copy.once.enterpriseContactSuffix}
-      </>
+        <span className="comparison-enterprise-contact__suffix">
+          {copy.once.enterpriseContactSuffix.trim()}
+        </span>
+      </div>
     );
   }, [contactPath, copy.once.enterpriseContactSuffix, enterpriseContactLabel]);
 
@@ -1241,12 +1315,17 @@ export default function PricingPageClient({
             <div className="comparison-row comprison-header">
               <div className="w-layout-blockcontainer empty w-container" />
               {copy.comparison.planNames.map((name, i) => (
-                <div
+                <button
                   key={name}
-                  className={`comparison-column comparison-plan plan-option${i === 0 ? ' default' : ''}`}
+                  type="button"
+                  className={`comparison-column comparison-plan plan-option${
+                    comparisonPlanIndex === i ? ' default' : ''
+                  }`}
+                  aria-pressed={comparisonPlanIndex === i}
+                  onClick={() => setComparisonPlanIndex(i)}
                 >
                   {name}
-                </div>
+                </button>
               ))}
             </div>
             {copy.comparison.rows.map((row, rowIndex) => {
@@ -1263,7 +1342,9 @@ export default function PricingPageClient({
                     {row.cells.map((cell, i) => (
                       <div
                         key={i}
-                        className={`comparison-column plan-data ${['free-plan', 'developers-plan', 'business-plan', 'enterprise-plan'][i]}`}
+                        className={`comparison-column plan-data ${COMPARISON_PLAN_COLUMN_CLASSES[i]}${
+                          comparisonPlanIndex === i ? ' comparison-plan-col--active' : ''
+                        }`}
                       >
                         <CellContent cell={cell} whatsappPath={whatsappPath} locale={locale} />
                       </div>
@@ -1344,18 +1425,36 @@ export default function PricingPageClient({
         <div className="container-default expand-section">
           <div className="comparison static-table">
             <div className="full-plan">{copy.once.coreTitle}</div>
-            {copy.once.coreRows.map((row, idx) => (
-              <div key={row.label} className={`comparison-row once-row${idx % 2 === 1 ? ' odd' : ''}`}>
-                <div className="comparison-column first-column whitespace-pre-line">{row.label}</div>
-                <div className="comparison-column plan-data free-plan">
-                  {typeof row.value === 'string' && row.value === '__ENTERPRISE_CONTACT__' ? (
-                    enterpriseLink
-                  ) : (
-                    <OnceCoreValue value={row.value} />
-                  )}
+            {copy.once.coreRows.map((row, rowIndex) => {
+              if (row.kind === 'section') {
+                return (
+                  <div
+                    key={`section-${row.title}`}
+                    className="comparison-row comparison-row--section once-row once-row--section"
+                  >
+                    <div className="comparison-column comparison-section-title">{row.title}</div>
+                  </div>
+                );
+              }
+              const featureIndex = copy.once.coreRows
+                .slice(0, rowIndex)
+                .filter((r) => r.kind === 'feature').length;
+              return (
+                <div
+                  key={`${row.label}-${rowIndex}`}
+                  className={`comparison-row once-row${featureIndex % 2 === 1 ? ' odd' : ''}`}
+                >
+                  <div className="comparison-column first-column whitespace-pre-line">{row.label}</div>
+                  <div className="comparison-column plan-data free-plan">
+                    {typeof row.value === 'string' && row.value === '__ENTERPRISE_CONTACT__' ? (
+                      enterpriseLink
+                    ) : (
+                      <OnceCoreValue value={row.value} />
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
