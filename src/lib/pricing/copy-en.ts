@@ -1,5 +1,6 @@
 import type { PricingCopy } from './types';
 import { fullComparisonEn } from './data/full-comparison-en';
+import { onceCoreEn } from './data/once-core-en';
 
 export const pricingCopyEn: PricingCopy = {
   meta: {
@@ -129,27 +130,7 @@ export const pricingCopyEn: PricingCopy = {
       },
     ],
     coreTitle: 'Core Features',
-    coreRows: [
-      { label: 'SMS/WhatsApp\nOTP Messages', value: 'Bring-in SMS provider\nWhatsApp support coming soon' },
-      { label: 'MAUs', value: 'Unlimited' },
-      { label: 'Number of project', value: '1 per purchase' },
-      { label: 'Social login', value: { kind: 'check' } },
-      { label: 'MFA', value: { kind: 'check' } },
-      { label: 'Adaptive MFA', value: { kind: 'check' } },
-      { label: 'Passkeys', value: { kind: 'check' } },
-      { label: 'Enterprise login', value: { kind: 'check' } },
-      { label: 'SAML SSO', value: { kind: 'check' } },
-      { label: 'RBAC (Roles and Groups)', value: { kind: 'check' } },
-      { label: 'Applications', value: 'Unlimited' },
-      { label: 'Project Members', value: 'Unlimited' },
-      { label: 'Log Retention', value: '120-Day' },
-      { label: 'Support', value: 'Discord and Email support' },
-      { label: 'Custom Domain', value: { kind: 'check' } },
-      { label: 'Others', value: 'All Features Included, Remove Authgear Branding' },
-      { label: 'Scale to multiple servers and High Availability support', value: '__ENTERPRISE_CONTACT__' },
-      { label: 'Managed security updates', value: '__ENTERPRISE_CONTACT__' },
-      { label: 'Enterprise support with SLA', value: '__ENTERPRISE_CONTACT__' },
-    ],
+    coreRows: onceCoreEn,
     enterpriseContactSuffix: ' for Enterprise version',
   },
   cta: {

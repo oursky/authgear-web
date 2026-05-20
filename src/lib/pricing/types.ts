@@ -32,6 +32,10 @@ export type PricingComparisonRow =
       cells: [PricingCell, PricingCell, PricingCell, PricingCell];
     };
 
+export type OnceCoreRow =
+  | { kind: 'section'; title: string }
+  | { kind: 'feature'; label: string; value: PricingCell | string };
+
 export type PricingCopy = {
   meta: { title: string; description: string };
   tabs: { cloud: string; once: string };
@@ -59,7 +63,7 @@ export type PricingCopy = {
     intro: string;
     plans: CloudPlan[];
     coreTitle: string;
-    coreRows: Array<{ label: string; value: PricingCell | string }>;
+    coreRows: OnceCoreRow[];
     enterpriseContactSuffix: string;
   };
   cta: { title: string; subtitle: string; button: string; href: string };
