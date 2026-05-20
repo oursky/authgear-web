@@ -54,6 +54,7 @@ These indicate the user is exploring content or interacting with features.
 | `tool-github-tag-click` | `ToolWidget` — GitHub star badge | Click | `github.com/authgear/authgear-server` |
 | `popup-close-click` | `ToolPopup` — "Close" button | Click | — |
 | `pricing-plan-finder-interact` | `PricingPageClient` — plan finder (SMS toggle, log retention, apps/members/MAU sliders) | First interaction per page view | One-shot per page load (`useRef`). Fires with `props.first_action` = `sms` / `log-retention` / `apps` / `members` / `mau`. Refresh starts a new page view and can fire again. |
+| `pricing-plan-finder-result` | `PricingPageClient` — plan finder recommended tier changes | SMS / log retention: on change if tier changes. Sliders: on pointer/key release if tier differs from gesture start | Does not fire on initial mount. Not fired on every slider step while dragging. Props: `recommended_plan`, `sms`, `log_retention`, `apps`, `members`, `mau` (`unlimited` when MAU slider locked). |
 | `playground-interact` | `LoginCustomizationPlayground` — any meaningful control change | First interaction per page view | One-shot per session. Fires with `props.first_action` = `preset` / `logo` / `background` / `alignment` / `color` / `radius` / `link-decoration` / `accordion` |
 | `playground-sheet-open` | `LoginCustomizationPlayground` — mobile "⚙ Customize" pill | First sheet open per page view | One-shot per page view (mobile only, `< 900px`). Pairs with `playground-interact` to measure open-rate vs. interact-rate. |
 | `playground-cta` | `LoginCustomizationPlayground` — "Explore Login Gallery" button | Click | Links to `/login-gallery/` — mid-funnel signal |
@@ -75,6 +76,11 @@ Adding properties unlocks filtering in Plausible's dashboard and removes the nee
 | `login` | `location` | `"nav-mobile"`, `"nav-desktop"` | Same as above |
 | `calculator-preset` | `preset` | `"10K"`, `"100K"`, `"500K"`, `"1M"` | See which preset is most popular |
 | `pricing-plan-finder-interact` | `first_action` | `"sms"`, `"log-retention"`, `"apps"`, `"members"`, `"mau"` | Which control drew the first plan-finder interaction on that page view |
+| `pricing-plan-finder-result` | `recommended_plan` | `"free"`, `"developers"`, `"business"`, `"enterprise"` | Recommended cloud tier after a qualifying control change |
+| `pricing-plan-finder-result` | `sms` | `"yes"`, `"no"` | SMS/WhatsApp toggle at time of event |
+| `pricing-plan-finder-result` | `log_retention` | `"1"`, `"60"`, `"180"` | Log retention days at time of event |
+| `pricing-plan-finder-result` | `apps`, `members` | numeric (e.g. `10` for 10+) | Effective app/member counts |
+| `pricing-plan-finder-result` | `mau` | numeric or `"unlimited"` | MAU used for recommendation, or unlimited when slider locked |
 | `signup-calculator` | `location` | `"hero"`, `"bottom-cta"` | Two CTAs share the same event name |
 | `contact-form-submit` | `page` | `"schedule-demo"`, `"pricing"` | Form appears on multiple pages |
 
