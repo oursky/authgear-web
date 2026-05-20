@@ -189,11 +189,22 @@ function PlanFinderYesNoToggle({
   );
 }
 
+const SLIDER_GESTURE_KEYS = new Set([
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowUp',
+  'ArrowDown',
+  'Home',
+  'End',
+]);
+
 function RangeWithTicks({
   labelledBy,
   value,
   max,
   onChange,
+  onSliderGestureStart,
+  onSliderGestureEnd,
   tickLabels,
   ariaValueText,
   ariaValueNow,
@@ -203,6 +214,8 @@ function RangeWithTicks({
   value: number;
   max: number;
   onChange: (next: number) => void;
+  onSliderGestureStart?: () => void;
+  onSliderGestureEnd?: () => void;
   tickLabels: string[];
   ariaValueText: string;
   ariaValueNow?: number;
@@ -224,6 +237,23 @@ function RangeWithTicks({
         disabled={disabled}
         style={rangeStyle}
         onChange={(e) => onChange(Number(e.target.value))}
+        onPointerDown={disabled ? undefined : onSliderGestureStart}
+        onPointerUp={disabled ? undefined : onSliderGestureEnd}
+        onPointerCancel={disabled ? undefined : onSliderGestureEnd}
+        onKeyDown={
+          disabled
+            ? undefined
+            : (e) => {
+                if (SLIDER_GESTURE_KEYS.has(e.key)) onSliderGestureStart?.();
+              }
+        }
+        onKeyUp={
+          disabled
+            ? undefined
+            : (e) => {
+                if (SLIDER_GESTURE_KEYS.has(e.key)) onSliderGestureEnd?.();
+              }
+        }
         aria-labelledby={labelledBy}
         {...(ariaValueNow !== undefined ? { 'aria-valuenow': ariaValueNow } : {})}
         aria-valuetext={ariaValueText}
@@ -270,6 +300,67 @@ function planFinderSignupPlan(planIndex: number): PlanFinderSignupPlan {
       return 'free';
   }
 }
+
+type PlanFinderInputs = {
+  appsIdx: number;
+  membersIdx: number;
+  mauIdx: number;
+  needsSmsWhatsapp: boolean;
+  logRetentionDays: LogRetentionDays;
+};
+
+function computePlanFinderPlanIndex(inputs: PlanFinderInputs): number {
+  const scaleSlidersDisabled = inputs.logRetentionDays === 180;
+  const appsIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : inputs.appsIdx;
+  const membersIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : inputs.membersIdx;
+  const appsN = appsMembersNumericFromSliderIndex(appsIdxEffective);
+  const membersN = appsMembersNumericFromSliderIndex(membersIdxEffective);
+  return resolveRecommendedPlanIndex(
+    appsN,
+    membersN,
+    inputs.mauIdx,
+    inputs.needsSmsWhatsapp,
+    inputs.logRetentionDays,
+  );
+}
+
+function planFinderResultMauValue(inputs: PlanFinderInputs): number | string {
+  const planIndex = computePlanFinderPlanIndex(inputs);
+  const scaleSlidersDisabled = inputs.logRetentionDays === 180;
+  const appsIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : inputs.appsIdx;
+  const membersIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : inputs.membersIdx;
+  const appsOrMembersTenPlus =
+    appsIdxEffective >= APPS_MEMBERS_SLIDER_MAX || membersIdxEffective >= APPS_MEMBERS_SLIDER_MAX;
+  const mauSliderLocked =
+    planIndex === CLOUD_PLAN_INDEX_FREE || planIndex === CLOUD_PLAN_INDEX_DEVELOPERS;
+  const mauSliderDisabled = mauSliderLocked || scaleSlidersDisabled || appsOrMembersTenPlus;
+  if (mauSliderDisabled) return 'unlimited';
+  return mauNumericForLogic(inputs.mauIdx);
+}
+
+function trackPlanFinderResult(inputs: PlanFinderInputs): void {
+  const planIndex = computePlanFinderPlanIndex(inputs);
+  const scaleSlidersDisabled = inputs.logRetentionDays === 180;
+  const appsIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : inputs.appsIdx;
+  const membersIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : inputs.membersIdx;
+
+  trackEvent('pricing-plan-finder-result', {
+    recommended_plan: planFinderSignupPlan(planIndex),
+    sms: inputs.needsSmsWhatsapp ? 'yes' : 'no',
+    log_retention: String(inputs.logRetentionDays),
+    apps: appsMembersNumericFromSliderIndex(appsIdxEffective),
+    members: appsMembersNumericFromSliderIndex(membersIdxEffective),
+    mau: planFinderResultMauValue(inputs),
+  });
+}
+
+function maybeTrackPlanFinderResult(beforePlanIndex: number, inputs: PlanFinderInputs): void {
+  const afterPlanIndex = computePlanFinderPlanIndex(inputs);
+  if (beforePlanIndex !== afterPlanIndex) {
+    trackPlanFinderResult(inputs);
+  }
+}
+
 const BUSINESS_BASE_USD = 500;
 const BUSINESS_MAU_INCLUDED = 25_000;
 const BUSINESS_MAU_BUCKET = 5_000;
@@ -827,6 +918,28 @@ function PlanFinderBlock({
     trackEvent('pricing-plan-finder-interact', { first_action: action });
   };
 
+  const finderStateRef = useRef<PlanFinderInputs>({
+    appsIdx,
+    membersIdx,
+    mauIdx,
+    needsSmsWhatsapp,
+    logRetentionDays,
+  });
+  finderStateRef.current = { appsIdx, membersIdx, mauIdx, needsSmsWhatsapp, logRetentionDays };
+
+  const sliderDragPlanIndexRef = useRef<number | null>(null);
+
+  const beginSliderGesture = () => {
+    sliderDragPlanIndexRef.current = computePlanFinderPlanIndex(finderStateRef.current);
+  };
+
+  const endSliderGesture = () => {
+    if (sliderDragPlanIndexRef.current === null) return;
+    const beforePlanIndex = sliderDragPlanIndexRef.current;
+    sliderDragPlanIndexRef.current = null;
+    maybeTrackPlanFinderResult(beforePlanIndex, finderStateRef.current);
+  };
+
   const scaleSlidersDisabled = logRetentionDays === 180;
   const appsIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : appsIdx;
   const membersIdxEffective = scaleSlidersDisabled ? APPS_MEMBERS_SLIDER_MAX : membersIdx;
@@ -858,7 +971,10 @@ function PlanFinderBlock({
             value={needsSmsWhatsapp}
             onChange={(next) => {
               markInteract('sms');
+              const beforePlanIndex = computePlanFinderPlanIndex(finderStateRef.current);
+              finderStateRef.current = { ...finderStateRef.current, needsSmsWhatsapp: next };
               setNeedsSmsWhatsapp(next);
+              maybeTrackPlanFinderResult(beforePlanIndex, finderStateRef.current);
             }}
             yesLabel={labels.toggleYes}
             noLabel={labels.toggleNo}
@@ -869,7 +985,10 @@ function PlanFinderBlock({
             value={logRetentionDays}
             onChange={(next) => {
               markInteract('log-retention');
+              const beforePlanIndex = computePlanFinderPlanIndex(finderStateRef.current);
+              finderStateRef.current = { ...finderStateRef.current, logRetentionDays: next };
               setLogRetentionDays(next);
+              maybeTrackPlanFinderResult(beforePlanIndex, finderStateRef.current);
             }}
             option1Day={labels.logRetention1Day}
             option60Days={labels.logRetention60Days}
@@ -890,8 +1009,11 @@ function PlanFinderBlock({
               max={APPS_MEMBERS_SLIDER_MAX}
               onChange={(next) => {
                 markInteract('apps');
+                finderStateRef.current = { ...finderStateRef.current, appsIdx: next };
                 setAppsIdx(next);
               }}
+              onSliderGestureStart={beginSliderGesture}
+              onSliderGestureEnd={endSliderGesture}
               tickLabels={appsTicks}
               ariaValueNow={appsN}
               ariaValueText={formatCountDisplay(appsIdxEffective, labels.appsTenPlus)}
@@ -913,8 +1035,11 @@ function PlanFinderBlock({
               max={APPS_MEMBERS_SLIDER_MAX}
               onChange={(next) => {
                 markInteract('members');
+                finderStateRef.current = { ...finderStateRef.current, membersIdx: next };
                 setMembersIdx(next);
               }}
+              onSliderGestureStart={beginSliderGesture}
+              onSliderGestureEnd={endSliderGesture}
               tickLabels={appsTicks}
               ariaValueNow={membersN}
               ariaValueText={formatCountDisplay(membersIdxEffective, labels.appsTenPlus)}
@@ -936,8 +1061,11 @@ function PlanFinderBlock({
               max={MAU_RANGE_MAX}
               onChange={(next) => {
                 markInteract('mau');
+                finderStateRef.current = { ...finderStateRef.current, mauIdx: next };
                 setMauIdx(next);
               }}
+              onSliderGestureStart={mauSliderDisabled ? undefined : beginSliderGesture}
+              onSliderGestureEnd={mauSliderDisabled ? undefined : endSliderGesture}
               tickLabels={mauTicks}
               ariaValueNow={mauAriaValueNow}
               ariaValueText={mauAriaValueText}
