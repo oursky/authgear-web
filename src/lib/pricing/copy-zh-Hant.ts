@@ -1,5 +1,6 @@
 import type { PricingCopy } from './types';
 import { fullComparisonZhHant } from './data/full-comparison-zh-Hant';
+import { onceCoreZhHant } from './data/once-core-zh-Hant';
 
 export const pricingCopyZhHant: PricingCopy = {
   meta: {
@@ -36,7 +37,7 @@ export const pricingCopyZhHant: PricingCopy = {
         priceLine: '$50',
         highlight: true,
         cta: {
-          label: '立即購買',
+          label: '立即開始',
           href: 'https://portal.authgear.com/?utm_source=pricing&utm_medium=link&utm_campaign=developers-plan',
           external: true,
         },
@@ -54,7 +55,7 @@ export const pricingCopyZhHant: PricingCopy = {
         name: '商業版',
         priceLine: '$500',
         cta: {
-          label: '立即購買',
+          label: '立即開始',
           href: 'https://portal.authgear.com/?utm_source=pricing&utm_medium=link&utm_campaign=business-plan',
           external: true,
         },
@@ -125,27 +126,7 @@ export const pricingCopyZhHant: PricingCopy = {
       },
     ],
     coreTitle: '核心功能',
-    coreRows: [
-      { label: 'SMS/WhatsApp\nOTP 訊息', value: '自帶 SMS 提供商\nWhatsApp 支援即將推出' },
-      { label: 'MAU', value: '無限' },
-      { label: '專案數量', value: '每次購買 1 個' },
-      { label: '社群登入', value: { kind: 'check' } },
-      { label: '多因素驗證（MFA）', value: { kind: 'check' } },
-      { label: '自適應多因素驗證', value: { kind: 'check' } },
-      { label: 'Passkeys', value: { kind: 'check' } },
-      { label: '企業登入', value: { kind: 'check' } },
-      { label: 'SAML SSO', value: { kind: 'check' } },
-      { label: 'RBAC（角色與群組）', value: { kind: 'check' } },
-      { label: '應用程式', value: '無限' },
-      { label: '專案成員', value: '無限' },
-      { label: '日誌保留', value: '120 天' },
-      { label: '支援', value: 'Discord 及電子郵件支援' },
-      { label: '自訂網域', value: { kind: 'check' } },
-      { label: '其他', value: '包含所有功能，移除 Authgear 品牌標識' },
-      { label: '多伺服器擴展及高可用性支援', value: '__ENTERPRISE_CONTACT__' },
-      { label: '管理型安全更新', value: '__ENTERPRISE_CONTACT__' },
-      { label: '含 SLA 的企業支援', value: '__ENTERPRISE_CONTACT__' },
-    ],
+    coreRows: onceCoreZhHant,
     enterpriseContactSuffix: '（企業版請聯絡我們）',
   },
   cta: {
