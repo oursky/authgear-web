@@ -37,7 +37,7 @@ export const pricingCopyZhHant: PricingCopy = {
         priceLine: '$50',
         highlight: true,
         cta: {
-          label: '立即購買',
+          label: '立即開始',
           href: 'https://portal.authgear.com/?utm_source=pricing&utm_medium=link&utm_campaign=developers-plan',
           external: true,
         },
@@ -55,7 +55,7 @@ export const pricingCopyZhHant: PricingCopy = {
         name: '商業版',
         priceLine: '$500',
         cta: {
-          label: '立即購買',
+          label: '立即開始',
           href: 'https://portal.authgear.com/?utm_source=pricing&utm_medium=link&utm_campaign=business-plan',
           external: true,
         },

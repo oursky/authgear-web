@@ -40,7 +40,7 @@ export const pricingCopyEn: PricingCopy = {
         priceLine: '$50',
         highlight: true,
         cta: {
-          label: 'Buy Now',
+          label: 'Get Started',
           href: 'https://portal.authgear.com/?utm_source=pricing&utm_medium=link&utm_campaign=developers-plan',
           external: true,
         },
@@ -58,7 +58,7 @@ export const pricingCopyEn: PricingCopy = {
         name: 'Business',
         priceLine: '$500',
         cta: {
-          label: 'Buy Now',
+          label: 'Get Started',
           href: 'https://portal.authgear.com/?utm_source=pricing&utm_medium=link&utm_campaign=business-plan',
           external: true,
         },
