@@ -1,7 +1,7 @@
 ---
 title: "密碼噴射：它是什麼以及如何預防？"
 excerpt: "了解有關密碼噴射的更多資訊以及使用 Authgear 保護使用者免受密碼噴射的不同方法。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "密碼噴射：它是什麼以及如何預防？"
@@ -71,7 +71,7 @@ draft: false
 <h2 id="def">什麼是密碼噴射？ </h2>
 
 <!--圖-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/圖-->
 
 密碼噴射是一種暴力攻擊，攻擊者試圖透過重複輸入通用密碼來存取同一服務或平台上的多個帳戶。它與傳統的暴力攻擊不同，僅使用一個密碼。這種技術已被攻擊者所普及，因為它可以使攻擊者在很長一段時間內不被發現。
@@ -119,7 +119,7 @@ draft: false
 <a href="/post/what-is-multi-factor-authentication-mfa" target="_blank">多重身分驗證</a> (MFA) 是指一種身分驗證技術，系統會提示使用者提供兩項或多項證據以驗證其身分。這意味著即使犯罪分子設法猜測使用者的登入憑證，如果沒有額外的安全代碼，他們也無法存取該帳戶。
 
 <!--圖-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/圖-->
 
 例如，MFA 可以要求使用者先輸入使用者名，然後提供額外的身份驗證層，例如 <a href="/zh-hant/post/sms-otp-vulnerabilities-and-alternatives" target="_blank">SMS OTP</a> 或生物辨識驗證（例如人臉或指紋辨識）。

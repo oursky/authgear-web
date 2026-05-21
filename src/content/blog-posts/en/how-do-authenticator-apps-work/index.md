@@ -2,7 +2,7 @@
 title: "How Do Authenticator Apps Work?"
 h1: "How Do Authenticator Apps Work? (TOTP, Secrets, Clock Drift & Safer Alternatives)"
 excerpt: "Learn how authenticator apps work: TOTP secrets, QR provisioning, clock drift, recovery codes, and why passkeys (WebAuthn) stop phishing."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "How Do Authenticator Apps Work? (TOTP, Secrets, Clock Drift & Safer Alternatives)"

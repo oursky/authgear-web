@@ -2,7 +2,7 @@
 title: "驗證器 App 如何運作？"
 h1: "驗證器 App 如何運作？（TOTP、密鑰、時鐘漂移與更安全替代方案）"
 excerpt: "了解驗證器 App 的運作：TOTP 密鑰、QR 佈建、時鐘漂移、恢復碼，以及為何 Passkey（WebAuthn）可防釣魚。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "驗證器 App 如何運作？（TOTP、密鑰、時鐘漂移與更安全替代方案）"

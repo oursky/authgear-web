@@ -2,7 +2,7 @@
 title: "用 Authgear 的安全驗證解決 CORS Error 問題"
 h1: "征服 CORS Error：用 Authgear 打造更安全的驗證體驗"
 excerpt: "還在被 CORS error 困擾？了解 Authgear 的一次性安全驗證方案如何排除 CORS 問題，讓 API 存取順暢又安全。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "如何修正 strict-origin-when-cross-origin Referrer Policy | CORS Error"

@@ -2,7 +2,7 @@
 title: "AI 驅動的自適應驗證：用機器學習對抗詐欺"
 h1: "AI 驅動的自適應驗證：以機器學習對抗詐欺"
 excerpt: "了解 AI 驅動的自適應驗證如何偵測異常、降低詐欺並強化登入安全，並看機器學習如何因應持續演變的威脅。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "AI 驅動的自適應驗證：以機器學習對抗詐欺"

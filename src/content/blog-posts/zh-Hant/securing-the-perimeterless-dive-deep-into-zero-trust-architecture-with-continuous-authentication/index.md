@@ -1,7 +1,7 @@
 ---
 title: "確保無邊界安全：透過持續身份驗證深入探討零信任架構"
 excerpt: "The cost of digital vulnerabilities is staggering. In 2023 alone, cybercrime is estimated to cause $6 trillion in global damages, a figure expected to balloon to $10.5 trillion by 2025. Every minute, 117 new records are exposed in data breaches, with the average cost of a breach topping $4 million. Closer to home, 46% of all cyberattacks target businesses with fewer than 1,000 employees, illustrating the widespread reach of the threat."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "確保無邊界安全：透過持續身份驗證深入探討零信任架構"
@@ -23,7 +23,7 @@ By **moving beyond the "trust by default" mentality** and implementing stringent
 ## 什麼是零信任？揭開零信任的面紗：不只是一個流行詞
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Zero Trust isn't a specific product or technology; it's a philosophy, a new way of thinking about security. It challenges the assumption of trust within the network, even for internal users. Instead, it demands continuous verification and authorization for every access attempt, regardless of location or perceived identity. This creates a dynamic layer of defense that adapts to constantly shifting threats and minimizes the attack surface.
@@ -31,7 +31,7 @@ Zero Trust isn't a specific product or technology; it's a philosophy, a new way 
 ## 身分驗證拼圖：零信任的重要性與核心原則
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 Zero Trust hinges on **robust authentication mechanisms.** In the past, a single login at the network edge used to grant access to virtually everything within. Now, every resource requires its own verification checkpoint, ensuring only authorized users with the right context (device, location, time of day) gain access to specific data or applications. This multi-layered approach significantly reduces the risk of lateral movement and data exfiltration, even if an attacker breaches the initial defenses.
@@ -50,7 +50,7 @@ Traditional logins are like static passwords – easily compromised and often in
 ## 建立您的堡壘：零信任架構的好處
 
 <!--FIGURE-->
-![](./figure-3.jpg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 零信任的優勢遠遠超出了增強資料安全性的範圍。以下是一些主要優點：
@@ -64,7 +64,7 @@ Traditional logins are like static passwords – easily compromised and often in
 ## 使用 Authgear 建立您的零信任基礎：現代企業的 WIAM
 
 <!--FIGURE-->
-![](./figure-4.jpg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 實施零信任架構需要一些工具，使您能夠持續驗證、授權和監控整個生態系統的存取。這正是領先的勞動力身分和存取管理 (WIAM) 解決方案 Authgear 發揮作用的地方。 Authgear 使企業能夠：

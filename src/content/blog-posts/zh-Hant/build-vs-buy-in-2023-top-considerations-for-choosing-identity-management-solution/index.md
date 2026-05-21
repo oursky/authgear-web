@@ -1,7 +1,7 @@
 ---
 title: "2023 自建或採購身分管理方案：關鍵評估重點"
 excerpt: "自建或採購身分管理方案沒有標準答案。本文整理決策時應優先評估的核心因素。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "2023 自建或採購身分管理方案：關鍵評估重點"

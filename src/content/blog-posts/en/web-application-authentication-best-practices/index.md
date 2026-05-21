@@ -1,7 +1,7 @@
 ---
 title: "6 Tips to Strengthen Your Security: Authentication Best Practices Guide"
 excerpt: "Protect your web application and authentication server with expert guidance. Learn essential authentication best practices, including securing login processes, password management, and server protection. Discover how Authgear can simplify your authentication and enhance security."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: highlight
 featured: false
 metaTitle: "6 Tips to Strengthen Your Security: Authentication Best Practices Guide"
@@ -18,7 +18,7 @@ This guide is your one-stop shop for fortifying your authentication process. We'
 ## Strengthening Your Web App's Defenses: 6 Essential Authentication Best Practices
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 In today's digital age, where cyberattacks are a constant threat, implementing a robust authentication process is the cornerstone of securing any web application. It serves as the first line of defense, safeguarding sensitive user data and preventing unauthorized access to critical functionalities. By diligently adhering to these six best practices, you can significantly bolster your application's resilience against a multitude of cyber threats, fostering a secure environment for your users.
@@ -52,7 +52,7 @@ By adhering to these authentication best practices, you can fortify your web app
 ## **Securing Your Authentication Server: Essential Do's and Don'ts**
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 While ensuring the security of your web application is crucial, safeguarding the authentication server itself is equally important. This backend component plays a pivotal role in verifying user identities and granting access. By following these essential do's and don'ts, you can significantly enhance the security posture of your authentication server.
@@ -100,7 +100,7 @@ To mitigate these risks and ensure the security of your SSO implementation, it's
 ## Elevate Your Authentication Game with Best Practices
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 Mastering authentication best practices is paramount in today's threat-laden digital landscape. By diligently implementing the strategies outlined in this guide, you can significantly enhance the security of your web application and authentication server, safeguarding sensitive user data from malicious attacks.

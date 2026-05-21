@@ -4,12 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev --host 0.0.0.0",
+    "dev": "NODE_ENV=development astro dev --host 0.0.0.0",
     "build": "astro build",
     "preview": "astro dev --host 0.0.0.0",
     "check": "astro check",
     "test": "playwright test",
-    "test:unit": "vitest run"
+    "test:unit": "vitest run",
+    "optimize-images": "node scripts/optimize-content-images.mjs",
+    "symlink-zh-images": "node scripts/symlink-zh-hant-images.mjs"
   },
   "dependencies": {
     "@astrojs/netlify": "^7.0.8",

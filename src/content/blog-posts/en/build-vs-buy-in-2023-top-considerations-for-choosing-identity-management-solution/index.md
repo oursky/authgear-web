@@ -1,7 +1,7 @@
 ---
 title: "Build vs Buy in 2023: Top Considerations for Choosing Identity Management Solution"
 excerpt: "Choosing between building or buying an identity management solution is not a straightforward decision. In this article, we'll dive into the key considerations that can guide this decision."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Build vs Buy in 2023: Top Considerations for Choosing Identity Management Solution"

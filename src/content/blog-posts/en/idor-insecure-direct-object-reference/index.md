@@ -2,7 +2,7 @@
 title: "Insecure Direct Object Reference (IDOR): Examples & API Prevention"
 h1: "Insecure Direct Object Reference (IDOR): Examples & Prevention (with API tips)"
 excerpt: "What IDOR is, how it happens in web & APIs, real-world examples, and a practical checklist to prevent object-level authZ bugs (BOLA)."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Insecure Direct Object Reference (IDOR): Examples & Prevention (with API tips)"

@@ -1,0 +1,22 @@
+---
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection(
+    'blog-posts',
+    ({ id, data }) => id.startsWith('en/') && !data.draft,
+  );
+  return entries
+    .map((entry) => ({
+      slug: entry.id.replace(/^en\//, '').replace(/\/index(\.(md|mdx))?$/, ''),
+    }))
+    // Pagination uses /blog/2/, … — must not be treated as legacy post slugs.
+    .filter(({ slug }) => !/^\d+$/.test(slug))
+    .map(({ slug }) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+return Astro.redirect(`/post/${slug}/`, 301);
+---

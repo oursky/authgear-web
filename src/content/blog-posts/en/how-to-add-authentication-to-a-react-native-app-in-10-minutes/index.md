@@ -1,7 +1,7 @@
 ---
 title: "How to Add Authentication to a React Native app in 10 Minutes"
 excerpt: "In this we teach how add a full user authentication feature to any React Native application under 10 minutes."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "How to Add Authentication to a React Native app in 10 Minutes"
@@ -32,7 +32,7 @@ In the following section, we’ll provide a step-by-step guide for building a si
 The following screenshot shows the welcome screen with the login button mentioned above:
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Under the hood, Authgear uses [OpenID Connect](https://docs.authgear.com/how-to-guide/authenticate/oidc-provider) (OIDC) authentication protocol. As a result, during authentication, a user is redirected to an authorization page and then redirected back to the client application (your React Native application) once authorization is complete.
@@ -40,7 +40,7 @@ Under the hood, Authgear uses [OpenID Connect](https://docs.authgear.com/how-to-
 Below is a flowchart that explains how OIDC works.
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ### 1. Create a React Native Project or use an existing project
@@ -109,7 +109,7 @@ Next, configure the Authgear SDK with the credentials from your Authgear applica
 You can create an application on the Authgear Portal by navigating to **Application** > **Add Application**. Then select **Native App** and click **Save**.
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 Once you’re done creating your Authgear application, you’ll be redirected to the application’s configuration page where you can find your credentials and set an **Authorized Redirect URI**. The Authorized Redirect URI is a valid page on your application that Authgear can redirect the user to after authorization. The Authgear SDK will create this page in your React Native project.
@@ -272,13 +272,13 @@ You should be greeted with the welcome screen and a Login button.
 Click on the login button to start an authentication session. You’ll be redirected to Authgear’s secure authentication user interface (AuthUI) where your users can either register a new account or log in to an account they’ve created.
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 On successful login, users will be redirected back to your application with the welcome message we added to the sample code in this tutorial. If you study the code, you’ll also notice a **userInfo** object that’s returned by the Authgear SDK, you can use this object to get details about the current user. In our example, we used **userInfo.email** to display the current user’s email address.
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ## Conclusion

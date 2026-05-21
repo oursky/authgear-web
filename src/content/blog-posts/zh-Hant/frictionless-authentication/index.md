@@ -1,7 +1,7 @@
 ---
 title: "無摩擦驗證是什麼？如何實作 Frictionless Authentication"
 excerpt: "了解無摩擦驗證的核心概念，以及如何透過無密碼、實務策略與前瞻做法，同時提升使用體驗與安全性。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "無摩擦驗證是什麼？如何實作 Frictionless Authentication"
@@ -29,7 +29,7 @@ draft: false
 <h2 id="def">什麼是無摩擦驗證？</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 無摩擦驗證（Frictionless Authentication）是利用先進技術簡化身分驗證流程，在維持高安全的前提下，盡量減少使用者額外操作。使用者不需要在旅程中反覆輸入資訊或執行多餘步驟，就能完成驗證。
@@ -53,7 +53,7 @@ draft: false
 <h2 id="how">如何打造無摩擦驗證？</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 可考慮以下做法：

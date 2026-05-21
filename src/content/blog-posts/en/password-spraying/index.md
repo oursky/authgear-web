@@ -1,7 +1,7 @@
 ---
 title: "Password Spraying: What It Is and How to Prevent It?"
 excerpt: "Learn more about password spraying and the different methods to protect your users from it with Authgear."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Password Spraying: What It Is and How to Prevent It?"
@@ -71,7 +71,7 @@ Let's delve right in!
 <h2 id="def">What Is Password Spraying?</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Password spraying is a type of brute force attack where adversaries attempt to gain access to multiple accounts on the same service or platform by repeatedly entering common passwords. It differs from a traditional brute force attack in that only one password is used. This technique has been popularized by attackers because it allows them to remain undetected for extended periods of time.
@@ -119,7 +119,7 @@ A successful breach can be catastrophic to a company. <a href="https://worldr.co
 <a href="/post/what-is-multi-factor-authentication-mfa" target="_blank">Multi-factor authentication</a> (MFA) refers to an authentication technique whereby users are prompted to provide two or more pieces of evidence in order to verify their identity. This means that even if a criminal manages to guess the user’s login credentials, they cannot access the account without the additional security codes.
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 For example, MFA can require a user to first enter their username and then provide an additional layer of authentication like <a href="/post/sms-otp-vulnerabilities-and-alternatives" target="_blank">SMS OTP</a> or a biometric authentication like face or fingerprint recognition.

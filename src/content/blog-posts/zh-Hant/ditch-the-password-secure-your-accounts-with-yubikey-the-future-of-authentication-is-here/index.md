@@ -1,7 +1,7 @@
 ---
 title: "告別密碼，用 YubiKey 保護帳號：驗證的未來已來"
 excerpt: "在數位身分越來越重要的時代，只靠密碼已難以應對風險。YubiKey 這類硬體驗證器提供更高安全與更好體驗。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "告別密碼，用 YubiKey 保護帳號：驗證的未來已來"
@@ -23,13 +23,13 @@ draft: false
 1. 驗證與存取：網站或 App 驗證代碼有效後，即授予登入權限。
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## Passkey 爆發成長：為何 YubiKey 這類方案快速普及
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 YubiKey 這類 passkey 快速普及，不是短期潮流，而是數位環境多重因素匯流後的結果：
@@ -66,7 +66,7 @@ passkey 的崛起代表線上安全範式轉移。YubiKey 是知名方案，但�
 ## 不只 YubiKey：其他 Passkey 硬體方案
 
 <!--FIGURE-->
-![](./figure-3.jpg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 在前文中我們介紹了 YubiKey 與 passkey 趨勢。接著擴展視角，看看幾個有代表性的替代方案，各自有不同優勢與取捨：
@@ -98,7 +98,7 @@ passkey 的崛起代表線上安全範式轉移。YubiKey 是知名方案，但�
 ## 企業級防護：為何 YubiKey + Authgear 是理想組合
 
 <!--FIGURE-->
-![](./figure-4.jpg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 YubiKey 在個體硬體驗證上很強，但企業要在全組織發揮其價值，還需要完整身分平台進行管理與治理。這正是 Authgear 可補上的關鍵角色：作為 YubiKey 佈署背後的中樞。

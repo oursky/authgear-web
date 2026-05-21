@@ -1,7 +1,7 @@
 ---
 title: "What Is an Extended Workforce? Why Identity Matters More Than Ever"
 excerpt: "Understand what an extended workforce is, who it includes, why it matters, and how organizations manage external workers effectively."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "What Is an Extended Workforce? Why Identity Matters More Than Ever"

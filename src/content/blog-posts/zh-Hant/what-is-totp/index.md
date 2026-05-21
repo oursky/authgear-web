@@ -1,7 +1,7 @@
 ---
 title: "什麼是 TOTP？給開發者的精簡指南（RFC 6238 解說）"
 excerpt: "什麼是 TOTP（Time-based One-Time Password）？本篇以開發者視角精要解說 RFC 6238，附 Node/Python/Go 範例、除錯重點與免費線上 TOTP 工具。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "什麼是 TOTP？給開發者的精簡指南（RFC 6238 解說）"

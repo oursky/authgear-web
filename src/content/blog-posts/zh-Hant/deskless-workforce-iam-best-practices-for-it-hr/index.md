@@ -1,7 +1,7 @@
 ---
 title: "賦能無桌面勞動力：IT 與 HR 的 IAM 最佳實務"
 excerpt: "探索如何以 IAM 安全管理無桌面勞動力。了解 IT 與 HR 如何協作，在大規模下同時提升存取效率、安全與生產力。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "賦能無桌面勞動力：IT 與 HR 的 IAM 最佳實務"

@@ -1,7 +1,7 @@
 ---
 title: "常見 OAuth 2.0 授權類型與適用時機完整指南"
 excerpt: "了解最常見的 OAuth 2.0 授權類型、運作方式與使用時機。這是一份面向開發與資安團隊的實務指南。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "常見 OAuth 2.0 授權類型與適用時機完整指南"

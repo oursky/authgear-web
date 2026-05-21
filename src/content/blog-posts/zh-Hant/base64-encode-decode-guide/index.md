@@ -2,7 +2,7 @@
 title: "Base64 超好懂：如何編碼與解碼資料"
 h1: "Base64 超好懂：如何編碼與解碼資料（附免費線上工具）"
 excerpt: "了解 Base64 編碼如何運作、為何會被使用，以及如何安全編碼與解碼資料。含實務範例與免費線上 Base64 工具。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Base64 超好懂：如何編碼與解碼資料（附免費線上工具）"
@@ -41,7 +41,7 @@ Base64 會把二進位資料分組並映射到有限字元集。它取 3 bytes�
 這個過程可完全逆轉，任何 Base64 字串都能解碼回原始二進位，因此非常適合序列化、除錯與 API 架構。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## **Base64 安全嗎？**
@@ -135,7 +135,7 @@ Base64URL 是為 URL、cookie 與驗證流程設計的 Base64 變體。它替換
 若你在 Authgear 或其他身份平台操作 token，會非常常見 Base64URL。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ## **Base64 編碼流程**

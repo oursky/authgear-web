@@ -1,7 +1,7 @@
 ---
 title: "Choosing The Right UUID Version: v1, v4, v6, Or v7"
 excerpt: "Learn the differences between UUIDv1, UUIDv4, UUIDv6, and UUIDv7, and how to choose the right UUID version for performance, ordering, and privacy."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Choosing The Right UUID Version: v1, v4, v6, Or v7"

@@ -4,9 +4,9 @@ excerpt: "Palace Studio 採用 Authgear 的手機號碼 OTP 與跨平台能力�
 customerName: "Palace Studios"
 companyIndustry: 健身
 companyLocation: "香港"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - 無密碼／簡訊
   - 手機號碼

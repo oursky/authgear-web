@@ -1,7 +1,7 @@
 ---
 title: "2026 最佳開源 Auth0 替代方案：安全且可自託管的選擇"
 excerpt: "探索 2026 年最佳開源 Auth0 替代方案。比較功能、部署模式、安全性與適用情境，協助團隊選出合適的身分平台。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "2026 最佳開源 Auth0 替代方案：安全且可自託管的選擇"

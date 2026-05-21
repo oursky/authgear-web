@@ -1,7 +1,7 @@
 ---
 title: "Demonstrating Proof-of-Possession (DPoP)：現代 OAuth 安全完整指南"
 excerpt: "了解 Demonstrating Proof-of-Possession（DPoP）是什麼、為何對安全 API 很重要，以及如何實作。內含開發者實作範例。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Demonstrating Proof-of-Possession (DPoP)：現代 OAuth 安全完整指南"

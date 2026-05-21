@@ -1,7 +1,7 @@
 ---
 title: "10 分鐘內為任何網頁新增身份驗證"
 excerpt: "這篇文章示範如何使用 Authgear 輕鬆地將身分驗證新增至任何 Javascript 單頁應用程式 (SPA)。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "10 分鐘內為任何網頁新增身份驗證"
@@ -29,7 +29,7 @@ draft: false
 1. 然後，Authgear 將使用者的 ID 令牌傳回給您的應用程式。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## 實施概述
@@ -50,7 +50,7 @@ SPA 應用程式的身份驗證實作由兩部分組成。在第一部分中，�
 - 選擇適當的應用程式類型（單頁應用程式）並為您的應用程式提供名稱。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 - 點擊“儲存”並跳到下一個教學頁面，或者您也可以按照 <a href="https://docs.authgear.com/get-started/single-page-app/website#setup-application-in-authgear" target="_blank">入門指南</a> 設定新應用程式。
@@ -72,7 +72,7 @@ SPA 應用程式的身份驗證實作由兩部分組成。在第一部分中，�
 點擊“儲存”並記住 **端點** 和 **客戶端 ID**。透過初始化連接時您將需要它 <a href="https://github.com/authgear/authgear-sdk-js" target="_blank">Authgear Web SDK</a> 在您的 SPA 代碼中。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 Authgear 中的每個應用程式都指派一個字母數字的唯一用戶端 ID，您的應用程式程式碼將使用該 ID 透過 SDK 呼叫 Authgear API。
@@ -82,7 +82,7 @@ Authgear 中的每個應用程式都指派一個字母數字的唯一用戶端 I
 Authgear 支援多種身份驗證方法。從「身份驗證」標籤中，您可以為您的使用者選擇**登入方法**。選項包括透過電子郵件、行動裝置或社交媒體、僅使用使用者名稱或您指定的自訂方法。為簡單起見，您可以選擇 **電子郵件** 和 **無密碼** 選項：
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 ## 第 2 部分：**在您的網頁上新增身份驗證**
@@ -225,7 +225,7 @@ label {
 After creating an HTML file and applying CSS styles, see now how our page looks like by running npm run dev and accessing it at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>.
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ### Create an app.js file
@@ -328,7 +328,7 @@ Let’s breakdown down app.js code in the previous section and understand how au
 login: The login function is called by the **Login** button previously defined in the HTML page. It performs the login action by calling *authgearClient.startAuthentication* Authgear’s function.  It redirects the user to the Auhthgear login page. After the user logs in successfully, they will be redirected back to the same page we set in redirectURI. Run the project and click the **Login** button. You should be taken to the **Authgear Login Page** configured for your application. Go ahead and create a new user or log in using an email (we specified the Passwordless Email login method in the first part). When you try to log in with your email, you should receive a <a href="https://docs.authgear.com/strategies/email-login-link" target="_blank">magic link</a> to your email box to confirm login operation.
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 After authenticating successfully, you will be redirected to the page you were before.

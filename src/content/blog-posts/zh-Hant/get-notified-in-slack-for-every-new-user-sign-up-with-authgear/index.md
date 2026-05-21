@@ -1,7 +1,7 @@
 ---
 title: "用 Authgear 讓每次新用戶註冊都即時通知到 Slack"
 excerpt: "本文帶你整合 Authgear Hooks 與 Slack，當有新使用者註冊時，立即在 Slack 收到通知。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "用 Authgear 讓每次新用戶註冊都即時通知到 Slack"
@@ -35,19 +35,19 @@ draft: false
 如下圖，我建立了一個名為 authgear-example-sign-up 的新 workspace：
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 並在其中建立一個新的 Admin 帳號：
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 接著建立一個名為 notification-sign-up 的 Slack channel，用來接收使用者註冊通知：
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ### Create a Slack App
@@ -55,13 +55,13 @@ draft: false
 前往 <a href="https://api.slack.com/apps" target="_blank">Slack API page</a>，建立一個全新的 app（**from scratch**）。我們會用它來傳送 webhook 資訊：
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 下一步請輸入 app 名稱，並選擇要連接的 workspace。請務必確認這是正確的 workspace，因為之後無法再變更 app 的 workspace。選好後，按下 **Create App**。
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ### Enable Incoming Webhooks
@@ -69,19 +69,19 @@ draft: false
 在「Add features and functionality」區塊中，點選「Incoming Webhooks」並啟用。
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 往下捲動並點選「Add New Webhook to Workspace」。選擇要接收通知的 channel，然後按下「Allow」。
 
 <!--FIGURE-->
-![](./figure-7.png)
+![](./figure-7.webp)
 <!--/FIGURE-->
 
 往下捲動並點選「Add New Webhook to Workspace」。選擇要接收通知的 channel，然後按下「Allow」。
 
 <!--FIGURE-->
-![](./figure-8.png)
+![](./figure-8.webp)
 <!--/FIGURE-->
 
 ## Integrating Authgear with Slack Webhook
@@ -93,13 +93,13 @@ draft: false
 前往 <a href="https://portal.authgear.com/" target="_blank">Authgear Portal</a> 的 **Advanced**->**Hooks** 區塊，**Add** 一個新的 **Non-blocking** Event：
 
 <!--FIGURE-->
-![](./figure-9.png)
+![](./figure-9.webp)
 <!--/FIGURE-->
 
 將 Hook 的 **Type** 選為 *TypeScript.*你將撰寫一個函式來回應使用者建立事件並發送 Slack 通知。點選 **Config** 下的 **Edit Script**，即可進入編輯器：
 
 <!--FIGURE-->
-![](./figure-10.png)
+![](./figure-10.webp)
 <!--/FIGURE-->
 
 我們希望在 EventUserCreated 觸發時，向 Slack webhook URL 發送一個 POST 請求：
@@ -138,7 +138,7 @@ export default async function(e: EventUserCreated): Promise<void> {
 當所有設定完成後，就可以測試新建立的 hook 是否正常運作。最簡單的方式是到 [Authgear Portal](https://portal.authgear.com/) 的 **User Management** 頁面手動建立一個**新使用者**。
 
 <!--FIGURE-->
-![](./figure-11.png)
+![](./figure-11.webp)
 <!--/FIGURE-->
 
 ### Validate the new hook
@@ -146,19 +146,19 @@ export default async function(e: EventUserCreated): Promise<void> {
 當所有設定完成後，就可以測試新建立的 hook 是否正常運作。最簡單的方式是到 <a href="https://portal.authgear.com/" target="_blank">Authgear Portal</a> 的 **User Management** 頁面手動建立一個**新使用者**。
 
 <!--FIGURE-->
-![](./figure-12.png)
+![](./figure-12.webp)
 <!--/FIGURE-->
 
 另一種驗證方式是，當你把系統整合 Authgear App 並設定好登入方式後，讓新使用者實際完成註冊流程。你也可以在 Authgear dashboard 的 **Getting Started** 頁面使用 **Try it now** 功能測試。
 
 <!--FIGURE-->
-![](./figure-13.png)
+![](./figure-13.webp)
 <!--/FIGURE-->
 
 當你用 email 完成註冊後，Slack 就會收到訊息：
 
 <!--FIGURE-->
-![](./figure-14.png)
+![](./figure-14.webp)
 <!--/FIGURE-->
 
 ## Summary

@@ -2,7 +2,7 @@
 title: "OAuth 2.0 中的 PKCE：如何保護您的 API 免受攻擊"
 h1: "OAuth 2.0 中的 PKCE：如何保護您的 API 免受授權程式碼授予攻擊"
 excerpt: "了解有關 PKCE 的所有信息，PKCE 是 OAuth 2.0 的安全擴展，有助於保護您的 API 免受授權代碼攔截和其他攻擊。了解 PKCE 的工作原理、優點以及實施的最佳實踐。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "OAuth 2.0 中的 PKCE：如何保護您的 API 免受授權程式碼授予攻擊"

@@ -1,7 +1,7 @@
 ---
 title: "Comprehensive Guide to Cryptographic Failures (OWASP Top 10 A02)"
 excerpt: "Learn what cryptographic failures are, see real-world examples, and get OWASP best practices to secure data in transit & at rest."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Comprehensive Guide to Cryptographic Failures (OWASP Top 10 A02)"

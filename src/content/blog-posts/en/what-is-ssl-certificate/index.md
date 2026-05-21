@@ -1,7 +1,7 @@
 ---
 title: "What Is an SSL Certificate? A Developer's Guide"
 excerpt: "An SSL certificate does two things: encrypts your connection and verifies your server's identity. Learn how it works, the 3 certificate types, and what's inside one."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "What Is an SSL Certificate? A Developer's Guide"

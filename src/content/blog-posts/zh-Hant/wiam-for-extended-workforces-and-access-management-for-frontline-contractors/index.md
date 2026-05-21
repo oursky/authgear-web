@@ -2,7 +2,7 @@
 title: "駕馭多元勞動力的狂野西部：面向延伸勞動力的 WIAM 與第一線／承包商存取管理"
 h1: "駕馭多元勞動力的狂野西部：延伸勞動力 WIAM"
 excerpt: "現代職場早已不是朝九晚五的小鎮，而是由第一線人員到資深承包商組成的多元前線。但要管理這些人的存取權，挑戰才真正開始。傳統 WIAM 就像老舊驛馬車——慢、笨重，還充滿安全破口。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 readTime: 3
@@ -20,7 +20,7 @@ draft: false
 ## 面向延伸勞動力的 WIAM：安全存取的六連發工具
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 - 閃電式上線：不再需要成堆表單！自動化流程可依角色或專案需求快速配置存取，讓團隊像旋風般就位。
@@ -32,7 +32,7 @@ draft: false
 ## 第一線與承包商：為不同角色量身打造的存取管理
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 延伸勞動力 WIAM 深知每個人都不是同一頂帽子。它能對應不同需求：

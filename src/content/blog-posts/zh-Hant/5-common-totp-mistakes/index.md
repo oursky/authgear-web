@@ -1,7 +1,7 @@
 ---
 title: "開發者最常犯的 5 個 TOTP 錯誤（以及 2026 年的修正方式）"
 excerpt: "2026 年 TOTP 驗證碼常失敗？一次看懂 5 個常見錯誤：時鐘漂移、Base32 secret、RFC 6238 參數不一致、驗證邏輯薄弱，以及每項對應修正（含 Python/JavaScript 範例）。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "開發者最常犯的 5 個 TOTP 錯誤（2026 指南）"

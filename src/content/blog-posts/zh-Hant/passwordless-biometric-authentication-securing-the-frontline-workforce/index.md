@@ -1,7 +1,7 @@
 ---
 title: "無密碼與生物辨識驗證：如何保護前線勞動力"
 excerpt: "無密碼與生物辨識驗證可在不降低生產力的前提下強化前線存取安全。本文說明其運作方式、優勢、挑戰與適用時機。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "無密碼與生物辨識驗證：如何保護前線勞動力"

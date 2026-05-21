@@ -2,7 +2,7 @@
 title: "Master Attribute-Based Access Control with Authgear – Ultimate Security Guide"
 h1: "Unlock Ultimate Security: Master Attribute-Based Access Control with Authgear"
 excerpt: "Discover how attribute-based access control enhances your software's security. Learn implementation steps, benefits, and a comparison with RBAC in our comprehensive Authgear guide."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: highlight
 featured: false
 metaTitle: "Unlock Ultimate Security: Master Attribute-Based Access Control with Authgear"

@@ -2,7 +2,7 @@
 title: "用 Authgear 掌握 Attribute-Based Access Control：終極安全指南"
 h1: "解鎖進階安全：用 Authgear 精通 Attribute-Based Access Control"
 excerpt: "了解 attribute-based access control 如何強化軟體安全，掌握導入步驟、核心效益與和 RBAC 的完整比較。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: highlight
 featured: false
 metaTitle: "解鎖進階安全：用 Authgear 精通 Attribute-Based Access Control"

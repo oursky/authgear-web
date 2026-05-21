@@ -1,7 +1,7 @@
 ---
 title: "Tech Giants Take One Step Closer to a Future without Passwords"
 excerpt: "Apple, Google, and Microsoft have committed to make passwords a thing of the past, taking another step towards a future without passwords. "
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Tech Giants Take One Step Closer to a Future without Passwords"
@@ -80,7 +80,7 @@ Nevertheless, the current state of passwordless authentication isn't enough for 
 <h2 id="passkeys">Passkey: A Step Closer to a Future Without Passwords</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Furthermore, Authgear also comes with a set of authentication and user management features, such as pre-built signup and user profile pages, user analytics, WhatsApp OTP, social logins, etc., to help you provide better user experience, increase app conversion rate, and boost user retention rate.

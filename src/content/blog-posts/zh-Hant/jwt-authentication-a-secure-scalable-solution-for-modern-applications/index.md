@@ -2,7 +2,7 @@
 title: "JWT 驗證：現代應用的安全且可擴展方案"
 h1: "JWT 驗證：開發者完整指南"
 excerpt: "了解 JWT 驗證如何運作、優缺點與適用情境，並比較 OAuth、API Key、SAML 等替代方案。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "JWT 驗證：開發者完整指南"

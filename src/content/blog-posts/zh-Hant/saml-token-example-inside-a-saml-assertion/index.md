@@ -1,7 +1,7 @@
 ---
 title: "SAML Token 範例：SAML Assertion 裡面有什麼？"
 excerpt: "透過 SAML token 範例了解 SAML assertion 內容，包括屬性、驗證聲明、簽章與安全要素。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "SAML Token 範例：SAML Assertion 裡面有什麼？"

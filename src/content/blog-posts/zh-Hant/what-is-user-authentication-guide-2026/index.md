@@ -1,7 +1,7 @@
 ---
 title: "什麼是使用者驗證？類型、方法與最佳實務（2026）"
 excerpt: "使用者驗證會在授權存取前先確認身分。本文整理 2026 年主流驗證方法、安全最佳實務與實作策略。"
-coverImage: ./cover.jpeg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是使用者驗證？類型、方法與最佳實務（2026）"

@@ -1,7 +1,7 @@
 ---
 title: "註冊表單最佳實務：大幅提升您的應用程式轉換率"
 excerpt: "探索前 5 名註冊頁面優化技術，以最大限度地提高應用程式的註冊率並擴大用戶群。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "註冊表單最佳實務：大幅提升您的應用程式轉換率"
@@ -81,7 +81,7 @@ Sign up forms are perhaps the most important part of your customer acquisition p
 許多註冊頁面的設計都保持最小化，並且只包含一個註冊表單。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 以 Mailchimp 為例。註冊頁面刪除了導覽列和頁腳。它也沒有其他部分來分散用戶的注意力；此外，除了條款和隱私權聲明等必需的連結之外，沒有其他連結會使用戶脫離註冊過程。這有效地將用戶的注意力集中在註冊表單本身上，並最大限度地減少了跳出的可能性。
@@ -91,7 +91,7 @@ Sign up forms are perhaps the most important part of your customer acquisition p
 作為資格認證過程的一部分，許多網站或應用程式可能會要求提供大量資訊。然而，最好的註冊表單總是乾淨簡單，以盡量減少摩擦。理想情況下，您的表單應該只要求提供在資料庫中註冊客戶所絕對必需的信息，例如他們的姓名、密碼和電子郵件地址。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 一個完美的例子是 Asana 的註冊表單，它只需要使用者提供電子郵件地址即可發送驗證電子郵件。
@@ -125,7 +125,7 @@ Mobile usage has increased steadily over the last few years. According to <a hre
 <h2 id="authgear">Create High Conversion Sign Up Page with Authgear</h2>
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 Authgear 是一種適用於 Web 和行動應用程式的身份驗證和使用者管理解決方案。透過將您的應用程式與 Authgear 集成，您可以為使用者提供安全、流暢的身份驗證體驗。此外，我們還提供遵循最佳實踐的可自訂註冊和登錄頁面，幫助您提高註冊率、擴大訂閱者群，並最終為您的應用程式創造更多收入。

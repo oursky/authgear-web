@@ -1,7 +1,7 @@
 ---
 title: "Send OTP on WhatsApp 2022"
 excerpt: "OTPs are essential to verify transactions and logins. In Authgear, you can send OTPs with the messenger services they are familiar with."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: integrations
 featured: true
 metaTitle: "Send OTP on WhatsApp 2022"

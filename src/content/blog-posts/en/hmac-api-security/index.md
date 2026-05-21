@@ -1,7 +1,7 @@
 ---
 title: "Why HMAC Is Still a Must-Have for API Security in 2025"
 excerpt: "Discover why HMAC remains the foundation of secure API authentication in 2025. Learn how it protects APIs, prevents tampering, and ensures message integrity."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Why HMAC Is Still a Must-Have for API Security in 2025"

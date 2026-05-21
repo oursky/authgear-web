@@ -1,7 +1,7 @@
 ---
 title: "保護您的企業：為什麼 SOC 2 合規性是關鍵（以及身分驗證如何保持鎖定）"
 excerpt: "在資料驅動的商業時代，資訊就是企業命脈，而信任更是關鍵。企業將客戶資料到財務交易等敏感資訊交給服務供應商，該如何確保資料在最高安全與隱私標準下被妥善處理？SOC 2 合規正是建立資料安全黃金標準的重要框架。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "保護您的企業：為什麼 SOC 2 合規性是關鍵（以及身分驗證如何保持鎖定）"
@@ -28,7 +28,7 @@ SOC 2（Service Organization Controls Type 2）不是一套僵化的規則，而
 ### SOC 2 合規性檢查表：成功的逐步指南
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 實現 SOC 2 合規性雖然有益，但並不是一件簡單的事。為了有效地引導這趟旅程，詳細的清單可以成為您的地圖。以下是關鍵步驟的全面細分，以及有助於您取得進步的其他見解：
@@ -67,7 +67,7 @@ SOC 2（Service Organization Controls Type 2）不是一套僵化的規則，而
 ## SOC 1 與 SOC 2：關注源頭
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 將 SOC 1 和 SOC 2 想像為兄弟姊妹，具有家族相似性，但專注於不同的領域。
@@ -119,7 +119,7 @@ SOC 2：
 ## ISO 27001：指路明燈
 
 <!--FIGURE-->
-![](./figure-3.jpg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 與稽核報告 SOC 1 和 SOC 2 不同，ISO 27001 是一套用於實施資訊安全管理系統 (ISMS) 的規範性指南。

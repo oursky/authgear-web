@@ -2,7 +2,7 @@
 title: "Phishing-Resistant MFA: Harness Hardware Keys & Passkeys"
 h1: "Phishing-Resistant MFA: Why Hardware Keys and Passkeys Are the Future of Login"
 excerpt: "Discover how phishing-resistant MFA uses hardware keys and passkeys to block attacks, boost security, and deliver a seamless login experience."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Phishing-Resistant MFA: Why Hardware Keys and Passkeys Are the Future of Login"

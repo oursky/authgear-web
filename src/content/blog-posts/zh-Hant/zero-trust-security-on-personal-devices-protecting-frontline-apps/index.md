@@ -1,7 +1,7 @@
 ---
 title: "個人裝置上的零信任安全：保護前線應用"
 excerpt: "了解零信任安全如何保護個人裝置上的前線應用。本文涵蓋核心原則、驗證策略、裝置信任與存取控制。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "個人裝置上的零信任安全：保護前線應用"

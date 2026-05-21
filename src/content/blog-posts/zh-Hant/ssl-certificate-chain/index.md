@@ -1,7 +1,7 @@
 ---
 title: "SSL 憑證鏈：是什麼、如何修復"
 excerpt: "缺少中繼憑證是最常見的 SSL 設定錯誤。了解憑證鏈為何、如何在 Nginx、Apache 或 Caddy 修復中斷的鏈。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "SSL 憑證鏈：是什麼、如何修復"

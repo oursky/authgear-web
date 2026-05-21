@@ -1,7 +1,7 @@
 ---
 title: "Authgear Takes the Passkey Pledge: Our Commitment to a Passwordless Future"
 excerpt: "Authgear proudly joins the FIDO Alliance's Passkey Pledge, building on our early adoption since 2022. Passkeys eliminate password vulnerabilities while enhancing user experience through biometric verification. We're committed to making passwordless authentication the default, creating a digital ecosystem where security and convenience perfectly coexist."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 readTime: 3

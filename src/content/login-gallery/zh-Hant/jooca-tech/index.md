@@ -1,17 +1,17 @@
 ---
 title: "星際毛毛"
 industry: 生活風格
-mainImage: ./main.jpg
+mainImage: ./main.webp
 webSlides:
-  - ./web-1.jpg
-  - ./web-2.jpg
-  - ./web-3.jpg
-  - ./web-4.jpg
+  - ./web-1.webp
+  - ./web-2.webp
+  - ./web-3.webp
+  - ./web-4.webp
 mobileSlides:
-  - ./mobile-1.jpg
-  - ./mobile-2.jpg
-  - ./mobile-3.jpg
-  - ./mobile-4.jpg
+  - ./mobile-1.webp
+  - ./mobile-2.webp
+  - ./mobile-3.webp
+  - ./mobile-4.webp
 loginMethods:
   - 手機號碼
   - 無密碼／簡訊

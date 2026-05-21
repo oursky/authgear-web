@@ -1,7 +1,7 @@
 ---
 title: "大規模 IAM：大型前線團隊的成本效益型身分管理"
 excerpt: "了解如何為大型前線團隊實作具成本效益的 IAM，兼顧安全、效率與自動化。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "大規模 IAM：大型前線團隊的成本效益型身分管理"

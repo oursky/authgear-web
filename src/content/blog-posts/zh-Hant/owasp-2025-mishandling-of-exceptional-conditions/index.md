@@ -2,7 +2,7 @@
 title: "OWASP Top 10 2025：A10—異常情況處理不當"
 h1: "OWASP Top 10 2025：A10—異常情況處理不當（新手指南）"
 excerpt: "了解 2025:A10 異常情況處理不當代表什麼、不可預期錯誤如何演變成漏洞，以及穩健錯誤處理與 fail-safe 設計最佳實務。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "OWASP Top 10 2025：A10—異常情況處理不當（新手指南）"

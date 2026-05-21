@@ -1,7 +1,7 @@
 ---
 title: "社群登入（Social Login）：為什麼你應該導入"
 excerpt: "了解如何在網站或 App 輕鬆啟用社群登入，提升轉換率並帶來更流暢的使用者體驗。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "社群登入（Social Login）：為什麼你應該導入"
@@ -77,7 +77,7 @@ draft: false
 <h2 id="def">什麼是社群登入？</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 社群登入是一種驗證方式：使用者可以沿用既有**社群帳號的憑證**，來存取某個服務或網站。它也常被稱為 social sign-in 或 social authentication。
@@ -87,7 +87,7 @@ draft: false
 <h2 id="steps">社群登入如何運作？</h2>
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 流程相當直覺，大致如下：
@@ -113,7 +113,7 @@ OAuth 2.0 是**授權（authorization）**協定，讓使用者能安全地透�
 <h2 id="benefits">社群登入能帶來哪些好處？</h2>
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 社群驗證的主要目標是讓登入更順暢，但對企業同樣好處多多。導入後，你大致能獲得以下效益：
@@ -157,7 +157,7 @@ OAuth 2.0 是**授權（authorization）**協定，讓使用者能安全地透�
 社群登入能幫企業取得更完整的客戶輪廓、減輕客服負擔，並提升參與度；但要在網站或 App 逐一串接不同供應商，確實耗時費力。讓 Authgear 分擔這些工程工作：完成整合後，你通常只要幾下點擊，就能啟用或關閉 Apple、Google、Facebook、LinkedIn 等常見社群登入。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 如此一來，客戶在註冊與登入時能享有更一致的體驗，同時降低惡意行為對業務的威脅。

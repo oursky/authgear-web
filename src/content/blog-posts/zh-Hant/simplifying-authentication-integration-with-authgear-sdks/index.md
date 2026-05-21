@@ -1,7 +1,7 @@
 ---
 title: "使用 Authgear SDK 簡化開發人員的身份驗證集成"
 excerpt: "Authgear SDK 程式庫使開發人員可以輕鬆地與 Authgear 整合並互動。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "使用 Authgear SDK 簡化開發人員的身份驗證集成"
@@ -59,7 +59,7 @@ Auhgear is a highly adaptable **identity-as-a-service (IDaaS) platform** for web
 Authgear SDK 可以輕鬆整合到您的應用程式中，無論是**單頁應用程式**（Angular、Vue、React）**、行動應用程式**（IOS、Android、React Native、Flutter）**，還是常規 Web 應用程式**。在大多數情況下，它只涉及**幾行程式碼**。還有全面的文檔和社群支援可以引導您完成整合過程。 Authgear 提供適用於各種平台和語言的 SDK。下面，我們按應用程式類型細分著名的庫和 SDK，並選擇您的應用程式類型作為入門指南。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ### 單頁應用程式 (SPA) SDK 庫
@@ -145,7 +145,7 @@ Authgear SDK 可以輕鬆整合到您的應用程式中，無論是**單頁應�
 可用於單頁和行動應用程式的基於令牌的身份驗證方法：
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ## 後端服務和API認證
@@ -157,7 +157,7 @@ If your API or backend service needs authentication, you can validate the JWT to
 If you have a traditional web application like **Java EE, Express, PHP, GO, Laravel, or**<a href="http://ASP.NET" target="_blank">**ASP.NET**</a>**Core MVC** and you want to integrate authentication features, you can use a <a href="https://docs.authgear.com/get-started/authentication-approach/cookie-based" target="_blank">Cookie-based</a> authentication method.
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ## 管理介面
@@ -197,7 +197,7 @@ Every application in Authgear is assigned an alphanumeric, unique client ID that
 從「身份驗證」標籤中，您可以為您的使用者選擇**登入方法**。選項包括透過電子郵件、行動裝置或社交媒體、僅使用使用者名稱或您指定的自訂方法。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 **步驟5.安裝相關的Authgear SDK**

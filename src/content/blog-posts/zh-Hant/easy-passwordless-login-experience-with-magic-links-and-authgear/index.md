@@ -1,7 +1,7 @@
 ---
 title: "用 Magic Link 與 Authgear 打造輕鬆無密碼登入體驗"
 excerpt: "本文介紹什麼是 Magic Link，以及如何用 Authgear 建立以 Email 為核心的無密碼登入流程。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 featured: false
 metaTitle: "用 Magic Link 與 Authgear 打造輕鬆無密碼登入體驗"
 metaDescription: "本文介紹什麼是 Magic Link，以及如何用 Authgear 建立以 Email 為核心的無密碼登入流程。"
@@ -36,7 +36,7 @@ Magic links 可降低密碼相關漏洞的風險。密碼可能過弱、在多�
 1. 使用者點擊信中的連結後即可存取應用程式。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## Magic Links 的 5 種使用情境
@@ -92,11 +92,11 @@ Authgear 透過將 magic links 設為**僅可使用一次**，確保其安全性
 假設你有一種情境：只對**少數使用者寄送 magic links**，並讓他們僅能透過 magic link 登入；其餘使用者則維持一般 **Email & Password** 流程。在這種情況下，你可以在 Authgear 定義多種登入方式，以符合不同使用者群組的需求。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 **7. Customize branding**

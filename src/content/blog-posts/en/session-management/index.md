@@ -1,7 +1,7 @@
 ---
 title: "What Is Session Management: Threats and Best Practices"
 excerpt: "Session management is the process of handling interactions between a user and a web application. To understand its importance, consider that HTTP, the protocol underlying the web, is stateless. This means each request from a user is treated independently, and the server has no inherent way to remember or track a user's actions across multiple requests. Session management addresses this by creating a session—a series of related user interactions within a specific timeframe. By managing sessions effectively, web applications can maintain user state, personalize experiences, and enhance security. In this article, we'll delve into the complexities of session management, explore potential threats, and provide best practices to safeguard your web application."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "What Is Session Management: Threats and Best Practices"
@@ -98,13 +98,13 @@ Regularly regenerating session IDs is essential for maintaining strong security:
 ## How Session Management Works with Authgear
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 When your users authenticate with Authgear, Authgear will take care of generating and properly configuring the cookies to ensure secure authentication. The subsequent requests sent from the browser to your app server will now include the session cookie. To verify the session, forward the requests to the Authgear Resolver Endpoint.
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 **Request Example**`  

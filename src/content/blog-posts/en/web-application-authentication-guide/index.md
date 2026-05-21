@@ -1,7 +1,7 @@
 ---
 title: "From Login to Lockdown: Building Secure Authenticated Applications"
 excerpt: "Master the art of building secure authenticated applications. Learn about authentication methods, access tokens, and implement robust security with Authgear. Your comprehensive guide to safeguarding user data."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "From Login to Lockdown: Building Secure Authenticated Applications"
@@ -88,7 +88,7 @@ Cookies are generally used to handle user authentication in web applications. He
 Working of cookie-based authentication in web apps:
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 <p>As you can see here, the client browser sends the <span class="inline-code">POST</span> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST" target="_blank">request</a> for login credentials to the server. The server then verifies the credentials sent to it with the <span class="inline-code">HTTP 200 OK</span> status code. It creates a session ID stored in the server and returns it to the client via <span class="inline-code">Set-Cookie: session=…</span>. On the subsequent requests, the session ID from the cookie is verified in the server, and the corresponding request is processed. When you log out of the app, your session ID will be cleared from both the client and server.</p>
@@ -102,7 +102,7 @@ One of the most common ways to implement token-based authentication is to use <a
 Working of token-based authentication:
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 When the credentials are received from the client's browser, the server validates these credentials and also generates a signed JWT containing all of the user information. The token is stateless, so it never gets stored on the server. Over the following requests, the token is passed to the server and then gets decoded in order to verify it on the server.
@@ -207,7 +207,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 Here's a diagram that shows how the access token is obtained from the authorization server in order to access protected routes:
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 1. The client requests for authorization to the authentication server.
@@ -231,7 +231,7 @@ Here are some of the features Authgear provides you by default:
 **1. Signup page**: you don't need to create a custom signup page now, as you can use Authgear's prebuilt signup and login pages with best practices for signup conversions. You can even customize the look to align it with your brand visual identity.
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 **2. Multiple security features**: you can easily implement social logins, Two-Factor Authentication (2FA), biometrics, and more features available to use to provide a smooth and secure user experience.
@@ -243,7 +243,7 @@ Here are some of the features Authgear provides you by default:
 **5.** **User profile & setting**: This feature allows your users to have more control over their account information and activity. They can edit information, such as name, primary address, username, etc., of their profiles, manage their 2FAs, and terminate suspiscious sessions.
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 **6. Admin portals**: your admin portal shows you everything you need to know about configuring the different authentication methods, adding security measures, or creating/revoking users with a few clicks.
@@ -271,7 +271,7 @@ You should see the following right now:
 Create project dialog box
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 You can name it anything you like, but you won't be able to change it later. This is your Authgear endpoint so choose wisely. Here, we call it ‘reactappdemo’.
@@ -287,7 +287,7 @@ After you choose your required settings, you will be greeted with the following:
 Project creation finished interface
 
 <!--FIGURE-->
-![](./figure-7.png)
+![](./figure-7.webp)
 <!--/FIGURE-->
 
 Now, you can click on “Continue to Portal for further Customisation”.
@@ -302,7 +302,7 @@ After creating the project, we will create an application. Make sure you're on y
 Create application interface in the Portal
 
 <!--FIGURE-->
-![](./figure-8.png)
+![](./figure-8.webp)
 <!--/FIGURE-->
 
 <p>As you can see here, we also give it an “Authorized Redirect URI.” Users will be redirected to this path after they get authenticated. Typically, when we are in the development phase, we can give it <span class="inline-code">http://localhost:4000/auth-redirect</span> as URI for local development.</p>
@@ -327,7 +327,7 @@ We need our website origin to communicate with Authgear. For this:
 You should have this by now:
 
 <!--FIGURE-->
-![](./figure-9.png)
+![](./figure-9.webp)
 <!--/FIGURE-->
 
 With this, we are all ready to start some coding!

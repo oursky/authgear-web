@@ -1,7 +1,7 @@
 ---
 title: "如何選擇同時支援 WhatsApp OTP 與生物辨識的 Stytch 替代方案"
 excerpt: "對管理行動優先人力的企業團隊而言，為了取得更可預測的成本、更好的 WhatsApp OTP 送達率與更強的生物辨識驗證能力，正積極重新評估 Stytch。本文比較適合手機優先員工的主流 Stytch 替代方案，說明 WhatsApp OTP 與 passkey 如何搭配，並提供一套可實作的評估、導入與遷移框架。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 readTime: 12
@@ -29,7 +29,7 @@ draft: false
 - [FAQs](#faqs)
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## Why teams are re-evaluating Stytch
@@ -45,7 +45,7 @@ draft: false
 **關鍵結論：**當你的使用者以手機為主且高度成本敏感時，通道彈性與供應商回應速度和功能本身同樣重要。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ## Core authentication features you must evaluate
@@ -276,7 +276,7 @@ Authgear 可同時支援 SMS 與 WhatsApp OTP，並內建 fallback 編排以降�
 ## Deep dive: Implementing WhatsApp OTP + biometrics with Authgear
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 本節提供可落地的實作藍圖：架構、流程與佈建方式。

@@ -2,7 +2,7 @@
 title: "OTP Bypass: How OTP Bots Beat SMS 2FA (+ Fixes)"
 h1: "How OTP Bots Bypass SMS 2FA (and How to Fix It)"
 excerpt: "See how OTP bot apps bypass SMS 2FA and ship fixes fast: adaptive CAPTCHA, entity rate limits, risk scoring, and Authgear fraud protection."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "How OTP Bots Bypass SMS 2FA (and How to Fix It)"

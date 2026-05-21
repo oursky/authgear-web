@@ -1,7 +1,7 @@
 ---
 title: "What is Salting in Security and How Does it Work?"
 excerpt: "Password salting is a security method that strengthens password protection by adding unique, random data (a \"salt\") to a password before it is hashed. This ensures that every password hash stored in a database is unique, effectively defending against attacks that use precomputed tables, such as rainbow table attacks."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "What is Salting in Security? Password Hashing and Salting Explained"
@@ -43,7 +43,7 @@ faq:
 ## What Is Salting in Security?
 
 <!--FIGURE-->
-![Salting in security: how a per-user random salt + the password are combined and hashed to produce a unique stored hash.](./figure-1.png)
+![Salting in security: how a per-user random salt + the password are combined and hashed to produce a unique stored hash.](./figure-1.webp)
 <!--/FIGURE-->
 
 Salting in security is the practice of adding unique, random data (a "salt") to each user's password before it is hashed and stored. The technical workflow involves generating a cryptographically secure random salt, combining it with the user's input, and hashing the pair to create a unique digital fingerprint for future verification. This method improves security by neutralizing rainbow table attacks, protecting duplicate passwords from sharing the same hash, and forcing attackers to crack accounts individually. For robust implementation, best practices require using unique per-user salts of at least 16 bytes paired with modern algorithms and defense-in-depth techniques like peppering.

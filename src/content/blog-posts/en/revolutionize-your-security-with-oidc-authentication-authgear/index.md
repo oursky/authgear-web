@@ -2,7 +2,7 @@
 title: "Revolutionize Your Security with OIDC Authentication – Authgear"
 h1: "Revolutionize Your Security: Mastering OIDC Authentication with Authgear"
 excerpt: "Discover how oidc authentication transforms user identity verification for modern businesses. Explore our comprehensive guide on oidc authentication and learn why Authgear is your ideal security partner."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Revolutionize Your Security: Mastering OIDC Authentication with Authgear"

@@ -1,7 +1,7 @@
 ---
 title: "使用任何提供者將社交登入新增至您的 Laravel 項目"
 excerpt: "社群登入可讓使用者使用其在 Facebook、Twitter (X) 和 Google 等社群網站上的現有帳號登入您的網站。在這篇文章中，我們展示瞭如何使用任何社交登入提供者在 Laravel 專案中實現社交登入。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "使用任何提供者將社交登入新增至您的 Laravel 項目"
@@ -63,13 +63,13 @@ Socialite 是 Laravel 中正式社群登入的方案。這是一個超級有用�
 首先登入 Authgear 入口網站並建立新專案或選擇現有專案。然後，導航到專案的 **Applications** 部分。建立一個新的應用程序，類型為**OIDC Client Application**，如下所示：
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 接下來，點擊**儲存**按鈕進入新應用程式的設定頁面。設定頁麵包含所有 OAuth 憑證，例如 Authgear 應用程式的用戶端 ID、用戶端金鑰和端點。記下這些值，因為您將在後續步驟中使用它們。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 在 Authgear 中配置的最後一件事是重定向 URI。這應該是一個指向應用程式頁面的鏈接，該頁面將在用戶在提供者網站上向您的應用程式授予授權後完成身份驗證流程。
@@ -107,7 +107,7 @@ php artisan breeze:install
 在此步驟中，我們將在常規 **Login** 按鈕下方新增一個 **Login with Authgear** 按鈕，如下所示：
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 若要建立上述視圖，請開啟 **views/auth/login.blade.php** 並在 **Log In** 按鈕下方新增以下程式碼：
@@ -215,7 +215,7 @@ Route::get('/oauth/callback', [OAuthController::class, 'handleRedirect']);
 此時，如果您執行應用程式並點擊「使用身分驗證提供者登入」按鈕，您應該會被重新導向到提供者的授權頁面。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 您的使用者需要在授權頁面上建立帳戶，然後才能登入您的 Authgear 專案。他們的資料只能由您的專案訪問，而 Authgear 上的其他開發人員或專案無法存取。

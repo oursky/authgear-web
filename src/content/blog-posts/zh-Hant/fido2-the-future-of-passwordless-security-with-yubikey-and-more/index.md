@@ -2,7 +2,7 @@
 title: "FIDO2：以 YubiKey 與更多裝置打造無密碼安全未來"
 h1: "認識 FIDO2：無密碼安全的未來"
 excerpt: "深入了解 FIDO2 是什麼、其優缺點，以及 YubiKey 等 FIDO2 安全金鑰如何提升線上防護。也帶你掌握 FIDO2 驗證與 Passkey 相容性的關鍵。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "認識 FIDO2：無密碼安全的未來"

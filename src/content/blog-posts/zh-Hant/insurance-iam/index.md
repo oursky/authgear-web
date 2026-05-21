@@ -1,7 +1,7 @@
 ---
 title: "保險業 IAM：如何幫助獲客、留客並強化外部協作？"
 excerpt: "對保險公司而言，IAM 不只提升資安，也能幫助獲客與留客，並改善與外部團隊合作效率。本文帶你完整了解。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "保險業 IAM：如何幫助獲客、留客並強化外部協作？"
@@ -82,7 +82,7 @@ PWC 比較 2018 與 2021 的 6000 名保戶調查後發現，偏好行動理賠�
 <h2 id="why">為什麼保險業需要 IAM？</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 IAM（Identity and Access Management）可拆成不同使用類型，每種都能為保險業帶來價值。它是一整套管理存取與身分安全的技術。
@@ -96,7 +96,7 @@ IAM（Identity and Access Management）可拆成不同使用類型，每種都�
 CIAM 的亮點之一是多種無密碼登入。使用者可透過 <a href="/zh-hant/features/whatsapp-otp" target="_blank">OTP</a>（SMS/WhatsApp）或生物辨識登入。Authgear 的 <a href="/zh-hant/features/biometric-authentication" target="_blank">生物辨識驗證</a>有一個關鍵差異：**不會逾時失效**。也就是說，客戶在裝置上啟用後，可長期安全使用生物辨識再次登入，特別適合一年只登入一兩次的保險客戶。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 簡單來說，許多生物辨識會用 refresh token 維持登入，通常每隔一段時間（常見上限約 180 天）需重新以密碼登入。Authgear 則採用公鑰密碼學：私鑰只留在使用者裝置，透過伺服器端公鑰驗證，能在維持安全下避免頻繁重登。
@@ -118,7 +118,7 @@ Authgear 已協助許多企業集中管理<a href="/zh-hant/solutions/frontline-
 Authgear 提供可客製的預建註冊頁，遵循最佳實踐降低註冊摩擦，協助保險公司提高轉換。註冊流程若卡頓或冗長，潛在客戶很容易流失。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 註冊後，Authgear 以 OTP、生物辨識、<a href="/zh-hant/features/passkeys" target="_blank">Passkey</a> 等無密碼驗證，讓登入更簡單、更安全。使用者不再需要記住複雜密碼，也能降低密碼相關風險。
@@ -130,7 +130,7 @@ Authgear 提供可客製的預建註冊頁，遵循最佳實踐降低註冊摩�
 登入後，Authgear 也提供預建帳號設定頁，讓使用者管理個人資料、驗證方式與登入會話，提升掌控感與便利性。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 此外，Authgear 還有客服可用的管理後台，能協助處理忘記密碼或疑似被入侵等問題。這對維持安全又友善的服務體驗非常關鍵。
@@ -160,7 +160,7 @@ Authgear 的自助流程可降低 IT 維運與密碼重設成本。相較其他�
 Authgear 可讓開發者輕鬆配置 2FA 與無密碼驗證，為保險 IAM 加上更強防線。外部團隊可透過 TOTP、Email OTP 等方式安全登入，並以多元無密碼選項降低密碼摩擦。
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 <h2 id="authgear">保險 IAM 是保險業成功關鍵</h2>

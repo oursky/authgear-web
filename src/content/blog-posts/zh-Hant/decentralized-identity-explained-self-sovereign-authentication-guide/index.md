@@ -2,7 +2,7 @@
 title: "去中心化身分解析：自我主權驗證指南"
 h1: "去中心化身分（DID）解析：自我主權驗證指南"
 excerpt: "了解去中心化身分（DID）如何提供自我主權驗證、提升隱私，並在各產業中重塑數位身分管理模式。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "去中心化身分（DID）解析：自我主權驗證指南"

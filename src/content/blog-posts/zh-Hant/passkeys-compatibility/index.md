@@ -1,7 +1,7 @@
 ---
 title: "金鑰相容性：哪些平台支援金鑰？"
 excerpt: "iOS、macOS、Chrome 和 Android 現在支援金鑰。了解有關密鑰及其與主要瀏覽器和平台的兼容性的更多資訊。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: highlight
 featured: false
 metaTitle: "Passkeys Compatibility: Which Platforms Support Passkeys?"

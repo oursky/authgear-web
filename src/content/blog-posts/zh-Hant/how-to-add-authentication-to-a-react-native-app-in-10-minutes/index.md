@@ -1,7 +1,7 @@
 ---
 title: "10 分鐘內為 React Native App 加入使用者驗證"
 excerpt: "本篇教你如何在 10 分鐘內，為任何 React Native 應用快速加入完整的使用者驗證功能。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "10 分鐘內為 React Native App 加入使用者驗證"
@@ -32,7 +32,7 @@ React Native 應用程式中使用者驗證的簡單定義是一項功能，允�
 以下螢幕截圖顯示了帶有上述登入按鈕的歡迎畫面：
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 在底層，Authgear 使用 [OpenID Connect](https://docs.authgear.com/how-to-guide/authenticate/oidc-provider) (OIDC) 驗證協定。因此，在身份驗證期間，使用者將被重定向到授權頁面，然後在授權完成後重定向回客戶端應用程式（您的 React Native 應用程式）。
@@ -40,7 +40,7 @@ React Native 應用程式中使用者驗證的簡單定義是一項功能，允�
 下面的流程圖解釋了 OIDC 的工作原理。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ### 1.建立React Native專案或使用現有項目
@@ -109,7 +109,7 @@ npm install @authgear/react-native
 您可以透過導覽至 **應用程式** > **新增應用程式** 在 Authgear 入口網站上建立應用程式。然後選擇**本機應用程式**並點擊**儲存**。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 建立完 Authgear 應用程式後，您將被重定向到應用程式的設定頁面，您可以在其中找到您的憑證並設定 **授權重定向 URI**。授權重定向 URI 是應用程式上的一個有效頁面，Authgear 可以在授權後將使用者重新導向到該頁面。 Authgear SDK 將在您的 React Native 專案中建立此頁面。
@@ -272,13 +272,13 @@ authgear
 點選登入按鈕啟動身份驗證會話。您將被重新導向至 Authgear 的安全身份驗證使用者介面 (AuthUI)，您的使用者可以在其中註冊新帳戶或登入他們建立的帳戶。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 成功登入後，用戶將被重定向回您的應用程序，並顯示我們添加到本教程範例程式碼中的歡迎訊息。如果您研究程式碼，您也會注意到 Authgear SDK 傳回的 **userInfo** 對象，您可以使用此對象取得目前使用者的詳細資訊。在我們的範例中，我們使用 **userInfo.email** 來顯示目前使用者的電子郵件地址。
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ## 結論

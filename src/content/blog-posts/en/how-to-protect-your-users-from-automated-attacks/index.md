@@ -1,7 +1,7 @@
 ---
 title: "How to protect your users from automated attacks"
 excerpt: "Let’s explore the best ways to protect your users from the rapidly evolving menace of automated attacks."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "How to protect your users from automated attacks"

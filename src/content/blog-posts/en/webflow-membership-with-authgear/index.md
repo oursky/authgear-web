@@ -2,7 +2,7 @@
 title: "Membership for Webflow with Authgear"
 h1: "Add Membership to Webflow sites with Authgear"
 excerpt: "Webflow is sunsetting its native User Accounts feature, leaving many site owners searching for a new way to manage member logins and gated content. If you rely on Webflow for authentication, it’s time to explore alternatives—before your users lose access. This article shows how Authgear can seamlessly replace Webflow’s soon-to-be-retired accounts, keeping your community secure and engaged."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: integrations
 featured: false
 metaTitle: "Add Membership to Webflow sites with Authgear"
@@ -40,7 +40,7 @@ First, we'll create a project, which acts as a container for your applications a
 1. Complete the endpoint domain to form your unique Authgear endpoint: `https://<your-project-name>.authgear.cloud`. Click "Next".
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 1. Choose how you would like your end-users to login. In this tutorial, make sure we choose Email here.
@@ -55,7 +55,7 @@ Now that you have a project, you need to create an application within it.
 1. In the dialog, enter an Application Name (e.g., "Webflow Site") and select the Single Page Application type. Click "Save".
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 1. On the next screen, Authgear shows tutorials for various frameworks. Click Next to skip this and go to your application's configuration page.
@@ -65,7 +65,7 @@ Now that you have a project, you need to create an application within it.
 1. Finally, make a note on your Client ID and Endpoint. You will need these values in a later step.
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ## Step 3: Add Custom Styles to Webflow
@@ -114,7 +114,7 @@ Then, you can move on to sign up as the first user:
 1. In the list, set Token Bearer Access Right and End-user Access Right to Read-only.
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 1. Assign a Value to Your User   <ol><li>Navigate to User Management > Users, and click on your test user.
@@ -122,7 +122,7 @@ Then, you can move on to sign up as the first user:
 1. Enter a number (e.g., 50) in the Points Collected field and click "Save".
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ### 7b. Display the Custom Attribute in Webflow

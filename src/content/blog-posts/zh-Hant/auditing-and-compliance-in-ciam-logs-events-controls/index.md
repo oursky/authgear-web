@@ -1,7 +1,7 @@
 ---
 title: "CIAM 的稽核與合規：真正重要的日誌、事件與控制是什麼"
 excerpt: "了解哪些 CIAM 日誌、事件與安全控制最關鍵，才能支撐稽核與合規。學會如何設計可稽核就緒的 CIAM 系統。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "CIAM 的稽核與合規：真正重要的日誌、事件與控制是什麼"

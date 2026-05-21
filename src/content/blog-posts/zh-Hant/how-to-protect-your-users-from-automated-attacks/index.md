@@ -1,7 +1,7 @@
 ---
 title: "如何保護你的使用者免受自動化攻擊"
 excerpt: "一起來看看保護使用者免受快速演進的自動化攻擊威脅的最佳做法。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "如何保護你的使用者免受自動化攻擊"

@@ -1,7 +1,7 @@
 ---
 title: "App Store 自 2022 年 6 月 30 日起要求 App 內提供刪除帳號功能"
 excerpt: "Apple 將要求 App 必須允許使用者在 App 內發起刪除帳號。了解最新政策內容與你該如何準備。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "App Store 自 2022 年 6 月 30 日起要求 App 內提供刪除帳號功能"
@@ -62,7 +62,7 @@ draft: false
 <h2 id="requirement">你需要知道的 App 內刪除帳號要求</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 <strong class="subtitle">我的 App 會受影響嗎？</strong>
@@ -83,7 +83,7 @@ draft: false
 <h2 id="difference">除了延長期限外，最新公告與前次公告有何不同？</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 <a href="https://developer.apple.com/news/?id=mdkbobfo" target="_blank">第一版公告</a>於 2021 年 10 月 6 日發布，內容提到「所有允許建立帳號的 App，都必須讓使用者可在 App 內**發起刪除帳號**」。同時也提醒開發者需檢查地區與在地隱私法規，確保合法合規。
@@ -121,7 +121,7 @@ App Store 不只要求提供隱私政策連結，更要求隱私政策必須：
 <h2 id="privacy-policies">更多資料保護與隱私法規趨勢</h2>
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 隨著更多社會與經濟活動轉到線上，使用者向線上服務提供者分享的個資也愈來愈多。同時，使用者更在意企業如何使用資料，並希望有更多控制權。各司法轄區政府因此推出 GDPR、各國資料保護法、加州消費者隱私法（CCPA）等框架，保障基本權利。根據聯合國貿發會（UNCTAD），超過 71% 國家已立法，9% 正在草擬，僅 15% 尚未立法。此外，Google 與 Apple 等大型平台也持續提高隱私要求以建立信任。
@@ -133,7 +133,7 @@ App Store 不只要求提供隱私政策連結，更要求隱私政策必須：
 在 App 內打造完整刪除帳號流程往往耗時，還需要不少驗證與維護成本才能確保運作正確。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 透過 Authgear，你可以幾個步驟就提供使用者主動刪除帳號的能力。同時，App 還能獲得更多驗證與安全功能，讓你不只滿足複雜驗證需求，也能提供更安全的使用者體驗。  

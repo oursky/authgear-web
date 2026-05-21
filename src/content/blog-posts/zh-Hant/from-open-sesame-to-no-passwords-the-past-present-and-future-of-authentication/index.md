@@ -1,7 +1,7 @@
 ---
 title: "從「芝麻開門」到無密碼：驗證的過去、現在與未來"
 excerpt: "從「芝麻開門」到 Passkey，帶你了解驗證如何演進、正在走向何方，以及為何無密碼將成為未來。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "從「芝麻開門」到無密碼：驗證的過去、現在與未來"

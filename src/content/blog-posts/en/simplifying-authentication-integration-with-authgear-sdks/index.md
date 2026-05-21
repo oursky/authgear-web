@@ -1,7 +1,7 @@
 ---
 title: "Simplifying Authentication Integration For Developers With Authgear SDKs"
 excerpt: "Authgear SDK libraries make it easy for developers to integrate and interact with Authgear."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Simplifying Authentication Integration For Developers With Authgear SDKs"
@@ -58,7 +58,7 @@ Auhgear is a highly adaptable **identity-as-a-service (IDaaS) platform** for web
 Authgear SDKs are easy to integrate into your app, whether it's a **single-page app** (Angular, Vue, React)**, a mobile app**(IOS, Android, React Native, Flutter)**, or a regular web application**. In most cases, it involves just **a few lines of code**. There is also comprehensive documentation and community support available that can guide you through the integration process. Authgear provides SDKs for a variety of platforms and languages. Below, let’s break down the notable libraries and SDKs by types of applications and you choose your application type for a getting started guide.
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ### Single-Page Application (SPA) SDK Libraries
@@ -144,7 +144,7 @@ Please note that these SDKs are frequently updated, new ones might have been add
 Token-based Authentication approach you can use for your single page and mobile apps:
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ## Backend Service and API Authentication
@@ -156,7 +156,7 @@ If your API or backend service needs authentication, you can validate the JWT to
 If you have a traditional web application like **Java EE, Express, PHP, GO, Laravel, or**<a href="http://ASP.NET" target="_blank">**ASP.NET**</a>**Core MVC** and you want to integrate authentication features, you can use a <a href="https://docs.authgear.com/get-started/authentication-approach/cookie-based" target="_blank">Cookie-based</a> authentication method.
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ## Admin API
@@ -196,7 +196,7 @@ Every application in Authgear is assigned an alphanumeric, unique client ID that
 From the “Authentication” tab, you can choose a **login method** for your users. Options are including, by email, mobile, or social, just using a username or the custom method you specify.
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 **Step 5. Install the relevant Authgear SDK**

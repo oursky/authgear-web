@@ -1,7 +1,7 @@
 ---
 title: "Credential Stuffing 是什麼？如何防範？"
 excerpt: "Credential stuffing 是攻擊者利用外洩帳密與機器人入侵帳號的常見手法。本文帶你了解原理與防禦策略。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Credential Stuffing 是什麼？如何防範？"
@@ -76,7 +76,7 @@ Credential stuffing 之所以難以防範，原因之一是許多人仍不清楚
 <h2 id="how">Credential Stuffing 攻擊如何運作？</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 要知道如何防止 credential stuffing，首先要理解攻擊是如何發生的。大規模 credential 濫用通常遵循以下流程：
@@ -103,7 +103,7 @@ Open Web Application Security Project（OWASP）是專注於提升軟體安全�
 <h2 id="prevent">如何防止 Credential Stuffing？</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 對企業而言，令人不安的現實是：正如美國 2018 年的一宗<a href="https://www.troyhunt.com/the-111-million-pemiblanc-credential-stuffing-list/" target="_blank">FTC 案件</a>所示，若客戶資料因 credential stuffing 受到威脅，法律責任至少仍有一部分在公司身上。即使是使用者重複使用密碼所致，也不足以讓應用程式背後的公司完全免責。
@@ -165,13 +165,13 @@ CAPTCHA 有助於阻擋自動化登入嘗試，但這項工具本身仍有可被
 此外，Authgear 也提供多種次要驗證因子，例如 TOTP、Email OTP，以及額外密碼等機制，幫助你保護使用者免受 credential stuffing 影響。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 預建的帳號設定頁也可供使用者啟用 MFA、管理憑證，以及在觀察到任何可疑行為時撤銷已登入 Session。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 Credential 攻擊對使用者安全與資料隱私造成的威脅不容忽視。想了解 Authgear 如何協助你建立對抗這些威脅的防線，歡迎<a href="/schedule-demo/" target="_blank">聯絡我們</a>。

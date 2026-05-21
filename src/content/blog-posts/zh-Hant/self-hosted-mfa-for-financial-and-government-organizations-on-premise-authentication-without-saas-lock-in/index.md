@@ -2,7 +2,7 @@
 title: "金融與政府組織的自行託管 MFA：地端驗證，擺脫 SaaS 綁定"
 h1: "金融與政府組織的自行託管 MFA：地端驗證"
 excerpt: "金融機關與政府單位需要可掌控資料的現代 MFA。自行託管 Authgear 可降低 SaaS 風險，兼顧安全、合規與基礎建設自主性。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 readTime: 6

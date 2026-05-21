@@ -2,7 +2,7 @@
 title: "Self-Hosted MFA for Financial and Government Organizations: On-Premise Authentication Without SaaS Lock-In"
 h1: "Self-Hosted MFA for Financial and Government Organizations: On-Premise Authentication"
 excerpt: "Financial institutions and government agencies need modern MFA with data control. Self-hosted Authgear avoids SaaS risks, ensuring security, compliance, and full infrastructure ownership."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 readTime: 6

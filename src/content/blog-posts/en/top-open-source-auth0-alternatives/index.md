@@ -1,7 +1,7 @@
 ---
 title: "Top Open-Source Auth0 Alternatives in 2026: Secure & Self-Hosted Options"
 excerpt: "Explore the best open-source Auth0 alternatives in 2026. Compare features, deployment models, security, and use cases to choose the right identity solution for your team."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Top Open-Source Auth0 Alternatives in 2026: Secure & Self-Hosted Options"

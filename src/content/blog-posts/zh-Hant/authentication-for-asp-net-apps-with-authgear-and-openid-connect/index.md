@@ -1,7 +1,7 @@
 ---
 title: "使用 Authgear 和 OpenID Connect 對 ASP.NET 應用程式進行身份驗證"
 excerpt: "這篇部落格文章示範如何透過實作 OpenID Connect 流程，使用 Authgear 將驗證功能新增至 ASP.NET 應用程式。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "使用 Authgear 和 OpenID Connect 對 ASP.NET 應用程式進行身份驗證"
@@ -40,13 +40,13 @@ draft: false
 使用互動式選擇器建立新的**Authgear OIDC 用戶端應用程式**或選擇代表您要整合的專案的現有應用程式。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Authgear 中的每個應用程式都指派一個字母數字的唯一客戶端 ID，您的應用程式程式碼將使用該 ID 透過 .NET 應用程式中的 OpenID Connect 用戶端呼叫 Authgear API。記下 Authgear ISSUER（例如，[https://example-auth.authgear-apps.com](https://example-auth.authgear-apps.com)）、CLIENT ID、CLIENT SECRET 和 OpenID 令牌端點（<a href="https://example-auth.authgear-apps.com/oauth2/token" target="_blank">https://example-auth.authgear-apps.com/oauth2/token</a>）從輸出。您將在客戶端應用程式配置的下一步中使用這些值。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ### 步驟 2：設定**重定向 URI**
@@ -60,7 +60,7 @@ Authgear 中的每個應用程式都指派一個字母數字的唯一客戶端 I
 另外，在應用程式配置的 **存取權杖** 部分下啟用 **將 JWT 作為存取權杖** 選項：
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ### 第四步：選擇登入方式
@@ -68,7 +68,7 @@ Authgear 中的每個應用程式都指派一個字母數字的唯一客戶端 I
 建立 **Authgear 應用程式**後，您可以選擇使用者需要如何**在登入頁面上進行身份驗證**。從 **身份驗證** 選項卡，導航至 **登入方法**，您可以從各種選項中選擇 **登入方法**，包括透過電子郵件、行動裝置或社交媒體，只需使用使用者名稱或您指定的自訂方法。對於此演示，我們選擇 **電子郵件+無密碼** 方法，要求使用者註冊帳戶並使用電子郵件登入。他們的電子郵件將收到一次性密碼 (OTP)，並驗證代碼以使用該應用程式。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 ## 第 2 部分：配置 <a href="http://ASP.NET" target="_blank">網路平台</a> 使用 Authgear 的核心應用程式
@@ -259,7 +259,7 @@ public class ProtectedModel : PageModel
 要查看受保護的數據，使用者需要透過 Authgear 完成身份驗證過程。
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 如果使用者尚未進行身份驗證，則會呈現 Unauthenticated.chtml 頁面，觸發 OpenID Connect 重定向串流，且使用者需要透過 Authgear 登入頁面進行身份驗證。請參閱**運行應用程式**部分
@@ -267,7 +267,7 @@ public class ProtectedModel : PageModel
 身份驗證成功後，您應該會看到受保護的頁面，其中包含以下詳細資訊：
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 ### 第 4 步：設定並運行應用程式
@@ -320,19 +320,19 @@ dotnet 建置 dotnet 運行
 您現在可以訪問 <a href="http://localhost:5002" target="_blank">http://本地主機:5002</a> 訪問該應用程式。當您按一下 **「查看受保護的資料」** 按鈕時， <a href="http://ASP.NET" target="_blank">網路平台</a> Core 將您帶到 **Authgear 的登入頁面**。
 
 <!--FIGURE-->
-![](./figure-7.png)
+![](./figure-7.webp)
 <!--/FIGURE-->
 
 您的用戶可以透過 Authgear 託管的頁面登入您的應用程序，該頁面為他們提供安全、基於標準的登入體驗，您可以使用自己的品牌和各種身份驗證方法進行自訂，例如 <a href="/zh-hant/features/social-login" target="_blank">社群登入</a>, <a href="/zh-hant/features/passwordless-authentication" target="_blank">無密碼</a>, [生物登錄](/zh-hant/features/biometric-authentication), <a href="/zh-hant/features/whatsapp-otp" target="_blank">一次性密碼 (OTP)</a> 具有 SMS/WhatsApp 和多重身份驗證 (MFA)。
 
 <!--FIGURE-->
-![](./figure-8.png)
+![](./figure-8.webp)
 <!--/FIGURE-->
 
 經過身份驗證後，將呈現受保護的視圖。應用程式接收一個存取令牌，用於在螢幕上呈現使用者數據，以及可在對某些後端 API 的上游請求中使用的令牌，以代表使用者存取資料。
 
 <!--FIGURE-->
-![](./figure-9.png)
+![](./figure-9.webp)
 <!--/FIGURE-->
 
 ### 後續步驟

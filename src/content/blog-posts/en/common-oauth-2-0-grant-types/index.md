@@ -1,7 +1,7 @@
 ---
 title: "Common OAuth 2.0 Grant Types and When You Should Use Each One"
 excerpt: "Learn about the most common OAuth 2.0 grant types, how they work, and when to use each one. A practical guide for developers and security teams."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Common OAuth 2.0 Grant Types and When You Should Use Each One"

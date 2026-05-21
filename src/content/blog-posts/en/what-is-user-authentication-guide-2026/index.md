@@ -1,7 +1,7 @@
 ---
 title: "What is User Authentication? Types, Methods & Best Practices (2026)"
 excerpt: "User authentication verifies user identity before granting access. Learn the top authentication methods, security best practices, and how to implement them in 2026."
-coverImage: ./cover.jpeg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "What is User Authentication? Types, Methods & Best Practices (2026)"

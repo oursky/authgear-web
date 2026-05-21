@@ -3,8 +3,8 @@ title: "Global QSR Streamlines Frontline Login with Authgear"
 excerpt: "See how a top global fast‑food brand used Authgear to enable SSO, 2FA, and biometric login—meeting strict security mandates while reducing friction and IT support for thousands of frontline employees."
 customerName: "Global Quick-Service Restaurant"
 companyIndustry: "Global food & beverage (QSR)"
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - Biometric
   - Email

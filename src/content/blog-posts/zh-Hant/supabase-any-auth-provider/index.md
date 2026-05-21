@@ -1,7 +1,7 @@
 ---
 title: "將 Supabase 連接到任何驗證提供者"
 excerpt: "使用你現有的 SSO 或 IdP 與 Supabase 整合。了解如何交換 JWT 以取得完整 RLS 存取與單一登入整合。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: integrations
 featured: false
 metaTitle: "將 Supabase 連接到任何驗證提供者"
@@ -27,7 +27,7 @@ draft: false
 如果你還沒有 IdP，**Authgear** 也很適合放在這個位置，提供 MFA、生物辨識、社群登入。但這套模式可套用在 *任何* JWT 發行者。現在就讓你的既有 SSO 以正確方式接上 Supabase。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 這篇指南是給無法使用這些選項的團隊——你仍然可以使用 Supabase。

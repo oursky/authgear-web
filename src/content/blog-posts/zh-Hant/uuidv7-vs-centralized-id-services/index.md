@@ -1,7 +1,7 @@
 ---
 title: "分散式系統產生 ID：為何 UUIDv7 優於集中式 ID 服務"
 excerpt: "了解為何在分散式系統中，UUIDv7 比集中式 ID 服務更具優勢，並深入比較可擴展性、效能、排序能力與維運取捨。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "為何 UUIDv7 優於集中式 ID 服務"

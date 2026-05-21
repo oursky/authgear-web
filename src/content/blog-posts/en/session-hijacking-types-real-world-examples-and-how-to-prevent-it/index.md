@@ -2,7 +2,7 @@
 title: "Session Hijacking: Types, Real-World Examples, and How to Prevent It"
 h1: "What is Session Hijacking and How Does it Work?"
 excerpt: "Learn what session hijacking is, how it works, and the best defenses against it. Discover real-world examples, prevention strategies, and essential security tips to protect user sessions."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "What is Session Hijacking? Session Hijacking Examples and How to Prevent it"

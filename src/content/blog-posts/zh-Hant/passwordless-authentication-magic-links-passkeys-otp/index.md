@@ -1,7 +1,7 @@
 ---
 title: "無密碼驗證：魔法連結、通行密鑰與 OTP 比較"
 excerpt: "密碼是現代軟體最大的安全負擔之一。無密碼驗證以魔法連結、通行密鑰與 OTP 取代密碼——更快、更簡單且更難被攻破。本指南說明各方式如何運作、何時採用，以及實作時需注意的事項。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "無密碼驗證：魔法連結、通行密鑰與 OTP 比較"

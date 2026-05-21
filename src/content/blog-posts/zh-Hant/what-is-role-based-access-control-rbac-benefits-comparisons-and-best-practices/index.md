@@ -2,7 +2,7 @@
 title: "什麼是角色型存取控制（RBAC）？優勢、比較與最佳實務"
 h1: "角色型存取控制（RBAC）：打造安全且高效率的驗證體驗"
 excerpt: "完整了解角色型存取控制（RBAC）：優勢、限制、核心規則，以及與 ABAC、ACL 的比較。同時看看 Authgear 如何簡化可擴展的 RBAC 實作。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "角色型存取控制（RBAC）：打造安全且高效率的驗證體驗"

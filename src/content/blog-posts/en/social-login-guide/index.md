@@ -1,7 +1,7 @@
 ---
 title: "Social Login - Why You Should Implement It"
 excerpt: "Learn how to easily enable social login in your website or app to increase conversion rate and deliver smoother user experience."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Social Login - Why You Should Implement It"
@@ -76,7 +76,7 @@ If you frequently use the internet, you're probably familiar with being asked to
 <h2 id="def">What Is Social Login?</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Social login is an authentication method where users can access a service or website using their existing credentials from social network accounts. Social login is also sometimes referred to as social sign-in or social authentication.
@@ -86,7 +86,7 @@ Today, we see social logins on websites and apps of all kinds. That's because it
 <h2 id="steps">How Does Social Login Work?</h2>
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 The social login process is quite straightforward. Here are the steps involved:
@@ -111,7 +111,7 @@ OAuth 2.0 is an authorization protocol that allows users to securely access reso
 <h2 id="benefits">How Can You Benefit from Social Logins?</h2>
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 While social authentication is designed primarily to make the login experience smoother for users, it also provides many benefits to businesses. Here's what is in for you when you implement this authentication method.
@@ -155,7 +155,7 @@ As social login uses third-party authentication, it can introduce potential secu
 Social logins are an effective way for businesses to obtain richer customer profiles, reduce stress on their support teams, and maximize user engagement. However, integrating different social logins with your website or app certainly takes some time and efforts. Let Authgear take care of the heavy lifting. Once you’ve integrated your application with Authgear, you can easily enable or disable popular social logins, such as Apple, Goolge, Facebook, LinkedIn, and more, with just a few clicks.
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 You can then ensure that your customers have a seamless experience when signing up or logging in and protect your business from malicious actors.

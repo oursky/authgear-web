@@ -1,7 +1,7 @@
 ---
 title: "什麼是 JWKS？JSON Web Key Set 與 JWKS URI 一次搞懂"
 excerpt: "了解 JWKS 是什麼、JWKS URI 如何運作、JWK 格式範例，以及在正式環境中建立與管理金鑰的實務建議。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 readTime: 6

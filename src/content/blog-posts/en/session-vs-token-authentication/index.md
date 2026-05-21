@@ -2,7 +2,7 @@
 title: "Session vs Token Authentication"
 h1: "Session vs Token Authentication: Which Should You Choose?"
 excerpt: "Understand session-based vs token-based authentication, cookies vs JWT, pros/cons, CSRF/XSS trade-offs, and when to use each—plus examples."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: highlight
 featured: false
 metaTitle: "Session vs Token Based Authentication: Cookies, JWT, & Best Practices"

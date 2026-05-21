@@ -2,7 +2,7 @@
 title: "What is Customer SSO and Why Should You Implement it?"
 h1: "What is Customer SSO and How Does it Work?"
 excerpt: "Learn more about the advantages of Single Sign-On for your customers and how your business can benefit from a unified login experience."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "What is Customer SSO and How Does It Work?"
@@ -96,7 +96,7 @@ This may sound like a lengthy process but for the user, it’s barely a moment. 
 <h2 id="why">Why Should You Implement SSO for Your Customers?</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Implementing customer SSO doesn’t just benefit the users, it also benefits you as the service provider. Here’s how:

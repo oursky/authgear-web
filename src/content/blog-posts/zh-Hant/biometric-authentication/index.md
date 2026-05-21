@@ -1,7 +1,7 @@
 ---
 title: "生物辨識驗證：為什麼你的應用程式在 2024 年需要它？"
 excerpt: "生物辨識驗證可同時提升資料安全與使用者體驗。深入了解不同的生物辨識方式。"
-coverImage: ./cover.jpeg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "生物辨識驗證：為什麼你的應用程式在 2024 年需要它？"
@@ -38,7 +38,7 @@ draft: false
 <h2 id="why">為什麼我的應用程式或網站應提供生物辨識登入？</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ### 使用者體驗與偏好
@@ -91,7 +91,7 @@ draft: false
 <h2 id="types">生物辨識驗證有哪些類型？</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ### **指紋辨識**
@@ -123,7 +123,7 @@ draft: false
 Authgear 提供應用程式所需的完整功能，例如無密碼與生物辨識、SSO 與社群登入、密碼政策管理、雙因素驗證等。若要啟用生物辨識，你只需在 Portal 中開啟設定，並依照我們的[文件](https://docs.authgear.com/strategies/biometric)在行動 SDK 啟用生物辨識登入。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 歡迎<a href="/schedule-demo/" target="_blank">聯絡我們</a>，了解 Authgear 如何幫助你打造流暢體驗並提升資料安全。

@@ -1,7 +1,7 @@
 ---
 title: "科技巨頭向無密碼的未來邁進一步"
 excerpt: "Apple、Google 和 Microsoft 已承諾讓密碼成為過去式，向無密碼的未來再踏出一步。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "科技巨頭向無密碼的未來邁進一步"
@@ -80,7 +80,7 @@ draft: false
 <h2 id="passkeys">Passkey：向無密碼未來邁進一步</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 此外，Authgear 還提供一套完整的認證與用戶管理功能，包括預建的註冊頁面和用戶個人資料頁面、用戶數據分析、WhatsApp OTP、社交登入等，協助您提升用戶體驗、提高應用程式轉換率，並提升用戶留存率。

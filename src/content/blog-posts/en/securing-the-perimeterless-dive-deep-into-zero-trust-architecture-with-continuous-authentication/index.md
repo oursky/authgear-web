@@ -1,7 +1,7 @@
 ---
 title: "Securing the Perimeterless: Dive Deep into Zero Trust Architecture with Continuous Authentication"
 excerpt: "The cost of digital vulnerabilities is staggering. In 2023 alone, cybercrime is estimated to cause $6 trillion in global damages, a figure expected to balloon to $10.5 trillion by 2025. Every minute, 117 new records are exposed in data breaches, with the average cost of a breach topping $4 million. Closer to home, 46% of all cyberattacks target businesses with fewer than 1,000 employees, illustrating the widespread reach of the threat."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "Securing the Perimeterless: Dive Deep into Zero Trust Architecture with Continuous Authentication"
@@ -22,7 +22,7 @@ By **moving beyond the "trust by default" mentality** and implementing stringent
 ## What is Zero Trust? Unveiling Zero Trust: More Than Just a Buzzword
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Zero Trust isn't a specific product or technology; it's a philosophy, a new way of thinking about security. It challenges the assumption of trust within the network, even for internal users. Instead, it demands continuous verification and authorization for every access attempt, regardless of location or perceived identity. This creates a dynamic layer of defense that adapts to constantly shifting threats and minimizes the attack surface.
@@ -30,7 +30,7 @@ Zero Trust isn't a specific product or technology; it's a philosophy, a new way 
 ## The Authentication Puzzle Piece: Zero Trust's Importance and Core Principle
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 Zero Trust hinges on **robust authentication mechanisms.** In the past, a single login at the network edge used to grant access to virtually everything within. Now, every resource requires its own verification checkpoint, ensuring only authorized users with the right context (device, location, time of day) gain access to specific data or applications. This multi-layered approach significantly reduces the risk of lateral movement and data exfiltration, even if an attacker breaches the initial defenses.
@@ -49,7 +49,7 @@ To implement Continuous Authentication and Authorization, you can follow the ste
 ## Building Your Fortress: Benefits of a Zero Trust Architecture
 
 <!--FIGURE-->
-![](./figure-3.jpg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 The advantages of Zero Trust extend far beyond just enhanced data security. Here are some key benefits:
@@ -63,7 +63,7 @@ The advantages of Zero Trust extend far beyond just enhanced data security. Here
 ## Building Your Zero Trust Foundation with Authgear: WIAM for the Modern Enterprise
 
 <!--FIGURE-->
-![](./figure-4.jpg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 Implementing a Zero Trust architecture requires tools that empower you to continuously verify, authorize, and monitor access across your entire ecosystem. This is where Authgear, the leading Workforce Identity and Access Management (WIAM) solution, steps in. Authgear empowers businesses to:

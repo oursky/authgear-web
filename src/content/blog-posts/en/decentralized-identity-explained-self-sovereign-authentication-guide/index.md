@@ -2,7 +2,7 @@
 title: "Decentralized Identity Explained: Self-Sovereign Authentication Guide"
 h1: "Decentralized Identity (DID) Explained: A Guide to Self-Sovereign Authentication"
 excerpt: "Learn about Decentralized Identity (DID), how it provides self-sovereign authentication, enhances privacy, and transforms digital identity management across industries."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Decentralized Identity (DID) Explained: A Guide to Self-Sovereign Authentication"

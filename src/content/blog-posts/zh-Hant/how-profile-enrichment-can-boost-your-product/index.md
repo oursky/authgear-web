@@ -1,7 +1,7 @@
 ---
 title: "Profile Enrichment 如何提升你的產品成效"
 excerpt: "了解使用者檔案增豐（Profile Enrichment）如何運作、帶來哪些效益，以及如何用 Authgear 啟用它來更理解你的客戶。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Profile Enrichment 如何提升你的產品成效"
@@ -29,7 +29,7 @@ Profile enrichment 如名稱所示，代表透過加入**外部來源**的資訊
 1. **改善客戶留存（Improved Customer Retention）**：真正理解客戶是提升留存的關鍵。Profile enrichment 讓你更深入了解使用者，進而能主動處理問題、預測未來行為，並提供更符合需求的產品或服務，最終提升滿意度與忠誠度。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## 如何透過 Authgear 啟用 profile enrichment？
@@ -41,7 +41,7 @@ Hooks 是以 **JavaScript / TypeScript** 撰寫的程式碼片段，會在身分
 預設情況下，Authgear 提供了 <a href="https://docs.authgear.com/integrate/user-profile#standard-attributes" target="_blank">standard attributes</a>，在 <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims" target="_blank">OIDC specification</a> 預先定義的欄位中包含姓名、Email、最近一次登入時間戳等基本資訊。你可以在 <a href="https://docs.authgear.com/integrate/user-profile#standard-attributes" target="_blank">這裡</a> 查看完整欄位清單。你可以用<a href="https://docs.authgear.com/how-to-guide/integration/access-user-profiles" target="_blank">不同方式</a>存取使用者檔案，也可以在 <a href="https://portal.authgear.com/" target="_blank">Authgear</a> 介面和透過 Hooks 程式化地在 custom attributes 區段<a href="https://docs.authgear.com/integrate/user-profile#add-new-attributes" target="_blank">新增新欄位</a>。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ## 使用 Authgear 進行 profile enrichment 的範例
@@ -55,7 +55,7 @@ Step 2. 前往 **User Profile** → **Custom Attributes** 頁面。
 Step 3. 在該頁新增 3 個欄位，分別是 *city*、*name*、*timezone*：
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 Step 4. 前往 Authgear Dashboard 的 **Advanced**->**Hooks** 區段。
@@ -101,13 +101,13 @@ return {
 Step 9. 現在你可以前往 **User Management** 並 **Add** 一位新使用者。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 Step 10. 建立使用者後，你應該可以看到該使用者的 custom attributes 值已更新：
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ## Progressive Profiling

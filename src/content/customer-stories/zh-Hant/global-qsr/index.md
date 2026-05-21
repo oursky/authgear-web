@@ -3,8 +3,8 @@ title: "全球速食連鎖以 Authgear 簡化前線員工登入"
 excerpt: "了解頂尖全球速食品牌如何透過 Authgear 實現 SSO、2FA 與生物辨識登入——在符合嚴格安全規範下，為數千名前線員工降低摩擦與 IT 支援負擔。"
 customerName: "全球速食餐飲集團"
 companyIndustry: "全球餐飲（速食連鎖）"
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - 生物辨識
   - 電子郵件

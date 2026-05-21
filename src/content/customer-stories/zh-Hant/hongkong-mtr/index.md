@@ -4,9 +4,9 @@ excerpt: "了解港鐵如何為主管整合 Azure AD，並為兼職應徵者導�
 customerName: "港鐵公司"
 companyIndustry: "大眾運輸與營運"
 companyLocation: 香港
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - 電子郵件
   - 無密碼／簡訊

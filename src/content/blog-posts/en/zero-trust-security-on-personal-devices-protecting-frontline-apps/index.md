@@ -1,7 +1,7 @@
 ---
 title: "Zero-Trust Security on Personal Devices: Protecting Frontline Apps"
 excerpt: "Learn how Zero-Trust security protects frontline applications on personal devices. Explore core principles, authentication strategies, device trust, and access controls for modern workforces."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Zero-Trust Security on Personal Devices: Protecting Frontline Apps"

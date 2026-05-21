@@ -1,7 +1,7 @@
 ---
 title: "Choosing a Stytch Alternative that Supports WhatsApp OTP and Biometrics"
 excerpt: "Enterprise teams with mobile-first workforces are increasingly rethinking Stytch as they look for more predictable pricing, better WhatsApp OTP delivery, and stronger biometric authentication. This guide compares leading Stytch alternatives built for phone-first staff, explains how WhatsApp OTP and passkeys work together, and provides a practical framework for evaluating, implementing, and migrating to a modern mobile-first authentication stack."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 readTime: 12
@@ -29,7 +29,7 @@ We'll cover authentication providers that natively support WhatsApp Business API
 - [FAQs](#faqs)
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## Why teams are re-evaluating Stytch
@@ -45,7 +45,7 @@ For mobile-first deployments you care most about predictable costs, channel flex
 **Key takeaway:** When your users are phone-first and cost-sensitive, channel flexibility and vendor responsiveness matter as much as features.
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ## Core authentication features you must evaluate
@@ -276,7 +276,7 @@ Useful for developers looking for an integrated database+auth stack. Growing pla
 ## Deep dive: Implementing WhatsApp OTP + biometrics with Authgear
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 This section provides a concrete implementation blueprint: architecture, sequence, and provisioning guidance.

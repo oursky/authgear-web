@@ -1,7 +1,7 @@
 ---
 title: "SSL Certificate Chain: What It Is and How to Fix It"
 excerpt: "A missing intermediate certificate is the most common SSL misconfiguration. Learn what a certificate chain is and how to fix a broken one on Nginx, Apache, or Caddy."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "SSL Certificate Chain: What It Is and How to Fix It"

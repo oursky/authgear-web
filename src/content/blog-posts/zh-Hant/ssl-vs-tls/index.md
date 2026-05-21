@@ -1,7 +1,7 @@
 ---
 title: "SSL 與 TLS 有何不同？為什麼重要？"
 excerpt: "SSL 已淘汰，伺服器實際用的是 TLS——但為什麼大家仍說 SSL？了解歷史、擊垮 SSL 的攻擊，以及現在該用什麼。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "SSL 與 TLS 有何不同？為什麼重要？"

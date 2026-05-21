@@ -1,7 +1,7 @@
 ---
 title: "JWT Security Explained: Best Practices and Common Vulnerabilities"
 excerpt: "JSON Web Tokens (JWTs) are widely used for authentication and authorization because they let systems verify requests without relying on centralized session storage. This guide explains JWT security in practical terms—covering how they work, common vulnerabilities, and best practices for using them safely in production."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "JWT Security Explained: Best Practices and Common Vulnerabilities"

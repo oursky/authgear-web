@@ -1,7 +1,7 @@
 ---
 title: "Ditch the Password, Secure Your Accounts with YubiKey: The Future of Authentication is Here"
 excerpt: "In today's digital world, our online identities are more important than ever. Protecting them with strong passwords feels like a constant, uphill battle. But what if there was a better way? Enter the YubiKey, a powerful hardware authentication device that offers unmatched security and convenience."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "Ditch the Password, Secure Your Accounts with YubiKey: The Future of Authentication is Here"
@@ -23,13 +23,13 @@ Imagine a tiny, USB-like device that acts as a physical guardian to your online 
 1. Verification and Access: The website/app verifies the code's validity and, if correct, grants you access.
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## The Meteoric Rise of Passkeys: Why YubiKey and Similar Solutions are Booming
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 The surge in popularity of passkeys like YubiKey isn't just a fad; it's a response to a perfect storm of factors converging in the digital landscape. Let's dissect the key drivers behind this exciting shift:
@@ -66,7 +66,7 @@ The rise of passkeys signifies a paradigm shift in online security. While YubiKe
 ## Beyond YubiKey: Exploring the Diverse Landscape of Passkey Solutions
 
 <!--FIGURE-->
-![](./figure-3.jpg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 In our previous explorations, we delved into the world of YubiKeys and the rising trend of passkeys. Now, let's broaden our horizons and explore some compelling alternatives to YubiKey, each with unique strengths and considerations:
@@ -98,7 +98,7 @@ In our previous explorations, we delved into the world of YubiKeys and the risin
 ## Securing the Enterprise: Why YubiKey and Authgear are the Perfect Duo
 
 <!--FIGURE-->
-![](./figure-4.jpg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 While YubiKey offers robust individual hardware authentication, enterprises require a comprehensive solution to manage and leverage its full potential across their organization. That's where Authgear steps in, acting as the brains behind the brawn of your YubiKey deployment.

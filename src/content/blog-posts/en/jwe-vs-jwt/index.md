@@ -1,7 +1,7 @@
 ---
 title: "JWE vs JWT: Key Differences, Use Cases, and Security Tips"
 excerpt: "Learn the differences between JWE and JWT, when to use each, and how to secure your tokens. Includes free debugging and key generation tools."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 readTime: 5

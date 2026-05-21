@@ -2,7 +2,7 @@
 title: "登入與註冊 UX：2025 驗證最佳實務完整指南"
 h1: "登入與註冊 UX：2025 最佳實務指南（範例與建議）"
 excerpt: "在 2025 年，優化登入與註冊體驗至關重要。本指南涵蓋 UX 原則、無密碼與 passkey 等模式、真實案例，以及可直接套用的檢查清單，幫助你同時提升轉換與安全。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "登入與註冊 UX：2025 最佳實務指南（範例與建議）"
@@ -95,11 +95,11 @@ draft: false
 像 [Authgear Login Gallery](/zh-hant/login-gallery) 就展示多選項登入案例。許多現代產品混搭方法：例如 [*Molto*](/zh-hant/login-gallery/molto) 提供 email/password、magic link、**社群登入**、passcode，兼顧便利與安全；而 [*WorkKing*](/zh-hant/login-gallery/work-king) 面向手機優先族群，則走全無密碼 phone OTP。兩者都可成功，關鍵在是否符合用戶需求。
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 最後，記得 **不要在單一畫面塞太多選項**。保留最核心 2-3 種，次要選項可放在「其他方式」連結或下拉選單。

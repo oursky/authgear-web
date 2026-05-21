@@ -1,7 +1,7 @@
 ---
 title: "為什麼您需要客戶身份與存取管理（CIAM）？"
 excerpt: "客戶身份與存取管理（CIAM）的功能遠不止於管理和驗證用戶身份。了解您為何需要 CIAM 解決方案。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "為什麼您需要客戶身份與存取管理（CIAM）？"
@@ -91,7 +91,7 @@ CIAM 市場<a href="https://www.marketsandmarkets.com/Market-Reports/consumer-ia
 CIAM 解決方案透過多項功能提供流暢、無摩擦的註冊流程。CIAM 解決方案附帶預建的註冊頁面範本，摩擦極低，並允許用戶使用其他身份提供商（如 Google、Facebook 和 LinkedIn）的現有憑證建立新帳號。這大幅縮短並簡化了註冊流程——而傳統註冊的跳出率最高可達 80%。
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ### 強化數據安全性
@@ -105,7 +105,7 @@ CIAM 解決方案不僅僅提供認證伺服器來驗證用戶身份，還透過
 <h3 id="registration" style="margin:0 auto 25px">無摩擦用戶註冊</h3>
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 您上次在應用程式或網站建立新帳號時，是否沒有看到「使用 Facebook 登入」或「使用 Google 登入」的選項？使用現有憑證或身份建立新帳號已成為常態，因為它讓用戶能以最少的步驟存取新服務，無需再想出新的帳號和密碼，或重複輸入舊有憑證只為試用一項新服務是否值得。

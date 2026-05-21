@@ -1,7 +1,7 @@
 ---
 title: "JWT 安全全解析：最佳實踐與常見漏洞"
 excerpt: "JSON Web Token（JWT）因能在不依賴集中式 session 儲存的前提下驗證請求，被廣泛用於驗證與授權。本指南以實務角度說明 JWT 安全，涵蓋運作原理、常見漏洞與可在正式環境落地的最佳實踐。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "JWT 安全全解析：最佳實踐與常見漏洞"

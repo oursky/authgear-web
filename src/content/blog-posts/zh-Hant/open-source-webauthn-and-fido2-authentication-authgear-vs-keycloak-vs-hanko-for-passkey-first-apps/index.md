@@ -1,7 +1,7 @@
 ---
 title: "開源 WebAuthn 與 FIDO2 驗證：通行密鑰優先應用中的 Authgear、Keycloak 與 Hanko"
 excerpt: "比較主流開源 WebAuthn／FIDO2 方案，加速無密碼策略。評估 Authgear、Keycloak 等平台在安全與應用擴展性上的取捨。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "開源 WebAuthn／通行密鑰：Authgear vs Keycloak"

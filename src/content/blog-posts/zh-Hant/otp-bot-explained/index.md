@@ -1,7 +1,7 @@
 ---
 title: "OTP Bot 完整解析：駭客如何竊取一次性密碼"
 excerpt: "了解 OTP bot 是什麼、如何繞過 SMS 2FA，以及開發者如何透過 CAPTCHA 與 Authgear SMS pumping 防護阻止 OTP 詐欺。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "OTP Bot 完整解析：駭客如何竊取一次性密碼"

@@ -2,7 +2,7 @@
 title: "如何從 Auth0 遷移到開源身分提供者"
 h1: "如何從 Auth0 遷移到開源身分提供者：完整逐步指南"
 excerpt: "透過這份逐步指南，了解如何從 Auth0 遷移到開源身分提供者。內容涵蓋規劃、資料匯出、實作、SDK 更新、測試與上線最佳實務。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: highlight
 featured: true
 metaTitle: "如何從 Auth0 遷移到開源身分提供者：完整逐步指南"

@@ -1,7 +1,7 @@
 ---
 title: "SAML Token Example: What’s Inside a SAML Assertion"
 excerpt: "Explore a SAML token example and learn what’s inside a SAML assertion, including attributes, authentication statements, signatures, and security elements."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "SAML Token Example: What's Inside a SAML Assertion"

@@ -1,7 +1,7 @@
 ---
 title: "Why Your Password Complexity Policy Is Making You Less Secure (And What to Do Instead)"
 excerpt: "If your website still forces users to include \"at least one uppercase letter, one number, and one special character\" in their passwords, you're implementing outdated security practices that research shows actually make passwords weaker."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Why Your Password Complexity Policy Is Making You Less Secure (And What to Do Instead)"

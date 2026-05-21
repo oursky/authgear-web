@@ -1,7 +1,7 @@
 ---
 title: "我們在支持通行密鑰方面學到的 4 件事"
 excerpt: "通行密鑰有可能完全取代密碼，但它還不夠完美。詳細了解您在支持他們時可能遇到的情況。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "我們在支持通行密鑰方面學到的 4 件事"
@@ -76,7 +76,7 @@ draft: false
 <h2 id="backward">需要保持與非密鑰支援平台的向後相容性</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 在我們動手之前，我們花了一些時間研究密鑰在各種平台上的兼容性。
@@ -84,13 +84,13 @@ draft: false
 在 iOS 16 之前， <a href="https://www.w3.org/TR/webauthn-2/#enum-attachment" target="_blank">平台驗證器</a> 就像 Safari 創建的 <a href="https://fidoalliance.org/white-paper-multi-device-fido-credentials/" target="_blank">單一設備 FIDO 憑證</a>。這意味著雖然最終用戶可以建立憑證，但它會與 cookie 一起清除。如果最終用戶僅使用單設備憑證註冊您的應用程序，那麼當他們清除瀏覽歷史記錄時，他們將永久失去對其帳戶的存取權。 Android 和 Chrome 桌面等平台也具有這項特色。
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 借助 iOS16 上的密鑰支持，Safari 創建了 <a href="https://fidoalliance.org/multi-device-fido-credentials/#faq" target="_blank">多裝置 FIDO 憑證</a> 儲存在 iCloud 鑰匙圈中。多裝置 FIDO 憑證也稱為 **金鑰**。密鑰仍然被認為具有 <a href="https://www.w3.org/TR/webauthn-2/#enum-attachment" target="_blank">平台附件</a>s，但這些金鑰在最終用戶設備之間同步。因此，通行密鑰在最終用戶擁有的所有設備上都可用，並且不會隨瀏覽歷史記錄一起清除。這項特性也是讓通行密鑰可供消費者使用的關鍵點。
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 由於憑證有兩種，「單設備憑證」和「多設備憑證」。為了確保我們的最終用戶獲得最佳體驗，您的應用程式必須準備好在技術上處理這兩個問題。
@@ -135,11 +135,11 @@ draft: false
 <p>我們遇到了一個問題 <span class="inline-code">navigator.credentials.get({ 中介: "條件"})</span> 將立即被拒絕 <span class="inline-code">DOMException(名稱=“NotAllowedError”)</span>。當觀察到此類異常時，下一次調用 <span class="inline-code">navigator.credentials.get()</span> 將正常顯示模式對話框。但是，當最終用戶選擇密鑰時，模式對話框將變得無響應，並且承諾永遠不會實現。這個錯誤有效地破壞了流程。我們別無選擇，只能暫時停用自動填充。這可能是個bug，我們必須等到iOS 16正式發布。此錯誤已被跟踪 <a href="https://bugs.webkit.org/show_bug.cgi?id=241126" target="_blank">這裡</a>.</p>
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 <h2 id="platform-experience">不同平台的使用者體驗有所不同</h2>
@@ -153,13 +153,13 @@ draft: false
 然而，在 Chrome 桌面上，瀏覽器不夠智能，無法隱藏在裝置上使用憑證的選項。最終用戶可以點擊該選項，然後看到一條無用的錯誤訊息，指出“無法驗證您的身份”，而沒有任何其他訊息。
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 在 Firefox 桌面上，模式對話方塊看起來與普通權限對話框非常相似。模式對話框未居中且不夠大，不足以吸引最終用戶的注意。如果最終使用者習慣了權限對話框，則可能很容易錯過模式對話框。
 
 <!--FIGURE-->
-![](./figure-7.png)
+![](./figure-7.webp)
 <!--/FIGURE-->
 
 <h2 id="error-handling">跨平台的錯誤處理不一致</h2>

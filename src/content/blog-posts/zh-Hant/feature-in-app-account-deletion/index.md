@@ -1,7 +1,7 @@
 ---
 title: "2022 年 2 月更新：App 內刪除帳號功能"
 excerpt: "我們協助你把資料主導權交還給使用者。現在只需幾個步驟，就能把「刪除帳號」按鈕帶進你的 App。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: features
 featured: false
 metaTitle: "2022 年 2 月更新：App 內刪除帳號功能"
@@ -18,19 +18,19 @@ draft: true
 我們正在幫助你讓使用者對自身資料有更高控制權。現在，你只要幾個步驟就能在 App 中加入 **Delete your account** 按鈕。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 如果你使用 Authgear 提供的隱私設定預建前端，此按鈕會顯示在「My Account」面板中，且設計上容易被使用者找到。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 你也可以在 Authgear Portal 調整帳號刪除前的停用等待時間（**Grace Period**）。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 若你選擇自行實作 **Delete Account** 按鈕，也可在後端透過 <a href="https://docs.authgear.com/integrate/account-deletion#initiate-deletion-from-admin-api" target="_blank">Admin API</a> 發起刪除流程。

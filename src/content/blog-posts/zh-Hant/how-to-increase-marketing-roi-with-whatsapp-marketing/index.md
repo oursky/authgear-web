@@ -1,7 +1,7 @@
 ---
 title: "如何用 WhatsApp Marketing 提高行銷 ROI"
 excerpt: "在 WhatsApp 上做行銷，是更高效率且更具成本效益的品牌推廣方式，有助提高 ROI 並強化客戶互動。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "如何用 WhatsApp Marketing 提高行銷 ROI"
@@ -51,7 +51,7 @@ draft: false
 <h2 id="why-whatsapp">為什麼要做 WhatsApp 行銷？</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 使用者日常溝通高度依賴通訊 App，因為它更便宜、更穩定，且可傳送圖片、影片與群組訊息。WhatsApp 的龐大月活規模，讓它成為極具價值的觸達通道。
@@ -91,7 +91,7 @@ WhatsApp Business 提供多項工具，幫助品牌有系統地與客戶互動�
 客服可預設高頻問答模板，以關鍵字快速回覆常見問題，提升效率與一致性。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 <h2 id="authgear-whatsapp">用 WhatsApp OTP 開始你的行銷策略</h2>

@@ -1,7 +1,7 @@
 ---
 title: "什麼是延伸勞動力（Extended Workforce）？為何身分管理比以往更重要"
 excerpt: "了解延伸勞動力的定義、涵蓋對象與企業影響，並掌握如何更有效管理外部與前線人員的身分與存取。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是延伸勞動力（Extended Workforce）？為何身分管理比以往更重要"

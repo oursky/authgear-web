@@ -2,7 +2,7 @@
 title: "Authgear Achieves ISO 27001 and SOC 2 Type 2 Compliance | Enhanced Data Security"
 h1: "Level Up Your Security with Authgear: ISO 27001 and SOC 2 Type 2 Certified"
 excerpt: "Discover how Authgear’s ISO 27001 and SOC 2 Type 2 compliance ensures top-tier security and privacy for your data. Learn what this milestone means for you and your business."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Level Up Your Security with Authgear: ISO 27001 and SOC 2 Type 2 Certified"

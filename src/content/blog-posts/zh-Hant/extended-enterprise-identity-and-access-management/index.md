@@ -1,7 +1,7 @@
 ---
 title: "延伸型企業與身分存取管理：挑戰與解法"
 excerpt: "客戶、合作夥伴、承包商等延伸型企業成員，為企業帶來新的身分與存取管理挑戰。本文整理核心問題與可行解法。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "延伸型企業與身分存取管理：挑戰與解法"
@@ -69,7 +69,7 @@ draft: false
 <h2 id="definition">什麼是延伸型企業？</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 延伸型企業是由組織、人員與技術資源構成的協作網路，共同為企業創造價值。它涵蓋所有商業利害關係人，例如客戶、合作夥伴、供應商與承包商。
@@ -87,7 +87,7 @@ draft: false
 <h2 id="components">延伸型企業網路有哪些組成？</h2>
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 延伸型企業包含多種為企業成功貢獻心力的參與者，涵蓋所有能存取公司 IT 資源的內部與外部利害關係人。主要組成包括：
@@ -109,7 +109,7 @@ draft: false
 <h2 id="challenges">延伸型企業的身分與存取管理挑戰</h2>
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 延伸型企業模式自有其挑戰，其中最重要的一項就是管理身分與存取。在延伸型企業中，企業必須讓許多人存取自家的 IT 資源。
@@ -129,7 +129,7 @@ IT 團隊必須在 IAM 方案中為每個參與者建立名額（seat），也�
 <h2 id="features">Authgear 能如何協助你</h2>
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 為了與延伸型企業中的承包商、自由工作者、廠商與供應商等不同對象協作，企業往往會為他們打造新的應用，並與內部員工一起使用；但底層的身分與權限問題可能相當棘手。

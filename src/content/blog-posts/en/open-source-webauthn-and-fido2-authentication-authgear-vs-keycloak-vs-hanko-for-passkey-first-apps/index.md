@@ -1,7 +1,7 @@
 ---
 title: "Open Source WebAuthn and FIDO2 Authentication: Authgear vs Keycloak vs Hanko for Passkey-First Apps"
 excerpt: "Accelerate your strategic passwordless transition by comparing leading open-source WebAuthn/FIDO2 solutions. Evaluate platforms like Authgear and Keycloak for optimal security and application scalability."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Top Open-Source Amazon Cognito Alternatives in 2026: Secure & Self-Hosted Options"

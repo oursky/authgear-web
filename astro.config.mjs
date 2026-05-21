@@ -11,7 +11,10 @@ export default defineConfig({
   // disable it under `astro dev` (otherwise every <Image> 404s) and
   // keep it on for production builds where we get edge caching, AVIF
   // negotiation, and on-the-fly resizing.
-  adapter: netlify({ imageCDN: process.env.NODE_ENV === 'production' }),
+  adapter: netlify({
+    imageCDN: process.env.NODE_ENV === 'production',
+    devFeatures: { environmentVariables: false, images: true },
+  }),
   integrations: [
     react(),
     sitemap({

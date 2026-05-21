@@ -1,7 +1,7 @@
 ---
 title: "在 WhatsApp 上發送 OTP（2022）"
 excerpt: "OTP 對於驗證交易和登入至關重要。透過 Authgear，您可以使用用戶熟悉的通訊服務發送 OTP。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: integrations
 featured: true
 metaTitle: "在 WhatsApp 上發送 OTP（2022）"

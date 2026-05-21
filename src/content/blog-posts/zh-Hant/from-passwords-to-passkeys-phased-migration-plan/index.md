@@ -1,7 +1,7 @@
 ---
 title: "從密碼到 Passkey：給既有使用者的分階段遷移計畫"
 excerpt: "了解如何以分階段方式，將既有使用者從密碼遷移到 passkey。掌握可規模化、兼顧安全與體驗的無密碼驗證最佳實務。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "從密碼到 Passkey：給既有使用者的分階段遷移計畫"

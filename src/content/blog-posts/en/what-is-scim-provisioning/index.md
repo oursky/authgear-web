@@ -1,7 +1,7 @@
 ---
 title: "What is SCIM Provisioning and How Does it Work?"
 excerpt: "Learn what SCIM provisioning is, how it works, its benefits and drawbacks, and how SaaS teams can implement it securely and at scale."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "What is SCIM Provisioning? How Does It Work and Why Does it Matter?"

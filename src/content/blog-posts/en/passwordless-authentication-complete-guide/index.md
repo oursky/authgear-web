@@ -1,7 +1,7 @@
 ---
 title: "Passwordless Authentication: All You Need to Know For Better Security "
 excerpt: "Learn more about why passwordless authentication has been adopted by all industries and how you can implement it with ease. "
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Passwordless Authentication: All You Need to Know For Better Security "
@@ -64,7 +64,7 @@ In this blog post, we will learn more about:
 <h2 id="password-authentication">What Is Wrong With Password Authentication?</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Passwords are intrinsically vulnerable to hackers for several reasons. As users register for more services online, they can easily forget their passwords, come up with simple passwords that are vulnerable to dictionary attacks, or just use the same sets of passwords for all services. Sometimes, the users might even give out their passwords willingly. Hackers can easily phish for user passwords by sending fraudulent emails or messages. According to the 2020 Verizon Data Breach Investigation Report, 81% of hacking-related breaches involved stolen passwords or weak passwords.
@@ -99,7 +99,7 @@ Some also argue that a few passwordless authentication, such as magic link, OTPs
 <h2 id="how-it-works">How Does Passwordless Authentication Work?</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 Passwordless authentication methods with biometric data or hardware keys rely on a cryptographic key pair with a public key and a private key. Despite its name, the public key actually serves as the padlock or the keyhole that is unlocked by the private key.
@@ -111,7 +111,7 @@ When a user creates a new account, a private key and its corresponding public ke
 The “<a href="https://www.weforum.org/agenda/2020/04/covid-19-is-a-reminder-that-its-time-to-get-rid-of-passwords/" target="_blank">current situation will only continue to accelerate the global economic dependency on the internet</a>” and the adoption of passwordless authentication will continue to spread according to recent studies. So, why are businesses adopting passwordless authentication as an alternative to conventional password authentication?
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ### Provide Better User Experience

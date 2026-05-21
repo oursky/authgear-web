@@ -1,7 +1,7 @@
 ---
 title: "什麼是 SCIM Provisioning？它如何運作？"
 excerpt: "了解 SCIM Provisioning 是什麼、運作方式、優缺點，以及 SaaS 團隊如何安全且可擴展地實作。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "什麼是 SCIM Provisioning？它如何運作？為什麼重要？"

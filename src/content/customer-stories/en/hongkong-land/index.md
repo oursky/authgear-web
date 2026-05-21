@@ -3,9 +3,9 @@ title: "Hongkong Land Streamlines Staff & Partner Access with Authgear"
 excerpt: "Discover how Hongkong Land launched a dual‑audience authentication system, delivered in weeks, reducing IT overhead while meeting enterprise security requirements."
 customerName: "Hongkong Land"
 companyIndustry: "Property investment, management & development"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - Email
   - Biometric

@@ -1,7 +1,7 @@
 ---
 title: "SSL vs TLS: What's the Difference and Why It Matters"
 excerpt: "SSL is deprecated and TLS is what your server actually uses — but why does everyone still call it SSL? Learn the history, the attacks that killed SSL, and what changed."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "SSL vs TLS: What's the Difference and Why It Matters"

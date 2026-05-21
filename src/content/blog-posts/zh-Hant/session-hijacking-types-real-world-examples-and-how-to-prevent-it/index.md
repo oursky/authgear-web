@@ -2,7 +2,7 @@
 title: "會話劫持：類型、真實案例與防範方法"
 h1: "什麼是會話劫持？它如何發生？"
 excerpt: "了解會話劫持是什麼、攻擊如何運作，以及可落地的防範策略。本文整理真實案例、預防方法與關鍵安全實務，協助你保護使用者會話。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是會話劫持？會話劫持案例與預防方法"

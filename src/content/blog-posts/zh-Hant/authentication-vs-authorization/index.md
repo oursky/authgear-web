@@ -1,7 +1,7 @@
 ---
 title: "身份驗證與授權：一張表中的差異"
 excerpt: "透過一張簡單的表格詳細了解身分驗證和授權這兩個重要的安全流程之間的差異。 "
-coverImage: ./cover.jpeg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "身份驗證與授權：一張表中的差異"
@@ -128,7 +128,7 @@ draft: false
 <h2 id="authn-methods">認證方式</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 如今大多數企業都選擇使用 <a href="/zh-hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多重身份驗證</a> （MFA）以更強有力地防禦網路安全威脅。

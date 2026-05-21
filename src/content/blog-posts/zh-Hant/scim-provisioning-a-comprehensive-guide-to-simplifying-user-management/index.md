@@ -1,7 +1,7 @@
 ---
 title: "SCIM 配置：簡化使用者管理的綜合指南"
 excerpt: "了解 SCIM 配置如何簡化使用者帳戶管理、提高安全性並提高工作效率。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "SCIM 配置：簡化使用者管理的綜合指南"
@@ -19,7 +19,7 @@ In today's fast-paced digital world, efficient user management is crucial for bu
 ## 什麼是 SCIM 配置：簡化概述
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 **SCIM** 是一種標準化協議，旨在自動管理不同應用程式和系統的使用者帳戶。它提供了用於交換用戶資料的通用語言和框架，確保無縫整合並減少與手動配置相關的管理負擔。
@@ -50,7 +50,7 @@ Imagine a company that uses a cloud-based HR system and a SaaS-based project man
 ## SCIM 配置的優點
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 SCIM 配置為各種規模的組織提供了眾多優勢。透過自動化使用者帳戶管理，SCIM 可以：
@@ -65,7 +65,7 @@ SCIM 配置為各種規模的組織提供了眾多優勢。透過自動化使用
 ## SCIM 與 SAML 和 SSO：比較分析
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 **SCIM、SAML 和 SSO** 都是身分識別和存取管理的重要技術，但它們有不同的用途。
@@ -147,7 +147,7 @@ SCIM 主要專注於使用者帳戶管理，而 SAML 和 SSO 則專注於身份�
 ## 即時配置與 SCIM 配置：比較
 
 <!--FIGURE-->
-![](./figure-4.jpeg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 **即時配置**和**SCIM 配置**都是自動化使用者帳戶管理的方法，但它們的方法不同。

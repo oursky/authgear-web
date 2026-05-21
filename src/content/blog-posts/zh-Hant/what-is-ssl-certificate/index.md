@@ -1,7 +1,7 @@
 ---
 title: "什麼是 SSL 憑證？開發者指南"
 excerpt: "SSL 憑證做兩件事：加密連線並驗證伺服器身分。了解運作方式、三種憑證類型，以及憑證內含哪些欄位。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "什麼是 SSL 憑證？開發者指南"

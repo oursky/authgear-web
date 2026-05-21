@@ -1,7 +1,7 @@
 ---
 title: "Passwordless Authentication: Magic Links vs Passkeys vs OTP"
 excerpt: "Passwords are one of the biggest security liabilities in modern software. Passwordless authentication replaces them with magic links, passkeys, and OTPs—methods that are faster, easier, and harder to compromise. This guide explains how each works, when to use them, and what to watch for during implementation."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Passwordless Authentication: Magic Links vs Passkeys vs OTP"

@@ -1,7 +1,7 @@
 ---
 title: "OIDC vs SAML：現代 SSO 該如何選擇"
 excerpt: "OIDC 與 SAML 是實作單一登入最常見的兩種協定。本文帶你了解運作方式、關鍵差異，以及何時該選哪一個。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "OIDC vs SAML：現代 SSO 該如何選擇"
@@ -147,7 +147,7 @@ SAML 與 OIDC 的驗證流程不同，會影響整合複雜度與應用設計。
 OIDC 支援 API 程式化存取，特別適合 SPA 與行動應用，也內建 PKCE、過期機制與刷新 Token 等現代安全措施。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 圖中展示 User、Relying Party（RP）與 Identity Provider（IdP）之間的 OIDC 驗證流程。方塊標示關鍵階段、箭頭標示資料交換順序，並以顏色區分角色與互動。
@@ -164,7 +164,7 @@ SAML 以瀏覽器流程為主，常用於企業員工 SSO。高層流程如下�
 SAML 在集中式稽核與單一登出（SLO）方面具優勢。理解 **OIDC vs OAuth** 也能幫助你掌握為何 OIDC 常成為現代驗證首選。
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 這張圖以清晰流程呈現 SAML 驗證：從使用者登入請求、IdP 驗證，到 assertion 回傳與 SP 決策授權。

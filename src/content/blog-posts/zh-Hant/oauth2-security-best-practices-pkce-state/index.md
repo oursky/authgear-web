@@ -1,7 +1,7 @@
 ---
 title: "OAuth 2.0 安全最佳實務：PKCE、state 參數與更多"
 excerpt: "OAuth 2.0 是廣泛採用的框架，讓應用程式安全存取使用者資源，且無須暴露密碼或憑證。本指南以實務角度拆解 OAuth 2.0 安全——涵蓋 PKCE、state 參數、權杖管理等——協助你建置可上線的授權系統。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "OAuth 2.0 安全最佳實務：PKCE、state 參數與更多"

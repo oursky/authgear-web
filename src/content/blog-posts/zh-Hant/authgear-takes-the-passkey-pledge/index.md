@@ -1,7 +1,7 @@
 ---
 title: "Authgear 加入 Passkey Pledge：我們對無密碼未來的承諾"
 excerpt: "Authgear 正式加入 FIDO Alliance 的 Passkey Pledge，延續我們自 2022 年起對 Passkey 的早期投入。Passkey 可消除密碼弱點，並透過生物辨識帶來更佳使用者體驗。我們致力讓無密碼驗證成為預設選項，打造兼具安全與便利的數位生態。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 readTime: 3

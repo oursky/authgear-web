@@ -1,7 +1,7 @@
 ---
 title: "Time-Sortable Identifiers Explained: UUIDv7, ULID, and Snowflake Compared"
 excerpt: "Learn how UUIDv7, ULID, and Snowflake IDs work, how they differ, and when to use each for scalable, time-ordered, distributed systems."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Time-Sortable Identifiers Explained: UUIDv7, ULID, and Snowflake Compared"
@@ -63,7 +63,7 @@ A ULID is a 26-character Base32 string designed to sort correctly as a string.
 The structure of a ULID places a millisecond-precision timestamp at the beginning of the identifier, followed by random bits to ensure uniqueness.
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 - Timestamp: Milliseconds since Unix epoch
@@ -92,7 +92,7 @@ UUIDv7 is a 128-bit UUID that embeds time while remaining compatible with the UU
 ### UUIDv7 structure
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 - Timestamp: Milliseconds since Unix epoch
@@ -125,7 +125,7 @@ Snowflake IDs are 64-bit integers optimized for extremely high write throughput.
 ### Snowflake ID structure (typical)
 
 <!--FIGURE-->
-![](./figure-3.jpg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 A common layout is:

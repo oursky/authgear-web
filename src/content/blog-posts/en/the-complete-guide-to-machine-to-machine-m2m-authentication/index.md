@@ -2,7 +2,7 @@
 title: "The Complete Guide to Machine-to-Machine (M2M) Authentication — OAuth Client Credentials Flow"
 h1: "The Complete Guide to Machine-to-Machine (M2M) Authentication"
 excerpt: "Learn how M2M tokens work, implement OAuth 2.0 Client Credentials, host JWKS, rotate keys, and secure service-to-service authentication with examples in curl, Node, Python, and Go."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 readTime: 10
@@ -140,7 +140,7 @@ Authgear provides an easy path to implement M2M tokens: registration UX for clie
 ## Example sequence diagram
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## FAQ

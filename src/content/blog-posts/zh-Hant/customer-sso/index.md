@@ -2,7 +2,7 @@
 title: "什麼是 Customer SSO？為什麼你該導入？"
 h1: "什麼是 Customer SSO？它如何運作？"
 excerpt: "了解 Single Sign-On 對客戶體驗與企業營運的價值，打造一致且低摩擦的登入體驗。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是 Customer SSO？它如何運作？"
@@ -96,7 +96,7 @@ SSO 常見疑慮之一，是如何讓多個可能採用不同系統或語言的�
 <h2 id="why">為什麼要為客戶導入 SSO？</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 導入 Customer SSO 不只對使用者有利，對你這個服務提供者也同樣有利。以下是原因：

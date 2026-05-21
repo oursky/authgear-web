@@ -2,7 +2,7 @@
 title: "Behavioral Biometrics: Transforming Authentication Beyond Fingerprints"
 h1: "Beyond Fingerprints: How Behavioral Biometrics Are Changing Authentication"
 excerpt: "Discover how behavioral biometrics enhances authentication security through unique user behavior analysis, ensuring seamless and secure user experiences across industries."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Beyond Fingerprints: How Behavioral Biometrics Are Changing Authentication"

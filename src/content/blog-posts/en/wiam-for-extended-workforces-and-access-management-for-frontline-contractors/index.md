@@ -2,7 +2,7 @@
 title: "Taming the Workforce Wild West: WIAM for Extended Workforces and Access Management for Frontline & Contractors"
 h1: "Taming the Workforce Wild West: WIAM for Extended Workforces"
 excerpt: "The modern workplace is no longer a nine-to-five saloon. It's a bustling frontier of diverse talent, from frontline staff to seasoned contractors. But managing their access? That's where things get dusty. Traditional WIAM solutions are like rickety stagecoaches – slow, clunky, and full of security holes."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 readTime: 3
@@ -20,7 +20,7 @@ Traditional WIAM solutions, built for the era of saloon doors and oil lamps, can
 ## WIAM for the Extended Workforce: Your Six-Shooter for Secure Access
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 - Onboarding in a Flash: No more mountains of paperwork! Automated workflows provision access based on roles or project requirements, getting your posse up and running faster than a tumbleweed in a tornado.
@@ -32,7 +32,7 @@ Traditional WIAM solutions, built for the era of saloon doors and oil lamps, can
 ## Frontline & Contractors: Access Management Tailored for Your Skills
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 WIAM for the Extended Workforce knows not everyone wears the same Stetson. It caters to your unique needs:

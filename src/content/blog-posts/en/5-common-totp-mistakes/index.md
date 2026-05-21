@@ -1,7 +1,7 @@
 ---
 title: "5 Common TOTP Mistakes Developers Make (and How to Fix Them in 2026)"
 excerpt: "TOTP codes not working in 2026? See the 5 most common mistakes developers make — clock drift, Base32 secrets, RFC 6238 mismatches, and weak verification logic — and how to fix each one with Python and JavaScript code examples."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "5 Common TOTP Mistakes Developers Make (2026 Guide)"

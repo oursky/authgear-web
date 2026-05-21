@@ -2,7 +2,7 @@
 title: "在 Python、Node.js、Go 產生與驗證 HMAC 簽章"
 h1: "如何在 Python、Node.js 與 Go 產生與驗證 HMAC 簽章"
 excerpt: "學習如何在 Python、Node.js 與 Go 產生與驗證 HMAC 簽章。透過實用範例、程式片段與免費線上工具強化 API 安全。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "如何在 Python、Node.js 與 Go 產生與驗證 HMAC 簽章"

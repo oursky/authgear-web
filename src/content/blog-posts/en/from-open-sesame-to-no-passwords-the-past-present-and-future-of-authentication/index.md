@@ -1,7 +1,7 @@
 ---
 title: "From “Open Sesame” to No Passwords: The Past, Present, and Future of Authentication"
 excerpt: "From \"Open Sesame\" to passkeys, explore how authentication has evolved, where it’s heading, and why passwordless is the future."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "From \"Open Sesame\" to No Passwords: The Past, Present, and Future of Authentication"

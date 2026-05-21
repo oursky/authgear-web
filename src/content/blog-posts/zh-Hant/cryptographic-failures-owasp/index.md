@@ -1,7 +1,7 @@
 ---
 title: "密碼學失敗完整指南（OWASP Top 10 A02）"
 excerpt: "了解什麼是密碼學失敗、真實案例，以及 OWASP 建議的實作方式，保護傳輸中與靜態資料安全。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "密碼學失敗完整指南（OWASP Top 10 A02）"

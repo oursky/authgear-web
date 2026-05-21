@@ -1,7 +1,7 @@
 ---
 title: "2022 February Update: In-app Account Deletion"
 excerpt: "We are helping you to give your users more control over their data. Now you can bring the Delete your account button to your app with a few clicks."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 publishedAt: 2025-05-27T17:55:36.324Z
 draft: false
 ---
@@ -12,15 +12,15 @@ Privacy protection regulations related to [“Right to be Forgotten”](https://
 
 We are helping you to give your users more control over their data. Now you can bring the **Delete your account** button to your app with a few clicks.
 
-![](./figure-1.png)
+![](./figure-1.webp)
 
 If you use the pre-built frontend provided by Authgear for privacy settings, this button will show inside the “My Account” panel. It is designed to be easy to find in your app.
 
-![](./figure-2.png)
+![](./figure-2.webp)
 
 You can change the **Grace Period** of how long the account will be deactivated before deletion in the Authgear Portal.
 
-![](./figure-3.png)
+![](./figure-3.webp)
 
 Alternatively, if you opt to implement your own **Delete Account** button, you can initiate deletion from the [Admin API](https://docs.authgear.com/integrate/account-deletion#initiate-deletion-from-admin-api) in your backend server.
 

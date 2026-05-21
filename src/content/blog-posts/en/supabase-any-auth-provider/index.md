@@ -1,7 +1,7 @@
 ---
 title: "Connect Supabase with any Auth Provider"
 excerpt: "Use your existing SSO or IdP with Supabase. Learn how to exchange JWTs for full RLS access and single sign-on integration."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: integrations
 featured: false
 metaTitle: "Connect Supabase with any Auth Provider"
@@ -27,7 +27,7 @@ In this guide, you’ll learn how to:
 If you don’t already have an IdP, **Authgear** slots in neatly here and gives you MFA, biometrics, social logins. But the pattern works with *any* JWT issuer. Let’s get your existing SSO talking to Supabase the right way.
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 This guide is for teams who can'tuse these options—you can still use Supabase.

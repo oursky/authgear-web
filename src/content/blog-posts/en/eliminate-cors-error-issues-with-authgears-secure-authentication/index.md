@@ -2,7 +2,7 @@
 title: "Eliminate Cors Error Issues with Authgear’s Secure Authentication"
 h1: "Conquer the CORS Error: Unlock Secure Authentication with Authgear"
 excerpt: "Struggling with cors error challenges? Discover how Authgear’s one-time secure authentication solution overcomes cors error issues, ensuring seamless API access and robust user protection for your web app."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "How to Fix \"strict-origin-when-cross-origin\" Referrer Policy | CORS Error"

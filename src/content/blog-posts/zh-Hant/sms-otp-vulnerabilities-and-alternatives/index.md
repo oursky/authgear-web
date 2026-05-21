@@ -1,7 +1,7 @@
 ---
 title: "SMS OTP 是什麼，它如何運作？"
 excerpt: "SMS OTP 還安全嗎？了解真實風險（SIM 卡換號、SS7、釣魚簡訊），並比較更安全的替代方案——通行密鑰、WhatsApp OTP、社交登入——以及透過 Authgear 啟用的步驟。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是 SMS OTP？SMS OTP 的漏洞與替代方案"
@@ -43,7 +43,7 @@ SMS OTP（一次性密碼）是一種安全的臨時 4-8 位數字驗證碼，�
 <h2 id="sms-otp-definition">什麼是 OTP 簡訊？</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 OTP（一次性密碼）是發送至用戶設備（通常是手機）的安全令牌，用於驗證其身份。這種動態驗證碼取代了靜態密碼，為防止未經授權的存取提供了額外一層保護。當用戶嘗試登入線上帳戶或執行敏感交易時，系統會提示他們輸入發送至其已註冊設備的唯一時效性驗證碼。這種機制透過大幅增加惡意行為者在獲取用戶憑證後取得未授權存取的難度，從而提升帳戶安全性。

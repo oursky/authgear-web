@@ -1,7 +1,7 @@
 ---
 title: "如何透過 CIAM 提升數位客戶體驗？"
 excerpt: "了解 CIAM 如何成為優化數位客戶體驗的關鍵基礎，打造順暢互動並建立忠誠度。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "如何透過 CIAM 提升數位客戶體驗？"
@@ -80,7 +80,7 @@ draft: false
 <h3 id="registraion">簡化註冊流程</h3>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 客戶與企業網站最早的互動之一，通常就是註冊新帳號。這個流程經常既繁瑣又惱人：表單過長、問題過多，最後讓不少人直接放棄。這也是為什麼落地頁與註冊頁的流失率有時可高達 <a href="https://andrewchen.com/investor-metrics-deck" target="_blank">80%</a>。
@@ -96,7 +96,7 @@ draft: false
 當註冊完成後，接下來要跨越的關卡就是登入。幸好，透過 Passkey 與前文提到的其他 <a href="/zh-hant/post/passwordless-authentication-complete-guide" target="_blank">無密碼驗證</a>方式，記住複雜密碼不再是必要負擔。Authgear 也提供其他無密碼選項，包括 <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP</a>、<a href="/features/biometric-authentication" target="_blank">生物辨識驗證</a> 與 SMS OTP。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 讓客戶更容易登入，是思考「如何改善數位客戶體驗」時最直接有效的方法之一。你可以把註冊與登入流程想像成商店大門：如果門太重、難開，或在應該自動開啟時沒有反應，顧客很可能直接放棄，改去更容易進入的地方。
@@ -122,7 +122,7 @@ Single Sign-On（SSO）允許使用者以一組憑證登入多個網站。對於
 Authgear 等 CIAM 還能透過自助式功能改善數位客戶體驗。過去，像忘記密碼或調整登入資訊這類需求，通常都要找客服；而 Authgear 提供帳號設定頁，讓使用者能自行完成大部分操作。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 使用者可以依個人需求，隨時更新個人資料、重設密碼、調整驗證方式，以及管理已綁定帳號，不必再等客服團隊花上數小時甚至數天回覆。

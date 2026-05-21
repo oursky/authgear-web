@@ -4,9 +4,9 @@ excerpt: "了解 Outback Steakhouse 如何透過 Authgear 上線簡訊登入、�
 customerName: "Outback Steakhouse"
 companyIndustry: 餐飲
 companyLocation: "香港"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - 生物辨識
   - 無密碼／簡訊

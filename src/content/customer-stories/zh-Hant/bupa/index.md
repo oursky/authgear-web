@@ -3,9 +3,9 @@ title: "Bupa 以 Authgear 生物辨識簡化安全登入"
 excerpt: "了解 Bupa 如何從 Azure AD B2C 遷移至 Authgear，透過 Face ID／Touch ID 降低重設密碼與支援成本，打造順暢又安全的登入體驗。"
 customerName: Bupa
 companyIndustry: "健康保險與醫療保健服務"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - 生物辨識
   - 無密碼／簡訊

@@ -1,7 +1,7 @@
 ---
 title: "IAM at Scale: Cost-Effective Identity Management for Large Frontline Teams"
 excerpt: "Learn how to implement cost-effective IAM solutions at scale for large frontline teams, focusing on security, efficiency, and automation."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "IAM at Scale: Cost-Effective Identity Management for Large Frontline Teams"

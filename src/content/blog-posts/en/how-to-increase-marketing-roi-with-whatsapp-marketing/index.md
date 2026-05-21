@@ -1,7 +1,7 @@
 ---
 title: "How to Increase Marketing ROI with WhatsApp Marketing"
 excerpt: "Marketing on WhatsApp is a more cost-effective and efficient way to promote your brands, increase marketing ROI, and engage with your customers."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "How to Increase Marketing ROI with WhatsApp Marketing"
@@ -63,7 +63,7 @@ Despite its popularity, not a lot of businesses have made the most of WhatsApp B
 <h2 id="why-whatsapp">Why Should You Do Marketing on WhatsApp?</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Consumers nowadays rely heavily on messenger apps for communication now since they are not only cheaper and more stable but also come with more features, such as the ability to send videos, images and create group chats, with which the traditional SMS cannot compete.
@@ -105,7 +105,7 @@ Customer service may not always be available, making automation a key component 
 <a href="https://ninjachat.com/customer-service-tool-types" target="_blank">Customer service</a> can easily get overwhelmed by incoming customer questions and a lot of them are often repeated. WhatsApp Business allows businesses to create and store quick replies that can be sent by typing and selecting the specific keyword shortcuts.
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 WhatsApp OTP allows businesses to not only improve user experience but also increase conversion rates, reduce the cost of drip campaigns, and enjoy all the aforementioned benefits of WhatsApp Business.

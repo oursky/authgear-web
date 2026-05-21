@@ -1,7 +1,7 @@
 ---
 title: "什麼是 .well-known/openid-configuration？開發者指南"
 excerpt: "說明 .well-known/openid-configuration 是什麼、探索文件每個欄位的意義，以及如何取得 Google、Okta、Azure、Keycloak 或自有 OIDC 提供者的文件。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "什麼是 .well-known/openid-configuration？開發者指南"

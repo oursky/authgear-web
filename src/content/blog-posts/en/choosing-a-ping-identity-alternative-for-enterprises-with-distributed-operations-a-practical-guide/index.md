@@ -1,7 +1,7 @@
 ---
 title: "Choosing a Ping Identity Alternative for Enterprises with Distributed Operations: A Practical Guide"
 excerpt: "Choosing a Ping Identity alternative is about aligning your identity platform with how your workforce actually operates, especially if most staff are mobile-first, distributed across regions, and constrained by data residency and connectivity needs. This guide walks enterprise identity, security, and product teams through when Ping stops being a fit, what evaluation criteria to prioritize for phone‑first staff, and which vendors—including Authgear, Auth0, Okta, Microsoft Entra ID, and others—deserve a place on your shortlist, complete with migration playbooks, region-specific checklists, and mobile-focused POC scripts."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Choosing a Ping Identity Alternative for Enterprises with Distributed Operations: A Practical Guide"
@@ -54,7 +54,7 @@ Authgear is positioned throughout this guide as a mobile-first identity platform
 - [Vendor Deep Dives](#vendor-profiles-detailed)
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## Why companies look beyond Ping Identity
@@ -75,7 +75,7 @@ Ping Identity is a mature platform that excels at workforce SSO, complex federat
 ## Evaluation criteria for enterprises and mobile-first staff
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 Standard CIAM/IAM checklists (security, UX, scalability) are necessary but insufficient for globally distributed, mobile-first workforces. Expand evaluation to include mobile and multi-region nuances.
@@ -128,7 +128,7 @@ Standard CIAM/IAM checklists (security, UX, scalability) are necessary but insuf
 Use this rubric during vendor demos to rate vendors across the checklist.
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ## Top Ping Identity alternatives to evaluate (quick reference)

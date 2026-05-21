@@ -1,7 +1,7 @@
 ---
 title: "Generating IDs In Distributed Systems: Why UUIDv7 Beats Centralized ID Services"
 excerpt: "Learn why UUIDv7 is a better choice than centralized ID services in distributed systems. Explore scalability, performance, ordering, and operational trade-offs."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Why UUIDv7 Beats Centralized ID Services"

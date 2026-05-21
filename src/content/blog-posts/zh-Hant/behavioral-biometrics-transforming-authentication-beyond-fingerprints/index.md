@@ -2,7 +2,7 @@
 title: "行為生物辨識：超越指紋的驗證革新"
 h1: "超越指紋：行為生物辨識如何改變驗證"
 excerpt: "了解行為生物辨識如何透過使用者行為分析提升驗證安全，並在多種產業中同時實現流暢且安全的使用體驗。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "超越指紋：行為生物辨識如何改變驗證"

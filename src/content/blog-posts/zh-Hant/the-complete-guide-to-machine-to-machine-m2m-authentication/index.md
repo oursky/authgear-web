@@ -2,7 +2,7 @@
 title: "Machine-to-Machine（M2M）驗證完整指南 — OAuth Client Credentials Flow"
 h1: "Machine-to-Machine（M2M）驗證完整指南"
 excerpt: "了解 M2M token 運作方式、實作 OAuth 2.0 Client Credentials、託管 JWKS、金鑰輪替，以及如何用 curl/Node/Python/Go 保護 service-to-service 驗證。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 readTime: 10
@@ -140,7 +140,7 @@ Authgear 提供 M2M token 的快速落地路徑：client 註冊體驗、token en
 ## 序列圖範例
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## FAQ

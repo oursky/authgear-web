@@ -3,9 +3,9 @@ title: "Bupa Simplifies Secure Access with Authgear Biometrics"
 excerpt: "See how Bupa reduced password resets and support costs by migrating from Azure AD B2C to Authgear and enabling Face/Touch ID for frictionless, secure login."
 customerName: Bupa
 companyIndustry: "Health insurance & healthcare services"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - Biometric
   - Passwordless/SMS

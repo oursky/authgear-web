@@ -2,7 +2,7 @@
 title: "PKCE in OAuth 2.0: How to Protect Your API from Attacks"
 h1: "PKCE in OAuth 2.0: How to Protect Your API from Authorization Code Grant Attacks"
 excerpt: "Learn everything you need to know about PKCE, a security extension for OAuth 2.0 that helps protect your API from authorization code interception and other attacks. Discover how PKCE works, its benefits, and best practices for implementation."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "PKCE in OAuth 2.0: How to Protect Your API from Authorization Code Grant Attacks"

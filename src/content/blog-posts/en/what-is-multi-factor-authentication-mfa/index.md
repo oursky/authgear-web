@@ -2,7 +2,7 @@
 title: "What Is Multi-Factor Authentication (MFA) And How Does It Work?"
 h1: "What Is Multi-Factor Authentication (Mfa) And How Does It Work?"
 excerpt: "The fact is, if you aren’t using multi-factor authentication (MFA), then your accounts are not as secure as you think."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "What Is Multi-Factor Authentication (Mfa) And How Does It Work?"
@@ -78,7 +78,7 @@ To understand more about MFA, how it works, and the benefits it provides, keep r
 <h2 id="mfa">What Is Multi-Factor Authentication (MFA)?</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 MFA stands for Multi-Factor Authentication and is characterized by the fact that it requires users to provide more than one authentication factor to gain access to an application, online account, etc.
@@ -90,7 +90,7 @@ It is a core component of any <a href="/post/what-is-customer-identity-and-acces
 <h2 id="why-mfa">Why Do You Need MFA if You Have a Password?</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 If the only point of authentication standing between you and your account is a username and password, your information isn’t nearly as secure as you might think. Without multi-factor authentication, passwords can be vulnerable to hackers thanks to these challenges:
@@ -108,7 +108,7 @@ Phishing emails and <a href="/post/credential-stuffing" target="_blank">credenti
 <h2 id="how">How Does MFA Work?</h2>
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 How MFA works is by requiring users to identify themselves by more than a username and password combination. It’s an added layer of protection against stolen passwords because it means that even if someone gets your details, there’s still another layer of authentication to cross.
@@ -156,7 +156,7 @@ This is a more niche example of multi-factor authentication, but voice, retina, 
 <h2 id="benefits">The Benefits of Using Multi-Factor Authentication</h2>
 
 <!--FIGURE-->
-![](./figure-4.jpeg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 If you’re still wondering, “How does MFA work?” the best way to understand it may be to see the benefits that it can offer:
@@ -186,13 +186,13 @@ In 2FA, a one-time password (OTP) can be sent to the user's phone number via SMS
 Authgear offers a number of powerful multifactor authentication tools for developers who want to add authentication to their applications. Designed to integrate easily into existing systems, you can utilize MFA and enhance cyber security for both users and service providers with just a few clicks.
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 Moreover, developers can also easily configure two-factor authentication, as shown below, to ensure data security for users without all the coding hassles.
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 <a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up</a> now to easily enable MFA with Authgear or <a href="/schedule-demo/" target="_blank">contact us</a> to chat more about the solution that works best for you and your security requirements.

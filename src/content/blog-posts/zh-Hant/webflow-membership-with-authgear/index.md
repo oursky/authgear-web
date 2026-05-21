@@ -2,7 +2,7 @@
 title: "使用 Authgear 為 Webflow 建立會員系統"
 h1: "透過 Authgear 為 Webflow 網站加入會員功能"
 excerpt: "Webflow 正在淘汰原生 User Accounts 功能，許多網站經營者因此需要新的會員登入與內容門檻方案。若你目前依賴 Webflow 做驗證，現在就該提早評估替代方案，避免使用者失去存取權。本文將示範如何以 Authgear 無縫接手 Webflow 即將退場的帳號功能，持續守住安全與會員體驗。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: integrations
 featured: false
 metaTitle: "透過 Authgear 為 Webflow 網站加入會員功能"
@@ -40,7 +40,7 @@ draft: false
 1. 完成 endpoint 網域設定，建立你的專屬 Authgear endpoint：`https://<your-project-name>.authgear.cloud`，然後點擊「Next」。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 1. 選擇終端使用者的登入方式。本教學請確保選擇 Email。
@@ -55,7 +55,7 @@ draft: false
 1. 在對話框中輸入應用程式名稱（例如「Webflow Site」），並選擇 Single Page Application 類型，點擊「Save」。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 1. 下一頁會顯示各種框架教學。點擊 Next 跳過，進入應用程式設定頁。
@@ -65,7 +65,7 @@ draft: false
 1. 最後記下你的 Client ID 與 Endpoint，後續步驟會用到。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ## 步驟 3：在 Webflow 加入自訂樣式
@@ -113,7 +113,7 @@ draft: false
 1. 在清單中將 Token Bearer Access Right 與 End-user Access Right 都設為 Read-only。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 1. 為使用者指派數值：<ol><li>前往 User Management > Users，點入你的測試使用者。
@@ -121,7 +121,7 @@ draft: false
 1. 在 Points Collected 欄位輸入數字（例如 50）並點擊「Save」。
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ### 7b. 在 Webflow 顯示自訂屬性

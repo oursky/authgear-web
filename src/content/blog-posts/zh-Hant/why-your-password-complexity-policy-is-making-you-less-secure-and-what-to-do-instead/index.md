@@ -1,7 +1,7 @@
 ---
 title: "為何你的密碼複雜度政策反而讓安全性更差（以及該如何改善）"
 excerpt: "如果你的網站仍要求使用者密碼必須「至少包含一個大寫字母、一個數字與一個特殊字元」，你其實正在實施已過時的安全做法。研究顯示，這些規則反而會讓密碼更脆弱。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "為何你的密碼複雜度政策反而讓安全性更差（以及該如何改善）"

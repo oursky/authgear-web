@@ -1,7 +1,7 @@
 ---
 title: "What Is JWKS? JSON Web Key Set and JWKS URI Explained"
 excerpt: "Learn what JWKS is, how JWKS URI works, JWK format examples, and practical tips to generate and manage keys for secure token verification."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 readTime: 6

@@ -4,9 +4,9 @@ excerpt: "Discover how K11 / New World Development used Authgear to unify login 
 customerName: K11
 companyIndustry: "Luxury retail, property & lifestyle"
 companyLocation: HongKong
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - "Email Magic Link"
   - "Phone number"

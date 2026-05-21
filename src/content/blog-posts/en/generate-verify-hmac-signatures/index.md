@@ -2,7 +2,7 @@
 title: "Generate & Verify HMAC Signatures in Python, Node.js, Go"
 h1: "How to Generate and Verify HMAC Signatures in Python, Node.js, and Go"
 excerpt: "Learn how to generate and verify HMAC signatures in Python, Node.js, and Go. Secure your API with practical examples, code snippets, and a free online HMAC generator."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "How to Generate and Verify HMAC Signatures in Python, Node.js, and Go"

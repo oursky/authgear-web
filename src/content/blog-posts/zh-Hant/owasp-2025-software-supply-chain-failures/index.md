@@ -2,7 +2,7 @@
 title: "OWASP Top 10 2025：A03—軟體供應鏈失敗"
 h1: "OWASP Top 10 2025：A03—軟體供應鏈失敗（新手指南）"
 excerpt: "了解 2025:A03 軟體供應鏈失敗代表什麼、攻擊如何發生，以及可落地的供應鏈安全檢查清單。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "OWASP Top 10 2025：A03—軟體供應鏈失敗（新手指南）"

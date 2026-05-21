@@ -2,7 +2,7 @@
 title: "不安全直接物件參照（IDOR）：範例與 API 防護"
 h1: "不安全直接物件參照（IDOR）：範例與防護（含 API 建議）"
 excerpt: "說明 IDOR 是什麼、在 Web 與 API 如何發生、真實案例，以及預防物件層級授權漏洞（BOLA）的實用清單。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "不安全直接物件參照（IDOR）：範例與防護（含 API 建議）"

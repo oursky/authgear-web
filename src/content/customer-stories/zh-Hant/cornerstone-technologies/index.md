@@ -4,9 +4,9 @@ excerpt: "Cornerstone Technologies 運用 Authgear 快速上線安全、可擴�
 customerName: "Cornerstone Technologies"
 companyIndustry: 科技
 companyLocation: "香港"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - 密碼
 technicalDetails:

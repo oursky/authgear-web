@@ -1,7 +1,7 @@
 ---
 title: "Authentication for ASP.NET apps with Authgear and OpenID Connect"
 excerpt: "This blog post demonstrates how to add authentication features to ASP.NET apps with Authgear by implementing an OpenID Connect flow."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Authentication for ASP.NET apps with Authgear and OpenID Connect"
@@ -40,13 +40,13 @@ To use Authgear services, you’ll need to have an application set up in the Aut
 Use the interactive selector to create a new **Authgear OIDC Client application** or select an existing application that represents the project you want to integrate with.
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Every application in Authgear is assigned an alphanumeric, unique client ID that your application code will use to call Authgear APIs through the OpenID Connect Client in the .NET app. Note down the Authgear ISSUER (for example, [https://example-auth.authgear-apps.com](https://example-auth.authgear-apps.com)), CLIENT ID, CLIENT SECRET, and OpenID Token Endpoint (<a href="https://example-auth.authgear-apps.com/oauth2/token" target="_blank">https://example-auth.authgear-apps.com/oauth2/token</a>) from the output. You will use these values in the next step for the client app config.
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ### Step 2: Configure **Redirect URI**
@@ -60,7 +60,7 @@ Set the following redirect URI: <a href="http://localhost:5002/signin-oidc" targ
 Also, enable **Issue JWT as an access token** option under the **Access Token** section of the app configuration:
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ### Step 4: Choose a Login method
@@ -68,7 +68,7 @@ Also, enable **Issue JWT as an access token** option under the **Access Token** 
 After you created the **Authgear app**, you choose how users need to **authenticate on the login page**. From the **Authentication** tab, navigate to **Login Methods**, you can choose a **login method** from various options including, by email, mobile, or social, just using a username or the custom method you specify. For this demo, we choose the **Email+Passwordless** approach where our users are asked to register an account and log in by using their emails. They will receive a One-time password (OTP) to their emails and verify the code to use the app.
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 ## Part 2: Configure <a href="http://ASP.NET" target="_blank">ASP.NET</a> Core application to use Authgear
@@ -259,7 +259,7 @@ public class ProtectedModel : PageModel
 To see protected data, users need to go through the authentication process via Authgear.
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 If a user has not authenticated yet, Unauthenticated.chtml page is rendered, an OpenID Connect redirect flow is triggered and the user needs to authenticate through the Authgear login page. See **Run the Application** section
@@ -267,7 +267,7 @@ If a user has not authenticated yet, Unauthenticated.chtml page is rendered, an 
 After successful authentication, you should see the protected page with the following details:
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 ### Step 4: Set up and run the application
@@ -320,19 +320,19 @@ dotnet builddotnet run
 You can now visit <a href="http://localhost:5002" target="_blank">http://localhost:5002</a> to access the application. When you click on the **"View Protected Data"** button, <a href="http://ASP.NET" target="_blank">ASP.NET</a> Core takes you to the **Authgear’s Login page**.
 
 <!--FIGURE-->
-![](./figure-7.png)
+![](./figure-7.webp)
 <!--/FIGURE-->
 
 Your users can log in to your application through a page hosted by Authgear, which provides them with a secure, standards-based login experience that you can customize with your own branding and various authentication methods, such as <a href="/features/social-login" target="_blank">social logins</a>, <a href="/features/passwordless-authentication" target="_blank">passwordless</a>, [biometrics logins](/features/biometric-authentication), <a href="/features/whatsapp-otp" target="_blank">one-time-password (OTP)</a> with SMS/WhatsApp, and multi-factor authentication (MFA).
 
 <!--FIGURE-->
-![](./figure-8.png)
+![](./figure-8.webp)
 <!--/FIGURE-->
 
 After you have authenticated, a protected view is rendered. The application receives an Access token that it uses to present user data on the screen, and tokens that could be used in upstream requests to some backend API, to access data on behalf of the user.
 
 <!--FIGURE-->
-![](./figure-9.png)
+![](./figure-9.webp)
 <!--/FIGURE-->
 
 ### Next steps

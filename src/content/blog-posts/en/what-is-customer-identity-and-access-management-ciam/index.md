@@ -1,7 +1,7 @@
 ---
 title: "Why You Need Customer Identity and Access Management (CIAM)? "
 excerpt: "Customer Identity and Access Management (CIAM) does more than managing and verifying users’ identities. See why you need a CIAM solution."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Why You Need Customer Identity and Access Management (CIAM)? "
@@ -91,7 +91,7 @@ When users are deciding which software or app to use, it often comes down to whi
 A CIAM solution provides a smooth and frictionless registration process powered by several features. CIAM solutions come with pre-built signup templates with minimal frictions and allow users to create new accounts with existing credentials provided by other identity providers, such as Google, Facebook, and LinkedIn. This significantly shortens and smoothens the registration process, which can have a bounce rate that’s up to 80%.
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ### Enhance Data Security
@@ -105,7 +105,7 @@ CIAM solutions do more than just provide an authentication server to verify user
 <h3 id="registration" style="margin:0 auto 25px">Frictionless User Registration</h3>
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 When was the last time you didn’t see “Sign in with Facebook” or “Sign in with Google” when you were about to create a new account in an app or on a website? Creating new accounts with existing credentials or identities is now the norm as it allows users to gain access to new services with minimal efforts. They will not have to come up with a new set of username and password or enter the same old credentials perhaps just to see if they will find this service valuable.

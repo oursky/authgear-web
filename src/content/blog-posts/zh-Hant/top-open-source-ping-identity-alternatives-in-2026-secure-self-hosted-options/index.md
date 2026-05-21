@@ -1,7 +1,7 @@
 ---
 title: "2026 年頂尖開源 Ping Identity 替代方案：安全且可自託管的選項"
 excerpt: "探索 2026 年最佳開源 Ping Identity 替代方案。比較功能、部署模式、安全性與適用情境，選出最適合你團隊的身分平台。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "2026 年頂尖開源 Ping Identity 替代方案：安全且可自託管的選項"

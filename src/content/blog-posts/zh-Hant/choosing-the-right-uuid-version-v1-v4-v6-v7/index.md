@@ -1,7 +1,7 @@
 ---
 title: "如何選擇正確的 UUID 版本：v1、v4、v6、還是 v7"
 excerpt: "完整比較 UUIDv1、UUIDv4、UUIDv6、UUIDv7 的差異，協助你依效能、排序、隱私與維運需求做出正確選擇。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "如何選擇正確的 UUID 版本：v1、v4、v6、還是 v7"

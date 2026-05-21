@@ -2,7 +2,7 @@
 title: "What is Role-Based Access Control (RBAC)? Benefits, Comparisons, and Best Practices"
 h1: "Role-Based Access Control (RBAC): Unlocking Secure and Efficient Authentication"
 excerpt: "Learn everything about role-based access control (RBAC), its benefits, pros and cons, key rules, and comparisons with ABAC and ACL. Discover how Authgear simplifies RBAC for secure and scalable access management."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Role-Based Access Control (RBAC): Unlocking Secure and Efficient Authentication"

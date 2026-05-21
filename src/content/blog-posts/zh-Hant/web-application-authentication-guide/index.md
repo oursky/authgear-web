@@ -1,7 +1,7 @@
 ---
 title: "從登入到鎖定：構建安全的身份驗證應用程式"
 excerpt: "掌握構建安全身份驗證應用程式的藝術。了解身份驗證方法、存取權杖，並使用 Authgear 實現強健的安全性。您的用戶數據安全保護全面指南。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "從登入到鎖定：構建安全的身份驗證應用程式"
@@ -88,7 +88,7 @@ Cookie 通常用於處理網頁應用程式中的用戶身份驗證。以下是�
 網頁應用程式中基於 Cookie 的身份驗證運作原理：
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 <p>如您所見，客戶端瀏覽器向伺服器發送登入憑證的 <span class="inline-code">POST</span> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST" target="_blank">請求</a>。伺服器隨後以 <span class="inline-code">HTTP 200 OK</span> 狀態碼驗證發送的憑證。它在伺服器端建立一個會話 ID 並透過 <span class="inline-code">Set-Cookie: session=…</span> 將其返回給客戶端。在後續請求中，伺服器會驗證 Cookie 中的會話 ID，並處理相應的請求。當您登出應用程式時，您的會話 ID 將從客戶端和伺服器端同時清除。</p>
@@ -102,7 +102,7 @@ Cookie 通常用於處理網頁應用程式中的用戶身份驗證。以下是�
 基於令牌的身份驗證運作原理：
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 當從客戶端瀏覽器接收到憑證後，伺服器會驗證這些憑證，並生成一個包含所有用戶資訊的已簽名 JWT。令牌是無狀態的，因此它永遠不會儲存在伺服器上。在後續請求中，令牌被傳遞到伺服器，然後在伺服器端進行解碼以驗證其有效性。
@@ -207,7 +207,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 以下是一個示意圖，說明如何從授權伺服器獲取存取權杖以存取受保護路由：
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 1. 客戶端向身份驗證伺服器請求授權。
@@ -231,7 +231,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 **1. 注冊頁面**：您現在無需建立自定義注冊頁面，因為您可以使用 Authgear 預建的注冊和登入頁面，這些頁面遵循注冊轉換的最佳實踐。您甚至可以自定義外觀以符合您的品牌視覺識別。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 **2. 多種安全功能**：您可以輕鬆實現社交登入、雙重因素驗證（2FA）、生物識別等功能，以提供流暢且安全的用戶體驗。
@@ -243,7 +243,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 **5.** **用戶個人資料和設定**：此功能讓您的用戶對其帳戶資訊和活動擁有更多控制權。他們可以編輯個人資料中的姓名、主要地址、用戶名等資訊，管理其 2FA，並終止可疑會話。
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 **6. 管理員入口網站**：您的管理員入口網站顯示您配置不同身份驗證方法、添加安全措施或只需幾次點擊即可建立/撤銷用戶所需了解的一切。
@@ -271,7 +271,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 建立專案對話框
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 您可以為其取任何名稱，但之後將無法更改。這是您的 Authgear 端點，請謹慎選擇。在這裡，我們將其命名為「reactappdemo」。
@@ -287,7 +287,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 專案建立完成介面
 
 <!--FIGURE-->
-![](./figure-7.png)
+![](./figure-7.webp)
 <!--/FIGURE-->
 
 現在，您可以點擊「Continue to Portal for further Customisation」（繼續到入口網站進行進一步自定義）。
@@ -302,7 +302,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 在 Portal 中建立應用程式的介面
 
 <!--FIGURE-->
-![](./figure-8.png)
+![](./figure-8.webp)
 <!--/FIGURE-->
 
 <p>如您所見，我們還為其設置了「Authorized Redirect URI」（授權重定向 URI）。用戶通過身份驗證後將被重定向到此路徑。通常，在開發階段，我們可以將其設置為 <span class="inline-code">http://localhost:4000/auth-redirect</span> 作為本地開發的 URI。</p>
@@ -327,7 +327,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 您現在應該看到以下內容：
 
 <!--FIGURE-->
-![](./figure-9.png)
+![](./figure-9.webp)
 <!--/FIGURE-->
 
 完成這些步驟後，我們就可以開始編寫代碼了！

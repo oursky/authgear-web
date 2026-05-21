@@ -1,7 +1,7 @@
 ---
 title: "OIDC 規範解析：開發者需要掌握的關鍵概念"
 excerpt: "以實務角度拆解 OIDC 規範，說明流程、權杖、宣告、範圍與端點。了解開發者真正需要的重點，實作更安全的驗證機制。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "OIDC 規範解析：開發者需要掌握的關鍵概念"

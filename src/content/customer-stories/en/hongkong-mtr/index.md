@@ -5,9 +5,9 @@ excerpt: "See how MTR integrated zure AD for managers and WhatsApp OTP for partâ
 customerName: "HongKong MTR"
 companyIndustry: "Public transport & operations"
 companyLocation: HongKong
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - Email
   - Passwordless/SMS

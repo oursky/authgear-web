@@ -2,7 +2,7 @@
 title: "API Gateway 驗證全攻略：立即保護你的 API"
 h1: "API Gateway 驗證：完整實作指南"
 excerpt: "學會如何部署強健的 API Gateway 驗證機制保護 API。本指南涵蓋驗證方法與最佳實踐。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "API Gateway 驗證：完整實作指南"
@@ -17,7 +17,7 @@ draft: false
 ## API 閘道：API 的前門
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 **API 閘道可作為多個 API 的單一入口點和控制平面。 **將其想像為接待員，引導訪客前往建築物內的正確部門。同樣，API 網關處理傳入的 API 請求，將它們路由到適當的後端服務，並聚合回應。它是現代應用程式架構的重要組成部分，特別是對於基於微服務的系統。
@@ -36,7 +36,7 @@ API 閘道的主要職責包括：
 ## API網關中的身份驗證是什麼？
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 **API 網關驗證是驗證嘗試透過網關存取 API 的用戶端身分的過程。 **它是保護 API 和敏感資料的第一道防線。
@@ -50,7 +50,7 @@ API 閘道充當看門人，在授予對後端服務的存取權限之前要求�
 ## API網關授權者的類型
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 API 網關授權者是用來驗證發出請求的用戶端身分的機制。常見的有以下幾種類型：
@@ -86,7 +86,7 @@ API 網關授權者是用來驗證發出請求的用戶端身分的機制。常�
 ## API 網關驗證範例：使用 JWT 保護您的 API
 
 <!--FIGURE-->
-![](./figure-4.jpeg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 讓我們考慮一個常見的場景：需要存取受保護的 API 的行動應用程式。為了確保此互動的安全，我們可以採用 **JSON Web 令牌 (JWT)** 作為驗證機制。
@@ -110,7 +110,7 @@ API 網關授權者是用來驗證發出請求的用戶端身分的機制。常�
 ## API閘道認證方式
 
 <!--FIGURE-->
-![](./figure-5.jpeg)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 API閘道提供多種認證方式，適應不同的安全需求和應用場景。以下是一些常見的方法：
@@ -161,7 +161,7 @@ API閘道提供多種認證方式，適應不同的安全需求和應用場景�
 ## API 網關驗證的工作原理
 
 <!--FIGURE-->
-![](./figure-6.jpeg)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 API 閘道驗證是一個多步驟流程，可確保只有授權的用戶端才能存取受保護的 API。以下是總體概述：

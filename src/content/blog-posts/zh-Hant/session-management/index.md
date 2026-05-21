@@ -1,7 +1,7 @@
 ---
 title: "什麼是會話管理：威脅和最佳實踐"
 excerpt: "Session management is the process of handling interactions between a user and a web application. To understand its importance, consider that HTTP, the protocol underlying the web, is stateless. This means each request from a user is treated independently, and the server has no inherent way to remember or track a user's actions across multiple requests. Session management addresses this by creating a session—a series of related user interactions within a specific timeframe. By managing sessions effectively, web applications can maintain user state, personalize experiences, and enhance security. In this article, we'll delve into the complexities of session management, explore potential threats, and provide best practices to safeguard your web application."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "什麼是會話管理：威脅和最佳實踐"
@@ -99,13 +99,13 @@ Cookie 提供了多個屬性來增強會話 ID 安全性：
 ## 會話管理如何與 Authgear 搭配使用
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 當您的使用者使用 Authgear 進行身份驗證時，Authgear 將負責產生並正確配置 cookie 以確保安全身份驗證。從瀏覽器發送到應用程式伺服器的後續請求現在將包含會話 cookie。若要驗證會話，請將請求轉送至 Authgear 解析器端點。
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 **請求範例**`

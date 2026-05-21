@@ -1,7 +1,7 @@
 ---
 title: "前線工作者驗證的 Auth0 替代方案"
 excerpt: "比較適合前線工作者的身分驗證平台，了解如何以手機優先、無密碼與現代 MFA 能力取代傳統以企業 email 為中心的方案。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "前線工作者驗證的 Auth0 替代方案"

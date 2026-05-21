@@ -2,7 +2,7 @@
 title: "How to Migrate From Auth0 to an Open-Source Identity Provider"
 h1: "How to Migrate From Auth0 to an Open-Source Identity Provider: A Complete Step-by-Step Guide"
 excerpt: "Learn how to migrate from Auth0 to an open-source identity provider with this step-by-step guide. Covers planning, data export, implementation, SDK updates, testing, and go-live best practices."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: highlight
 featured: true
 metaTitle: "How to Migrate From Auth0 to an Open-Source Identity Provider: A Complete Step-by-Step Guide"

@@ -2,7 +2,7 @@
 title: "會話與令牌身份驗證"
 h1: "會話與令牌身份驗證：您應該選擇哪一個？"
 excerpt: "了解基於會話的身份驗證與基於令牌的身份驗證、cookie 與 JWT、優缺點、CSRF/XSS 權衡以及何時使用每個身份驗證以及範例。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: highlight
 featured: false
 metaTitle: "會話與基於令牌的身份驗證：Cookie、JWT 和最佳實踐"

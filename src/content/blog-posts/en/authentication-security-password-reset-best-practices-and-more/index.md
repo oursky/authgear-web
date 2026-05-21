@@ -1,7 +1,7 @@
 ---
 title: "Password Reset Best Practices: Avoid Common Pitfalls and Secure Your Users"
 excerpt: "Discover essential password reset best practices to safeguard your authentication system. Learn how to prevent common security breaches, protect user data, and enhance user experience. Bolster your application's security with expert insights and actionable tips."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Password Reset Best Practices: Avoid Common Pitfalls and Secure Your Users"
@@ -245,7 +245,7 @@ By enforcing these measures, you prevent attackers from reusing tokens or exploi
 ## Fortifying Your Password Reset Flow: A Final Word
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Building a secure password reset flow requires meticulous attention to detail. By avoiding the common pitfalls and implementing the best practices outlined in this article, you can significantly enhance the security of your authentication system. Remember, a robust password reset process is not just about protecting user accounts, but also about safeguarding your overall system from potential breaches. Continuous vigilance and staying updated on emerging threats are essential for maintaining a high level of security.

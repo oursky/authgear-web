@@ -1,7 +1,7 @@
 ---
 title: "使用 Authgear 和 OAuth2 對 Spring Boot 應用程式進行身份驗證"
 excerpt: "了解如何使用 OAuth2 以及 Authgear 作為身分提供者向 Java Spring Boot 應用程式新增身分驗證。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "使用 Authgear 和 OAuth2 對 Spring Boot 應用程式進行身份驗證"
@@ -29,7 +29,7 @@ draft: false
 在深入實施之前，我們先了解一下 <a href="https://tools.ietf.org/html/rfc6749#section-4.1" target="_blank">授權碼流程</a> 在我們的範例中有效。此流程只能用於機密應用程式（例如常規 Web 應用程式），因為涉及**將授權代碼交換為令牌**。以下是此流程中的步驟：
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 1. 用戶在 **Spring 應用程式**中選擇 **登入**。
@@ -63,13 +63,13 @@ draft: false
 使用互動式選擇器建立新的**Authgear OIDC 用戶端應用程式**或選擇代表您要整合的專案的現有應用程式。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 Authgear 中的每個應用程式都分配有一個字母數字的唯一客戶端 ID，您的應用程式程式碼將使用該 ID 透過 Spring Boot 呼叫 Authgear API <a href="https://docs.spring.io/spring-security/reference/reactive/oauth2/client/index.html" target="_blank">OAuth 2 用戶端</a>。記下輸出中的 Authgear 頒發者（例如，https://example-auth.authgear-apps.com/）、CLIENT ID、CLIENT SECRET 和 OpenID 端點。您將在客戶端應用程式配置的下一步中使用這些值。
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ### 步驟 2：設定**重定向 URI**
@@ -81,7 +81,7 @@ Authgear 中的每個應用程式都分配有一個字母數字的唯一客戶�
 建立 Authgear 應用程式後，您可以選擇使用者需要如何**在登入頁面上進行身份驗證**。從“身份驗證”選項卡，導航至“登入方法”，您可以從各種選項中選擇**登入方法**，包括透過電子郵件、行動裝置或社交媒體，只需使用使用者名稱或您指定的自訂方法。對於此演示，我們選擇 **電子郵件+無密碼** 方法，要求使用者註冊帳戶並使用電子郵件登入。他們的電子郵件將收到一次性密碼 (OTP)，並驗證代碼以使用該應用程式。
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 ## 第 2 部分：配置 Spring Boot 應用程式
@@ -180,7 +180,7 @@ public class SecurityConfig {
 我們使用 Thymeleaf 模板建立一個簡單的 home.html 頁面。當使用者開啟在 http://localhost:8080/ 上執行的頁面時，我們會顯示一個有登入或登出按鈕的頁面：
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ### 第5步：新增控制器
@@ -204,25 +204,25 @@ public class HomeController {
 要運行應用程序，您可以執行 mvn spring-boot:run 目標。或從編輯器執行主ExampleApplication.java 檔案。範例應用程式可從 http://localhost:8080/ 取得。
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 點擊 **登入** 按鈕將重定向到 Authgear 登入頁面。
 
 <!--FIGURE-->
-![](./figure-7.png)
+![](./figure-7.webp)
 <!--/FIGURE-->
 
 您也可以從 Authgear 入口網站自訂登入頁面 UI 視圖。註冊後，您將在電子郵件中收到 OTP 代碼以驗證您的身分。
 
 <!--FIGURE-->
-![](./figure-8.png)
+![](./figure-8.webp)
 <!--/FIGURE-->
 
 並登入您的新帳戶，您將被重新導向回主頁：
 
 <!--FIGURE-->
-![](./figure-9.png)
+![](./figure-9.webp)
 <!--/FIGURE-->
 
 您已成功設定 Spring Boot 應用程式以使用 Authgear 進行身份驗證。現在用戶可以註冊新帳戶、登入和登出。

@@ -1,7 +1,7 @@
 ---
 title: "最佳自託管 SSO 平台比較：Authgear vs Keycloak vs Authentik"
 excerpt: "比較 2026 年三大自託管 SSO 平台，了解 Authgear、Keycloak、Authentik 在功能、部署彈性與企業落地能力上的差異。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "最佳自託管 SSO 平台比較：Authgear vs Keycloak vs Authentik"

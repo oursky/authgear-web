@@ -2,7 +2,7 @@
 title: "LDAP 完整指南：從基礎到 Authgear 整合"
 h1: "LDAP 進階解析：深入理解目錄服務"
 excerpt: "一次掌握 LDAP 的核心概念、常見用途、與 Active Directory 的差異，以及如何透過 Authgear 強化 LDAP 安全。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "LDAP 進階解析：深入理解目錄服務"

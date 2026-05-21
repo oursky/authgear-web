@@ -2,7 +2,7 @@
 title: "LDAP Explained: A Comprehensive Guide with Authgear Integration"
 h1: "LDAP: Beyond the Basics: A Deeper Dive into Directory Services"
 excerpt: "Discover everything you need to know about LDAP, from its fundamentals to its integration with modern authentication solutions like Authgear. Learn about LDAP's benefits, challenges, and how to enhance its security."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "LDAP: Beyond the Basics: A Deeper Dive into Directory Services"

@@ -1,7 +1,7 @@
 ---
 title: "JWE vs JWT：關鍵差異、使用情境與安全建議"
 excerpt: "快速理解 JWE 與 JWT 的差異、何時該用哪一種，以及如何安全使用 token。內含免費除錯與金鑰產生工具。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 readTime: 5

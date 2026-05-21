@@ -1,7 +1,7 @@
 ---
 title: "時間可排序識別碼解析：UUIDv7、ULID 與 Snowflake 比較"
 excerpt: "了解 UUIDv7、ULID 與 Snowflake ID 的運作方式、差異，以及在可擴展、時間有序的分散式系統中何時該使用哪一種。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "時間可排序識別碼解析：UUIDv7、ULID 與 Snowflake 比較"
@@ -61,7 +61,7 @@ ULID 是 26 字元的 Base32 字串，設計上可直接以字串排序。
 ULID 的結構會把毫秒精度時間戳放在識別碼前段，後段則是用來確保唯一性的隨機位元。
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 - 時間戳：Unix epoch 起算的毫秒數
@@ -90,7 +90,7 @@ UUIDv7 是 128 位元 UUID，在保持 UUID 生態相容性的同時嵌入時間
 ### UUIDv7 結構
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 - 時間戳：Unix epoch 起算的毫秒數
@@ -123,7 +123,7 @@ Snowflake ID 是為極高寫入吞吐優化的 64 位元整數。
 ### Snowflake ID 結構（典型）
 
 <!--FIGURE-->
-![](./figure-3.jpg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 常見版型如下：

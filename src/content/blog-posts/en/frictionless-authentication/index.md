@@ -1,7 +1,7 @@
 ---
 title: "Frictionless Authentication: What Is It & How To Implement It?"
 excerpt: "Learn more about frictionless authentication and how to achieve it with passwordless innovations, practical strategies, and forward-thinking approaches to enhance user experience and security."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Frictionless Authentication: What Is It & How To Implement It?"
@@ -83,7 +83,7 @@ In this blog post, we will explore the significance of frictionless authenticati
 <h2 id="def">What Is Frictionless Authentication?</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Frictionless authentication is an approach that leverages advanced technologies and techniques to streamline the verification process, eliminating the need for explicit user actions while maintaining high security standards. Users do not need to take extra steps or provide additional information at different stages of their journey to verify their identity, thereby delivering a seamless user experience.
@@ -107,7 +107,7 @@ A complex and time-consuming authentication process can act as a barrier to comp
 <h2 id="how">How to Make Your Authentication Process Frictionless?</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 To implement a seamless authentication experience, consider adopting the following best practices or implementing the following authentication methods throughout the customer journey:

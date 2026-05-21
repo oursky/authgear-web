@@ -1,7 +1,7 @@
 ---
 title: "Biometric Authentication: Why Do Your Applications Need It in 2024? "
 excerpt: "Biometric authentication provides better data security and user experience for users. Learn more about the different biometric authentication methods."
-coverImage: ./cover.jpeg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Biometric Authentication: Why Do Your Applications Need It in 2024? "
@@ -74,7 +74,7 @@ Biometric authentication is mostly used as a secondary authentication method aft
 <h2 id="why">Why Should My Applications or Websites Offer Biometric Login?</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ### User Experience and Preference
@@ -127,7 +127,7 @@ A lot can go wrong when developing and maintaining biometric authentication, alo
 <h2 id="types">What Are the Types of Biometric Authentication?</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ### **Fingerprint Recognition**
@@ -159,7 +159,7 @@ Developing an authentication system to provide all kinds of authentication metho
 Authgear provides all features needed for your applications such as passwordless & biometrics, SSO & social login, password policy management, two-factor authentication, etc. In order to enable biometric authentication for your app, you simply have to enable it in your portal and also follow the steps in our [documentation](https://docs.authgear.com/strategies/biometric) to enable biometric login in mobile SDK.
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 <a href="/schedule-demo/" target="_blank">Contact us</a> and learn more about how you can benefit from Authgear to deliver smooth user experience and improve data security.

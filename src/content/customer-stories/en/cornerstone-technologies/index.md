@@ -4,9 +4,9 @@ excerpt: "Cornerstone Technologies used Authgear to rapidly launch a secure, sca
 customerName: "Cornerstone Technologies"
 companyIndustry: Technology
 companyLocation: "Hong Kong"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - Password
 technicalDetails:

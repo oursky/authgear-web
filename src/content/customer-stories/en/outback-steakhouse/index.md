@@ -4,9 +4,9 @@ excerpt: "See how Outback Steakhouse used Authgear to launch SMS login, reduce d
 customerName: "Outback Steakhouse"
 companyIndustry: "Food & Beverage"
 companyLocation: "Hong Kong"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - Biometric
   - Passwordless/SMS

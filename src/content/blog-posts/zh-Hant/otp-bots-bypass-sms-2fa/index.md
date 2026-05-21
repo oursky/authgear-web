@@ -2,7 +2,7 @@
 title: "OTP 繞過：OTP 機器人如何突破 SMS 2FA（含修補做法）"
 h1: "OTP 機器人如何繞過 SMS 2FA（以及如何修補）"
 excerpt: "了解 OTP 機器人應用如何繞過 SMS 2FA，並快速落地修補：自適應 CAPTCHA、實體維度限流、風險評分與 Authgear 反詐保護。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "OTP 機器人如何繞過 SMS 2FA（以及如何修補）"

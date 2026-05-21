@@ -2,7 +2,7 @@
 title: "什麼是多因素驗證 (MFA)？它是如何運作的？"
 h1: "什麼是多因素驗證 (MFA)？它是如何運作的？"
 excerpt: "事實是，如果您沒有使用多因素驗證 (MFA)，您的帳戶並不如您所想的那樣安全。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是多因素驗證 (MFA)？它是如何運作的？"
@@ -78,7 +78,7 @@ draft: false
 <h2 id="mfa">什麼是多因素驗證 (MFA)？</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 MFA 代表多因素驗證，其特點在於要求使用者提供不只一個驗證因素，才能存取應用程式、線上帳戶等。
@@ -90,7 +90,7 @@ MFA 是任何<a href="/zh-hant/post/what-is-customer-identity-and-access-managem
 <h2 id="why-mfa">有了密碼，為何還需要 MFA？</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 如果您和帳戶之間唯一的驗證關卡只是使用者名稱和密碼，那麼您的資訊遠不如您想象的那樣安全。若沒有多因素驗證，密碼可能因以下挑戰而容易遭受駭客攻擊：
@@ -108,7 +108,7 @@ MFA 是任何<a href="/zh-hant/post/what-is-customer-identity-and-access-managem
 <h2 id="how">MFA 是如何運作的？</h2>
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 MFA 的運作方式是要求使用者透過不僅僅是使用者名稱和密碼的組合來識別自己的身份。這是對抗被竊取密碼的額外保護層，因為這意味著即使有人獲得了您的詳細資料，仍然有另一層身份驗證需要跨越。
@@ -156,7 +156,7 @@ MFA 最常見的例子之一，OTP 被算作持有因素，因為您必須持有
 <h2 id="benefits">使用多因素驗證的好處</h2>
 
 <!--FIGURE-->
-![](./figure-4.jpeg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 如果您仍然在問「MFA 是如何運作的？」，了解它的最佳方式可能是看看它能提供的好處：
@@ -186,13 +186,13 @@ MFA 不僅增加了額外的驗證障礙以阻止駭客，還允許使用者以�
 Authgear 為希望在其應用程式中添加身份驗證的開發人員提供了多種強大的多因素驗證工具。設計上易於整合到現有系統，您只需點擊幾下，就能利用 MFA 並提升使用者和服務提供者的網路安全。
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 此外，開發人員還可以輕鬆配置雙因素驗證（如下所示），在不需要繁複編碼的情況下確保使用者的數據安全。
 
 <!--FIGURE-->
-![](./figure-6.png)
+![](./figure-6.webp)
 <!--/FIGURE-->
 
 <a href="https://accounts.portal.authgear.com/signup" target="_blank">立即註冊</a>，輕鬆啟用 Authgear 的 MFA，或<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>，進一步討論最適合您和您的安全需求的解決方案。

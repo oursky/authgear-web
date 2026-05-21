@@ -2,7 +2,7 @@
 title: "生物辨識驗證如何運作？通往未來安全的完整指南"
 h1: "生物辨識驗證如何運作？解鎖安全未來"
 excerpt: "從指紋到人臉辨識，深入了解生物辨識驗證技術、優勢與挑戰，以及它如何改變未來身分驗證。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: true
 metaTitle: "生物辨識驗證如何運作？解鎖安全未來"
@@ -21,7 +21,7 @@ draft: false
 ### Android 生物辨識：更複雜的生態
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 相較於 iOS，**Android 生物辨識驗證因其開源特性與硬體供應商多樣性而更為複雜**。為了對應這種差異，Android Compatibility Definition Document（CDD）將生物辨識裝置分為兩種安全等級：Class 3（BIOMETRIC_STRONG）與 Class 2（BIOMETRIC_WEAK）。指紋感測器通常可符合嚴格的 Class 3 標準；但缺乏先進 3D 建模能力的人臉辨識系統，往往只落在安全性較低的 Class 2。這種落差突顯了開發者在實作 Android 生物辨識方案時，必須仔細評估目標裝置能力，才能確保足夠安全。
@@ -36,7 +36,7 @@ draft: false
 ### 不只解鎖：以生物辨識保護敏感資料
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 iOS 與 Android 都提供成熟的原生 API，讓開發者可利用生物辨識來保護敏感資料。這些 API 提供了加密資料與限制僅生物驗證通過者可存取的能力。不過常見誤區是誤以為「有生物辨識就絕對安全」。**許多開發者仍會把密碼或 refresh token 明文存放在裝置上，誤認生物辨識保護已足夠。** 一旦裝置被攻陷，攻擊者仍可能直接取得這些關鍵憑證。
@@ -48,7 +48,7 @@ Tokenization（代碼化）是可搭配生物辨識的重要安全措施：把�
 ### 生物辨識驗證的一般流程
 
 <!--FIGURE-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 生物辨識驗證透過一系列嚴謹步驟，安全地完成身分確認。流程通常從金鑰產生與使用者註冊開始：系統建立密碼學金鑰、擷取生物特徵並轉換為模板，再以公鑰加密後安全儲存。
@@ -78,7 +78,7 @@ Tokenization（代碼化）是可搭配生物辨識的重要安全措施：把�
 ### Web 生物辨識：深入 WebAuthn
 
 <!--FIGURE-->
-![](./figure-4.jpeg)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 Web 生物辨識把生物驗證擴展到網頁環境，讓使用者可在 Web 應用中直接以指紋或人臉確認身分。核心技術是 Web Authentication API（WebAuthn）。
@@ -96,7 +96,7 @@ WebAuthn 提供將強驗證整合到網路服務的標準化框架。它利用�
 ### 身分驗證未來：生物辨識將持續深化
 
 <!--FIGURE-->
-![](./figure-5.jpeg)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 生物辨識驗證已成為現代安全體系的核心，為傳統密碼機制提供更強且更便利的替代方案。從硬體依賴、軟體實作，到 Web 驗證與身分確認機制，理解其底層運作是發揮技術價值的關鍵。

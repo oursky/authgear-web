@@ -13,11 +13,9 @@
 # @astrojs/sitemap emits sitemap-index.xml; alias the conventional path.
 /sitemap.xml                                                                        /sitemap-index.xml                                                                                                      301
 
-# /blog/{slug} → /post/{slug} via wildcard. Safe because pagination static
-# files (dist/blog/index.html, dist/blog/2/index.html, ...) take precedence
-# over non-force rules, so /blog/, /blog/2, etc. are not redirected.
-/blog/:slug                                                                         /post/:slug/                                                                                                            301
-/zh-hant/blog/:slug                                                                 /zh-hant/post/:slug/                                                                                                    301
+# Legacy /blog/{slug} → /post/{slug} is handled by prerendered Astro routes
+# (src/pages/blog/[slug].astro) so numeric pagination (/blog/2/, …) is not
+# mistaken for a post slug. Do not add a /blog/:slug wildcard here.
 
 # Internal canonical redirects (previously prerendered as Astro stubs)
 /why-authgear                                                                       /about/                                                                                                                 301

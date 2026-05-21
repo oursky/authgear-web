@@ -1,7 +1,7 @@
 ---
 title: "Passwordless & Biometric Authentication: Securing the Frontline Workforce"
 excerpt: "Passwordless and biometric authentication help secure frontline workforce access without slowing productivity. Learn how these methods work, benefits, challenges, and when to adopt them."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Passwordless & Biometric Authentication: Securing the Frontline Workforce"

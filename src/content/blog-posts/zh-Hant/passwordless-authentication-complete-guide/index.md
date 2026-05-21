@@ -1,7 +1,7 @@
 ---
 title: "無密碼身份驗證：提高安全性所需了解的一切"
 excerpt: "詳細了解為什麼所有行業都採用無密碼身份驗證以及如何輕鬆實施它。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "無密碼身份驗證：提高安全性所需了解的一切"
@@ -64,7 +64,7 @@ draft: false
 <h2 id="password-authentication">密碼驗證出了什麼問題？ </h2>
 
 <!--圖-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/圖-->
 
 由於多種原因，密碼本質上很容易受到駭客的攻擊。當用戶在線上註冊更多服務時，他們很容易忘記密碼，想出容易受到字典攻擊的簡單密碼，或對所有服務使用相同的密碼集。有時，用戶甚至可能自願洩露他們的密碼。駭客可以透過發送詐騙電子郵件或訊息輕鬆竊取使用者密碼。根據 2020 年 Verizon 資料外洩調查報告，81% 的駭客相關外洩涉及密碼被盜或弱密碼。
@@ -99,7 +99,7 @@ draft: false
 <h2 id="how-it-works">無密碼身份驗證如何運作？ </h2>
 
 <!--圖-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/圖-->
 
 使用生物識別資料或硬體金鑰的無密碼身份驗證方法依賴具有公鑰和私鑰的加密金鑰對。儘管它的名字如此，公鑰實際上充當著由私鑰解鎖的掛鎖或鑰匙孔。
@@ -111,7 +111,7 @@ draft: false
 根據最近的研究，“<a href="https://www.weforum.org/agenda/2020/04/covid-19-is-a-reminder-that-its-time-to-get-rid-of-passwords/" target="_blank">當前形勢只會繼續加速全球經濟對互聯網的依賴身份</a>”，無密碼採用的無密碼。那麼，為什麼企業採用無密碼身份驗證來取代傳統密碼身份驗證呢？
 
 <!--圖-->
-![](./figure-3.jpeg)
+![](./figure-3.webp)
 <!--/圖-->
 
 ### 提供更好的使用者體驗

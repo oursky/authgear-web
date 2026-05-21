@@ -1,7 +1,7 @@
 ---
 title: "為什麼 HMAC 在 2025 仍是 API 安全必備"
 excerpt: "了解為什麼 HMAC 在 2025 仍是安全 API 驗證的基礎。學習它如何保護 API、防止竄改並確保訊息完整性。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "為什麼 HMAC 在 2025 仍是 API 安全必備"

@@ -1,7 +1,7 @@
 ---
 title: "Empowering the Deskless Workforce: IAM Best Practices for IT & HR"
 excerpt: "Discover IAM best practices to securely manage deskless workforces. Learn how IT and HR can collaborate to improve access, security, and productivity at scale."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Empowering the Deskless Workforce: IAM Best Practices for IT & HR"

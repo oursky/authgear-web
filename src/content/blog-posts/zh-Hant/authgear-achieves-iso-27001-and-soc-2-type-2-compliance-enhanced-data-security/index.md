@@ -2,7 +2,7 @@
 title: "Authgear 達成 ISO 27001 與 SOC 2 Type 2 合規 | 強化資料安全"
 h1: "用 Authgear 升級你的安全：通過 ISO 27001 與 SOC 2 Type 2 認證"
 excerpt: "了解 Authgear 的 ISO 27001 與 SOC 2 Type 2 合規如何保障資料安全與隱私，以及這項里程碑對你與企業代表的意義。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "用 Authgear 升級你的安全：通過 ISO 27001 與 SOC 2 Type 2 認證"

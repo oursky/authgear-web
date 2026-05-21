@@ -2,7 +2,7 @@
 title: "JWT Authentication: A Secure & Scalable Solution for Modern Applications"
 h1: "JWT Authentication: A Comprehensive Guide for Developers"
 excerpt: "Learn how JWT authentication works, its pros and cons, and when to use it for secure, scalable applications. Explore alternatives like OAuth, API keys, and SAML for authentication and access management."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "JWT Authentication: A Comprehensive Guide for Developers"

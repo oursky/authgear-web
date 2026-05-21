@@ -1,7 +1,7 @@
 ---
 title: "Dec 2021 Update - Authgear, now with User Profile"
 excerpt: "We are excited to bring User Profile Management into your projects!"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 publishedAt: 2025-05-27T17:55:36.324Z
 draft: false
 ---
@@ -18,13 +18,13 @@ These attributes are supported out-of-the-box by Authgear: Name, Given Name, Fam
 
 In the user detail page on the Portal, you will find a new tab called "Profile". The app admin can quickly view and change the information about a user.
 
-![](./figure-1.png)
+![](./figure-1.webp)
 
 ### Ship fast with the pre-built frontend
 
 In the [User Settings](https://docs.authgear.com/integrate/auth-ui) page, there is a new section where the users can manage their profile. Yes, the front-end is pre-built for you. You don't need to write any code for your final app to ship this feature.
 
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 
 ### Accessing the profile
 

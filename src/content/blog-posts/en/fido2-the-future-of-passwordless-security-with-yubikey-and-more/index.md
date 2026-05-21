@@ -2,7 +2,7 @@
 title: "FIDO2: The Future of Passwordless Security with YubiKey and More"
 h1: "Understanding FIDO2: The Future of Passwordless Security"
 excerpt: "Discover what is FIDO2, its advantages and disadvantages, and how FIDO2 security key devices like YubiKey enhance online protection. Learn about FIDO2 authentication and passkey compatibility for a secure, passwordless future."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Understanding FIDO2: The Future of Passwordless Security"

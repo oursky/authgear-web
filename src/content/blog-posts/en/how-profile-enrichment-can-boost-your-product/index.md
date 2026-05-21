@@ -1,7 +1,7 @@
 ---
 title: "How Profile Enrichment can boost your product"
 excerpt: "Explore how enriching user profiles work, their benefits, and how you can enable it using Authgear to boost your product usage by understanding who your customers are."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "How Profile Enrichment can boost your product"
@@ -29,7 +29,7 @@ There are a lot of benefits of using profile enrichment practice, here are some 
 1. **Improved Customer Retention**: Understanding your customer is key to retaining them. Profile enrichment offers a deeper understanding of your users, allowing you to proactively address issues, predict future behavior, and offer products or services tailored to their needs, leading to increased customer satisfaction and loyalty.
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## How to enable profile enrichment with Authgear?
@@ -41,7 +41,7 @@ Hooks are snippets of code in **JavaScript / TypeScript** that run at specific <
 By default, Authgear has <a href="https://docs.authgear.com/integrate/user-profile#standard-attributes" target="_blank">standard attributes</a> which contain basic info, such as name, email, and timestamp of the user's latest login, in pre-defined attributes of <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims" target="_blank">OIDC specification</a>. See the full list of attributes <a href="https://docs.authgear.com/integrate/user-profile#standard-attributes" target="_blank">here</a>. You can access user profiles in <a href="https://docs.authgear.com/how-to-guide/integration/access-user-profiles" target="_blank">different ways</a> and you <a href="https://docs.authgear.com/integrate/user-profile#add-new-attributes" target="_blank">add new attributes</a> to the custom attributes section both in the <a href="https://portal.authgear.com/" target="_blank">Authgear</a> and programmatically using Hooks.
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ## Example of profile enrichment with Authgear
@@ -55,7 +55,7 @@ Step 2. Go to **User Profile** → **Custom Attributes** page.
 Step 3. Add 3 new attributes there, namely *city*, *name*, and *timezone*:
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 Step 4. Navigate to your Authgear Dashboard's **Advanced**->**Hooks** section.
@@ -101,13 +101,13 @@ return {
 Step 9. Now if you navigate to **User Management** and **Add** a new user.
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 Step 10. After the user is created, you should able to see custom attributes values have been updated for the user:
 
 <!--FIGURE-->
-![](./figure-5.png)
+![](./figure-5.webp)
 <!--/FIGURE-->
 
 ## Progressive Profiling

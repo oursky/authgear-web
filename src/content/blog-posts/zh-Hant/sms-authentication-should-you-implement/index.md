@@ -1,7 +1,7 @@
 ---
 title: "什麼是簡訊驗證以及您應該實施它嗎？"
 excerpt: "簡訊驗證是最常見的驗證方法之一，透過簡訊驗證用戶身份。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是簡訊驗證以及您應該實施它嗎？"
@@ -84,7 +84,7 @@ SMS 驗證增加了一層依賴基於所有權的身份驗證（即您是唯一�
 以下是 SMS 身份驗證不理想的一些原因。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ### SMS 訊息未加密
@@ -124,7 +124,7 @@ SMS 訊息未進行端對端加密。因此，政府和行動服務提供者實�
 當用戶嘗試透過 WhatsApp OTP 登入您的應用程式時，系統會在螢幕上顯示 OTP，而不是在 WhatsApp 上向他們發送 OTP，如下所示。
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 然後，使用者可以將 OTP 傳送到 Authgear 進行身份驗證。這使得企業可以大幅降低營運成本，因為用戶在 WhatsApp 上發起的對話比企業發起的對話便宜得多，而且還具有其他好處。

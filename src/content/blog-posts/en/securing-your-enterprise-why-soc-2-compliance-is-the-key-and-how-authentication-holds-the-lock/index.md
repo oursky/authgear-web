@@ -1,7 +1,7 @@
 ---
 title: "Securing Your Enterprise: Why SOC 2 Compliance is the Key (and How Authentication Holds the Lock)"
 excerpt: "In today's data-driven world, where information is the lifeblood of business, trust is paramount. Enterprises entrust service providers with sensitive data, from customer records to financial transactions. But how can companies ensure their data is handled with the utmost security and privacy? Enter SOC 2 compliance, a powerful framework that sets the gold standard for data security practices."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: true
 metaTitle: "Securing Your Enterprise: Why SOC 2 Compliance is the Key (and How Authentication Holds the Lock)"
@@ -28,7 +28,7 @@ Achieving SOC 2 compliance isn't just a box to tick; it's a strategic advantage.
 ### SOC 2 Compliance Checklist: A Step-by-Step Guide to Success
 
 <!--FIGURE-->
-![](./figure-1.jpg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Achieving SOC 2 compliance, while rewarding, isn't a simple feat. To navigate this journey effectively, a detailed checklist can be your map. Here's a comprehensive breakdown of the key steps, with additional insights to empower your progress:
@@ -67,7 +67,7 @@ Remember, this checklist serves as a framework, not a rigid formula. Tailor it t
 ## SOC 1 vs. SOC 2: Focus on the Source
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 Imagine SOC 1 and SOC 2 as siblings, sharing a family resemblance but specializing in distinct areas.
@@ -119,7 +119,7 @@ SOC 2:
 ## ISO 27001: The Guiding Light
 
 <!--FIGURE-->
-![](./figure-3.jpg)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 Unlike SOC 1 and SOC 2, which are audit reports, ISO 27001 is a prescriptive set of guidelines for implementing an Information Security Management System (ISMS).

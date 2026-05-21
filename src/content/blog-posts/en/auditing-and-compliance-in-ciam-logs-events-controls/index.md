@@ -1,7 +1,7 @@
 ---
 title: "Auditing and Compliance in CIAM: What Logs, Events, and Controls Actually Matter"
 excerpt: "Understand which CIAM logs, events, and security controls matter most for auditing and compliance. Learn how to design audit-ready CIAM systems."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Auditing and Compliance in CIAM: What Logs, Events, and Controls Actually Matter"

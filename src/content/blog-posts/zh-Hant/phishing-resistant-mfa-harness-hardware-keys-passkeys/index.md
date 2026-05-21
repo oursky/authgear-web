@@ -2,7 +2,7 @@
 title: "抗網釣 MFA：善用硬體安全金鑰與 Passkey"
 h1: "抗網釣 MFA：為何硬體金鑰與 Passkey 是登入的未來"
 excerpt: "了解抗網釣 MFA 如何透過硬體安全金鑰與 Passkey 阻擋攻擊、提升安全，並帶來更順暢的登入體驗。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "抗網釣 MFA：為何硬體金鑰與 Passkey 是登入的未來"

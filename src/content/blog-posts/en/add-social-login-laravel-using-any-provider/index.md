@@ -1,7 +1,7 @@
 ---
 title: "Add Social Login to Your Laravel Project Using any Provider"
 excerpt: "Social login allows users to log in to your website using their existing account on social sites like Facebook, Twitter (X), and Google. In this post, we show how to implement social login in a Laravel project using any social login provider."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Add Social Login to Your Laravel Project Using any Provider"
@@ -63,13 +63,13 @@ Follow this guide to get OAuth credentials from Authgear.
 First login to the Authgear Portal and create a new project or select an existing one. Then, navigate to the **Applications** section of the project. Create a new application with **OIDC Client Application** as the type as shown below:
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Next, click on the **Save** button to go to the configuration page of the new application. The configuration page contains all the OAuth credentials such as Client ID, Client Secret, and endpoints for your Authgear application. Note down these values as you’ll use them in later steps.
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 One final thing to configure in Authgear is the redirect URI. This should be a link to a page on your application that will complete the authentication flow after a user grants authorization to your app on the provider’s site.
@@ -107,7 +107,7 @@ After setup is complete, you should see some new folders and files added to your
 In this step, we’ll add a **Login with Authgear** button just below the regular **Login** button like this:
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 To create the above view, open **views/auth/login.blade.php** and add the following code just below the **Log In** button:
@@ -215,7 +215,7 @@ We’ll implement the **handleRedirect()** method in the next step.
 At this point, if you run your app and click on the Login with Auth Provider button, you should be redirected to the provider’s authorization page.
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 Before your users can sign in with your Authgear project, they need to create an account on the authorization page. Their data is only accessible to your project and not to other developers or projects on Authgear.

@@ -3,9 +3,9 @@ title: "香港置地以 Authgear 簡化員工與合作夥伴存取"
 excerpt: "了解香港置如何在數週內上線雙重受眾驗證架構，在符合企業安全要求下降低 IT 負擔。"
 customerName: "香港置地"
 companyIndustry: "物業投資、管理及發展"
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - 電子郵件
   - 生物辨識

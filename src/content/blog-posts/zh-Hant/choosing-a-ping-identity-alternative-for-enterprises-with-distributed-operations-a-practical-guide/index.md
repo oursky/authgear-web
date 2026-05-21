@@ -1,7 +1,7 @@
 ---
 title: "分散式營運企業如何選擇 Ping Identity 替代方案：實戰指南"
 excerpt: "若你的員工多為行動優先、跨區域、受資料落地與連線條件限制，選 Ping 替代方案的重點在於平台是否符合實際營運。本文提供評估框架、廠商比較與遷移建議。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "分散式營運企業如何選擇 Ping Identity 替代方案：實戰指南"
@@ -36,7 +36,7 @@ faq:
 - [廠商深度比較](#vendor-profiles-detailed)
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## 為何企業開始尋找 Ping 替代方案
@@ -58,7 +58,7 @@ Ping Identity 是成熟平台，擅長員工 SSO、複雜聯邦與企業生命�
 ## 企業與行動優先人力的評估準則
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 只看一般 CIAM/IAM 清單（安全、UX、擴展性）還不夠，分散式行動團隊還要補上「行動＋多區」維度。
@@ -109,7 +109,7 @@ Ping Identity 是成熟平台，擅長員工 SSO、複雜聯邦與企業生命�
 - **1 分**：不適配  
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 ## Ping 替代方案速覽（Quick Reference）

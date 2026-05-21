@@ -1,7 +1,7 @@
 ---
 title: "失效驗證（Broken Authentication）是什麼？如何預防？"
 excerpt: "失效驗證是 OWASP Top 10 常見漏洞之一，攻擊者可冒用使用者身分危及資料安全。本文說明成因與防範做法。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: highlight
 featured: false
 metaTitle: "失效驗證（Broken Authentication）是什麼？如何預防？"
@@ -100,7 +100,7 @@ Broken Authentication 指的是攻擊者可在應用程式中冒用原始使用�
 <h2 id="session-management">Session 管理實作不佳</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 在說明 Session 管理不良如何導致 Broken Authentication 之前，先解釋幾個必要概念。
@@ -138,7 +138,7 @@ Session ID URL Rewriting 指的是使用者 Session ID 被顯示在網站 URL �
 <h3 id="loose-policy">寬鬆密碼政策與遭竊／外洩憑證</h3>
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 若你的應用程式沒有強健的密碼政策，網路犯罪者同樣能破壞驗證流程。使用者可能傾向選用容易被猜中的密碼，讓攻擊者更容易入侵帳號。
@@ -166,7 +166,7 @@ Phishing 攻擊會暴露使用者憑證，接著可被用來登入其他網站�
 <h2 id="prevent-broken">如何防止 Broken Authentication？</h2>
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 雖然 Broken Authentication 相關攻擊很常見，但你仍可採取一些措施來預防。以下保護措施可幫助你加固驗證流程：

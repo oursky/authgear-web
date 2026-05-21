@@ -1,7 +1,7 @@
 ---
 title: "什麼是 Identity as a Service（IDaaS）？為什麼企業需要它？"
 excerpt: "深入了解 IDaaS 與雲端 IAM 如何提升擴展性、簡化存取管理，並帶來更流暢的使用者體驗。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "什麼是 Identity as a Service（IDaaS）？為什麼企業需要它？"
@@ -69,7 +69,7 @@ Identity as a Service（IDaaS）可以視為 IAM 的雲端化版本，讓組織�
 <h2 id="why">為什麼 IDaaS 是必備方案？</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 隨著企業成長，IAM 每年都變得更昂貴、也更複雜。再加上技術演進與資安壓力，如何同時兼顧安全與使用者體驗愈來愈困難。將 IAM 外包給成熟方案，可同時減輕開發與長期維護負擔，是許多企業更務實的選擇。
@@ -111,7 +111,7 @@ PWC 在 <a href="https://www.pwc.com/us/en/services/consulting/cybersecurity-ris
 <h2 id="features">優秀 IDaaS 的關鍵功能</h2>
 
 <!--FIGURE-->
-![](./figure-2.jpeg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 綜合前述優勢，以下是優質 IDaaS 應具備的核心功能：

@@ -1,7 +1,7 @@
 ---
 title: "企業應用最佳開源 MFA 解決方案（2026）"
 excerpt: "比較 2026 年主流開源 MFA 平台，協助企業依合規、整合能力與部署策略選出最適合的方案。"
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "企業應用最佳開源 MFA 解決方案（2026）"

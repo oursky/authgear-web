@@ -1,7 +1,7 @@
 ---
 title: "SAML 提供者解析：IdP 與 SP 的角色與責任"
 excerpt: "了解 SAML 提供者，以及 Identity Provider（IdP）與 Service Provider（SP）的差異。掌握角色、流程、信任模型與實作最佳實務。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "SAML 提供者解析：IdP 與 SP 的角色與責任"

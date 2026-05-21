@@ -4,9 +4,9 @@ excerpt: "了解 K11／新世界發展如何透過 Authgear，以 SSO、MFA、�
 customerName: K11
 companyIndustry: "高端零售、物業與生活風格"
 companyLocation: 香港
-companyLogo: ./logo.png
-coverImage: ./cover.jpg
-thumbnail: ./thumbnail.jpg
+companyLogo: ./logo.webp
+coverImage: ./cover.webp
+thumbnail: ./thumbnail.webp
 loginMethods:
   - 電子郵件魔術連結
   - 手機號碼

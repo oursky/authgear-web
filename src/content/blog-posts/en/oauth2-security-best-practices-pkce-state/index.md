@@ -1,7 +1,7 @@
 ---
 title: "OAuth 2.0 Security Best Practices: PKCE, State Parameters & More"
 excerpt: "OAuth 2.0 is a widely adopted framework that lets applications access user resources safely, without ever exposing passwords or credentials. This guide breaks down OAuth 2.0 security in practical terms—covering PKCE, state parameters, token management, and more—to help you build secure, production-ready authorization systems."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "OAuth 2.0 Security Best Practices: PKCE, State Parameters & More"

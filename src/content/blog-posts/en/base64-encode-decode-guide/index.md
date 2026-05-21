@@ -2,7 +2,7 @@
 title: "Base64 Made Easy: How to Encode and Decode Data"
 h1: "Base64 Made Easy: How to Encode and Decode Data (Plus Free Online Tool)"
 excerpt: "Learn how Base64 encoding works, why it’s used, and how to encode or decode data safely. Includes practical examples and a free online Base64 tool."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Base64 Made Easy: How to Encode and Decode Data (Plus Free Online Tool)"
@@ -41,7 +41,7 @@ Base64 works by grouping binary data and mapping it to a limited set of safe cha
 This process is fully reversible. Any Base64 string can undergo a **decode Base64 decode** process to return to its original binary form. This reversibility is why Base64 is widely used in serialization, debugging, and API architectures.
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ## **Is Base64 Secure?**
@@ -136,7 +136,7 @@ Base64URL is a modified version of Base64 designed for URLs, cookies, and authen
 If you're working with tokens in Authgear or similar identity platforms, you will encounter Base64URL frequently.
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ## **Base64 Encoding Workflow**

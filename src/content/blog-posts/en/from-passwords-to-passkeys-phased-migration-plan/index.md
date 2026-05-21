@@ -1,7 +1,7 @@
 ---
 title: "From Passwords to Passkeys: A Phased Migration Plan for Existing Users"
 excerpt: "Learn how to migrate existing users from passwords to passkeys with a phased approach. Discover best practices for secure, user-friendly passwordless authentication at scale."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "From Passwords to Passkeys: A Phased Migration Plan for Existing Users"

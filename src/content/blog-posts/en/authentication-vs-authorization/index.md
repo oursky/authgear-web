@@ -1,7 +1,7 @@
 ---
 title: "Authentication vs. Authorization: The Differences in One Table"
 excerpt: "Learn more about the differences between authentication and authorization, two important security processes, with one simple table. "
-coverImage: ./cover.jpeg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Authentication vs. Authorization: The Differences in One Table"
@@ -128,7 +128,7 @@ If you take anything away from all of this, it’s simply that authentication an
 <h2 id="authn-methods">Authentication Methods</h2>
 
 <!--FIGURE-->
-![](./figure-1.jpeg)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 Most businesses these days are opting to use <a href="/post/what-is-multi-factor-authentication-mfa" target="_blank">multi-factor authentication</a> (MFA) for stronger protection against cyber security threats.

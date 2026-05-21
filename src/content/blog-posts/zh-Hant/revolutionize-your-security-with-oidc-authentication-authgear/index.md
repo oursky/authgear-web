@@ -2,7 +2,7 @@
 title: "用 OIDC 驗證革新你的安全策略 - Authgear"
 h1: "安全升級新標準：用 Authgear 掌握 OIDC 驗證"
 excerpt: "了解 OIDC 驗證如何改變現代企業的身分驗證方式，並透過完整指南掌握實作重點，為什麼 Authgear 是理想的安全夥伴。"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "安全升級新標準：用 Authgear 掌握 OIDC 驗證"

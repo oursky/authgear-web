@@ -2,7 +2,7 @@
 title: "OWASP Top 10 2025: A03—Software Supply Chain Failures"
 h1: "OWASP Top 10 2025: A03—Software Supply Chain Failures (Beginner’s Guide)"
 excerpt: "What 2025:A03 Software Supply Chain Failures means, how attacks happen, and a practical checklist to secure your pipeline"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "OWASP Top 10 2025: A03—Software Supply Chain Failures (Beginner's Guide)"

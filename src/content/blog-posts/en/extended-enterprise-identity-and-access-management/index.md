@@ -1,7 +1,7 @@
 ---
 title: "Extended Enterprise and Identity & Access Management: The Challenges & Solutions"
 excerpt: "Extended enterprise, including customers, partners, contractors, etc., poses some new identity & access challenges for businesses. Learn more about the challenges and solutions."
-coverImage: ./cover.png
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "Extended Enterprise and Identity & Access Management: The Challenges & Solutions"
@@ -75,7 +75,7 @@ After all, the traditional IAM solution often used for managing internal employe
 <h2 id="definition">What Is Extended Enterprise?</h2>
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 An extended enterprise is a network of organizations, people, and technological resources that work together to create value for the business. It includes all the business stakeholders, such as customers, partners, suppliers, and contractors.
@@ -93,7 +93,7 @@ The availability of cloud-based applications and services has made it easier for
 <h2 id="components">Components of the Extended Enterprise Network</h2>
 
 <!--FIGURE-->
-![](./figure-2.png)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 An extended enterprise comprises various parties that contribute to the business's success. It includes all the internal and external stakeholders with access to the company’s IT resources.
@@ -117,7 +117,7 @@ This list is not exhaustive, and the stakeholders in your extended enterprise wi
 <h2 id="challenges">Challenges of Managing Identity & Access in Extended Enterprise</h2>
 
 <!--FIGURE-->
-![](./figure-3.png)
+![](./figure-3.webp)
 <!--/FIGURE-->
 
 The extended enterprise model comes with its own set of challenges, the most important of which is managing identity and access. In an extended enterprise, businesses need to give many people access to their IT resources.
@@ -137,7 +137,7 @@ This means that the access rights need to be updated regularly to reflect these 
 <h2 id="features">How Authgear Can Help</h2>
 
 <!--FIGURE-->
-![](./figure-4.png)
+![](./figure-4.webp)
 <!--/FIGURE-->
 
 To better work with different parties, such as contractors, freelancers, vendors, and suppliers within the extended enterprise, businesses tend to build new applications for them to use along with internal employees; however, the underlying problems can be quite troubling.

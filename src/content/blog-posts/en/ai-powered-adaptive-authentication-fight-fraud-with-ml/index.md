@@ -2,7 +2,7 @@
 title: "AI-Powered Adaptive Authentication: Fight Fraud with ML"
 h1: "AI-Powered Adaptive Authentication: Using Machine Learning to Fight Fraud"
 excerpt: "Learn how AI-driven adaptive authentication detects anomalies, reduces fraud, and secures logins. See how machine learning adapts to evolving threats."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: industry
 featured: false
 metaTitle: "AI-Powered Adaptive Authentication: Using Machine Learning to Fight Fraud"

@@ -1,7 +1,7 @@
 ---
 title: "What Is .well-known/openid-configuration? A Developer's Guide"
 excerpt: "Learn what .well-known/openid-configuration is, what every field in the discovery document means, and how to fetch it for Google, Okta, Azure, Keycloak, or your own OIDC provider."
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "What Is .well-known/openid-configuration? A Developer's Guide"

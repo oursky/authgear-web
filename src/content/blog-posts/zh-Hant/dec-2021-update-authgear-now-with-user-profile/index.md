@@ -1,7 +1,7 @@
 ---
 title: "2021 年 12 月更新：Authgear 現已支援使用者檔案"
 excerpt: "我們很高興把使用者檔案管理能力帶進你的專案！"
-coverImage: ./cover.jpg
+coverImage: ./cover.webp
 category: features
 featured: false
 metaTitle: "2021 年 12 月更新：Authgear 現已支援使用者檔案"
@@ -24,7 +24,7 @@ Authgear 目前內建支援這些欄位：Name、Given Name、Family Name、Midd
 在 Portal 的使用者詳情頁中，你會看到新的「Profile」分頁，管理員可快速檢視與修改使用者資料。
 
 <!--FIGURE-->
-![](./figure-1.png)
+![](./figure-1.webp)
 <!--/FIGURE-->
 
 ### 透過預建前端快速上線
@@ -32,7 +32,7 @@ Authgear 目前內建支援這些欄位：Name、Given Name、Family Name、Midd
 在 [User Settings](https://docs.authgear.com/integrate/auth-ui) 頁面，新增了可供使用者管理個人檔案的區塊。是的，前端已為你預建完成，你不需要另外撰寫程式即可在最終產品提供此功能。
 
 <!--FIGURE-->
-![](./figure-2.jpg)
+![](./figure-2.webp)
 <!--/FIGURE-->
 
 ### 如何讀取使用者檔案
