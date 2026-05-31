@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SubProcessorsPage from '@/components/pages/SubProcessorsPage.astro';
+
+const locale = 'en';
+const title = 'Sub-Processors - Authgear';
+const description = 'Current list of third-party Sub-processors engaged by Authgear to deliver the hosted Authgear Services, with categories, regions, and data processed.';
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <SubProcessorsPage locale={locale} />
+</BaseLayout>

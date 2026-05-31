@@ -1,0 +1,135 @@
+---
+import LegalPageLayout from '@/components/legal/LegalPageLayout.astro';
+import { localizedPath } from '@/lib/i18n';
+interface Props { locale: string }
+const { locale } = Astro.props;
+---
+<LegalPageLayout title="Sub-Processors" locale={locale} lastUpdated="2026-05-31">
+  <p>This page lists the third-party Sub-processors engaged by Authgear (SkyMakers Digital Limited) to deliver the hosted Authgear Services. Each Sub-processor is bound by data-protection obligations substantially equivalent to those in the <a href={"/dpa/"}>Data Processing Addendum</a>.</p>
+
+  <p>This page is the canonical record of Authgear's current Sub-processors and related vendor relationships. See <a href="#subscribing-to-changes"><em>Subscribing to Changes</em></a> below for notification and objection procedures.</p>
+
+  <h2>Authgear-operated Sub-Processors (GDPR Article 28)</h2>
+
+  <p>The vendors in the table below Process End User Personal Data on Customer's behalf in connection with the Authgear Services and therefore qualify as Sub-processors under Article 28 of the EU GDPR and the equivalent provisions of the UK GDPR.</p>
+
+  <table class="ds-table">
+    <thead>
+      <tr>
+        <th>Sub-Processor</th>
+        <th>Entity</th>
+        <th>Region</th>
+        <th>Purpose</th>
+        <th>Personal Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google Cloud Platform</td>
+        <td>Google LLC</td>
+        <td>Global GCP regions</td>
+        <td>Cloud hosting and infrastructure (compute, managed databases, object storage, networking)</td>
+        <td>All End User Personal Data processed by the Services</td>
+      </tr>
+      <tr>
+        <td>Postmark</td>
+        <td>ActiveCampaign, LLC</td>
+        <td>United States</td>
+        <td>Transactional email delivery for the Authgear Developer Portal (account invitations, password resets, billing and security notifications)</td>
+        <td>Recipient email address; message content</td>
+      </tr>
+      <tr>
+        <td>Stripe</td>
+        <td>Stripe, Inc.</td>
+        <td>United States</td>
+        <td>Subscription billing and payment processing for the Authgear Developer Portal (Customer billing only)</td>
+        <td>Customer billing contact details; payment-card data (stored by Stripe, not by Authgear)</td>
+      </tr>
+      <tr>
+        <td>Sentry</td>
+        <td>Functional Software, Inc. d/b/a Sentry</td>
+        <td>United States</td>
+        <td>Application error and exception monitoring across the Authgear Services and Portal</td>
+        <td>Error and stack-trace data; may incidentally contain limited Personal Data from request context</td>
+      </tr>
+      <tr>
+        <td>PostHog</td>
+        <td>PostHog, Inc.</td>
+        <td>United States</td>
+        <td>Product analytics on Customer admin activity within the Authgear Developer Portal</td>
+        <td>Customer admin event data; project metadata. Tracks Customer administrators only; does not capture End User Personal Data of Customer applications.</td>
+      </tr>
+      <tr>
+        <td>Google Analytics / Google Tag Manager</td>
+        <td>Google LLC</td>
+        <td>United States</td>
+        <td>Web analytics for the Authgear Developer Portal (portal.authgear.com only)</td>
+        <td>Portal usage events; Customer admin browser-side analytics, governed by the <a href={localizedPath(locale, "/policy")}>Privacy Policy</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Other Vendor Relationships</h2>
+
+  <p>The vendors in the table below support Authgear's own business operations (sales, marketing, compliance, status communications, internal collaboration). They process Authgear's own data, and in some cases may incidentally process Customer administrator contact details (for example, when a Customer admin emails Authgear support or signs up for the Authgear newsletter). They do not Process Customer End User Personal Data on Customer's behalf and are therefore not Sub-processors within the meaning of Article 28 GDPR. They are listed here for transparency.</p>
+
+  <table class="ds-table">
+    <thead>
+      <tr>
+        <th>Vendor</th>
+        <th>Entity</th>
+        <th>Region</th>
+        <th>Purpose</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google Workspace</td>
+        <td>Google LLC</td>
+        <td>United States</td>
+        <td>Corporate email, file storage, and internal collaboration (the mailbox behind hello@authgear.com and Authgear's internal documents)</td>
+        <td>Inbound and outbound email content, including any Customer admin support correspondence; internal documents</td>
+      </tr>
+      <tr>
+        <td>MailerLite</td>
+        <td>MailerLite Limited</td>
+        <td>Ireland</td>
+        <td>Marketing mailing list and newsletter delivery</td>
+        <td>Email address and (where provided) name of opt-in newsletter subscribers; engagement metadata</td>
+      </tr>
+      <tr>
+        <td>Calendly</td>
+        <td>Calendly, LLC</td>
+        <td>United States</td>
+        <td>Sales-demo scheduling for the <a href={localizedPath(locale, "/schedule-demo")}>Schedule a demo</a> flow</td>
+        <td>Prospect or Customer admin name, email, company, time zone, meeting time, and any answers provided in the booking form</td>
+      </tr>
+      <tr>
+        <td>Sprinto</td>
+        <td>Sprinto, Inc.</td>
+        <td>United States (with operations in India)</td>
+        <td>Compliance-program automation for maintaining ISO/IEC 27001 and SOC 2 Type II</td>
+        <td>Employee names and access reviews; system inventory; compliance evidence metadata. No Customer End User Personal Data.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Customer-configured Integrations (not Authgear Sub-Processors)</h2>
+
+  <p>Customers may, at their option, configure the Authgear Services to interact with third-party providers using credentials and accounts that the Customer owns and controls. Authgear is not a Sub-processor for these integrations; the Customer selects the provider, controls the data flow, and is responsible for entering into appropriate data-protection arrangements directly with the provider.</p>
+
+  <p>Categories include:</p>
+  <ul>
+    <li><strong>SMTP providers</strong> (any) for Customer-sent verification, password-reset, and notification emails to End Users</li>
+    <li><strong>SMS providers</strong> &mdash; Twilio, Nexmo/Vonage, or any HTTP-callable custom gateway</li>
+    <li><strong>WhatsApp Cloud API</strong> (Meta Platforms) for WhatsApp OTP delivery</li>
+    <li><strong>Bot-protection providers</strong> &mdash; Google reCAPTCHA v2 and Cloudflare Turnstile</li>
+    <li><strong>Customer-controlled cloud storage</strong> (AWS S3, Google Cloud Storage, Azure Blob Storage, Alibaba Cloud OSS) for user export and asset storage</li>
+    <li><strong>Identity providers / OIDC and SAML connectors</strong> (e.g., Google, Microsoft, Apple, GitHub, Customer-operated identity providers) as configured by the Customer</li>
+  </ul>
+
+  <h2 id="subscribing-to-changes">Subscribing to Changes</h2>
+
+  <p>Authgear publishes proposed Sub-processor additions or replacements on this page at least thirty (30) days before the change takes effect, unless an earlier engagement is required for security or business-continuity reasons. To receive email notifications when this list changes, please write to <a href="mailto:hello@authgear.com">hello@authgear.com</a> with the subject line <em>"Subscribe to sub-processor updates"</em>. Objections on reasonable data-protection grounds may be raised in accordance with Section 6 of the <a href={"/dpa/"}>Data Processing Addendum</a>.</p>
+</LegalPageLayout>

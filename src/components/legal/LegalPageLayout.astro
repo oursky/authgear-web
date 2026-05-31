@@ -4,14 +4,17 @@ interface Props {
   title: string;
   eyebrow?: string;
   locale?: string;
+  lastUpdated?: string;
 }
-const { title, eyebrow = 'Legal', locale = 'en' } = Astro.props;
+const { title, eyebrow = 'Legal', locale = 'en', lastUpdated } = Astro.props;
 ---
 <section class="ds-hero-banner--gradient legal-hero">
   <div class="ds-container ds-container--gradient-hero-shell">
     <div class="ds-hero-banner--gradient__inner">
       <div class="ds-container ds-container--hero legal-hero__inner">
-        <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{eyebrow}</p>
+        <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">
+          {eyebrow}{lastUpdated ? ` · Last updated ${lastUpdated}` : ''}
+        </p>
         <h1 class="ds-hero-banner__title legal-hero__title">{title}</h1>
       </div>
     </div>

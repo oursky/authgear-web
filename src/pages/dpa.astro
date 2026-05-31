@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import DataProcessingAddendumPage from '@/components/pages/DataProcessingAddendumPage.astro';
+
+const locale = 'en';
+const title = 'Data Processing Addendum - Authgear';
+const description = "Authgear's Data Processing Addendum: processor terms, sub-processors, international transfers, security measures, and breach notification.";
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <DataProcessingAddendumPage locale={locale} />
+</BaseLayout>

@@ -117,6 +117,34 @@
 .legal-content .ds-richtext-prose li > ol {
   margin-top: 0.5rem;
 }
+.legal-content .ds-richtext-prose table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  margin: 1.5rem 0 1.75rem;
+  border-collapse: collapse;
+  border: 1px solid var(--color-border-light-subtle, #edebe9);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+.legal-content .ds-richtext-prose table thead {
+  background-color: var(--color-neutral-200, #f9fbfb);
+}
+.legal-content .ds-richtext-prose table th,
+.legal-content .ds-richtext-prose table td {
+  padding: 0.625rem 0.875rem;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--color-border-light-subtle, #edebe9);
+}
+.legal-content .ds-richtext-prose table th {
+  font-weight: 600;
+  color: var(--color-text-light-primary);
+  white-space: nowrap;
+}
+.legal-content .ds-richtext-prose table tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.015);
+}
 
 /* What's New — index grid + detail layout */
 .whats-new-index__hero-body {

@@ -151,6 +151,8 @@ export const footerStrings: Record<string, Record<string, string>> = {
   privacyPolicy: { en: 'Privacy', 'zh-Hant': '隱私權政策' },
   dataPrivacy: { en: 'Data Privacy', 'zh-Hant': '資料隱私' },
   enterpriseLicenses: { en: 'Enterprise Licenses', 'zh-Hant': '企業授權' },
+  dataProcessingAddendum: { en: 'DPA', 'zh-Hant': '資料處理附錄' },
+  subProcessors: { en: 'Sub-Processors', 'zh-Hant': '次處理者' },
   sla: { en: 'SLA', 'zh-Hant': 'SLA' },
   freeToolsTitle: { en: 'Free Tools', 'zh-Hant': '免費工具' },
   oidcDiscovery: { en: 'OIDC Discovery Explorer', 'zh-Hant': 'OIDC Discovery 探索器' },
