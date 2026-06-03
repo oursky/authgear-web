@@ -15,4 +15,5 @@ export const TOOLS: ToolEntry[] = [
   { slug: 'password-hash-generator', label: 'Password Hash Generator', icon: '/images/minitools-more-passwordhash.svg', href: '/tools/password-hash-generator' },
   { slug: 'base64-decode-encode', label: 'Base64 Decode and Encode', icon: '/images/minitools-more-base64.svg', href: '/tools/base64-decode-encode' },
   { slug: 'uuidv7-generator', label: 'UUID v7 Generator & Timestamp Extractor', icon: '/images/uuid-v7.svg', href: '/tools/uuidv7-generator' },
+  { slug: 'passkey-demo', label: 'Passkey Demo & WebAuthn Tester', icon: '/images/minitools-more-passkey.svg', href: '/tools/passkey-demo' },
 ];

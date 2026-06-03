@@ -9,5 +9,6 @@ export const TOOL_SLUG_PREFIX: Record<string, string> = {
   'ssl-checker': 'ssl',
   'totp-authenticator': 'totp',
   'uuidv7-generator': 'uuidV7',
+  'passkey-demo': 'passkeyDemo',
 };
 
