@@ -3,7 +3,9 @@
    utility classes drive every visual decision from inside the JSX
    (same approach as password-hash.css). Class-name collisions are avoided
    because the widget uses Tailwind utilities, not generic class names. */
-[data-testid='passkey-demo-widget'] label {
+/* Exclude .flex labels (e.g. the checkbox label in CreatePanel) — Tailwind's
+   .flex already sets display:flex and must not be overridden to display:block. */
+[data-testid='passkey-demo-widget'] label:not(.flex) {
   color: inherit;
   margin-bottom: 0;
   font-weight: inherit;

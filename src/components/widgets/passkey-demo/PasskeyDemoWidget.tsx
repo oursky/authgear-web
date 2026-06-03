@@ -85,9 +85,11 @@ export default function PasskeyDemoWidget() {
 }
 
 function FeatureBadge({ label, state }: { label: string; state: boolean | null }) {
-  const cls = state
+  const cls = state === true
     ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
-    : 'border-slate-200 bg-slate-50 text-slate-500';
+    : state === null
+      ? 'border-amber-200 bg-amber-50 text-amber-600'
+      : 'border-slate-200 bg-slate-50 text-slate-500';
   return (
     <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 ${cls}`}>
       {label}: {state === null ? 'unknown' : state ? 'available' : 'unavailable'}

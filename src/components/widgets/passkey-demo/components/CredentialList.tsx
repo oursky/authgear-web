@@ -14,9 +14,9 @@ function algLabel(alg: number): string {
 
 export default function CredentialList({ credentials, onInspect, onDelete, onClearAll }: Props) {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <section aria-labelledby="passkey-demo-credential-list" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-slate-900">Your demo passkeys</h3>
+        <h3 id="passkey-demo-credential-list" className="text-lg font-semibold text-slate-900">Your demo passkeys</h3>
         {credentials.length > 0 && (
           <button
             type="button"

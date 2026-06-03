@@ -27,7 +27,7 @@ export default function SignInPanel({ rpId, credentials, onVerified }: Props) {
     setResult(null);
     try {
       const challenge = crypto.getRandomValues(new Uint8Array(32));
-      const assertion = (await navigator.credentials.get({
+      const rawAssertion = await navigator.credentials.get({
         publicKey: {
           challenge,
           rpId,
@@ -37,9 +37,14 @@ export default function SignInPanel({ rpId, credentials, onVerified }: Props) {
             : credentials.map((c) => ({ type: 'public-key' as const, id: b64urlToBuf(c.credentialId) as BufferSource })),
           timeout: 60000,
         },
-      })) as PublicKeyCredential;
+      });
+      if (!rawAssertion) throw new DOMException('The authenticator returned nothing.', 'NotAllowedError');
+      const assertion = rawAssertion as PublicKeyCredential;
       const resp = assertion.response as AuthenticatorAssertionResponse;
       const credentialId = bufToB64url(new Uint8Array(assertion.rawId));
+      // `credentials` is the render-time snapshot; a credential created while this
+      // prompt was open won't be found — acceptable for a demo, surfaced by the
+      // teaching error below.
       const credential = credentials.find((c) => c.credentialId === credentialId);
       if (!credential) {
         throw new Error(
@@ -126,7 +131,7 @@ export default function SignInPanel({ rpId, credentials, onVerified }: Props) {
           <p className="text-sm text-slate-700">
             Signed in as <strong>{result.userName}</strong>. Here is each check a real server would run:
           </p>
-          <ul className="mt-3 flex flex-col gap-2">
+          <ul aria-label="Server verification steps" className="mt-3 flex flex-col gap-2">
             {result.verification.steps.map((s) => (
               <li key={s.id} className="flex items-start gap-3 rounded-lg border border-slate-200 p-3">
                 <span
