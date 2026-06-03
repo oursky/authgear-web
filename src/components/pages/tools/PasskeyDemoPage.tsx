@@ -50,6 +50,7 @@ export default function PasskeyDemoPage({ locale }: Props) {
       <ToolHowItWorks
         sectionTitle={t('howSectionTitle')}
         steps={steps}
+        containerClass="tools-step horizon-step"
         afterSteps={
           <p className="tools-description align-left">
             {t('howGuideText')}{' '}
