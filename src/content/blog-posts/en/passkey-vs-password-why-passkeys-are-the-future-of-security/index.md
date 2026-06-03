@@ -8,9 +8,11 @@ featured: true
 metaTitle: "Passkey vs Password: Are Passkeys Safer? (2026 Guide)"
 metaDescription: "Passkey vs password comparison: passkeys use public-key cryptography so they can't be phished, guessed, or breached. See how they compare, 2026 adoption data, and how to add passkey support to your app."
 publishedAt: 2024-07-30T10:09:33.187Z
-updatedAt: 2026-05-06T00:00:00.000Z
+updatedAt: 2026-06-03T00:00:00.000Z
 draft: false
 faq:
+  - q: "What is a passkey?"
+    a: "A passkey is a login credential that replaces a password with a cryptographic key pair. The private key stays on your device, protected by Face ID, Touch ID, or a PIN; the website stores only the public key. You sign in by approving a biometric prompt — there is no password to type, phish, or leak in a data breach."
   - q: "What is a passkey vs a password?"
     a: "A password is a secret string you create and remember (or store in a password manager). A passkey is a cryptographic key pair — a private key stored on your device and a public key stored on the server. You never type a passkey; instead, you authenticate with Face ID, Touch ID, or a PIN. Passkeys are more secure because they can't be phished, guessed, or leaked in a data breach."
   - q: "Are passkeys safer than passwords?"
@@ -36,6 +38,16 @@ faq:
 In 2026, passkeys have moved from experiment to mainstream. Apple, Google, and Microsoft now support passkeys across all major platforms. Over 15 billion accounts can use passkeys. And the question developers and security teams ask most often is simple: **are passkeys actually safer than passwords?**
 
 The short answer is yes — significantly. The longer answer explains exactly why, and what it means for your app.
+
+## What is a passkey?
+
+A passkey is a login credential that replaces a password with a pair of cryptographic keys. The private key stays on your device — protected by Face ID, Touch ID, or your device PIN — and the website stores only the matching public key. When you sign in, your device signs a one-time challenge to prove it holds the private key. No secret is ever typed, transmitted, or stored on the server.
+
+**In one sentence:** a passkey lets you sign in with your fingerprint, face, or device PIN instead of a password — and there is nothing for attackers to phish, guess, or steal in a server breach.
+
+**The technical version:** a passkey is a FIDO2/WebAuthn discoverable credential — a public-key credential bound to the website that created it, unlocked through on-device user verification, and synced across your devices via iCloud Keychain, Google Password Manager, or a third-party manager like 1Password.
+
+A password, by contrast, is a shared secret: the same string you type is the string the server checks, so it can be phished, guessed, reused, and leaked. That difference in design is what the rest of this comparison comes down to.
 
 ## Passkey vs password: head-to-head
 
@@ -255,6 +267,10 @@ The writing is on the wall: passwords are on their way out. The transition is al
 The era of passwords is drawing to a close. Apps that adopt passkeys today will have a security and UX advantage tomorrow.
 
 ## Frequently Asked Questions
+
+### What is a passkey?
+
+A passkey is a login credential that replaces a password with a cryptographic key pair. The private key stays on your device, protected by Face ID, Touch ID, or a PIN; the website stores only the public key. You sign in by approving a biometric prompt — there is no password to type, phish, or leak in a data breach.
 
 ### What is a passkey vs a password?
 
