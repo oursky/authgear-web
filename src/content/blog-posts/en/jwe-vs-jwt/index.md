@@ -31,6 +31,8 @@ Where:
 1. **Payload** – contains the actual claims or data *(Base64URL encoded JSON)*
 1. **Signature** – ensures the token hasn’t been tampered with
 
+> 💡 **Decode a real token as you read:** paste any JWT or JWE into the free [JWT & JWE Debugger](/tools/jwt-jwe-debugger) and watch the header, payload, and signature decode live. It makes the rest of this article much more concrete.
+
 ### **Example JWT** (shortened for readability):
 
 ### Decoded Header (JSON)
@@ -191,6 +193,12 @@ You can experiment with both **JWT** and **JWE** easily:
 - [**JWK Generator**](/tools/jwk-generator) – Create JSON Web Keys for signing and encryption
 
 These tools save time and prevent mistakes when working with real-world applications.
+
+**Related reading:**
+
+- [What Is JWKS?](/post/what-is-jwks) — how the public keys that verify JWTs (and encrypt JWEs) are published and rotated
+- [What Is .well-known/openid-configuration?](/post/well-known-openid-configuration) — where OIDC providers advertise their token endpoints and keys
+- [Session vs Token Authentication](/post/session-vs-token-authentication) — when tokens are the right model in the first place
 
 ## Conclusion
 
