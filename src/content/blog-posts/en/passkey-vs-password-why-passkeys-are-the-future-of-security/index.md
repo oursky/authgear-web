@@ -23,6 +23,14 @@ faq:
     a: "Passkeys sync across your devices via Apple Keychain, Google Password Manager, or a cross-platform manager like 1Password. If you lose one device, you can still log in from another. For users without a second device, most services provide account recovery via email verification or a backup code — just like password resets today."
   - q: "Do passkeys work on all browsers and devices?"
     a: "In 2026, passkeys work on the vast majority of devices: iOS 16+, Android 9+, Windows 10+ with Windows Hello, macOS 13+ with Touch ID, and all major browsers (Chrome 108+, Safari 16+, Firefox 122+, Edge 109+). For older devices, passkey-enabled services typically still offer password fallback."
+  - q: "What is an example of a passkey?"
+    a: "Signing in to GitHub with Face ID is a passkey in action. When you enable it, your phone generates a key pair: GitHub stores the public key, your phone keeps the private key. On your next login, GitHub sends a challenge, you confirm with Face ID, and your phone signs it. The passkey is that stored key pair — you never see it or type it."
+  - q: "How do I get a passkey?"
+    a: "You create a passkey per website, usually under account or security settings — look for an 'Add a passkey' or 'Create a passkey' option. Your device prompts for Face ID, a fingerprint, or your PIN, and the passkey is saved to iCloud Keychain, Google Password Manager, or a manager like 1Password. The whole process takes a few seconds and there is nothing to memorise."
+  - q: "Can I still use my password if I have a passkey?"
+    a: "Usually yes — most services keep password login as a fallback after you add a passkey. That helps during the transition, but it also means the account can still be phished through the password path. Some services let you remove the password or skip it by default; do that once your passkeys are set up on more than one device."
+  - q: "What are the downsides of passkeys?"
+    a: "The main trade-offs are recovery and portability: losing all your devices means falling back to email recovery, and moving passkeys between the Apple and Google ecosystems is still clumsy. Synced passkeys are also only as secure as the cloud account protecting them, and support gaps remain on older devices and shared computers. For most users these are manageable, and the security gain over passwords is substantial."
   - q: "How do I add passkey support to my app?"
     a: "You can implement passkeys directly using the WebAuthn API (built into modern browsers) or use an authentication platform like [Authgear](/features/passkeys) that handles the complexity for you. Authgear supports passkeys across all major platforms with a few lines of SDK code and a configuration toggle in the portal."
   - q: "Are passkeys 2FA?"
@@ -198,6 +206,18 @@ Passkeys have crossed the tipping point from "interesting experiment" to "produc
 
 For developers, the message is clear: users increasingly expect passkey support. Apps without passkeys will feel dated within 12–18 months.
 
+## What are the downsides of passkeys?
+
+Passkeys win the security comparison, but they are not free of trade-offs. An honest assessment:
+
+- **Account recovery is the weak point.** Lose every enrolled device and you fall back to email verification or a backup code — and that recovery path can itself be phished. Attackers have already shifted toward attacking recovery flows instead of logins. Design recovery carefully before going passkey-only.
+- **Ecosystem lock-in is real.** Passkeys sync within Apple Keychain or Google Password Manager, and moving credentials between ecosystems is still clumsy. The FIDO Alliance's credential exchange specification is improving this, and cross-platform managers like 1Password and Bitwarden soften the problem, but switching from iPhone to Android still means re-enrolling some passkeys.
+- **Synced passkeys trade some assurance for convenience.** A device-bound passkey on a hardware key cannot be copied anywhere; a synced passkey is only as secure as the cloud account protecting it. This is why NIST rates synced passkeys at AAL2 rather than AAL3.
+- **Support still has gaps.** Older operating systems, kiosks, shared and managed enterprise devices, smart TVs, and some apps either do not support passkeys or make them awkward.
+- **The password fallback keeps the old risk alive.** Most services leave password login enabled alongside passkeys. Until the password path is removed or locked down, an account is still phishable — the passkey only protects the logins that actually use it.
+
+None of these outweigh the benefits for most applications, but the recovery and fallback points deserve real design attention — they are where the residual risk lives.
+
 ## Password vs passkey: which is easier for users?
 
 Passkeys win on ease of use — not just security.
@@ -291,6 +311,18 @@ Passkeys sync across your devices via Apple Keychain, Google Password Manager, o
 ### Do passkeys work on all browsers and devices?
 
 In 2026, passkeys work on the vast majority of devices: iOS 16+, Android 9+, Windows 10+ with Windows Hello, macOS 13+ with Touch ID, and all major browsers (Chrome 108+, Safari 16+, Firefox 122+, Edge 109+). For older devices, passkey-enabled services typically still offer password fallback.
+
+### What is an example of a passkey?
+
+Signing in to GitHub with Face ID is a passkey in action. When you enable it, your phone generates a key pair: GitHub stores the public key, your phone keeps the private key. On your next login, GitHub sends a challenge, you confirm with Face ID, and your phone signs it. The passkey is that stored key pair — you never see it or type it.
+
+### How do I get a passkey?
+
+You create a passkey per website, usually under account or security settings — look for an "Add a passkey" or "Create a passkey" option. Your device prompts for Face ID, a fingerprint, or your PIN, and the passkey is saved to iCloud Keychain, Google Password Manager, or a manager like 1Password. The whole process takes a few seconds and there is nothing to memorise.
+
+### Can I still use my password if I have a passkey?
+
+Usually yes — most services keep password login as a fallback after you add a passkey. That helps during the transition, but it also means the account can still be phished through the password path. Some services let you remove the password or skip it by default; do that once your passkeys are set up on more than one device.
 
 ### How do I add passkey support to my app?
 
