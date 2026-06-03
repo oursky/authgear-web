@@ -4,6 +4,7 @@ import { hmac } from './hmac';
 import { jwk } from './jwk';
 import { jwtJwe } from './jwtJwe';
 import { oidc } from './oidc';
+import { passkeyDemo } from './passkeyDemo';
 import { passwordHash } from './passwordHash';
 import { ssl } from './ssl';
 import { totp } from './totp';
@@ -17,6 +18,7 @@ export const toolsMessagesZhHant = {
   jwk,
   jwtJwe,
   oidc,
+  passkeyDemo,
   passwordHash,
   ssl,
   totp,
