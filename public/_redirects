@@ -25,6 +25,12 @@
 /zh-hant/features/sms-passcode                                                      /zh-hant/features/multi-factor-authentication/                                                                          301
 /zh-hant/features/identity-security                                                 /zh-hant/features/attack-protection/                                                                                    301
 
+# SCIM content consolidation (2026-06): old guide merged into what-is-scim-provisioning
+/post/scim-provisioning-a-comprehensive-guide-to-simplifying-user-management        /post/what-is-scim-provisioning/                                                                                        301
+/blog/scim-provisioning-a-comprehensive-guide-to-simplifying-user-management        /post/what-is-scim-provisioning/                                                                                        301
+/zh-hant/post/scim-provisioning-a-comprehensive-guide-to-simplifying-user-management /zh-hant/post/what-is-scim-provisioning/                                                                               301
+/zh-hant/blog/scim-provisioning-a-comprehensive-guide-to-simplifying-user-management /zh-hant/post/what-is-scim-provisioning/                                                                               301
+
 # Legacy Webflow redirects — exported from docs/redirects.csv
 /talk-with-us                                                                       /schedule-demo/                                                                                                         301
 /post/digital-customer-experience-ciam                                              /post/digital-customer-experience/                                                                                      301

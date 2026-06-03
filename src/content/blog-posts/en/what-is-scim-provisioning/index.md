@@ -1,15 +1,33 @@
 ---
-title: "What is SCIM Provisioning and How Does it Work?"
-excerpt: "Learn what SCIM provisioning is, how it works, its benefits and drawbacks, and how SaaS teams can implement it securely and at scale."
+title: "What Is SCIM? SCIM Provisioning Explained (2026)"
+h1: "What Is SCIM? SCIM Provisioning and How It Works (2026)"
+excerpt: "SCIM is the open standard that automates user provisioning between identity providers and SaaS apps. Learn how SCIM 2.0 works — endpoints, schemas, provisioning flows, and how to implement it securely."
 coverImage: ./cover.webp
 category: engineering
 featured: false
-metaTitle: "What is SCIM Provisioning? How Does It Work and Why Does it Matter?"
-metaDescription: "SCIM (System for Cross-domain Identity Management) is an open standard protocol used to automate the exchange of user identity information between cloud apps."
+metaTitle: "What Is SCIM? SCIM Provisioning Explained | Authgear"
+metaDescription: "SCIM (System for Cross-domain Identity Management) automates user provisioning between IdPs and SaaS apps. Learn how SCIM 2.0 endpoints, schemas, and sync flows work."
 publishedAt: 2025-12-01T14:57:25.419Z
-updatedAt: 2026-02-28T12:55:40.194Z
+updatedAt: 2026-06-03T00:00:00.000Z
 draft: false
+faq:
+  - q: "What does SCIM stand for?"
+    a: "SCIM stands for System for Cross-domain Identity Management. It is an open standard (RFC 7643 and RFC 7644) that defines a REST API and JSON schema for exchanging user and group identity data between identity providers and applications."
+  - q: "Is SCIM required for SSO?"
+    a: "No. SCIM handles user provisioning and management, while SSO (via OIDC or SAML) manages authentication. They complement each other but serve different purposes."
+  - q: "What is the difference between SCIM and SSO?"
+    a: "SSO answers 'can this person sign in?' — it authenticates users at login via SAML or OIDC. SCIM answers 'does this person's account exist, and is it up to date?' — it creates, updates, and deactivates accounts before and after login. Enterprise deployments typically use both together."
+  - q: "Does SCIM manage passwords?"
+    a: "No. SCIM is not an authentication protocol and does not transmit passwords."
+  - q: "Can SCIM manage roles?"
+    a: "Yes. Roles and permissions can be assigned or updated through SCIM attributes or group memberships."
+  - q: "What is a SCIM endpoint?"
+    a: "A SCIM endpoint is a REST API URL exposed by an application (the service provider) that an identity provider calls to manage accounts — for example /scim/v2/Users for user lifecycle operations and /scim/v2/Groups for group membership."
+  - q: "What happens if provisioning fails?"
+    a: "Failed provisioning stops further updates until the issue is resolved. Clear error messages and logs help identify and fix the problem quickly."
 ---
+
+> **tl;dr** — SCIM (System for Cross-domain Identity Management) is the open standard that lets identity providers like Okta or Microsoft Entra automatically create, update, and deactivate user accounts in your SaaS app through a REST API. SSO logs users in; SCIM makes sure their accounts exist, stay accurate, and get shut off the day they leave.
 
 SCIM (System for Cross-domain Identity Management) provisioning is an open standard protocol that automates the exchange of user identity information between identity providers (IdPs) and service providers (SPs). This process works by using a standardized REST API and JSON to synchronize user data in real-time, ensuring that when an identity is created or updated in a central directory, those changes are instantly reflected across all connected SaaS applications.
 
@@ -89,21 +107,13 @@ Provides metadata describing the available SCIM object types. This improves inte
 
 ## **How SCIM Provisioning Works: Key Concepts**
 
-SCIM is built on a REST-style API with standardized endpoints, designed for predictable CRUD operations on users and groups. The most common endpoints include:
+SCIM is built on a REST-style API with standardized endpoints (defined in RFC 7644), designed for predictable CRUD operations on users and groups:
 
-- `/scim/v2/Users `– for creating, updating, and deactivating user accounts
-- `/scim/v2/Groups` – for managing group memberships and roles
-- `/scim/v2/Bulk` – for handling multiple operations in a single request
-- `/scim/v2/ServiceProviderConfig` – for querying supported features of the SCIM server
-- `/scim/v2/ResourceTypes` – for retrieving available object types
+<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Endpoint</th><th>Purpose</th></tr></thead><tbody><tr><td><code>/scim/v2/Users</code></td><td>Create, read, update, and deactivate user accounts</td></tr><tr><td><code>/scim/v2/Groups</code></td><td>Manage group memberships and role mappings</td></tr><tr><td><code>/scim/v2/Bulk</code></td><td>Handle multiple operations in a single request</td></tr><tr><td><code>/scim/v2/ServiceProviderConfig</code></td><td>Advertise supported features of the SCIM server</td></tr><tr><td><code>/scim/v2/ResourceTypes</code></td><td>Retrieve available object types</td></tr><tr><td><code>/scim/v2/Schemas</code></td><td>Describe attribute definitions for each resource type</td></tr></tbody></table></div>
 
 Identity providers interact with the SaaS platform using standard HTTP methods:
 
-- **Create User** → `POST /User`
-- **Update User** → `PATCH` or `PUT /Users/{id}` 
-- **Deactivate User** → `PATCH /Users/{id} set { active: false }` 
-- **Delete User** → `DELETE /Users/{id}` 
-- **Manage Groups** → `POST/PUT/PATCH /Groups`
+<div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Operation</th><th>HTTP request</th></tr></thead><tbody><tr><td>Create user</td><td><code>POST /Users</code></td></tr><tr><td>Update user</td><td><code>PATCH</code> or <code>PUT /Users/{id}</code></td></tr><tr><td>Deactivate user</td><td><code>PATCH /Users/{id}</code> set <code>{ active: false }</code></td></tr><tr><td>Delete user</td><td><code>DELETE /Users/{id}</code></td></tr><tr><td>Manage groups</td><td><code>POST/PUT/PATCH /Groups</code></td></tr></tbody></table></div>
 
 These API requests trigger the SaaS platform’s internal provisioning logic, such as creating local accounts, assigning permissions, or revoking access when a user leaves the organization.
 
@@ -204,6 +214,8 @@ SCIM is not an authentication protocol. Instead, it complements authentication s
 - <a href="/post/oidc-vs-saml" target="_blank">OIDC or SAML</a> for authentication
 - SCIM for provisioning and attribute synchronization
 - RBAC/ABAC for authorization based on SCIM data
+
+For a deeper comparison of how the provisioning and authentication layers divide the work, see [SCIM vs SAML: What's the Difference?](/post/scim-vs-saml)
 
 This separation of responsibilities keeps authentication lightweight while centralizing identity lifecycle management.
 
