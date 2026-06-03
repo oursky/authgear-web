@@ -1,0 +1,163 @@
+// src/components/widgets/passkey-demo/lib/verifyAssertion.ts
+//
+// Re-implements, in the browser, the checks a relying-party server performs
+// on a WebAuthn assertion (WebAuthn L3 §7.2). Each check becomes a
+// pass/fail step with a teaching-moment explanation. The signature check is
+// real WebCrypto verification against the public key captured at creation.
+
+import { bufToB64url } from './base64url';
+import { parseAuthData } from './authData';
+import { derToRaw } from './derSignature';
+import type { StoredCredential } from './storage';
+
+export interface VerificationStep {
+  id: 'type' | 'challenge' | 'origin' | 'rpIdHash' | 'flags' | 'signature' | 'signCount';
+  label: string;
+  pass: boolean;
+  /** Informational steps render as INFO instead of PASS/FAIL. */
+  info?: boolean;
+  detail: string;
+}
+
+export interface AssertionVerification {
+  steps: VerificationStep[];
+  allPassed: boolean;
+  newSignCount: number;
+}
+
+export interface VerifyAssertionInput {
+  expectedChallenge: string; // base64url of the issued challenge
+  expectedOrigin: string; // e.g. window.location.origin
+  expectedRpId: string; // e.g. window.location.hostname
+  requestedUserVerification: UserVerificationRequirement;
+  clientDataJSON: Uint8Array;
+  authenticatorData: Uint8Array;
+  signature: Uint8Array;
+  credential: StoredCredential;
+}
+
+export async function verifyAssertion(input: VerifyAssertionInput): Promise<AssertionVerification> {
+  const steps: VerificationStep[] = [];
+
+  let clientData: { type?: string; challenge?: string; origin?: string } = {};
+  try {
+    clientData = JSON.parse(new TextDecoder().decode(input.clientDataJSON));
+  } catch {
+    // leave empty — every clientData-based step below will fail with detail
+  }
+
+  steps.push({
+    id: 'type',
+    label: 'clientDataJSON.type is "webauthn.get"',
+    pass: clientData.type === 'webauthn.get',
+    detail: `Got "${clientData.type ?? 'unparseable clientDataJSON'}". A server checks this so a signature minted during registration ("webauthn.create") can never be replayed as a sign-in.`,
+  });
+
+  steps.push({
+    id: 'challenge',
+    label: 'Challenge matches the one issued',
+    pass: clientData.challenge === input.expectedChallenge,
+    detail:
+      'The browser echoes the server\'s random challenge inside the signed clientDataJSON. Matching it proves this assertion was produced for this sign-in attempt — a captured assertion cannot be replayed.',
+  });
+
+  steps.push({
+    id: 'origin',
+    label: `Origin is ${input.expectedOrigin}`,
+    pass: clientData.origin === input.expectedOrigin,
+    detail: `Got "${clientData.origin ?? 'n/a'}". The browser fills this in and the page cannot forge it — the core of why passkeys are phishing-resistant.`,
+  });
+
+  const authData = parseAuthData(input.authenticatorData);
+  const expectedRpIdHash = new Uint8Array(
+    await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.expectedRpId)),
+  );
+  steps.push({
+    id: 'rpIdHash',
+    label: `rpIdHash matches SHA-256("${input.expectedRpId}")`,
+    pass: bufToB64url(authData.rpIdHash) === bufToB64url(expectedRpIdHash),
+    detail:
+      'The authenticator binds every assertion to the relying-party ID it was created for, so a credential registered on one site can never answer for another.',
+  });
+
+  const uvSatisfied = input.requestedUserVerification !== 'required' || authData.flags.uv;
+  steps.push({
+    id: 'flags',
+    label: 'UP / UV flags as requested',
+    pass: authData.flags.up && uvSatisfied,
+    detail: `UP (user present) = ${authData.flags.up}, UV (user verified) = ${authData.flags.uv}; you requested userVerification: "${input.requestedUserVerification}". UP must always be set; UV must be set when verification is required.`,
+  });
+
+  let signatureOk = false;
+  let signatureDetail =
+    'WebCrypto verified the signature over authenticatorData ‖ SHA-256(clientDataJSON) using the public key captured at registration — the cryptographic heart of WebAuthn.';
+  try {
+    const clientDataHash = new Uint8Array(await crypto.subtle.digest('SHA-256', input.clientDataJSON));
+    const signedData = new Uint8Array(input.authenticatorData.length + clientDataHash.length);
+    signedData.set(input.authenticatorData, 0);
+    signedData.set(clientDataHash, input.authenticatorData.length);
+
+    if (input.credential.alg === -7) {
+      const key = await crypto.subtle.importKey(
+        'jwk',
+        input.credential.publicKeyJwk,
+        { name: 'ECDSA', namedCurve: 'P-256' },
+        false,
+        ['verify'],
+      );
+      // WebAuthn ES256 signatures arrive ASN.1/DER-encoded; WebCrypto wants raw r‖s
+      signatureOk = await crypto.subtle.verify(
+        { name: 'ECDSA', hash: 'SHA-256' },
+        key,
+        derToRaw(input.signature),
+        signedData,
+      );
+    } else if (input.credential.alg === -257) {
+      const key = await crypto.subtle.importKey(
+        'jwk',
+        input.credential.publicKeyJwk,
+        { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
+        false,
+        ['verify'],
+      );
+      signatureOk = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, input.signature, signedData);
+    } else {
+      signatureDetail = `Unsupported COSE algorithm ${input.credential.alg} — this demo verifies ES256 (-7) and RS256 (-257).`;
+    }
+    if (!signatureOk && input.credential.alg === -7) {
+      signatureDetail =
+        'The ES256 signature did not verify against the stored public key — the signed data or key does not match.';
+    } else if (!signatureOk && input.credential.alg === -257) {
+      signatureDetail =
+        'The RS256 signature did not verify against the stored public key — the signed data or key does not match.';
+    }
+  } catch (err) {
+    signatureDetail = `Verification threw: ${err instanceof Error ? err.message : String(err)}`;
+  }
+  steps.push({
+    id: 'signature',
+    label: 'Signature verifies against the stored public key',
+    pass: signatureOk,
+    detail: signatureDetail,
+  });
+
+  const previous = input.credential.signCount;
+  steps.push({
+    id: 'signCount',
+    label: 'Sign count progression',
+    pass: true,
+    info: true,
+    detail:
+      authData.signCount === 0
+        ? 'This authenticator reports 0. Most passkey providers (iCloud Keychain, Google Password Manager) always do — a credential synced across devices can\'t keep one shared counter. Servers treat 0 as "counter not supported".'
+        : authData.signCount > previous
+          ? `Counter advanced from ${previous} to ${authData.signCount}. Servers can use this to detect cloned credentials — a clone would eventually present a stale counter.`
+          : `Counter did not advance (${previous} → ${authData.signCount}). A strict server might flag this, but synced passkeys make the counter unreliable, so most treat it as informational.`,
+  });
+
+  return {
+    steps,
+    allPassed: steps.every((s) => s.pass),
+    newSignCount: authData.signCount,
+  };
+}
