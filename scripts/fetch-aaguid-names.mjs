@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // scripts/fetch-aaguid-names.mjs
 //
 // One-shot: snapshot the community-maintained AAGUID → authenticator-name

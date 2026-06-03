@@ -24,5 +24,6 @@ describe('derToRaw', () => {
   it('rejects non-signature input', () => {
     expect(() => derToRaw(hexToBytes('0102'))).toThrow(/SEQUENCE/);
     expect(() => derToRaw(hexToBytes('3003 030101'))).toThrow(/INTEGER/);
+    expect(() => derToRaw(hexToBytes('3004 020101 02'))).toThrow(); // s: tag present, length byte missing
   });
 });

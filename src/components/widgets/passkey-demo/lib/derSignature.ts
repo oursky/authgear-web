@@ -11,8 +11,10 @@ export function derToRaw(der: Uint8Array, coordinateSize = 32): Uint8Array {
   if (der[1] & 0x80) offset += der[1] & 0x7f; // skip long-form length bytes
 
   const readInteger = (): Uint8Array => {
+    if (offset + 1 >= der.length) throw new Error('DER signature: truncated INTEGER');
     if (der[offset] !== 0x02) throw new Error('DER signature: expected INTEGER');
     const len = der[offset + 1];
+    if (offset + 2 + len > der.length) throw new Error('DER signature: INTEGER overruns input');
     offset += 2;
     let bytes = der.slice(offset, offset + len);
     offset += len;

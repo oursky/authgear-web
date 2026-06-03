@@ -26,7 +26,7 @@ interface ReadResult {
 
 /** Decode the first CBOR item; report how many bytes it consumed. */
 export function decodeFirst(bytes: Uint8Array): { value: CborValue; byteLength: number } {
-  const { value, offset } = readItem(bytes, 0);
+  const { value, offset } = readItem(bytes, 0, 0);
   return { value, byteLength: offset };
 }
 
@@ -38,6 +38,8 @@ export function decode(bytes: Uint8Array): CborValue {
   }
   return value;
 }
+
+const MAX_DEPTH = 32;
 
 function readArgument(b: Uint8Array, o: number, ai: number): { arg: number; offset: number } {
   const view = new DataView(b.buffer, b.byteOffset, b.byteLength);
@@ -54,7 +56,8 @@ function readArgument(b: Uint8Array, o: number, ai: number): { arg: number; offs
   throw new Error(`CBOR: unsupported additional info ${ai}`);
 }
 
-function readItem(b: Uint8Array, o: number): ReadResult {
+function readItem(b: Uint8Array, o: number, depth = 0): ReadResult {
+  if (depth > MAX_DEPTH) throw new Error('CBOR: nesting too deep');
   if (o >= b.length) throw new Error('CBOR: unexpected end of input');
   const initial = b[o];
   const major = initial >> 5;
@@ -87,7 +90,7 @@ function readItem(b: Uint8Array, o: number): ReadResult {
       const items: CborValue[] = [];
       let cur = offset;
       for (let i = 0; i < arg; i++) {
-        const r = readItem(b, cur);
+        const r = readItem(b, cur, depth + 1);
         items.push(r.value);
         cur = r.offset;
       }
@@ -98,11 +101,11 @@ function readItem(b: Uint8Array, o: number): ReadResult {
       const map: CborMap = new Map();
       let cur = offset;
       for (let i = 0; i < arg; i++) {
-        const k = readItem(b, cur);
+        const k = readItem(b, cur, depth + 1);
         if (typeof k.value !== 'number' && typeof k.value !== 'string') {
           throw new Error('CBOR: only int/string map keys are supported');
         }
-        const v = readItem(b, k.offset);
+        const v = readItem(b, k.offset, depth + 1);
         map.set(k.value, v.value);
         cur = v.offset;
       }

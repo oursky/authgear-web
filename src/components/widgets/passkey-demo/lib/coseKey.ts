@@ -48,6 +48,9 @@ export function coseToJwk(cose: CborMap): JsonWebKey {
 
 /** Export a public JWK as a PEM-wrapped SPKI via WebCrypto. */
 export async function jwkToPem(jwk: JsonWebKey): Promise<string> {
+  if (jwk.kty !== 'EC' && jwk.kty !== 'RSA') {
+    throw new Error(`jwkToPem: unsupported kty ${String(jwk.kty)}`);
+  }
   const params: EcKeyImportParams | RsaHashedImportParams =
     jwk.kty === 'EC'
       ? { name: 'ECDSA', namedCurve: 'P-256' }

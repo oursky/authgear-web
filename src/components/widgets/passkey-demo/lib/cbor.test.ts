@@ -65,4 +65,10 @@ describe('cbor decode', () => {
     expect(() => decode(hexToBytes('f97e00'))).toThrow(); // float16
     expect(() => decode(new Uint8Array([]))).toThrow(); // empty input
   });
+
+  it('throws on excessive nesting instead of overflowing the stack', () => {
+    // 64 nested single-element arrays around a 0
+    const nested = concatBytes(new Uint8Array(64).fill(0x81), cborUint(0));
+    expect(() => decode(nested)).toThrow(/deep/i);
+  });
 });
