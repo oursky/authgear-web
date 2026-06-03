@@ -28,9 +28,13 @@ export async function inspectCredential(
   attestationObjectB64: string,
   clientDataJSONB64: string,
 ): Promise<CredentialInspection> {
-  const clientData = JSON.parse(
+  const clientDataRaw = JSON.parse(
     new TextDecoder().decode(b64urlToBuf(clientDataJSONB64)),
-  ) as CredentialInspection['clientData'];
+  ) as unknown;
+  if (typeof clientDataRaw !== 'object' || clientDataRaw === null) {
+    throw new Error('clientDataJSON is not a JSON object');
+  }
+  const clientData = clientDataRaw as CredentialInspection['clientData'];
 
   const attObj = decode(b64urlToBuf(attestationObjectB64));
   if (!(attObj instanceof Map)) throw new Error('attestationObject is not a CBOR map');

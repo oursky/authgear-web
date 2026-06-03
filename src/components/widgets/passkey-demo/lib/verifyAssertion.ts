@@ -65,10 +65,23 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
     id: 'origin',
     label: `Origin is ${input.expectedOrigin}`,
     pass: clientData.origin === input.expectedOrigin,
+    // crossOrigin check (L3 §7.2 step 9) omitted: this demo page is always same-origin
     detail: `Got "${clientData.origin ?? 'n/a'}". The browser fills this in and the page cannot forge it — the core of why passkeys are phishing-resistant.`,
   });
 
-  const authData = parseAuthData(input.authenticatorData);
+  let authData: ReturnType<typeof parseAuthData>;
+  try {
+    authData = parseAuthData(input.authenticatorData);
+  } catch (err) {
+    steps.push({
+      id: 'rpIdHash',
+      label: 'Authenticator data parses',
+      pass: false,
+      detail: `Could not parse authenticatorData: ${err instanceof Error ? err.message : String(err)}`,
+    });
+    return { steps, allPassed: false, newSignCount: 0 };
+  }
+
   const expectedRpIdHash = new Uint8Array(
     await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.expectedRpId)),
   );
@@ -157,7 +170,8 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
 
   return {
     steps,
-    allPassed: steps.every((s) => s.pass),
+    // info-only steps (sign count) never affect the verdict
+    allPassed: steps.every((s) => s.info || s.pass),
     newSignCount: authData.signCount,
   };
 }

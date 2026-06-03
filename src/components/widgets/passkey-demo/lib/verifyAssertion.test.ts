@@ -107,6 +107,12 @@ describe('verifyAssertion', () => {
     expect(result.steps.find((s) => s.id === 'flags')?.pass).toBe(false);
   });
 
+  it('fails the flags step when UP is not set', async () => {
+    const f = await makeAssertion({ flags: 0x04 }); // UV only, no UP
+    const result = await verifyAssertion(inputFor(f));
+    expect(result.steps.find((s) => s.id === 'flags')?.pass).toBe(false);
+  });
+
   it('fails the signature step when the signed data is tampered with', async () => {
     const f = await makeAssertion();
     const tampered = new Uint8Array(f.authenticatorData);
