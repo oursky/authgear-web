@@ -1,9 +1,10 @@
 export const hmac = {
-  metaTitle: 'HMAC Signature Generator/Verifier',
+  metaTitle: 'HMAC Generator & Verifier — SHA-256, SHA-384, SHA-512 | Authgear',
   metaDescription:
-    'Free HMAC generator and verifier by Authgear: Create and check HMAC signatures online using SHA-256, SHA-512, and more. All operations happen securely in-browser with no data leaving your device',
+    'Generate and verify HMAC-SHA256, SHA-384, and SHA-512 signatures with Hex or Base64 output. Runs entirely in your browser — your secret key never leaves your device.',
   heroTitle: 'HMAC Signature Generator/Verifier',
-  heroDescription: 'Securely generate and verify HMAC signatures for your payloads',
+  heroDescription:
+    'Generate and verify HMAC-SHA256, SHA-384, and SHA-512 signatures with Hex or Base64 output. All computation happens locally in your browser — your secret key and payload never leave your device.',
   iframeTitle: 'HMAC Signature Generator/Verifier',
   policyPrefix:
     'Your data security is our top priority. All signature generation and verification happen entirely in your browser. This tool does not store or transmit your payloads, secrets, or signatures outside of the browser. See source code in: ',
@@ -11,7 +12,7 @@ export const hmac = {
   howSectionTitle: 'How the HMAC Signature Generator Works',
   supportedAlgorithmsTitle: 'Supported Algorithms',
   supportedAlgorithmsIntro:
-    'Generate and convert cryptographic keys in PEM and JWK formats for secure signing and encryption.',
+    'Compute HMAC signatures with any of these hash algorithms, output as Hex or Base64. Useful for webhook signature verification, API request signing, and data integrity checks.',
   algHs256: 'HMAC + SHA-256',
   algHs384: 'HMAC + SHA-384',
   algHs512: 'HMAC + SHA-512',
@@ -38,5 +39,5 @@ export const hmac = {
   bestPracticesTitle: 'Best Practices',
   bp1: 'Keep your webhook secret confidential and avoid sharing it publicly.',
   bp2: 'Always verify incoming webhook signatures before processing payloads.',
-  bp3: 'Use a secure algorithm compatible with your platform.',
+  bp3: 'Prefer SHA-256 or stronger; avoid MD5- and SHA-1-based HMACs in new systems.',
 } as const;
