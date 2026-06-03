@@ -41,7 +41,9 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
     setError(null);
     try {
       const options = buildCreationOptions(config, challenge, userId, rpId);
-      const cred = (await navigator.credentials.create({ publicKey: options })) as PublicKeyCredential;
+      const rawCred = await navigator.credentials.create({ publicKey: options });
+      if (!rawCred) throw new DOMException('The authenticator returned nothing.', 'NotAllowedError');
+      const cred = rawCred as PublicKeyCredential;
       const resp = cred.response as AuthenticatorAttestationResponse;
       const attestationObject = bufToB64url(new Uint8Array(resp.attestationObject));
       const clientDataJSON = bufToB64url(new Uint8Array(resp.clientDataJSON));
@@ -159,6 +161,7 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
         type="button"
         onClick={handleCreate}
         disabled={busy || !config.userName.trim()}
+        aria-busy={busy}
         className="mt-4 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
       >
         {busy ? 'Waiting for your authenticator…' : 'Create a passkey'}

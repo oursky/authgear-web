@@ -6,6 +6,7 @@ interface Props {
   value: string;
 }
 
+// `label` doubles as the copied-state id — labels must be unique within a parent.
 export default function CopyField({ label, value }: Props) {
   const { copied, copy } = useClipboard();
   return (

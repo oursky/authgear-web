@@ -1,5 +1,6 @@
 import type { AuthDataFlags } from '../lib/authData';
 
+// 'ed' (extension data) is deliberately omitted — extensions are plumbing, not teaching material.
 type FlagKey = keyof Omit<AuthDataFlags, 'raw' | 'ed'>;
 
 const FLAGS: Array<{ key: FlagKey; label: string; title: string }> = [
@@ -17,6 +18,7 @@ export default function FlagBadges({ flags }: { flags: AuthDataFlags }) {
         <span
           key={label}
           title={title}
+          aria-label={`${label}: ${title}`}
           className={`rounded border px-2 py-0.5 font-mono text-xs ${
             flags[key]
               ? 'border-emerald-300 bg-emerald-50 text-emerald-700'
