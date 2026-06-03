@@ -1,0 +1,43 @@
+/* src/components/widgets/passkey-demo/passkey-demo.css */
+/* Reset Webflow's global rules that bleed into the widget so Tailwind
+   utility classes drive every visual decision from inside the JSX
+   (same approach as password-hash.css). Class-name collisions are avoided
+   because the widget uses Tailwind utilities, not generic class names. */
+[data-testid='passkey-demo-widget'] label {
+  color: inherit;
+  margin-bottom: 0;
+  font-weight: inherit;
+  line-height: inherit;
+  display: block;
+}
+
+[data-testid='passkey-demo-widget'] ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+[data-testid='passkey-demo-widget'] h3,
+[data-testid='passkey-demo-widget'] h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Webflow collision resets — these class names exist in authgear-new.webflow.css
+   with different or conflicting definitions; re-assert Tailwind's intent here. */
+[data-testid='passkey-demo-widget'] .flex {
+  display: flex;
+}
+
+[data-testid='passkey-demo-widget'] .text-center {
+  text-align: center;
+}
+
+/* Webflow's .underline is a decorative block element (background + height);
+   Tailwind's .underline is text-decoration. Reset to Tailwind's meaning. */
+[data-testid='passkey-demo-widget'] .underline {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  text-decoration-line: underline;
+}
