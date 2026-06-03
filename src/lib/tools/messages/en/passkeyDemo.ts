@@ -51,18 +51,18 @@ export const passkeyDemo = {
   faqWebauthnLinkHref: '/post/how-to-implement-passkeys-developer-guide',
   faqSafeTitle: 'Is it safe to create a passkey here?',
   faqSafeBody:
-    "Yes. The passkey this page creates is real, but it is scoped to this site only and useful for nothing but this demo. The private key stays in your device’s authenticator; the public key and credential metadata are kept only in your browser’s localStorage. There is no server — nothing is transmitted anywhere. You can delete the demo record with one click and remove the passkey itself from your device at any time.",
+    'Yes. The passkey this page creates is real, but it is scoped to this site only and useful for nothing but this demo. The private key stays in your device’s authenticator; the public key and credential metadata are kept only in your browser’s localStorage. There is no server — nothing is transmitted anywhere. You can delete the demo record with one click and remove the passkey itself from your device at any time.',
   faqDeleteTitle: 'How do I delete the demo passkey from my device?',
   faqDeleteIntro:
-    "The \"Delete\" button in the tool only removes this page's record. To remove the passkey from your device:",
+    'The “Delete” button in the tool only removes this page’s record. To remove the passkey from your device:',
   faqDeleteIos: 'iOS / macOS: Settings → Passwords (or the Passwords app) → find this site → delete the passkey.',
   faqDeleteAndroid: 'Android / Chrome: Google Password Manager → Passwords → find this site → delete.',
   faqDeleteWindows: 'Windows: Settings → Accounts → Passkeys → find this site → remove.',
   faqDeleteManagers: 'Password managers (1Password, Bitwarden, …): find the item for this site and delete it there.',
   faqAaguidTitle: 'What is an AAGUID?',
   faqAaguidBody:
-    'The AAGUID (Authenticator Attestation Globally Unique Identifier) is a 16-byte ID that identifies the authenticator model — e.g. Google Password Manager or a YubiKey 5 — not your individual device. This tool resolves it against a bundled snapshot of the community-maintained passkey-authenticator-aaguids list. With attestation set to "none" (the default), many authenticators zero it out for privacy.',
+    'The AAGUID (Authenticator Attestation Globally Unique Identifier) is a 16-byte ID that identifies the authenticator model — e.g. Google Password Manager or a YubiKey 5 — not your individual device. This tool resolves it against a bundled snapshot of the community-maintained passkey-authenticator-aaguids list. With attestation set to “none” (the default), many authenticators zero it out for privacy.',
   faqSignCountTitle: 'Why does the sign count show 0?',
   faqSignCountBody:
-    "The signature counter was designed to detect cloned credentials: each use should increment it. But a synced passkey lives on several devices at once and can't maintain one shared counter, so most passkey providers — iCloud Keychain, Google Password Manager — always report 0, meaning \"counter not supported\". Hardware security keys usually do increment it.",
+    'The signature counter was designed to detect cloned credentials: each use should increment it. But a synced passkey lives on several devices at once and can’t maintain one shared counter, so most passkey providers — iCloud Keychain, Google Password Manager — always report 0, meaning “counter not supported”. Hardware security keys usually do increment it.',
 } as const;
