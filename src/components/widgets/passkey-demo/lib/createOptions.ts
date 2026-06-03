@@ -38,8 +38,8 @@ export function buildCreationOptions(
   if (cfg.attachment) authenticatorSelection.authenticatorAttachment = cfg.attachment;
   return {
     rp: { id: rpId, name: RP_NAME },
-    user: { id: userId, name: cfg.userName, displayName: cfg.userName },
-    challenge,
+    user: { id: userId as BufferSource, name: cfg.userName, displayName: cfg.userName },
+    challenge: challenge as BufferSource,
     pubKeyCredParams: pubKeyCredParams(cfg),
     timeout: TIMEOUT_MS,
     authenticatorSelection,

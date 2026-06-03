@@ -92,7 +92,7 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
   let signatureDetail =
     'WebCrypto verified the signature over authenticatorData ‖ SHA-256(clientDataJSON) using the public key captured at registration — the cryptographic heart of WebAuthn.';
   try {
-    const clientDataHash = new Uint8Array(await crypto.subtle.digest('SHA-256', input.clientDataJSON));
+    const clientDataHash = new Uint8Array(await crypto.subtle.digest('SHA-256', input.clientDataJSON as BufferSource));
     const signedData = new Uint8Array(input.authenticatorData.length + clientDataHash.length);
     signedData.set(input.authenticatorData, 0);
     signedData.set(clientDataHash, input.authenticatorData.length);
@@ -109,8 +109,8 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
       signatureOk = await crypto.subtle.verify(
         { name: 'ECDSA', hash: 'SHA-256' },
         key,
-        derToRaw(input.signature),
-        signedData,
+        derToRaw(input.signature) as BufferSource,
+        signedData as BufferSource,
       );
     } else if (input.credential.alg === -257) {
       const key = await crypto.subtle.importKey(
@@ -120,7 +120,7 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
         false,
         ['verify'],
       );
-      signatureOk = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, input.signature, signedData);
+      signatureOk = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, input.signature as BufferSource, signedData as BufferSource);
     } else {
       signatureDetail = `Unsupported COSE algorithm ${input.credential.alg} — this demo verifies ES256 (-7) and RS256 (-257).`;
     }

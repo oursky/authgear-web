@@ -32,10 +32,10 @@ async function makeAssertion(opts: { signCount?: number; flags?: number } = {}):
   authenticatorData[32] = opts.flags ?? 0x05; // UP + UV
   new DataView(authenticatorData.buffer).setUint32(33, opts.signCount ?? 0);
 
-  const clientDataHash = new Uint8Array(await crypto.subtle.digest('SHA-256', clientDataJSON));
+  const clientDataHash = new Uint8Array(await crypto.subtle.digest('SHA-256', clientDataJSON as BufferSource));
   const signedData = concatBytes(authenticatorData, clientDataHash);
   const rawSig = new Uint8Array(
-    await crypto.subtle.sign({ name: 'ECDSA', hash: 'SHA-256' }, kp.privateKey, signedData),
+    await crypto.subtle.sign({ name: 'ECDSA', hash: 'SHA-256' }, kp.privateKey, signedData as BufferSource),
   );
 
   const credential: StoredCredential = {
