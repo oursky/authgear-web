@@ -4,9 +4,11 @@ type Props = {
   locale: string;
   title?: string;
   subtitle?: string;
+  href?: string;
+  ctaLabel?: string;
 };
 
-export default function ToolReadyTo({ locale, title, subtitle }: Props) {
+export default function ToolReadyTo({ locale, title, subtitle, href, ctaLabel }: Props) {
   const t = (key: string): string => tFn(locale, `Tools.common.${key}`);
   const resolvedTitle = title ?? t('readyTitleDefault');
   const resolvedSubtitle = subtitle ?? t('readySubtitleDefault');
@@ -16,8 +18,11 @@ export default function ToolReadyTo({ locale, title, subtitle }: Props) {
         <img src="/images/ui_gallery_authgear-circle.svg" loading="lazy" alt="" />
         <p className="paragraph-13">{resolvedTitle}</p>
         <p className="paragraph-12 speciial-color">{resolvedSubtitle}</p>
-        <a href="https://accounts.portal.authgear.com/signup" className="gallery-button gallery-page-button w-button">
-          {t('getStartedFree')}
+        <a
+          href={href ?? 'https://accounts.portal.authgear.com/signup'}
+          className="gallery-button gallery-page-button w-button"
+        >
+          {ctaLabel ?? t('getStartedFree')}
         </a>
       </div>
     </section>
