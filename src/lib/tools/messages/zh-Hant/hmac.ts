@@ -1,9 +1,10 @@
 export const hmac = {
-  metaTitle: 'HMAC 簽章產生／驗證',
+  metaTitle: 'HMAC 產生與驗證 — SHA-256、SHA-384、SHA-512 | Authgear',
   metaDescription:
-    'Authgear 提供的免費 HMAC 產生與驗證：在線上以 SHA-256、SHA-512 等建立並檢查 HMAC 簽章。所有運算皆在瀏覽器內安全完成，資料不離開您的裝置。',
+    '免費線上 HMAC 產生與驗證工具，支援 SHA-256、SHA-384、SHA-512，輸出 Hex 或 Base64。所有運算皆在瀏覽器本機完成，密鑰與資料絕不離開您的裝置。',
   heroTitle: 'HMAC 簽章產生／驗證',
-  heroDescription: '安全地為承載內容產生並驗證 HMAC 簽章',
+  heroDescription:
+    '產生並驗證 HMAC-SHA256、SHA-384、SHA-512 簽章，支援 Hex 與 Base64 輸出。所有運算皆在瀏覽器本機完成——您的密鑰與承載內容絕不離開裝置。',
   iframeTitle: 'HMAC 簽章產生／驗證',
   policyPrefix:
     '您的資料安全是我們的首要考量。簽章產生與驗證完全在您的瀏覽器內完成。本工具不會儲存或將承載、密鑰或簽章傳送到瀏覽器以外。原始碼請見：',
@@ -11,7 +12,7 @@ export const hmac = {
   howSectionTitle: 'HMAC 簽章產生器如何運作',
   supportedAlgorithmsTitle: '支援的演算法',
   supportedAlgorithmsIntro:
-    '在 PEM 與 JWK 格式之間產生與轉換密鑰，用於安全簽章與加密。',
+    '使用以下雜湊演算法計算 HMAC 簽章，輸出 Hex 或 Base64，適用於 webhook 簽章驗證、API 請求簽署與資料完整性檢查。',
   algHs256: 'HMAC + SHA-256',
   algHs384: 'HMAC + SHA-384',
   algHs512: 'HMAC + SHA-512',
@@ -37,5 +38,5 @@ export const hmac = {
   bestPracticesTitle: '最佳實踐',
   bp1: '妥善保管 webhook 密鑰，勿公開分享。',
   bp2: '處理承載前務必先驗證收到的 webhook 簽章。',
-  bp3: '使用與平台相容的安全演算法。',
+  bp3: '優先使用 SHA-256 或更強的演算法；新系統應避免使用以 MD5 或 SHA-1 為基礎的 HMAC。',
 } as const;
