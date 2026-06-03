@@ -37,6 +37,8 @@ A **JWKS** is simply a JSON object with a `keys` array that bundles multiple JWK
 
 Why this matters: services that issue tokens publish a JWKS so other services (APIs, clients) can automatically fetch the public keys they need to verify token signatures or encrypt payloads. The JWKS standard makes this machine-readable and interoperable across libraries.
 
+> 💡 **Try it as you read:** generate a JWK (or convert a PEM key to JWK format) with the free [JWK Generator](/tools/jwk-generator), or fetch a real provider's live JWKS with the [OIDC Discovery Endpoint Explorer](/tools/oidc-discovery-endpoint).
+
 ## How JWKS Works in Authentication & APIs
 
 Typical flow in an API ecosystem:
@@ -209,6 +211,11 @@ You can generate JWKs via libraries (OpenSSL &rarr; convert to JWK, or use JOSE 
 </ul>
 
 You don't need deep knowledge of JWT/JWE to use JWKS — just remember JWKS is the standard way to distribute public keys that make JWT signature verification and JWE encryption interoperable.
+
+**Related reading:**
+
+- [JWE vs JWT: Key Differences, Use Cases, and Security Tips](/post/jwe-vs-jwt) — when to sign and when to encrypt
+- [What Is .well-known/openid-configuration?](/post/well-known-openid-configuration) — the discovery document where the `jwks_uri` lives
 
 ## Conclusion
 

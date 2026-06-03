@@ -291,4 +291,6 @@ Every Authgear project publishes a discovery document at `https://your-project.a
 <ul>
   <li><a href="/tools/oidc-discovery-endpoint">Inspect any provider's discovery document</a> with the free OIDC Discovery Endpoint Explorer</li>
   <li>Learn about JWKS in <a href="/post/what-is-jwks">What Is a JWKS URI? JWT Key Sets Explained for Developers</a></li>
+  <li>Compare the two big SSO protocols in <a href="/post/oidc-vs-saml">OIDC vs SAML: When to Use Each for Modern SSO</a></li>
+  <li>Understand the tokens themselves in <a href="/post/jwe-vs-jwt">JWE vs JWT: Key Differences, Use Cases, and Security Tips</a></li>
 </ul>

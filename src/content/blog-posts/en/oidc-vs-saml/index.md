@@ -27,6 +27,8 @@ If you only have a minute, here's the short answer:
 
 **Rule of thumb (2026):** start with OIDC unless you're integrating with a legacy enterprise IdP that only speaks SAML. The rest of this guide covers each protocol in depth, when each shines, and how to support both with a modern auth platform.
 
+> 💡 **See the difference for yourself:** OIDC providers publish their entire configuration at a single discovery URL. Paste any issuer (Google, Microsoft, your own) into the free [OIDC Discovery Endpoint Explorer](/tools/oidc-discovery-endpoint) and inspect it live — then compare that to SAML's manual XML metadata exchange.
+
 ## **OIDC: An Overview**
 
 Many teams search for **“What is OIDC?”** or **“OpenID Connect vs OAuth2”** to understand how [OIDC modernizes authentication](/post/revolutionize-your-security-with-oidc-authentication-authgear). OIDC is a lightweight identity layer built on top of OAuth 2.0, enabling applications to securely authenticate users using JSON, REST, and JWT tokens. While OAuth 2.0 focuses on authorization, OIDC specifically handles authentication.
@@ -268,6 +270,12 @@ Implementation complexity, SDK availability, and metadata handling vary between 
 - OIDC SPAs require PKCE → security risk if omitted
 - Token storage in OIDC must be secure → prevent XSS attacks
 - Certificate updates in SAML must be synchronized between the IdP and the SP — and a missing intermediate in the [SSL certificate chain](/post/ssl-certificate-chain) on either side will silently break SSO for mobile clients while desktop browsers continue working from cached intermediates.
+
+**Related reading:**
+
+- [What Is .well-known/openid-configuration?](/post/well-known-openid-configuration) — how OIDC auto-discovery works under the hood
+- [What Is JWKS?](/post/what-is-jwks) — the key set that makes OIDC token verification automatic
+- [Top 10 SSO Providers in 2026](/post/top-10-sso-providers-in-2026-secure-convenient-and-scalable) — compare platforms that support both protocols
 
 ## **How To Choose the Right Protocol for Your Apps?**
 
