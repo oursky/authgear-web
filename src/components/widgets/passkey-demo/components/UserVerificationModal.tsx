@@ -6,12 +6,12 @@ const OPTIONS: { value: UserVerificationRequirement; label: string; tag?: string
     value: 'preferred',
     label: 'Preferred',
     tag: 'default',
-    desc: "Verify with biometric or PIN if the device supports it, but still allow sign-in if it can't. Sensible default for most apps.",
+    desc: 'Verify with biometric or PIN if the device supports it, but still allow sign-in if it can’t. Sensible default for most apps.',
   },
   {
     value: 'required',
     label: 'Required',
-    desc: "The user must be verified (Face ID / Touch ID / Windows Hello / PIN). If the authenticator can't, the sign-in fails. Use for sensitive actions.",
+    desc: 'The user must be verified (Face ID / Touch ID / Windows Hello / PIN). If the authenticator can’t, the sign-in fails. Use for sensitive actions.',
   },
   {
     value: 'discouraged',
@@ -31,7 +31,7 @@ export default function UserVerificationModal({ open, value, onChange, onClose }
   return (
     <Modal open={open} onClose={onClose} title="User verification">
       <p className="mb-3 text-xs leading-relaxed text-slate-500">
-        How strongly the authenticator must confirm it's really you during sign-in. Sets the{' '}
+        How strongly the authenticator must confirm it’s really you during sign-in. Sets the{' '}
         <code className="rounded bg-slate-100 px-1 py-0.5">userVerification</code> field on{' '}
         <code className="rounded bg-slate-100 px-1 py-0.5">navigator.credentials.get()</code> — watch the UV
         flag change in the verification steps.
