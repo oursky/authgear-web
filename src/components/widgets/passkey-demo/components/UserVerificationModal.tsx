@@ -71,7 +71,7 @@ export default function UserVerificationModal({ open, value, onChange, onClose }
         })}
       </div>
       <div className="mt-4 flex items-center justify-between gap-3">
-        <span className="text-xs text-slate-400">Applies to both "Sign in" and "Sign in with any passkey".</span>
+        <span className="text-xs text-slate-400">Applies to both “Sign in” and “Sign in with any passkey”.</span>
         <button
           type="button"
           onClick={onClose}

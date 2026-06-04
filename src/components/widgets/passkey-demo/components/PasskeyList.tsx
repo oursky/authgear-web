@@ -37,6 +37,7 @@ export default function PasskeyList({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [busyId, setBusyId] = useState<string | null>(null); // a credentialId, or DISCOVERABLE
   const [discoverableError, setDiscoverableError] = useState<string | null>(null);
+  const [matchedId, setMatchedId] = useState<string | null>(null); // last successfully-signed-in row
 
   // Newest first so a just-created passkey shows at the top, near Create.
   const sorted = [...credentials].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
@@ -87,6 +88,7 @@ export default function PasskeyList({
       credential,
     });
     onUpdateSignCount(credentialId, verification.newSignCount);
+    setMatchedId(credentialId); // highlight the row that just signed in (esp. discoverable)
     setVerifications((prev) => ({ ...prev, [credentialId]: verification }));
     setErrors((prev) => {
       const next = { ...prev };
@@ -186,7 +188,7 @@ export default function PasskeyList({
             <PasskeyRow
               key={c.credentialId}
               credential={c}
-              highlight={c.credentialId === highlightId}
+              highlight={c.credentialId === highlightId || c.credentialId === matchedId}
               expanded={expanded.has(c.credentialId)}
               busy={busyId === c.credentialId}
               verification={verifications[c.credentialId] ?? null}
