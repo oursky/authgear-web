@@ -103,6 +103,7 @@ export default function PasskeyList({
         : String(err);
 
   const signIn = async (credential: StoredCredential) => {
+    if (busyId !== null) return; // one sign-in ceremony at a time
     setBusyId(credential.credentialId);
     setDiscoverableError(null);
     try {
@@ -115,6 +116,7 @@ export default function PasskeyList({
   };
 
   const signInDiscoverable = async () => {
+    if (busyId !== null) return; // one sign-in ceremony at a time
     setBusyId(DISCOVERABLE);
     setDiscoverableError(null);
     try {
@@ -156,7 +158,7 @@ export default function PasskeyList({
         <button
           type="button"
           onClick={signInDiscoverable}
-          disabled={busyId === DISCOVERABLE}
+          disabled={busyId !== null}
           aria-busy={busyId === DISCOVERABLE}
           className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
         >

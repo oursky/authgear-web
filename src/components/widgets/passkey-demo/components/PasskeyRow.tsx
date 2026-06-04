@@ -50,7 +50,10 @@ export default function PasskeyRow({
     return () => {
       cancelled = true;
     };
-  }, [expanded, inspection, inspectError, credential]);
+    // Depend on the stable stored blobs, not the credential object — its identity
+    // changes when the store updates signCount after a sign-in, which would
+    // otherwise re-trigger a redundant decode mid-flight.
+  }, [expanded, inspection, inspectError, credential.attestationObject, credential.clientDataJSON]);
 
   return (
     <li className={`rounded-lg border p-4 ${highlight ? 'border-blue-400 ring-2 ring-blue-400/30' : 'border-slate-200'}`}>
