@@ -79,7 +79,7 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
   };
 
   return (
-    <Panel step={1} title="Create a passkey">
+    <Panel title="Create a passkey">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="text-sm">
           <span className="mb-1 block font-medium text-slate-700">User name</span>
