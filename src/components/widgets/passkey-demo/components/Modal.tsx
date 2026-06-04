@@ -13,19 +13,28 @@ export default function Modal({ open, onClose, title, children }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
   const lastFocused = useRef<HTMLElement | null>(null);
 
+  // Hold the latest onClose in a ref so the open/close effect doesn't depend on
+  // it. onClose is a fresh closure each parent render; if it were a dep, any
+  // parent re-render while the dialog is open would re-run the effect's cleanup
+  // and steal focus back to the trigger mid-interaction.
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
+
   useEffect(() => {
     if (!open) return;
     lastFocused.current = (document.activeElement as HTMLElement) ?? null;
     cardRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') onCloseRef.current();
     };
     document.addEventListener('keydown', onKey);
     return () => {
       document.removeEventListener('keydown', onKey);
       lastFocused.current?.focus?.();
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open) return null;
 
