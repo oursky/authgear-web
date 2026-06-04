@@ -1,36 +1,32 @@
 // src/components/widgets/passkey-demo/PasskeyDemoWidget.tsx
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CreatePanel from './components/CreatePanel';
-import InspectPanel from './components/InspectPanel';
-import SignInPanel from './components/SignInPanel';
-import CredentialList from './components/CredentialList';
+import PasskeyList from './components/PasskeyList';
 import Tooltip from './components/Tooltip';
 import { useCredentialStore } from './hooks/useCredentialStore';
 import { useFeatureDetection } from './hooks/useFeatureDetection';
-import { inspectCredential, type CredentialInspection } from './lib/inspect';
 import type { StoredCredential } from './lib/storage';
 import './passkey-demo.css';
 
 export default function PasskeyDemoWidget() {
   const features = useFeatureDetection();
   const store = useCredentialStore();
-  const [inspection, setInspection] = useState<CredentialInspection | null>(null);
-  const [inspectError, setInspectError] = useState<string | null>(null);
+  const [highlightId, setHighlightId] = useState<string | null>(null);
+  const highlightTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleCreated = (record: StoredCredential, insp: CredentialInspection) => {
+  useEffect(
+    () => () => {
+      if (highlightTimer.current) clearTimeout(highlightTimer.current);
+    },
+    [],
+  );
+
+  // CreatePanel calls onCreated(record, inspection); we only need the record.
+  const handleCreated = (record: StoredCredential) => {
     store.add(record);
-    setInspection(insp);
-    setInspectError(null);
-  };
-
-  const handleInspectStored = async (record: StoredCredential) => {
-    try {
-      setInspection(await inspectCredential(record.attestationObject, record.clientDataJSON));
-      setInspectError(null);
-    } catch (err) {
-      setInspection(null);
-      setInspectError(err instanceof Error ? err.message : String(err));
-    }
+    setHighlightId(record.credentialId);
+    if (highlightTimer.current) clearTimeout(highlightTimer.current);
+    highlightTimer.current = setTimeout(() => setHighlightId(null), 2500);
   };
 
   // SSR and pre-mount: render a stable placeholder so hydration is clean.
@@ -51,9 +47,9 @@ export default function PasskeyDemoWidget() {
         data-testid="passkey-demo-widget"
         className="mx-auto w-full max-w-3xl rounded-2xl border border-slate-200 bg-white p-8 font-sans text-slate-800"
       >
-        <div role="heading" aria-level={3} className="mb-2 text-lg font-semibold">Your browser doesn't support WebAuthn</div>
+        <div role="heading" aria-level={3} className="mb-2 text-lg font-semibold">Your browser doesn’t support WebAuthn</div>
         <p className="text-sm text-slate-600">
-          This demo needs the WebAuthn API (<code>window.PublicKeyCredential</code>), which isn't available
+          This demo needs the WebAuthn API (<code>window.PublicKeyCredential</code>), which isn’t available
           here. Try a current version of Chrome, Edge, Safari, or Firefox — the supported-platforms section
           below shows where passkeys work.
         </p>
@@ -81,13 +77,13 @@ export default function PasskeyDemoWidget() {
         />
       </div>
       <CreatePanel rpId={rpId} onCreated={handleCreated} />
-      <InspectPanel inspection={inspection} error={inspectError} />
-      <SignInPanel rpId={rpId} credentials={store.credentials} onVerified={store.updateSignCount} />
-      <CredentialList
+      <PasskeyList
+        rpId={rpId}
         credentials={store.credentials}
-        onInspect={handleInspectStored}
+        highlightId={highlightId}
         onDelete={store.remove}
-        onClearAll={store.clear}
+        onClear={store.clear}
+        onUpdateSignCount={store.updateSignCount}
       />
     </div>
   );
@@ -102,11 +98,12 @@ function FeatureBadge({
   state: boolean | null;
   tooltip: string;
 }) {
-  const cls = state === true
-    ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
-    : state === null
-      ? 'border-amber-200 bg-amber-50 text-amber-600'
-      : 'border-slate-200 bg-slate-50 text-slate-500';
+  const cls =
+    state === true
+      ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+      : state === null
+        ? 'border-amber-200 bg-amber-50 text-amber-600'
+        : 'border-slate-200 bg-slate-50 text-slate-500';
   const stateText = state === null ? 'unknown' : state ? 'available' : 'unavailable';
   return (
     <Tooltip text={tooltip}>
