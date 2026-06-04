@@ -4,6 +4,7 @@ import CreatePanel from './components/CreatePanel';
 import InspectPanel from './components/InspectPanel';
 import SignInPanel from './components/SignInPanel';
 import CredentialList from './components/CredentialList';
+import Tooltip from './components/Tooltip';
 import { useCredentialStore } from './hooks/useCredentialStore';
 import { useFeatureDetection } from './hooks/useFeatureDetection';
 import { inspectCredential, type CredentialInspection } from './lib/inspect';
@@ -50,7 +51,7 @@ export default function PasskeyDemoWidget() {
         data-testid="passkey-demo-widget"
         className="mx-auto w-full max-w-3xl rounded-2xl border border-slate-200 bg-white p-8 font-sans text-slate-800"
       >
-        <h3 className="mb-2 text-lg font-semibold">Your browser doesn't support WebAuthn</h3>
+        <div role="heading" aria-level={3} className="mb-2 text-lg font-semibold">Your browser doesn't support WebAuthn</div>
         <p className="text-sm text-slate-600">
           This demo needs the WebAuthn API (<code>window.PublicKeyCredential</code>), which isn't available
           here. Try a current version of Chrome, Edge, Safari, or Firefox — the supported-platforms section
@@ -68,8 +69,16 @@ export default function PasskeyDemoWidget() {
       className="mx-auto flex w-full max-w-3xl flex-col gap-6 font-sans text-slate-800"
     >
       <div className="flex flex-wrap gap-2 text-xs">
-        <FeatureBadge label="Platform authenticator" state={features.platformAuthenticator} />
-        <FeatureBadge label="Conditional mediation (autofill UI)" state={features.conditionalMediation} />
+        <FeatureBadge
+          label="Platform authenticator"
+          state={features.platformAuthenticator}
+          tooltip="Whether this device has a built-in authenticator — Touch ID, Face ID, or Windows Hello — that can create and store a passkey locally. “Available” means you can make a device-bound passkey right here."
+        />
+        <FeatureBadge
+          label="Conditional mediation (autofill UI)"
+          state={features.conditionalMediation}
+          tooltip="Whether the browser can offer your saved passkeys directly in the sign-in field’s autofill dropdown, instead of a separate popup. “Available” means this browser supports that smoother sign-in flow."
+        />
       </div>
       <CreatePanel rpId={rpId} onCreated={handleCreated} />
       <InspectPanel inspection={inspection} error={inspectError} />
@@ -84,15 +93,29 @@ export default function PasskeyDemoWidget() {
   );
 }
 
-function FeatureBadge({ label, state }: { label: string; state: boolean | null }) {
+function FeatureBadge({
+  label,
+  state,
+  tooltip,
+}: {
+  label: string;
+  state: boolean | null;
+  tooltip: string;
+}) {
   const cls = state === true
     ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
     : state === null
       ? 'border-amber-200 bg-amber-50 text-amber-600'
       : 'border-slate-200 bg-slate-50 text-slate-500';
+  const stateText = state === null ? 'unknown' : state ? 'available' : 'unavailable';
   return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 ${cls}`}>
-      {label}: {state === null ? 'unknown' : state ? 'available' : 'unavailable'}
-    </span>
+    <Tooltip text={tooltip}>
+      <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 ${cls}`}>
+        {label}: {stateText}
+        <span aria-hidden="true" className="font-semibold opacity-60">
+          ⓘ
+        </span>
+      </span>
+    </Tooltip>
   );
 }

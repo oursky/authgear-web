@@ -16,7 +16,7 @@ export default function CredentialList({ credentials, onInspect, onDelete, onCle
   return (
     <section aria-labelledby="passkey-demo-credential-list" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
       <div className="flex items-center justify-between">
-        <h3 id="passkey-demo-credential-list" className="text-lg font-semibold text-slate-900">Your demo passkeys</h3>
+        <div role="heading" aria-level={3} id="passkey-demo-credential-list" className="text-lg font-semibold text-slate-900">Your demo passkeys</div>
         {credentials.length > 0 && (
           <button
             type="button"
@@ -38,13 +38,13 @@ export default function CredentialList({ credentials, onInspect, onDelete, onCle
               className="flex flex-wrap items-center gap-3 rounded-lg border border-slate-200 p-3"
             >
               <div className="min-w-0 flex-1">
-                <div className="text-sm font-medium text-slate-900">
-                  {c.userName}{' '}
-                  <span className="ml-1 rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-600">
+                <div className="flex items-center gap-2 text-sm font-medium text-slate-900">
+                  {c.userName}
+                  <span className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-600">
                     {algLabel(c.alg)}
                   </span>
                 </div>
-                <div className="mt-0.5 truncate text-xs text-slate-500">
+                <div className="mt-1.5 truncate text-xs text-slate-500">
                   created {new Date(c.createdAt).toLocaleString()} · uv={c.options.userVerification} · rk=
                   {c.options.residentKey} · transports: {c.transports.join(', ') || 'n/a'}
                 </div>

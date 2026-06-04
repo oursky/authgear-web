@@ -33,14 +33,14 @@ export default function InspectPanel({ inspection, error }: Props) {
         </p>
       )}
       {inspection && (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-6">
           <div>
-            <h4 className="mb-1 text-sm font-semibold text-slate-900">clientDataJSON (decoded)</h4>
+            <div role="heading" aria-level={4} className="mb-1 text-sm font-semibold text-slate-900">clientDataJSON (decoded)</div>
             <JsonView value={inspection.clientData} />
           </div>
 
           <div>
-            <h4 className="mb-2 text-sm font-semibold text-slate-900">attestationObject (CBOR-decoded)</h4>
+            <div role="heading" aria-level={4} className="mb-2 text-sm font-semibold text-slate-900">attestationObject (CBOR-decoded)</div>
             <dl className="flex flex-col gap-2 text-sm">
               <Row name="fmt">
                 <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs">{inspection.fmt}</code>
@@ -69,17 +69,17 @@ export default function InspectPanel({ inspection, error }: Props) {
 
           {inspection.publicKeyJwk && (
             <div>
-              <h4 className="mb-1 text-sm font-semibold text-slate-900">
+              <div role="heading" aria-level={4} className="mb-1 text-sm font-semibold text-slate-900">
                 Public key (JWK{inspection.alg !== null && <> — COSE alg {inspection.alg}</>})
-              </h4>
+              </div>
               <JsonView value={inspection.publicKeyJwk} />
               {inspection.publicKeyPem && (
                 <>
-                  <h4 className="mb-1 mt-3 text-sm font-semibold text-slate-900">Public key (PEM)</h4>
+                  <div role="heading" aria-level={4} className="mb-1 mt-4 text-sm font-semibold text-slate-900">Public key (PEM)</div>
                   <JsonView value={inspection.publicKeyPem} />
                 </>
               )}
-              <p className="mt-2 text-xs text-slate-500">
+              <p className="mt-3 text-xs text-slate-500">
                 Want to generate and convert keys like this?{' '}
                 <a className="underline" href="/tools/jwk-generator">
                   Try our JWK Generator

@@ -116,15 +116,18 @@ export default function SignInPanel({ rpId, credentials, onVerified }: Props) {
         <p className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</p>
       )}
 
-      <button
-        type="button"
-        onClick={handleSignIn}
-        disabled={disabled}
-        aria-busy={busy}
-        className="mt-4 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
-      >
-        {busy ? 'Waiting for your authenticator…' : 'Sign in with your passkey'}
-      </button>
+      {/* Wrapper carries the top margin (normalize.css resets button margins). */}
+      <div className="mt-4">
+        <button
+          type="button"
+          onClick={handleSignIn}
+          disabled={disabled}
+          aria-busy={busy}
+          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
+        >
+          {busy ? 'Waiting for your authenticator…' : 'Sign in with your passkey'}
+        </button>
+      </div>
 
       {result && (
         <div className="mt-5">

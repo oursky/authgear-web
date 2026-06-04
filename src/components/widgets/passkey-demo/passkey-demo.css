@@ -1,38 +1,94 @@
 /* src/components/widgets/passkey-demo/passkey-demo.css */
-/* Reset Webflow's global rules that bleed into the widget so Tailwind
-   utility classes drive every visual decision from inside the JSX
-   (same approach as password-hash.css). Class-name collisions are avoided
-   because the widget uses Tailwind utilities, not generic class names. */
-/* Exclude .flex labels (e.g. the checkbox label in CreatePanel) — Tailwind's
-   .flex already sets display:flex and must not be overridden to display:block. */
-[data-testid='passkey-demo-widget'] label:not(.flex) {
+/* The widget is built with Tailwind utilities, but it lives on a page that
+   loads Webflow's global stylesheet. Webflow styles bare elements (h1–h6, p,
+   a, ul, label, strong, …) with UNLAYERED rules, while Tailwind v4 utilities
+   live in a cascade layer — so on a bare element Webflow's globals win
+   regardless of specificity, and the Tailwind classes silently lose.
+
+   Two defenses are used together:
+   1. Headings inside the widget are rendered as <div role="heading"> (not
+      <h3>/<h4>), so there is no competing Webflow element rule and the
+      Tailwind utilities apply normally. (See the components.)
+   2. For bare elements we still use (label, p, ul, input), re-assert neutral
+      values here, scoped to the widget root, so Webflow's globals don't leak.
+   These scoped rules are themselves unlayered, so they out-rank Webflow on
+   specificity. Keep them value-explicit rather than relying on utilities. */
+
+/* Webflow's `label { color: brand; font-weight: 700; margin-bottom: 15px;
+   display: block }` leaks brand color/weight/spacing. Neutralize it — the
+   inner <span>/<input> carry their own Tailwind styling. */
+[data-testid='passkey-demo-widget'] label {
   color: inherit;
+  /* Only reset the margin Webflow imposes (margin-bottom: 15px); leave
+     margin-top free so Tailwind's mt-* utilities still work on labels. */
   margin-bottom: 0;
   font-weight: inherit;
   line-height: inherit;
+  letter-spacing: normal;
   display: block;
 }
 
+/* normalize.css (imported after Tailwind, unlayered) sets `pre, code
+   { font-size: 1em }`, which defeats the layered `text-xs` utility and makes
+   the JSON/code render at the inherited 18px. Re-assert text-xs here. */
+[data-testid='passkey-demo-widget'] pre,
+[data-testid='passkey-demo-widget'] code {
+  font-size: 0.75rem;
+}
+
+[data-testid='passkey-demo-widget'] pre {
+  line-height: 1.5;
+}
+
+/* The RS256 row is a checkbox + text on one line. Tailwind's `flex` (layered)
+   loses to Webflow's `label { display: block }` (unlayered), so set flex here. */
+[data-testid='passkey-demo-widget'] label.pd-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Native checkbox renders dark under the page's form theme, so style it fully
+   and self-contained: white box + slate border, brand-blue with a white tick
+   when checked. */
+[data-testid='passkey-demo-widget'] input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  margin: 0;
+  border: 1px solid #cbd5e1; /* slate-300 */
+  border-radius: 0.25rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+[data-testid='passkey-demo-widget'] input[type='checkbox']:checked {
+  background-color: #2563eb; /* blue-600 */
+  border-color: #2563eb;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13 4.5L6.5 11L3 7.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.75rem;
+}
+
+[data-testid='passkey-demo-widget'] input[type='checkbox']:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Webflow adds `letter-spacing: -.01em` to every <p>; reset to normal. */
+[data-testid='passkey-demo-widget'] p {
+  letter-spacing: normal;
+}
+
+/* Webflow's `ul { padding-left: 40px; margin-bottom: 10px }` — the widget's
+   lists are custom-styled, so strip the default list chrome. */
 [data-testid='passkey-demo-widget'] ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
-}
-
-[data-testid='passkey-demo-widget'] h3,
-[data-testid='passkey-demo-widget'] h4 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* Webflow collision resets — these class names exist in authgear-new.webflow.css
-   with different or conflicting definitions; re-assert Tailwind's intent here. */
-[data-testid='passkey-demo-widget'] .flex {
-  display: flex;
-}
-
-[data-testid='passkey-demo-widget'] .text-center {
-  text-align: center;
 }
 
 /* Webflow's .underline is a decorative block element (background + height);

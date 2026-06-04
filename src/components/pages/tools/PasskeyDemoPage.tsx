@@ -50,9 +50,8 @@ export default function PasskeyDemoPage({ locale }: Props) {
       <ToolHowItWorks
         sectionTitle={t('howSectionTitle')}
         steps={steps}
-        containerClass="tools-step horizon-step"
         afterSteps={
-          <p className="tools-description align-left">
+          <p className="tools-description">
             {t('howGuideText')}{' '}
             <a href={localizedPath(locale, t('howGuideHref'))}>{t('howGuideLinkText')}</a>
           </p>
@@ -60,10 +59,10 @@ export default function PasskeyDemoPage({ locale }: Props) {
       />
       <section>
         <div className="container-default">
-          <div className="container-default-inner px-0 gap-0 pb-0 horizon-container">
+          <div className="container-default-inner px-0 gap-0 pb-0">
             <div className="top-content feature-flex">
-              <h2 className="title features-page-v2 margin-bottom-16 align-left">{t('platformsTitle')}</h2>
-              <p className="tools-description align-left">{t('platformsIntro')}</p>
+              <h2 className="title features-page-v2 margin-bottom-16">{t('platformsTitle')}</h2>
+              <p className="tools-description">{t('platformsIntro')}</p>
             </div>
             <div className="w-layout-hflex flex-block-80">
               {platforms.map(({ name, desc }) => (
