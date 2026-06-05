@@ -213,7 +213,7 @@ export default function PasskeyList({
           </div>
           <p className="text-base font-semibold text-slate-700">No passkeys yet</p>
           <p className="mx-auto mt-1 max-w-[20rem] text-sm text-slate-500">
-            Create one above and it’ll appear here — ready to inspect and sign in with.
+            Create one above to inspect it and sign in.
           </p>
         </div>
       ) : (
