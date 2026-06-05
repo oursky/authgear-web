@@ -20,6 +20,8 @@ interface Props {
   onToggleInspect: () => void;
   onSignIn: () => void;
   onDelete: () => void;
+  onDismissError: () => void;
+  onDismissVerification: () => void;
 }
 
 export default function PasskeyRow({
@@ -32,6 +34,8 @@ export default function PasskeyRow({
   onToggleInspect,
   onSignIn,
   onDelete,
+  onDismissError,
+  onDismissVerification,
 }: Props) {
   const [inspection, setInspection] = useState<CredentialInspection | null>(null);
   const [inspectError, setInspectError] = useState<string | null>(null);
@@ -101,7 +105,17 @@ export default function PasskeyRow({
       </div>
 
       {error && (
-        <p className="mt-3 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</p>
+        <div className="mt-3 flex items-start justify-between gap-3 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+          <span>{error}</span>
+          <button
+            type="button"
+            onClick={onDismissError}
+            aria-label="Dismiss"
+            className="shrink-0 text-red-400 hover:text-red-600"
+          >
+            ✕
+          </button>
+        </div>
       )}
 
       {expanded && (
@@ -135,7 +149,17 @@ export default function PasskeyRow({
 
       {verification && (
         <div className="mt-3 rounded-lg border border-blue-200 bg-blue-50/40 p-4">
-          <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-blue-700">Last sign-in verification</div>
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <div className="text-xs font-semibold uppercase tracking-wide text-blue-700">Last sign-in verification</div>
+            <button
+              type="button"
+              onClick={onDismissVerification}
+              aria-label="Dismiss verification"
+              className="shrink-0 text-blue-400 hover:text-blue-600"
+            >
+              ✕
+            </button>
+          </div>
           <VerificationSteps verification={verification} />
         </div>
       )}

@@ -52,6 +52,14 @@ export default function PasskeyList({
       return next;
     });
 
+  const dropKey = <T,>(map: Record<string, T>, id: string): Record<string, T> => {
+    const next = { ...map };
+    delete next[id];
+    return next;
+  };
+  const dismissError = (id: string) => setErrors((prev) => dropKey(prev, id));
+  const dismissVerification = (id: string) => setVerifications((prev) => dropKey(prev, id));
+
   // Run navigator.credentials.get() and verify. `target` is the credential to
   // allow, or 'discoverable' for an empty allow-list. Writes results/errors
   // into state; throws are handled by callers.
@@ -76,7 +84,7 @@ export default function PasskeyList({
     const credential = credentials.find((c) => c.credentialId === credentialId);
     if (!credential) {
       throw new Error(
-        'You signed in with a passkey this page has no record of — it was probably created in another browser session, or its record was cleared. Without the stored public key the signature cannot be verified.',
+        'This page has no record of that passkey, so its signature can’t be verified. Create one above first.',
       );
     }
     const verification = await verifyAssertion({
@@ -179,7 +187,17 @@ export default function PasskeyList({
       </div>
 
       {discoverableError && (
-        <p className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{discoverableError}</p>
+        <div className="mt-4 flex items-start justify-between gap-3 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+          <span>{discoverableError}</span>
+          <button
+            type="button"
+            onClick={() => setDiscoverableError(null)}
+            aria-label="Dismiss"
+            className="shrink-0 text-red-400 hover:text-red-600"
+          >
+            ✕
+          </button>
+        </div>
       )}
 
       {credentials.length === 0 ? (
@@ -198,6 +216,8 @@ export default function PasskeyList({
               onToggleInspect={() => toggleInspect(c.credentialId)}
               onSignIn={() => signIn(c)}
               onDelete={() => setForgetTarget(c)}
+              onDismissError={() => dismissError(c.credentialId)}
+              onDismissVerification={() => dismissVerification(c.credentialId)}
             />
           ))}
         </ul>
