@@ -4,6 +4,7 @@ import PasskeyRow from './PasskeyRow';
 import Tooltip from './Tooltip';
 import UserVerificationModal from './UserVerificationModal';
 import ForgetAllDialog from './ForgetAllDialog';
+import ForgetPasskeyDialog from './ForgetPasskeyDialog';
 import { b64urlToBuf, bufToB64url } from '../lib/base64url';
 import { explainWebAuthnError } from '../lib/errors';
 import { verifyAssertion, type AssertionVerification } from '../lib/verifyAssertion';
@@ -32,6 +33,7 @@ export default function PasskeyList({
   const [uv, setUv] = useState<UserVerificationRequirement>('preferred');
   const [uvOpen, setUvOpen] = useState(false);
   const [forgetOpen, setForgetOpen] = useState(false);
+  const [forgetTarget, setForgetTarget] = useState<StoredCredential | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [verifications, setVerifications] = useState<Record<string, AssertionVerification>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -195,20 +197,22 @@ export default function PasskeyList({
               error={errors[c.credentialId] ?? null}
               onToggleInspect={() => toggleInspect(c.credentialId)}
               onSignIn={() => signIn(c)}
-              onDelete={() => onDelete(c.credentialId)}
+              onDelete={() => setForgetTarget(c)}
             />
           ))}
         </ul>
       )}
 
-      <p className="mt-4 text-xs leading-relaxed text-slate-500">
-        Deleting here removes only this page’s record (kept in your browser’s localStorage). The passkey itself
-        stays in your keychain or password manager until you remove it there — see the FAQ below for per-OS
-        instructions.
-      </p>
-
       <UserVerificationModal open={uvOpen} value={uv} onChange={setUv} onClose={() => setUvOpen(false)} />
       <ForgetAllDialog open={forgetOpen} onConfirm={onClear} onClose={() => setForgetOpen(false)} />
+      <ForgetPasskeyDialog
+        open={forgetTarget !== null}
+        userName={forgetTarget?.userName ?? ''}
+        onConfirm={() => {
+          if (forgetTarget) onDelete(forgetTarget.credentialId);
+        }}
+        onClose={() => setForgetTarget(null)}
+      />
     </section>
   );
 }
