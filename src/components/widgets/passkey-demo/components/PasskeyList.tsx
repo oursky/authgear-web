@@ -170,9 +170,9 @@ export default function PasskeyList({
         <button
           type="button"
           onClick={signInDiscoverable}
-          disabled={busyId !== null}
+          disabled={busyId !== null || credentials.length === 0}
           aria-busy={busyId === DISCOVERABLE}
-          className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+          className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {busyId === DISCOVERABLE ? 'Waiting…' : 'Sign in with any passkey'}
         </button>
@@ -201,7 +201,21 @@ export default function PasskeyList({
       )}
 
       {credentials.length === 0 ? (
-        <p className="mt-4 text-sm text-slate-500">No passkeys yet — create one above.</p>
+        <div className="mt-4 rounded-xl border border-dashed border-slate-300 px-6 py-12 text-center">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-slate-400">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-7 w-7" aria-hidden="true">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
+              />
+            </svg>
+          </div>
+          <p className="text-base font-semibold text-slate-700">No passkeys yet</p>
+          <p className="mx-auto mt-1 max-w-[20rem] text-sm text-slate-500">
+            Create one above and it’ll appear here — ready to inspect and sign in with.
+          </p>
+        </div>
       ) : (
         <ul className="mt-4 flex flex-col gap-3">
           {sorted.map((c) => (
