@@ -13,14 +13,14 @@ export default function ForgetPasskeyDialog({ open, userName, onConfirm, onClose
   return (
     <Modal open={open} onClose={onClose} title="Forget this passkey?">
       <p className="text-sm leading-relaxed text-slate-600">
-        This removes only <strong>this page’s record</strong>
+        Removes this page’s record
         {userName ? (
           <>
             {' '}of <strong>{userName}</strong>
           </>
         ) : null}{' '}
-        (kept in your browser’s localStorage). The passkey itself stays in your keychain or password manager
-        until you remove it there — see the FAQ below for per-OS instructions.
+        only (your browser’s localStorage). The passkey stays in your keychain or password manager until you
+        remove it there.
       </p>
       <div className="mt-5 flex justify-end gap-2">
         <button

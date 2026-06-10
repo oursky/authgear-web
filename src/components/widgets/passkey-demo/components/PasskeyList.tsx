@@ -1,7 +1,6 @@
 // src/components/widgets/passkey-demo/components/PasskeyList.tsx
 import { useState } from 'react';
 import PasskeyRow from './PasskeyRow';
-import Tooltip from './Tooltip';
 import UserVerificationModal from './UserVerificationModal';
 import ForgetAllDialog from './ForgetAllDialog';
 import ForgetPasskeyDialog from './ForgetPasskeyDialog';
@@ -142,66 +141,21 @@ export default function PasskeyList({
 
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div role="heading" aria-level={3} className="text-lg font-semibold text-slate-900">
           Your passkeys
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setUvOpen(true)}
-            className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs text-slate-600 hover:bg-slate-50"
-          >
-            User verification: <span className="font-medium text-slate-900">{uv}</span>
-          </button>
-          {credentials.length > 0 && (
-            <button
-              type="button"
-              onClick={() => setForgetOpen(true)}
-              className="rounded-lg border border-red-200 px-3 py-1.5 text-xs text-red-600 hover:bg-red-50"
-            >
-              Forget all
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div className="mt-4 flex items-center gap-2">
         <button
           type="button"
-          onClick={signInDiscoverable}
-          disabled={busyId !== null || credentials.length === 0}
-          aria-busy={busyId === DISCOVERABLE}
-          className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          onClick={() => setUvOpen(true)}
+          className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs text-slate-600 hover:bg-slate-50"
         >
-          {busyId === DISCOVERABLE ? 'Waiting…' : 'Sign in with any passkey'}
+          User verification: <span className="font-medium text-slate-900">{uv}</span>
         </button>
-        <Tooltip text="Runs sign-in with an empty allow-list (the discoverable-credential flow), so the browser offers any passkey saved for this site — you don’t pick one first.">
-          <span
-            aria-hidden="true"
-            className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-slate-300 text-xs font-semibold text-slate-400"
-          >
-            ⓘ
-          </span>
-        </Tooltip>
       </div>
 
-      {discoverableError && (
-        <div className="mt-4 flex items-start justify-between gap-3 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-          <span>{discoverableError}</span>
-          <button
-            type="button"
-            onClick={() => setDiscoverableError(null)}
-            aria-label="Dismiss"
-            className="shrink-0 text-red-400 hover:text-red-600"
-          >
-            ✕
-          </button>
-        </div>
-      )}
-
       {credentials.length === 0 ? (
-        <div className="mt-4 rounded-xl border border-dashed border-slate-300 px-6 py-12 text-center">
+        <div className="rounded-xl border border-dashed border-slate-300 px-6 py-12 text-center">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-slate-400">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-7 w-7" aria-hidden="true">
               <path
@@ -211,13 +165,13 @@ export default function PasskeyList({
               />
             </svg>
           </div>
-          <p className="text-base font-semibold text-slate-700">No passkeys yet</p>
-          <p className="mx-auto mt-1 max-w-[20rem] text-sm text-slate-500">
+          <div className="text-base font-semibold text-slate-700">No passkeys yet</div>
+          <div className="mx-auto mt-1 max-w-[20rem] text-sm text-slate-500">
             Create one above to inspect it and sign in.
-          </p>
+          </div>
         </div>
       ) : (
-        <ul className="mt-4 flex flex-col gap-3">
+        <ul className="flex flex-col gap-3">
           {sorted.map((c) => (
             <PasskeyRow
               key={c.credentialId}
@@ -235,6 +189,55 @@ export default function PasskeyList({
             />
           ))}
         </ul>
+      )}
+
+      {credentials.length > 0 && (
+        <div className="mt-6 border-t border-slate-200 pt-6 text-center">
+          <button
+            type="button"
+            onClick={signInDiscoverable}
+            disabled={busyId !== null}
+            aria-busy={busyId === DISCOVERABLE}
+            className="inline-flex items-center gap-2 rounded-lg bg-slate-100 px-4 py-2 font-medium text-slate-700 hover:bg-slate-200 disabled:opacity-50"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-4 w-4" aria-hidden="true">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
+              />
+            </svg>
+            {busyId === DISCOVERABLE ? 'Waiting…' : 'Sign in with any passkey'}
+          </button>
+          <div className="mx-auto mt-2 max-w-[26rem] text-xs text-balance text-slate-400">
+            The browser offers any passkey saved for this site.
+          </div>
+          {discoverableError && (
+            <div className="mt-3 flex items-start justify-between gap-3 rounded-lg border border-red-200 bg-red-50 p-3 text-left text-sm text-red-700">
+              <span>{discoverableError}</span>
+              <button
+                type="button"
+                onClick={() => setDiscoverableError(null)}
+                aria-label="Dismiss"
+                className="shrink-0 text-red-400 hover:text-red-600"
+              >
+                ✕
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {credentials.length > 0 && (
+        <div className="mt-6 border-t border-slate-200 pt-4 text-center">
+          <button
+            type="button"
+            onClick={() => setForgetOpen(true)}
+            className="text-xs font-medium text-slate-400 hover:text-red-600"
+          >
+            Forget all passkeys
+          </button>
+        </div>
       )}
 
       <UserVerificationModal open={uvOpen} value={uv} onChange={setUv} onClose={() => setUvOpen(false)} />

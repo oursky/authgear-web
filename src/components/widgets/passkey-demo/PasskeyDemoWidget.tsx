@@ -49,9 +49,8 @@ export default function PasskeyDemoWidget() {
       >
         <div role="heading" aria-level={3} className="mb-2 text-lg font-semibold">Your browser doesn’t support WebAuthn</div>
         <p className="text-sm text-slate-600">
-          This demo needs the WebAuthn API (<code>window.PublicKeyCredential</code>), which isn’t available
-          here. Try a current version of Chrome, Edge, Safari, or Firefox — the supported-platforms section
-          below shows where passkeys work.
+          This demo needs the WebAuthn API (<code>window.PublicKeyCredential</code>). Try a current Chrome,
+          Edge, Safari, or Firefox.
         </p>
       </div>
     );
@@ -68,12 +67,12 @@ export default function PasskeyDemoWidget() {
         <FeatureBadge
           label="Platform authenticator"
           state={features.platformAuthenticator}
-          tooltip="Whether this device has a built-in authenticator — Touch ID, Face ID, or Windows Hello — that can create and store a passkey locally. “Available” means you can make a device-bound passkey right here."
+          tooltip="Whether this device has Touch ID, Face ID, or Windows Hello to create a passkey."
         />
         <FeatureBadge
-          label="Conditional mediation (autofill UI)"
+          label="Conditional mediation"
           state={features.conditionalMediation}
-          tooltip="Whether the browser can offer your saved passkeys directly in the sign-in field’s autofill dropdown, instead of a separate popup. “Available” means this browser supports that smoother sign-in flow."
+          tooltip="Autofill UI: whether the browser can show your passkeys in the sign-in field’s autofill, instead of a popup."
         />
       </div>
       <CreatePanel rpId={rpId} onCreated={handleCreated} />

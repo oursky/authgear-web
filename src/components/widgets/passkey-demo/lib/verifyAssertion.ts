@@ -50,7 +50,7 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
     id: 'type',
     label: 'clientDataJSON.type is "webauthn.get"',
     pass: clientData.type === 'webauthn.get',
-    detail: `Got "${clientData.type ?? 'unparseable clientDataJSON'}". A server checks this so a signature minted during registration ("webauthn.create") can never be replayed as a sign-in.`,
+    detail: `Got "${clientData.type ?? 'unparseable clientDataJSON'}". Must be "webauthn.get" so a registration signature can’t be replayed as a sign-in.`,
   });
 
   steps.push({
@@ -58,7 +58,7 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
     label: 'Challenge matches the one issued',
     pass: clientData.challenge === input.expectedChallenge,
     detail:
-      'The browser echoes the server\'s random challenge inside the signed clientDataJSON. Matching it proves this assertion was produced for this sign-in attempt — a captured assertion cannot be replayed.',
+      'Must match the challenge issued for this attempt, so a captured assertion can’t be replayed.',
   });
 
   steps.push({
@@ -66,7 +66,7 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
     label: `Origin is ${input.expectedOrigin}`,
     pass: clientData.origin === input.expectedOrigin,
     // crossOrigin check (L3 §7.2 step 9) omitted: this demo page is always same-origin
-    detail: `Got "${clientData.origin ?? 'n/a'}". The browser fills this in and the page cannot forge it — the core of why passkeys are phishing-resistant.`,
+    detail: `Got "${clientData.origin ?? 'n/a'}". The browser sets this and the page can’t forge it, which makes passkeys phishing-resistant.`,
   });
 
   let authData: ReturnType<typeof parseAuthData>;
@@ -77,7 +77,7 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
       id: 'rpIdHash',
       label: 'Authenticator data parses',
       pass: false,
-      detail: `Could not parse authenticatorData: ${err instanceof Error ? err.message : String(err)}`,
+      detail: `Couldn’t parse authenticatorData: ${err instanceof Error ? err.message : String(err)}`,
     });
     return { steps, allPassed: false, newSignCount: 0 };
   }
@@ -90,7 +90,7 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
     label: `rpIdHash matches SHA-256("${input.expectedRpId}")`,
     pass: bufToB64url(authData.rpIdHash) === bufToB64url(expectedRpIdHash),
     detail:
-      'The authenticator binds every assertion to the relying-party ID it was created for, so a credential registered on one site can never answer for another.',
+      'Binds the assertion to this site’s RP ID, so a passkey from another site can’t answer here.',
   });
 
   const uvSatisfied = input.requestedUserVerification !== 'required' || authData.flags.uv;
@@ -98,12 +98,12 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
     id: 'flags',
     label: 'UP / UV flags as requested',
     pass: authData.flags.up && uvSatisfied,
-    detail: `UP (user present) = ${authData.flags.up}, UV (user verified) = ${authData.flags.uv}; you requested userVerification: "${input.requestedUserVerification}". UP must always be set; UV must be set when verification is required.`,
+    detail: `UP (user present) = ${authData.flags.up}, UV (user verified) = ${authData.flags.uv}. UP is always required; UV is required when you ask for it (you chose "${input.requestedUserVerification}").`,
   });
 
   let signatureOk = false;
   let signatureDetail =
-    'WebCrypto verified the signature over authenticatorData ‖ SHA-256(clientDataJSON) using the public key captured at registration — the cryptographic heart of WebAuthn.';
+    'WebCrypto verified the signature against the public key saved at registration. This is the core check.';
   try {
     const clientDataHash = new Uint8Array(await crypto.subtle.digest('SHA-256', input.clientDataJSON as BufferSource));
     const signedData = new Uint8Array(input.authenticatorData.length + clientDataHash.length);
@@ -135,14 +135,10 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
       );
       signatureOk = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, input.signature as BufferSource, signedData as BufferSource);
     } else {
-      signatureDetail = `Unsupported COSE algorithm ${input.credential.alg} — this demo verifies ES256 (-7) and RS256 (-257).`;
+      signatureDetail = `Unsupported COSE algorithm ${input.credential.alg}. This demo verifies ES256 (-7) and RS256 (-257).`;
     }
-    if (!signatureOk && input.credential.alg === -7) {
-      signatureDetail =
-        'The ES256 signature did not verify against the stored public key — the signed data or key does not match.';
-    } else if (!signatureOk && input.credential.alg === -257) {
-      signatureDetail =
-        'The RS256 signature did not verify against the stored public key — the signed data or key does not match.';
+    if (!signatureOk && (input.credential.alg === -7 || input.credential.alg === -257)) {
+      signatureDetail = 'The signature didn’t verify against the stored public key.';
     }
   } catch (err) {
     signatureDetail = `Verification threw: ${err instanceof Error ? err.message : String(err)}`;
@@ -162,10 +158,10 @@ export async function verifyAssertion(input: VerifyAssertionInput): Promise<Asse
     info: true,
     detail:
       authData.signCount === 0
-        ? 'This authenticator reports 0. Most passkey providers (iCloud Keychain, Google Password Manager) always do — a credential synced across devices can\'t keep one shared counter. Servers treat 0 as "counter not supported".'
+        ? 'Reports 0. Synced passkeys (iCloud Keychain, Google Password Manager) usually do; servers treat 0 as "no counter".'
         : authData.signCount > previous
-          ? `Counter advanced from ${previous} to ${authData.signCount}. Servers can use this to detect cloned credentials — a clone would eventually present a stale counter.`
-          : `Counter did not advance (${previous} → ${authData.signCount}). A strict server might flag this, but synced passkeys make the counter unreliable, so most treat it as informational.`,
+          ? `Advanced from ${previous} to ${authData.signCount}. Servers can use this to spot cloned credentials.`
+          : `Didn’t advance (${previous} to ${authData.signCount}). Unreliable for synced passkeys, so usually informational.`,
   });
 
   return {

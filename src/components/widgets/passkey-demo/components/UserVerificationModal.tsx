@@ -6,17 +6,17 @@ const OPTIONS: { value: UserVerificationRequirement; label: string; tag?: string
     value: 'preferred',
     label: 'Preferred',
     tag: 'default',
-    desc: 'Verify with biometric or PIN if the device supports it, but still allow sign-in if it can’t. Sensible default for most apps.',
+    desc: 'Verify if the device can, but allow sign-in either way. Good default.',
   },
   {
     value: 'required',
     label: 'Required',
-    desc: 'The user must be verified (Face ID / Touch ID / Windows Hello / PIN). If the authenticator can’t, the sign-in fails. Use for sensitive actions.',
+    desc: 'Must verify with biometric or PIN, or sign-in fails. For sensitive actions.',
   },
   {
     value: 'discouraged',
     label: 'Discouraged',
-    desc: 'Skip verification — only confirm someone is present (a tap). Fastest, lowest assurance.',
+    desc: 'Skip verification; just confirm someone’s present. Fastest, least secure.',
   },
 ];
 
@@ -30,12 +30,11 @@ interface Props {
 export default function UserVerificationModal({ open, value, onChange, onClose }: Props) {
   return (
     <Modal open={open} onClose={onClose} title="User verification">
-      <p className="mb-3 text-xs leading-relaxed text-slate-500">
-        How strongly the authenticator must confirm it’s really you during sign-in. Sets the{' '}
-        <code className="rounded bg-slate-100 px-1 py-0.5">userVerification</code> field on{' '}
-        <code className="rounded bg-slate-100 px-1 py-0.5">navigator.credentials.get()</code> — watch the UV
-        flag change in the verification steps.
-      </p>
+      <div className="mb-4 text-xs leading-relaxed text-slate-500">
+        Whether the authenticator must verify it’s you (biometric or PIN) on sign-in. Sets{' '}
+        <code className="rounded bg-slate-100 px-1 py-0.5">userVerification</code>; watch the UV flag in the
+        verification steps.
+      </div>
       <div role="radiogroup" aria-label="User verification" className="flex flex-col gap-2">
         {OPTIONS.map((o) => {
           const selected = o.value === value;
@@ -71,7 +70,7 @@ export default function UserVerificationModal({ open, value, onChange, onClose }
         })}
       </div>
       <div className="mt-4 flex items-center justify-between gap-3">
-        <span className="text-xs text-slate-400">Applies to both “Sign in” and “Sign in with any passkey”.</span>
+        <span className="text-xs text-slate-400">Applies to both sign-in buttons.</span>
         <button
           type="button"
           onClick={onClose}

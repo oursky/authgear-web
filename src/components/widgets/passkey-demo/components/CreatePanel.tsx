@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Panel from './Panel';
 import JsonView from './JsonView';
+import ParamInfoDialog, { type ParamKey } from './ParamInfoDialog';
 import { bufToB64url } from '../lib/base64url';
 import { buildCreationOptions, creationOptionsPreview, type CreateConfig } from '../lib/createOptions';
 import { explainWebAuthnError } from '../lib/errors';
@@ -18,6 +19,22 @@ function randomBytes(n: number): Uint8Array {
   return crypto.getRandomValues(new Uint8Array(n));
 }
 
+/** Field label that opens the param's explanation dialog. The ⓘ + hover colour
+    signal it's clickable for more info. */
+function FieldLabel({ children, onClick }: { children: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="group inline-flex items-center gap-1 self-start font-medium text-slate-700 hover:text-blue-600"
+    >
+      {children}
+      <span aria-hidden="true" className="text-slate-400 group-hover:text-blue-600">ⓘ</span>
+      <span className="sr-only">: what’s this?</span>
+    </button>
+  );
+}
+
 export default function CreatePanel({ rpId, onCreated }: Props) {
   const [config, setConfig] = useState<CreateConfig>({
     userName: 'demo-user',
@@ -32,6 +49,7 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
   const [userId, setUserId] = useState<Uint8Array>(() => randomBytes(16));
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [infoKey, setInfoKey] = useState<ParamKey | null>(null);
 
   const set = <K extends keyof CreateConfig>(key: K, value: CreateConfig[K]) =>
     setConfig((c) => ({ ...c, [key]: value }));
@@ -80,19 +98,21 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
 
   return (
     <Panel title="Create a passkey">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="text-sm">
-          <span className="mb-1 block font-medium text-slate-700">User name</span>
+      <div className="grid gap-4 text-sm sm:grid-cols-2">
+        <div className="flex flex-col gap-1.5">
+          <FieldLabel onClick={() => setInfoKey('userName')}>User name</FieldLabel>
           <input
             className={INPUT_CLS}
+            aria-label="User name"
             value={config.userName}
             onChange={(e) => set('userName', e.target.value)}
           />
-        </label>
-        <label className="text-sm">
-          <span className="mb-1 block font-medium text-slate-700">Authenticator attachment</span>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <FieldLabel onClick={() => setInfoKey('attachment')}>Authenticator attachment</FieldLabel>
           <select
             className={INPUT_CLS}
+            aria-label="Authenticator attachment"
             value={config.attachment}
             onChange={(e) => set('attachment', e.target.value as CreateConfig['attachment'])}
           >
@@ -100,11 +120,12 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
             <option value="platform">platform (this device)</option>
             <option value="cross-platform">cross-platform (security key / phone)</option>
           </select>
-        </label>
-        <label className="text-sm">
-          <span className="mb-1 block font-medium text-slate-700">User verification</span>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <FieldLabel onClick={() => setInfoKey('userVerification')}>User verification</FieldLabel>
           <select
             className={INPUT_CLS}
+            aria-label="User verification"
             value={config.userVerification}
             onChange={(e) => set('userVerification', e.target.value as CreateConfig['userVerification'])}
           >
@@ -112,11 +133,12 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
             <option value="required">required</option>
             <option value="discouraged">discouraged</option>
           </select>
-        </label>
-        <label className="text-sm">
-          <span className="mb-1 block font-medium text-slate-700">Resident key (discoverable)</span>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <FieldLabel onClick={() => setInfoKey('residentKey')}>Resident key (discoverable)</FieldLabel>
           <select
             className={INPUT_CLS}
+            aria-label="Resident key (discoverable)"
             value={config.residentKey}
             onChange={(e) => set('residentKey', e.target.value as CreateConfig['residentKey'])}
           >
@@ -124,38 +146,40 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
             <option value="required">required</option>
             <option value="discouraged">discouraged</option>
           </select>
-        </label>
-        <label className="text-sm">
-          <span className="mb-1 block font-medium text-slate-700">Attestation</span>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <FieldLabel onClick={() => setInfoKey('attestation')}>Attestation</FieldLabel>
           <select
             className={INPUT_CLS}
+            aria-label="Attestation"
             value={config.attestation}
             onChange={(e) => set('attestation', e.target.value as CreateConfig['attestation'])}
           >
             <option value="none">none (default)</option>
             <option value="direct">direct</option>
           </select>
-        </label>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <FieldLabel onClick={() => setInfoKey('algorithms')}>Signature algorithms</FieldLabel>
+          <select
+            className={INPUT_CLS}
+            aria-label="Signature algorithms"
+            value={config.includeRs256 ? 'both' : 'es256'}
+            onChange={(e) => set('includeRs256', e.target.value === 'both')}
+          >
+            <option value="es256">ES256 (−7)</option>
+            <option value="both">ES256 (−7) + RS256 (−257)</option>
+          </select>
+        </div>
       </div>
 
-      <label className="pd-checkbox-label mt-4 text-sm text-slate-700">
-        <input
-          type="checkbox"
-          checked={config.includeRs256}
-          onChange={(e) => set('includeRs256', e.target.checked)}
-        />
-        Also offer RS256 (−257) — ES256 (−7) is always included
-      </label>
-
-      <details className="mt-4" open>
-        <summary className="cursor-pointer select-none text-sm font-medium text-slate-700">
-          PublicKeyCredentialCreationOptions (updates live)
-        </summary>
+      <div className="mt-4">
+        <div className="text-sm font-medium text-slate-700">PublicKeyCredentialCreationOptions</div>
         <JsonView value={creationOptionsPreview(config, challenge, userId, rpId)} clamp={false} />
-      </details>
+      </div>
 
       {error && (
-        <p className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</p>
+        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</div>
       )}
 
       {/* Wrapper carries the top margin: normalize.css resets `button { margin: 0 }`
@@ -171,6 +195,8 @@ export default function CreatePanel({ rpId, onCreated }: Props) {
           {busy ? 'Waiting for your authenticator…' : 'Create a passkey'}
         </button>
       </div>
+
+      <ParamInfoDialog paramKey={infoKey} onClose={() => setInfoKey(null)} />
     </Panel>
   );
 }

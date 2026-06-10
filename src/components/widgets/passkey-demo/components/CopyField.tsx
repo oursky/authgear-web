@@ -1,17 +1,22 @@
 import { useClipboard } from '../hooks/useClipboard';
+import JargonLabel from './JargonLabel';
 
 interface Props {
   label: string;
   /** base64url-rendered binary value. */
   value: string;
+  /** Optional short explanation; shows a tooltip on the label when set. */
+  tip?: string;
 }
 
 // `label` doubles as the copied-state id — labels must be unique within a parent.
-export default function CopyField({ label, value }: Props) {
+export default function CopyField({ label, value, tip }: Props) {
   const { copied, copy } = useClipboard();
   return (
     <div className="flex items-center gap-2 text-xs">
-      <span className="w-28 shrink-0 font-medium text-slate-600">{label}</span>
+      <span className="w-28 shrink-0 font-medium text-slate-600">
+        {tip ? <JargonLabel text={tip}>{label}</JargonLabel> : label}
+      </span>
       <code className="min-w-0 flex-1 truncate rounded bg-slate-100 px-2 py-1 text-slate-800">{value}</code>
       <button
         type="button"

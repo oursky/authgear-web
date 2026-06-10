@@ -40,42 +40,29 @@
   line-height: 1.5;
 }
 
-/* The RS256 row is a checkbox + text on one line. Tailwind's `flex` (layered)
-   loses to Webflow's `label { display: block }` (unlayered), so set flex here. */
-[data-testid='passkey-demo-widget'] label.pd-checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Gentle one-shot flash when a live code block (e.g. the options preview)
+   updates — a soft blue ring that pulses out and fades. */
+@keyframes pd-json-flash {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); /* blue-500 */
+  }
+  30% {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0);
+  }
+}
+[data-testid='passkey-demo-widget'] pre.pd-json-flash {
+  animation: pd-json-flash 0.7s ease-out;
 }
 
-/* Native checkbox renders dark under the page's form theme, so style it fully
-   and self-contained: white box + slate border, brand-blue with a white tick
-   when checked. */
-[data-testid='passkey-demo-widget'] input[type='checkbox'] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 1rem;
-  height: 1rem;
-  flex: none;
-  margin: 0;
-  border: 1px solid #cbd5e1; /* slate-300 */
-  border-radius: 0.25rem;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-[data-testid='passkey-demo-widget'] input[type='checkbox']:checked {
-  background-color: #2563eb; /* blue-600 */
-  border-color: #2563eb;
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13 4.5L6.5 11L3 7.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 0.75rem;
-}
-
-[data-testid='passkey-demo-widget'] input[type='checkbox']:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
+/* normalize.css (unlayered, loaded after Tailwind) sets `button { font-size:
+   100% }`, which makes buttons inherit the 18px body size and defeats the
+   layered text-* utilities on them. Give every widget button a consistent
+   14px so the action buttons aren't oversized. */
+[data-testid='passkey-demo-widget'] button {
+  font-size: 0.875rem;
 }
 
 /* Webflow adds `letter-spacing: -.01em` to every <p>; reset to normal. */

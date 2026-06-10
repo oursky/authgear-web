@@ -1,6 +1,7 @@
 // src/components/widgets/passkey-demo/components/PasskeyRow.tsx
 import { useEffect, useState } from 'react';
 import CredentialDetails from './CredentialDetails';
+import JargonLabel from './JargonLabel';
 import VerificationSteps from './VerificationSteps';
 import { inspectCredential, type CredentialInspection } from '../lib/inspect';
 import type { AssertionVerification } from '../lib/verifyAssertion';
@@ -124,19 +125,35 @@ export default function PasskeyRow({
             <div role="heading" aria-level={4} className="mb-2 text-sm font-semibold text-slate-900">Registration options</div>
             <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:grid-cols-4">
               <div>
-                <dt className="text-slate-400">User verification</dt>
+                <dt className="text-slate-400">
+                  <JargonLabel text="Whether the authenticator was asked to confirm it’s you (biometric or PIN) during registration.">
+                    User verification
+                  </JargonLabel>
+                </dt>
                 <dd className="mt-0.5 text-slate-700">{credential.options.userVerification}</dd>
               </div>
               <div>
-                <dt className="text-slate-400">Resident key</dt>
+                <dt className="text-slate-400">
+                  <JargonLabel text="Whether the passkey is discoverable, stored on the authenticator so you can sign in without typing a username.">
+                    Resident key
+                  </JargonLabel>
+                </dt>
                 <dd className="mt-0.5 text-slate-700">{credential.options.residentKey}</dd>
               </div>
               <div>
-                <dt className="text-slate-400">Attestation</dt>
+                <dt className="text-slate-400">
+                  <JargonLabel text="Whether the authenticator returned a signed statement about its make and model.">
+                    Attestation
+                  </JargonLabel>
+                </dt>
                 <dd className="mt-0.5 text-slate-700">{credential.options.attestation}</dd>
               </div>
               <div>
-                <dt className="text-slate-400">Transports</dt>
+                <dt className="text-slate-400">
+                  <JargonLabel text="How the authenticator can be reached: internal (this device), usb, nfc, ble, or hybrid (a nearby phone).">
+                    Transports
+                  </JargonLabel>
+                </dt>
                 <dd className="mt-0.5 text-slate-700">{credential.transports.join(', ') || 'n/a'}</dd>
               </div>
             </dl>
