@@ -169,6 +169,7 @@ export const footerStrings: Record<string, Record<string, string>> = {
   hmacSignature: { en: 'HMAC Signature Generator/Verifier', 'zh-Hant': 'HMAC 簽章產生／驗證' },
   samlTestingTool: { en: 'SAML Testing Tool', 'zh-Hant': 'SAML 測試工具' },
   totpAuthenticator: { en: 'TOTP Authenticator', 'zh-Hant': 'TOTP 驗證器' },
+  passkeyDemo: { en: 'Passkey Demo & WebAuthn Tester', 'zh-Hant': '通行密鑰示範與 WebAuthn 測試工具' },
   companyTitle: { en: 'company', 'zh-Hant': '公司' },
   aboutUs: { en: 'About Us', 'zh-Hant': '關於我們' },
   contactSales: { en: 'Contact Sales', 'zh-Hant': '聯絡業務' },
