@@ -1,0 +1,88 @@
+/* src/components/widgets/passkey-demo/passkey-demo.css */
+/* The widget is built with Tailwind utilities, but it lives on a page that
+   loads Webflow's global stylesheet. Webflow styles bare elements (h1–h6, p,
+   a, ul, label, strong, …) with UNLAYERED rules, while Tailwind v4 utilities
+   live in a cascade layer — so on a bare element Webflow's globals win
+   regardless of specificity, and the Tailwind classes silently lose.
+
+   Two defenses are used together:
+   1. Headings inside the widget are rendered as <div role="heading"> (not
+      <h3>/<h4>), so there is no competing Webflow element rule and the
+      Tailwind utilities apply normally. (See the components.)
+   2. For bare elements we still use (label, p, ul, input), re-assert neutral
+      values here, scoped to the widget root, so Webflow's globals don't leak.
+   These scoped rules are themselves unlayered, so they out-rank Webflow on
+   specificity. Keep them value-explicit rather than relying on utilities. */
+
+/* Webflow's `label { color: brand; font-weight: 700; margin-bottom: 15px;
+   display: block }` leaks brand color/weight/spacing. Neutralize it — the
+   inner <span>/<input> carry their own Tailwind styling. */
+[data-testid='passkey-demo-widget'] label {
+  color: inherit;
+  /* Only reset the margin Webflow imposes (margin-bottom: 15px); leave
+     margin-top free so Tailwind's mt-* utilities still work on labels. */
+  margin-bottom: 0;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  display: block;
+}
+
+/* normalize.css (imported after Tailwind, unlayered) sets `pre, code
+   { font-size: 1em }`, which defeats the layered `text-xs` utility and makes
+   the JSON/code render at the inherited 18px. Re-assert text-xs here. */
+[data-testid='passkey-demo-widget'] pre,
+[data-testid='passkey-demo-widget'] code {
+  font-size: 0.75rem;
+}
+
+[data-testid='passkey-demo-widget'] pre {
+  line-height: 1.5;
+}
+
+/* Gentle one-shot flash when a live code block (e.g. the options preview)
+   updates — a soft blue ring that pulses out and fades. */
+@keyframes pd-json-flash {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); /* blue-500 */
+  }
+  30% {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0);
+  }
+}
+[data-testid='passkey-demo-widget'] pre.pd-json-flash {
+  animation: pd-json-flash 0.7s ease-out;
+}
+
+/* normalize.css (unlayered, loaded after Tailwind) sets `button { font-size:
+   100% }`, which makes buttons inherit the 18px body size and defeats the
+   layered text-* utilities on them. Give every widget button a consistent
+   14px so the action buttons aren't oversized. */
+[data-testid='passkey-demo-widget'] button {
+  font-size: 0.875rem;
+}
+
+/* Webflow adds `letter-spacing: -.01em` to every <p>; reset to normal. */
+[data-testid='passkey-demo-widget'] p {
+  letter-spacing: normal;
+}
+
+/* Webflow's `ul { padding-left: 40px; margin-bottom: 10px }` — the widget's
+   lists are custom-styled, so strip the default list chrome. */
+[data-testid='passkey-demo-widget'] ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Webflow's .underline is a decorative block element (background + height);
+   Tailwind's .underline is text-decoration. Reset to Tailwind's meaning. */
+[data-testid='passkey-demo-widget'] .underline {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  text-decoration-line: underline;
+}

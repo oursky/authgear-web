@@ -26,4 +26,5 @@ export const registry = {
   'password-hash-generator': { label: 'Password Hash Generator' },
   'base64-decode-encode': { label: 'Base64 Decode and Encode' },
   'uuidv7-generator': { label: 'UUID v7 Generator & Timestamp Extractor' },
+  'passkey-demo': { label: 'Passkey Demo & WebAuthn Tester' },
 } as const;
