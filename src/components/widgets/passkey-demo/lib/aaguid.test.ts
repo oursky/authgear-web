@@ -15,8 +15,8 @@ describe('aaguidName', () => {
     expect(aaguidName('ea9b8d66-4d01-1d21-3ce4-b6b48cb575d4')).toBe('Google Password Manager');
   });
 
-  it('explains the all-zero AAGUID instead of returning null', () => {
-    expect(aaguidName('00000000-0000-0000-0000-000000000000')).toMatch(/attestation/i);
+  it('returns null for the all-zero AAGUID (the UI localizes the explanation)', () => {
+    expect(aaguidName('00000000-0000-0000-0000-000000000000')).toBeNull();
   });
 
   it('returns null for unknown AAGUIDs', () => {

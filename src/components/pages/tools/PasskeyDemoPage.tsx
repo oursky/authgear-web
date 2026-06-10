@@ -44,7 +44,7 @@ export default function PasskeyDemoPage({ locale }: Props) {
     <>
       <ToolHero title={t('heroTitle')} description={t('heroDescription')} />
       <ToolWidget locale={locale} iframeTitle={t('iframeTitle')} policy={policy}>
-        <PasskeyDemoWidget />
+        <PasskeyDemoWidget locale={locale} />
       </ToolWidget>
       <MoreDevTools locale={locale} currentSlug="passkey-demo" />
       <ToolHowItWorks

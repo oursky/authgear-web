@@ -1,10 +1,12 @@
 // src/components/widgets/passkey-demo/components/VerificationSteps.tsx
 import type { AssertionVerification } from '../lib/verifyAssertion';
+import { useStrings } from '../StringsContext';
 
 /** The ordered server-style checks shown after a sign-in. */
 export default function VerificationSteps({ verification }: { verification: AssertionVerification }) {
+  const strings = useStrings();
   return (
-    <ul aria-label="Server verification steps" className="flex flex-col gap-2">
+    <ul aria-label={strings.steps.ariaLabel} className="flex flex-col gap-2">
       {verification.steps.map((s) => (
         <li key={s.id} className="flex items-start gap-3 rounded-lg border border-slate-200 bg-white p-3">
           <span
@@ -16,7 +18,7 @@ export default function VerificationSteps({ verification }: { verification: Asse
                   : 'bg-red-50 text-red-700'
             }`}
           >
-            {s.info ? 'INFO' : s.pass ? 'PASS' : 'FAIL'}
+            {s.info ? strings.steps.info : s.pass ? strings.steps.pass : strings.steps.fail}
           </span>
           <div className="min-w-0">
             <div className="text-sm font-medium text-slate-900">{s.label}</div>

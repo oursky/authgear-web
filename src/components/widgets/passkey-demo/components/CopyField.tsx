@@ -1,5 +1,6 @@
 import { useClipboard } from '../hooks/useClipboard';
 import JargonLabel from './JargonLabel';
+import { useStrings } from '../StringsContext';
 
 interface Props {
   label: string;
@@ -11,6 +12,7 @@ interface Props {
 
 // `label` doubles as the copied-state id — labels must be unique within a parent.
 export default function CopyField({ label, value, tip }: Props) {
+  const s = useStrings();
   const { copied, copy } = useClipboard();
   return (
     <div className="flex items-center gap-2 text-xs">
@@ -23,7 +25,7 @@ export default function CopyField({ label, value, tip }: Props) {
         className="shrink-0 rounded border border-slate-300 px-2 py-1 text-slate-600 hover:bg-slate-50"
         onClick={() => copy(label, value)}
       >
-        {copied === label ? 'Copied' : 'Copy'}
+        {copied === label ? s.copy.copied : s.copy.copy}
       </button>
     </div>
   );

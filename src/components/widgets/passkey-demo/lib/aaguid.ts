@@ -6,16 +6,16 @@
 
 import names from './aaguid-names.json';
 
-const ZERO_AAGUID = '00000000-0000-0000-0000-000000000000';
+export const ZERO_AAGUID = '00000000-0000-0000-0000-000000000000';
 
 export function formatAaguid(bytes: Uint8Array): string {
   const hex = Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('');
   return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
 }
 
+// Returns null both for an unknown AAGUID and for the all-zero one; the UI
+// localizes those two cases (it tells them apart via ZERO_AAGUID).
 export function aaguidName(aaguid: string): string | null {
-  if (aaguid === ZERO_AAGUID) {
-    return 'Not provided — attestation "none" zeroes the AAGUID';
-  }
+  if (aaguid === ZERO_AAGUID) return null;
   return (names as Record<string, string>)[aaguid] ?? null;
 }

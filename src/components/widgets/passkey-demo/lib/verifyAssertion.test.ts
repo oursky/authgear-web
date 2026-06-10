@@ -3,6 +3,7 @@ import { bufToB64url } from './base64url';
 import type { StoredCredential } from './storage';
 import { verifyAssertion } from './verifyAssertion';
 import { concatBytes, rawToDer } from './testHelpers';
+import { EN } from '../strings';
 
 const RP_ID = 'localhost';
 const ORIGIN = 'http://localhost:4321';
@@ -64,6 +65,7 @@ function inputFor(f: Fixture) {
     authenticatorData: f.authenticatorData,
     signature: f.signature,
     credential: f.credential,
+    strings: EN.verify,
   };
 }
 

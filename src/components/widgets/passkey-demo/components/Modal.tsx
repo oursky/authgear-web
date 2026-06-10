@@ -1,5 +1,6 @@
 // src/components/widgets/passkey-demo/components/Modal.tsx
 import { useEffect, useId, useRef, type ReactNode } from 'react';
+import { useStrings } from '../StringsContext';
 
 interface Props {
   open: boolean;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export default function Modal({ open, onClose, title, children }: Props) {
+  const s = useStrings();
   const titleId = useId();
   const cardRef = useRef<HTMLDivElement>(null);
   const lastFocused = useRef<HTMLElement | null>(null);
@@ -59,7 +61,7 @@ export default function Modal({ open, onClose, title, children }: Props) {
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close"
+            aria-label={s.modal.close}
             className="shrink-0 text-slate-400 hover:text-slate-600"
           >
             ✕

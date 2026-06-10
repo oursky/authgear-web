@@ -8,6 +8,7 @@ import { b64urlToBuf, bufToB64url } from '../lib/base64url';
 import { explainWebAuthnError } from '../lib/errors';
 import { verifyAssertion, type AssertionVerification } from '../lib/verifyAssertion';
 import type { StoredCredential } from '../lib/storage';
+import { useStrings } from '../StringsContext';
 
 interface Props {
   rpId: string;
@@ -29,6 +30,7 @@ export default function PasskeyList({
   onClear,
   onUpdateSignCount,
 }: Props) {
+  const s = useStrings();
   const [uv, setUv] = useState<UserVerificationRequirement>('preferred');
   const [uvOpen, setUvOpen] = useState(false);
   const [forgetOpen, setForgetOpen] = useState(false);
@@ -82,9 +84,7 @@ export default function PasskeyList({
     const credentialId = bufToB64url(new Uint8Array(assertion.rawId));
     const credential = credentials.find((c) => c.credentialId === credentialId);
     if (!credential) {
-      throw new Error(
-        'This page has no record of that passkey, so its signature can’t be verified. Create one above first.',
-      );
+      throw new Error(s.list.unknownCredential);
     }
     const verification = await verifyAssertion({
       expectedChallenge: bufToB64url(challenge),
@@ -95,6 +95,7 @@ export default function PasskeyList({
       authenticatorData: new Uint8Array(resp.authenticatorData),
       signature: new Uint8Array(resp.signature),
       credential,
+      strings: s.verify,
     });
     onUpdateSignCount(credentialId, verification.newSignCount);
     setMatchedId(credentialId); // highlight the row that just signed in (esp. discoverable)
@@ -108,7 +109,7 @@ export default function PasskeyList({
 
   const toMessage = (err: unknown): string =>
     err instanceof DOMException
-      ? explainWebAuthnError(err, 'get')
+      ? explainWebAuthnError(err, 'get', s.errors)
       : err instanceof Error
         ? err.message
         : String(err);
@@ -143,14 +144,15 @@ export default function PasskeyList({
     <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div role="heading" aria-level={3} className="text-lg font-semibold text-slate-900">
-          Your passkeys
+          {s.list.title}
         </div>
         <button
           type="button"
           onClick={() => setUvOpen(true)}
           className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs text-slate-600 hover:bg-slate-50"
         >
-          User verification: <span className="font-medium text-slate-900">{uv}</span>
+          {s.list.uvButtonPrefix}
+          <span className="font-medium text-slate-900">{uv}</span>
         </button>
       </div>
 
@@ -165,10 +167,8 @@ export default function PasskeyList({
               />
             </svg>
           </div>
-          <div className="text-base font-semibold text-slate-700">No passkeys yet</div>
-          <div className="mx-auto mt-1 max-w-[20rem] text-sm text-slate-500">
-            Create one above to inspect it and sign in.
-          </div>
+          <div className="text-base font-semibold text-slate-700">{s.list.emptyTitle}</div>
+          <div className="mx-auto mt-1 max-w-[20rem] text-sm text-slate-500">{s.list.emptyHint}</div>
         </div>
       ) : (
         <ul className="flex flex-col gap-3">
@@ -207,10 +207,10 @@ export default function PasskeyList({
                 d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
               />
             </svg>
-            {busyId === DISCOVERABLE ? 'Waiting…' : 'Sign in with any passkey'}
+            {busyId === DISCOVERABLE ? s.list.waiting : s.list.anyPasskey}
           </button>
           <div className="mx-auto mt-2 max-w-[26rem] text-xs text-balance text-slate-400">
-            The browser offers any passkey saved for this site.
+            {s.list.anyPasskeyHint}
           </div>
           {discoverableError && (
             <div className="mt-3 flex items-start justify-between gap-3 rounded-lg border border-red-200 bg-red-50 p-3 text-left text-sm text-red-700">
@@ -218,7 +218,7 @@ export default function PasskeyList({
               <button
                 type="button"
                 onClick={() => setDiscoverableError(null)}
-                aria-label="Dismiss"
+                aria-label={s.list.dismiss}
                 className="shrink-0 text-red-400 hover:text-red-600"
               >
                 ✕
@@ -235,7 +235,7 @@ export default function PasskeyList({
             onClick={() => setForgetOpen(true)}
             className="text-xs font-medium text-slate-400 hover:text-red-600"
           >
-            Forget all passkeys
+            {s.list.forgetAll}
           </button>
         </div>
       )}

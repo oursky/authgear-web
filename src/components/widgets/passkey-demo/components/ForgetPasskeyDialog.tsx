@@ -1,5 +1,6 @@
 // src/components/widgets/passkey-demo/components/ForgetPasskeyDialog.tsx
 import Modal from './Modal';
+import { useStrings } from '../StringsContext';
 
 interface Props {
   open: boolean;
@@ -10,17 +11,18 @@ interface Props {
 }
 
 export default function ForgetPasskeyDialog({ open, userName, onConfirm, onClose }: Props) {
+  const s = useStrings();
   return (
-    <Modal open={open} onClose={onClose} title="Forget this passkey?">
+    <Modal open={open} onClose={onClose} title={s.forgetOne.title}>
       <p className="text-sm leading-relaxed text-slate-600">
-        Removes this page’s record
+        {s.forgetOne.bodyBefore}
         {userName ? (
           <>
-            {' '}of <strong>{userName}</strong>
+            {s.forgetOne.nameOf}
+            <strong>{userName}</strong>
           </>
-        ) : null}{' '}
-        only (your browser’s localStorage). The passkey stays in your keychain or password manager until you
-        remove it there.
+        ) : null}
+        {s.forgetOne.bodyAfter}
       </p>
       <div className="mt-5 flex justify-end gap-2">
         <button
@@ -28,7 +30,7 @@ export default function ForgetPasskeyDialog({ open, userName, onConfirm, onClose
           onClick={onClose}
           className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50"
         >
-          Cancel
+          {s.forgetOne.cancel}
         </button>
         <button
           type="button"
@@ -38,7 +40,7 @@ export default function ForgetPasskeyDialog({ open, userName, onConfirm, onClose
           }}
           className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
         >
-          Forget
+          {s.forgetOne.confirm}
         </button>
       </div>
     </Modal>

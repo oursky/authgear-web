@@ -6,6 +6,7 @@ import VerificationSteps from './VerificationSteps';
 import { inspectCredential, type CredentialInspection } from '../lib/inspect';
 import type { AssertionVerification } from '../lib/verifyAssertion';
 import type { StoredCredential } from '../lib/storage';
+import { useStrings } from '../StringsContext';
 
 function algLabel(alg: number): string {
   return alg === -7 ? 'ES256' : alg === -257 ? 'RS256' : `COSE ${alg}`;
@@ -38,6 +39,7 @@ export default function PasskeyRow({
   onDismissError,
   onDismissVerification,
 }: Props) {
+  const s = useStrings();
   const [inspection, setInspection] = useState<CredentialInspection | null>(null);
   const [inspectError, setInspectError] = useState<string | null>(null);
 
@@ -80,7 +82,7 @@ export default function PasskeyRow({
               </span>
             </span>
             <span className="mt-0.5 block truncate text-xs text-slate-500">
-              created {new Date(credential.createdAt).toLocaleString()}
+              {s.row.createdAt(new Date(credential.createdAt).toLocaleString(s.bcp47))}
             </span>
           </span>
         </button>
@@ -92,15 +94,15 @@ export default function PasskeyRow({
             aria-busy={busy}
             className="rounded-lg bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
           >
-            {busy ? 'Waiting…' : 'Sign in'}
+            {busy ? s.row.waiting : s.row.signIn}
           </button>
           <button
             type="button"
             onClick={onDelete}
-            aria-label={`Forget ${credential.userName}`}
+            aria-label={s.row.forgetAria(credential.userName)}
             className="rounded-lg px-2.5 py-1.5 text-xs font-medium text-slate-400 hover:bg-red-50 hover:text-red-600"
           >
-            Forget
+            {s.row.forget}
           </button>
         </div>
       </div>
@@ -111,7 +113,7 @@ export default function PasskeyRow({
           <button
             type="button"
             onClick={onDismissError}
-            aria-label="Dismiss"
+            aria-label={s.list.dismiss}
             className="shrink-0 text-red-400 hover:text-red-600"
           >
             ✕
@@ -122,44 +124,36 @@ export default function PasskeyRow({
       {expanded && (
         <div className="mt-3 flex flex-col gap-6 rounded-lg border border-slate-200 bg-slate-50 p-4">
           <div>
-            <div role="heading" aria-level={4} className="mb-2 text-sm font-semibold text-slate-900">Registration options</div>
+            <div role="heading" aria-level={4} className="mb-2 text-sm font-semibold text-slate-900">{s.row.regOptions}</div>
             <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:grid-cols-4">
               <div>
                 <dt className="text-slate-400">
-                  <JargonLabel text="Whether the authenticator was asked to confirm it’s you (biometric or PIN) during registration.">
-                    User verification
-                  </JargonLabel>
+                  <JargonLabel text={s.row.regUvTip}>{s.row.regUv}</JargonLabel>
                 </dt>
                 <dd className="mt-0.5 text-slate-700">{credential.options.userVerification}</dd>
               </div>
               <div>
                 <dt className="text-slate-400">
-                  <JargonLabel text="Whether the passkey is discoverable, stored on the authenticator so you can sign in without typing a username.">
-                    Resident key
-                  </JargonLabel>
+                  <JargonLabel text={s.row.regRkTip}>{s.row.regRk}</JargonLabel>
                 </dt>
                 <dd className="mt-0.5 text-slate-700">{credential.options.residentKey}</dd>
               </div>
               <div>
                 <dt className="text-slate-400">
-                  <JargonLabel text="Whether the authenticator returned a signed statement about its make and model.">
-                    Attestation
-                  </JargonLabel>
+                  <JargonLabel text={s.row.regAttestationTip}>{s.row.regAttestation}</JargonLabel>
                 </dt>
                 <dd className="mt-0.5 text-slate-700">{credential.options.attestation}</dd>
               </div>
               <div>
                 <dt className="text-slate-400">
-                  <JargonLabel text="How the authenticator can be reached: internal (this device), usb, nfc, ble, or hybrid (a nearby phone).">
-                    Transports
-                  </JargonLabel>
+                  <JargonLabel text={s.row.regTransportsTip}>{s.row.regTransports}</JargonLabel>
                 </dt>
                 <dd className="mt-0.5 text-slate-700">{credential.transports.join(', ') || 'n/a'}</dd>
               </div>
             </dl>
           </div>
           {inspectError && <p className="text-sm text-red-700">{inspectError}</p>}
-          {!inspection && !inspectError && <p className="text-sm text-slate-500">Decoding…</p>}
+          {!inspection && !inspectError && <p className="text-sm text-slate-500">{s.row.decoding}</p>}
           {inspection && <CredentialDetails inspection={inspection} />}
         </div>
       )}
@@ -167,11 +161,11 @@ export default function PasskeyRow({
       {verification && (
         <div className="mt-3 rounded-lg border border-blue-200 bg-blue-50/40 p-4">
           <div className="mb-3 flex items-center justify-between gap-3">
-            <div className="text-xs font-semibold uppercase tracking-wide text-blue-700">Last sign-in verification</div>
+            <div className="text-xs font-semibold uppercase tracking-wide text-blue-700">{s.row.lastVerification}</div>
             <button
               type="button"
               onClick={onDismissVerification}
-              aria-label="Dismiss verification"
+              aria-label={s.row.dismissVerification}
               className="shrink-0 text-blue-400 hover:text-blue-600"
             >
               ✕

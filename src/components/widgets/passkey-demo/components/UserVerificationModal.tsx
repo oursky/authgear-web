@@ -1,24 +1,6 @@
 // src/components/widgets/passkey-demo/components/UserVerificationModal.tsx
 import Modal from './Modal';
-
-const OPTIONS: { value: UserVerificationRequirement; label: string; tag?: string; desc: string }[] = [
-  {
-    value: 'preferred',
-    label: 'Preferred',
-    tag: 'default',
-    desc: 'Verify if the device can, but allow sign-in either way. Good default.',
-  },
-  {
-    value: 'required',
-    label: 'Required',
-    desc: 'Must verify with biometric or PIN, or sign-in fails. For sensitive actions.',
-  },
-  {
-    value: 'discouraged',
-    label: 'Discouraged',
-    desc: 'Skip verification; just confirm someone’s present. Fastest, least secure.',
-  },
-];
+import { useStrings } from '../StringsContext';
 
 interface Props {
   open: boolean;
@@ -28,15 +10,21 @@ interface Props {
 }
 
 export default function UserVerificationModal({ open, value, onChange, onClose }: Props) {
+  const s = useStrings();
+  const options: { value: UserVerificationRequirement; label: string; tag?: string; desc: string }[] = [
+    { value: 'preferred', label: s.uvModal.preferredLabel, tag: s.uvModal.preferredTag, desc: s.uvModal.preferredDesc },
+    { value: 'required', label: s.uvModal.requiredLabel, desc: s.uvModal.requiredDesc },
+    { value: 'discouraged', label: s.uvModal.discouragedLabel, desc: s.uvModal.discouragedDesc },
+  ];
   return (
-    <Modal open={open} onClose={onClose} title="User verification">
+    <Modal open={open} onClose={onClose} title={s.uvModal.title}>
       <div className="mb-4 text-xs leading-relaxed text-slate-500">
-        Whether the authenticator must verify it’s you (biometric or PIN) on sign-in. Sets{' '}
-        <code className="rounded bg-slate-100 px-1 py-0.5">userVerification</code>; watch the UV flag in the
-        verification steps.
+        {s.uvModal.introBeforeCode}
+        <code className="rounded bg-slate-100 px-1 py-0.5">userVerification</code>
+        {s.uvModal.introAfterCode}
       </div>
-      <div role="radiogroup" aria-label="User verification" className="flex flex-col gap-2">
-        {OPTIONS.map((o) => {
+      <div role="radiogroup" aria-label={s.uvModal.title} className="flex flex-col gap-2">
+        {options.map((o) => {
           const selected = o.value === value;
           return (
             <button
@@ -70,13 +58,13 @@ export default function UserVerificationModal({ open, value, onChange, onClose }
         })}
       </div>
       <div className="mt-4 flex items-center justify-between gap-3">
-        <span className="text-xs text-slate-400">Applies to both sign-in buttons.</span>
+        <span className="text-xs text-slate-400">{s.uvModal.footnote}</span>
         <button
           type="button"
           onClick={onClose}
           className="shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
         >
-          Done
+          {s.uvModal.done}
         </button>
       </div>
     </Modal>

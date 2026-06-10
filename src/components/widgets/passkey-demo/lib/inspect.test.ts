@@ -56,7 +56,8 @@ describe('inspectCredential', () => {
     expect(inspection.flags).toMatchObject({ up: true, uv: true, at: true });
     expect(inspection.signCount).toBe(0);
     expect(inspection.aaguid).toBe('00000000-0000-0000-0000-000000000000');
-    expect(inspection.aaguidName).toMatch(/attestation/i);
+    // null for the all-zero AAGUID; the UI shows a localized explanation
+    expect(inspection.aaguidName).toBeNull();
     expect(inspection.credentialId).toBe(bufToB64url(f.credId));
     expect(inspection.alg).toBe(-7);
     expect(inspection.publicKeyJwk).toEqual({ kty: 'EC', crv: 'P-256', x: f.jwk.x, y: f.jwk.y });

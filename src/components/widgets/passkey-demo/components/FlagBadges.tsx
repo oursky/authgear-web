@@ -1,24 +1,26 @@
 import type { AuthDataFlags } from '../lib/authData';
+import { useStrings } from '../StringsContext';
 
 // 'ed' (extension data) is deliberately omitted — extensions are plumbing, not teaching material.
 type FlagKey = keyof Omit<AuthDataFlags, 'raw' | 'ed'>;
 
-const FLAGS: Array<{ key: FlagKey; label: string; title: string }> = [
-  { key: 'up', label: 'UP', title: 'User Present — someone interacted with the authenticator' },
-  { key: 'uv', label: 'UV', title: 'User Verified — biometric or PIN check passed' },
-  { key: 'be', label: 'BE', title: 'Backup Eligible — the credential can sync between devices (a passkey)' },
-  { key: 'bs', label: 'BS', title: 'Backup State — the credential is currently backed up' },
-  { key: 'at', label: 'AT', title: 'Attested credential data is included' },
+const FLAG_KEYS: Array<{ key: FlagKey; label: string }> = [
+  { key: 'up', label: 'UP' },
+  { key: 'uv', label: 'UV' },
+  { key: 'be', label: 'BE' },
+  { key: 'bs', label: 'BS' },
+  { key: 'at', label: 'AT' },
 ];
 
 export default function FlagBadges({ flags }: { flags: AuthDataFlags }) {
+  const s = useStrings();
   return (
     <div className="flex flex-wrap gap-1.5">
-      {FLAGS.map(({ key, label, title }) => (
+      {FLAG_KEYS.map(({ key, label }) => (
         <span
           key={label}
-          title={title}
-          aria-label={`${label}: ${title}`}
+          title={s.flags[key]}
+          aria-label={`${label}: ${s.flags[key]}`}
           className={`rounded border px-2 py-0.5 font-mono text-xs ${
             flags[key]
               ? 'border-emerald-300 bg-emerald-50 text-emerald-700'

@@ -6,9 +6,25 @@ import Tooltip from './components/Tooltip';
 import { useCredentialStore } from './hooks/useCredentialStore';
 import { useFeatureDetection } from './hooks/useFeatureDetection';
 import type { StoredCredential } from './lib/storage';
+import { StringsProvider, useStrings } from './StringsContext';
+import { stringsForLocale } from './strings';
 import './passkey-demo.css';
 
-export default function PasskeyDemoWidget() {
+interface Props {
+  /** Site locale ('en' or 'zh-Hant'); selects the widget string catalog. */
+  locale?: string;
+}
+
+export default function PasskeyDemoWidget({ locale = 'en' }: Props) {
+  return (
+    <StringsProvider value={stringsForLocale(locale)}>
+      <PasskeyDemo />
+    </StringsProvider>
+  );
+}
+
+function PasskeyDemo() {
+  const s = useStrings();
   const features = useFeatureDetection();
   const store = useCredentialStore();
   const [highlightId, setHighlightId] = useState<string | null>(null);
@@ -36,7 +52,7 @@ export default function PasskeyDemoWidget() {
         data-testid="passkey-demo-widget"
         className="mx-auto w-full max-w-3xl p-8 text-center font-sans text-sm text-slate-500"
       >
-        Checking WebAuthn support…
+        {s.widget.checkingSupport}
       </div>
     );
   }
@@ -47,10 +63,13 @@ export default function PasskeyDemoWidget() {
         data-testid="passkey-demo-widget"
         className="mx-auto w-full max-w-3xl rounded-2xl border border-slate-200 bg-white p-8 font-sans text-slate-800"
       >
-        <div role="heading" aria-level={3} className="mb-2 text-lg font-semibold">Your browser doesn’t support WebAuthn</div>
+        <div role="heading" aria-level={3} className="mb-2 text-lg font-semibold">
+          {s.widget.unsupportedTitle}
+        </div>
         <p className="text-sm text-slate-600">
-          This demo needs the WebAuthn API (<code>window.PublicKeyCredential</code>). Try a current Chrome,
-          Edge, Safari, or Firefox.
+          {s.widget.unsupportedBeforeCode}
+          <code>window.PublicKeyCredential</code>
+          {s.widget.unsupportedAfterCode}
         </p>
       </div>
     );
@@ -65,14 +84,14 @@ export default function PasskeyDemoWidget() {
     >
       <div className="flex flex-wrap gap-2 text-xs">
         <FeatureBadge
-          label="Platform authenticator"
+          label={s.widget.platformAuthLabel}
           state={features.platformAuthenticator}
-          tooltip="Whether this device has Touch ID, Face ID, or Windows Hello to create a passkey."
+          tooltip={s.widget.platformAuthTip}
         />
         <FeatureBadge
-          label="Conditional mediation"
+          label={s.widget.condMediationLabel}
           state={features.conditionalMediation}
-          tooltip="Autofill UI: whether the browser can show your passkeys in the sign-in field’s autofill, instead of a popup."
+          tooltip={s.widget.condMediationTip}
         />
       </div>
       <CreatePanel rpId={rpId} onCreated={handleCreated} />
@@ -97,13 +116,15 @@ function FeatureBadge({
   state: boolean | null;
   tooltip: string;
 }) {
+  const s = useStrings();
   const cls =
     state === true
       ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
       : state === null
         ? 'border-amber-200 bg-amber-50 text-amber-600'
         : 'border-slate-200 bg-slate-50 text-slate-500';
-  const stateText = state === null ? 'unknown' : state ? 'available' : 'unavailable';
+  const stateText =
+    state === null ? s.widget.stateUnknown : state ? s.widget.stateAvailable : s.widget.stateUnavailable;
   return (
     <Tooltip text={tooltip}>
       <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 ${cls}`}>
