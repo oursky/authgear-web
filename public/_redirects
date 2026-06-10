@@ -13,9 +13,9 @@
 # @astrojs/sitemap emits sitemap-index.xml; alias the conventional path.
 /sitemap.xml                                                                        /sitemap-index.xml                                                                                                      301
 
-# Legacy /blog/{slug} → /post/{slug} is handled by prerendered Astro routes
-# (src/pages/blog/[slug].astro) so numeric pagination (/blog/2/, …) is not
-# mistaken for a post slug. Do not add a /blog/:slug wildcard here.
+# Legacy /blog/{slug} → /post/{slug}: wildcard redirect rules are below the
+# SCIM-specific block so those remain single-hop. Static pagination files
+# (/blog/, /blog/2/, …) shadow the wildcard — Netlify file matches win.
 
 # Internal canonical redirects (previously prerendered as Astro stubs)
 /why-authgear                                                                       /about/                                                                                                                 301
@@ -30,6 +30,12 @@
 /blog/scim-provisioning-a-comprehensive-guide-to-simplifying-user-management        /post/what-is-scim-provisioning/                                                                                        301
 /zh-hant/post/scim-provisioning-a-comprehensive-guide-to-simplifying-user-management /zh-hant/post/what-is-scim-provisioning/                                                                               301
 /zh-hant/blog/scim-provisioning-a-comprehensive-guide-to-simplifying-user-management /zh-hant/post/what-is-scim-provisioning/                                                                               301
+
+# /blog/{slug}/ noindex stubs replaced with real 301s (stub Astro routes deleted).
+/blog/:slug/                                                                        /post/:slug/                                                                                                            301
+/blog/:slug                                                                         /post/:slug/                                                                                                            301
+/zh-hant/blog/:slug/                                                                /zh-hant/post/:slug/                                                                                                    301
+/zh-hant/blog/:slug                                                                 /zh-hant/post/:slug/                                                                                                    301
 
 # Legacy Webflow redirects — exported from docs/redirects.csv
 /talk-with-us                                                                       /schedule-demo/                                                                                                         301
