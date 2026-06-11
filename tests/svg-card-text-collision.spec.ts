@@ -13,7 +13,9 @@ test.describe('svg-card text — Tailwind .size-N collision reset', () => {
       .locator('.svg-card-content-title.size-22')
       .first()
       .evaluate((el) => getComputedStyle(el).width);
-    // Before the reset the Tailwind utility resolves this to "88px" (22 × 4px).
+    // These cards live in a display:none section, so getComputedStyle returns the
+    // *computed* value (no layout): "88px" when Tailwind's .size-22 wins (broken),
+    // "auto" when the unlayered reset wins (fixed). This discriminates the two.
     expect(width).toBe('auto');
   });
 

@@ -1520,6 +1520,8 @@
  */
 .svg-card-content-title,
 .svg-card-content-description,
+.svg-card-content-title-light,
+.svg-card-content-description-light,
 .tools-svg-card-content-title,
 .tools-svg-card-content-description {
   width: auto;
