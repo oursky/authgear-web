@@ -4,6 +4,16 @@ import { localizedPath } from '@/lib/i18n';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
+<style>
+  /* Tailwind v4 .size-N utilities set width/height which collides with Webflow's use
+     of these class names as font-size/icon-size modifiers on svg-card elements. Reset them. */
+  .svg-card-content-title.size-18,
+  .svg-card-content-title.size-22,
+  .svg-card-content-description.size-14 {
+    width: auto;
+    height: auto;
+  }
+</style>
 <div class="featurespage__hero_v2 featurespage__hero_bg">
   <div class="features-hero-wrapper-new">
     <div class="split-content features-hero-left">
@@ -63,8 +73,8 @@ const { locale } = Astro.props;
             <div class="card-number">1</div>
           </div>
           <div class="svg-card-content-container text-center gap-6">
-            <div class="svg-card-content-title inter color-2e2e2e size-18">Boost User Satisfaction</div>
-            <div class="svg-card-content-description inter size-14 color-626262">Simplify the login process, reduce password-related frustrations, and increase user engagement.</div>
+            <div class="svg-card-content-title inter color-2e2e2e size-18">User Initiates Login</div>
+            <div class="svg-card-content-description inter size-14 color-626262">The user attempts to access a resource on the Relying Party (RP) application, triggering the SSO authentication flow.</div>
           </div>
         </div>
         <div id="w-node-_66d8a841-5f69-fdff-aea0-9e69be7fe28f-e7a18d43" class="svg-card bg-eff2fc gap-16 py-24 px-32">
@@ -127,7 +137,7 @@ const { locale } = Astro.props;
         <div id="w-node-c5d7a487-ba4d-1906-a5b6-92cdc38cf44f-e7a18d43" class="svg-card p-0 pr-24 bg-transparent">
           <div class="svg-card-image-container"><img src="/images/features-passkeys-security-icon-employee.svg" loading="lazy" width="48" height="auto" alt="" /></div>
           <div class="svg-card-content-container text-center gap-16">
-            <div class="svg-card-content-title left inter color-2e2e2e mobile-20px size-22">User Initiates Login</div>
+            <div class="svg-card-content-title left inter color-2e2e2e mobile-20px size-22">Boost User Satisfaction</div>
             <div class="svg-card-content-description inter text-align-left mobile-16px color-626262">Simplify the login process, reduce password-related frustrations, and increase user engagement.</div>
           </div>
         </div>
