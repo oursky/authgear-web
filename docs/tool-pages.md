@@ -220,6 +220,19 @@ grep -oE "\.<root-class> \.[a-z-]+" src/components/widgets/<slug>/<slug>.css \
     done
 ```
 
+#### Tailwind-vs-Webflow utility collisions
+
+Distinct from the Webflow-leak resets above — this is the *reverse* direction. **Tailwind v4 auto-generates utilities whose names collide with Webflow combo-class labels.** The known offender is `.size-N`: Tailwind emits a standalone `.size-18 { width/height }`, while Webflow uses `size-18` only as one chained class inside a font-size selector (`.svg-card-content-title.….size-18 { font-size }`). The Tailwind utility then clamps the element's box and wraps card text one word per line.
+
+These will **not** show up in the `^\.${c} {` collision-check grep above, because the leak source is Tailwind, not `webflow.css`. The fix lives globally in `src/styles/authgear-design-system.css` (unlayered, so it wins over Tailwind's `@layer utilities`):
+
+```css
+.svg-card-content-title, .svg-card-content-description,
+.tools-svg-card-content-title, .tools-svg-card-content-description { width: auto; height: auto; }
+```
+
+If a new Webflow combo class collides with a *different* Tailwind utility (same name, different property), add a matching reset alongside it. If such collisions become frequent, the structural fix is a Tailwind prefix (`@import "tailwindcss" prefix(tw);`), which costs a one-time rewrite of every existing Tailwind class in the React islands.
+
 ### Library choices
 
 - **Cryptography:** prefer `hash-wasm` (single ESM dep, single WASM, supports argon2/bcrypt/scrypt/PBKDF2/SHA-*). Dynamic-import on first use so the WASM doesn't load during initial paint:

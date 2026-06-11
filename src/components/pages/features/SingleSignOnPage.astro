@@ -4,16 +4,6 @@ import { localizedPath } from '@/lib/i18n';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
-<style>
-  /* Tailwind v4 .size-N utilities set width/height which collides with Webflow's use
-     of these class names as font-size/icon-size modifiers on svg-card elements. Reset them. */
-  .svg-card-content-title.size-18,
-  .svg-card-content-title.size-22,
-  .svg-card-content-description.size-14 {
-    width: auto;
-    height: auto;
-  }
-</style>
 <div class="featurespage__hero_v2 featurespage__hero_bg">
   <div class="features-hero-wrapper-new">
     <div class="split-content features-hero-left">
