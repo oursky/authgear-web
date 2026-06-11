@@ -1470,7 +1470,7 @@
  */
 .features-flex-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-m);
