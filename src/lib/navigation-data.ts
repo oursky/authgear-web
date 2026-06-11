@@ -34,6 +34,7 @@ export const productsDropdownColumns: NavColumn[] = [
     subtitle: { en: 'AUTHENTICATION', 'zh-Hant': '驗證' },
     links: [
       { path: '/features/authentication', label: { en: 'Authentication', 'zh-Hant': '身份驗證' } },
+      { path: '/features/single-sign-on', label: { en: 'Single Sign-On', 'zh-Hant': '單一登入' } },
       { path: '/features/social-login', label: { en: 'Social Login', 'zh-Hant': '社群登入' } },
       { path: '/features/passwordless-authentication', label: { en: 'Passwordless', 'zh-Hant': '無密碼登入' } },
       { path: '/features/whatsapp-otp', label: { en: 'WhatsApp OTP', 'zh-Hant': 'WhatsApp OTP' } },
