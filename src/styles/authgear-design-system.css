@@ -1506,6 +1506,27 @@
 }
 
 /*
+ * Tailwind v4 ↔ Webflow class-name collision reset.
+ *
+ * Tailwind v4 auto-generates standalone `.size-N` utilities (`width`/`height`).
+ * Webflow reuses those same names (`size-14/18/22`) only as combo-class *labels*
+ * inside compound font-size selectors on card text (e.g.
+ * `.svg-card-content-title.inter.color-2e2e2e.size-18 { font-size }`) — it never
+ * sets width/height. The Tailwind utility therefore clamps card titles/descriptions
+ * to a tiny box, wrapping every word onto its own line. Reset width/height here —
+ * unlayered, so it beats Tailwind's `@layer utilities` without `!important`.
+ *
+ * See docs/tool-pages.md "Tailwind-vs-Webflow utility collisions".
+ */
+.svg-card-content-title,
+.svg-card-content-description,
+.tools-svg-card-content-title,
+.tools-svg-card-content-description {
+  width: auto;
+  height: auto;
+}
+
+/*
  * SVG card padding in ds-grids: Webflow `authgear-new.webflow.css` has unlayered `.svg-card { padding: 48px 32px }`,
  * which wins over `@layer components`. Set padding here (unlayered) so tokens apply.
  */
