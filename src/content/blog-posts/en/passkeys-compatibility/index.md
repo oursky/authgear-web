@@ -7,45 +7,9 @@ featured: false
 metaTitle: "Passkeys Compatibility: Which Platforms Support Passkeys?"
 metaDescription: "Passkeys are now supported by iOS, macOS, Chrome and Android. Learn more about passkeys and their compatibility with major browsers and platforms."
 publishedAt: 2022-08-25T02:34:49.697Z
-updatedAt: 2026-02-12T02:36:01.233Z
+updatedAt: 2026-06-12T00:00:00.000Z
 draft: false
 ---
-
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/passkeys-compatibility#webpage",
-														"url":"/post/passkeys-compatibility"
-                        },
-        "headline":"Passkeys Compatibility: Which Platforms Support Passkeys?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6306dea4c54a6b4834b4f191_passkey-compatibility.png",
-            "width":1173,
-            "height":560
-        },
-        "datePublished":"2022-08-26",
-        "dateModified":"2022-08-26",
-        "description":"Passkeys will soon be supported in iOS 16. Learn more about passkeys and their compatibility with Chrome, Safari, and Firefox.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 
 Apple previewed iOS 16, which was released in September 2022, during its developer conference. One fascinating feature of iOS 16 is Passkeys, which are digital credentials that can potentially eliminate passwords once and for all.
 
