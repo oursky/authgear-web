@@ -10,6 +10,17 @@ metaDescription: "了解驗證器 App 的運作：TOTP 密鑰、QR 佈建、時�
 publishedAt: 2025-11-07T16:32:34.377Z
 updatedAt: 2026-02-12T02:33:54.747Z
 draft: false
+faq:
+  - q: "How do authenticator apps work without the internet?"
+    a: "They generate codes locally from a shared secret and the current time (TOTP). Once the seed is on your device, no network access is required."
+  - q: "Can I move my authenticator to a new phone?"
+    a: "Yes. Either export and import your seeds (if supported) or re-enrol TOTP using each service’s recovery codes or backup methods."
+  - q: "Why are my codes incorrect?"
+    a: "Common causes are clock drift, wrong digit length, or picking the wrong account. Ensure 6-digit, 30-second TOTP and correct device time."
+  - q: "Are authenticator apps safer than SMS?"
+    a: "Yes. They avoid SIM-swap and work offline, but they can be phished. WebAuthn/passkeys provide phishing resistance."
+  - q: "What’s the difference between TOTP and HOTP?"
+    a: "TOTP changes codes based on time windows. HOTP increments a counter per use. Most consumer authenticator apps use TOTP."
 ---
 
 驗證器 App 透過 **TOTP**（Time-based One-Time Password）產生短效 6–8 位數驗證碼。你的 App 與網站共享一把密鑰（seed），雙方每 30 秒以「密鑰 + 當前時間」算出相同代碼。若手機時鐘漂移，驗證碼就可能失敗。
@@ -108,29 +119,4 @@ Recommended apps:
 **What’s the difference between TOTP and HOTP?**  
 **TOTP** 依時間變化；**HOTP** 依計數器遞增。大多數消費型驗證器使用 TOTP。
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How Do Authenticator Apps Work? (TOTP, Secrets, Clock Drift & Safer Alternatives)",
-  "description": "Plain-English guide to authenticator apps: how TOTP works, secret provisioning via QR, clock drift and resync, recovery codes, and phishing-resistant passkeys (WebAuthn).",
-  "author": {"@type": "Organization", "name": "Authgear"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "/zh-hant/post/how-do-authenticator-apps-work"},
-  "datePublished": "2025-11-07",
-  "dateModified": "2025-11-07"
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"How do authenticator apps work without the internet?","acceptedAnswer":{"@type":"Answer","text":"They generate codes locally from a shared secret and the current time (TOTP). Once the seed is on your device, no network access is required."}},
-    {"@type":"Question","name":"Can I move my authenticator to a new phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Either export and import your seeds (if supported) or re-enrol TOTP using each service’s recovery codes or backup methods."}},
-    {"@type":"Question","name":"Why are my codes incorrect?","acceptedAnswer":{"@type":"Answer","text":"Common causes are clock drift, wrong digit length, or picking the wrong account. Ensure 6-digit, 30-second TOTP and correct device time."}},
-    {"@type":"Question","name":"Are authenticator apps safer than SMS?","acceptedAnswer":{"@type":"Answer","text":"Yes. They avoid SIM-swap and work offline, but they can be phished. WebAuthn/passkeys provide phishing resistance."}},
-    {"@type":"Question","name":"What’s the difference between TOTP and HOTP?","acceptedAnswer":{"@type":"Answer","text":"TOTP changes codes based on time windows. HOTP increments a counter per use. Most consumer authenticator apps use TOTP."}}
-  ]
-}
-</script>

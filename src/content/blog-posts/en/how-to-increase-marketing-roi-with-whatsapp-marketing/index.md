@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:35:14.196Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/how-to-increase-marketing-roi-with-whatsapp-marketing#webpage",
-														"url":"www.authgear.com/post/how-to-increase-marketing-roi-with-whatsapp-marketing"
-                        },
-        "headline":"How to Increase Marketing ROI with WhatsApp Marketing",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/62984ec16cf48f19bc4ce4ec_whatsapp-g176fb835c_1280.jpg",
-            "width":1223,
-            "height":798
-        },
-        "datePublished":"2022-06-02",
-        "dateModified":"2022-06-02",
-        "description":"Marketing on WhatsApp is a more cost-effective and efficient way to promote your brands, increase marketing ROI, and engage with your customers.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 SMS was once the main channel through which businesses communicate with their customers. Businesses can send OTPs, promotional messages, transactional messages, and other information to their customers through SMS. However, the invention of messenger apps and their growing popularity have made businesses change how they interact with their customers. Marketers have noticed the rise of messenger apps and begun to leverage their popularity to get closer with their prospects or customers. Among all the messenger apps, WhatsApp is the most popular one with India, Brazil, and the United States as the Top 3 WhatsApp countries ranked by largest audiences.
 
 Despite its popularity, not a lot of businesses have made the most of WhatsApp Business, which is an app designed to help businesses of all sizes to drive sales and provide better customer support. In this blog post, we will be discussing:

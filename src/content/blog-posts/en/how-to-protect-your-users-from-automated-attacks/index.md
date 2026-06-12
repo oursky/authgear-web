@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:35:14.204Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/how-to-protect-your-users-from-automated-attacks/#webpage",
-														"url":"/post/how-to-protect-your-users-from-automated-attacks"
-                        },
-        "headline":"How to protect your users from automated attacks",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/61b6d451403cc3fa26c67f19_How%20to%20protect%20your%20users%20from%20automated%20attacks.jpg",
-            "width":1223,
-            "height":689
-        },
-        "datePublished":"2021-12-13",
-        "dateModified":"2022-04-07",
-        "description":"Let’s explore the best ways to protect your users from the rapidly evolving menace of automated attacks.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 Gartner projects that <a href="https://www.gartner.com/en/newsroom/press-releases/2021-07-21-gartner-predicts-by-2025-cyber-attackers-will-have-we" target="_blank">by 2025</a>, cyber attackers will have fully weaponized operational technology (OT) environments to cause critical harm to human users.  Consequently, enterprises must do more to protect their users from automated attacks to prevent the devastation they can bring. Let’s explore the best ways to protect your users from the rapidly evolving menace of automated attacks.
 
 ## What are Automated Attacks?

@@ -9,6 +9,17 @@ metaDescription: "Learn what OTP bots are, how they bypass SMS 2FA, and how deve
 publishedAt: 2025-03-10T08:02:53.485Z
 updatedAt: 2026-02-12T02:35:14.220Z
 draft: false
+faq:
+  - q: "What is an OTP bot?"
+    a: "An OTP bot is malicious software that automates the theft of one-time passwords. Instead of brute-forcing codes, it tricks users into revealing them (often via fake calls or SMS) and relays them to attackers in real time."
+  - q: "How do OTP bots bypass two-factor authentication (2FA)?"
+    a: "OTP bots exploit the weakest part of 2FA: the human user. When a victim receives a real OTP code, the bot—posing as a trusted service—asks them to share it. The bot then instantly forwards the code to the attacker, bypassing SMS-based 2FA."
+  - q: "Why are OTP bots dangerous for developers?"
+    a: "OTP bots create both security risks (account takeovers, data theft) and financial risks (SMS pumping fraud where attackers trigger costly OTP requests). They also stress infrastructure with fake traffic, making authentication unreliable."
+  - q: "How can developers stop OTP bots?"
+    a: "To block OTP bots, developers should: add CAPTCHAs or proof-of-work challenges before sending OTPs, rate-limit and monitor OTP requests, detect anomalies with fraud detection (e.g., Authgear SMS pumping protection), and consider stronger MFA like WebAuthn or passkeys."
+  - q: "Are free OTP bots a real threat?"
+    a: "Yes. Free OTP bot tools circulate on Telegram and underground forums. Even rookie attackers can use them to bypass 2FA at zero cost. Developers should assume these bots exist and harden their OTP workflows accordingly."
 ---
 
 Two-factor authentication (2FA) with one-time passwords (OTPs) is supposed to keep accounts secure. But in recent years, attackers have started using **OTP bots**—automated fraud tools that trick users into giving up their codes and abuse SMS systems at scale. For developers, these bots create not only a **security risk** but also a **financial risk**, as shown by Twitter’s $60 million/year loss from SMS fraud.
@@ -114,51 +125,3 @@ To block OTP bots, developers should:
 
 Yes. Free OTP bot tools circulate on Telegram and underground forums. Even rookie attackers can use them to bypass 2FA at zero cost. Developers should assume these bots exist and harden their OTP workflows accordingly.
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is an OTP bot?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An OTP bot is malicious software that automates the theft of one-time passwords. Instead of brute-forcing codes, it tricks users into revealing them (often via fake calls or SMS) and relays them to attackers in real time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do OTP bots bypass two-factor authentication (2FA)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OTP bots exploit the weakest part of 2FA: the human user. When a victim receives a real OTP code, the bot—posing as a trusted service—asks them to share it. The bot then instantly forwards the code to the attacker, bypassing SMS-based 2FA."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why are OTP bots dangerous for developers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OTP bots create both security risks (account takeovers, data theft) and financial risks (SMS pumping fraud where attackers trigger costly OTP requests). They also stress infrastructure with fake traffic, making authentication unreliable."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can developers stop OTP bots?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To block OTP bots, developers should: add CAPTCHAs or proof-of-work challenges before sending OTPs, rate-limit and monitor OTP requests, detect anomalies with fraud detection (e.g., Authgear SMS pumping protection), and consider stronger MFA like WebAuthn or passkeys."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are free OTP bots a real threat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Free OTP bot tools circulate on Telegram and underground forums. Even rookie attackers can use them to bypass 2FA at zero cost. Developers should assume these bots exist and harden their OTP workflows accordingly."
-      }
-    }
-  ]
-}
-</script>

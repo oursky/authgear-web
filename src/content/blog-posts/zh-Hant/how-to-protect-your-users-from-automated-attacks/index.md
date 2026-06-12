@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:35:14.204Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/how-to-protect-your-users-from-automated-attacks/#webpage",
-                            "url":"/post/how-to-protect-your-users-from-automated-attacks"
-                        },
-        "headline":"如何保護你的使用者免受自動化攻擊",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/61b6d451403cc3fa26c67f19_How%20to%20protect%20your%20users%20from%20automated%20attacks.jpg",
-            "width":1223,
-            "height":689
-        },
-        "datePublished":"2021-12-13",
-        "dateModified":"2022-04-07",
-        "description":"一起來看看保護使用者免受快速演進的自動化攻擊威脅的最佳做法。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 Gartner 預測，<a href="https://www.gartner.com/en/newsroom/press-releases/2021-07-21-gartner-predicts-by-2025-cyber-attackers-will-have-we" target="_blank">到 2025 年</a>網路攻擊者將會把營運技術（OT）環境完整武器化，對人類使用者造成關鍵性傷害。因此，企業必須投入更多防護，避免自動化攻擊帶來的破壞。本文將帶你了解保護使用者的關鍵方法。
 
 ## 什麼是自動化攻擊？

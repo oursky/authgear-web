@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:33:17.651Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/authentication-as-a-service#webpage",
-														"url":"/post/authentication-as-a-service"
-                        },
-        "headline":"Authentication-as-a-Service: What Is It and Why You Need It",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6344e1dd2a5ed82836bcd83f_AaaS.png",
-            "width":1223,
-            "height":584
-        },
-        "datePublished":"2022-09-25",
-        "dateModified":"2022-10-11",
-        "description":"By integrating their apps or software with authentication-as-a-service solution, businesses can provide frictinoless signup/login experiences and more.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 作為企業主或決策者，身份驗證可能不是您最關心的問題。您有比身份驗證系統如何運作更重要的事情需要擔心。然而，身份驗證是任何線上業務的關鍵部分。
 
 當今的消費者期望無縫的身份驗證體驗。他們希望能夠快速輕鬆地註冊並登入您的服務，而無需記住大量密碼。另一方面，作為企業主，您需要擔心安全且可擴展的身份驗證方法。建構內部身份驗證系統可以採取以下任何方式： <a href="https://www.upwork.com/resources/how-to-develop-an-app" target="_blank">三個月和六個月</a>。聽起來可能不是很長一段時間。然而，在當今快節奏的商業世界中，該身份驗證系統在完成時可能會過時。此外，從頭開始建立身份驗證系統可能會出現許多問題。

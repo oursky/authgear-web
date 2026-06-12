@@ -126,20 +126,3 @@ Not inherently. GraphQL resolvers must perform the **same object-level checks** 
 
 IDOR is a simple bug with outsized impact because it strikes at the heart of authorization. If a **single** handler trusts client-supplied object IDs, your whole data model may be exposed. The fix isn’t exotic: **deny by default, centralize policy, and enforce object-level checks in every function**. Add negative tests to CI and keep an eye on logs—your future self will thank you.
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Insecure Direct Object Reference (IDOR): Examples & API Prevention",
-  "description": "What IDOR is, how it happens in web & APIs, real-world examples, and a practical checklist to prevent object-level authorization bugs (BOLA).",
-  "author": { "@type": "Organization", "name": "Authgear" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Authgear",
-    "logo": { "@type": "ImageObject", "url": "/path-to-logo.png" }
-  },
-  "datePublished": "2025-09-09",
-  "dateModified": "2025-09-09",
-  "mainEntityOfPage": "/post/idor-insecure-direct-object-reference"
-}
-</script>

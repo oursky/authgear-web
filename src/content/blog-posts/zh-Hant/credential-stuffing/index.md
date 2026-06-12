@@ -10,41 +10,6 @@ publishedAt: 2022-12-06T08:10:05.702Z
 updatedAt: 2026-02-12T02:33:54.733Z
 draft: false
 ---
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/credential-stuffing#webpage",
-														"url":"/post/credential-stuffing"
-                        },
-        "headline":"Credential Stuffing 是什麼？如何防範？",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/638ef7a6d48c9f4a79ed7250_credential-stuffing-featured.png",
-            "width":1120,
-            "height":583
-        },
-        "datePublished":"2022-12-06",
-        "dateModified":"2022-12-06",
-        "description":"Credential stuffing 是攻擊者利用外洩帳密與機器人入侵帳號的常見手法。本文帶你了解原理與防禦策略。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 
 2020 年，美國證券交易委員會（SEC）在一份<a href="https://www.sec.gov/files/Risk%20Alert%20-%20Credential%20Compromise.pdf" target="_blank">報告</a>中強調了 credential stuffing 攻擊日益升高的風險。這種資安威脅之所以持續嚴重，部分原因是它利用了人們每天都在犯的簡單錯誤。我們大多數人都知道不該在多個平台重複使用同一組帳號密碼，但這種情況仍非常普遍，也讓自動化攻擊變得過於容易。
 

@@ -12,41 +12,6 @@ updatedAt: 2026-02-12T02:36:33.467Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/what-is-multi-factor-authentication-mfa/#webpage",
-														"url":"/post/what-is-multi-factor-authentication-mfa"
-                        },
-        "headline":"什麼是多因素驗證 (MFA)？它是如何運作的？",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/61935235c4bb8385306f68b6_What%20Is%20Multi-factor%20Authentication%20_MFA_%20and%20How%20Does%20it%20Work.jpg",
-            "width":1223,
-            "height":642
-        },
-        "datePublished":"2021-11-16",
-        "dateModified":"2022-12-19",
-        "description":"事實是，如果您沒有使用多因素驗證 (MFA)，您的帳戶並不如您所想的那樣安全。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
     
     2021 年，拜登總統在聯邦政府範圍內推行 MFA，作為提升網路安全計劃的一部分。此舉源於美國國家網路安全負責人指出，多因素驗證可以防止 80-90% 的網路攻擊。面對日益增加的威脅，MFA 在提升線上安全方面的有效性正迅速使其成為網路安全的必備工具。

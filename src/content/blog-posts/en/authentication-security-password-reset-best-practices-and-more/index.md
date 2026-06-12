@@ -9,6 +9,15 @@ metaDescription: "Discover essential password reset best practices to safeguard 
 publishedAt: 2021-11-17T01:35:53.381Z
 updatedAt: 2026-02-12T02:36:01.228Z
 draft: false
+faq:
+  - q: "Should I enforce password expiration or rotation?"
+    a: "No. Per NIST SP 800-63B, do not require routine password expiration. Only force a change if there is evidence of compromise."
+  - q: "How long should a password reset link last?"
+    a: "Keep reset links short-lived (e.g., 15–60 minutes), single-use, and invalidate them immediately after a successful reset."
+  - q: "What hashing algorithm should I use for passwords?"
+    a: "Use modern, slow, adaptive hashing (e.g., Argon2id, bcrypt, PBKDF2) with a unique salt per password and appropriate cost parameters."
+  - q: "Should I log JWTs or other secrets?"
+    a: "No. Never log passwords, tokens, API keys, or other secrets. Redact and mask sensitive fields in logs."
 ---
 
 ## Mastering the Password Reset: Best Practices with Common Pitfalls and Solutions for Enhanced Security
@@ -268,45 +277,5 @@ Use modern, slow, adaptive hashing (e.g., Argon2id, bcrypt, PBKDF2) with a uniqu
 
 No. Never log passwords, tokens, API keys, or other secrets. Redact and mask sensitive fields in logs.
 
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {
-      "@type":"Question",
-      "name":"Should I enforce password expiration or rotation?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"No. Per NIST SP 800-63B, do not require routine password expiration. Only force a change if there is evidence of compromise."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"How long should a password reset link last?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Keep reset links short-lived (e.g., 15–60 minutes), single-use, and invalidate them immediately after a successful reset."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"What hashing algorithm should I use for passwords?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Use modern, slow, adaptive hashing (e.g., Argon2id, bcrypt, PBKDF2) with a unique salt per password and appropriate cost parameters."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"Should I log JWTs or other secrets?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"No. Never log passwords, tokens, API keys, or other secrets. Redact and mask sensitive fields in logs."
-      }
-    }
-  ]
-}
-</script>
 
 **Need expert guidance on securing your password reset flow?** Our team of security experts can help you identify vulnerabilities and implement robust solutions. [Contact us today](/schedule-demo) for a comprehensive assessment.

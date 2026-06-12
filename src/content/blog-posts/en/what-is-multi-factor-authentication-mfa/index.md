@@ -12,41 +12,6 @@ updatedAt: 2026-02-12T02:36:33.467Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/what-is-multi-factor-authentication-mfa/#webpage",
-														"url":"/post/what-is-multi-factor-authentication-mfa"
-                        },
-        "headline":"What Is Multi-factor Authentication (MFA) and How Does it Work?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/61935235c4bb8385306f68b6_What%20Is%20Multi-factor%20Authentication%20_MFA_%20and%20How%20Does%20it%20Work.jpg",
-            "width":1223,
-            "height":642
-        },
-        "datePublished":"2021-11-16",
-        "dateModified":"2022-12-19",
-        "description":"The fact is, if you aren’t using multi-factor authentication (MFA), then your accounts are not as secure as you think.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
     
     In 2021, President Biden had MFA rolled out across the federal government as part of a plan to increase cybersecurity. This came after the US national cyber security chief argued that Multi-Factor Authentication could prevent 80-90% of cyber-attacks. As we stare down increasing threats, the effectiveness of MFA at enhancing online safety is quickly making it a cyber-security must.

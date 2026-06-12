@@ -10,29 +10,17 @@ metaDescription: "Session-based authentication manages state on the server using
 publishedAt: 2021-11-25T09:10:30.130Z
 updatedAt: 2026-02-28T12:45:07.918Z
 draft: false
+faq:
+  - q: "Is token-based authentication better than session-based?"
+    a: "Neither is always better. Use sessions for single-domain web apps; use tokens for APIs, mobile, and cross-domain scenarios where stateless scaling helps."
+  - q: "Is a session token the same as a JWT?"
+    a: "No. A session token usually identifies server-side session data. A JWT is a self-contained bearer token that may not require server state."
+  - q: "Where should I store tokens?"
+    a: "Prefer httpOnly cookies with short lifetimes and SameSite. Avoid long-lived tokens in localStorage; if used, keep them short-lived and rotate via a secure refresh flow."
+  - q: "How do I revoke tokens?"
+    a: "For tokens, use short TTL plus refresh token rotation or token introspection/deny-lists. For sessions, invalidate on the server."
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/session-vs-token-authentication/#webpage",
-														"url":"/post/session-vs-token-authentication"
-                        },
-        "headline":"Session vs Token Authentication",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/619f5927d201992550bd2454_session%20vs%20token.jpg",
-            "width":1223,
-            "height":642
-        },
-        "datePublished":"2021-11-25",
-        "dateModified":"2025-09-11",
-        "description":"Understand session-based vs token-based authentication, cookies vs JWT, pros/cons, CSRF/XSS trade-offs, and when to use each—plus examples."
-    }
-    </script>
     
     The choice between session-based vs token-based authentication defines your application's scalability and security. Session authentication is stateful, relying on server-side memory and cookies, making it ideal for single-domain web apps. In contrast, token-based authentication (JWT) is stateless and mobile-ready, passing credentials via authorization headers. This guide compares both methods across security (CSRF vs. XSS), performance, and implementation complexity to help you choose the right architecture for your stack.
 
@@ -259,18 +247,6 @@ Prefer httpOnly cookies with short TTL and SameSite. Avoid long-lived tokens in 
 
 Use short TTL + refresh rotation (or opaque tokens with introspection / deny-list).
 
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"FAQPage",
- "mainEntity":[
-  {"@type":"Question","name":"Is token-based authentication better than session-based?","acceptedAnswer":{"@type":"Answer","text":"Neither is always better. Use sessions for single-domain web apps; use tokens for APIs, mobile, and cross-domain scenarios where stateless scaling helps."}},
-  {"@type":"Question","name":"Is a session token the same as a JWT?","acceptedAnswer":{"@type":"Answer","text":"No. A session token usually identifies server-side session data. A JWT is a self-contained bearer token that may not require server state."}},
-  {"@type":"Question","name":"Where should I store tokens?","acceptedAnswer":{"@type":"Answer","text":"Prefer httpOnly cookies with short lifetimes and SameSite. Avoid long-lived tokens in localStorage; if used, keep them short-lived and rotate via a secure refresh flow."}},
-  {"@type":"Question","name":"How do I revoke tokens?","acceptedAnswer":{"@type":"Answer","text":"For tokens, use short TTL plus refresh token rotation or token introspection/deny-lists. For sessions, invalidate on the server."}}
- ]
-}
-</script>
 
 ## **Closing Thoughts: Which Authentication should you use?**
 

@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:35:14.195Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/digital-customer-experience#webpage",
-                                                        "url":"/post/digital-customer-experience"
-                        },
-        "headline":"如何透過 CIAM 提升數位客戶體驗？",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/647448d4453365df38c19272_cx-featured.png",
-            "width":1120,
-            "height":584
-        },
-        "datePublished":"2023-05-29",
-        "dateModified":"2022-05-29",
-        "description":"了解 CIAM 如何成為優化數位客戶體驗的關鍵基礎，打造順暢互動並建立忠誠度。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 近期一項 <a href="https://www.pwc.com/us/en/services/consulting/library/consumer-intelligence-series/future-of-customer-experience.html" target="_blank">PWC 調查</a>指出，32% 的顧客表示只要有一次不好的體驗，就會停止與該品牌互動。這點無庸置疑：對任何追求成功的企業而言，客戶體驗都必須被列為優先要務；而在數位場景中，關鍵就在於確保每一次線上互動都是正面的。
 
 在這篇文章中，我們會探討企業如何透過 Customer Identity and Access Management（CIAM）解決方案改善數位客戶體驗。優化使用者登入與存取你服務的方式，不只對數位客戶體驗有顯著幫助，也能直接改善你的營運成果。

@@ -9,6 +9,27 @@ metaDescription: "Learn what cryptographic failures are, see real-world examples
 publishedAt: 2025-09-09T09:46:02.181Z
 updatedAt: 2026-02-12T02:33:54.718Z
 draft: false
+faq:
+  - q: "What is a cryptographic failure (OWASP A02)?"
+    a: "Any weakness caused by missing, weak, or misused cryptography that exposes sensitive data—such as no TLS, outdated ciphers, poor key handling, or weak password hashing."
+  - q: "How is this different from “Sensitive Data Exposure”?"
+    a: "OWASP renamed the category to focus on root causes. “Sensitive Data Exposure” describes the outcome; Cryptographic Failures covers the misconfigurations and bad choices that lead to it."
+  - q: "What data should be encrypted?"
+    a: "Encrypt credentials, personal data, tokens, financial/health info, secrets, and backups. Use TLS for data in transit and strong encryption (e.g., AES-256) for data at rest. Avoid logging sensitive data."
+  - q: "Which algorithms and protocols should I use (and avoid)?"
+    a: "Use TLS 1.2/1.3; AES-GCM or ChaCha20-Poly1305; Argon2id, bcrypt, or PBKDF2 for passwords; and modern, vetted libraries. Avoid MD5, SHA-1, RC4, DES/3DES, custom cryptography, and outdated SSL/TLS versions."
+  - q: "How should I store user passwords?"
+    a: "Never plaintext or reversible encryption. Store passwords as salted, adaptive hashes (Argon2id or bcrypt; PBKDF2 with high iterations). Optionally add a server-side pepper stored separately from the database."
+  - q: "What are common cryptographic mistakes?"
+    a: "Hard-coded keys/secrets, weak or non-cryptographic RNGs, IV/nonce reuse, accepting invalid TLS certificates, mixed content, failing to rotate keys, and leaving sensitive data in logs."
+  - q: "How do I handle keys and secrets safely?"
+    a: "Use a secrets manager or KMS. Do not commit secrets to source code or mobile apps. Enforce least privilege, rotate regularly, monitor usage, and run automated secret-scanning on repositories."
+  - q: "How can I detect cryptographic failures during development?"
+    a: "Use a mix of SAST/DAST, dependency and TLS configuration scanners, and secret-scanning. Add tests and code reviews that verify strong algorithms, TLS enforcement, and the absence of hard-coded secrets."
+  - q: "Do I always need encryption, even internally?"
+    a: "Yes for sensitive data. Treat internal networks and logs as potentially accessible during incidents. Minimize data collected and retained to reduce exposure and compliance risk."
+  - q: "How can Authgear help?"
+    a: "Authgear provides secure authentication, strong password hashing, token handling, and TLS-first integrations out of the box—reducing crypto mistakes and helping teams meet OWASP best practices faster."
 ---
 
 Cryptographic failures—previously known as **Sensitive Data Exposure**—ranked <a href="https://owasp.org/Top10/A02_2021-Cryptographic_Failures/" target="_blank">#2 in the OWASP Top 10 (2021)</a> and remain one of the fastest ways attackers turn access into impact. With the **OWASP Top 10 (2025) update expected soon**, this topic is only growing in relevance: most breaches don’t come from “cracking” modern ciphers but from **missing, weak, or misused cryptography**.
@@ -137,91 +158,3 @@ Yes, if data is sensitive. Assume internal networks and logs can be accessed in 
 **10) How can Authgear help?**  
 Authgear centralizes secure auth flows, strong password hashing, token handling, and TLS-first integrations—reducing crypto foot-guns and helping you meet OWASP best practices faster.
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a cryptographic failure (OWASP A02)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Any weakness caused by missing, weak, or misused cryptography that exposes sensitive data—such as no TLS, outdated ciphers, poor key handling, or weak password hashing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is this different from “Sensitive Data Exposure”?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OWASP renamed the category to focus on root causes. “Sensitive Data Exposure” describes the outcome; Cryptographic Failures covers the misconfigurations and bad choices that lead to it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What data should be encrypted?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Encrypt credentials, personal data, tokens, financial/health info, secrets, and backups. Use TLS for data in transit and strong encryption (e.g., AES-256) for data at rest. Avoid logging sensitive data."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which algorithms and protocols should I use (and avoid)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use TLS 1.2/1.3; AES-GCM or ChaCha20-Poly1305; Argon2id, bcrypt, or PBKDF2 for passwords; and modern, vetted libraries. Avoid MD5, SHA-1, RC4, DES/3DES, custom cryptography, and outdated SSL/TLS versions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How should I store user passwords?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Never plaintext or reversible encryption. Store passwords as salted, adaptive hashes (Argon2id or bcrypt; PBKDF2 with high iterations). Optionally add a server-side pepper stored separately from the database."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are common cryptographic mistakes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Hard-coded keys/secrets, weak or non-cryptographic RNGs, IV/nonce reuse, accepting invalid TLS certificates, mixed content, failing to rotate keys, and leaving sensitive data in logs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I handle keys and secrets safely?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use a secrets manager or KMS. Do not commit secrets to source code or mobile apps. Enforce least privilege, rotate regularly, monitor usage, and run automated secret-scanning on repositories."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I detect cryptographic failures during development?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use a mix of SAST/DAST, dependency and TLS configuration scanners, and secret-scanning. Add tests and code reviews that verify strong algorithms, TLS enforcement, and the absence of hard-coded secrets."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I always need encryption, even internally?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes for sensitive data. Treat internal networks and logs as potentially accessible during incidents. Minimize data collected and retained to reduce exposure and compliance risk."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can Authgear help?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Authgear provides secure authentication, strong password hashing, token handling, and TLS-first integrations out of the box—reducing crypto mistakes and helping teams meet OWASP best practices faster."
-      }
-    }
-  ]
-}
-</script>

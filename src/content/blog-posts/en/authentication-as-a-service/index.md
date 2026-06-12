@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:33:17.651Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/authentication-as-a-service#webpage",
-														"url":"/post/authentication-as-a-service"
-                        },
-        "headline":"Authentication-as-a-Service: What Is It and Why You Need It",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6344e1dd2a5ed82836bcd83f_AaaS.png",
-            "width":1223,
-            "height":584
-        },
-        "datePublished":"2022-09-25",
-        "dateModified":"2022-10-11",
-        "description":"By integrating their apps or software with authentication-as-a-service solution, businesses can provide frictinoless signup/login experiences and more.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 As a business owner or decision maker, authentication is likely not at the top of your mind. You have more important things to worry about than how your authentication system works. However, authentication is a crucial part of any online business.
 
 Today's consumers expect a seamless authentication experience. They want to be able to sign up for and log into your services quickly and easily, without having to remember a lot of passwords. On the other hand, you as a business owner need to worry about authentication methods that are secure and scalable. Building an in-house authentication system can take anywhere between <a href="https://www.upwork.com/resources/how-to-develop-an-app" target="_blank">three and six months</a>. It might not sound like a long time. However, in today's fast-paced business world, that authentication system will likely be outdated by the time it's finished. In addition, there's so much that could go wrong in building an authentication system from scratch.

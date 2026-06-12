@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:33.465Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps#webpage",
-														"url":"www.authgear.com/post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps"
-                        },
-        "headline":"被遺忘權：您的應用程式如何遵循資料刪除規定",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/621dd489bbdbae4b79e6b123_regulation-g5c0827f31_1280.jpg",
-            "width":1223,
-            "height":573
-        },
-        "datePublished":"2022-03-01",
-        "dateModified":"2022-04-07",
-        "description":"了解 GDPR 下的刪除權（被遺忘權），以及您的應用程式如何遵循最新的資料保護規定。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
    資料收集一直以來都幫助各類企業分析客戶行為，以提供個性化服務或調整行銷策略。然而，消費者如今對自身資料的使用或濫用越來越有意識，開始要求對其資料擁有更多控制權。因此，各國政府也相繼出台不同法規來規範資料收集行為。
 

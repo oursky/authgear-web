@@ -11,43 +11,6 @@ updatedAt: 2026-02-12T02:36:33.494Z
 draft: false
 ---
 
-
-<script type="application/ld+json">
-    {
-"@context":"http://schema.org",
-"@type":"新聞文章",
-“mainEntityOfPage”：{
-"@type":"網頁",
-"@id":"/post/sms-authentication-should-you-implement#webpage",
-“url”：“/post/sms-authentication-you-implement”
-                        },
-"headline":"什麼是簡訊驗證以及您應該實施它嗎？",
-“圖像”：{
-"@type":"影像物件",
-"url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/62d79f6f7c12aa43de2e1f61_SMS%20Authentication.png",
-“寬度”：1200，
-“身高”：570
-        },
-"發佈日期":"2022-07-20",
-"修改日期":"2022-07-20",
-"description":"簡訊驗證是最常見的驗證方法之一，透過簡訊驗證使用者身分。",
-「作者」：{
-“@id”：“https://www.oursky.com/#organization”
-        },
-「出版商」：{
-"@type":"組織",
-"name":"我們的天空",
-"@id":"https://www.oursky.com/#organization",
-「標識」：{
-"@type":"影像物件",
-"@id":"https://www.oursky.com/#logo",
-"url":"https://oursky.com/assets/img/og-image.png",
-"caption":"我們的天空"
-              }
-        }
-    }
-    </script>
-
 如今，企業不能再將網路安全視為事後的想法，因為駭客和詐騙者正在尋找竊取資訊的新方法。需要採取雙重認證等新的預防措施來保護客戶資料。
 
 雙重認證 (2FA) 要求使用者在授予應用程式或線上平台存取權限之前提供兩項證據或資訊。一種廣泛使用的輔助身份驗證方法是簡訊身份驗證。直到今天，隨著行動用戶數量的不斷增加，簡訊驗證仍然是最廣泛使用的驗證方法之一。

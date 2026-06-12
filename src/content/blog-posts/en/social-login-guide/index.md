@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:01.280Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/social-login-guide#webpage",
-														"url":"/post/social-login-guide"
-                        },
-        "headline":"Social Login - Why You Should Implement It",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63e9ec3723ec197cc4f19d1b_social-login.png",
-            "width":1223,
-            "height":584
-        },
-        "datePublished":"2023-02-13",
-        "dateModified":"2022-02-13",
-        "description":"Learn how to easily enable social login in your website or app to increase conversion rate and deliver smoother user experience.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 The internet has truly revolutionized how people interact and socialize with each other. It has made it easier than ever to access content, information, and services online. It's no wonder that today, a staggering <a href="https://datareportal.com/global-digital-overview" target="_blank">5.16 billion people</a> use the internet, many of whom do so daily.
 
 If you frequently use the internet, you're probably familiar with being asked to create an account for a service or website you want access to. It's one of those requirements many people find annoying. In fact, 86 percent of internet users say they're bothered when asked to create a new account when on a website. <a href="https://www.shopify.com/blog/shopping-cart-abandonment" target="_blank">24 percent</a> of shoppers report abandoning e-commerce sites that asked for account registration before checkout. These figures are worrying, and they point to the need for a better way to authenticate users on websites. This is where social login comes in. In this blog, we tell you all you need to know about this authentication method and why you should implement it on your website.

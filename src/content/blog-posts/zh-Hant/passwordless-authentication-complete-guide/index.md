@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:01.236Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/passwordless-authentication-complete-guide#webpage",
-														"url":"www.authgear.com/post/passwordless-authentication-complete-guide"
-                        },
-        "headline":"Passwordless Authentication: All You Need to Know For Better Security",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/62028fb300efe2d77489ef06_phishing-gc2cea6a81_1280.png",
-            "width":1280,
-            "height":710
-        },
-        "datePublished":"2022-03-01",
-        "dateModified":"2022-04-07",
-        "description":"Learn more about why passwordless authentication has been adopted by all industries and how you can implement it with ease.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
 無密碼身份驗證包括無需要求使用者輸入密碼即可驗證使用者身份的所有身份驗證方法。無密碼身份驗證的範例包括生物識別技術，例如指紋和臉部辨識、實體安全性令牌金鑰、Magic Link 等。
 

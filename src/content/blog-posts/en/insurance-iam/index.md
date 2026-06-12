@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:35:14.210Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/insurance-iam#webpage",
-														"url":"/post/insurance-iam"
-                        },
-        "headline":"Insurance IAM: How It Helps Acquire More Clients and Facilitate Collaboration?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63994681f44de6b9bd9e4c8f_insurance-iam-featured.jpg",
-            "width":1120,
-            "height":525
-        },
-        "datePublished":"2022-12-14",
-        "dateModified":"2022-12-14",
-        "description":"IAM does more than just enhancing data security for insurance companies. IAM also helps acquire and retain more users and facilitate collaboration with external team members for insurance. See how IAM achieves these with our guide.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
         As a recent <a href="https://www.pwc.com/us/en/industries/financial-services/library/next-in-insurance-top-issues.html" target="_blank">PWC</a> article pointed out, the Insurance industry is experiencing change at a more rapid rate than ever. The pandemic may have driven up <a href="https://www.pwc.com/us/en/industries/financial-services/library/insurance-consumer-survey.html" target="_blank">life insurance purchases</a>, but it also created a far more digitally demanding consumer base. Forced to stay at home and do everything online, we’re now impatient with anyone who can’t keep up.
 

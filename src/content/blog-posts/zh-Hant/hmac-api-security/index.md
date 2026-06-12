@@ -9,6 +9,15 @@ metaDescription: "了解為什麼 HMAC 在 2025 仍是安全 API 驗證的基礎
 publishedAt: 2025-10-06T17:35:08.970Z
 updatedAt: 2026-02-12T02:36:33.500Z
 draft: false
+faq:
+  - q: "Is HMAC still secure in 2025?"
+    a: "Yes. HMAC remains cryptographically secure when used with SHA256 or SHA512. It’s still widely trusted for API authentication."
+  - q: "Why not use JWT or OAuth instead?"
+    a: "JWT and OAuth are best for user identity and access delegation, while HMAC focuses on verifying message authenticity between trusted systems."
+  - q: "Can HMAC prevent replay attacks?"
+    a: "Yes, by including timestamps or unique nonces in signed requests, HMAC can effectively prevent replay attacks."
+  - q: "Is HMAC suitable for mobile apps or IoT?"
+    a: "Yes. HMAC’s simplicity, low overhead, and symmetric design make it ideal for IoT and mobile SDK integrations."
 ---
 
 微服務、雲端整合與 webhook 型通訊的普及，使 **API 安全** 比以往更關鍵。  
@@ -116,4 +125,3 @@ JWT 適合使用者身分驗證，OAuth 適合委派授權。HMAC 更適合驗�
 
 非常適合。HMAC 的輕量設計與低 CPU 負擔，特別適合 IoT 裝置與行動 SDK。
 
-<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [ { "@type": "Question", "name": "Is HMAC still secure in 2025?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. HMAC remains cryptographically secure when used with SHA256 or SHA512. It’s still widely trusted for API authentication." } }, { "@type": "Question", "name": "Why not use JWT or OAuth instead?", "acceptedAnswer": { "@type": "Answer", "text": "JWT and OAuth are best for user identity and access delegation, while HMAC focuses on verifying message authenticity between trusted systems." } }, { "@type": "Question", "name": "Can HMAC prevent replay attacks?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, by including timestamps or unique nonces in signed requests, HMAC can effectively prevent replay attacks." } }, { "@type": "Question", "name": "Is HMAC suitable for mobile apps or IoT?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. HMAC’s simplicity, low overhead, and symmetric design make it ideal for IoT and mobile SDK integrations." } } ] } </script>

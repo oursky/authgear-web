@@ -11,40 +11,6 @@ updatedAt: 2026-02-12T02:35:14.207Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/in-app-account-deletion-required-by-app-store#webpage",
-                            "url":"www.authgear.com/post/in-app-account-deletion-required-by-app-store"},
-        "headline":"App Store 自 2022 年 6 月 30 日起要求 App 內提供刪除帳號功能",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/61dd56f4dced153954ddcae9_thom-bradley-A6qNzfJXRGQ-unsplash.jpg",
-            "width":1120,
-            "height":710
-        },
-        "datePublished":"2022-01-11",
-        "dateModified":"2022-04-07",
-        "description":"Apple 將要求 App 必須允許使用者在 App 內發起刪除帳號。了解最新政策內容與你該如何準備。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 如果你的 App 上架於 App Store 且允許建立帳號，根據 <a href="https://developer.apple.com/news/?id=i71db0mv" target="_blank">Apple 最新公告</a>，你必須在 2022 年 6 月 30 日前提供使用者在 App 內刪除帳號的完整入口。此要求原先預計 2022 年 1 月 31 日生效，後來延後到 2022 年 6 月 30 日，讓開發者有更多準備時間。最新公告也釐清了先前 <a href="https://developer.apple.com/news/?id=mdkbobfo" target="_blank">公告</a> 引發的幾個疑問。
 
 本文將整理最新刪除帳號要求、2021 與 2022 公告差異，以及可能影響。

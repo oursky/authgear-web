@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:01.291Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/tech-giants-take-one-step-closer-to-a-future-without-passwords#webpage",
-														"url":"/post/tech-giants-take-one-step-closer-to-a-future-without-passwords"
-                        },
-        "headline":"Tech Giants Take One Step Closer to a Future without Passwords",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/630451c10ef53f09f03295a7_future-without-passwords.png",
-            "width":1173,
-            "height":560
-        },
-        "datePublished":"2022-08-23",
-        "dateModified":"2022-08-23",
-        "description":"Apple, Google, and Microsoft have committed to make passwords a thing of the past, taking another step towards a future without passwords.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 Despite all their cons, passwords remain the most popular mechanism for enforcing security to protect users’ data. Some may think that the idea of “the future without passwords” is not new. There are existing authentication techniques, like biometric sensors and hardware keys, that do not require users to enter complex passwords to sign in. However, the initial account creation still requires the use of passwords due to various reasons that will be explained in the "Existing Passwordless Options" section.
 
 Earlier this year, <a href="https://www.theverge.com/2022/5/5/23057646/apple-google-microsoft-passwordless-sign-in-fido" target="_blank">Apple, Google and Microsoft united to work on implementing passwordless sign-in on all major platforms</a>.  During its World-Wide Developers Conference in May 2022 (WWDC22), Apple announced the use of passkeys for the future without passwords through its <a href="https://thetechtutor.medium.com/a-future-without-passwords-dfc7d755f9f1" target="_blank">2022 rollout of iOS16 and macOS Ventura</a>. The iOS and macOS rollout that took place in the fall of 2022 and <a href="https://android-developers.googleblog.com/2022/10/bringing-passkeys-to-android-and-chrome.html" target="_blank">Google's announcement of bringing passkey support to Android and Chrome in Oct 2022</a> were a huge step towards the actualization of the future without passwords. However, many people have yet to fully understand how we can have a true passwordless digital world, which leads to the idea of passkeys. In this blog post, we’ll discuss what’s wrong with passwords and how passkeys work to get us closer to a future without passwords.

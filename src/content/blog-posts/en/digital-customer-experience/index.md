@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:35:14.195Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/digital-customer-experience#webpage",
-														"url":"/post/digital-customer-experience"
-                        },
-        "headline":"How to Elevate Digital Customer Experience with CIAM?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/647448d4453365df38c19272_cx-featured.png",
-            "width":1120,
-            "height":584
-        },
-        "datePublished":"2023-05-29",
-        "dateModified":"2022-05-29",
-        "description":"Discover how CIAM solutions serve as the essential foundation to elevate digital customer experience, unlock seamless interactions and build customer loyalty.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 In a recent <a href="https://www.pwc.com/us/en/services/consulting/library/consumer-intelligence-series/future-of-customer-experience.html" target="_blank">PWC survey</a>, 32% of customers included said they would stop engaging with a business after just one bad experience. There’s no doubt about it. Customer experience has to be a priority for any business seeking success, and when it comes to the digital space, it’s all about making sure that each online interaction is a positive one.
 
 In this article, we’ll be looking at how businesses can improve the digital customer experience with customer identity and access management solutions. Improving how people log onto and access your business’s offerings has significant benefits for both the digital customer experience and your bottom line.

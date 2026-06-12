@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:54.722Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/web-application-authentication-guide#webpage",
-														"url":"/post/web-application-authentication-guide"
-                        },
-        "headline":"Web App Authentication: How It Works and How to Implement It",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/630d7b2da3b2846da3fe1afa_web-app-guide.png",
-            "width":1200,
-            "height":600
-        },
-        "datePublished":"2022-07-21",
-        "dateModified":"2022-07-21",
-        "description":"In this guide, you'll learn more about how authentication in web app works and how to implement it with Authgear.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 As a web developer, you know how common it is to have authentication in your application as a requirement. And why not? It should be important, we surely want to know who is making requests, manage multi-transactions, and protect users' private information.
 
 In this guide, you’ll learn all you need to know about web app authentication, how it works in your web apps, and how to integrate Authgear Web SDK with your web apps to implement authentication quickly and securely.

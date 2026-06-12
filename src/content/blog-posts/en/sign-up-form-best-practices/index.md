@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:01.273Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/sign-up-form-best-practices#webpage",
-														"url":"www.authgear.com/post/sign-up-form-best-practices"
-                        },
-        "headline":"Sign Up Form Best Practices: Skyrocket Your App Conversion Rate",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6242d655618a91cd7be0c370_sign%20up.jpg",
-            "width":1223,
-            "height":772
-        },
-        "datePublished":"2022-03-29",
-        "dateModified":"2022-04-07",
-        "description":"Explore the top 5 sign up page optimization techniques to maximize the sign up rate for your apps and grow your user base.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
     These days, the subscription service industry is soaring, companies are growing at unprecedented rates, and consumers are spoiled for choice. There is more money to be made online than ever before, but the competition is fierce. The best way to ensure you get a slice of the pie is by having a great sign up form or sign up page, but how can you optimize your sign up process for success?
 

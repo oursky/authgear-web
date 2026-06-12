@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:01.271Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/simplifying-authentication-integration-with-authgear-sdks#webpage",
-														"url":"/post/simplifying-authentication-integration-with-authgear-sdks"
-                        },
-        "headline":"Simplifying Authentication Integration For Developers With Authgear SDKs",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/64a7a8aa0ca4af87452fc135_Simplifying%20Authentication%20Integration%20For%20Developers%20With%20Authgear%20SDKs%20(3).png",
-            "width":1920,
-            "height":1080
-        },
-        "datePublished":"2023-07-07",
-        "dateModified":"2023-07-07",
-        "description":"Authgear SDK libraries make it easy for developers to integrate and interact with Authgear.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 In today's digital industry, any successful application must prioritize both security and user experience. User authentication is one of the critical aspects of application security, but it can also be a significant challenge for developers because it requires understanding and correctly implementing complex protocols. Building an in-house authentication system can take anywhere between **three and six months**. As developers, we continuously search for solutions that make the integration of authentication easier, while guaranteeing the maximum protection for our user's data. Thankfully, SDK libraries can make this task much easier. This article explores **what SDKs and APIs Authgear offers** and how they can **simplify authentication integration** for developers.
 
 ## What is Authgear?

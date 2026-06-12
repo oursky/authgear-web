@@ -9,6 +9,19 @@ metaDescription: "TOTP 失敗怎麼辦？修正常見 5 大錯誤：時鐘漂移
 publishedAt: 2025-08-27T19:07:44.104Z
 updatedAt: 2026-03-05T12:11:18.399Z
 draft: false
+faq:
+  - q: "什麼是 TOTP 驗證碼？"
+    a: "TOTP（time-based one-time password）是一種以共享密鑰與當前時間生成的短數字密碼。通常是 6 位數，每 30 秒更新一次。驗證器 App 與伺服器會各自獨立產生相同驗證碼；兩者相符即完成驗證。"
+  - q: "我剛產生的 TOTP 為什麼仍然無效？"
+    a: "最常見原因有三個：（1）伺服器與客戶端時鐘漂移——用 NTP 同步並加上 ±1 step 驗證 window；（2）Base32 secret 解析錯誤——確認是以 Base32 解碼，不是 hex 或 raw bytes；（3）RFC 6238 參數不一致——確認雙方 digits、period、algorithm 相同。"
+  - q: "RFC 6238 為 TOTP 定義了哪些參數？"
+    a: "RFC 6238 定義三個可配置參數：（1）digits：碼長，預設 6；（2）period：秒級步進，預設 30；（3）algorithm：HMAC 雜湊演算法，預設 SHA-1。產生端（驗證器 App）與驗證端（伺服器）三者都必須完全一致。"
+  - q: "TOTP 應該使用 SHA-1 還是 SHA-256？"
+    a: "除非你完全掌控客戶端與伺服器，否則建議 SHA-1。SHA-1 是 RFC 6238 預設，且被 Google Authenticator、Authy、1Password 與幾乎所有硬體 token 支援。對 TOTP 而言，6 位數空間才是主要限制，不是雜湊演算法。"
+  - q: "如何防止 TOTP 驗證被暴力破解？"
+    a: "要同時實作三項控制：（1）速率限制——5 到 10 次失敗後鎖定數分鐘；（2）重放保護——已接受的驗證碼在同一 30 秒窗口內不可重複使用；（3）時鐘 window——接受 ±1 step 以容忍小幅漂移，但不大幅擴張暴力破解窗口。"
+  - q: "我要怎麼快速測試與除錯 TOTP 實作？"
+    a: "可使用 Authgear 的免費 TOTP Authenticator 工具。你可設定 algorithm（SHA-1/256/512）、digits（6 或 8）、period（30 秒），再和伺服器輸出比對。若一致，代表 secret 與參數正確；若不一致，就依本文五大錯誤逐一排查。"
 ---
 
 **TOTP**（*time-based one-time password*）仍是數百萬應用程式雙重驗證的核心；到了 2026 年，它也常是 passkey 登入流程背後的備援 2FA。六位數、30 秒、看似簡單。但只要實作細節出錯，就可能在無聲中讓整批使用者無法登入。
@@ -393,59 +406,3 @@ function verifyTOTPSecure(secret, code, userId, {
 
 若你想更深入理解 TOTP 原理，可閱讀 [什麼是 TOTP 與其運作方式](/zh-hant/post/what-is-totp)。若你正在評估 passkeys 作為比 TOTP 更強的替代方案，也可參考 [Passkeys vs Passwords：Passkeys 更安全嗎？](/zh-hant/post/passkey-vs-password-why-passkeys-are-the-future-of-security)
 
-<script type='application/ld+json'>
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "什麼是 TOTP 驗證碼？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "TOTP（time-based one-time password）是一種以共享密鑰與當前時間生成的短數字密碼。通常是 6 位數，每 30 秒更新一次。驗證器 App 與伺服器會各自獨立產生相同驗證碼；兩者相符即完成驗證。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "我剛產生的 TOTP 為什麼仍然無效？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "最常見原因有三個：（1）伺服器與客戶端時鐘漂移——用 NTP 同步並加上 ±1 step 驗證 window；（2）Base32 secret 解析錯誤——確認是以 Base32 解碼，不是 hex 或 raw bytes；（3）RFC 6238 參數不一致——確認雙方 digits、period、algorithm 相同。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "RFC 6238 為 TOTP 定義了哪些參數？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "RFC 6238 定義三個可配置參數：（1）digits：碼長，預設 6；（2）period：秒級步進，預設 30；（3）algorithm：HMAC 雜湊演算法，預設 SHA-1。產生端（驗證器 App）與驗證端（伺服器）三者都必須完全一致。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "TOTP 應該使用 SHA-1 還是 SHA-256？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "除非你完全掌控客戶端與伺服器，否則建議 SHA-1。SHA-1 是 RFC 6238 預設，且被 Google Authenticator、Authy、1Password 與幾乎所有硬體 token 支援。對 TOTP 而言，6 位數空間才是主要限制，不是雜湊演算法。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "如何防止 TOTP 驗證被暴力破解？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "要同時實作三項控制：（1）速率限制——5 到 10 次失敗後鎖定數分鐘；（2）重放保護——已接受的驗證碼在同一 30 秒窗口內不可重複使用；（3）時鐘 window——接受 ±1 step 以容忍小幅漂移，但不大幅擴張暴力破解窗口。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "我要怎麼快速測試與除錯 TOTP 實作？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "可使用 Authgear 的免費 TOTP Authenticator 工具。你可設定 algorithm（SHA-1/256/512）、digits（6 或 8）、period（30 秒），再和伺服器輸出比對。若一致，代表 secret 與參數正確；若不一致，就依本文五大錯誤逐一排查。"
-      }
-    }
-  ]
-}
-</script>

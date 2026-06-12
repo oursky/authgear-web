@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:01.256Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/send-otp-on-whatsapp-and-telegram-2022/#webpage",
-														"url":"/post/send-otp-on-whatsapp-and-telegram-2022"
-                        },
-        "headline":"在 WhatsApp 和 Telegram 2022 上發送 OTP",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/618c99cd4aa9dc7d506b033e_otp-message-2.jpg",
-            "width":1223,
-            "height":688
-        },
-        "datePublished":"2021-11-11",
-        "dateModified":"2023-06-19",
-        "description":"OTP 對於驗證交易和登入至關重要。透過 Authgear，您可以使用用戶熟悉的通訊服務發送 OTP。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 > **2022 年限時優惠：**
 > 在 WhatsApp 上發送 OTP，每月僅需 **$199 美元**
 > [> 立即聯絡我們 <](/zh-hant/schedule-demo/)

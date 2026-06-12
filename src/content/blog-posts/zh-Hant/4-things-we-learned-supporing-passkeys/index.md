@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:17.663Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/4-things-we-learned-supporing-passkeys#webpage",
-														"url":"/post/4-things-we-learned-supporing-passkeys"
-                        },
-        "headline":"Web App Authentication: How It Works and How to Implement It",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/630d77a4270550c53827f5b8_supporting-passkey.png",
-            "width":1200,
-            "height":600
-        },
-        "datePublished":"2022-07-21",
-        "dateModified":"2022-07-21",
-        "description":"In this guide, you'll learn more about how authentication in web app works and how to implement it with Authgear.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 你知道密碼「123456」仍然被使用嗎 <a href="https://www.ncsc.gov.uk/news/most-hacked-passwords-revealed-as-uk-cyber-survey-exposes-gaps-in-online-security" target="_blank">超過2300萬人</a>？人們通常認為駭客不會費心破解他們的帳戶，並決定在不同平台上使用相同的簡單密碼。
 
 我的一位朋友告訴我，他的帳號遭到駭客攻擊，惡意訊息被傳送給他的 Facebook 好友。他還為所有社交帳戶使用了類似於“12345678”的簡單密碼，因為他認為沒有人會破解他的帳戶。可悲的是，事實證明任何可能出錯的事情都會出錯，

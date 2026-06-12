@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:17.656Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/authentication-vs-authorization#webpage",
-														"url":"/post/authentication-vs-authorization"
-                        },
-        "headline":"Authentication vs. Authorization: The Differences in One Table",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63c0e95df02e2dc8b17205cc_authn-authz-featured.jpeg",
-            "width":1223,
-            "height":583
-        },
-        "datePublished":"2023-01-13",
-        "dateModified":"2022-01-13",
-        "description":"Learn more about the differences between authentication and authorization, two important security processes, with one simple table.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 在確保資料安全時，很容易混淆身份驗證和授權。簡而言之，身份驗證是驗證用戶身份並透過各種方法確認用戶身份的過程。授權是此步驟的後續步驟，但操作方式截然不同，因為它根據使用者的確切授權等級授予對不同資源的存取權限。
 
 身份驗證和授權之間的區別並不復雜，但了解這些過程可以更輕鬆地做出有關資料和網路安全系統的明智決策。在本文中，我們將研究身份驗證和授權的不同之處以及它們如何運作的一些範例。

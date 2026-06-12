@@ -12,28 +12,6 @@ updatedAt: 2026-02-28T12:45:07.918Z
 draft: false
 ---
 
-
-<script type="application/ld+json">
-    {
-"@context":"http://schema.org",
-"@type":"新聞文章",
-“mainEntityOfPage”：{
-"@type":"網頁",
-"@id":"/post/session-vs-token-authentication/#webpage",
-“url”：“/post/session-vs-token-authentication”
-                        },
-"headline":"會話與令牌驗證",
-“圖像”：{
-"@type":"影像物件",
-"url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/619f5927d201992550bd2454_session%20vs%20token.jpg",
-“寬度”：1223，
-“身高”：642
-        },
-"發佈日期":"2021-11-25",
-"修改日期":"2025-09-11",
-"description":"了解基於會話的身份驗證與基於令牌的身份驗證、cookie 與 JWT、優缺點、CSRF/XSS 權衡以及何時使用每個身份驗證以及示例。"
-    }
-    </script>
     
 基於會話和基於令牌的身份驗證之間的選擇定義了應用程式的可擴展性和安全性。會話身份驗證是有狀態的，依賴伺服器端記憶體和 cookie，這使其成為單域 Web 應用程式的理想選擇。相較之下，基於令牌的身份驗證 (JWT) 是無狀態且適合行動裝置的，透過授權標頭傳遞憑證。本指南在安全性（CSRF 與 XSS）、效能和實現複雜性方面比較了這兩種方法，以幫助您為堆疊選擇正確的架構。
 
@@ -260,18 +238,6 @@ JWT 令牌身份驗證的最大吸引力之一是它是無狀態的且高度可�
 
 使用短 TTL + 刷新輪換（或具有內省/拒絕列表的不透明令牌）。
 
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"常見問題頁面",
-「主要實體」：[
-{"@type":"Question","name":"基於令牌的身份驗證比基於會話的身份驗證更好嗎？","acceptedAnswer":{"@type":"Answer","text":"兩者都不是更好。對單域 Web 應用程式使用會話；對無狀態擴展有幫助的 API、移動和跨域令牌。"
-{"@type":"Question","name":"會話令牌與 JWT 相同嗎？","acceptedAnswer":{"@type":"Answer","text":"不。會話令牌通常標識伺服器端會話資料。JWT 是一種獨立的承載令牌，可能不需要伺服器狀態。"}},,
-{"@type":"Question","name":"我應該在哪裡存儲令牌？","acceptedAnswer":{"@type":"Answer","text":"更喜歡壽命較短的 httpOnly cookie 和 SameSite。避免在 localStorage 中使用長期令牌},如果使用，請保持短期令牌並通過安全刷新令牌}},"
-{"@type":"Question","name":"如何撤銷令牌？","acceptedAnswer":{"@type":"Answer","text":"對於令牌，使用短 TTL 加上刷新令牌輪換或令牌內省/拒絕列表。對於會話，在伺服器上無效。"}}
- ]
-}
-</script>
 
 ## **結束語：您應該使用哪種身份驗證？ **
 

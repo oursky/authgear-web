@@ -10,6 +10,17 @@ metaDescription: "What 2025:A10 Mishandling of Exceptional Conditions means, how
 publishedAt: 2025-11-13T14:44:32.260Z
 updatedAt: 2026-02-12T02:35:14.223Z
 draft: false
+faq:
+  - q: "What is OWASP A10:2025?"
+    a: "A10:2025 is a new category in the OWASP Top 10 2025 that focuses on mishandling of exceptional conditions—such as failing open, improper error handling, and logic flaws—that lead to security vulnerabilities."
+  - q: "Why is error handling a security risk?"
+    a: "Improper error handling can leak sensitive information, create unstable application states, or allow attackers to bypass security controls. These vulnerabilities are often overlooked but can lead to serious exploits."
+  - q: "What does “fail open” mean in security?"
+    a: "Fail open means a system defaults to allowing access or proceeding when an error occurs, which can be dangerous. In contrast, fail closed means denying access or halting safely. Secure systems should always fail closed."
+  - q: "How can I prevent mishandled exceptions?"
+    a: "Prevent mishandled exceptions by implementing input validation, centralized error handling, secure default states, global exception catchers, monitoring, and consistent rollback mechanisms in transactional flows."
+  - q: "What are common CWEs in OWASP A10:2025?"
+    a: "Common CWEs include CWE-209 (Error Message with Sensitive Info), CWE-274 (Improper Handling of Insufficient Privileges), CWE-636 (Not Failing Securely), and CWE-476 (NULL Pointer Dereference)."
 ---
 
 In the [OWASP Top 10 2025 release candidate](https://owasp.org/Top10/2025/0x00_2025-Introduction/), A10:2025 — Mishandling of Exceptional Conditions debuts as a new entry at #10. This category encompasses 24 CWEs centered on improper error handling, logic flaws, “fail-open” behaviors, and other issues that arise when systems encounter abnormal conditions. Many weaknesses that were once dismissed as mere “code quality” problems (like null pointer dereferences or missing parameter checks) are now recognized as serious security risks under this category.
@@ -109,51 +120,3 @@ Use proper input validation, centralized error handling, fail-safe defaults, and
 **Q5: What are common CWEs in OWASP A10:2025?**  
 Notable CWEs include CWE-209 (error messages with sensitive data), CWE-274 (insufficient privilege handling), CWE-636 (fail-open flaws), and CWE-476 (null pointer dereference).
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is OWASP A10:2025?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A10:2025 is a new category in the OWASP Top 10 2025 that focuses on mishandling of exceptional conditions—such as failing open, improper error handling, and logic flaws—that lead to security vulnerabilities."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is error handling a security risk?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Improper error handling can leak sensitive information, create unstable application states, or allow attackers to bypass security controls. These vulnerabilities are often overlooked but can lead to serious exploits."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does “fail open” mean in security?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fail open means a system defaults to allowing access or proceeding when an error occurs, which can be dangerous. In contrast, fail closed means denying access or halting safely. Secure systems should always fail closed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I prevent mishandled exceptions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Prevent mishandled exceptions by implementing input validation, centralized error handling, secure default states, global exception catchers, monitoring, and consistent rollback mechanisms in transactional flows."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are common CWEs in OWASP A10:2025?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Common CWEs include CWE-209 (Error Message with Sensitive Info), CWE-274 (Improper Handling of Insufficient Privileges), CWE-636 (Not Failing Securely), and CWE-476 (NULL Pointer Dereference)."
-      }
-    }
-  ]
-}
-</script>

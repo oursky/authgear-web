@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:17.660Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/how-to-prevent-broken-authentication#webpage",
-														"url":"www.authgear.com/post/how-to-prevent-broken-authentication"
-                        },
-        "headline":"Broken Authentication What Is It and How to Prevent It",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6364ab8131d7b5245fa2e618_broken-authentication-featured.jpg",
-            "width":1223,
-            "height":584
-        },
-        "datePublished":"2022-11-03",
-        "dateModified":"2022-11-03",
-        "description":"Broken authentication is one of the OWASP Top 10 vulnerabilities that involves hackers impersonating users to compromise data security. See what the causes are and how to avoid broken authentication.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     Authentication is the process of verifying that someone is who they say they are. It is a key part of security for any website or application.
 
 However, authentication can be broken if it is not implemented correctly. According to the OWASP Foundation, broken authentication is among the <a href="https://owasp.org/www-project-top-ten/" target="_blank">top ten web application security risks</a>, ranking at number two in 2017 and seven in 2021. The causes of broken authentication are poorly implemented authentication and session management. Attackers can exploit these vulnerabilities to access sensitive information, such as financial or personal information.

@@ -12,41 +12,6 @@ updatedAt: 2026-02-28T12:51:35.509Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/customer-sso#webpage",
-                                                        "url":"/post/customer-sso"
-                        },
-        "headline":"什麼是 Customer SSO？為什麼你該導入？",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/64003098ce03bfd484c8fdbc_customer-sso.png",
-            "width":1223,
-            "height":581
-        },
-        "datePublished":"2023-03-02",
-        "dateModified":"2022-03-02",
-        "description":"了解 Single Sign-On 對客戶體驗與企業營運的價值，打造一致且低摩擦的登入體驗。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
 Customer Single Sign-On（SSO）是一種驗證方法，讓使用者只需用一組憑證登入一次，即可存取多個彼此獨立的應用程式或服務。這個流程透過中央 Identity Provider（IdP）驗證使用者身分，並向各個已連接的 Service Provider 發出安全且可信的 Token。
 

@@ -9,6 +9,17 @@ metaDescription: "SMS OTP 是透過簡訊發送的臨時安全驗證碼，用於
 publishedAt: 2022-07-07T15:24:32.915Z
 updatedAt: 2026-02-28T13:02:01.685Z
 draft: false
+faq:
+  - q: "SMS OTP 對於身份驗證是否足夠安全？"
+    a: "SMS OTP 在純密碼的基礎上提升了安全性，但容易受到 SIM 卡換號、SS7 攔截和社交工程（釣魚簡訊）攻擊。對於高風險或高價值的流程，應使用防網路釣魚方法（如通行密鑰），並將 OTP 作為備用方案。"
+  - q: "SMS OTP 最佳替代方案是什麼？"
+    a: "通行密鑰（WebAuthn/FIDO2）消除了驗證碼，能夠抵抗網路釣魚。如果仍需要驗證碼，WhatsApp OTP 與 SMS 相比可降低交付成本並提高可靠性。社交登入可加快首次注冊速度，並可與通行密鑰結合用於後續登入。"
+  - q: "通行密鑰比 SMS OTP 更好嗎？"
+    a: "是的。通行密鑰使用公鑰密碼學配合設備生物識別或 PIN，消除了驗證碼交付失敗的問題，並大幅降低網路釣魚風險，與 SMS OTP 相比通常可提高完成率。"
+  - q: "WhatsApp OTP 比 SMS 更安全或更便宜嗎？"
+    a: "WhatsApp 訊息採用端對端加密，在許多地區的費用比 SMS 低，且交付更可靠。當您仍需要基於驗證碼的身份驗證時，這是一個務實的升級選擇。"
+  - q: "Authgear 是否支援通行密鑰、WhatsApp OTP 和社交登入？"
+    a: "是的。Authgear 開箱即用支援通行密鑰（WebAuthn/FIDO2）、WhatsApp OTP 和社交登入，讓您可以混合搭配不同方法、逐步推出通行密鑰，並將 OTP 保留為備用方案。"
 ---
 
 SMS OTP（一次性密碼）是一種安全的臨時 4-8 位數字驗證碼，透過簡訊發送至用戶的手機，作為雙重因素驗證的第二層時效性安全保障。雖然它是目前最普遍的身份驗證方式，但 SMS OTP 可能透過複雜的手法遭到破解，例如 SIM 卡換號（攻擊者劫持電話號碼）或網路釣魚（即時攔截驗證碼）。
@@ -232,100 +243,3 @@ SMS OTP 是驗證登入和交易最常見的方式之一。
 
 [獲取即時演示](/zh-hant/schedule-demo/)，了解您的團隊能夠以多快的速度推出安全、低阻力的登入方式。
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "/post/sms-otp-vulnerabilities-and-alternatives"
-      },
-      "headline": "OTP 簡訊：它們還可靠嗎？揭露漏洞並探索更安全的替代方案",
-      "description": "SMS OTP 還安全嗎？了解 SIM 卡換號、SS7 和釣魚簡訊等風險，並比較更安全的替代方案——通行密鑰、WhatsApp OTP 和社交登入——以及如何透過 Authgear 啟用它們。",
-      "image": [
-        "https://cdn.prod.website-files.com/60658b47b03f0c77e8c14884/66bcc0e7f890a38e85014014_OTPmessage_featured.jpg"
-      ],
-      "author": { "@type": "Organization", "name": "Authgear" },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Authgear",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://cdn.prod.website-files.com/60658b46b03f0cf83ac1485d/619e6607eb647619cecee2cf_authgear-logo.svg"
-        }
-      },
-      "datePublished": "2022-07-07",
-      "dateModified": "2025-09-04",
-      "inLanguage": "en",
-      "keywords": [
-        "SMS OTP vulnerabilities",
-        "SMS OTP alternatives",
-        "passkeys",
-        "WhatsApp OTP",
-        "social login",
-        "2FA",
-        "MFA",
-        "WebAuthn",
-        "FIDO2"
-      ],
-      "isAccessibleForFree": true,
-      "url": "/post/sms-otp-vulnerabilities-and-alternatives"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "/blog" },
-        { "@type": "ListItem", "position": 3, "name": "SMS OTP 還可靠嗎？其漏洞與替代方案", "item": "/post/sms-otp-vulnerabilities-and-alternatives" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "SMS OTP 對於身份驗證是否足夠安全？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "SMS OTP 在純密碼的基礎上提升了安全性，但容易受到 SIM 卡換號、SS7 攔截和社交工程（釣魚簡訊）攻擊。對於高風險或高價值的流程，應使用防網路釣魚方法（如通行密鑰），並將 OTP 作為備用方案。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "SMS OTP 最佳替代方案是什麼？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "通行密鑰（WebAuthn/FIDO2）消除了驗證碼，能夠抵抗網路釣魚。如果仍需要驗證碼，WhatsApp OTP 與 SMS 相比可降低交付成本並提高可靠性。社交登入可加快首次注冊速度，並可與通行密鑰結合用於後續登入。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "通行密鑰比 SMS OTP 更好嗎？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "是的。通行密鑰使用公鑰密碼學配合設備生物識別或 PIN，消除了驗證碼交付失敗的問題，並大幅降低網路釣魚風險，與 SMS OTP 相比通常可提高完成率。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "WhatsApp OTP 比 SMS 更安全或更便宜嗎？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "WhatsApp 訊息採用端對端加密，在許多地區的費用比 SMS 低，且交付更可靠。當您仍需要基於驗證碼的身份驗證時，這是一個務實的升級選擇。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Authgear 是否支援通行密鑰、WhatsApp OTP 和社交登入？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "是的。Authgear 開箱即用支援通行密鑰（WebAuthn/FIDO2）、WhatsApp OTP 和社交登入，讓您可以混合搭配不同方法、逐步推出通行密鑰，並將 OTP 保留為備用方案。"
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>

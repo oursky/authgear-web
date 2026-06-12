@@ -11,35 +11,6 @@ updatedAt: 2026-02-12T02:33:54.761Z
 draft: false
 ---
 
-<script type="application/ld+json">
-{
-  "@context":"http://schema.org",
-  "@type":"NewsArticle",
-  "mainEntityOfPage":{
-    "@type":"WebPage",
-    "@id":"/post/extended-enterprise-identity-and-access-management#webpage",
-    "url":"www.authgear.com/post/extended-enterprise-identity-and-access-management"
-  },
-  "headline":"延伸型企業與身分存取管理：挑戰與解法",
-  "image":{
-    "@type":"ImageObject",
-    "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63526a5a62d088630d6014af_extended-enterprise-featured.png",
-    "width":1223,
-    "height":584
-  },
-  "datePublished":"2022-10-21",
-  "dateModified":"2022-10-24",
-  "description":"延伸型企業可提升營運彈性，但也帶來新的身分與存取管理挑戰。",
-  "author":{"@id":"https://www.oursky.com/#organization"},
-  "publisher":{
-    "@type":"Organization",
-    "name":"Oursky",
-    "@id":"https://www.oursky.com/#organization",
-    "logo":{"@type":"ImageObject","@id":"https://www.oursky.com/#logo","url":"https://oursky.com/assets/img/og-image.png","caption":"Oursky"}
-  }
-}
-</script>
-
 隨著世界更加互聯，企業邊界也愈來愈模糊。企業彼此連結的程度前所未見，目標是創造效率並驅動成長。
 
 在新的工作型態下，存取 IT 資源的人不再只有內部員工。客戶、合作夥伴、承包商、廠商、供應商與其他利害關係人，如今都可能擁有過去難以想像的存取權限，而這一切的目的，是把價值帶回企業。這個概念就是 **延伸型企業（extended enterprise）**。

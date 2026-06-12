@@ -12,41 +12,6 @@ updatedAt: 2026-02-28T12:51:35.509Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/customer-sso#webpage",
-														"url":"/post/customer-sso"
-                        },
-        "headline":"What is Customer SSO and Why Should You Implement it?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/64003098ce03bfd484c8fdbc_customer-sso.png",
-            "width":1223,
-            "height":581
-        },
-        "datePublished":"2023-03-02",
-        "dateModified":"2022-03-02",
-        "description":"Learn more about the advantages of Single Sign-On for your customers and how your business can benefit from a unified login experience.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
 Customer Single Sign-On (SSO) is an authentication method that allows users to log in once with a single set of credentials to access multiple, independent applications or services. This process works by utilizing a central Identity Provider (IdP) that verifies the user’s identity and issues secure, trusted tokens to various connected Service Providers.
 

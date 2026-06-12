@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:33.494Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/sms-authentication-should-you-implement#webpage",
-														"url":"/post/sms-authentication-should-you-implement"
-                        },
-        "headline":"What Is SMS Authentication and Should You Implement It?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/62d79f6f7c12aa43de2e1f61_SMS%20Authentication.png",
-            "width":1200,
-            "height":570
-        },
-        "datePublished":"2022-07-20",
-        "dateModified":"2022-07-20",
-        "description":"SMS authentication is one of the most common methods of authentication that verifies user identity via text messages.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 Businesses nowadays can no longer consider cybersecurity an afterthought since hackers and scammers are finding new ways to steal information. New precautions like two-factor authentication are needed to protect customer data.
 
 Two-factor authentication (2FA) requires a user to present two pieces of evidence or information before granting access to apps or online platforms. One widely used secondary authentication method is SMS authentication. Until this day, SMS authentication remains one of the most widely used methods of authentication since the number of mobile users continues to increase.

@@ -9,37 +9,33 @@ metaDescription: "加鹽是在對密碼進行雜湊處理之前向密碼添加�
 publishedAt: 2022-02-24T02:51:02.195Z
 updatedAt: 2026-03-11T15:50:48.875Z
 draft: false
+faq:
+  - q: "Is salting the same as hashing?"
+    a: "No. Hashing is a one-way transformation used to verify passwords without storing them in plain text. Salting adds a unique random value to each password before hashing so identical passwords produce different hashes."
+  - q: "Do I still need a salt when using bcrypt?"
+    a: "Modern bcrypt implementations generate and store a unique salt automatically with the hash. You don’t need to manage salts yourself, but understanding salting helps explain why rainbow-table attacks fail."
+  - q: "What’s a pepper and where should I store it?"
+    a: "A pepper is an application-wide secret used in addition to the per-user salt. Store it separately from the database, such as in a KMS or HSM or an environment secret, never alongside the hash."
+  - q: "Which password hashing algorithm should I use in 2025?"
+    a: "Prefer Argon2id for general use because it is memory-hard. Use PBKDF2 when FIPS or NIST compliance is required. Keep bcrypt only for legacy systems or where Argon2id is unavailable."
+  - q: "What are safe Argon2id parameters?"
+    a: "A reasonable starting point is roughly m ≈ 19–64 MiB, t = 1–3, p = 1. Tune to your production hardware so a single verification remains comfortably under about one second, and revisit settings periodically."
+  - q: "Is SHA-256 or SHA-3 alone OK for passwords?"
+    a: "No. General-purpose hashes are too fast for password storage. Use a dedicated password hashing or key-derivation function such as Argon2id, scrypt, bcrypt, or PBKDF2."
+  - q: "How long should a salt be?"
+    a: "Use a unique, random salt per password, typically 16–32 bytes (at least 128 bits) generated with a cryptographically secure random number generator."
+  - q: "Where do I store the salt?"
+    a: "Store the salt with the hash, for example in the same database row or encoded within the hash string. The salt is not secret and must be available during verification."
+  - q: "What about the bcrypt 72-byte input limit?"
+    a: "bcrypt only considers the first ~72 bytes of input. Enforce a maximum password length and/or migrate to Argon2id. If pre-hashing is unavoidable, use an HMAC with a server-side pepper and store the pepper separately."
+  - q: "How do I migrate from bcrypt or PBKDF2 to Argon2id?"
+    a: "Use opportunistic rehashing: verify existing users with the old algorithm, then on successful login rehash the password with Argon2id and update the stored record. Keep both verifiers during the transition."
+  - q: "When should I rehash existing passwords?"
+    a: "Rehash when your chosen algorithm or parameters are no longer sufficient—for example after raising Argon2id memory or time settings, or when migrating from bcrypt to Argon2id. Track a hash version per account."
+  - q: "What’s the difference between password hashing and encryption?"
+    a: "Hashing is one-way and designed for verifying passwords. Encryption is reversible and used for data you need to read back. Passwords should be hashed, not encrypted."
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/password-hashing-salting-function-and-algorithm-explained",
-														"url":"www.authgear.com/post/password-hashing-salting-function-and-algorithm-explained"
-                        },
-        "headline":"Password Hashing & Salting (2025): Argon2id vs bcrypt, PBKDF2 Explained",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6216f28e8fd98b56a632596b_password-gcbfe9186e_1280.jpg",
-            "width":969,
-            "height":568
-        },
-        "datePublished":"2022-02-24",
-        "dateModified":"2025-09-10",
-        "description":"Learn hashing vs salting, why Argon2id leads in 2025, and see safe settings with code samples. Plus bcrypt/PBKDF2 guidance and common pitfalls.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Authgear",
-            "@id":"/"
-        }
-    }
-    </script>
   
  
 > 長話短說：
@@ -255,107 +251,3 @@ bcrypt 僅考慮輸入的前 72 個位元組。強制執行合理的最大長度
 
 **雜湊**是單向的，專為驗證而設計。 **加密**是可逆的，適用於您必須讀回的資料。密碼應該被散列，而不是加密。
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is salting the same as hashing?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Hashing is a one-way transformation used to verify passwords without storing them in plain text. Salting adds a unique random value to each password before hashing so identical passwords produce different hashes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I still need a salt when using bcrypt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Modern bcrypt implementations generate and store a unique salt automatically with the hash. You don’t need to manage salts yourself, but understanding salting helps explain why rainbow-table attacks fail."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What’s a pepper and where should I store it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A pepper is an application-wide secret used in addition to the per-user salt. Store it separately from the database, such as in a KMS or HSM or an environment secret, never alongside the hash."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which password hashing algorithm should I use in 2025?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Prefer Argon2id for general use because it is memory-hard. Use PBKDF2 when FIPS or NIST compliance is required. Keep bcrypt only for legacy systems or where Argon2id is unavailable."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are safe Argon2id parameters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A reasonable starting point is roughly m ≈ 19–64 MiB, t = 1–3, p = 1. Tune to your production hardware so a single verification remains comfortably under about one second, and revisit settings periodically."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is SHA-256 or SHA-3 alone OK for passwords?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. General-purpose hashes are too fast for password storage. Use a dedicated password hashing or key-derivation function such as Argon2id, scrypt, bcrypt, or PBKDF2."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should a salt be?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use a unique, random salt per password, typically 16–32 bytes (at least 128 bits) generated with a cryptographically secure random number generator."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where do I store the salt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Store the salt with the hash, for example in the same database row or encoded within the hash string. The salt is not secret and must be available during verification."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What about the bcrypt 72-byte input limit?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "bcrypt only considers the first ~72 bytes of input. Enforce a maximum password length and/or migrate to Argon2id. If pre-hashing is unavoidable, use an HMAC with a server-side pepper and store the pepper separately."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I migrate from bcrypt or PBKDF2 to Argon2id?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use opportunistic rehashing: verify existing users with the old algorithm, then on successful login rehash the password with Argon2id and update the stored record. Keep both verifiers during the transition."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "When should I rehash existing passwords?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Rehash when your chosen algorithm or parameters are no longer sufficient—for example after raising Argon2id memory or time settings, or when migrating from bcrypt to Argon2id. Track a hash version per account."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What’s the difference between password hashing and encryption?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Hashing is one-way and designed for verifying passwords. Encryption is reversible and used for data you need to read back. Passwords should be hashed, not encrypted."
-      }
-    }
-  ]
-}
-</script>
