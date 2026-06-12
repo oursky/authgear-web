@@ -566,6 +566,8 @@ Test across environments before shipping:
 
 Chrome DevTools has a **WebAuthn emulator** (DevTools → More tools → WebAuthn) that lets you test registration and authentication flows without a physical authenticator.
 
+> 💡 **Try it without writing code first:** the free [Passkey Demo & WebAuthn Tester](/tools/passkey-demo) creates a real passkey in your browser, then decodes the credential — attestation object, authenticator flags, and public key — so you can see exactly what your server will receive before you build the backend.
+
 ## Best Practices
 
 ### Register Multiple Devices

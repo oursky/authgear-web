@@ -137,6 +137,8 @@ When users perform FIDO login using passkeys, the process remains based on crypt
 
 Because passkeys are built on the FIDO2 authentication standard, they represent an important step toward widespread passwordless adoption.
 
+> 💡 **See FIDO2 in action:** the free [Passkey Demo & WebAuthn Tester](/tools/passkey-demo) lets you create a FIDO2 credential in your browser and inspect the authenticator data, AAGUID, and public key — the same WebAuthn building blocks described above.
+
 ## Implementing FIDO Login in Applications
 
 Organizations interested in deploying FIDO login must design authentication systems that support WebAuthn and compatible authenticators.
