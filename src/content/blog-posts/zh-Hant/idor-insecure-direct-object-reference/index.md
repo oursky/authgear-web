@@ -126,20 +126,3 @@ draft: false
 
 IDOR 是一個簡單卻高衝擊的漏洞，因為它直接打在授權核心。只要有 **一個** handler 信任 client 傳入的物件 ID，整個資料模型都可能暴露。修復並不神秘：**預設拒絕、集中策略、在每個函式落實物件層級檢查**。再把負向測試放進 CI，並持續監看日誌——未來的你會感謝現在的你。
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Insecure Direct Object Reference (IDOR): Examples & API Prevention",
-  "description": "What IDOR is, how it happens in web & APIs, real-world examples, and a practical checklist to prevent object-level authorization bugs (BOLA).",
-  "author": { "@type": "Organization", "name": "Authgear" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Authgear",
-    "logo": { "@type": "ImageObject", "url": "/path-to-logo.png" }
-  },
-  "datePublished": "2025-09-09",
-  "dateModified": "2025-09-09",
-  "mainEntityOfPage": "/zh-hant/post/idor-insecure-direct-object-reference"
-}
-</script>

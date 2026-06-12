@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:35:14.210Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/insurance-iam#webpage",
-                            "url":"/post/insurance-iam"
-                        },
-        "headline":"保險業 IAM：如何幫助獲客、留客並強化外部協作？",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63994681f44de6b9bd9e4c8f_insurance-iam-featured.jpg",
-            "width":1120,
-            "height":525
-        },
-        "datePublished":"2022-12-14",
-        "dateModified":"2022-12-14",
-        "description":"對保險公司而言，IAM 不只提升資安，也能幫助獲客與留客，並改善與外部團隊合作效率。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
 根據 <a href="https://www.pwc.com/us/en/industries/financial-services/library/next-in-insurance-top-issues.html" target="_blank">PWC</a> 的觀察，保險業正以前所未見的速度變化。疫情雖帶動<a href="https://www.pwc.com/us/en/industries/financial-services/library/insurance-consumer-survey.html" target="_blank">壽險購買需求</a>，也同時催生更高數位期待的消費者。大家被迫在線上完成一切，對「不好用」的服務耐性更低。
 

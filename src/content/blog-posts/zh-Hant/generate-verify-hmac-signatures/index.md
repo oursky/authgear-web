@@ -10,6 +10,17 @@ metaDescription: "學習如何在 Python、Node.js 與 Go 產生與驗證 HMAC �
 publishedAt: 2025-10-06T17:17:15.892Z
 updatedAt: 2026-02-12T02:33:54.766Z
 draft: false
+faq:
+  - q: "What algorithm does HMAC use?"
+    a: "HMAC supports various hash algorithms such as SHA256, SHA1, and SHA512. SHA256 is the most widely used due to its balance of security and speed."
+  - q: "Can I use HMAC for API authentication?"
+    a: "Yes. Many APIs like Stripe, AWS, and GitHub use HMAC to sign requests and verify authenticity."
+  - q: "What’s the difference between HMAC and hashing?"
+    a: "Hashing ensures data integrity, while HMAC adds authentication by combining a secret key and hash function."
+  - q: "Is HMAC the same as JWT?"
+    a: "No. JWTs may use HMAC algorithms internally but serve a broader purpose for stateless authentication."
+  - q: "What are the best tools to test HMAC online?"
+    a: "The Authgear HMAC Signature Generator & Verifier tool allows quick generation and validation of HMAC signatures online."
 ---
 
 API 與 webhook 高度仰賴 HMAC（Hash-based Message Authentication Code），確保你接收到的每個請求都真實且未被竄改。  
@@ -189,4 +200,3 @@ Hashing 只能保證資料完整性；HMAC 因加入共享密鑰，可同時保�
 
 Authgear 提供免費 HMAC Signature Generator & Verifier，也有 JWK Generator、JWT Decoder 與完整 Authgear Developer Toolkit。
 
-<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [ { "@type": "Question", "name": "What algorithm does HMAC use?", "acceptedAnswer": { "@type": "Answer", "text": "HMAC supports various hash algorithms such as SHA256, SHA1, and SHA512. SHA256 is the most widely used due to its balance of security and speed." } }, { "@type": "Question", "name": "Can I use HMAC for API authentication?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many APIs like Stripe, AWS, and GitHub use HMAC to sign requests and verify authenticity." } }, { "@type": "Question", "name": "What’s the difference between HMAC and hashing?", "acceptedAnswer": { "@type": "Answer", "text": "Hashing ensures data integrity, while HMAC adds authentication by combining a secret key and hash function." } }, { "@type": "Question", "name": "Is HMAC the same as JWT?", "acceptedAnswer": { "@type": "Answer", "text": "No. JWTs may use HMAC algorithms internally but serve a broader purpose for stateless authentication." } }, { "@type": "Question", "name": "What are the best tools to test HMAC online?", "acceptedAnswer": { "@type": "Answer", "text": "The Authgear HMAC Signature Generator & Verifier tool allows quick generation and validation of HMAC signatures online." } } ] } </script>

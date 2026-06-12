@@ -9,6 +9,17 @@ metaDescription: "了解 OTP bot 是什麼、如何繞過 SMS 2FA，以及開發
 publishedAt: 2025-03-10T08:02:53.485Z
 updatedAt: 2026-02-12T02:35:14.220Z
 draft: false
+faq:
+  - q: "什麼是 OTP bot？"
+    a: "OTP bot 是一種會自動化竊取一次性密碼的惡意工具。它不是暴力猜碼，而是透過假電話或簡訊誘騙使用者交出代碼，再即時轉給攻擊者。"
+  - q: "OTP bot 如何繞過雙因素驗證（2FA）？"
+    a: "OTP bot 攻擊的是 2FA 中最脆弱的人為環節。受害者收到真正 OTP 後，機器人冒充可信服務要求提供代碼，並立刻轉給攻擊者，因此能繞過 SMS 2FA。"
+  - q: "為什麼 OTP bot 對開發者危險？"
+    a: "OTP bot 同時帶來安全風險（帳號接管、資料外洩）與財務風險（SMS pumping 詐欺造成高額簡訊成本），還會以假流量壓垮驗證基礎設施。"
+  - q: "開發者要如何阻擋 OTP bot？"
+    a: "建議做法包括：在發送 OTP 前加入 CAPTCHA 或 proof-of-work 挑戰、對 OTP 請求做 rate-limit 與監控、透過詐欺偵測找出異常（例如 Authgear SMS pumping protection）、並評估 WebAuthn 或 Passkey 等更強 MFA。"
+  - q: "免費 OTP bot 真的有威脅嗎？"
+    a: "有。免費 OTP bot 工具在 Telegram 與地下論壇持續流通，新手攻擊者也可輕易上手。開發者應預設這些工具存在，並提前強化 OTP 流程。"
 ---
 
 雙因素驗證（2FA）搭配一次性密碼（OTP）本來應該能保護帳號安全。但近幾年，攻擊者開始使用 **OTP bot** 這類自動化詐欺工具，誘騙使用者交出驗證碼，並大規模濫用 SMS 系統。對開發者來說，這不只是 **安全風險**，也是 **財務風險**。例如 Twitter 曾揭露，每年因 SMS 詐欺造成約 6,000 萬美元損失。
@@ -114,51 +125,3 @@ OTP bot 同時帶來 **安全風險**（帳號接管、資料外洩）與 **財�
 
 有。免費 OTP bot 工具在 Telegram 與地下論壇持續流通，新手攻擊者也可輕易上手。開發者應預設這些工具存在，並提前強化 OTP 流程。
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "什麼是 OTP bot？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OTP bot 是一種會自動化竊取一次性密碼的惡意工具。它不是暴力猜碼，而是透過假電話或簡訊誘騙使用者交出代碼，再即時轉給攻擊者。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "OTP bot 如何繞過雙因素驗證（2FA）？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OTP bot 攻擊的是 2FA 中最脆弱的人為環節。受害者收到真正 OTP 後，機器人冒充可信服務要求提供代碼，並立刻轉給攻擊者，因此能繞過 SMS 2FA。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "為什麼 OTP bot 對開發者危險？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OTP bot 同時帶來安全風險（帳號接管、資料外洩）與財務風險（SMS pumping 詐欺造成高額簡訊成本），還會以假流量壓垮驗證基礎設施。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "開發者要如何阻擋 OTP bot？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "建議做法包括：在發送 OTP 前加入 CAPTCHA 或 proof-of-work 挑戰、對 OTP 請求做 rate-limit 與監控、透過詐欺偵測找出異常（例如 Authgear SMS pumping protection）、並評估 WebAuthn 或 Passkey 等更強 MFA。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "免費 OTP bot 真的有威脅嗎？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "有。免費 OTP bot 工具在 Telegram 與地下論壇持續流通，新手攻擊者也可輕易上手。開發者應預設這些工具存在，並提前強化 OTP 流程。"
-      }
-    }
-  ]
-}
-</script>

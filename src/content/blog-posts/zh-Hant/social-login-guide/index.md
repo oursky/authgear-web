@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:01.280Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-            "@type":"WebPage",
-            "@id":"/post/social-login-guide#webpage",
-            "url":"/post/social-login-guide"
-        },
-        "headline":"社群登入（Social Login）：為什麼你應該導入",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63e9ec3723ec197cc4f19d1b_social-login.png",
-            "width":1223,
-            "height":584
-        },
-        "datePublished":"2023-02-13",
-        "dateModified":"2022-02-13",
-        "description":"了解如何在網站或 App 輕鬆啟用社群登入，提升轉換率並帶來更流暢的使用者體驗。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-            }
-        }
-    }
-    </script>
-
 網路徹底改變了人們互動與社交的方式，也讓線上取得內容、資訊與服務前所未有的容易。因此，如今全球竟有高達 <a href="https://datareportal.com/global-digital-overview" target="_blank">51.6 億人</a>使用網路，其中許多人每天都會上線，也就不令人意外。
 
 若你常上網，多半遇過想使用某個服務或網站時，被要求先註冊帳號——這是許多人覺得煩躁的流程之一。事實上，有 **86%** 的網路使用者表示，在瀏覽網站時被要求建立新帳號會讓他們感到困擾。<a href="https://www.shopify.com/blog/shopping-cart-abandonment" target="_blank">24%</a> 的消費者表示，曾因結帳前被迫註冊而放棄在電商網站完成購物。這些數字值得警惕，也凸顯網站需要更好的使用者驗證方式——**社群登入（social login）**正是在這樣的背景下出現。這篇文章會說明你該知道的觀念，以及為什麼值得在網站上導入。

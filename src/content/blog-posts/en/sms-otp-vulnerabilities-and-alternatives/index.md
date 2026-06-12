@@ -9,6 +9,17 @@ metaDescription: "SMS OTP is a temporary security code sent via text for two-fac
 publishedAt: 2022-07-07T15:24:32.915Z
 updatedAt: 2026-02-28T13:02:01.685Z
 draft: false
+faq:
+  - q: "Is SMS OTP secure enough for authentication?"
+    a: "SMS OTP improves security over passwords alone, but it is vulnerable to SIM swaps, SS7 interception and social engineering (smishing). For high-risk or high-value flows, use phishing-resistant methods like passkeys and keep OTP as a fallback."
+  - q: "What are the best alternatives to SMS OTP?"
+    a: "Passkeys (WebAuthn/FIDO2) remove codes and resist phishing. If you still need codes, WhatsApp OTP reduces delivery cost and improves reliability versus SMS. Social Login speeds up first-time signup and can be combined with passkeys for returning sessions."
+  - q: "Are passkeys better than SMS OTP?"
+    a: "Yes. Passkeys use public-key cryptography with device biometrics or PIN, eliminating code delivery failures and greatly reducing phishing risk, which typically improves completion rates compared with SMS OTP."
+  - q: "Is WhatsApp OTP safer or cheaper than SMS?"
+    a: "WhatsApp messages are end-to-end encrypted and, in many regions, cost less and deliver more reliably than SMS. It is a pragmatic step-up when you still need code-based authentication."
+  - q: "Does Authgear support passkeys, WhatsApp OTP and Social Login?"
+    a: "Yes. Authgear supports passkeys (WebAuthn/FIDO2), WhatsApp-based OTP and Social Login out of the box, so you can mix and match methods, progressively roll out passkeys and keep OTP as a fallback."
 ---
 
 SMS OTP (One-Time Password) is a secure, temporary 4-8 digit code sent via text message to a user’s mobile phone to act as a second, time-sensitive layer of security for two-factor authentication. While it is the most popular authentication method, SMS OTP can be hacked through sophisticated tactics such as SIM swapping, where an attacker hijacks a phone number, or phishing to intercept the code in real-time.
@@ -232,100 +243,3 @@ With Authgear you can roll out **Passkeys**, **WhatsApp OTP**, and **Social Logi
 
 [Get a live demo](/schedule-demo/) to see how quickly your team can ship secure, low-friction login.
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "/post/sms-otp-vulnerabilities-and-alternatives"
-      },
-      "headline": "OTP Messages: Are They Still Reliable? Unmasking Vulnerabilities and Exploring Safer Alternatives",
-      "description": "Is SMS OTP still safe? See risks like SIM swap, SS7 and smishing, then compare safer alternatives—Passkeys, WhatsApp OTP and Social Login—and how to enable them with Authgear.",
-      "image": [
-        "https://cdn.prod.website-files.com/60658b47b03f0c77e8c14884/66bcc0e7f890a38e85014014_OTPmessage_featured.jpg"
-      ],
-      "author": { "@type": "Organization", "name": "Authgear" },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Authgear",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://cdn.prod.website-files.com/60658b46b03f0cf83ac1485d/619e6607eb647619cecee2cf_authgear-logo.svg"
-        }
-      },
-      "datePublished": "2022-07-07",
-      "dateModified": "2025-09-04",
-      "inLanguage": "en",
-      "keywords": [
-        "SMS OTP vulnerabilities",
-        "SMS OTP alternatives",
-        "passkeys",
-        "WhatsApp OTP",
-        "social login",
-        "2FA",
-        "MFA",
-        "WebAuthn",
-        "FIDO2"
-      ],
-      "isAccessibleForFree": true,
-      "url": "/post/sms-otp-vulnerabilities-and-alternatives"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "/blog" },
-        { "@type": "ListItem", "position": 3, "name": "Is SMS OTP Reliable? Its Vulnerabilities and Alternatives", "item": "/post/sms-otp-vulnerabilities-and-alternatives" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is SMS OTP secure enough for authentication?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "SMS OTP improves security over passwords alone, but it is vulnerable to SIM swaps, SS7 interception and social engineering (smishing). For high-risk or high-value flows, use phishing-resistant methods like passkeys and keep OTP as a fallback."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the best alternatives to SMS OTP?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Passkeys (WebAuthn/FIDO2) remove codes and resist phishing. If you still need codes, WhatsApp OTP reduces delivery cost and improves reliability versus SMS. Social Login speeds up first-time signup and can be combined with passkeys for returning sessions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are passkeys better than SMS OTP?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Passkeys use public-key cryptography with device biometrics or PIN, eliminating code delivery failures and greatly reducing phishing risk, which typically improves completion rates compared with SMS OTP."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is WhatsApp OTP safer or cheaper than SMS?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "WhatsApp messages are end-to-end encrypted and, in many regions, cost less and deliver more reliably than SMS. It is a pragmatic step-up when you still need code-based authentication."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Authgear support passkeys, WhatsApp OTP and Social Login?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Authgear supports passkeys (WebAuthn/FIDO2), WhatsApp-based OTP and Social Login out of the box, so you can mix and match methods, progressively roll out passkeys and keep OTP as a fallback."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>

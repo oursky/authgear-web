@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:33.476Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/what-is-customer-identity-and-access-management-ciam#webpage",
-														"url":"/post/what-is-customer-identity-and-access-management-ciam"
-                        },
-        "headline":"什麼是客戶身份與存取管理（CIAM）？",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/626638a623fd21dbbf2201f5_network-g5a703e76c_1280.jpg",
-            "width":1223,
-            "height":815
-        },
-        "datePublished":"2022-04-25",
-        "dateModified":"2022-04-28",
-        "description":"客戶身份與存取管理（CIAM）的功能遠不止於管理和驗證用戶身份。了解您為何需要 CIAM 解決方案。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
     客戶身份與存取管理（CIAM）解決方案被整合至各類應用程式或軟體中，協助企業管理和驗證終端用戶的身份，以授予其存取線上服務的權限，並安全地收集、整理和分析用戶數據，從而產生業務洞察。
 

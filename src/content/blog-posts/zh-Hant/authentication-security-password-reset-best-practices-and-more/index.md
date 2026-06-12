@@ -9,6 +9,15 @@ metaDescription: "了解重要的密碼重設最佳實踐，以保護您的身�
 publishedAt: 2021-11-17T01:35:53.381Z
 updatedAt: 2026-02-12T02:36:01.228Z
 draft: false
+faq:
+  - q: "Should I enforce password expiration or rotation?"
+    a: "No. Per NIST SP 800-63B, do not require routine password expiration. Only force a change if there is evidence of compromise."
+  - q: "How long should a password reset link last?"
+    a: "Keep reset links short-lived (e.g., 15–60 minutes), single-use, and invalidate them immediately after a successful reset."
+  - q: "What hashing algorithm should I use for passwords?"
+    a: "Use modern, slow, adaptive hashing (e.g., Argon2id, bcrypt, PBKDF2) with a unique salt per password and appropriate cost parameters."
+  - q: "Should I log JWTs or other secrets?"
+    a: "No. Never log passwords, tokens, API keys, or other secrets. Redact and mask sensitive fields in logs."
 ---
 
 ## 掌握密碼重置：常見陷阱的最佳實踐和增強安全性的解決方案
@@ -268,45 +277,5 @@ OWASP 和 Microsoft 建議的這些準則有助於在安全性和使用者體驗
 
 不可以。切勿記錄密碼、令牌、API 金鑰或其他機密。編輯和屏蔽日誌中的敏感欄位。
 
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {
-      "@type":"Question",
-      "name":"Should I enforce password expiration or rotation?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"No. Per NIST SP 800-63B, do not require routine password expiration. Only force a change if there is evidence of compromise."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"How long should a password reset link last?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Keep reset links short-lived (e.g., 15–60 minutes), single-use, and invalidate them immediately after a successful reset."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"What hashing algorithm should I use for passwords?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Use modern, slow, adaptive hashing (e.g., Argon2id, bcrypt, PBKDF2) with a unique salt per password and appropriate cost parameters."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"Should I log JWTs or other secrets?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"No. Never log passwords, tokens, API keys, or other secrets. Redact and mask sensitive fields in logs."
-      }
-    }
-  ]
-}
-</script>
 
 **需要專家指導來保護您的密碼重設流程？ ** 我們的安全專家團隊可以幫助您識別漏洞並實施強大的解決方案。 [今天聯絡我們](/zh-hant/schedule-demo)進行全面評估。

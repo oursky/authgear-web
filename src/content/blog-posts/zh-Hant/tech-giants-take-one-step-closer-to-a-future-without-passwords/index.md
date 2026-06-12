@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:01.291Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/tech-giants-take-one-step-closer-to-a-future-without-passwords#webpage",
-														"url":"/post/tech-giants-take-one-step-closer-to-a-future-without-passwords"
-                        },
-        "headline":"科技巨頭向無密碼的未來邁進一步",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/630451c10ef53f09f03295a7_future-without-passwords.png",
-            "width":1173,
-            "height":560
-        },
-        "datePublished":"2022-08-23",
-        "dateModified":"2022-08-23",
-        "description":"Apple、Google 和 Microsoft 已承諾讓密碼成為過去式，向無密碼的未來再踏出一步。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 儘管存在種種缺點，密碼仍然是保護用戶資料安全的最主流機制。有些人或許認為「無密碼的未來」並非新鮮概念——現有的認證技術，如生物辨識感應器和硬體金鑰，已可讓用戶無需輸入複雜密碼即可登入。然而，由於各種原因（將在「現有的無密碼選項」一節中說明），初次建立帳號時仍然需要使用密碼。
 
 今年稍早，<a href="https://www.theverge.com/2022/5/5/23057646/apple-google-microsoft-passwordless-sign-in-fido" target="_blank">Apple、Google 和 Microsoft 攜手合作，致力於在所有主要平台實現無密碼登入</a>。Apple 在 2022 年 5 月的全球開發者大會（WWDC22）上宣布，透過<a href="https://thetechtutor.medium.com/a-future-without-passwords-dfc7d755f9f1" target="_blank">2022 年推出的 iOS 16 和 macOS Ventura</a>，將採用 passkeys 邁向無密碼的未來。2022 年秋季推出的 iOS 和 macOS 更新，以及<a href="https://android-developers.googleblog.com/2022/10/bringing-passkeys-to-android-and-chrome.html" target="_blank">Google 於 2022 年 10 月宣布將 passkey 支援帶入 Android 和 Chrome</a>，是實現無密碼未來的重要一步。然而，許多人仍未完全理解我們如何能擁有真正的無密碼數位世界，這正引出了 passkeys 的概念。在本文中，我們將探討密碼的問題所在，以及 passkeys 如何幫助我們更接近無密碼的未來。

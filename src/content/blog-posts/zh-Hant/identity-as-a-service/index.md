@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:33.490Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/identity-as-a-service#webpage",
-                            "url":"/post/identity-as-a-service"
-                        },
-        "headline":"什麼是 Identity as a Service（IDaaS）？為什麼企業需要它？",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/64880c160ca7facbd3283a7a_idaas-featured.jpg",
-            "width":1120,
-            "height":584
-        },
-        "datePublished":"2023-06-13",
-        "dateModified":"2022-06-13",
-        "description":"深入了解 IDaaS 與雲端 IAM 如何提升擴展性、簡化存取管理，並帶來更流暢的使用者體驗。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 在當今高度互聯的數位世界中，身分與存取管理（Identity and Access Management）對個人和企業都至關重要。隨著雲端運算、行動應用與遠端工作快速成長，傳統身分管理方式愈來愈笨重且難以應付需求。這正是 Identity as a Service（IDaaS）成為關鍵解方的原因。
 
 本文將說明什麼是 IDaaS、它與傳統 IAM 的差異，以及為什麼對現代企業來說已經不可或缺。

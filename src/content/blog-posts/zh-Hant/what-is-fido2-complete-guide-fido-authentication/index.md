@@ -9,6 +9,19 @@ metaDescription: "了解 FIDO2、FIDO 驗證如何運作，以及為何以密碼
 publishedAt: 2026-03-10T18:59:49.213Z
 updatedAt: 2026-03-13T17:54:05.976Z
 draft: false
+faq:
+  - q: "什麼是 FIDO2？"
+    a: "FIDO2 是由 FIDO 聯盟與 W3C 制定的開放驗證標準。使用者可透過智慧型手機、筆電或 FIDO2 安全金鑰等受信任裝置無密碼登入。FIDO2 包含 WebAuthn（瀏覽器 API）與 CTAP（驗證器協定）。"
+  - q: "什麼是 FIDO 驗證？"
+    a: "FIDO 驗證是基於 FIDO 聯盟標準的無密碼驗證。使用者以指紋、臉部辨識或硬體安全金鑰等裝置端方式登入，而非輸入密碼。"
+  - q: "FIDO2 如何運作？"
+    a: "註冊時裝置產生金鑰對；公開金鑰在伺服器、私密金鑰在裝置。登入時伺服器發挑戰，裝置以私密金鑰簽署，伺服器以公開金鑰驗證。私密金鑰不離開裝置。"
+  - q: "FIDO2 安全金鑰是什麼？"
+    a: "小型硬體裝置，以 USB／NFC／藍牙連接，儲存憑證並執行 FIDO2 驗證。常見如 YubiKey 5、Google Titan Key。"
+  - q: "FIDO 與 FIDO2 差異？"
+    a: "FIDO 為 UAF／U2F 等舊標準。FIDO2 結合 WebAuthn 與 CTAP2，瀏覽器原生支援完全無密碼登入；U2F 僅能作第二因子。"
+  - q: "FIDO2 安全嗎？"
+    a: "是。憑證與網域綁定具釣魚抗性；伺服器只存公開金鑰；每服務獨立金鑰對。"
 ---
 
 FIDO2 是開放驗證標準，讓使用者無需密碼即可登入網站與 App。使用者不必輸入密碼，FIDO2 透過受信任裝置——智慧型手機、筆電或 FIDO2 安全金鑰——以公開金鑰密碼學驗證身分。**私密金鑰留在裝置上**，攻擊者無法從伺服器竊取，也無法用釣魚頁騙取「密碼字串」。
@@ -219,4 +232,3 @@ FIDO 指 2018 年前的原始標準組合（FIDO UAF 與 FIDO U2F）。FIDO2 為
 
 是。FIDO2 具釣魚抗性，因憑證與網站網域密碼學綁定，假網站無法觸發有效回應。伺服器僅存公開金鑰，資料庫外洩不會暴露可直接登入的密碼。每個服務使用獨立金鑰對，避免跨站憑證重用。
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"什麼是 FIDO2？","acceptedAnswer":{"@type":"Answer","text":"FIDO2 是由 FIDO 聯盟與 W3C 制定的開放驗證標準。使用者可透過智慧型手機、筆電或 FIDO2 安全金鑰等受信任裝置無密碼登入。FIDO2 包含 WebAuthn（瀏覽器 API）與 CTAP（驗證器協定）。"}},{"@type":"Question","name":"什麼是 FIDO 驗證？","acceptedAnswer":{"@type":"Answer","text":"FIDO 驗證是基於 FIDO 聯盟標準的無密碼驗證。使用者以指紋、臉部辨識或硬體安全金鑰等裝置端方式登入，而非輸入密碼。"}},{"@type":"Question","name":"FIDO2 如何運作？","acceptedAnswer":{"@type":"Answer","text":"註冊時裝置產生金鑰對；公開金鑰在伺服器、私密金鑰在裝置。登入時伺服器發挑戰，裝置以私密金鑰簽署，伺服器以公開金鑰驗證。私密金鑰不離開裝置。"}},{"@type":"Question","name":"FIDO2 安全金鑰是什麼？","acceptedAnswer":{"@type":"Answer","text":"小型硬體裝置，以 USB／NFC／藍牙連接，儲存憑證並執行 FIDO2 驗證。常見如 YubiKey 5、Google Titan Key。"}},{"@type":"Question","name":"FIDO 與 FIDO2 差異？","acceptedAnswer":{"@type":"Answer","text":"FIDO 為 UAF／U2F 等舊標準。FIDO2 結合 WebAuthn 與 CTAP2，瀏覽器原生支援完全無密碼登入；U2F 僅能作第二因子。"}},{"@type":"Question","name":"FIDO2 安全嗎？","acceptedAnswer":{"@type":"Answer","text":"是。憑證與網域綁定具釣魚抗性；伺服器只存公開金鑰；每服務獨立金鑰對。"}}]}</script>

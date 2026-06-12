@@ -9,6 +9,19 @@ metaDescription: "TOTP not working? Fix 5 common developer mistakes — clock dr
 publishedAt: 2025-08-27T19:07:44.104Z
 updatedAt: 2026-03-05T12:11:18.399Z
 draft: false
+faq:
+  - q: "What is a TOTP code?"
+    a: "A TOTP (time-based one-time password) code is a short numeric password generated from a shared secret and the current time. It typically has 6 digits and refreshes every 30 seconds. Both the authenticator app and your server generate the same code independently—if they match, the user is verified."
+  - q: "Why is my TOTP code invalid even though I just generated it?"
+    a: "The most common causes are: (1) clock drift between server and client—sync via NTP and add a ±1 step verification window; (2) Base32 secret parsing error—confirm the secret is decoded as Base32, not hex or raw bytes; (3) RFC 6238 parameter mismatch—verify both sides use the same digits, period, and algorithm."
+  - q: "What parameters does RFC 6238 define for TOTP?"
+    a: "RFC 6238 defines three configurable parameters: (1) digits—the code length, default 6; (2) period—the time step in seconds, default 30; (3) algorithm—the HMAC hash function, default SHA-1. Both the TOTP generator (authenticator app) and verifier (your server) must use identical values for all three."
+  - q: "Should I use SHA-1 or SHA-256 for TOTP?"
+    a: "Use SHA-1 unless you fully control both client and server. SHA-1 is the RFC 6238 default and is supported by Google Authenticator, Authy, 1Password, and virtually all hardware tokens. SHA-256 offers no meaningful security improvement for TOTP because the 6-digit code space is the binding constraint—not the hash algorithm."
+  - q: "How do I protect TOTP verification against brute-force attacks?"
+    a: "Implement three controls: (1) rate limiting—lock the account after 5–10 failed attempts for several minutes; (2) replay protection—mark each accepted code as used so it cannot be reused within the same 30-second window; (3) clock window—accept codes ±1 step to handle minor clock drift without significantly expanding the brute-force window."
+  - q: "How can I quickly test and debug a TOTP implementation?"
+    a: "Use Authgear's free TOTP Authenticator tool. You can configure the algorithm (SHA-1/256/512), digits (6 or 8), and period (30s), then compare the generated code against what your server produces. If they match, your secret and parameters are correct. If not, work through the five common mistakes listed in this article."
 ---
 
 **TOTP** (*time-based one-time password*) remains the backbone of two-factor authentication for millions of apps—and in 2026, it's often the fallback 2FA method behind passkey-based login flows. Six digits, 30 seconds, simple. But implementation mistakes can silently break logins for entire user groups.
@@ -393,59 +406,3 @@ Need to isolate the problem fast? Test your secret and parameters live with the 
 
 For a deeper look at how TOTP works under the hood, see our guide on [What is TOTP and How Does It Work](/post/what-is-totp). If you're evaluating passkeys as a stronger alternative to TOTP-based 2FA, read [Passkeys vs Passwords: Are Passkeys Safer?](/post/passkey-vs-password-why-passkeys-are-the-future-of-security)
 
-<script type='application/ld+json'>
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a TOTP code?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A TOTP (time-based one-time password) code is a short numeric password generated from a shared secret and the current time. It typically has 6 digits and refreshes every 30 seconds. Both the authenticator app and your server generate the same code independently—if they match, the user is verified."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is my TOTP code invalid even though I just generated it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The most common causes are: (1) clock drift between server and client—sync via NTP and add a ±1 step verification window; (2) Base32 secret parsing error—confirm the secret is decoded as Base32, not hex or raw bytes; (3) RFC 6238 parameter mismatch—verify both sides use the same digits, period, and algorithm."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What parameters does RFC 6238 define for TOTP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "RFC 6238 defines three configurable parameters: (1) digits—the code length, default 6; (2) period—the time step in seconds, default 30; (3) algorithm—the HMAC hash function, default SHA-1. Both the TOTP generator (authenticator app) and verifier (your server) must use identical values for all three."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I use SHA-1 or SHA-256 for TOTP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use SHA-1 unless you fully control both client and server. SHA-1 is the RFC 6238 default and is supported by Google Authenticator, Authy, 1Password, and virtually all hardware tokens. SHA-256 offers no meaningful security improvement for TOTP because the 6-digit code space is the binding constraint—not the hash algorithm."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I protect TOTP verification against brute-force attacks?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Implement three controls: (1) rate limiting—lock the account after 5–10 failed attempts for several minutes; (2) replay protection—mark each accepted code as used so it cannot be reused within the same 30-second window; (3) clock window—accept codes ±1 step to handle minor clock drift without significantly expanding the brute-force window."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I quickly test and debug a TOTP implementation?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use Authgear's free TOTP Authenticator tool. You can configure the algorithm (SHA-1/256/512), digits (6 or 8), and period (30s), then compare the generated code against what your server produces. If they match, your secret and parameters are correct. If not, work through the five common mistakes listed in this article."
-      }
-    }
-  ]
-}
-</script>

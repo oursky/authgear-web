@@ -9,6 +9,17 @@ metaDescription: "了解 webhooks 與 API 的差異、何時用哪一種、如�
 publishedAt: 2026-03-13T21:30:38.236Z
 updatedAt: 2026-03-13T22:01:17.429Z
 draft: false
+faq:
+  - q: "Webhook 與 API 差在哪？"
+    a: "API 需你的系統發請求才能取得資料或觸發動作。Webhook 在事件發生時自動把資料送到你的系統。"
+  - q: "何時用 webhook 而非輪詢 API？"
+    a: "需立即對事件反應時。輪詢適合排程取資料，對事件驅動情境多數請求無新資料。"
+  - q: "API 與 webhook 能一起用嗎？"
+    a: "可以。API 處理 CRUD；webhook 在操作產生事件時送通知。"
+  - q: "Webhook 比輪詢更有效率嗎？"
+    a: "是。Webhook 事件發生時只送一次；輪詢不論是否有變化都持續請求。"
+  - q: "如何保護 webhook 端點？"
+    a: "驗證簽章、HTTPS、拒絕過舊時間戳、等冪處理重複送達。"
 ---
 
 現今多數產品會整合付款平台、身分提供者、訊息服務與分析工具。這些串接大多仰賴兩種通訊模式：**API** 與 **webhooks**。
@@ -291,4 +302,3 @@ API 需要你的系統**發請求**才能取得資料或觸發動作。Webhook �
 
 驗證每則請求的密碼學簽章（共用密鑰）、強制 HTTPS、拒絕過舊時間戳以防重放，並讓處理器**等冪**，重複送達不產生副作用。
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Webhook 與 API 差在哪？","acceptedAnswer":{"@type":"Answer","text":"API 需你的系統發請求才能取得資料或觸發動作。Webhook 在事件發生時自動把資料送到你的系統。"}},{"@type":"Question","name":"何時用 webhook 而非輪詢 API？","acceptedAnswer":{"@type":"Answer","text":"需立即對事件反應時。輪詢適合排程取資料，對事件驅動情境多數請求無新資料。"}},{"@type":"Question","name":"API 與 webhook 能一起用嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。API 處理 CRUD；webhook 在操作產生事件時送通知。"}},{"@type":"Question","name":"Webhook 比輪詢更有效率嗎？","acceptedAnswer":{"@type":"Answer","text":"是。Webhook 事件發生時只送一次；輪詢不論是否有變化都持續請求。"}},{"@type":"Question","name":"如何保護 webhook 端點？","acceptedAnswer":{"@type":"Answer","text":"驗證簽章、HTTPS、拒絕過舊時間戳、等冪處理重複送達。"}}]}</script>

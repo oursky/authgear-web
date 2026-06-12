@@ -11,30 +11,6 @@ updatedAt: 2026-02-12T02:35:14.196Z
 draft: false
 ---
 
-<script type="application/ld+json">
-{
-  "@context":"http://schema.org",
-  "@type":"NewsArticle",
-  "mainEntityOfPage":{
-    "@type":"WebPage",
-    "@id":"www.authgear.com/post/how-to-increase-marketing-roi-with-whatsapp-marketing#webpage",
-    "url":"www.authgear.com/post/how-to-increase-marketing-roi-with-whatsapp-marketing"
-  },
-  "headline":"如何用 WhatsApp Marketing 提高行銷 ROI",
-  "image":{
-    "@type":"ImageObject",
-    "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/62984ec16cf48f19bc4ce4ec_whatsapp-g176fb835c_1280.jpg",
-    "width":1223,
-    "height":798
-  },
-  "datePublished":"2022-06-02",
-  "dateModified":"2022-06-02",
-  "description":"WhatsApp 行銷可更有效率地提升品牌曝光、ROI 與客戶互動。",
-  "author":{"@id":"https://www.oursky.com/#organization"},
-  "publisher":{"@type":"Organization","name":"Oursky","@id":"https://www.oursky.com/#organization","logo":{"@type":"ImageObject","@id":"https://www.oursky.com/#logo","url":"https://oursky.com/assets/img/og-image.png","caption":"Oursky"}}
-}
-</script>
-
 過去 SMS 是企業與客戶溝通主力，可發 OTP、促銷與交易訊息。但隨著通訊 App 普及，企業互動方式也快速轉變。WhatsApp 在全球擁有龐大用戶規模，成為品牌不可忽視的行銷渠道之一。
 
 儘管如此，許多企業仍未充分利用 WhatsApp Business。本文將說明：

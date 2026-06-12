@@ -9,6 +9,17 @@ metaDescription: "了解通行密鑰驗證原理與 WebAuthn API 實作。含註
 publishedAt: 2026-03-13T17:35:55.681Z
 updatedAt: 2026-03-13T17:53:28.938Z
 draft: false
+faq:
+  - q: "什麼是通行密鑰驗證？"
+    a: "以公開金鑰密碼學取代密碼的無密碼登入；裝置持私密金鑰，伺服器存公開金鑰。"
+  - q: "什麼是通行密鑰？"
+    a: "由公開金鑰（伺服器）與私密金鑰（裝置）組成的憑證。"
+  - q: "什麼是 WebAuthn？"
+    a: "瀏覽器 API，W3C 標準，用於建立與使用通行密鑰。"
+  - q: "通行密鑰比密碼安全嗎？"
+    a: "是。具釣魚抗性、伺服器僅存公開金鑰、不可跨站重用。"
+  - q: "通行密鑰能跨裝置同步嗎？"
+    a: "可以。Apple、Google、Microsoft 等生態可同步；第三方密碼管理員亦支援。"
 ---
 
 密碼作為預設驗證方式已數十年，仍帶來安全與可用性問題：使用者忘記、跨服務重用、不安全儲存。對開發者而言，密碼系統意味重設工單、釣魚風險與憑證外洩。
@@ -233,4 +244,3 @@ WebAuthn 在所有現代瀏覽器支援良好；客戶端程式相對直觀；�
 
 有。[webauthn.io](https://webauthn.io/) 為互動示範，無需設定即可在瀏覽器測試。Google 的 [Build your first WebAuthn app](https://developers.google.com/codelabs/webauthn-reauth) codelab 可走完整註冊與驗證流程。本文程式片段即為你自有 App 中會使用的客戶端呼叫方式。
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"什麼是通行密鑰驗證？","acceptedAnswer":{"@type":"Answer","text":"以公開金鑰密碼學取代密碼的無密碼登入；裝置持私密金鑰，伺服器存公開金鑰。"}},{"@type":"Question","name":"什麼是通行密鑰？","acceptedAnswer":{"@type":"Answer","text":"由公開金鑰（伺服器）與私密金鑰（裝置）組成的憑證。"}},{"@type":"Question","name":"什麼是 WebAuthn？","acceptedAnswer":{"@type":"Answer","text":"瀏覽器 API，W3C 標準，用於建立與使用通行密鑰。"}},{"@type":"Question","name":"通行密鑰比密碼安全嗎？","acceptedAnswer":{"@type":"Answer","text":"是。具釣魚抗性、伺服器僅存公開金鑰、不可跨站重用。"}},{"@type":"Question","name":"通行密鑰能跨裝置同步嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。Apple、Google、Microsoft 等生態可同步；第三方密碼管理員亦支援。"}}]}</script>

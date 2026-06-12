@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:54.722Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/web-application-authentication-guide#webpage",
-														"url":"/post/web-application-authentication-guide"
-                        },
-        "headline":"網頁應用程式身份驗證：運作原理及實現方式",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/630d7b2da3b2846da3fe1afa_web-app-guide.png",
-            "width":1200,
-            "height":600
-        },
-        "datePublished":"2022-07-21",
-        "dateModified":"2022-07-21",
-        "description":"在本指南中，您將了解更多關於網頁應用程式身份驗證的運作方式，以及如何使用 Authgear 實現它。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 作為網頁開發者，您知道在應用程式中實現身份驗證是多麼普遍的需求。這也無可厚非——它確實很重要：我們必然希望知道是誰在發出請求、管理多重交易，並保護用戶的私人資訊。
 
 在本指南中，您將了解關於網頁應用程式身份驗證的所有知識、它如何在您的網頁應用程式中運作，以及如何整合 Authgear Web SDK 以快速安全地實現身份驗證。
