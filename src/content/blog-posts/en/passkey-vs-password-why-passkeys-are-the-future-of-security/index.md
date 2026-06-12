@@ -51,6 +51,8 @@ The short answer is yes — significantly. The longer answer explains exactly wh
 
 A passkey is a login credential that replaces a password with a pair of cryptographic keys. The private key stays on your device — protected by Face ID, Touch ID, or your device PIN — and the website stores only the matching public key. When you sign in, your device signs a one-time challenge to prove it holds the private key. No secret is ever typed, transmitted, or stored on the server.
 
+> 💡 **See it for yourself:** create a real passkey right now with the free [Passkey Demo & WebAuthn Tester](/tools/passkey-demo) — it runs entirely in your browser and shows you the cryptographic key pair behind every passkey.
+
 **In one sentence:** a passkey lets you sign in with your fingerprint, face, or device PIN instead of a password — and there is nothing for attackers to phish, guess, or steal in a server breach.
 
 **The technical version:** a passkey is a FIDO2/WebAuthn discoverable credential — a public-key credential bound to the website that created it, unlocked through on-device user verification, and synced across your devices via iCloud Keychain, Google Password Manager, or a third-party manager like 1Password.

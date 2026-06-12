@@ -105,6 +105,8 @@ Passkey could also let you sign in to another device running another platform wi
 
 Passkey-supported browsers would also show an **autofill prompt** when you visit a login screen, which allows the end-user to select one of the credentials and then log in instantly. This feature depends on <a href="https://www.w3.org/TR/webauthn-2/#client-side-discoverable-credential" target="_blank">Client-side discoverable credential</a> and <a href="https://github.com/w3c/webauthn/wiki/Explainer:-WebAuthn-Conditional-UI#conditional-ui" target="_blank">Conditional mediation</a>.
 
+> 💡 **Check your own device:** the free [Passkey Demo & WebAuthn Tester](/tools/passkey-demo) detects whether your browser supports passkeys, platform authenticators, and conditional UI — and lets you create and test a real passkey on the spot.
+
 <div id="table-container">
     <table>
         <tbody>

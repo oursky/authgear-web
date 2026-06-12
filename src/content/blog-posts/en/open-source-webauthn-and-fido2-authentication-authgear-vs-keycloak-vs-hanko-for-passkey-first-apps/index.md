@@ -65,6 +65,8 @@ Keycloak is a mature, extremely powerful open-source IAM solution backed by Red 
 
 While not covered in the source documents for this analysis, platforms like Hanko are also notable in the open-source FIDO2 space. They often focus purely on passkey-first authentication, providing a more specialized, lightweight solution compared to full-suite IAM platforms like Authgear or Keycloak. This can be an excellent choice for developers who want to add *only* passkey functionality to an existing system, rather than adopting a complete identity provider.
 
+> 💡 **Test the WebAuthn flow first:** before committing to a platform, the free [Passkey Demo & WebAuthn Tester](/tools/passkey-demo) lets you create a passkey and inspect the full registration and assertion exchange in your browser — a quick way to understand what any of these platforms automate for you.
+
 ## Key Considerations for Your Passkey-First App
 
 When choosing an open-source platform for WebAuthn, consider the following:
