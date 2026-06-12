@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:33.476Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/what-is-customer-identity-and-access-management-ciam#webpage",
-														"url":"/post/what-is-customer-identity-and-access-management-ciam"
-                        },
-        "headline":"What Is Customer Identity and Access Management (CIAM)?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/626638a623fd21dbbf2201f5_network-g5a703e76c_1280.jpg",
-            "width":1223,
-            "height":815
-        },
-        "datePublished":"2022-04-25",
-        "dateModified":"2022-04-28",
-        "description":"Customer Identity and Access Management (CIAM) does more than managing and verifying users’ identities. See why you need a CIAM solution.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
     Customer Identity and Access Management (CIAM) solutions are integrated into different applications or software to help organizations manage and verify end users’ identities to grant access to online services and securely collect, organize, and analyze user data to generate business insights.
 

@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:33:54.733Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/credential-stuffing#webpage",
-														"url":"/post/credential-stuffing"
-                        },
-        "headline":"Credential Stuffing: What It Is and How to Prevent It?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/638ef7a6d48c9f4a79ed7250_credential-stuffing-featured.png",
-            "width":1120,
-            "height":583
-        },
-        "datePublished":"2022-12-06",
-        "dateModified":"2022-12-06",
-        "description":"Credential stuffing is a type of cyberattack involving use of stolen credentials and bots to gain access to user accounts. Learn more about it and how to prevent it with Authgear.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 In 2020, a Security and Exchange Commissions <a href="https://www.sec.gov/files/Risk%20Alert%20-%20Credential%20Compromise.pdf" target="_blank">report</a> highlighted the growing risk of credential stuffing attacks. Part of what continues to make it such a serious cyber security challenge is the way it exploits simple errors people make every day. Most of us know by now not to use the same password and username across multiple platforms, but it remains a painfully common occurrence and one that makes automated attacks far too easy.
 
 There are <a href="https://www.troyhunt.com/the-111-million-pemiblanc-credential-stuffing-list/" target="_blank">credential stuffing lists</a> with millions of email addresses and corresponding passwords floating around the internet and placing people and their data at risk without them even being aware. The prevalence of credential abuse and the threat it poses to our online safety makes it vital for us to understand it better.

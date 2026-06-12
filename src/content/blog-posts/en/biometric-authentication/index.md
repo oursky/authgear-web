@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:17.664Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/biometric-authenticationwebpage",
-														"url":"www.authgear.com/post/biometric-authentication"
-                        },
-        "headline":"Biometric Authentication: Why Do Your Applications Need It in 2022?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/62006d4fdbff6461002c00a2_photo-1567826722186-9ecdf689f122.jpeg",
-            "width":1200,
-            "height":800
-        },
-        "datePublished":"2022-02-07",
-        "dateModified":"2023-02-14",
-        "description":"Biometric authentication provides better data security and user experience for users. Learn more about the different biometric authentication methods.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
     Biometric authentication has become one of the most common login method now that mobile devices equipped with biometric sensors are ubiquitous. Compared to the traditional username-password authentication, it’s a much more secure and convenient authentication method via which users access various applications. When users attempt to log into applications, the system will compare their biometric signatures with the ones stored in the database to make sure that they are the ones with access to the applications or systems.
 

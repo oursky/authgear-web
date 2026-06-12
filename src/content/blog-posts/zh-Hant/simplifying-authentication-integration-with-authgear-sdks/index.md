@@ -11,43 +11,6 @@ updatedAt: 2026-02-12T02:36:01.271Z
 draft: false
 ---
 
-
-<script type="application/ld+json">
-    {
-"@context":"http://schema.org",
-"@type":"新聞文章",
-“mainEntityOfPage”：{
-"@type":"網頁",
-"@id":"/post/simplifying-authentication-integration-with-authgear-sdks#webpage",
-“url”：“/post/簡化身份驗證整合與authgear-sdks”
-                        },
-"headline":"使用 Authgear SDK 簡化開發人員的驗證整合",
-“圖像”：{
-"@type":"影像物件",
-"url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/64a7a8aa0ca4af87452fc135_Simp lifying%20Authentication%20Integration%20For%20Developers%20With%20Authgear%20SDKs%20(3).png",
-“寬度”：1920，
-“身高”：1080
-        },
-"發佈日期":"2023-07-07",
-"修改日期":"2023-07-07",
-"description":"Authgear SDK 函式庫使開發人員可以輕鬆地與 Authgear 整合並互動。",
-「作者」：{
-“@id”：“https://www.oursky.com/#organization”
-        },
-「出版商」：{
-"@type":"組織",
-"name":"我們的天空",
-"@id":"https://www.oursky.com/#organization",
-「標識」：{
-"@type":"影像物件",
-"@id":"https://www.oursky.com/#logo",
-"url":"https://oursky.com/assets/img/og-image.png",
-"caption":"我們的天空"
-              }
-        }
-    }
-    </script>
-
 在當今的數位行業中，任何成功的應用程式都必須優先考慮安全性和用戶體驗。使用者身份驗證是應用程式安全的關鍵方面之一，但它對開發人員來說也可能是一個重大挑戰，因為它需要理解並正確實現複雜的協定。建立內部身份驗證系統可能需要**三到六個月**。作為開發人員，我們不斷尋找使身份驗證整合更容易的解決方案，同時確保用戶資料的最大保護。值得慶幸的是，SDK 庫可以讓這項任務變得更加容易。本文探討了 **Authgear 提供哪些 SDK 和 API** 以及它們如何為開發人員**簡化身份驗證整合**。
 
 ## 什麼是 Authgear？

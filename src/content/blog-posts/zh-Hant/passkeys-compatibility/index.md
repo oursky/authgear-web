@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:01.233Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/passkeys-compatibility#webpage",
-														"url":"/post/passkeys-compatibility"
-                        },
-        "headline":"Passkeys Compatibility: Which Platforms Support Passkeys?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6306dea4c54a6b4834b4f191_passkey-compatibility.png",
-            "width":1173,
-            "height":560
-        },
-        "datePublished":"2022-08-26",
-        "dateModified":"2022-08-26",
-        "description":"Passkeys will soon be supported in iOS 16. Learn more about passkeys and their compatibility with Chrome, Safari, and Firefox.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 Apple 在開發者大會上預覽了 2022 年 9 月推出的 iOS 16。iOS 16 其中一項引人矚目的功能是 **Passkeys（通行密鑰）**：這類數位憑證有機會從根本取代傳統密碼。
 
 Passkeys 是「<a href="https://fidoalliance.org/multi-device-fido-credentials/" target="_blank">multi-device FIDO credentials（多重裝置 FIDO 憑證）</a>」的行銷名稱。使用者可在裝置上建立憑證（加密金鑰）以註冊服務（例如電商網站），金鑰也會備份到使用者的 Google 帳戶或 Apple ID，以便在其他裝置上使用。

@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:01.256Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/send-otp-on-whatsapp-and-telegram-2022/#webpage",
-														"url":"/post/send-otp-on-whatsapp-and-telegram-2022"
-                        },
-        "headline":"Send OTP on WhatsApp and Telegram 2022",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/618c99cd4aa9dc7d506b033e_otp-message-2.jpg",
-            "width":1223,
-            "height":688
-        },
-        "datePublished":"2021-11-11",
-        "dateModified":"2023-06-19",
-        "description":"OTPs are essential to verify transactions and logins. In Authgear, you can send OTPs with the messenger services they are familiar with.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 > **2022 Special Deal:**  
 > Send OTPs on WhatsApp at **$199/mo**  
 > [> Contact us here <](/schedule-demo/)

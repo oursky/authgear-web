@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:17.663Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/4-things-we-learned-supporing-passkeys#webpage",
-														"url":"/post/4-things-we-learned-supporing-passkeys"
-                        },
-        "headline":"Web App Authentication: How It Works and How to Implement It",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/630d77a4270550c53827f5b8_supporting-passkey.png",
-            "width":1200,
-            "height":600
-        },
-        "datePublished":"2022-07-21",
-        "dateModified":"2022-07-21",
-        "description":"In this guide, you'll learn more about how authentication in web app works and how to implement it with Authgear.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 Do you know that the password “123456” is still used by <a href="https://www.ncsc.gov.uk/news/most-hacked-passwords-revealed-as-uk-cyber-survey-exposes-gaps-in-online-security" target="_blank">more than 23 million people</a>? People often think that hackers wouldn’t bother hacking their accounts and decide to use the same simple passwords on different platforms.
 
 One of my friends told me his account was hacked, and malicious messages were sent to his Facebook friends. He also used a simple password similar to “12345678” for all his social accounts since he thought no one would hack his accounts. Sadly, it turned out that anything that could go wrong would go wrong,

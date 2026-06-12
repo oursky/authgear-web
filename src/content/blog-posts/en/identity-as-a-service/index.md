@@ -11,42 +11,6 @@ updatedAt: 2026-02-12T02:36:33.490Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/identity-as-a-service#webpage",
-														"url":"/post/identity-as-a-service"
-                        },
-        "headline":"What Is Identity as a Service (IdaaS) And Why Does Your Business Need It?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/64880c160ca7facbd3283a7a_idaas-featured.jpg",
-            "width":1120,
-            "height":584
-        },
-        "datePublished":"2023-06-13",
-        "dateModified":"2022-06-13",
-        "description":"Learn more about identity as a service and how cloud-based IAM can provider better scalability, streamline access management, and deliver smoother user experience.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
-
 In today's increasingly interconnected and digital world, the management of identities and access to various systems and resources is of paramount importance for individuals and organizations alike. With the rapid growth of cloud computing, mobile applications, and remote work, the traditional methods of identity management have become cumbersome and less effective. This is where Identity as a Service (IDaaS) emerges as a game-changer.
 
 In this article, we’ll talk about what identity as a service is, how it’s different from identity and access management (IAM) and explain why it’s such a must-have for businesses operating today.

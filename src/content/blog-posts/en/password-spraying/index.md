@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:01.268Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/password-spraying#webpage",
-														"url":"/post/password-spraying"
-                        },
-        "headline":"Password Spraying: What It Is and How to Prevent It?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63db7073e804179d2a58cdca_spraying.jpg",
-            "width":1223,
-            "height":583
-        },
-        "datePublished":"2023-02-02",
-        "dateModified":"2022-02-02",
-        "description":"Learn more about password spraying and the different methods to protect your users from it with Authgear.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-</script>
     
     
 The meteoric rise of cybercrime has been unprecedented, with the world now expected to lose a staggering <a href="https://www.analyticsinsight.net/online-industries-most-targeted-by-cyber-attacks/" target="_blank">$10.5 trillion</a> to attackers by 2025. Cybercriminals have no shortage of methods to choose from when looking to exploit their victims. But the most successful involves passwords. As much as <a href="https://financesonline.com/password-statistics/" target="_blank">81 percent</a> of all business data breaches are the result of poor passwords.

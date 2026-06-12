@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:54.746Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/frictionless-authentication#webpage",
-														"url":"/post/frictionless-authentication"
-                        },
-        "headline":"Frictionless Authentication: What Is It & How To Implement It?",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6461a579957a122f15b741bb_frictionless-featured.png",
-            "width":1120,
-            "height":584
-        },
-        "datePublished":"2023-05-15",
-        "dateModified":"2022-05-15",
-        "description":"Learn more about frictionless authentication and how to achieve it with passwordless innovations, practical strategies, and forward-thinking approaches to enhance user experience and security.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
             In today's digital landscape, providing a seamless and frictionless authentication experience has become an essential requirement for businesses. However, achieving the delicate balance between robust security measures and a user-friendly experience can be quite challenging. While password authentication remains the most widely used method, it also poses the biggest hurdle in terms of friction. Throughout the user journey, from sign-up to login and even during the checkout process, various points of friction can arise, potentially leading to cart abandonment, decreased sales, and frustrated customers.
 
 In this blog post, we will explore the significance of frictionless authentication, what composes a frictionless authentication, and how businesses can benefit from it.

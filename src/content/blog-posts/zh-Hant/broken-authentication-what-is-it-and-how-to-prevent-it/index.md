@@ -10,41 +10,6 @@ publishedAt: 2022-11-03T08:22:30.152Z
 updatedAt: 2026-02-12T02:33:17.660Z
 draft: false
 ---
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/how-to-prevent-broken-authentication#webpage",
-														"url":"www.authgear.com/post/how-to-prevent-broken-authentication"
-                        },
-        "headline":"失效驗證（Broken Authentication）是什麼？如何預防？",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/6364ab8131d7b5245fa2e618_broken-authentication-featured.jpg",
-            "width":1223,
-            "height":584
-        },
-        "datePublished":"2022-11-03",
-        "dateModified":"2022-11-03",
-        "description":"失效驗證是 OWASP Top 10 常見漏洞之一，攻擊者可冒用使用者身分危及資料安全。本文說明成因與防範做法。",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     驗證（Authentication）是確認一個人是否真的是其所聲稱身分的流程，也是任何網站或應用程式安全的關鍵。
 
 然而，若實作方式不正確，驗證機制就會出現失效。根據 OWASP Foundation，Broken Authentication 屬於<a href="https://owasp.org/www-project-top-ten/" target="_blank">十大 Web 應用程式安全風險</a>之一，2017 年排名第 2、2021 年排名第 7。Broken Authentication 的成因在於驗證與 Session 管理實作不佳。攻擊者可利用這些弱點存取敏感資訊，例如財務資料或個人資訊。

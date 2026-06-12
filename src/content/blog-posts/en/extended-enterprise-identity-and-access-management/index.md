@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:54.761Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/extended-enterprise-identity-and-access-management#webpage",
-														"url":"www.authgear.com/post/extended-enterprise-identity-and-access-management"
-                        },
-        "headline":"Extended Enterprise and Identity & Access Management: The Challenges & Solutions",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63526a5a62d088630d6014af_extended-enterprise-featured.png",
-            "width":1223,
-            "height":584
-        },
-        "datePublished":"2022-10-21",
-        "dateModified":"2022-10-24",
-        "description":"The concept of extended enterprise has helped businesses increase productivity and profitability, but it also poses some identity & access challenges.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 As the world becomes more interconnected, company boundaries are becoming more blurred. Businesses are now more connected than ever as they strive to create efficiencies and drive growth.
 
 In the new workplace paradigm, access to IT resources is no longer limited to internal employees. Customers, partners, contractors, vendors, suppliers, and other stakeholders now have a level of access that was once unthinkable, with the sole purpose of driving value back to the business. This concept is known as the extended enterprise.

@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:01.236Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/passwordless-authentication-complete-guide#webpage",
-														"url":"www.authgear.com/post/passwordless-authentication-complete-guide"
-                        },
-        "headline":"Passwordless Authentication: All You Need to Know For Better Security",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/62028fb300efe2d77489ef06_phishing-gc2cea6a81_1280.png",
-            "width":1280,
-            "height":710
-        },
-        "datePublished":"2022-03-01",
-        "dateModified":"2022-04-07",
-        "description":"Learn more about why passwordless authentication has been adopted by all industries and how you can implement it with ease.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
     Passwordless authentication includes all authentication methods that verify users’ identities without asking users to enter their passwords. Examples of passwordless authentication include biometrics, such as fingerprint and face recognition, physical security token key, magic link, etc.
 

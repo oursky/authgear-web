@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:33:17.656Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"/post/authentication-vs-authorization#webpage",
-														"url":"/post/authentication-vs-authorization"
-                        },
-        "headline":"Authentication vs. Authorization: The Differences in One Table",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/63c0e95df02e2dc8b17205cc_authn-authz-featured.jpeg",
-            "width":1223,
-            "height":583
-        },
-        "datePublished":"2023-01-13",
-        "dateModified":"2022-01-13",
-        "description":"Learn more about the differences between authentication and authorization, two important security processes, with one simple table.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
 When it comes to ensuring data security, it’s easy to mixed up authentication and authorization. Simply put, authentication is the process of verifying a user’s identity and confirming, through various methods, that they are who they say they are. Authorization follows on from this step but operates quite differently as it grants access to different resources based on a user’s exact level of authorization.
 
 The difference between authentication and authorization isn’t complicated but understanding these processes makes it far easier to make informed decisions regarding data and cybersecurity systems. In this article we’re looking into just what makes authentication and authorization distinct and some examples of how they operate.

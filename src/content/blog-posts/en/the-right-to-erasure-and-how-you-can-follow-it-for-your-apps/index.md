@@ -11,41 +11,6 @@ updatedAt: 2026-02-12T02:36:33.465Z
 draft: false
 ---
 
-<script type="application/ld+json">
-    {
-        "@context":"http://schema.org",
-        "@type":"NewsArticle",
-        "mainEntityOfPage":{
-                            "@type":"WebPage",
-                            "@id":"www.authgear.com/post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps#webpage",
-														"url":"www.authgear.com/post/the-right-to-erasure-and-how-you-can-follow-it-for-your-apps"
-                        },
-        "headline":"The Right to Erasure and How You Can Follow It for Your Apps",
-        "image":{
-            "@type":"ImageObject",
-            "url":"https://uploads-ssl.webflow.com/60658b47b03f0c77e8c14884/621dd489bbdbae4b79e6b123_regulation-g5c0827f31_1280.jpg",
-            "width":1223,
-            "height":573
-        },
-        "datePublished":"2022-03-01",
-        "dateModified":"2022-04-07",
-        "description":"Learn more about password hashing and salting to better protect your users' passwords from malicious attacks.",
-        "author":{
-            "@id":"https://www.oursky.com/#organization"
-        },
-        "publisher":{
-            "@type":"Organization",
-            "name":"Oursky",
-            "@id":"https://www.oursky.com/#organization",
-            "logo":{
-                "@type":"ImageObject",
-                "@id":"https://www.oursky.com/#logo",
-                "url":"https://oursky.com/assets/img/og-image.png",
-                "caption":"Oursky"
-              }
-        }
-    }
-    </script>
     
    The collection of data has always helped various companies analyze the behaviors of their clients in order to provide personalized services or adjust their marketing strategies. However, consumers now are more aware of how their data is used or misused and thus start demanding for more control over their data. Consequently, governments have also introduced different laws to regulate data collection.
 
