@@ -125,3 +125,7 @@ A rough framework based on monthly OTP volume and market:
 - Auth platform licensing (Auth0, Authgear, Firebase) adds monthly fees but reduces engineering overhead — factor in both sides of the equation
 
 If you want a concrete estimate for your specific user volume and market mix, the [Authgear SMS cost calculator](/solutions/reduce-sms-otp-cost) can show you potential savings by market.
+
+Want to see it live? [Get a demo](/schedule-demo/) of Authgear's WhatsApp-first OTP with SMS fallback and passkey support.
+
+**Related reading:** [SMS OTP vs WhatsApp OTP](/post/sms-otp-vs-whatsapp-otp), [SMS OTP vulnerabilities and alternatives](/post/sms-otp-vulnerabilities-and-alternatives), and [SMS pumping attacks](/post/sms-pumping-attack).

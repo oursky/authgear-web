@@ -243,3 +243,7 @@ With Authgear you can roll out **Passkeys**, **WhatsApp OTP**, and **Social Logi
 
 [Get a live demo](/schedule-demo/) to see how quickly your team can ship secure, low-friction login.
 
+Working out the cost side? Estimate your savings with the [SMS cost reduction calculator](/solutions/reduce-sms-otp-cost).
+
+**Related reading:** [SMS OTP vs WhatsApp OTP](/post/sms-otp-vs-whatsapp-otp), [OTP bots explained](/post/otp-bot-explained), and [How much does 2FA cost?](/post/two-factor-authentication-cost).
+

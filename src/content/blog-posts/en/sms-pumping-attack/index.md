@@ -121,6 +121,10 @@ Beyond fraud protection, Authgear also routes OTPs through WhatsApp by default (
 
 If you're evaluating how much SMS pumping — or just routine SMS costs — is costing your business, see our [SMS cost reduction guide](/solutions/reduce-sms-otp-cost) for a breakdown by market and scale.
 
+[Get a live demo](/schedule-demo/) to see Authgear's SMS pumping protection and WhatsApp-first OTP routing in action.
+
+**Related reading:** [How OTP bots bypass SMS 2FA](/post/otp-bots-bypass-sms-2fa), [SMS OTP vs WhatsApp OTP](/post/sms-otp-vs-whatsapp-otp), and [OTP bots explained](/post/otp-bot-explained).
+
 ## Key Takeaways
 
 - SMS pumping fraud exploits your OTP endpoint to generate carrier revenue for attackers — at your cost
