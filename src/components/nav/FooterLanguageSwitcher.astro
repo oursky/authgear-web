@@ -11,7 +11,14 @@ const { locale, currentPath = Astro.url.pathname } = Astro.props;
 const LOCALE_LABELS: Record<string, string> = {
   en: 'English',
   'zh-Hant': '中文',
+  ja: '日本語',
 };
+
+// Locales offered as switch-TO targets in the global footer. `ja` is a valid
+// current locale (its label shows on ja pages) but has only partial (pilot)
+// coverage, so we don't offer a footer link to it — that would 404 on the
+// many pages without a Japanese version. A ja page can still switch to en/zh.
+const SWITCHABLE_LOCALES = LOCALES.filter((l) => l !== 'ja');
 
 const basePath = stripLocaleSegment(currentPath);
 const currentLabel = LOCALE_LABELS[locale] ?? 'Language';
@@ -60,7 +67,7 @@ const currentLabel = LOCALE_LABELS[locale] ?? 'Language';
     </svg>
   </button>
   <ul class="ds-footer-lang-switcher__dropdown" role="listbox" id="footer-lang-dropdown" hidden>
-    {LOCALES.map((l) => (
+    {SWITCHABLE_LOCALES.map((l) => (
       <li role="option" aria-selected={l === locale}>
         <a
           href={localizedPath(l, basePath)}

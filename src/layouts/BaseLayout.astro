@@ -35,12 +35,16 @@ const siteOrigin = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const pathname = Astro.url.pathname;
 const neutralPath = pathname.startsWith('/zh-hant')
   ? pathname.replace(/^\/zh-hant(\/|$)/, '/').replace(/\/\//g, '/')
+  : pathname.startsWith('/ja')
+  ? pathname.replace(/^\/ja(\/|$)/, '/').replace(/\/\//g, '/')
   : pathname;
 const enUrl = `${siteOrigin}${neutralPath}`;
 const zhHantUrl = `${siteOrigin}/zh-hant${neutralPath === '/' ? '/' : neutralPath}`;
-const canonical = canonicalProp ?? (locale === 'zh-Hant' ? zhHantUrl : enUrl);
-const ogLocale = locale === 'zh-Hant' ? 'zh_TW' : 'en_US';
-const ogLocaleAlternate = locale === 'zh-Hant' ? 'en_US' : 'zh_TW';
+const jaUrl = `${siteOrigin}/ja${neutralPath === '/' ? '/' : neutralPath}`;
+const canonical =
+  canonicalProp ?? (locale === 'zh-Hant' ? zhHantUrl : locale === 'ja' ? jaUrl : enUrl);
+const ogLocale = locale === 'zh-Hant' ? 'zh_TW' : locale === 'ja' ? 'ja_JP' : 'en_US';
+const ogLocaleAlternate = locale === 'en' ? 'zh_TW' : 'en_US';
 const gtmId = import.meta.env.PUBLIC_GTM_ID ?? '';
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN ?? '';
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION ?? '';
@@ -48,6 +52,7 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION ?
 const fontFamilies = [
   'IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700',
   ...(locale === 'zh-Hant' ? ['Noto+Sans+TC:wght@400;500;600;700'] : []),
+  ...(locale === 'ja' ? ['Noto+Sans+JP:wght@400;500;600;700'] : []),
   'PT+Sans:wght@400;700',
   'Inter:wght@400;500;600;700',
   'Red+Hat+Display:wght@400;500;700',
@@ -69,6 +74,11 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="zh-Hant" href={zhHantUrl} />
+    {/* JA has partial coverage (pilot). Emit the ja alternate only on ja pages
+        (self-reference) to avoid dangling /ja/ alternates on untranslated pages.
+        Reciprocal en→ja / zh→ja links are a content-time follow-up once the
+        set of translated posts is known. */}
+    {locale === 'ja' && <link rel="alternate" hreflang="ja" href={jaUrl} />}
     <link rel="alternate" hreflang="x-default" href={enUrl} />
 
     {/* OpenGraph (Webflow used "copy SEO title/description" — same here). */}
