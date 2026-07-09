@@ -317,6 +317,8 @@ Choosing between **OIDC vs SAML** doesn’t have to be complicated. If you’re 
 
 For older enterprise systems, SAML is still reliable and trusted for security and compliance. Many organizations use both SAML for legacy apps and OIDC for new ones, so they can update systems without causing disruption.
 
+Whichever you choose, enterprise deployments usually pair it with [SCIM provisioning](/post/what-is-scim-provisioning) to automate user onboarding and offboarding across connected apps.
+
 If you want centralized identity management that works across microservices, mobile apps, and legacy systems, Authgear Cloud can simplify your authentication strategy, improve security, and give you peace of mind.
 
 <a href="https://portal.authgear.com/" rel="https://portal.authgear.com/">Start your free trial of Authgear today</a> and unify identity management across all your applications.

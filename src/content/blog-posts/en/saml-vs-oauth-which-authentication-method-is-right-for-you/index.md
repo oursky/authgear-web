@@ -160,6 +160,7 @@ To make informed decisions about using SAML or OAuth, consider the following gui
 - **Evaluate Security:** Assess the security implications of each protocol and choose the one that best protects your users' data.
 - **Consider Complexity:** Evaluate the development and maintenance effort required for each option.
 - **Explore Hybrid Approaches:** In some cases, using both SAML and OAuth can provide a comprehensive identity management solution. For example, SAML for authentication and OAuth for authorization within the application.
+- **Automate User Lifecycle:** For enterprise deployments, pair SSO with [SCIM provisioning](/post/what-is-scim-provisioning) to automatically create, update, and deactivate accounts as employees join, move between teams, or leave.
 - **Stay Updated:** Keep up with the latest developments and best practices for both protocols to ensure optimal security and performance.
 
 By carefully considering these factors and following best practices, you can select the most appropriate protocol for your application and enhance its overall security and user experience.

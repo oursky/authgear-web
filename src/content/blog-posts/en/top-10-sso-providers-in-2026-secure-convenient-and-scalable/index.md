@@ -118,4 +118,6 @@ Choosing the right **SSO provider** depends on your organization's specific need
 
 If you're new to SSO or looking to optimize your existing setup, we recommend reading our [**A Comprehensive Guide to Single Sign-On Implementations**](/post/customer-sso) for step-by-step insights. And if you want to take a closer look at how Authgear stacks up and how to integrate it into your projects.
 
+Most enterprise SSO rollouts also need automated account management — see [how SCIM provisioning works](/post/what-is-scim-provisioning) to sync users across your apps as your team changes.
+
 By carefully evaluating these **SSO providers**, you'll be well on your way to selecting a solution that boosts security, enhances user experiences, and streamlines your IT operations in 2026 and beyond.
