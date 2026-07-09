@@ -34,6 +34,16 @@ A **502 Bad Gateway** error means the server acting as a gateway or proxy receiv
 
 For developers, a 502 is a mid-tier headache: it is not a client mistake (that would be a 4xx), and it is not a catch-all server crash (that would be a 500). It tells you something specific: the gateway could not talk to the backend. That narrows down where to look.
 
+## The Three Fastest Fixes
+
+Most 502s clear with one of these, in order:
+
+1. **Restart the crashed upstream.** Confirm your app process is running and listening on the configured port (`ss -tlnp | grep <port>`). If nothing is listening, start it.
+2. **Fix the proxy's target.** A wrong port or socket path in `proxy_pass` (Nginx) or `ProxyPass` (Apache) reliably produces 502s. Correct it and reload.
+3. **Raise the proxy read timeout.** If the backend is just slow, increase `proxy_read_timeout` (Nginx) or `ProxyTimeout` (Apache) — then profile the slow endpoint so you are not masking a real bug.
+
+Everything below expands on these, plus platform-specific fixes for Cloudflare, Kubernetes, AWS ALB, Heroku, and Vercel.
+
 ## What Is a 502 Bad Gateway Error?
 
 The HTTP 502 status code is defined in [RFC 9110](https://httpwg.org/specs/rfc9110.html#status.502) as:
@@ -410,7 +420,7 @@ RestartSec=5
 
 ## 502 and Authentication Flows
 
-If your authentication service sits behind a reverse proxy — as is common when using a platform like [Authgear]() — a 502 from the proxy will completely block the login flow. Users will see a generic error page instead of the sign-in screen, and OAuth redirect flows will break silently.
+If your authentication service sits behind a reverse proxy — as is common when using a platform like [Authgear](/) — a 502 from the proxy will completely block the login flow. Users will see a generic error page instead of the sign-in screen, and OAuth redirect flows will break silently.
 
 When troubleshooting 502s in a production app:
 
@@ -419,6 +429,8 @@ When troubleshooting 502s in a production app:
 <li>If you use a CDN in front of your auth endpoints, ensure your CDN is not caching 502 responses. Cached error responses will continue to block logins even after the backend recovers.</li>
 <li>Authgear is designed to run reliably in proxied environments, but your Nginx or load balancer config still needs to be correct. See the proxy configuration fixes above.</li>
 </ul>
+
+If you would rather not debug proxy reliability for your auth stack yourself, [see how Authgear runs managed authentication](/schedule-demo/) in a proxied environment built for uptime.
 
 ## FAQ
 

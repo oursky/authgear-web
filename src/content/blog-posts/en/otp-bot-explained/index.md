@@ -94,7 +94,9 @@ OTP bots are a growing threat to developers building authentication systems. The
 
 The solution is proactive defense: rate limiting, CAPTCHAs, fraud detection, and moving beyond SMS OTP where possible. With Authgear’s built-in protections, developers can secure OTP workflows without reinventing the wheel.
 
-[Start protecting your app today with Authgear](/schedule-demo)**.**
+[Start protecting your app today with Authgear](/schedule-demo/)**.**
+
+**Related reading:** [How OTP bots bypass SMS 2FA](/post/otp-bots-bypass-sms-2fa), [SMS OTP vulnerabilities and alternatives](/post/sms-otp-vulnerabilities-and-alternatives), and [SMS pumping attacks and how to prevent them](/post/sms-pumping-attack).
 
 ---
 

@@ -95,6 +95,8 @@ You keep your existing flows. You add friction only where risk deserves it. And 
 
 Learn more:<a href="/features/sms-pumping-fraud" target="_blank">**Authgear SMS Pumping Fraud Protection**</a>
 
+[Get a live demo](/schedule-demo/) to see how Authgear blocks OTP abuse and cuts SMS costs with WhatsApp-first delivery, or estimate the savings with the [SMS cost reduction calculator](/solutions/reduce-sms-otp-cost).
+
 ## FAQ: OTP bypass in practice
 
 **How do OTP bots bypass SMS 2FA?**  
@@ -109,4 +111,4 @@ Yes. They’re crimeware-as-a-service kits that automate calls and messages to h
 **How do I detect SMS pumping fraud early?**  
 Watch for a high send-to-verify ratio, sudden shifts in country/carrier mix, bursts from the same ASN/subnet, and sequential phone numbers. When you see those patterns, pause sends, require challenges, and review the window before resuming.
 
-*See also:* [OTP Bots Explained](/post/otp-bot-explained) and [SMS Pumping Fraud Protection](/features/sms-pumping-fraud) for deeper technical context and deploy-ready controls.
+*See also:* [OTP Bots Explained](/post/otp-bot-explained), [SMS OTP vs WhatsApp OTP](/post/sms-otp-vs-whatsapp-otp), [SMS pumping attacks](/post/sms-pumping-attack), and [SMS Pumping Fraud Protection](/features/sms-pumping-fraud) for deeper technical context and deploy-ready controls.
