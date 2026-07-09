@@ -14,6 +14,8 @@ export const common = {
   popupClose: '關閉',
   faqHeading: '常見問題',
   stepLabel: '步驟 {n}.',
+  demoCtaText: '正在為您的應用程式建置身分驗證嗎？',
+  demoCtaButton: '預約示範',
 } as const;
 
 export const registry = {
