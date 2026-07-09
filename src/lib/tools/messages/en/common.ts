@@ -15,6 +15,8 @@ export const common = {
   popupClose: 'Close',
   faqHeading: 'FAQ',
   stepLabel: 'Step {n}.',
+  demoCtaText: 'Building authentication into your app?',
+  demoCtaButton: 'Book a demo',
 } as const;
 
 export const registry = {

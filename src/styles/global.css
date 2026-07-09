@@ -1343,3 +1343,49 @@ select.ds-form-input {
   line-height: 1.5;
   color: var(--color-text-secondary);
 }
+
+/* Tool-page demo CTA (below the tool widget, above the crafted-by tag) */
+.tools-demo-cta {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 20px;
+  width: 100%;
+  margin: 28px 0 24px;
+  padding: 8px 24px;
+  font-family: var(--font-sans);
+}
+.tools-demo-cta__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #2b2e3d;
+}
+.tools-demo-cta__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #2f80ed;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+.tools-demo-cta__button:hover {
+  background: #2568c9;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .tools-demo-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+}

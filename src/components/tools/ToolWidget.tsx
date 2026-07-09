@@ -39,6 +39,17 @@ export default function ToolWidget({ locale, src, iframeTitle, height, policy, i
           </div>
         )}
         <div className="tools-banner-wrapper">
+          <div className="tools-demo-cta">
+            <p className="tools-demo-cta__text">{t('demoCtaText')}</p>
+            <a
+              href="/schedule-demo/"
+              target="_blank"
+              rel="noopener"
+              className="tools-demo-cta__button plausible-event-name--tool-demo-click"
+            >
+              {t('demoCtaButton')} →
+            </a>
+          </div>
           <div className="div-block-33">
             <a href="/" target="_blank" className="tools-authgear-tag plausible-event-name--tool-tag-click">
               {t('craftedByTag')}
