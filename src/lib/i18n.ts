@@ -4,7 +4,7 @@
  * form, used in `<html lang>` and `hreflang`) but served at lowercase
  * `/zh-hant/...` URLs to match standard URL casing conventions.
  */
-export const LOCALES = ['en', 'zh-Hant'] as const;
+export const LOCALES = ['en', 'zh-Hant', 'ja'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
@@ -12,6 +12,7 @@ export const DEFAULT_LOCALE: Locale = 'en';
 const LOCALE_URL_SEGMENT: Record<Locale, string> = {
   en: '',
   'zh-Hant': '/zh-hant',
+  ja: '/ja',
 };
 
 /**
@@ -73,6 +74,10 @@ export function resolveLocale(acceptLanguage: string | null): Locale {
     ) {
       return 'zh-Hant';
     }
+    // Japanese
+    if (tag === 'ja' || tag.startsWith('ja-')) {
+      return 'ja';
+    }
   }
   return DEFAULT_LOCALE;
 }
@@ -80,6 +85,7 @@ export function resolveLocale(acceptLanguage: string | null): Locale {
 /** Return the HTML lang attribute value for a given locale. */
 export function localeToHtmlLang(locale: Locale | typeof LEGACY_ZH_PATH_LOCALE | string): string {
   if (locale === 'zh-Hant' || locale === LEGACY_ZH_PATH_LOCALE) return 'zh-Hant';
+  if (locale === 'ja') return 'ja';
   // if (locale === 'zh-HK') return 'zh-HK';
   return 'en';
 }

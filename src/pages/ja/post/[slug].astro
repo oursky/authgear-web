@@ -1,0 +1,108 @@
+---
+export const prerender = true;
+
+import { Image } from 'astro:assets';
+import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogPostSeo from '@/components/blog/BlogPostSeo.astro';
+import BlogSidebar from '@/components/blog/BlogSidebar.astro';
+import { blogCategoryDisplayName } from '@/lib/blog-category';
+
+export async function getStaticPaths() {
+  // Japanese pilot: generate /ja/post/{slug} ONLY for translated `ja/` posts.
+  // Unlike the zh-hant route, we deliberately do NOT fall back to English for
+  // untranslated posts — that would create a duplicate English site under /ja/.
+  const jaEntries = await getCollection(
+    'blog-posts',
+    ({ id, data }) => id.startsWith('ja/') && !data.draft,
+  );
+  const slugOf = (id: string) =>
+    id.replace(/^ja\//, '').replace(/\/index(\.(md|mdx))?$/, '');
+  return jaEntries.map((entry) => ({
+    params: { slug: slugOf(entry.id) },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'blog-posts'>;
+}
+
+const locale = 'ja';
+const { entry } = Astro.props;
+const data = entry.data;
+const { Content } = await render(entry);
+
+let categoryName: string | undefined;
+let categorySlug: string | undefined;
+if (data.category) {
+  try {
+    const cat = await getEntry('blog-categories', data.category);
+    if (cat) {
+      categoryName = blogCategoryDisplayName(locale, cat.data);
+      categorySlug = cat.data.slug;
+    }
+  } catch {
+    /* missing category is non-fatal */
+  }
+}
+
+const updatedDate = data.updatedAt ?? data.publishedAtOverride ?? data.publishedAt;
+const updatedStr = updatedDate.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const pageTitle = data.metaTitle ?? data.title;
+const pageDescription = data.metaDescription ?? data.excerpt;
+const headingText = data.h1 ?? data.title;
+const canonicalHref = data.canonicalUrl ?? new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<BaseLayout locale={locale} title={pageTitle} description={pageDescription} canonical={canonicalHref} ogType="article" twitterCard="summary_large_image">
+  <BlogPostSeo entry={entry} slot="head" />
+  <article class="blog-post">
+    <header class="blog-post__header">
+      <div class="ds-container">
+        {categoryName && categorySlug && (
+          <a
+            href={`/post-category/${categorySlug}`}
+            class="blog-post__category-chip"
+          >
+            {categoryName}
+          </a>
+        )}
+        <h1 class="blog-post__title">{headingText}</h1>
+        {data.excerpt && <p class="blog-post__excerpt">{data.excerpt}</p>}
+        <div class="blog-post__meta">
+          {data.readTime && (
+            <span class="blog-post__read-time">{data.readTime} 分で読めます</span>
+          )}
+          <span class="blog-post__updated">
+            最終更新：<time datetime={updatedDate.toISOString()}>{updatedStr}</time>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="blog-post__cover ds-container">
+      <Image
+        src={data.coverImage}
+        alt={data.title}
+        width={1200}
+        loading="eager"
+        class="blog-post__cover-img"
+      />
+    </div>
+
+    <div class="ds-container">
+      <div class="blog-post__layout">
+        <div class="ds-richtext-prose blog-post__body">
+          <Content />
+        </div>
+        <BlogSidebar locale={locale} />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

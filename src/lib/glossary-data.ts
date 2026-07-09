@@ -292,4 +292,7 @@ const zhHant: GlossarySection[] = [
 export const glossaryTerms: Record<Locale, GlossarySection[]> = {
   en,
   'zh-Hant': zhHant,
+  // Pilot ships no /ja/glossary route; reuse the English glossary to satisfy the
+  // Locale-exhaustive type. Replace with translated data if a JA glossary ships.
+  ja: en,
 };
