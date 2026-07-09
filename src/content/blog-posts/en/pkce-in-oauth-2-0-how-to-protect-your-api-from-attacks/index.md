@@ -117,4 +117,6 @@ On the other hand, JWT is a standard for representing claims securely and compac
 
 PKCE is a vital security extension for OAuth 2.0 applications, providing a robust defense against common threats and ensuring the integrity of the authorization process. By understanding and implementing PKCE, developers can significantly enhance the security posture of their applications, protect sensitive user data, and comply with industry best practices.
 
+PKCE is no longer just for mobile and single-page apps — OAuth 2.1 makes it mandatory for all clients, and emerging protocols build on it directly. [MCP authentication](/post/mcp-authentication), which secures how AI agents connect to tools and data, mandates PKCE for every client.
+
 If you're looking to bolster the security of your OAuth 2.0 applications or need expert guidance on implementing PKCE, consider reaching out to the authentication experts at Authgear. Our team can provide tailored solutions, guidance, and support to help you safeguard your applications and deliver a secure and reliable user experience.

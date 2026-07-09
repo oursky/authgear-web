@@ -289,6 +289,8 @@ PKCE prevents authorization code interception attacks by having your client gene
 
 See our detailed guide on [how PKCE works in OAuth 2.0](/post/pkce-in-oauth-2-0-how-to-protect-your-api-from-attacks).
 
+PKCE is also mandatory in newer OAuth 2.1 profiles — including [MCP authentication](/post/mcp-authentication), the authorization spec for connecting AI agents to tools and data.
+
 ## Common OAuth 2.0 Mistakes to Avoid
 
 <ul>

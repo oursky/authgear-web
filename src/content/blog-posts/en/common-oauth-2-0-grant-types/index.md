@@ -286,6 +286,8 @@ OAuth 2.0 provides a flexible and secure framework for managing access across mo
 
 For most user-facing applications, Authorization Code with PKCE is the recommended standard, while Client Credentials is best suited for service-to-service communication. Other grant types address specific scenarios, and older flows should be avoided in new designs.
 
+It is the same flow behind [MCP authentication](/post/mcp-authentication): the OAuth 2.1 authorization spec for AI agents mandates Authorization Code with PKCE, plus resource indicators to bind tokens to a specific server.
+
 If you want to simplify OAuth 2.0 implementation while following security best practices, **Authgear** offers a centralized identity platform with built-in support for modern OAuth and OpenID Connect flows. Authgear helps teams manage authorization across web apps, mobile apps, APIs, and microservices with consistent security and lower operational overhead.
 
 <a href="https://portal.authgear.com/" target="_blank">Start your free trial of Authgear today</a> to streamline OAuth 2.0 implementation and build secure, scalable access control across your applications.
