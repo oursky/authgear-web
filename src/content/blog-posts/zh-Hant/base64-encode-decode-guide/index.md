@@ -48,7 +48,7 @@ Base64 會把二進位資料分組並映射到有限字元集。它取 3 bytes�
 
 Base64 不是加密，絕對不應被當作加密使用。它不隱藏資料、不保證機密性，也不防止篡改。因為任何人都可用內建工具或線上工具快速解碼，敏感資料仍必須用加密或正確驗證機制保護。
 
-如果你在做身份驗證或身分功能，像 Authgear 這樣的平台會處理 TOTP、passkey、恢復碼與 token 簽章等真正安全層；Base64 只是安全傳輸資料的輔助層。
+如果你在做身分驗證或身分功能，像 Authgear 這樣的平台會處理 TOTP、通行密鑰、復原碼與 token 簽章等真正的安全層；Base64 只是安全傳輸資料的輔助層。
 
 ## **何時該使用 Base64？**
 
@@ -108,7 +108,7 @@ const decoded = Buffer.from(encoded, "base64").toString("utf8");
 
 Python 的 Base64 模組可輕鬆完成編碼與解碼。
 
-## **Go**
+### **Go**
 
 Go 標準函式庫也提供乾淨實用的 Base64 工具。
 
@@ -116,7 +116,7 @@ Go 標準函式庫也提供乾淨實用的 Base64 工具。
 
 Java 內建標準與 URL-safe Base64 工具。
 
-## **Bash**
+### **Bash**
 
 Shell 是快速試驗 Base64 的簡單環境。
 
@@ -132,7 +132,7 @@ Shell 是快速試驗 Base64 的簡單環境。
 
 Base64URL 是為 URL、cookie 與驗證流程設計的 Base64 變體。它替換 URL 中易被誤解的字元，且常省略 padding，因此更適合 OAuth、OIDC 與 JWT。
 
-若你在 Authgear 或其他身份平台操作 token，會非常常見 Base64URL。
+若你在 Authgear 或其他身分平台操作 token，會非常常見 Base64URL。
 
 <!--FIGURE-->
 ![](./figure-2.webp)
