@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import BecomeAPartnerPage from '@/components/pages/BecomeAPartnerPage.astro';
+
+const locale = 'zh-Hant';
+const title = t(locale, 'BecomeAPartner.title');
+const description = t(locale, 'BecomeAPartner.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <BecomeAPartnerPage locale={locale} />
+</BaseLayout>

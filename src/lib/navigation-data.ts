@@ -109,6 +109,7 @@ export const resourcesDropdownLinks: NavLink[] = [
   { path: '/compare/okta-alternative', label: { en: 'Comparison', 'zh-Hant': '產品比較' } },
   { path: '/login-gallery', label: { en: 'Login Gallery', 'zh-Hant': '登入畫廊' } },
   { path: '/glossary', label: { en: 'Glossary', 'zh-Hant': '名詞解釋' } },
+  { path: '/partners', label: { en: 'Partners', 'zh-Hant': '合作夥伴' } },
 ];
 
 export const developersDropdownLinks: NavLink[] = [
@@ -140,6 +141,7 @@ export const footerStrings: Record<string, Record<string, string>> = {
   blog: { en: 'Blog', 'zh-Hant': '部落格' },
   loginGallery: { en: 'Login Gallery', 'zh-Hant': '登入畫廊' },
   glossary: { en: 'Glossary', 'zh-Hant': '名詞解釋' },
+  partners: { en: 'Partners', 'zh-Hant': '合作夥伴' },
   security: { en: 'Security & Compliance', 'zh-Hant': '安全性與合規' },
   acceptableUsePolicy: { en: 'Acceptable Use Policy', 'zh-Hant': '合理使用政策' },
   complianceText: {

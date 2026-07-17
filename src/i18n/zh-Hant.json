@@ -74,6 +74,35 @@
     "subtitle": "Connect Authgear with your existing tools and services.",
     "noIntegrationsYet": "No integrations yet."
   },
+  "Partners": {
+    "title": "合作夥伴 - Authgear",
+    "description": "認識 Authgear 合作夥伴網絡 — 協助團隊打造安全身份驗證的顧問公司、經銷商與技術夥伴。",
+    "eyebrow": "合作夥伴",
+    "heroTitle": "Authgear 合作夥伴",
+    "heroDescription": "協助團隊以 Authgear 設計、建置及營運安全身份驗證的顧問公司、經銷商與技術夥伴。",
+    "noPartnersYet": "合作夥伴名錄更新中，請稍後再回來查看。",
+    "visitWebsite": "造訪網站",
+    "ctaTitle": "想在這裡列出您的公司？",
+    "ctaBody": "加入 Authgear 合作夥伴網絡，與我們一起拓展業務。",
+    "ctaButton": "成為合作夥伴"
+  },
+  "BecomeAPartner": {
+    "title": "成為合作夥伴 - Authgear",
+    "description": "加入 Authgear 合作夥伴網絡：賺取持續性收入、獲得專家支援，並透過共同行銷拓展業務。",
+    "eyebrow": "合作夥伴計畫",
+    "heroTitle": "成為 Authgear 合作夥伴",
+    "heroDescription": "與 Authgear 攜手，為您的客戶帶來現代化的安全身份驗證，同時拓展您的業務。",
+    "benefitsTitle": "為什麼與 Authgear 合作？",
+    "benefit1Title": "賺取持續性收入",
+    "benefit1Body": "每一位您轉介或經銷的客戶都能為您帶來持續性分潤，隨著客戶成長而增加。",
+    "benefit2Title": "專家培訓與支援",
+    "benefit2Body": "取得培訓、沙盒環境與優先的解決方案工程支援，讓您的團隊安心交付。",
+    "benefit3Title": "共同行銷與曝光",
+    "benefit3Body": "列名於 Authgear 合作夥伴名錄，並透過案例研究、活動與行銷企劃共同開發商機。",
+    "registerButton": "註冊成為合作夥伴",
+    "contactPrefix": "或來信",
+    "contactSuffix": "了解更多。"
+  },
   "WhatsNew": {
     "title": "最新消息",
     "subtitle": "掌握 Authgear 團隊的最新更新、版本發布與功能改進。",

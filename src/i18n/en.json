@@ -74,6 +74,35 @@
     "subtitle": "Connect Authgear with your existing tools and services.",
     "noIntegrationsYet": "No integrations yet."
   },
+  "Partners": {
+    "title": "Partners - Authgear",
+    "description": "Meet the Authgear partner network — consultancies, resellers, and technology partners who help teams ship secure authentication.",
+    "eyebrow": "Partners",
+    "heroTitle": "Authgear Partners",
+    "heroDescription": "Consultancies, resellers, and technology partners who help teams design, build, and run secure authentication with Authgear.",
+    "noPartnersYet": "The partner directory is being updated. Please check back soon.",
+    "visitWebsite": "Visit website",
+    "ctaTitle": "Want to be listed here?",
+    "ctaBody": "Join the Authgear partner network and grow your business with us.",
+    "ctaButton": "Become a Partner"
+  },
+  "BecomeAPartner": {
+    "title": "Become a Partner - Authgear",
+    "description": "Join the Authgear partner network. Earn recurring revenue, get expert enablement, and grow with co-marketing opportunities.",
+    "eyebrow": "Partner Program",
+    "heroTitle": "Become an Authgear Partner",
+    "heroDescription": "Partner with Authgear to bring modern, secure authentication to your clients — and grow your business while you do it.",
+    "benefitsTitle": "Why partner with Authgear?",
+    "benefit1Title": "Earn recurring revenue",
+    "benefit1Body": "Get rewarded for every customer you refer or resell to, with recurring commissions that grow alongside your clients.",
+    "benefit2Title": "Expert enablement & support",
+    "benefit2Body": "Access training, sandbox environments, and priority solution-engineering support so your team can deliver with confidence.",
+    "benefit3Title": "Co-marketing & visibility",
+    "benefit3Body": "Get listed in the Authgear partner directory and collaborate on case studies, events, and campaigns that generate leads.",
+    "registerButton": "Register as a Partner",
+    "contactPrefix": "Or contact us at",
+    "contactSuffix": "to learn more."
+  },
   "WhatsNew": {
     "title": "What's New",
     "subtitle": "Latest updates, releases, and improvements from the Authgear team.",
