@@ -63,9 +63,21 @@ export default function SmsCostCalculatorPage({ locale }: Props) {
 
       <ToolFeatureCards
         cards={[
-          { title: t('card1Title'), description: t('card1Desc') },
-          { title: t('card2Title'), description: t('card2Desc') },
-          { title: t('card3Title'), description: t('card3Desc') },
+          {
+            icon: <img src="/images/sms-cost-rates.svg" loading="lazy" alt="" />,
+            title: t('card1Title'),
+            description: t('card1Desc'),
+          },
+          {
+            icon: <img src="/images/sms-cost-savings.svg" loading="lazy" alt="" />,
+            title: t('card2Title'),
+            description: t('card2Desc'),
+          },
+          {
+            icon: <img src="/images/sms-cost-fraud.svg" loading="lazy" alt="" />,
+            title: t('card3Title'),
+            description: t('card3Desc'),
+          },
         ]}
       />
 
