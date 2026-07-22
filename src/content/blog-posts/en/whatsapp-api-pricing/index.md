@@ -93,7 +93,7 @@ Scale that up:
 - **500K OTPs/month** → ≈ $5,650/month
 - **1M OTPs/month** → ≈ $11,300/month
 
-Compare that to SMS. Sending the same 100,000 OTPs over SMS on a global mix runs closer to **$8,750/month**, roughly 7–8× more. The gap is widest exactly where WhatsApp adoption is highest (Asia, Latin America, Africa), and narrowest in the US where both channels are relatively cheap. We break this comparison down market by market in [SMS OTP vs WhatsApp OTP](/post/sms-otp-vs-whatsapp-otp).
+Compare that to SMS. Sending the same 100,000 OTPs over SMS on a global mix runs closer to **$8,750/month**, roughly 7–8× more. You can estimate the SMS side for your own markets and volume with the [SMS cost calculator](/tools/sms-cost-calculator/). The gap is widest exactly where WhatsApp adoption is highest (Asia, Latin America, Africa), and narrowest in the US where both channels are relatively cheap. We break this comparison down market by market in [SMS OTP vs WhatsApp OTP](/post/sms-otp-vs-whatsapp-otp).
 
 ## WhatsApp API pricing vs SMS
 

@@ -119,7 +119,7 @@ Yes. Authgear includes built-in SMS pumping protection — you don't need to bui
 
 Beyond fraud protection, Authgear also routes OTPs through WhatsApp by default (with SMS fallback), which reduces your per-message cost by 70–90% compared to SMS-only flows. Combine that with passkey support, and you have a cost curve that trends toward zero as your users adopt passwordless login.
 
-If you're evaluating how much SMS pumping — or just routine SMS costs — is costing your business, see our [SMS cost reduction guide](/solutions/reduce-sms-otp-cost) for a breakdown by market and scale.
+If you're evaluating how much SMS pumping — or just routine SMS costs — is costing your business, see our [SMS cost reduction guide](/solutions/reduce-sms-otp-cost) for a breakdown by market and scale, or estimate your spend with the [SMS cost calculator](/tools/sms-cost-calculator/).
 
 [Get a live demo](/schedule-demo/) to see Authgear's SMS pumping protection and WhatsApp-first OTP routing in action.
 

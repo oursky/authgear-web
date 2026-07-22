@@ -1,0 +1,59 @@
+.sms-comp-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 20px 8px;
+}
+.sms-comp-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
+.sms-comp-section .sms-comp-intro {
+  font-size: 15px;
+  color: #4a4a6a;
+  margin-bottom: 24px;
+  max-width: 760px;
+}
+.sms-comp-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e8e8f0;
+  border-radius: 12px;
+}
+table.sms-comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 560px;
+}
+table.sms-comp-table th,
+table.sms-comp-table td {
+  padding: 12px 16px;
+  text-align: right;
+  border-bottom: 1px solid #eef0f6;
+  font-variant-numeric: tabular-nums;
+  color: #1a1a2e;
+}
+table.sms-comp-table th {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8888aa;
+  background: #f7f8fc;
+}
+table.sms-comp-table th:first-child,
+table.sms-comp-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+table.sms-comp-table td.sms-comp-wa {
+  color: #0E9B5B;
+  font-weight: 700;
+}
+table.sms-comp-table tbody tr:last-child td { border-bottom: none; }
+.sms-comp-note {
+  font-size: 12px;
+  color: #8888aa;
+  margin-top: 12px;
+}

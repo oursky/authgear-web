@@ -1,0 +1,312 @@
+.sc-calc *,
+.sc-calc *::before,
+.sc-calc *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.sc-calc {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a4a6a;
+  --sc-blue: #1C5ADB;
+  --sc-blue-dark: #1448B8;
+  --sc-blue-light: #EBF1FD;
+  --sc-green: #0E9B5B;
+  --sc-green-light: #E6F7F1;
+  --sc-heading: #1a1a2e;
+  --sc-body: #4a4a6a;
+  --sc-muted: #8888aa;
+  --sc-border: #e8e8f0;
+  --sc-bg: #f7f8fc;
+  --sc-white: #ffffff;
+  --sc-radius: 12px;
+  --sc-radius-sm: 8px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.sc-calc .sc-card {
+  background: var(--sc-white);
+  border: 1px solid var(--sc-border);
+  border-radius: var(--sc-radius);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* ── Controls ── */
+.sc-calc .sc-controls {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  padding: 28px 32px;
+}
+.sc-calc .sc-controls .sc-volume-group { grid-column: 1 / -1; }
+
+.sc-calc .sc-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sc-heading);
+  margin-bottom: 8px;
+}
+
+.sc-calc .sc-country-wrap { position: relative; }
+.sc-calc .sc-country-input,
+.sc-calc .sc-provider-select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--sc-border);
+  border-radius: var(--sc-radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--sc-heading);
+  background: var(--sc-white);
+  outline: none;
+  transition: border-color 0.15s;
+  height: 42px;
+}
+.sc-calc .sc-country-input:focus,
+.sc-calc .sc-provider-select:focus { border-color: var(--sc-blue); }
+
+.sc-calc .sc-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: var(--sc-white);
+  border: 1.5px solid var(--sc-border);
+  border-radius: var(--sc-radius-sm);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 999;
+}
+.sc-calc .sc-dropdown.open { display: block; }
+.sc-calc .sc-option {
+  padding: 9px 14px;
+  font-size: 14px;
+  color: var(--sc-heading);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.sc-calc .sc-option:hover { background: var(--sc-blue-light); }
+.sc-calc .sc-divider { border: none; border-top: 1px solid var(--sc-border); margin: 4px 0; }
+
+.sc-calc .sc-volume-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--sc-border);
+  border-radius: var(--sc-radius-sm);
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.sc-calc .sc-volume-wrap:focus-within { border-color: var(--sc-blue); }
+.sc-calc .sc-volume-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--sc-heading);
+  background: transparent;
+}
+.sc-calc .sc-volume-unit {
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sc-muted);
+  background: var(--sc-bg);
+  border-left: 1px solid var(--sc-border);
+  height: 42px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.sc-calc .sc-presets { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.sc-calc .sc-preset-btn {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1.5px solid var(--sc-border);
+  background: var(--sc-white);
+  color: var(--sc-body);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.1s;
+  font-family: inherit;
+}
+.sc-calc .sc-preset-btn:hover,
+.sc-calc .sc-preset-btn.active {
+  border-color: var(--sc-blue);
+  color: var(--sc-blue);
+  background: var(--sc-blue-light);
+}
+
+/* ── Primary result: the cost answer ── */
+.sc-calc .sc-result {
+  padding: 28px 32px;
+  background: var(--sc-bg);
+  border-top: 1px solid var(--sc-border);
+  border-bottom: 1px solid var(--sc-border);
+  text-align: center;
+}
+.sc-calc .sc-result-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--sc-muted);
+  margin-bottom: 8px;
+}
+.sc-calc .sc-result-primary {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--sc-heading);
+  font-variant-numeric: tabular-nums;
+}
+.sc-calc .sc-result-secondary {
+  font-size: 16px;
+  color: var(--sc-body);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.sc-calc .sc-result-note { font-size: 12px; color: var(--sc-muted); margin-top: 10px; }
+
+/* ── Savings reveal ── */
+.sc-calc .sc-savings {
+  padding: 24px 32px;
+  background: var(--sc-green-light);
+}
+.sc-calc .sc-savings-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.sc-calc .sc-savings-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--sc-green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.sc-calc .sc-savings-figure { font-variant-numeric: tabular-nums; }
+.sc-calc .sc-savings-cost { font-size: 24px; font-weight: 700; color: var(--sc-green); }
+.sc-calc .sc-savings-pct { font-size: 14px; font-weight: 700; color: var(--sc-green); margin-left: 8px; }
+.sc-calc .sc-savings-annual { font-size: 13px; color: #0b7d49; margin-top: 2px; }
+
+.sc-calc .sc-slider-group { margin-top: 16px; }
+.sc-calc .sc-slider-head { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--sc-heading); margin-bottom: 8px; }
+.sc-calc .sc-slider-val { color: var(--sc-green); }
+.sc-calc .sc-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(to right, var(--sc-green) 0%, var(--sc-green) var(--val, 80%), #cdeadd var(--val, 80%), #cdeadd 100%);
+  outline: none;
+  cursor: pointer;
+}
+.sc-calc .sc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--sc-green);
+  box-shadow: 0 2px 6px rgba(14,155,91,0.35);
+  cursor: pointer;
+}
+.sc-calc .sc-hint { font-size: 12px; color: #4e8e70; margin-top: 6px; }
+
+/* ── SMS pumping (under volume input) ── */
+.sc-calc .sc-pump-group { margin-top: 14px; }
+.sc-calc .sc-checkbox-row { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--sc-heading); cursor: pointer; }
+.sc-calc .sc-checkbox-row input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 1.5px solid var(--sc-border);
+  border-radius: 4px;
+  background: var(--sc-white);
+  cursor: pointer;
+  position: relative;
+}
+.sc-calc .sc-checkbox-row input[type="checkbox"]:checked {
+  background: var(--sc-blue);
+  border-color: var(--sc-blue);
+}
+.sc-calc .sc-checkbox-row input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4.5px;
+  top: 1.5px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--sc-white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.sc-calc .sc-pump-hint { color: var(--sc-muted); }
+.sc-calc .sc-pump-slider-wrap { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+.sc-calc .sc-pump-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(to right, var(--sc-blue) 0%, var(--sc-blue) var(--val, 0%), var(--sc-border) var(--val, 0%), var(--sc-border) 100%);
+  outline: none;
+  cursor: pointer;
+}
+.sc-calc .sc-pump-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--sc-blue);
+  cursor: pointer;
+}
+.sc-calc .sc-pump-val { font-size: 13px; font-weight: 700; color: var(--sc-blue); min-width: 38px; text-align: right; }
+
+/* ── CTA footer ── */
+.sc-calc .sc-cta-row {
+  padding: 24px 32px;
+  background: var(--sc-white);
+  border-top: 1px solid var(--sc-border);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sc-calc .sc-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.sc-calc .sc-cta-primary {
+  background: var(--sc-blue);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(28,90,219,0.3);
+}
+.sc-calc .sc-cta-primary:hover { background: var(--sc-blue-dark); transform: translateY(-1px); color: #fff; }
+.sc-calc .sc-cta-secondary {
+  background: var(--sc-white);
+  color: var(--sc-blue);
+  border: 1.5px solid var(--sc-blue);
+}
+.sc-calc .sc-cta-secondary:hover { background: var(--sc-blue-light); color: var(--sc-blue-dark); }
+
+@media (max-width: 620px) {
+  .sc-calc .sc-controls { grid-template-columns: 1fr; }
+  .sc-calc .sc-result-primary { font-size: 36px; }
+}

@@ -141,6 +141,16 @@ const T = (key: string) => t(locale, `AuthToolkit.${key}`);
               <div class="toolkit-button-label">{T('passkeyOpen')}</div><img src="/images/link.svg" loading="lazy" alt="" class="image-94" />
             </a>
           </div>
+          <div class="w-layout-vflex toolkit-card">
+            <div class="w-layout-hflex flex-block-83">
+              <div class="toolkit-icon"><img src="/images/sms-cost-calc.svg" loading="lazy" alt="" /></div>
+              <div class="color-white">{T('smsName')}</div>
+            </div>
+            <p class="toolkit-description">{T('smsDesc')}</p>
+            <a href={localizedPath(locale, "/tools/sms-cost-calculator")} class="toolkit-button w-inline-block">
+              <div class="toolkit-button-label">{T('smsOpen')}</div><img src="/images/link.svg" loading="lazy" alt="" class="image-94" />
+            </a>
+          </div>
           <div class="w-layout-vflex toolkit-card more-toolkit">
             <div class="w-layout-hflex flex-block-83">
               <div class="toolkit-icon more-toolkit"><img src="/images/more.svg" loading="lazy" alt="" /></div>
