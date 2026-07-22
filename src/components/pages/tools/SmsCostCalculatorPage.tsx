@@ -93,10 +93,16 @@ export default function SmsCostCalculatorPage({ locale }: Props) {
 
       <ToolFaq>
         <div className="w-layout-vflex tools-faq">
-          {[1, 2, 3, 4, 5].map((n) => (
+          {[1, 2, 3, 4, 5, 6].map((n) => (
             <ToolFaqCard key={n} icon="/images/tools-qa-what-is.svg" title={t(`faq${n}Title`)}>
               <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>
                 {t(`faq${n}Body`)}
+                {n === 6 && (
+                  <>
+                    {' '}
+                    <a href="/post/sms-pumping-attack/">{t('faq6LinkText')}</a>
+                  </>
+                )}
               </div>
             </ToolFaqCard>
           ))}

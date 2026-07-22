@@ -29,7 +29,7 @@ SMS pricing varies significantly by country. Here are representative per-message
 
 <div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Country</th><th>SMS Cost per OTP (Twilio)</th></tr></thead><tbody><tr><td>United States</td><td>$0.0083</td></tr><tr><td>United Kingdom</td><td>$0.0524</td></tr><tr><td>Germany</td><td>$0.1120</td></tr><tr><td>India</td><td>$0.0170</td></tr><tr><td>Brazil</td><td>$0.0599</td></tr><tr><td>Nigeria</td><td>$0.0920</td></tr><tr><td>Egypt</td><td>$0.3959</td></tr><tr><td>Global average</td><td>~$0.0875</td></tr></tbody></table></div>
 
-For a live estimate across your own countries, providers, and volume, use the [SMS cost calculator](/tools/sms-cost-calculator).
+For a live estimate across your own countries, providers, and volume, use the [SMS cost calculator](/tools/sms-cost-calculator/).
 
 **Hidden costs to factor in:**
 

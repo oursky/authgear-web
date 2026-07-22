@@ -38,7 +38,6 @@ export default function SmsCostWidget({ locale }: Props) {
   const [provider, setProvider] = useState<Provider>('twilio');
   const [volume, setVolume] = useState(100000);
   const [waPct, setWaPct] = useState(80);
-  const [advancedOpen, setAdvancedOpen] = useState(false);
   const [pumpEnabled, setPumpEnabled] = useState(false);
   const [pumpPct, setPumpPct] = useState(10);
   const blurTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -173,6 +172,30 @@ export default function SmsCostWidget({ locale }: Props) {
                 </button>
               ))}
             </div>
+            <div className="sc-pump-group">
+              <label className="sc-checkbox-row">
+                <input type="checkbox" checked={pumpEnabled} onChange={(e) => setPumpEnabled(e.target.checked)} />
+                {t('pumpLabel')}
+              </label>
+              {pumpEnabled && (
+                <>
+                  <div className="sc-pump-slider-wrap">
+                    <input
+                      type="range"
+                      className="sc-pump-slider"
+                      min={0}
+                      max={50}
+                      value={pumpPct}
+                      style={{ '--val': `${(pumpPct / 50) * 100}%` } as CSSProperties}
+                      onChange={(e) => setPumpPct(parseInt(e.target.value, 10))}
+                      aria-label={t('pumpLabel')}
+                    />
+                    <span className="sc-pump-val">{pumpPct}%</span>
+                  </div>
+                  <p className="sc-hint sc-pump-hint">{t('pumpHint')}</p>
+                </>
+              )}
+            </div>
           </div>
         </div>
 
@@ -210,43 +233,6 @@ export default function SmsCostWidget({ locale }: Props) {
             />
             <p className="sc-hint">{t('waHint')}</p>
           </div>
-        </div>
-
-        <div className="sc-advanced">
-          <button
-            type="button"
-            className="sc-advanced-toggle"
-            aria-expanded={advancedOpen}
-            onClick={() => setAdvancedOpen((v) => !v)}
-          >
-            {advancedOpen ? '▾ ' : '▸ '}{t('advancedLabel')}
-          </button>
-          {advancedOpen && (
-            <div className="sc-advanced-body">
-              <label className="sc-checkbox-row">
-                <input type="checkbox" checked={pumpEnabled} onChange={(e) => setPumpEnabled(e.target.checked)} />
-                {t('pumpLabel')}
-              </label>
-              {pumpEnabled && (
-                <>
-                  <div className="sc-pump-slider-wrap">
-                    <input
-                      type="range"
-                      className="sc-pump-slider"
-                      min={0}
-                      max={50}
-                      value={pumpPct}
-                      style={{ '--val': `${(pumpPct / 50) * 100}%` } as CSSProperties}
-                      onChange={(e) => setPumpPct(parseInt(e.target.value, 10))}
-                      aria-label={t('pumpLabel')}
-                    />
-                    <span className="sc-pump-val">{pumpPct}%</span>
-                  </div>
-                  <p className="sc-hint" style={{ color: '#8888aa' }}>{t('pumpHint')}</p>
-                </>
-              )}
-            </div>
-          )}
         </div>
 
         <div className="sc-cta-row">

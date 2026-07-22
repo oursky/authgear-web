@@ -103,6 +103,6 @@ Platforms like [Authgear](/solutions/reduce-sms-otp-cost) offer WhatsApp OTP wit
 - A WhatsApp-primary, SMS-fallback setup captures most savings while keeping universal coverage
 - At 100K monthly OTPs on a global mix, switching to WhatsApp saves ~$7,600/month ($91,400/year)
 
-Ready to cut your SMS OTP bill? [Get a live demo](/schedule-demo/) to see Authgear route OTPs over WhatsApp with automatic SMS fallback, or estimate your savings with the [SMS cost calculator](/tools/sms-cost-calculator).
+Ready to cut your SMS OTP bill? [Get a live demo](/schedule-demo/) to see Authgear route OTPs over WhatsApp with automatic SMS fallback, or estimate your savings with the [SMS cost calculator](/tools/sms-cost-calculator/).
 
 **Related reading:** [How much does 2FA cost?](/post/two-factor-authentication-cost), [SMS OTP vulnerabilities and alternatives](/post/sms-otp-vulnerabilities-and-alternatives), and [SMS pumping attacks](/post/sms-pumping-attack).

@@ -48,6 +48,10 @@ export const smsCost = {
   faq5Title: '這些費率準確嗎？',
   faq5Body:
     '不完全準確——這些是未含電信商費用且經常變動的參考基本費率。請視為估算，並於採用前向供應商確認。',
+  faq6Title: '什麼是 SMS pumping？',
+  faq6Body:
+    'SMS pumping（又稱 AIT 或收費詐欺）是指攻擊者利用機器人大量觸發 OTP 簡訊，發送到他們可從中獲利的付費號碼，讓您的帳單被真實用戶從未要求的訊息灌爆。WhatsApp OTP 不會受此影響，因為它不經過電信商的收費系統。',
+  faq6LinkText: '了解更多：什麼是 SMS pumping 攻擊？',
 
   widget: {
     countryLabel: '目的地國家',
@@ -65,7 +69,6 @@ export const smsCost = {
     savingsAnnual: '使用 Authgear 每年約可省下 {value}。',
     waLabel: 'WhatsApp 採用率',
     waHint: '以 WhatsApp 送達的 OTP 比例；其餘則以 SMS 備援。',
-    advancedLabel: '進階',
     pumpLabel: '納入 SMS pumping 損失',
     pumpHint: '推高 SMS 帳單的詐欺性 OTP 觸發。WhatsApp OTP 可抵禦這類攻擊。',
     ctaStartFree: '免費開始',

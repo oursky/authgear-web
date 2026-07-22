@@ -49,6 +49,10 @@ export const smsCost = {
   faq5Title: 'Are these rates exact?',
   faq5Body:
     'No — they are indicative base rates that exclude carrier fees and change frequently. Treat them as estimates and verify with your provider before committing.',
+  faq6Title: 'What is SMS pumping?',
+  faq6Body:
+    'SMS pumping (also called AIT or toll fraud) is when attackers use bots to trigger large volumes of OTP texts to premium numbers they profit from, inflating your bill with messages no real user asked for. WhatsApp OTP is not exposed to it because it does not run on carrier toll systems.',
+  faq6LinkText: 'Learn more: What is an SMS pumping attack?',
 
   widget: {
     countryLabel: 'Destination country',
@@ -66,7 +70,6 @@ export const smsCost = {
     savingsAnnual: 'Save about {value} per year with Authgear.',
     waLabel: 'WhatsApp adoption',
     waHint: 'Share of OTPs delivered over WhatsApp; the rest fall back to SMS.',
-    advancedLabel: 'Advanced',
     pumpLabel: 'Include SMS pumping losses',
     pumpHint: 'Fraudulent OTP triggers that inflate your SMS bill. WhatsApp OTP resists this.',
     ctaStartFree: 'Start free',
