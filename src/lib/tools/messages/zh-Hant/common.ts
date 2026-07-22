@@ -28,4 +28,5 @@ export const registry = {
   'base64-decode-encode': { label: 'Base64 解碼與編碼' },
   'uuidv7-generator': { label: 'UUID v7 產生器與時間戳擷取' },
   'passkey-demo': { label: '通行密鑰示範與 WebAuthn 測試工具' },
+  'sms-cost-calculator': { label: 'SMS 成本計算機' },
 } as const;

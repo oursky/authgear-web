@@ -6,6 +6,7 @@ import { jwtJwe } from './jwtJwe';
 import { oidc } from './oidc';
 import { passkeyDemo } from './passkeyDemo';
 import { passwordHash } from './passwordHash';
+import { smsCost } from './smsCost';
 import { ssl } from './ssl';
 import { totp } from './totp';
 import { uuidV7 } from './uuidV7';
@@ -20,6 +21,7 @@ export const toolsMessagesZhHant = {
   oidc,
   passkeyDemo,
   passwordHash,
+  smsCost,
   ssl,
   totp,
   uuidV7,

@@ -29,4 +29,5 @@ export const registry = {
   'base64-decode-encode': { label: 'Base64 Decode and Encode' },
   'uuidv7-generator': { label: 'UUID v7 Generator & Timestamp Extractor' },
   'passkey-demo': { label: 'Passkey Demo & WebAuthn Tester' },
+  'sms-cost-calculator': { label: 'SMS Cost Calculator' },
 } as const;

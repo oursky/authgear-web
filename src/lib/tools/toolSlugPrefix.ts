@@ -10,5 +10,6 @@ export const TOOL_SLUG_PREFIX: Record<string, string> = {
   'totp-authenticator': 'totp',
   'uuidv7-generator': 'uuidV7',
   'passkey-demo': 'passkeyDemo',
+  'sms-cost-calculator': 'smsCost',
 };
 

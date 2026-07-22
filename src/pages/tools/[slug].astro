@@ -12,6 +12,7 @@ import JwtDebuggerPage from '@/components/pages/tools/JwtDebuggerPage';
 import OidcDiscoveryPage from '@/components/pages/tools/OidcDiscoveryPage';
 import PasskeyDemoPage from '@/components/pages/tools/PasskeyDemoPage';
 import PasswordHashPage from '@/components/pages/tools/PasswordHashPage';
+import SmsCostCalculatorPage from '@/components/pages/tools/SmsCostCalculatorPage';
 import SslCheckerPage from '@/components/pages/tools/SslCheckerPage';
 import TotpPage from '@/components/pages/tools/TotpPage';
 import UuidV7Page from '@/components/pages/tools/UuidV7Page';
@@ -24,6 +25,7 @@ type ToolSlug =
   | 'oidc-discovery-endpoint'
   | 'passkey-demo'
   | 'password-hash-generator'
+  | 'sms-cost-calculator'
   | 'ssl-checker'
   | 'totp-authenticator'
   | 'uuidv7-generator';
@@ -37,6 +39,7 @@ export function getStaticPaths() {
     'oidc-discovery-endpoint',
     'passkey-demo',
     'password-hash-generator',
+    'sms-cost-calculator',
     'ssl-checker',
     'totp-authenticator',
     'uuidv7-generator',
@@ -52,6 +55,31 @@ if (!prefix) {
 const locale = 'en';
 const title = t(locale, `Tools.${prefix}.metaTitle`);
 const description = t(locale, `Tools.${prefix}.metaDescription`);
+
+const jsonLd =
+  slug === 'sms-cost-calculator'
+    ? {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'SoftwareApplication',
+            name: 'SMS Cost Calculator',
+            applicationCategory: 'BusinessApplication',
+            operatingSystem: 'Web',
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+            description,
+          },
+          {
+            '@type': 'FAQPage',
+            mainEntity: [1, 2, 3, 4, 5].map((n) => ({
+              '@type': 'Question',
+              name: t(locale, `Tools.${prefix}.faq${n}Title`),
+              acceptedAnswer: { '@type': 'Answer', text: t(locale, `Tools.${prefix}.faq${n}Body`) },
+            })),
+          },
+        ],
+      }
+    : null;
 ---
 
 <BaseLayout locale={locale} title={title} description={description}>
@@ -62,7 +90,9 @@ const description = t(locale, `Tools.${prefix}.metaDescription`);
   {slug === 'oidc-discovery-endpoint' && <OidcDiscoveryPage client:load locale={locale} />}
   {slug === 'passkey-demo' && <PasskeyDemoPage client:load locale={locale} />}
   {slug === 'password-hash-generator' && <PasswordHashPage client:load locale={locale} />}
+  {slug === 'sms-cost-calculator' && <SmsCostCalculatorPage client:load locale={locale} />}
   {slug === 'ssl-checker' && <SslCheckerPage client:load locale={locale} />}
+  {jsonLd && <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify(jsonLd)} />}
   {slug === 'totp-authenticator' && <TotpPage client:load locale={locale} />}
   {slug === 'uuidv7-generator' && <UuidV7Page client:load locale={locale} />}
 </BaseLayout>
