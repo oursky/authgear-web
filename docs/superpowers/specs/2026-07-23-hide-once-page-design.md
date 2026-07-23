@@ -20,6 +20,9 @@ remaining ONCE mentions in content, and asset cleanup.
   `src/components/islands/once/OnceSdkFrameworkHarness.tsx`, and the
   `ONCE_SDK_MARQUEE_LOGOS` export in `src/components/islands/LogoMarquee.tsx`
   (only if nothing else imports them — verify before deleting).
+- Also delete `src/components/pages/OnceSdkCode.tsx` and
+  `src/lib/once-sdk-code-samples.ts` — found orphaned during implementation
+  (their only importer was the deleted `OncePage.astro`).
 - **Keep `/once/license` live and untouched** (`src/pages/once/license.astro`).
   Existing ONCE customers' license terms must stay reachable.
 - `public/_redirects`:
