@@ -12,7 +12,7 @@ updatedAt: 2026-02-12T02:36:01.281Z
 draft: false
 ---
 
-歡迎閱讀這份 OIDC 驗證完整指南。我們將深入說明 OIDC 驗證的定義、實際運作方式與商業價值，並從 OIDC 驗證的視角帶你理解 OpenID Connect 的核心概念。文中也會比較 OIDC 驗證與 OAuth 的差異、解析 SAML 與 OIDC 驗證的關鍵不同，並說明為什麼把 OIDC 驗證納入你的產品架構，是當代企業不可忽視的決策。你也可以藉由 Authgear 體驗一次付費、完整且安全的 OIDC 驗證解決方案。
+歡迎閱讀這份 OIDC 驗證完整指南。我們將深入說明 OIDC 驗證的定義、實際運作方式與商業價值，並從 OIDC 驗證的視角帶你理解 OpenID Connect 的核心概念。文中也會比較 OIDC 驗證與 OAuth 的差異、解析 SAML 與 OIDC 驗證的關鍵不同，並說明為什麼把 OIDC 驗證納入你的產品架構，是當代企業不可忽視的決策。你也可以藉由 Authgear 免費體驗完整且安全的 OIDC 驗證解決方案。
 
 ## 揭開 OIDC 驗證的核心價值：什麼是 OIDC Authentication？
 
@@ -98,7 +98,7 @@ OIDC 驗證與 SAML 各有優缺點。OIDC 驗證在需要敏捷、可擴展、�
 
 ## 下一步：把 OIDC 驗證真正落地
 
-別錯過升級驗證安全的機會。[Authgear Once](/zh-hant/once/) 可協助你快速簡化身分驗證流程。透過一次付費，Authgear 提供完整能力，善用 OIDC 驗證保護應用程式並簡化身分管理。
+別錯過升級驗證安全的機會。[Authgear](/zh-hant/pricing/) 可協助你快速簡化身分驗證流程，提供完整能力，善用 OIDC 驗證保護應用程式並簡化身分管理。
 
 現在就是導入可隨業務擴展的 OIDC 驗證系統的好時機。[Authgear 的定價模式](/zh-hant/pricing) 讓你一次投入，即可獲得完整支援，讓安全升級更順暢、也更具成本效益。
 

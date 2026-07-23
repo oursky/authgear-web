@@ -1,7 +1,7 @@
 ---
 title: "Eliminate Cors Error Issues with Authgear’s Secure Authentication"
 h1: "Conquer the CORS Error: Unlock Secure Authentication with Authgear"
-excerpt: "Struggling with cors error challenges? Discover how Authgear’s one-time secure authentication solution overcomes cors error issues, ensuring seamless API access and robust user protection for your web app."
+excerpt: "Struggling with cors error challenges? Discover how Authgear’s secure authentication solution overcomes cors error issues, ensuring seamless API access and robust user protection for your web app."
 coverImage: ./cover.webp
 category: industry
 featured: false
@@ -92,8 +92,8 @@ Below is a table that compares these three concepts side by side:
 
 Understanding these differences is crucial. While a **cors error** might stop your API requests from being processed in the browser, authentication and authorization errors affect user access and permission levels. Each area must be configured and maintained carefully to ensure a secure and seamless user experience.
 
-## Wanna implement the most secure authentication? Don't miss the chance to try Authgear ONCE, you can just pay once and use it for all.
+## Wanna implement the most secure authentication? Don't miss the chance to try Authgear.
 
-A **cors error** can be the bane of development, but with Authgear, you can eliminate those **cors error** frustrations while ensuring your authentication remains rock-solid. Our solution is designed to integrate seamlessly, preventing any **cors error** issues that might interrupt your user authentication flow, all with a simple one-time payment that covers all your projects.
+A **cors error** can be the bane of development, but with Authgear, you can eliminate those **cors error** frustrations while ensuring your authentication remains rock-solid. Our solution is designed to integrate seamlessly, preventing any **cors error** issues that might interrupt your user authentication flow—start for free and scale across all your projects.
 
-Don't let a **cors error** hold back your progress—Authgear’s state-of-the-art authentication system is built to keep **cors error** problems at bay while delivering unparalleled security and ease of use. [Experience the power of Authgear today](/once/) and pay just once to secure every aspect of your authentication, making **cors error** headaches a thing of the past.
+Don't let a **cors error** hold back your progress—Authgear’s state-of-the-art authentication system is built to keep **cors error** problems at bay while delivering unparalleled security and ease of use. [Get started with Authgear for free](/pricing/) and secure every aspect of your authentication, making **cors error** headaches a thing of the past.

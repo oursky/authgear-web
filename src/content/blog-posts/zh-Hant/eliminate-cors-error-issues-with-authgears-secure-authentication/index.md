@@ -92,8 +92,8 @@ draft: false
 
 理解這些差異非常重要。**CORS error** 會讓 API 請求在瀏覽器層就被攔截；Authentication 與 Authorization 錯誤則會影響登入結果與權限判定。三者都需要妥善設定與維護，才能確保安全且順暢的使用者體驗。
 
-## 想導入最安全的驗證方案？不要錯過 Authgear Once
+## 想導入最安全的驗證方案？立即試用 Authgear
 
-**CORS error** 常是開發流程中的絆腳石，但透過 Authgear，你可以減少 **CORS error** 帶來的整合摩擦，同時確保驗證流程穩健可靠。我們的方案可無縫整合，避免 **CORS error** 打斷登入流程，而且採用一次付費模式，即可涵蓋你所有專案。
+**CORS error** 常是開發流程中的絆腳石，但透過 Authgear，你可以減少 **CORS error** 帶來的整合摩擦，同時確保驗證流程穩健可靠。我們的方案可無縫整合，避免 **CORS error** 打斷登入流程，免費即可開始，並能涵蓋你所有專案。
 
-別再讓 **CORS error** 拖慢產品進度。Authgear 以先進驗證能力協助你把 **CORS error** 風險降到最低，同時提供兼具安全與易用性的登入體驗。立即[體驗 Authgear 的能力](/zh-hant/once/)，用一次付費升級你整體驗證架構，讓 **CORS error** 不再是團隊負擔。
+別再讓 **CORS error** 拖慢產品進度。Authgear 以先進驗證能力協助你把 **CORS error** 風險降到最低，同時提供兼具安全與易用性的登入體驗。立即[免費開始使用 Authgear](/zh-hant/pricing/)，升級你整體驗證架構，讓 **CORS error** 不再是團隊負擔。
