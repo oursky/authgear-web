@@ -61,7 +61,7 @@
 /post/passkey-compatibility                                                         /post/passkeys-compatibility/                                                                                           301
 /post/password-hashing-salting                                                      /post/password-hashing-salting-function-and-algorithm-explained/                                                        301
 /post/top-three-types-of-user-authentication                                        /post/top-three-types-of-user-authentication-methods/                                                                   301
-/authgear-once-v2                                                                   /once/                                                                                                                  301
+/authgear-once-v2                                                                   /                                                                                                                       301
 /cloud1                                                                             /                                                                                                                       301
 /old-cloud-home                                                                     /                                                                                                                       301
 /campaign/once                                                                      /                                                                                                                       301
@@ -72,7 +72,7 @@
 /compare/authgear-vs-cognito                                                        /compare/cognito-alternative/                                                                                           301
 /post/unlock-ultimate-security-with-otp-bot-authgear                                /post/otp-bot-explained/                                                                                                301
 /auth-developer-mini-toolkit                                                        /auth-toolkit/                                                                                                          301
-/old-home-2                                                                         /once/                                                                                                                  301
+/old-home-2                                                                         /                                                                                                                       301
 /cloud                                                                              /                                                                                                                       301
 /tools/password-hash-generator-and-verifier                                         /tools/password-hash-generator/                                                                                         301
 /post/oidc-vs-saml-decoding-the-sso-showdown-and-why-it-matters-for-your-business   /post/oidc-vs-saml/                                                                                                     301
@@ -85,6 +85,8 @@
 /tools/ssl-certificate-inspector                                                    /tools/ssl-checker/                                                                                                     301
 /post/top-10-sso-providers-in-2025-secure-convenient-and-scalable                   /post/top-10-sso-providers-in-2026-secure-convenient-and-scalable/                                                      301
 /tools/password-hash                                                                 https://www.authgear.com/tools/password-hash-generator/                                                                301
+/once                                                                               /                                                                                                                       301
+/zh-hant/once                                                                       /zh-hant/                                                                                                               301
 
 # Pages that exist only in English: redirect /zh-hant/* to the English route so
 # the BaseLayout-emitted zh-Hant hreflang alternate resolves rather than 404s.
