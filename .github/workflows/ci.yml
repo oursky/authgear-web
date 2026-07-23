@@ -30,32 +30,17 @@ jobs:
       - name: Unit tests (vitest)
         run: npm run test:unit
 
-      - name: Diagnose Netlify dev emulation (temporary)
-        run: |
-          PUBLIC_GTM_ID=GTM-TEST0000 npx astro dev --port 4321 > devserver.log 2>&1 &
-          DEV_PID=$!
-          for i in $(seq 1 60); do
-            curl -s -o /dev/null http://localhost:4321/ && break
-            sleep 1
-          done
-          sleep 10
-          echo "=== probe /zh/ (expect 301):"
-          curl -s -o /dev/null -w '%{http_code}\n' http://localhost:4321/zh/
-          echo "=== probe /whats-new/ cache-control:"
-          curl -s -o /dev/null -D - http://localhost:4321/whats-new/ | grep -i cache-control || true
-          echo "=== dev server log:"
-          cat devserver.log
-          kill $DEV_PID
+      - name: Production build
+        # Also a prerequisite for the e2e step: the Netlify dev emulation
+        # loads _redirects and header rules from the publish dir (dist/),
+        # so redirect/header tests silently lose coverage without a build.
+        run: npm run build
 
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
       - name: E2E tests (playwright)
         run: npm test
-        env:
-          # Surface the dev server's startup log (Netlify emulation status)
-          # in CI output — invaluable when redirect/header tests fail.
-          DEBUG: pw:webserver
 
       - name: Upload Playwright report on failure
         if: failure()
@@ -66,20 +51,3 @@ jobs:
             playwright-report/
             test-results/
           retention-days: 7
-
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Production build
-        run: npm run build
