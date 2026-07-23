@@ -17,7 +17,7 @@ Source of truth for how the Authgear marketing website is built today.
 - `astro:assets` optimises images referenced from frontmatter and markdown
 
 **Infrastructure**
-- Netlify — builds from `live`. Every page is prerendered to static HTML; the only runtime piece is the locale-redirect middleware, which the Netlify adapter compiles into a Netlify Edge Function. Contact form submissions go to Netlify Forms.
+- Netlify — builds from `live`. Every page is prerendered to static HTML; no code runs at request time. Legacy locale paths redirect via forced (`301!`) rules in `public/_redirects`. Contact form submissions go to Netlify Forms.
 
 No external CMS. No rebuild-on-publish webhook. Editing = editing markdown + image files in the repo; changes ship through git.
 
@@ -71,7 +71,6 @@ authgear-web/
 │   │   ├── pricing/, compare/, features/, tools/
 │   │   └── plausible.ts                       # Event tagging helpers
 │   ├── i18n/{en,zh-Hant}.json                 # Flat message dictionaries, t(locale, key) helper
-│   ├── middleware.ts                          # Legacy /zh/*, /zh-TW/*, /zh-Hant/*, /zh-Hant-TW/* → /zh-hant/* (308)
 │   └── styles/
 │       ├── global.css                         # Tailwind entry + imports authgear-design-system.css
 │       └── authgear-design-system.css
@@ -92,12 +91,12 @@ authgear-web/
 
 | Category | Route behaviour |
 |---|---|
-| Static marketing pages (home, features, solutions, pricing, legal, tools, ONCE) | `export const prerender = true` — fully built at `npm run build` |
+| Static marketing pages (home, features, solutions, pricing, legal, tools) | `export const prerender = true` — fully built at `npm run build` |
 | Content-collection routes (blog, customer stories, login gallery, what's new, integrations) | `export const prerender = true` — each detail page built from its markdown entry via `getStaticPaths` |
 | Sitemap (`/sitemap-index.xml`, `/sitemap-0.xml`; `/sitemap.xml` 301-aliased) | Generated at build time by the `@astrojs/sitemap` integration |
 | Legacy redirects (`/post/{slug}`, `/blog/{slug}`, `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, `/zh-Hant-TW/*`, `/post-category/*`, etc.) | A mix of prerendered `Astro.redirect(..., 301)` stubs and rules in `public/_redirects` |
 
-Every page is static. The only request-time code path is the locale middleware, which the Netlify adapter ships as an Edge Function.
+Every page is static. Nothing runs at request time — redirects and cache headers are declarative (`public/_redirects`, `netlify.toml`).
 
 ## Content collections
 
@@ -170,7 +169,7 @@ The site's public URLs are stable across the Webflow → Astro transition:
 - `/terms`, `/policy`, `/data-privacy`, `/security`, `/sla`, `/terms-of-enterprise-license`
 - `/zh-hant/*` mirrors for Traditional Chinese (locale id `zh-Hant` in code)
 
-Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (308) to `/zh-hant/*` via `src/middleware.ts`.
+Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (301) to `/zh-hant/*` via forced (`301!`) rules in `public/_redirects`.
 
 ## i18n
 
@@ -208,13 +207,13 @@ None. The contact form posts directly to Netlify Forms (build-time form detectio
 
 ## Middleware
 
-`src/middleware.ts` — small: `/zh-Hant-TW/*`, `/zh-Hant/*`, `/zh-TW/*`, and `/zh/*` all redirect to `/zh-hant/*` (308). Pass everything else through. The Netlify adapter compiles this into a Netlify Edge Function — it's the only piece of code that runs at request time. (A few lowercase-locale rules are duplicated as static entries in `public/_redirects` so the edge can short-circuit before reaching the function.)
+None. `src/middleware.ts` was removed when the legacy locale redirects (`/zh-Hant-TW/*`, `/zh-Hant/*`, `/zh-TW/*`, `/zh/*` → `/zh-hant/*`) became forced (`301!`) static rules in `public/_redirects` — nothing runs at request time anymore.
 
 ## Caching & revalidation
 
 - Content is prerendered at build time, so "revalidation" = redeploy (which happens on every push to `live`). No rebuild-on-publish webhook because there is no external CMS.
 - Assets: long-cache via Astro's content-hashed output (`_astro/*.[hash].{js,css,webp}`).
-- All HTML and the sitemap are static; Netlify's CDN serves them directly. The locale-redirect Edge Function only intercepts requests whose path matches a legacy `/zh*` prefix.
+- All HTML and the sitemap are static; Netlify's CDN serves them directly. Legacy `/zh*` prefixes are handled by forced redirect rules at the CDN edge — no function invocations.
 
 ## Authoring
 
@@ -237,7 +236,7 @@ npm run preview
 
 ## Deployment
 
-Netlify. The site is wired up to build from `live`; the `@astrojs/netlify` adapter emits the prerendered HTML, the sitemap XML, and the locale-redirect Edge Function. Contact form submissions are handled by Netlify Forms (build-time detection via `public/__forms.html`; configure notifications in the Netlify dashboard). Releases happen by fast-forwarding `live` to a tested commit on `main`. Configuration lives in `netlify.toml`:
+Netlify. The site is wired up to build from `live`; the `@astrojs/netlify` adapter emits the prerendered HTML and the sitemap XML. Contact form submissions are handled by Netlify Forms (build-time detection via `public/__forms.html`; configure notifications in the Netlify dashboard). Releases happen by fast-forwarding `live` to a tested commit on `main`. Configuration lives in `netlify.toml`:
 
 ```toml
 [build]
