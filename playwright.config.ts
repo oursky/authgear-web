@@ -13,8 +13,13 @@ export default defineConfig({
   webServer: {
     // The Netlify adapter has no `astro preview` support, so tests run
     // against `astro dev`. It exercises the same code paths (prerendered
-    // pages, SSR endpoints, middleware) — just JIT-compiled instead of
-    // built ahead of time.
+    // pages, JIT-compiled instead of built ahead of time).
+    //
+    // IMPORTANT: run `npm run build` at least once before the suite. The
+    // Netlify dev emulation loads _redirects and netlify.toml header rules
+    // from the publish dir (dist/) — without it, redirect and cache-header
+    // tests fail even though the config is correct. CI builds first for
+    // this reason.
     command: `PUBLIC_GTM_ID=GTM-TEST0000 astro dev --port ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
