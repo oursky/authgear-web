@@ -3,7 +3,7 @@
     "siteName": "Authgear",
     "siteDescription": "Authgear makes it easier for developers to meet complex authentication requirements, delivering a frictionless and exceptional digital experience.",
     "home": {
-      "title": "Authgear CLOUD — Your Managed IAM Solution",
+      "title": "Authgear — Secure Login & Identity, Fully Managed",
       "description": "Authgear makes it easier for developers to meet complex authentication requirements, delivering a frictionless and exceptional digital experience."
     }
   },
@@ -112,13 +112,14 @@
   "Pricing": {
     "metaTitle": "Pricing - Authgear",
     "metaDescription": "Authentication and authorization solution for your applications and APIs, with flexible pricing for developers and corporations.",
-    "cloudTitleLine1": "Authgear ",
-    "cloudTitleHighlight": "CLOUD",
-    "cloudTitleLine2": "We manage everything for you",
-    "cloudSubtitle": "All-Inclusive Pricing: Full Feature Access with all Plans",
-    "cloudIntro": "At Authgear CLOUD, we believe in empowering your growth. Our pricing plans have ",
-    "cloudIntroStrong": "no feature gate",
-    "cloudIntroRest": ", every plan comes with every features. From robust security measures to seamless integrations and advanced customizations, start for free and scale your applications with all the tools you need—without hidden fees.",
+    "cloudTitleLine1": "Simple, ",
+    "cloudTitleHighlight": "Transparent",
+    "cloudTitleLine1Suffix": " Pricing",
+    "cloudTitleLine2": "",
+    "cloudSubtitle": "No feature gates. No hidden fees.",
+    "cloudIntro": "At Authgear, we believe in empowering your growth. ",
+    "cloudIntroStrong": "Every plan includes every feature",
+    "cloudIntroRest": " — from robust security measures to seamless integrations and advanced customizations. Start for free and scale your applications with all the tools you need.",
     "cloudExpandComparison": "Show full plan comparison",
     "cloudFullPlanTitle": "Full plan comparison",
     "ctaTitle": "Couldn't find the plan you're looking for?",
@@ -156,10 +157,11 @@
     "planFinderEnterpriseFeatureAccountManager": "Dedicated Account Manager"
   },
   "Home": {
-    "title": "Authgear CLOUD - Your Managed IAM Solution",
+    "title": "Authgear — Secure Login & Identity, Fully Managed",
     "description": "Authgear makes it easier for developers to meet complex authentication requirements, delivering a frictionless and exceptional digital experience.",
     "productSwitchCloud": "On the Cloud",
     "productSwitchServer": "On your Server",
+    "productSwitchServerDemo": "Get in touch",
     "heroHeading": "Your Managed IAM Solution",
     "heroParagraph": "Enjoy the convenience of a SaaS platform with enterprise-grade security, high availability, and tailored support. Authgear Cloud simplifies identity management so you can focus on growing your business.",
     "heroCtaGetStarted": "Get Started for Free",

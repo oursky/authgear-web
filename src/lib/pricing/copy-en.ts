@@ -8,15 +8,15 @@ export const pricingCopyEn: PricingCopy = {
       'Authentication and authorization solution for your applications and APIs, with flexible pricing for developers and corporations.',
   },
   cloud: {
-    titleLine1: 'Authgear ',
-    titleHighlight: 'CLOUD',
-    titleLine2: 'We manage everything for you',
-    subtitle: 'All-Inclusive Pricing: Full Feature Access with all Plans',
-    intro:
-      'At Authgear CLOUD, we believe in empowering your growth. Our pricing plans have ',
-    introStrong: 'no feature gate',
+    titleLine1: 'Simple, ',
+    titleHighlight: 'Transparent',
+    titleLine1Suffix: ' Pricing',
+    titleLine2: '',
+    subtitle: 'No feature gates. No hidden fees.',
+    intro: 'At Authgear, we believe in empowering your growth. ',
+    introStrong: 'Every plan includes every feature',
     introRest:
-      ', every plan comes with every features. From robust security measures to seamless integrations and advanced customizations, start for free and scale your applications with all the tools you need—without hidden fees.',
+      ' — from robust security measures to seamless integrations and advanced customizations. Start for free and scale your applications with all the tools you need.',
     plans: [
       {
         name: 'Free',

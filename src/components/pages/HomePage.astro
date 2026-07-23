@@ -37,7 +37,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
                   </svg></div>
                 <div class="text-block-63 active">{t(locale, 'Home.productSwitchCloud')}</div>
               </div>
-              <a href={localizedPath(locale, '/once')} class="flex-block-66 w-inline-block">
+              <a href={localizedPath(locale, '/schedule-demo')} class="flex-block-66 w-inline-block">
                 <div class="code-embed-4"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 27.8844H24.7477C26.6535 27.8844 28 26.6921 28 24.7904V21.8831C28 19.9748 26.6535 18.7891 24.7477 18.7891H7.25232C5.3466 18.7891 4 19.9748 4 21.8831V24.7904C4 26.6973 5.3466 27.8844 7.25232 27.8844H11.6262" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M21.7129 27.875V22.1902" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -46,7 +46,10 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
                     <path d="M21.7129 13.2095V8.00259" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M8.7832 8.66147H10.0818" stroke="#AFB7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg></div>
-                <div class="text-block-63">{t(locale, 'Home.productSwitchServer')}</div>
+                <div class="product-switch-server-text">
+                  <div class="text-block-63">{t(locale, 'Home.productSwitchServer')}</div>
+                  <div class="product-switch-demo-note">{t(locale, 'Home.productSwitchServerDemo')}</div>
+                </div>
               </a>
             </div>
           </div>

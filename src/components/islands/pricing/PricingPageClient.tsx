@@ -1308,8 +1308,13 @@ export default function PricingPageClient({
           <h1 className="title pricing-h1">
             {copy.cloud.titleLine1}
             <span className="pricing-sepcial">{copy.cloud.titleHighlight}</span>
-            <br />
-            {copy.cloud.titleLine2}
+            {copy.cloud.titleLine1Suffix}
+            {copy.cloud.titleLine2 ? (
+              <>
+                <br />
+                {copy.cloud.titleLine2}
+              </>
+            ) : null}
           </h1>
           <p className="pricing-sub">{copy.cloud.subtitle}</p>
         </div>

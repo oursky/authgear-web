@@ -7,13 +7,14 @@ export const pricingCopyZhHant: PricingCopy = {
     description: '為您的應用程式與 API 提供驗證與授權解決方案，並為開發者與企業提供彈性定價。',
   },
   cloud: {
-    titleLine1: 'Authgear ',
-    titleHighlight: 'CLOUD',
-    titleLine2: '我們為您打理一切',
-    subtitle: '方案全功能：所有方案皆享有完整功能',
-    intro: 'Authgear CLOUD 致力於支援您的成長。方案不鎖功能，每個方案都包含',
-    introStrong: '全部功能',
-    introRest: '。從穩健的安全措施、無縫整合到進階自訂，免費即可開始，並以所需工具隨應用擴展，無隱藏費用。',
+    titleLine1: '簡單',
+    titleHighlight: '透明',
+    titleLine1Suffix: '的定價',
+    titleLine2: '',
+    subtitle: '不鎖功能，無隱藏費用',
+    intro: 'Authgear 致力於支援您的成長。',
+    introStrong: '每個方案都包含全部功能',
+    introRest: '——從穩健的安全措施、無縫整合到進階自訂，免費即可開始，隨業務擴展。',
     plans: [
       {
         name: '免費版',

@@ -37,6 +37,8 @@ export type PricingCopy = {
   cloud: {
     titleLine1: string;
     titleHighlight: string;
+    /** Text after the highlighted word, on the same line (e.g. " Pricing"). */
+    titleLine1Suffix: string;
     titleLine2: string;
     subtitle: string;
     intro: string;

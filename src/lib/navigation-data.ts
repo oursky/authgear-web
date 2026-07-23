@@ -122,7 +122,7 @@ export const footerStrings: Record<string, Record<string, string>> = {
   poweredBySuffix: { en: '', 'zh-Hant': ' 提供' },
   isoCertAlt: { en: 'ISO 27001 Certified', 'zh-Hant': 'ISO 27001 認證' },
   productsTitle: { en: 'Products', 'zh-Hant': '產品' },
-  onTheCloud: { en: 'On the Cloud', 'zh-Hant': '雲端版' },
+  home: { en: 'Home', 'zh-Hant': '首頁' },
   pricing: { en: 'Pricing', 'zh-Hant': '定價' },
   samlMigration: { en: 'SAML Migration', 'zh-Hant': 'SAML 遷移' },
   alternativeTitle: { en: 'alternative', 'zh-Hant': '產品替代方案' },

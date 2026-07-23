@@ -1389,3 +1389,21 @@ select.ds-form-input {
     padding: 16px;
   }
 }
+
+/* Homepage hero product switch — small demo CTA under "On your Server".
+   The stack must stay within the 32px icon height so the pill doesn't grow. */
+.product-switch-server-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+.product-switch-server-text .text-block-63 {
+  line-height: 1.1;
+}
+.product-switch-demo-note {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #8f9aff;
+}
