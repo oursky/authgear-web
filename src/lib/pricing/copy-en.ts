@@ -1,6 +1,5 @@
 import type { PricingCopy } from './types';
 import { fullComparisonEn } from './data/full-comparison-en';
-import { onceCoreEn } from './data/once-core-en';
 
 export const pricingCopyEn: PricingCopy = {
   meta: {
@@ -8,17 +7,16 @@ export const pricingCopyEn: PricingCopy = {
     description:
       'Authentication and authorization solution for your applications and APIs, with flexible pricing for developers and corporations.',
   },
-  tabs: { cloud: 'On the Cloud', once: 'On your Server' },
   cloud: {
-    titleLine1: 'Authgear ',
-    titleHighlight: 'CLOUD',
-    titleLine2: 'We manage everything for you',
-    subtitle: 'All-Inclusive Pricing: Full Feature Access with all Plans',
-    intro:
-      'At Authgear CLOUD, we believe in empowering your growth. Our pricing plans have ',
-    introStrong: 'no feature gate',
+    titleLine1: 'Simple, ',
+    titleHighlight: 'Transparent',
+    titleLine1Suffix: ' Pricing',
+    titleLine2: '',
+    subtitle: 'No feature gates. No hidden fees.',
+    intro: 'At Authgear, we believe in empowering your growth. ',
+    introStrong: 'Every plan includes every feature',
     introRest:
-      ', every plan comes with every features. From robust security measures to seamless integrations and advanced customizations, start for free and scale your applications with all the tools you need—without hidden fees.',
+      ' — from robust security measures to seamless integrations and advanced customizations. Start for free and scale your applications with all the tools you need.',
     plans: [
       {
         name: 'Free',
@@ -90,49 +88,6 @@ export const pricingCopyEn: PricingCopy = {
     fullPlanTitle: 'Full plan comparison',
   },
   comparison: fullComparisonEn,
-  once: {
-    titleLine1: 'Authgear ',
-    titleHighlight: 'ONCE',
-    titleLine2: '',
-    subtitle: 'Like Auth0, but without subscription',
-    intro:
-      'Take control of your identity and access management with Authgear ONCE — a self-hosted IAM platform you own forever. No subscriptions, no surprises.',
-    plans: [
-      {
-        name: 'ONCE',
-        priceLine: '$299',
-        cta: {
-          label: 'Checkout',
-          href: 'https://once-license.authgear.com/v1/stripe/checkout',
-          external: true,
-        },
-        features: [
-          'Complete CIAM platform with SDKs',
-          'Full control of data and self-host',
-          'Install in 10 minutes',
-          '2 years of updates included',
-          'Email and Discord support',
-        ],
-        highlight: true,
-      },
-      {
-        name: 'Enterprise',
-        enterprise: true,
-        priceLine: 'Custom Pricing',
-        cta: { label: 'Contact Us', href: '__CONTACT__', external: false },
-        features: [
-          'High Availability Support',
-          'Customized Deployment',
-          'Scalable for high traffic',
-          'Managed security updates',
-          'Enterprise support with SLA',
-        ],
-      },
-    ],
-    coreTitle: 'Core Features',
-    coreRows: onceCoreEn,
-    enterpriseContactSuffix: ' for Enterprise version',
-  },
   cta: {
     title: "Couldn't find the plan you're looking for?",
     subtitle: "Send us a message, and we'll help you identify the best option for your business.",

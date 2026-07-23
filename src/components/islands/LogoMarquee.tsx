@@ -11,15 +11,6 @@ const DEFAULT_CUSTOMER_LOGOS = [
   { src: '/images/logo-place2x.png', alt: 'PLACE' },
 ] as const;
 
-export const ONCE_SDK_MARQUEE_LOGOS = [
-  { src: '/images/once_build-for-developer-lang-01-react.svg', alt: 'React' },
-  { src: '/images/once_build-for-developer-lang-02-vue.svg', alt: 'Vue.js' },
-  { src: '/images/once_build-for-developer-lang-03-angular.svg', alt: 'Angular' },
-  { src: '/images/once_build-for-developer-lang-06-flutter.svg', alt: 'Flutter' },
-  { src: '/images/once_build-for-developer-lang-07-ios.svg', alt: 'iOS' },
-  { src: '/images/once_build-for-developer-lang-08-android.svg', alt: 'Android' },
-] as const;
-
 interface Props {
   readStoryLabel?: string;
   logos?: ReadonlyArray<{ src: string; alt: string }>;

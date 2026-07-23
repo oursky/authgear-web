@@ -32,16 +32,13 @@ export type PricingComparisonRow =
       cells: [PricingCell, PricingCell, PricingCell, PricingCell];
     };
 
-export type OnceCoreRow =
-  | { kind: 'section'; title: string }
-  | { kind: 'feature'; label: string; value: PricingCell | string };
-
 export type PricingCopy = {
   meta: { title: string; description: string };
-  tabs: { cloud: string; once: string };
   cloud: {
     titleLine1: string;
     titleHighlight: string;
+    /** Text after the highlighted word, on the same line (e.g. " Pricing"). */
+    titleLine1Suffix: string;
     titleLine2: string;
     subtitle: string;
     intro: string;
@@ -54,17 +51,6 @@ export type PricingCopy = {
   comparison: {
     planNames: [string, string, string, string];
     rows: PricingComparisonRow[];
-  };
-  once: {
-    titleLine1: string;
-    titleHighlight: string;
-    titleLine2: string;
-    subtitle: string;
-    intro: string;
-    plans: CloudPlan[];
-    coreTitle: string;
-    coreRows: OnceCoreRow[];
-    enterpriseContactSuffix: string;
   };
   cta: { title: string; subtitle: string; button: string; href: string };
   faq: { heading: string; items: Array<{ q: string; a: string }> };

@@ -52,8 +52,6 @@ type Props = {
   contactPath: string;
   whatsappPath: string;
   month: string;
-  onceSuffix: string;
-  enterpriseContactLabel: string;
   planFinder: PlanFinderLabels;
 };
 
@@ -1196,19 +1194,6 @@ function CellContent({
   return <>{cell.value}</>;
 }
 
-function OnceCoreValue({ value }: { value: PricingCell | string }) {
-  if (typeof value === 'string') {
-    if (value.includes('\n')) {
-      return <span className="whitespace-pre-line">{value}</span>;
-    }
-    return <>{value}</>;
-  }
-  if (value.kind === 'check') {
-    return <ComparisonCheckIcon />;
-  }
-  return null;
-}
-
 function PlanCta({
   plan,
   contactPath,
@@ -1312,75 +1297,24 @@ export default function PricingPageClient({
   contactPath,
   whatsappPath,
   month,
-  onceSuffix,
-  enterpriseContactLabel,
   planFinder,
 }: Props) {
-  const [tab, setTab] = useState(0);
   const [comparisonPlanIndex, setComparisonPlanIndex] = useState(0);
-
-  const enterpriseLink = useMemo(() => {
-    return (
-      <div className="comparison-enterprise-contact">
-        <a href={contactPath} className="comparison-link comparison-link--btn">
-          {enterpriseContactLabel}
-        </a>
-        <span className="comparison-enterprise-contact__suffix">
-          {copy.once.enterpriseContactSuffix.trim()}
-        </span>
-      </div>
-    );
-  }, [contactPath, copy.once.enterpriseContactSuffix, enterpriseContactLabel]);
 
   return (
     <div className="page-wrapper">
-      <div className="w-layout-hflex tab-background">
-        <button
-          type="button"
-          className={`tab-switcher cloud-tab${tab === 0 ? ' active-tab' : ''}`}
-          onClick={() => setTab(0)}
-        >
-          <div className="code-embed-4">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-              <path fillRule="evenodd" clipRule="evenodd" d="M5.53093 4.98208C6.93198 3.67788 8.86593 3 11.0358 3H21.632C23.8031 3 25.7368 3.68155 27.1373 4.98691C28.5456 6.29955 29.3337 8.16888 29.3337 10.3761V16.4332C29.3337 16.9855 28.886 17.4332 28.3337 17.4332C27.7815 17.4332 27.3337 16.9855 27.3337 16.4332V10.3761C27.3337 8.66433 26.7345 7.34559 25.7736 6.44992C24.8049 5.54699 23.3877 5 21.632 5H11.0358C9.2787 5 7.86176 5.54481 6.89364 6.44599C5.93362 7.33964 5.33398 8.65784 5.33398 10.3761V21.6211C5.33398 23.3401 5.9337 24.6589 6.89381 25.5531C7.86194 26.4547 9.27885 26.9997 11.0358 26.9997H12.2578C12.8101 26.9997 13.2578 27.4475 13.2578 27.9997C13.2578 28.552 12.8101 28.9997 12.2578 28.9997H11.0358C8.86578 28.9997 6.9318 28.3215 5.53077 27.0167C4.1217 25.7045 3.33398 23.834 3.33398 21.6211V10.3761C3.33398 8.16369 4.12178 6.29381 5.53093 4.98208Z" fill="#2E2E2E" />
-              <path fillRule="evenodd" clipRule="evenodd" d="M3.36523 16C3.36523 15.4477 3.81294 15 4.36523 15H16.6272C17.1794 15 17.6272 15.4477 17.6272 16C17.6272 16.5523 17.1794 17 16.6272 17H4.36523C3.81294 17 3.36523 16.5523 3.36523 16Z" fill="#2E2E2E" />
-              <path fillRule="evenodd" clipRule="evenodd" d="M9.15039 21.5131C9.15039 20.9608 9.59811 20.5131 10.1504 20.5131H10.847C11.3993 20.5131 11.847 20.9608 11.847 21.5131C11.847 22.0653 11.3993 22.5131 10.847 22.5131H10.1504C9.59811 22.5131 9.15039 22.0653 9.15039 21.5131Z" fill="#2E2E2E" />
-              <path fillRule="evenodd" clipRule="evenodd" d="M9.15039 10.487C9.15039 9.93469 9.59811 9.48697 10.1504 9.48697H10.847C11.3993 9.48697 11.847 9.93469 11.847 10.487C11.847 11.0393 11.3993 11.487 10.847 11.487H10.1504C9.59811 11.487 9.15039 11.0393 9.15039 10.487ZM15.4683 10.487C15.4683 9.93469 15.916 9.48697 16.4683 9.48697H22.5136C23.0659 9.48697 23.5136 9.93469 23.5136 10.487C23.5136 11.0393 23.0659 11.487 22.5136 11.487H16.4683C15.916 11.487 15.4683 11.0393 15.4683 10.487Z" fill="#2E2E2E" />
-              <path fillRule="evenodd" clipRule="evenodd" d="M18.417 19.7139C19.1082 18.8004 20.2219 18.0703 21.7978 18.0703C23.3736 18.0703 24.4872 18.8004 25.1786 19.7139C25.604 20.276 25.8731 20.9097 26.0107 21.4937C26.6736 21.6397 27.2874 21.9484 27.7838 22.4223C28.5026 23.1085 28.9079 24.0776 28.9079 25.2064C28.9079 26.7509 27.9916 28.0855 26.6684 28.6837C26.6551 28.6897 26.6415 28.6955 26.6279 28.7009C26.0868 28.9173 25.5487 28.9995 25.12 28.9995H18.4702C18.037 28.9995 17.5003 28.9131 16.9662 28.6968C16.9539 28.6917 16.9416 28.6865 16.9296 28.6811C15.6088 28.084 14.6875 26.7536 14.6875 25.2064C14.6875 24.0776 15.0928 23.1085 15.8118 22.4223C16.3082 21.9484 16.9219 21.6397 17.5847 21.4937C17.7223 20.9097 17.9915 20.276 18.417 19.7139ZM20.0118 20.9208C19.6236 21.4337 19.4728 22.0513 19.4728 22.3952C19.4728 22.9439 19.0307 23.3901 18.482 23.3952C17.9318 23.4003 17.4898 23.5853 17.1927 23.8689C16.9043 24.1443 16.6875 24.5736 16.6875 25.2064C16.6875 25.9331 17.115 26.5617 17.7358 26.8505C18.015 26.9605 18.2875 26.9995 18.4702 26.9995H25.12C25.307 26.9995 25.5823 26.9616 25.8643 26.8523C26.4816 26.564 26.9079 25.9349 26.9079 25.2064C26.9079 24.5736 26.6912 24.1443 26.4027 23.8689C26.1058 23.5853 25.6636 23.4003 25.1134 23.3952C24.5648 23.3901 24.1227 22.9439 24.1227 22.3952C24.1227 22.0513 23.9719 21.4337 23.5838 20.9208C23.2264 20.4487 22.6776 20.0703 21.7978 20.0703C20.9179 20.0703 20.369 20.4487 20.0118 20.9208Z" fill="#2E2E2E" />
-            </svg>
-          </div>
-          <div className={`text-block-62${tab === 0 ? ' active-tab-text' : ''}`}>{copy.tabs.cloud}</div>
-        </button>
-        <button
-          type="button"
-          className={`tab-switcher once-tab${tab === 1 ? ' active-tab' : ''}`}
-          onClick={() => setTab(1)}
-        >
-          <div className="code-embed-4">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-              <path d="M16 27.8844H24.7477C26.6535 27.8844 28 26.6921 28 24.7904V21.8831C28 19.9748 26.6535 18.7891 24.7477 18.7891H7.25232C5.3466 18.7891 4 19.9748 4 21.8831V24.7904C4 26.6973 5.3466 27.8844 7.25232 27.8844H11.6262" stroke="#2E2E2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M21.7129 27.875V22.1902" stroke="#2E2E2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M8.7832 23.3385H10.0818" stroke="#2E2E2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M16 4.11459H7.25232C5.3466 4.11459 4 5.30681 4 7.20865V10.1159C4 12.0229 5.3466 13.2099 7.25232 13.2099H24.7477C26.6535 13.2099 28 12.0229 28 10.1159V7.20865C28 5.30162 26.6535 4.11459 24.7477 4.11459H20.3739" stroke="#2E2E2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M21.7129 13.2095V8.00259" stroke="#2E2E2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M8.7832 8.66147H10.0818" stroke="#2E2E2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <div className={`text-block-62${tab === 1 ? ' active-tab-text' : ''}`}>{copy.tabs.once}</div>
-        </button>
-      </div>
-
-      <section
-        id="cards-section"
-        className="section pricing-new cloud pricing-info"
-        style={{ display: tab === 0 ? 'flex' : 'none' }}
-      >
+      <section id="cards-section" className="section pricing-new cloud pricing-info">
         <div className="new-pricing-h1-container">
           <h1 className="title pricing-h1">
             {copy.cloud.titleLine1}
             <span className="pricing-sepcial">{copy.cloud.titleHighlight}</span>
-            <br />
-            {copy.cloud.titleLine2}
+            {copy.cloud.titleLine1Suffix}
+            {copy.cloud.titleLine2 ? (
+              <>
+                <br />
+                {copy.cloud.titleLine2}
+              </>
+            ) : null}
           </h1>
           <p className="pricing-sub">{copy.cloud.subtitle}</p>
         </div>
@@ -1422,7 +1356,7 @@ export default function PricingPageClient({
         </div>
       </section>
 
-      <section className="cloud pricing-info" style={{ display: tab === 0 ? 'flex' : 'none' }}>
+      <section className="cloud pricing-info">
         <div className="container-default expand-section">
           <div className="comparison static-table">
             <div className="full-plan">{copy.cloud.fullPlanTitle}</div>
@@ -1465,109 +1399,6 @@ export default function PricingPageClient({
                     ))}
                   </div>
                 );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="section pricing-new once pricing-info"
-        style={{ display: tab === 1 ? 'flex' : 'none' }}
-      >
-        <div className="new-pricing-h1-container">
-          <h1 className="title pricing-h1">
-            {copy.once.titleLine1}
-            <span className="pricing-sepcial">{copy.once.titleHighlight}</span>
-            {copy.once.titleLine2 ? (
-              <>
-                <br />
-                {copy.once.titleLine2}
-              </>
-            ) : (
-              <br />
-            )}
-          </h1>
-          <p className="pricing-sub">{copy.once.subtitle}</p>
-        </div>
-        <div className="w-layout-blockcontainer w-container">
-          <p className="pricing-content whitespace-pre-line">{copy.once.intro}</p>
-        </div>
-        <div className="w-layout-blockcontainer pricing w-container">
-          <div className="w-layout-hflex pricing-cards once-pricing">
-            <div className="pricing-outer once-pricing-width">
-              <div className="pricing-card developers-bg">
-                <div className="plan-div">
-                  <div className="plan">{copy.once.plans[0].name}</div>
-                  <div className="price-content free">
-                    $<span className="price">{copy.once.plans[0].priceLine.replace(/^\$/, '')}</span>
-                    {onceSuffix}
-                  </div>
-                </div>
-                <PlanCta plan={copy.once.plans[0]} contactPath={contactPath} />
-                <div className="divider-pricing" />
-                <div className="pricing-features">
-                  {copy.once.plans[0].features.map((f) => (
-                    <div key={f} className="price-feature">
-                      <img src="/images/pricing_CLOUD_plans_check.svg" loading="lazy" alt="" />
-                      <div className="p-feature">{f}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="pricing-card enterprise once-pricing-width">
-              <div className="plan-div">
-                <div className="plan enterprise">{copy.once.plans[1].name}</div>
-                <div className="plan custom">{copy.once.plans[1].priceLine}</div>
-              </div>
-              <PlanCta plan={copy.once.plans[1]} contactPath={contactPath} />
-              <div className="divider-pricing" />
-              <div className="pricing-features">
-                {copy.once.plans[1].features.map((f) => (
-                  <div key={f} className="price-feature">
-                    <img src="/images/pricing_CLOUD_plans_check.svg" loading="lazy" alt="" />
-                    <div className="p-feature enterprise">{f}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="once pricing-info" style={{ display: tab === 1 ? 'flex' : 'none' }}>
-        <div className="container-default expand-section">
-          <div className="comparison static-table">
-            <div className="full-plan">{copy.once.coreTitle}</div>
-            {copy.once.coreRows.map((row, rowIndex) => {
-              if (row.kind === 'section') {
-                return (
-                  <div
-                    key={`section-${row.title}`}
-                    className="comparison-row comparison-row--section once-row once-row--section"
-                  >
-                    <div className="comparison-column comparison-section-title">{row.title}</div>
-                  </div>
-                );
-              }
-              const featureIndex = copy.once.coreRows
-                .slice(0, rowIndex)
-                .filter((r) => r.kind === 'feature').length;
-              return (
-                <div
-                  key={`${row.label}-${rowIndex}`}
-                  className={`comparison-row once-row${featureIndex % 2 === 1 ? ' odd' : ''}`}
-                >
-                  <div className="comparison-column first-column whitespace-pre-line">{row.label}</div>
-                  <div className="comparison-column plan-data free-plan">
-                    {typeof row.value === 'string' && row.value === '__ENTERPRISE_CONTACT__' ? (
-                      enterpriseLink
-                    ) : (
-                      <OnceCoreValue value={row.value} />
-                    )}
-                  </div>
-                </div>
-              );
             })}
           </div>
         </div>
