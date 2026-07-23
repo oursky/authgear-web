@@ -35,6 +35,10 @@ jobs:
 
       - name: E2E tests (playwright)
         run: npm test
+        env:
+          # Surface the dev server's startup log (Netlify emulation status)
+          # in CI output — invaluable when redirect/header tests fail.
+          DEBUG: pw:webserver
 
       - name: Upload Playwright report on failure
         if: failure()
