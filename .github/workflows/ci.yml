@@ -30,6 +30,23 @@ jobs:
       - name: Unit tests (vitest)
         run: npm run test:unit
 
+      - name: Diagnose Netlify dev emulation (temporary)
+        run: |
+          PUBLIC_GTM_ID=GTM-TEST0000 npx astro dev --port 4321 > devserver.log 2>&1 &
+          DEV_PID=$!
+          for i in $(seq 1 60); do
+            curl -s -o /dev/null http://localhost:4321/ && break
+            sleep 1
+          done
+          sleep 10
+          echo "=== probe /zh/ (expect 301):"
+          curl -s -o /dev/null -w '%{http_code}\n' http://localhost:4321/zh/
+          echo "=== probe /whats-new/ cache-control:"
+          curl -s -o /dev/null -D - http://localhost:4321/whats-new/ | grep -i cache-control || true
+          echo "=== dev server log:"
+          cat devserver.log
+          kill $DEV_PID
+
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
