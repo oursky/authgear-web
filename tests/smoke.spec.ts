@@ -9,25 +9,25 @@ test.describe('home page renders', () => {
     await expect(page.locator('footer')).toBeVisible();
   });
 
-  test('zh-TW: /zh-TW/ serves Traditional Chinese home', async ({ page }) => {
-    const resp = await page.goto('/zh-TW/');
+  test('zh-Hant: /zh-hant/ serves Traditional Chinese home', async ({ page }) => {
+    const resp = await page.goto('/zh-hant/');
     expect(resp?.status()).toBe(200);
-    await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh-Hant');
   });
 });
 
 test.describe('legacy redirects', () => {
-  test('/zh/ → /zh-TW/ (308)', async ({ request }) => {
-    const resp = await request.get('/zh/', { maxRedirects: 0 });
-    expect(resp.status()).toBe(308);
-    expect(resp.headers()['location']).toBe('/zh-TW/');
-  });
-
-  test('/zh-Hant-TW/ → /zh-TW/ (308)', async ({ request }) => {
-    const resp = await request.get('/zh-Hant-TW/', { maxRedirects: 0 });
-    expect(resp.status()).toBe(308);
-    expect(resp.headers()['location']).toBe('/zh-TW/');
-  });
+  // Legacy locale prefixes 301 to /zh-hant/ via forced rules in
+  // public/_redirects (emulated by the Netlify adapter in dev). The
+  // location header may be absolute, so compare pathnames.
+  for (const legacy of ['/zh/', '/zh-TW/', '/zh-Hant-TW/']) {
+    test(`${legacy} → /zh-hant/ (301)`, async ({ request }) => {
+      const resp = await request.get(legacy, { maxRedirects: 0 });
+      expect(resp.status()).toBe(301);
+      const location = resp.headers()['location'] ?? '';
+      expect(new URL(location, 'http://localhost').pathname).toBe('/zh-hant/');
+    });
+  }
 });
 
 test.describe('analytics scripts', () => {

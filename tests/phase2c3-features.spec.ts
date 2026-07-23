@@ -25,7 +25,7 @@ const SLUGS = [
 test.describe('Phase 2c-3: features/[slug] — en', () => {
   for (const slug of SLUGS) {
     test(`/features/${slug} returns 200 with lang=en`, async ({ page }) => {
-      const resp = await page.goto(`/features/${slug}`);
+      const resp = await page.goto(`/features/${slug}/`);
       expect(resp?.status()).toBe(200);
       await expect(page.locator('html')).toHaveAttribute('lang', 'en');
       await expect(page.locator('footer').first()).toBeVisible();
@@ -33,12 +33,12 @@ test.describe('Phase 2c-3: features/[slug] — en', () => {
   }
 });
 
-test.describe('Phase 2c-3: features/[slug] — zh-TW', () => {
+test.describe('Phase 2c-3: features/[slug] — zh-Hant', () => {
   for (const slug of SLUGS) {
-    test(`/zh-TW/features/${slug} returns 200 with lang=zh-TW`, async ({ page }) => {
-      const resp = await page.goto(`/zh-TW/features/${slug}`);
+    test(`/zh-hant/features/${slug} returns 200 with lang=zh-Hant`, async ({ page }) => {
+      const resp = await page.goto(`/zh-hant/features/${slug}/`);
       expect(resp?.status()).toBe(200);
-      await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
+      await expect(page.locator('html')).toHaveAttribute('lang', 'zh-Hant');
       await expect(page.locator('footer').first()).toBeVisible();
     });
   }

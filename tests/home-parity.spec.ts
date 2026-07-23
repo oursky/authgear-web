@@ -12,13 +12,13 @@ test.describe('home page parity — islands hydrate', () => {
     await page.goto('/');
     const cta = page.locator('a.link-block-7').first();
     await expect(cta).toBeVisible();
-    await expect(cta).toHaveAttribute('href', '/customer-stories');
+    await expect(cta).toHaveAttribute('href', '/customer-stories/');
   });
 
-  test('LogoMarquee CTA on zh-TW links to localized path', async ({ page }) => {
-    await page.goto('/zh-TW/');
+  test('LogoMarquee CTA on zh-Hant links to localized path', async ({ page }) => {
+    await page.goto('/zh-hant/');
     const cta = page.locator('a.link-block-7').first();
-    await expect(cta).toHaveAttribute('href', '/zh-TW/customer-stories');
+    await expect(cta).toHaveAttribute('href', '/zh-hant/customer-stories/');
   });
 
   test('ContactForm hydrates — fields are interactive', async ({ page }) => {
