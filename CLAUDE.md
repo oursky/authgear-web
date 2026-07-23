@@ -21,7 +21,7 @@ authgear-web/
 
 1. **Static marketing pages** — Astro components under `src/pages/` and `src/components/pages/`.
 2. **Content-collection pages** — blog posts, customer stories, login gallery, what's new items, and integrations live under `src/content/{collection}/` as markdown + JSON, validated with zod schemas in `src/content/config.ts`.
-3. **Runtime code** — every page is prerendered. The only request-time piece is `src/middleware.ts`, which the Netlify adapter ships as a Netlify Edge Function to lowercase legacy `/zh*` paths. The sitemap is generated at build time by `@astrojs/sitemap` (`/sitemap-index.xml` + `/sitemap-0.xml`; `/sitemap.xml` is 301-aliased via `public/_redirects`). Contact form submissions go to Netlify Forms.
+3. **Runtime code** — every page is prerendered; there is no request-time middleware. Legacy `/zh*` paths redirect via forced (`301!`) rules in `public/_redirects`. The sitemap is generated at build time by `@astrojs/sitemap` (`/sitemap-index.xml` + `/sitemap-0.xml`; `/sitemap.xml` is 301-aliased via `public/_redirects`). Contact form submissions go to Netlify Forms.
 
 ### Routing / i18n
 
@@ -33,7 +33,7 @@ authgear-web/
 ### URL preservation
 
 - Blog posts: `/post/{slug}` is canonical. `/blog/{slug}` 301-redirects to `/post/{slug}`.
-- Legacy `/zh/...`, `/zh-TW/...`, `/zh-Hant/...`, and `/zh-Hant-TW/...` paths redirect (308) to `/zh-hant/...` via `src/middleware.ts`.
+- Legacy `/zh/...`, `/zh-TW/...`, `/zh-Hant/...`, and `/zh-Hant-TW/...` paths redirect (301) to `/zh-hant/...` via forced rules in `public/_redirects`.
 
 ## Development Commands
 
@@ -66,7 +66,7 @@ None required for the contact form — submissions are handled by Netlify Forms 
 
 ## Deployment
 
-Netlify (builds from `live`; the `@astrojs/netlify` adapter compiles `src/middleware.ts` into a Netlify Edge Function — every other route is static). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
+Netlify (builds from `live`; every route is static — redirects live in `public/_redirects`). See the "Deployment" section in `docs/ARCHITECTURE-ASTRO.md`.
 
 ## Stale references
 

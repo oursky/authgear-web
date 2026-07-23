@@ -16,7 +16,7 @@ const SLUGS = [
 test.describe('Phase 2d-2: tools/[slug] — en', () => {
   for (const slug of SLUGS) {
     test(`/tools/${slug} returns 200 with lang=en`, async ({ page }) => {
-      const resp = await page.goto(`/tools/${slug}`);
+      const resp = await page.goto(`/tools/${slug}/`);
       expect(resp?.status()).toBe(200);
       await expect(page.locator('html')).toHaveAttribute('lang', 'en');
       await expect(page.locator('footer').first()).toBeVisible();
@@ -24,19 +24,19 @@ test.describe('Phase 2d-2: tools/[slug] — en', () => {
   }
 });
 
-test.describe('Phase 2d-2: tools/[slug] — zh-TW', () => {
+test.describe('Phase 2d-2: tools/[slug] — zh-Hant', () => {
   for (const slug of SLUGS) {
-    test(`/zh-TW/tools/${slug} returns 200 with lang=zh-TW`, async ({ page }) => {
-      const resp = await page.goto(`/zh-TW/tools/${slug}`);
+    test(`/zh-hant/tools/${slug} returns 200 with lang=zh-Hant`, async ({ page }) => {
+      const resp = await page.goto(`/zh-hant/tools/${slug}/`);
       expect(resp?.status()).toBe(200);
-      await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
+      await expect(page.locator('html')).toHaveAttribute('lang', 'zh-Hant');
       await expect(page.locator('footer').first()).toBeVisible();
     });
   }
 });
 
 test('Tool page body renders (base64 hero visible)', async ({ page }) => {
-  await page.goto('/tools/base64-decode-encode');
+  await page.goto('/tools/base64-decode-encode/');
   // The ToolHero h1 should be present
   await expect(page.locator('h1.tools-h1').first()).toBeVisible();
   // Migrated from iframe to a native React island in this repo
@@ -44,20 +44,20 @@ test('Tool page body renders (base64 hero visible)', async ({ page }) => {
 });
 
 test('Tool page body renders (uuidV7 hero visible)', async ({ page }) => {
-  await page.goto('/tools/uuidv7-generator');
+  await page.goto('/tools/uuidv7-generator/');
   await expect(page.locator('h1.tools-h1').first()).toBeVisible();
   await expect(page.locator('iframe').first()).toBeVisible();
 });
 
 test('Password hash generator renders the native widget (not iframe)', async ({ page }) => {
-  await page.goto('/tools/password-hash-generator');
+  await page.goto('/tools/password-hash-generator/');
   await expect(page.locator('h1.tools-h1').first()).toBeVisible();
   // Migrated from iframe to a native React island in this repo
   await expect(page.locator('[data-testid="password-hash-widget"]')).toBeVisible();
 });
 
 test('Passkey demo renders the native widget (not iframe)', async ({ page }) => {
-  await page.goto('/tools/passkey-demo');
+  await page.goto('/tools/passkey-demo/');
   await expect(page.locator('h1.tools-h1').first()).toBeVisible();
   await expect(page.locator('[data-testid="passkey-demo-widget"]')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Your passkeys' })).toBeVisible();
