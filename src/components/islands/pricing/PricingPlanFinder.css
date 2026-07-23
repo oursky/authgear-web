@@ -623,10 +623,6 @@
   place-items: stretch;
 }
 
-.comparison.static-table .comparison-row--section.once-row--section {
-  grid-template-columns: 1fr 1fr;
-}
-
 .comparison.static-table .comparison-row--section:first-of-type {
   margin-top: 4px;
 }

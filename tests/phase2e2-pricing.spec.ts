@@ -14,16 +14,11 @@ test.describe('Phase 2e-2: /pricing', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
   });
 
-  test('Pricing page hydrates — Cloud/Once tab switcher toggles', async ({ page }) => {
-    await page.goto('/pricing');
-    const onceTab = page.getByRole('button', { name: /on your server|ONCE/i }).first();
-    const cloudTab = page.getByRole('button', { name: /on the cloud|cloud/i }).first();
-    await onceTab.scrollIntoViewIfNeeded();
-    await expect(onceTab).toBeVisible();
-    await expect(cloudTab).toBeVisible();
-    await onceTab.click();
-    await cloudTab.click();
-    await expect(cloudTab).toBeVisible();
+  test('Pricing page is Cloud-only — no ONCE tab, plans visible', async ({ page }) => {
+    await page.goto('/pricing/');
+    await expect(page.getByRole('button', { name: /on your server|ONCE/i })).toHaveCount(0);
+    await expect(page.locator('#cards-section')).toBeVisible();
+    await expect(page.locator('.pricing-card').first()).toBeVisible();
   });
 
   test('Pricing FAQ accordion items exist and toggle', async ({ page }) => {

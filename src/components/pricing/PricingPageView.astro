@@ -21,10 +21,6 @@ const copy = {
     title: t(locale, 'Pricing.metaTitle'),
     description: t(locale, 'Pricing.metaDescription'),
   },
-  tabs: {
-    cloud: t(locale, 'Pricing.tabCloud'),
-    once: t(locale, 'Pricing.tabOnce'),
-  },
   cloud: {
     ...baseCopy.cloud,
     titleLine1: t(locale, 'Pricing.cloudTitleLine1'),
@@ -36,16 +32,6 @@ const copy = {
     introRest: t(locale, 'Pricing.cloudIntroRest'),
     expandComparison: t(locale, 'Pricing.cloudExpandComparison'),
     fullPlanTitle: t(locale, 'Pricing.cloudFullPlanTitle'),
-  },
-  once: {
-    ...baseCopy.once,
-    titleLine1: t(locale, 'Pricing.onceTitleLine1'),
-    titleHighlight: t(locale, 'Pricing.onceTitleHighlight'),
-    titleLine2: t(locale, 'Pricing.onceTitleLine2'),
-    subtitle: t(locale, 'Pricing.onceSubtitle'),
-    intro: t(locale, 'Pricing.onceIntro'),
-    coreTitle: t(locale, 'Pricing.onceCoreTitle'),
-    enterpriseContactSuffix: t(locale, 'Pricing.onceEnterpriseContactSuffix'),
   },
   cta: {
     ...baseCopy.cta,
@@ -101,7 +87,5 @@ const planFinder = {
   contactPath={contactPath}
   whatsappPath={whatsappPath}
   month={t(locale, 'Pricing.month')}
-  onceSuffix={t(locale, 'Pricing.onceSuffix')}
-  enterpriseContactLabel={t(locale, 'Pricing.enterpriseContactLabel')}
   planFinder={planFinder}
 />
