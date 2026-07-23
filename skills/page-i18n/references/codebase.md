@@ -5,12 +5,12 @@
 | File | Purpose |
 |------|---------|
 | `src/i18n/en.json` | English messages |
-| `src/i18n/zh-TW.json` | Traditional Chinese messages (keys must mirror en.json) |
+| `src/i18n/zh-hant.json` | Traditional Chinese messages (keys must mirror en.json) |
 | `src/i18n/index.ts` | Exports `t(locale, 'Namespace.key')` |
-| `src/lib/i18n.ts` | Exports `localizedPath(locale, '/path')` — prepends `/zh-TW` when locale is `zh-TW` |
+| `src/lib/i18n.ts` | Exports `localizedPath(locale, '/path')` — prepends `/zh-hant` when locale is `zh-Hant` |
 | `src/components/pages/**/*.astro` | Marketing / feature / solution page components |
 | `src/pages/<slug>.astro` | English route wrapper; passes `locale="en"` to the component |
-| `src/pages/zh-TW/<slug>.astro` | Traditional Chinese route wrapper; passes `locale="zh-TW"` |
+| `src/pages/zh-hant/<slug>.astro` | Traditional Chinese route wrapper; passes `locale="zh-Hant"` |
 | `src/layouts/BaseLayout.astro` | Takes `locale`, `title`, `description` props; renders `<html lang>` and meta tags |
 
 ## The `t` helper
@@ -40,10 +40,10 @@ Typical positions:
 ```bash
 node -e "
 const a = Object.keys(require('./src/i18n/en.json'));
-const b = Object.keys(require('./src/i18n/zh-TW.json'));
+const b = Object.keys(require('./src/i18n/zh-hant.json'));
 const missingInZh = a.filter(k => !b.includes(k));
 const missingInEn = b.filter(k => !a.includes(k));
-console.log('missing in zh-TW:', missingInZh.length ? missingInZh : 'none');
+console.log('missing in zh-Hant:', missingInZh.length ? missingInZh : 'none');
 console.log('missing in en:', missingInEn.length ? missingInEn : 'none');
 "
 ```
@@ -53,7 +53,7 @@ Per-namespace parity check (replace `About`):
 ```bash
 node -e "
 const en = Object.keys(require('./src/i18n/en.json').About);
-const zh = Object.keys(require('./src/i18n/zh-TW.json').About);
+const zh = Object.keys(require('./src/i18n/zh-hant.json').About);
 console.log('en-only:', en.filter(k => !zh.includes(k)));
 console.log('zh-only:', zh.filter(k => !en.includes(k)));
 "
@@ -63,7 +63,7 @@ console.log('zh-only:', zh.filter(k => !en.includes(k)));
 
 ```bash
 node -e "JSON.parse(require('fs').readFileSync('src/i18n/en.json'))" && \
-node -e "JSON.parse(require('fs').readFileSync('src/i18n/zh-TW.json'))" && \
+node -e "JSON.parse(require('fs').readFileSync('src/i18n/zh-hant.json'))" && \
 echo OK
 ```
 
@@ -73,7 +73,7 @@ Run after every edit before building.
 
 Already present in both locales — reuse instead of adding duplicates:
 
-| Key | English | zh-TW |
+| Key | English | zh-Hant |
 |-----|---------|-------|
 | `startForFree` | Start for Free | 免費開始 |
 | `getDemo` | Get a Demo | 預約示範 |
@@ -86,7 +86,7 @@ Use in a component: `{t(locale, 'Features.getDemo')}`.
 
 Each page has two route files:
 - `src/pages/<slug>.astro` — sets `const locale = 'en'`
-- `src/pages/zh-TW/<slug>.astro` — sets `const locale = 'zh-TW'`
+- `src/pages/zh-hant/<slug>.astro` — sets `const locale = 'zh-Hant'`
 
 Both route files thin-wrap the same component:
 
@@ -97,7 +97,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { t } from '@/i18n';
 import MyPage from '@/components/pages/MyPage.astro';
 
-const locale = 'en'; // or 'zh-TW'
+const locale = 'en'; // or 'zh-Hant'
 const title = t(locale, 'MyPage.title');
 const description = t(locale, 'MyPage.description');
 ---
@@ -123,7 +123,7 @@ PascalCase, matching the page's concept:
 
 ## Content-collection pages are different
 
-Blog posts, customer stories, login gallery, what's-new, and integrations are **not** handled by this skill. Their translations live as per-locale markdown files under `src/content/<collection>/{en,zh-TW}/<slug>/index.md`, and the route's `getStaticPaths` falls back to the `en` entry by slug when a `zh-TW` entry is missing. See `CLAUDE.md` → "Routing / i18n" for details.
+Blog posts, customer stories, login gallery, what's-new, and integrations are **not** handled by this skill. Their translations live as per-locale markdown files under `src/content/<collection>/{en,zh-Hant}/<slug>/index.md`, and the route's `getStaticPaths` falls back to the `en` entry by slug when a `zh-Hant` entry is missing. See `CLAUDE.md` → "Routing / i18n" for details.
 
 ## Traditional Chinese translation rules
 
@@ -141,7 +141,7 @@ Blog posts, customer stories, login gallery, what's-new, and integrations are **
 - **Latin text keeps halfwidth punctuation.** Inside a product name, URL, or English fragment, keep `,`, `.`, `:`. E.g. `SkyMakers Digital Group, Inc.` not `SkyMakers Digital Group， Inc。`.
 - **Add a halfwidth space between Latin and Chinese.** `使用 Authgear 的團隊`, not `使用Authgear的團隊`.
 - **Numerals stay halfwidth.** `2009 年`, not `２００９年`.
-- **Em dash for emphasis.** `——` (double em dash, U+2014 ×2) reads most natural in zh-TW prose. Use sparingly; prefer splitting into shorter sentences.
+- **Em dash for emphasis.** `——` (double em dash, U+2014 ×2) reads most natural in zh-Hant prose. Use sparingly; prefer splitting into shorter sentences.
 - **No serial comma in lists.** Use `、` (ideographic comma, U+3001) between items: `香港、台灣、英國、加拿大、美國`.
 
 Quick fix for halfwidth commas already in place (run inside the repo root):
@@ -149,7 +149,7 @@ Quick fix for halfwidth commas already in place (run inside the repo root):
 ```bash
 python3 -c "
 import re, io
-path = 'src/i18n/zh-TW.json'
+path = 'src/i18n/zh-hant.json'
 with io.open(path, encoding='utf-8') as f: text = f.read()
 new = re.sub(r'([一-鿿]),', r'\1，', text)
 if new != text:
@@ -166,9 +166,9 @@ The `[一-鿿]` range covers the CJK Unified Ideographs block. This only convert
 
 - **Use Traditional Chinese (繁體中文) only.** Never simplified: no `无`, `开`, `关`, `体`, `经`; use `無`, `開`, `關`, `體`, `經`.
 - **Keep English-only technical terms and product names unchanged:** `Authgear`, `SkyMakers`, `WhatsApp`, `LINE`, `Passkey`, `WebAuthn`, `CAPTCHA`, `MFA`, `OTP`, `SSO`, `SDK`, `API`, `JWT`, `JWKS`, `OIDC`, `SAML`, `OAuth`, `MAU`, `CIAM`, `ISO 27001`, `SoC 2`, `Azure`, `GCP`.
-- **Established project glosses** (mirror what's already in `zh-TW.json`):
+- **Established project glosses** (mirror what's already in `zh-Hant.json`):
 
-| Concept | zh-TW |
+| Concept | zh-Hant |
 |---|---|
 | Start for Free | 免費開始 |
 | Get a Demo / Schedule Demo | 預約示範 (or 預約展示) |
@@ -189,7 +189,7 @@ The `[一-鿿]` range covers the CJK Unified Ideographs block. This only convert
 
 ### Voice
 
-- Match the English register. Marketing pages use plain, direct zh-TW — not literary, not overly formal. `我們為什麼打造 Authgear`, not `我們為何建構 Authgear`.
-- Keep sentences shorter than their English counterparts when possible — zh-TW is denser.
-- For opinionated / punchy lines, don't try to translate the construction literally. Translate the *meaning*. English "Shipped, not promised." has no clean zh-TW parallel; use `不是口頭承諾，是已經交付的功能。` or rephrase inline.
+- Match the English register. Marketing pages use plain, direct zh-Hant — not literary, not overly formal. `我們為什麼打造 Authgear`, not `我們為何建構 Authgear`.
+- Keep sentences shorter than their English counterparts when possible — zh-Hant is denser.
+- For opinionated / punchy lines, don't try to translate the construction literally. Translate the *meaning*. English "Shipped, not promised." has no clean zh-Hant parallel; use `不是口頭承諾，是已經交付的功能。` or rephrase inline.
 - When a fullwidth comma would visually crowd a short phrase, consider splitting into two sentences with `。` instead.
