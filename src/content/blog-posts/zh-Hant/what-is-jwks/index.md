@@ -132,7 +132,7 @@ JWK 有一組標準欄位。以下是較完整的 RSA 公鑰範例：
 
 ### PEM 與轉換為 JWK
 
-**PEM（Privacy-Enhanced Mail）** 是常見的金鑰與憑證儲存格式。它是 base64 編碼 DER 資料，外層包著可讀 header/footer（如 `-----BEGIN PUBLIC KEY-----` 與 `-----END PUBLIC KEY-----`）。你常會看到 `.pem`、`.crt`、`.key` 副檔名。
+**PEM（Privacy-Enhanced Mail）** 是常見的金鑰與憑證儲存格式。它是 base64 編碼 DER 資料，外層包著可讀 header/footer（如 `-----BEGIN PUBLIC KEY-----` 與 `-----END PUBLIC KEY-----`）。你常會看到 `.pem`、`.crt`、`.key` 副檔名。想檢視 PEM 內文的原始資料，可貼到[免費 Base64 解碼工具](/zh-hant/tools/base64-decode-encode)。
 
 若要把 PEM 金鑰帶進 JWKS 流程，通常做法是先從 PEM 抽出**公鑰**，再轉為 JWK。RSA 可這樣取公鑰：
 

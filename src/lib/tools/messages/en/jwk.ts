@@ -53,6 +53,9 @@ export const jwk = {
   faqPemTitle: 'What is PEM',
   faqPemBody:
     'PEM (Privacy Enhanced Mail) is the base64-encoded format commonly used to store and share cryptographic keys and certificates. Use PEM to JWK conversions to make PEM keys consumable by JWKS endpoints and modern JOSE libraries.',
+  faqPemBase64Part1: 'Since PEM is just Base64-encoded DER data, you can inspect the raw bytes with our ',
+  faqPemBase64LinkLabel: 'free Base64 decode tool',
+  faqPemBase64Part2: '.',
   bestPracticesTitle: 'Best Practices',
   bp1:
     'Never use generated private keys in production. For production, generate and store private keys in a secure HSM or KMS.',

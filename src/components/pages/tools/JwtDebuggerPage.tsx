@@ -107,6 +107,11 @@ export default function JwtDebuggerPage({ locale }: Props) {
             <ToolFaqCheckItem>{t('faqJwtUse1')}</ToolFaqCheckItem>
             <ToolFaqCheckItem>{t('faqJwtUse2')}</ToolFaqCheckItem>
             <ToolFaqCheckItem>{t('faqJwtUse3')}</ToolFaqCheckItem>
+            <div className="tools-faq-content">
+              {t('faqJwtBase64Part1')}
+              <a href={localizedPath(locale, '/tools/base64-decode-encode')}>{t('faqJwtBase64LinkLabel')}</a>
+              {t('faqJwtBase64Part2')}
+            </div>
           </ToolFaqCard>
           <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faqJweTitle')}>
             <div className="tools-faq-content">{t('faqJweBody')}</div>

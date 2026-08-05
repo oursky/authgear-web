@@ -8,6 +8,7 @@ import ToolFaq, { ToolFaqCard } from '@/components/tools/ToolFaq';
 import ToolPopup from '@/components/tools/ToolPopup';
 import Base64Widget from '@/components/widgets/base64';
 import { t as tFn } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
 
 interface Props { locale: string }
 
@@ -62,6 +63,11 @@ export default function Base64Page({ locale }: Props) {
           <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faqUrlTitle')}>
             <div className="tools-faq-content" style={{ whiteSpace: 'pre-line' }}>
               {t('faqUrlBody')}
+            </div>
+            <div className="tools-faq-content">
+              {t('faqGuidePart1')}
+              <a href={localizedPath(locale, '/post/base64-encode-decode-guide')}>{t('faqGuideLinkLabel')}</a>
+              {t('faqGuidePart2')}
             </div>
           </ToolFaqCard>
         </div>

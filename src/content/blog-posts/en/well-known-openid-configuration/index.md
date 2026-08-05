@@ -278,7 +278,7 @@ If a fetch to `/.well-known/openid-configuration` fails, common causes are:
 
 ## The Discovery Document and the JWKS URI
 
-The `jwks_uri` field in the discovery document is one of the most important. It points to the JSON Web Key Set — the public keys your application needs to verify JWT signatures. Every time your app receives an ID token or access token, it should verify the signature against the keys at this URI.
+The `jwks_uri` field in the discovery document is one of the most important. It points to the JSON Web Key Set — the public keys your application needs to verify JWT signatures. Every time your app receives an ID token or access token, it should verify the signature against the keys at this URI. The tokens themselves are JWTs — three Base64URL-encoded segments — so you can inspect a token's header or payload by pasting a segment into the [free Base64 decode tool](/tools/base64-decode-encode).
 
 To learn more about how the JWKS URI works and how to use it in token verification code, see [What Is a JWKS URI? JWT Key Sets Explained for Developers](/post/what-is-jwks).
 

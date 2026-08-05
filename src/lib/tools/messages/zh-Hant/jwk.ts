@@ -49,6 +49,9 @@ export const jwk = {
   faqPemTitle: '什麼是 PEM',
   faqPemBody:
     'PEM 是常見的 base64 編碼格式，用於儲存與分享密鑰與憑證。PEM 轉 JWK 後可供 JWKS 端點與 JOSE 函式庫使用。',
+  faqPemBase64Part1: '由於 PEM 本質上是 Base64 編碼的 DER 資料，您可以用我們的',
+  faqPemBase64LinkLabel: '免費 Base64 解碼工具',
+  faqPemBase64Part2: '檢視原始內容。',
   bestPracticesTitle: '最佳實踐',
   bp1: '勿在正式環境使用此處產生的私鑰；正式環境請在 HSM 或 KMS 產生與保管。',
   bp2: '使用適當金鑰長度與現代演算法（例如支援時選 Ed25519）。',

@@ -1,5 +1,5 @@
 export const base64 = {
-  metaTitle: 'Base64 解碼與編碼 | Authgear',
+  metaTitle: 'Base64 解碼與編碼——免費線上工具 | Authgear',
   metaDescription:
     '以精確字元集控制編解碼 Base64。適合檢視原始資料、轉換承載與除錯編碼問題的開發者工具。',
   heroTitle: 'Base64 解碼與編碼',
@@ -14,7 +14,7 @@ export const base64 = {
   card3Title: '開發者友善',
   card3Desc: '易於準確且有效率地編解碼 Base64 資料。',
   card4Title: '支援 Base64URL',
-  card4Desc: '將 JWE 解密以還原原始 JWT（含 payload）供分析。',
+  card4Desc: '可編解碼網址安全的 Base64URL——JWT、OAuth 權杖與網址常用的變體。',
   step1Label: '步驟 1.',
   step1Title: '選擇字元集',
   step1Item1:
@@ -33,6 +33,9 @@ export const base64 = {
   faqUrlTitle: 'Base64 與 Base64URL 有什麼不同？',
   faqUrlBody:
     'Base64URL 是為網址與權杖格式設計的 Base64 變體，將 + 換成 -、/ 換成 _，並常省略填充字元 = 以符合網址安全。\n常見於 JWT、OAuth 權杖與 OpenID Connect。',
+  faqGuidePart1: '想深入了解 Base64 的原理與使用時機？請閱讀我們的',
+  faqGuideLinkLabel: 'Base64 編碼與解碼指南',
+  faqGuidePart2: '。',
 
   widget: {
     charsetLabel: '字元集',

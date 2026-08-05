@@ -66,6 +66,9 @@ export const jwtJwe = {
   faqJwtUse1: 'User authentication and single sign-on (SSO)',
   faqJwtUse2: 'Secure API authentication and authorization',
   faqJwtUse3: 'Information exchange between applications',
+  faqJwtBase64Part1: 'Tip: the header and payload segments are Base64URL-encoded. Paste a single segment into our ',
+  faqJwtBase64LinkLabel: 'free Base64 decode tool',
+  faqJwtBase64Part2: ' to inspect it.',
   faqJweTitle: 'What is a JWE (JSON Web Encryption)?',
   faqJweBody:
     'A JWE (JSON Web Encryption) is another open standard (RFC 7516) for encrypting content, providing confidentiality for transmitted information. JWE wraps content—such as a signed JWT—in an encrypted format that only intended parties can decrypt and read. A standard JWE structure:',

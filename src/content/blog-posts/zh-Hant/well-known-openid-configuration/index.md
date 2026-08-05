@@ -278,7 +278,7 @@ print(config['jwks_uri'])
 
 ## 探索文件與 JWKS URI
 
-探索文件中的 <code>jwks_uri</code> 是最重要的欄位之一。它指向 **JSON Web Key Set**——應用驗證 JWT 簽章所需的公鑰。每次收到 ID 權杖或存取權杖，都應依此 URI 上的金鑰驗證簽章。
+探索文件中的 <code>jwks_uri</code> 是最重要的欄位之一。它指向 **JSON Web Key Set**——應用驗證 JWT 簽章所需的公鑰。每次收到 ID 權杖或存取權杖，都應依此 URI 上的金鑰驗證簽章。這些權杖本身是 JWT——由三段 Base64URL 編碼組成——可將任一段貼到[免費 Base64 解碼工具](/zh-hant/tools/base64-decode-encode)檢視標頭或 payload。
 
 若要進一步了解 JWKS URI 的運作與在驗證程式中的用法，請見 [什麼是 JWKS URI？開發者必懂的 JWT 金鑰組](/zh-hant/post/what-is-jwks)。
 
