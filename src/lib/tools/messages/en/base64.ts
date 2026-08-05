@@ -1,5 +1,5 @@
 export const base64 = {
-  metaTitle: 'Base64 Decode and Encode | Authgear',
+  metaTitle: 'Base64 Decode and Encode — Free Online Tool | Authgear',
   metaDescription:
     'Encode or decode Base64 with precise charset control. A developer-friendly tool for inspecting raw data, converting payloads, and debugging encoding issues.',
   heroTitle: 'Base64 Decode & Encode',
@@ -15,7 +15,7 @@ export const base64 = {
   card3Desc: 'Easy to use this tool to encode or decode Base64 data accurately and efficiently.',
   card4Title: 'Supports Base64URL',
   card4Desc:
-    'Decrypt a JWE token to retrieve the original JWT—including the payload—for analysis.',
+    'Decode and encode URL-safe Base64URL — the variant used in JWTs, OAuth tokens, and URLs.',
   step1Label: 'Step 1.',
   step1Title: 'Choose a character set',
   step1Item1:
@@ -34,6 +34,9 @@ export const base64 = {
   faqUrlTitle: 'What Is the Difference Between Base64 and Base64URL?',
   faqUrlBody:
     'Base64URL is a version of Base64 designed for URLs and token formats. It replaces the characters + with - and / with _, and padding characters (=) are often removed for URL safety.\nThis format is commonly used in JWTs, OAuth tokens, and OpenID Connect.',
+  faqGuidePart1: 'Want a deeper walkthrough of how Base64 works and when to use it? Read our ',
+  faqGuideLinkLabel: 'Base64 encode & decode guide',
+  faqGuidePart2: '.',
 
   widget: {
     charsetLabel: 'Charset',

@@ -92,6 +92,11 @@ export default function JwkGeneratorPage({ locale }: Props) {
           </ToolFaqCard>
           <ToolFaqCard icon="/images/tools-qa-encryption.svg" title={t('faqPemTitle')}>
             <div className="tools-faq-content">{t('faqPemBody')}</div>
+            <div className="tools-faq-content">
+              {t('faqPemBase64Part1')}
+              <a href={localizedPath(locale, '/tools/base64-decode-encode')}>{t('faqPemBase64LinkLabel')}</a>
+              {t('faqPemBase64Part2')}
+            </div>
           </ToolFaqCard>
         </div>
         <ToolFaqBestPractices icon="/images/tools-qa-best-practice.svg" title={t('bestPracticesTitle')}>

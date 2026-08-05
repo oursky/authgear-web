@@ -134,7 +134,7 @@ Including `use` and `alg` fields helps clients quickly determine whether a key i
 
 ### PEM and converting to JWK
 
-**PEM (Privacy-Enhanced Mail)** is a very common format for storing keys and certificates. It's base64-encoded DER data wrapped in human-readable header/footer lines such as `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`. You'll often see PEM files with extensions like `.pem`, `.crt`, or `.key`.
+**PEM (Privacy-Enhanced Mail)** is a very common format for storing keys and certificates. It's base64-encoded DER data wrapped in human-readable header/footer lines such as `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`. You'll often see PEM files with extensions like `.pem`, `.crt`, or `.key`. To peek at the raw bytes inside a PEM body, paste it into the [free Base64 decode tool](/tools/base64-decode-encode).
 
 If you need to use a PEM key with a JWKS workflow, the usual step is to extract the **public** key from the PEM and convert that public key into a JWK. For RSA keys you can extract the public PEM like this:
 
