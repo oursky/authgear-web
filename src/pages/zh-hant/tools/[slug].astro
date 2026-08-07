@@ -4,6 +4,7 @@ export const prerender = true;
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { t } from '@/i18n';
 import { TOOL_SLUG_PREFIX } from '@/lib/tools/toolSlugPrefix';
+import { buildToolJsonLd } from '@/lib/tools/toolJsonLd';
 
 import Base64Page from '@/components/pages/tools/Base64Page';
 import HmacPage from '@/components/pages/tools/HmacPage';
@@ -56,30 +57,7 @@ const locale = 'zh-Hant';
 const title = t(locale, `Tools.${prefix}.metaTitle`);
 const description = t(locale, `Tools.${prefix}.metaDescription`);
 
-const jsonLd =
-  slug === 'sms-cost-calculator'
-    ? {
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'SoftwareApplication',
-            name: 'SMS Cost Calculator',
-            applicationCategory: 'BusinessApplication',
-            operatingSystem: 'Web',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            description,
-          },
-          {
-            '@type': 'FAQPage',
-            mainEntity: [1, 2, 3, 4, 5, 6].map((n) => ({
-              '@type': 'Question',
-              name: t(locale, `Tools.${prefix}.faq${n}Title`),
-              acceptedAnswer: { '@type': 'Answer', text: t(locale, `Tools.${prefix}.faq${n}Body`) },
-            })),
-          },
-        ],
-      }
-    : null;
+const jsonLd = buildToolJsonLd(locale, slug);
 ---
 
 <BaseLayout locale={locale} title={title} description={description}>
