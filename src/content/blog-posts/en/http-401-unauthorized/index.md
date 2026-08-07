@@ -38,6 +38,8 @@ An **HTTP 401 Unauthorized** error means the request reached the server but was 
 
 For developers building or consuming APIs, 401 is the most authentication-specific HTTP status code. It sits at the centre of every OAuth 2.0 flow, JWT verification pipeline, and API key scheme. Getting it right — both when you receive it and when you send it — is fundamental to building secure, well-behaved applications.
 
+> 💡 **Debugging a rejected token right now?** Paste it into the free [JWT & JWE Debugger](/tools/jwt-jwe-debugger) to decode the header and payload in your browser — an expired `exp`, a wrong `aud`, or an unknown `kid` shows up immediately.
+
 ## What Is HTTP 401 Unauthorized?
 
 The 401 status code is defined in [RFC 9110](https://httpwg.org/specs/rfc9110.html#status.401):
@@ -74,7 +76,7 @@ The most common mistake in API design is returning the wrong code when authentic
 </tbody>
 </table></div>
 
-RFC 9110 is explicit on this point: a 401 is appropriate when the request "lacks valid authentication credentials." A 403 is appropriate when "the server understood the request but refuses to fulfil it" regardless of authentication state. For a deeper look at the conceptual split, see [Authentication vs Authorization](/post/authentication-vs-authorization).
+RFC 9110 is explicit on this point: a 401 is appropriate when the request "lacks valid authentication credentials." A 403 is appropriate when "the server understood the request but refuses to fulfil it" regardless of authentication state. For a deeper look at the conceptual split, see [Authentication vs Authorization](/post/authentication-vs-authorization), and for a full decision guide on which code your API should return, see [HTTP 401 vs 403](/post/http-401-vs-403).
 
 The most common bug: an API returns 403 when the `Authorization` header is entirely missing. This misleads clients into thinking they are authenticated but forbidden, rather than unauthenticated. A missing `Authorization` header is always a 401.
 
@@ -544,3 +546,9 @@ Yes. A proxy that strips the `Authorization` header before forwarding the reques
 A 401 Unauthorized means the server could not verify who is making the request. The most common causes are expired JWTs, missing or malformed `Authorization` headers, revoked API keys, and signing key mismatches after rotation. The `WWW-Authenticate` response header — which servers must include in every 401 — tells you exactly which check failed, and should be the first thing you read when debugging.
 
 For API designers: use 401 when there is no valid identity, and 403 when there is a valid identity but it is not permitted to act. For a related error that often appears in auth-protected systems, see [HTTP 403 Forbidden](/post/http-403-forbidden).
+
+**Related reading:**
+
+- [HTTP 401 vs 403: What's the Difference and Which to Return](/post/http-401-vs-403) — a focused decision guide for API designers
+- [HTTP 502 Bad Gateway](/post/http-502-bad-gateway) and [HTTP 504 Gateway Timeout](/post/http-504-gateway-timeout) — gateway errors that can also block login flows
+- [Session vs Token Authentication](/post/session-vs-token-authentication) — choosing the auth model behind your `Authorization` header

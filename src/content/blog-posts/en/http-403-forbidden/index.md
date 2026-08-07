@@ -36,6 +36,8 @@ A **403 Forbidden** error means the server understood your request but refuses t
 
 For developers, a 403 sits in an awkward middle ground: it is not a "did you type the URL correctly?" problem (that is 404) and it is not "are you logged in?" (that is 401). A 403 means something is specifically blocking access — a rule, a permission, a policy. That specificity is actually useful: it tells you exactly which layer of your stack to inspect.
 
+> 💡 **Debugging an API 403 right now?** Decode your access token with the free [JWT & JWE Debugger](/tools/jwt-jwe-debugger) and check its `scope` and role claims — if the scope the failing endpoint requires is missing, you have found the cause.
+
 ## What Is HTTP 403 Forbidden?
 
 The HTTP 403 status code is defined in [RFC 9110](https://httpwg.org/specs/rfc9110.html#status.403) as:
@@ -59,7 +61,7 @@ These three status codes are frequently confused. Getting them wrong leads to de
 </tbody>
 </table></div>
 
-The practical takeaway: if you are debugging a 403 on an API, do not reach for the "refresh token" logic. The token may be valid. The problem is what the token says you are allowed to do — or a layer above the token entirely (IP block, WAF, file permissions).
+The practical takeaway: if you are debugging a 403 on an API, do not reach for the "refresh token" logic. The token may be valid. The problem is what the token says you are allowed to do — or a layer above the token entirely (IP block, WAF, file permissions). For a side-by-side decision guide on the two codes, see [HTTP 401 vs 403](/post/http-401-vs-403).
 
 ## Common Causes of HTTP 403 Forbidden
 
@@ -397,7 +399,7 @@ A 403 from an API endpoint has a different character than a 403 from a web serve
 
 1. **Missing OAuth scope** — the token was issued with `scope: read:profile` but the endpoint requires `scope: admin:reports`. The token is valid; it just was not issued with sufficient permissions.
 
-2. **Insufficient role** — the authenticated user holds the `viewer` role, but the endpoint requires `editor` or `admin`.
+2. **Insufficient role** — the authenticated user holds the `viewer` role, but the endpoint requires `editor` or `admin`. See [What is Role-Based Access Control (RBAC)?](/post/what-is-role-based-access-control-rbac-benefits-comparisons-and-best-practices) for how these role checks are typically designed.
 
 **Diagnosing with the JWT debugger:**
 
@@ -523,3 +525,9 @@ You do not bypass a 403 — you fix the underlying authorisation issue. If you o
 ## Summary
 
 A 403 Forbidden always means an authorisation problem, not a network failure or a missing resource. The layer responsible varies: it could be Linux file permissions, a web server access rule, a Cloudflare firewall rule, an S3 bucket policy, or an OAuth scope misconfiguration. Check the response body and headers first to identify the layer, then go to that layer's logs for the specific reason. The `curl -v` and log snippets above will get you to the root cause quickly in most cases. For API 403s caused by missing OAuth scopes, the approach is different — decode the token, verify the claims, and fix the scope at authorisation time rather than retrying the same request.
+
+**Related reading:**
+
+- [HTTP 401 vs 403: What's the Difference and Which to Return](/post/http-401-vs-403) — a focused guide to choosing the right code in your API
+- [HTTP 502 Bad Gateway](/post/http-502-bad-gateway) and [HTTP 504 Gateway Timeout](/post/http-504-gateway-timeout) — related HTTP error guides for the proxy and gateway layer
+- [Defend Against Broken Access Control](/post/what-is-broken-access-control-vulnerability-and-how-to-prevent-it) — the vulnerability that appears when the checks behind 403 are missing
