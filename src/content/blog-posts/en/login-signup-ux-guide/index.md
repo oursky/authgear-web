@@ -129,6 +129,8 @@ Finally, remember **not to overwhelm** with too many options on one screen. Offe
 
 The **sign-up flow** is where a potential user becomes an actual user – every extra field or confusing step here can hurt your conversion. Here’s how to optimize signup UX:
 
+**Shortcut:** Authgear ships pre-built signup and login pages that already follow the practices below — social login, passkeys, and MFA included. <a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">Try it free</a> and customize the UI to your brand.
+
 ### Keep It Simple & Essential
 
 - **Ask for minimum info upfront:** Each additional form field in your signup = more friction. Only ask for what’s truly needed to create the account. Often that’s just an email (or phone) and a password. You can collect profile details later in the user’s account settings or via on-boarding steps. Long forms scare people off – one study found reducing form fields from 9 to 6 increased sign-ups by 25% (hypothetical example, but illustrative of the impact).

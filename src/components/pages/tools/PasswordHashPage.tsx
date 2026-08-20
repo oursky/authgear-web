@@ -100,7 +100,7 @@ export default function PasswordHashPage({ locale }: Props) {
           </ToolFaqCard>
         </div>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="password-hash-generator" />
     </>
   );
 }

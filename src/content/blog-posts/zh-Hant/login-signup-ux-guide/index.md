@@ -129,6 +129,8 @@ faq:
 
 **註冊流程** 是潛在使用者變成真正使用者的關鍵；每一個額外欄位或困惑步驟都可能降低轉換。以下是優化重點：
 
+**捷徑：** Authgear 內建的註冊與登入頁已遵循下列最佳實務——包含社交登入、通行密鑰與 MFA。<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">免費試用</a>，再依品牌自訂介面。
+
 ### 保持簡單、只收必要資訊
 
 - **先要最少資訊：** 每多一個欄位就多一層摩擦。先收建立帳號必要資訊即可（常見是 email/phone + 密碼）。其他資料可後續蒐集。

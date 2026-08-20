@@ -132,7 +132,7 @@ export default function JwtDebuggerPage({ locale }: Props) {
           <ToolFaqCheckItem>{t('dbgBp3')}</ToolFaqCheckItem>
         </ToolFaqBestPractices>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="jwt-jwe-debugger" />
     </>
   );
 }

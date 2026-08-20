@@ -109,7 +109,7 @@ export default function PasskeyDemoPage({ locale }: Props) {
           </ToolFaqCard>
         </div>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="passkey-demo" />
     </>
   );
 }

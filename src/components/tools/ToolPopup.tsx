@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import { t as tFn } from '@/i18n';
 
-type Props = { locale: string };
+type Props = {
+  locale: string;
+  /** Tool slug — selects a per-tool pitch (common.popupPitches). */
+  tool?: string;
+};
 
 const DISMISS_KEY = 'authgearToolPopupDismissed';
-const DISMISS_WINDOW_MS = 60 * 60 * 1000;
-const SHOW_DELAY_MS = 5000;
+const DISMISS_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
+const SHOW_DELAY_MS = 15000;
 
 function isDismissed(): boolean {
   try {
@@ -27,9 +31,15 @@ function markDismissed(): void {
   }
 }
 
-export default function ToolPopup({ locale }: Props) {
+export default function ToolPopup({ locale, tool }: Props) {
   const t = (key: string): string => tFn(locale, `Tools.common.${key}`);
   const [visible, setVisible] = useState(false);
+
+  // Per-tool pitch when one exists; tFn echoes the key back when the
+  // lookup misses, which signals the fallback to the generic body.
+  const pitchKey = tool ? `Tools.common.popupPitches.${tool}` : null;
+  const pitch = pitchKey ? tFn(locale, pitchKey) : null;
+  const body = pitch && pitch !== pitchKey ? pitch : t('popupBody');
 
   useEffect(() => {
     if (isDismissed()) return;
@@ -48,7 +58,7 @@ export default function ToolPopup({ locale }: Props) {
   return (
     <div className="tool-popup" role="dialog" aria-label={t('popupHeading')}>
       <h1 className="dev-tool-popup-heading">{t('popupHeading')}</h1>
-      <p className="paragraph-20">{t('popupBody')}</p>
+      <p className="paragraph-20">{body}</p>
       <div className="tool-popup-wrapper">
         <a
           href="https://portal.authgear.com/"

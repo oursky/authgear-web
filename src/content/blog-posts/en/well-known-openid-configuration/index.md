@@ -265,6 +265,8 @@ Without auto-discovery, integrating with an OIDC provider involves hardcoding a 
 
 Discovery makes your OIDC integration resilient and self-configuring. Most mature OAuth/OIDC libraries (Passport.js, python-social-auth, Spring Security, etc.) accept an issuer URL and handle the rest automatically by fetching the discovery document.
 
+**Need an issuer that gets discovery right?** Authgear gives you a fully compliant OIDC provider — discovery document, JWKS, and token endpoints all managed for you. <a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">Start for free</a> and point your library at your issuer URL.
+
 ## What Happens If Discovery Fails
 
 If a fetch to `/.well-known/openid-configuration` fails, common causes are:

@@ -163,6 +163,8 @@ If you want a quick, UI-driven option, the Authgear [JWK Generator](/tools/jwk-g
 
 **Generating keys:** You can create JWKs with various libraries (OpenSSL &rarr; convert to JWK, or use JOSE libraries) or use a purpose-built tool. If you want a quick, standards-compliant way to create JWKs or convert existing PEM keys into JWK format, try the Authgear [JWK Generator](/tools/jwk-generator) — it outputs RSA/EC key pairs and can convert PEM public keys into JWK format, ready for development and testing.
 
+**Prefer not to manage JWKS at all?** Authgear acts as your OIDC provider — it hosts, rotates, and publishes your JWKS automatically. <a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">Create a free account</a> and skip the key management.
+
 **Publishing a JWKS:**
 
 <ul>

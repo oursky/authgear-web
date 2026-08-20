@@ -161,6 +161,8 @@ openssl ec -in ec-private.pem -pubout -out ec-public.pem
 
 **產生金鑰：** 你可透過各種函式庫（OpenSSL 產生後轉 JWK，或直接用 JOSE 函式庫）建立 JWK。若想快速且符合標準地建立 JWK，或把現有 PEM 轉成 JWK，可用 Authgear [JWK Generator](/zh-hant/tools/jwk-generator) ——可輸出 RSA/EC 金鑰對，也能將 PEM 公鑰轉成 JWK，方便開發與測試。
 
+**不想自己管理 JWKS？** Authgear 作為你的 OIDC 供應商，會自動託管、輪換並發布 JWKS。<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">免費建立帳號</a>，跳過金鑰管理的麻煩。
+
 **發布 JWKS：**
 
 <ul>

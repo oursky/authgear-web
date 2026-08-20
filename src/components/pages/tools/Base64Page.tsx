@@ -72,7 +72,7 @@ export default function Base64Page({ locale }: Props) {
           </ToolFaqCard>
         </div>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="base64-decode-encode" />
     </>
   );
 }

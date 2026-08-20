@@ -109,7 +109,7 @@ export default function SmsCostCalculatorPage({ locale }: Props) {
         </div>
       </ToolFaq>
 
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="sms-cost-calculator" />
     </>
   );
 }

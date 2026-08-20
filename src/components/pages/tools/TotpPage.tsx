@@ -95,7 +95,7 @@ export default function TotpPage({ locale }: Props) {
           </ToolFaqCard>
         </div>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="totp-authenticator" />
     </>
   );
 }

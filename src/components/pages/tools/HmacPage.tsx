@@ -101,7 +101,7 @@ export default function HmacPage({ locale }: Props) {
           <ToolFaqCheckItem>{t('bp3')}</ToolFaqCheckItem>
         </ToolFaqBestPractices>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="hmac-signature-generator-verifier" />
     </>
   );
 }

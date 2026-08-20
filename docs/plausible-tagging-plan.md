@@ -52,9 +52,10 @@ These indicate the user took a meaningful step toward becoming a customer.
 | `contact-form-submit` | `ContactForm` | Form submit (any page with `ContactForm`) | Internal API `/api/contact` |
 | `signup` | `ReduceSmsOtpCostPage` — hero "Get Started Free →" | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'sms-hero'` |
 | `get-demo` | `SmsCostCalculator` — bottom CTA "Start Saving Now — Get a Demo →" | Click | `/schedule-demo` — fires with `props.location = 'sms-calculator'` |
-| `signup` | `SmsCostWidget` — "Start Free" CTA | Click | `accounts.portal.authgear.com/signup` — fires with `props.location = 'sms-cost-widget'` |
-| `signup` | `ToolWidget` — "Building authentication into your app? / Start Building" banner CTA | Click | `accounts.portal.authgear.com/signup` — fires with `props.location = 'tool-widget'`. Replaced the `tool-demo-click` "Book a demo" CTA in Aug 2026 |
-| `signup` | `ToolPopup` — "Start building for Free" | Click | `portal.authgear.com` — fires with `props.location = 'tool-popup'` |
+| `signup` | `SmsCostWidget` — "Start Free" CTA | Click | `portal.authgear.com` — fires with `props.location = 'sms-cost-widget'` |
+| `signup` | `ToolWidget` — "Building authentication into your app? / Start Building" banner CTA | Click | `portal.authgear.com` — fires with `props.location = 'tool-widget'`. Replaced the `tool-demo-click` "Book a demo" CTA in Aug 2026 |
+| `signup` | `ToolPopup` — "Start building for Free" | Click | `portal.authgear.com` — fires with `props.location = 'tool-popup'`. Popup body is per-tool (`Tools.common.popupPitches`), shows after 15s, dismissal persists 7 days |
+| `signup` | Blog posts — inline CTA (what-is-jwks, well-known-openid-configuration, login-signup-ux-guide; EN + zh-Hant) | Click | `portal.authgear.com` — fires with `props.location = 'post-inline'` |
 
 ### Engagement events
 
@@ -83,7 +84,7 @@ Properties unlock filtering in Plausible's dashboard and remove the need for sep
 
 | Event | Property | Value example | Rationale |
 |-------|----------|---------------|-----------|
-| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"` | Distinguish where signups originate — all implemented |
+| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"`, `"post-inline"` | Distinguish where signups originate — all implemented |
 | `signup` | `plan` | `"free"`, `"developers"`, `"business"` | Plan finder recommended tier when CTA is clicked (`location` must be `plan-finder`; the Enterprise tier fires `get-demo` instead) |
 | `signup-login` | `location` | `"nav-header"` | Implemented — the header-bar Signup/Login button serves all widths (the mobile drawer login/signup buttons were removed in Aug 2026); split desktop vs mobile clicks with the device dimension |
 | `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"`, `"sms-calculator"`, `"plan-finder"` | Implemented — leaves room for tagging other get-demo CTAs later |

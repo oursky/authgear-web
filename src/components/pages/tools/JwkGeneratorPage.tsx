@@ -106,7 +106,7 @@ export default function JwkGeneratorPage({ locale }: Props) {
           <ToolFaqCheckItem>{t('bp4')}</ToolFaqCheckItem>
         </ToolFaqBestPractices>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="jwk-generator" />
     </>
   );
 }

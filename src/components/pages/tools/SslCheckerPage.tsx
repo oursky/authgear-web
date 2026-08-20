@@ -121,7 +121,7 @@ export default function SslCheckerPage({ locale }: Props) {
           </ToolFaqCard>
         </div>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="ssl-checker" />
     </>
   );
 }

@@ -151,7 +151,7 @@ export default function UuidV7Page({ locale }: Props) {
           </div>
         </div>
       </ToolFaq>
-      <ToolPopup locale={locale} />
+      <ToolPopup locale={locale} tool="uuidv7-generator" />
     </>
   );
 }
