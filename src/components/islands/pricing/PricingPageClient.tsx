@@ -1211,7 +1211,9 @@ function PlanCta({
 
   const handleClick = () => {
     if (signupTracking) {
-      trackEvent('signup', {
+      // The Enterprise CTA leads to the demo/contact flow, not portal
+      // signup, so it counts toward the get-demo goal instead.
+      trackEvent(plan.enterprise ? 'get-demo' : 'signup', {
         location: signupTracking.location,
         plan: signupTracking.plan,
       });

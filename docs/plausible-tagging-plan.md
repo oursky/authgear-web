@@ -13,15 +13,22 @@
 
 | Pattern | Meaning |
 |---------|---------|
-| `signup` | User clicks a sign-up / get-started CTA |
+| `signup` | User clicks a sign-up / get-started CTA (goes to the portal) |
 | `signup-login` | User clicks the combined Signup/Login CTA (goes to the portal) — renamed from `login` in Aug 2026; pre-rename clicks live under the old `login` goal |
 | `contact-form-submit` | User submits the contact / get-demo form |
 | `get-demo` | User clicks a get-a-demo CTA (goes to `/schedule-demo`) |
-| `signup-*` | Sign-up CTA specific to a page context |
-| `*-click` | Explicit click tracking on a UI element |
+| `*-click` | Explicit click tracking on a UI element (engagement only) |
 | `calculator-*` | Interaction with the SMS cost calculator |
 
 **Casing:** lowercase kebab-case throughout. No spaces, no camelCase.
+
+**Conversion events carry a `location` property, not a location-specific
+name.** As of Aug 2026 every signup/get-demo CTA fires one of the canonical
+goals above with `props.location` identifying the exact button, so the goals
+aggregate site-wide and split by location filter. The retired
+location-in-name goals (`signup-hero`, `signup-calculator`,
+`tool-popup-signup-click`, `tool-demo-click`, `login`) keep their history in
+Plausible but receive no new events.
 
 ---
 
@@ -36,16 +43,18 @@ These indicate the user took a meaningful step toward becoming a customer.
 | `signup` | `HomePage` — hero CTA "Get Started for Free" | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'home-hero'` |
 | `signup` | `LoginCustomizationPlayground` — preview hover-mask CTA | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'playground-preview-hover'` |
 | `signup` | `LoginCustomizationPlayground` — mobile top-right chip | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'playground-mobile-chip'`. Visible only at `< 900px`. |
-| `signup` | `PricingPageClient` — plan finder recommended-plan CTA | Click | Portal signup / pricing portal links / `schedule-demo` (Enterprise) — fires with `props.location = 'plan-finder'`, `props.plan` = `free` \| `developers` \| `business` \| `enterprise` |
+| `signup` | `PricingPageClient` — plan finder recommended-plan CTA (Free / Developers / Business) | Click | Portal signup / pricing portal links — fires with `props.location = 'plan-finder'`, `props.plan` = `free` \| `developers` \| `business` |
+| `get-demo` | `PricingPageClient` — plan finder recommended-plan CTA (Enterprise) | Click | `schedule-demo` — fires with `props.location = 'plan-finder'`, `props.plan = 'enterprise'` |
 | `signup-login` | `SiteNav` — blue "Signup/Login" button (desktop + mobile header bar) | Click | `portal.authgear.com` — fires with `props.location = 'nav-header'` |
 | `get-demo` | `SiteNav` — desktop ghost "Get a Demo" link | Click | `/schedule-demo` — fires with `props.location = 'nav-desktop'` |
 | `get-demo` | `SiteNav` — mobile drawer "Get a Demo" button | Click | `/schedule-demo` — fires with `props.location = 'nav-mobile'` |
 | `get-demo` | `HomePage` — hero product switch "On your Server / Get in touch" chip | Click | `/schedule-demo` — fires with `props.location = 'home-product-switch'` |
 | `contact-form-submit` | `ContactForm` | Form submit (any page with `ContactForm`) | Internal API `/api/contact` |
-| `signup-hero` | `ReduceSmsOtpCostPage` — hero "Get Started Free →" | Click | `portal.authgear.com` (with UTM) |
-| `signup-calculator` | `ReduceSmsOtpCostPage` — hero "Calculate My Savings" | Click | `#Saving-Calculator` anchor |
-| `signup-calculator` | `ReduceSmsOtpCostPage` — bottom CTA "Start Saving Now" | Click | `portal.authgear.com` |
-| `tool-popup-signup-click` | `ToolPopup` — "Start building for Free" | Click | `portal.authgear.com` |
+| `signup` | `ReduceSmsOtpCostPage` — hero "Get Started Free →" | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'sms-hero'` |
+| `get-demo` | `SmsCostCalculator` — bottom CTA "Start Saving Now — Get a Demo →" | Click | `/schedule-demo` — fires with `props.location = 'sms-calculator'` |
+| `signup` | `SmsCostWidget` — "Start Free" CTA | Click | `accounts.portal.authgear.com/signup` — fires with `props.location = 'sms-cost-widget'` |
+| `signup` | `ToolWidget` — "Building authentication into your app? / Start Building" banner CTA | Click | `accounts.portal.authgear.com/signup` — fires with `props.location = 'tool-widget'`. Replaced the `tool-demo-click` "Book a demo" CTA in Aug 2026 |
+| `signup` | `ToolPopup` — "Start building for Free" | Click | `portal.authgear.com` — fires with `props.location = 'tool-popup'` |
 
 ### Engagement events
 
@@ -54,6 +63,7 @@ These indicate the user is exploring content or interacting with features.
 | Event | Component | Trigger | Notes |
 |-------|-----------|---------|-------|
 | `calculator-preset` | `ReduceSmsOtpCostPage` — preset buttons (10K / 100K / 500K / 1M) | Click | Fires on every preset button; no distinction between which preset was selected |
+| `calculator-open` | `ReduceSmsOtpCostPage` — hero "Calculate My Savings" | Click | `#Saving-Calculator` anchor scroll — renamed from `signup-calculator` in Aug 2026 (it never was a signup click) |
 | `tool-banner-click` | `ToolWidget` — banner image | Click | Links to `/` (placeholder) |
 | `tool-tag-click` | `ToolWidget` — "This tool is crafted by Authgear" tag | Click | Links to `/` (placeholder) |
 | `tool-github-click` | `ToolPopup` — "Star us on GitHub" | Click | `github.com/authgear/authgear-server` |
@@ -69,18 +79,15 @@ These indicate the user is exploring content or interacting with features.
 
 ## Event Properties
 
-Currently **no custom properties** are sent with any event. All events are simple hits.
+Properties unlock filtering in Plausible's dashboard and remove the need for separate event names for variants.
 
-### Recommended properties to add
-
-Adding properties unlocks filtering in Plausible's dashboard and removes the need for separate event names for variants.
-
-| Event | Property to add | Value example | Rationale |
-|-------|----------------|---------------|-----------|
-| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"` | Distinguish where signups originate — all implemented |
-| `signup` | `plan` | `"free"`, `"developers"`, `"business"`, `"enterprise"` | Plan finder recommended tier when CTA is clicked (`location` must be `plan-finder`) |
+| Event | Property | Value example | Rationale |
+|-------|----------|---------------|-----------|
+| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"` | Distinguish where signups originate — all implemented |
+| `signup` | `plan` | `"free"`, `"developers"`, `"business"` | Plan finder recommended tier when CTA is clicked (`location` must be `plan-finder`; the Enterprise tier fires `get-demo` instead) |
 | `signup-login` | `location` | `"nav-header"` | Implemented — the header-bar Signup/Login button serves all widths (the mobile drawer login/signup buttons were removed in Aug 2026); split desktop vs mobile clicks with the device dimension |
-| `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"` | Implemented — leaves room for tagging other get-demo CTAs later |
+| `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"`, `"sms-calculator"`, `"plan-finder"` | Implemented — leaves room for tagging other get-demo CTAs later |
+| `get-demo` | `plan` | `"enterprise"` | Sent only from the plan finder's Enterprise CTA (`location` = `plan-finder`) |
 | `calculator-preset` | `preset` | `"10K"`, `"100K"`, `"500K"`, `"1M"` | See which preset is most popular |
 | `pricing-plan-finder-interact` | `first_action` | `"sms"`, `"log-retention"`, `"apps"`, `"members"`, `"mau"` | Which control drew the first plan-finder interaction on that page view |
 | `pricing-plan-finder-result` | `recommended_plan` | `"free"`, `"developers"`, `"business"`, `"enterprise"` | Recommended cloud tier after a qualifying control change |
@@ -88,8 +95,7 @@ Adding properties unlocks filtering in Plausible's dashboard and removes the nee
 | `pricing-plan-finder-result` | `log_retention` | `"1"`, `"60"`, `"180"` | Log retention days at time of event |
 | `pricing-plan-finder-result` | `apps`, `members` | numeric (e.g. `10` for 10+) | Effective app/member counts |
 | `pricing-plan-finder-result` | `mau` | numeric or `"unlimited"` | MAU used for recommendation, or unlimited when slider locked |
-| `signup-calculator` | `location` | `"hero"`, `"bottom-cta"` | Two CTAs share the same event name |
-| `contact-form-submit` | `page` | `"schedule-demo"`, `"pricing"` | Form appears on multiple pages |
+| `contact-form-submit` | `page` | `"schedule-demo"`, `"pricing"` | Form appears on multiple pages — not yet implemented |
 
 To add a property, pass it as the second argument to `plausible()`:
 ```tsx
@@ -102,7 +108,7 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 
 | Gap | Recommendation |
 |-----|---------------|
-| `get-demo` / `signup-login` goals not registered | Both custom events fire from the site but only show in the Plausible dashboard's Goals panel after adding them as goals in the site settings. The old `login` goal no longer receives events (renamed to `signup-login` in Aug 2026) — keep it for history |
+| `get-demo` / `signup-login` / `calculator-open` goals not registered | These custom events fire from the site but only show in the Plausible dashboard's Goals panel after adding them as goals in the site settings. The retired goals (`login`, `tool-demo-click`, `tool-popup-signup-click`, `signup-hero`, `signup-calculator`) no longer receive events — keep them for history |
 | `tool-banner-click` / `tool-tag-click` destination is `/` | These are placeholder `href` values; update to real URLs and confirm event names still apply |
 | No page-context on `contact-form-submit` | The form is used on multiple pages (schedule-demo, pricing, etc.) — add a `page` property to distinguish |
 | Calculator interaction depth | Only preset clicks are tracked; slider changes are not — consider adding `calculator-result` event when the user sees the output |

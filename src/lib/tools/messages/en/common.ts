@@ -16,7 +16,7 @@ export const common = {
   faqHeading: 'FAQ',
   stepLabel: 'Step {n}.',
   demoCtaText: 'Building authentication into your app?',
-  demoCtaButton: 'Book a demo',
+  demoCtaButton: 'Start Building',
 } as const;
 
 export const registry = {

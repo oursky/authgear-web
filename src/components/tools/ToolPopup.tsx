@@ -54,7 +54,7 @@ export default function ToolPopup({ locale }: Props) {
           href="https://portal.authgear.com/"
           target="_blank"
           rel="noreferrer"
-          className="tool-popup-button plausible-event-name--tool-popup-signup-click"
+          className="tool-popup-button plausible-event-name--signup plausible-event-location--tool-popup"
         >
           <div>{t('popupStartFree')}</div>
         </a>

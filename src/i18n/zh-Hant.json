@@ -1462,7 +1462,7 @@
     "savingPerMonth": "節省 {amount} / 月",
     "month6CostLabel": "第 6 個月以上成本",
     "afterBioAdoption": "在 {pct}% 生物辨識採用後",
-    "ctaButton": "立即開始節省 — 免費開始 →"
+    "ctaButton": "立即開始節省 — 預約示範 →"
   },
   "Auth0Alternative": {
     "metaTitle": "Authgear 與 Auth0",

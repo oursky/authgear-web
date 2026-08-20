@@ -1462,7 +1462,7 @@
     "savingPerMonth": "saving {amount} / mo",
     "month6CostLabel": "Month 6+ Cost",
     "afterBioAdoption": "After {pct}% biometric adoption",
-    "ctaButton": "Start Saving Now — Free to Get Started →"
+    "ctaButton": "Start Saving Now — Get a Demo →"
   },
   "Auth0Alternative": {
     "metaTitle": "Authgear vs Auth0",
