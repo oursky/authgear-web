@@ -1,7 +1,11 @@
 # Plausible Analytics Tagging Plan
 
 > Audit of all custom events tracked on the Authgear marketing website.
-> All events are fired via `usePlausible()` from `next-plausible`. No CSS-class tracking.
+> Events are fired via Plausible's `script.tagged-events.js` (loaded in
+> `BaseLayout.astro`): static elements carry `plausible-event-name--<event>`
+> classes (see `src/components/nav/Button.astro`), with event properties as
+> `plausible-event-<prop>--<value>` classes; React islands call
+> `window.plausible()` directly.
 
 ---
 
@@ -10,8 +14,9 @@
 | Pattern | Meaning |
 |---------|---------|
 | `signup` | User clicks a sign-up / get-started CTA |
-| `login` | User clicks a log-in CTA |
+| `signup-login` | User clicks the combined Signup/Login CTA (goes to the portal) — renamed from `login` in Aug 2026; pre-rename clicks live under the old `login` goal |
 | `contact-form-submit` | User submits the contact / get-demo form |
+| `get-demo` | User clicks a get-a-demo CTA (goes to `/schedule-demo`) |
 | `signup-*` | Sign-up CTA specific to a page context |
 | `*-click` | Explicit click tracking on a UI element |
 | `calculator-*` | Interaction with the SMS cost calculator |
@@ -28,13 +33,14 @@ These indicate the user took a meaningful step toward becoming a customer.
 
 | Event | Component | Trigger | Destination |
 |-------|-----------|---------|-------------|
-| `signup` | `SiteNav` — mobile signup button | Click | `portal.authgear.com` |
-| `signup` | `HomePage` — hero CTA "Get Started" | Click | `portal.authgear.com` (with UTM) |
+| `signup` | `HomePage` — hero CTA "Get Started for Free" | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'home-hero'` |
 | `signup` | `LoginCustomizationPlayground` — preview hover-mask CTA | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'playground-preview-hover'` |
 | `signup` | `LoginCustomizationPlayground` — mobile top-right chip | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'playground-mobile-chip'`. Visible only at `< 900px`. |
 | `signup` | `PricingPageClient` — plan finder recommended-plan CTA | Click | Portal signup / pricing portal links / `schedule-demo` (Enterprise) — fires with `props.location = 'plan-finder'`, `props.plan` = `free` \| `developers` \| `business` \| `enterprise` |
-| `login` | `SiteNav` — mobile login button | Click | `portal.authgear.com` |
-| `login` | `SiteNav` — desktop login button | Click | `portal.authgear.com` |
+| `signup-login` | `SiteNav` — blue "Signup/Login" button (desktop + mobile header bar) | Click | `portal.authgear.com` — fires with `props.location = 'nav-header'` |
+| `get-demo` | `SiteNav` — desktop ghost "Get a Demo" link | Click | `/schedule-demo` — fires with `props.location = 'nav-desktop'` |
+| `get-demo` | `SiteNav` — mobile drawer "Get a Demo" button | Click | `/schedule-demo` — fires with `props.location = 'nav-mobile'` |
+| `get-demo` | `HomePage` — hero product switch "On your Server / Get in touch" chip | Click | `/schedule-demo` — fires with `props.location = 'home-product-switch'` |
 | `contact-form-submit` | `ContactForm` | Form submit (any page with `ContactForm`) | Internal API `/api/contact` |
 | `signup-hero` | `ReduceSmsOtpCostPage` — hero "Get Started Free →" | Click | `portal.authgear.com` (with UTM) |
 | `signup-calculator` | `ReduceSmsOtpCostPage` — hero "Calculate My Savings" | Click | `#Saving-Calculator` anchor |
@@ -71,9 +77,10 @@ Adding properties unlocks filtering in Plausible's dashboard and removes the nee
 
 | Event | Property to add | Value example | Rationale |
 |-------|----------------|---------------|-----------|
-| `signup` | `location` | `"nav-mobile"`, `"nav-desktop"`, `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"` | Distinguish where signups originate (playground variants implemented for desktop hover, mobile chip) |
+| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"` | Distinguish where signups originate — all implemented |
 | `signup` | `plan` | `"free"`, `"developers"`, `"business"`, `"enterprise"` | Plan finder recommended tier when CTA is clicked (`location` must be `plan-finder`) |
-| `login` | `location` | `"nav-mobile"`, `"nav-desktop"` | Same as above |
+| `signup-login` | `location` | `"nav-header"` | Implemented — the header-bar Signup/Login button serves all widths (the mobile drawer login/signup buttons were removed in Aug 2026); split desktop vs mobile clicks with the device dimension |
+| `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"` | Implemented — leaves room for tagging other get-demo CTAs later |
 | `calculator-preset` | `preset` | `"10K"`, `"100K"`, `"500K"`, `"1M"` | See which preset is most popular |
 | `pricing-plan-finder-interact` | `first_action` | `"sms"`, `"log-retention"`, `"apps"`, `"members"`, `"mau"` | Which control drew the first plan-finder interaction on that page view |
 | `pricing-plan-finder-result` | `recommended_plan` | `"free"`, `"developers"`, `"business"`, `"enterprise"` | Recommended cloud tier after a qualifying control change |
@@ -95,7 +102,7 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 
 | Gap | Recommendation |
 |-----|---------------|
-| Desktop signup button missing | The desktop nav has a "Get Demo" `Link` (goes to `/schedule-demo`) but no dedicated signup CTA — verify this is intentional |
+| `get-demo` / `signup-login` goals not registered | Both custom events fire from the site but only show in the Plausible dashboard's Goals panel after adding them as goals in the site settings. The old `login` goal no longer receives events (renamed to `signup-login` in Aug 2026) — keep it for history |
 | `tool-banner-click` / `tool-tag-click` destination is `/` | These are placeholder `href` values; update to real URLs and confirm event names still apply |
 | No page-context on `contact-form-submit` | The form is used on multiple pages (schedule-demo, pricing, etc.) — add a `page` property to distinguish |
 | Calculator interaction depth | Only preset clicks are tracked; slider changes are not — consider adding `calculator-result` event when the user sees the output |
@@ -107,10 +114,10 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 
 | Helper | File | Use case |
 |--------|------|---------|
-| `PlausibleLink` | `frontend/components/PlausibleLink.tsx` | Server components — tracked `<a>` |
-| `PlausibleButton` | `frontend/components/PlausibleButton.tsx` | Server components — tracked `<button>` |
-| `usePlausible()` | `next-plausible` | Client components — programmatic calls |
-| `PlausibleProvider` | `frontend/app/layout.tsx` | Root wrapper; domain from `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` |
+| `Button` (`plausibleEvent` / `plausibleLocation` props) | `src/components/nav/Button.astro` | Nav CTAs — emits `plausible-event-name--*` / `plausible-event-location--*` classes |
+| `plausible-event-name--*` class | any static element | Astro components — tagged-events class convention |
+| `window.plausible()` via `src/lib/plausible.ts` | React islands | Programmatic calls with props |
+| Script tag | `src/layouts/BaseLayout.astro` | Loads `script.tagged-events.js`; domain from `PUBLIC_PLAUSIBLE_DOMAIN` |
 
 ---
 

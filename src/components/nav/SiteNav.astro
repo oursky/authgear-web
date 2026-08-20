@@ -187,41 +187,36 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
 
     <div class="mobile-nav-buttons">
       <Button
-        href="https://portal.authgear.com/"
-        target="_blank"
-        variant="ghost"
-        plausibleEvent="login"
-        class="login mobile"
-      >
-        <div class="text-block-32">{t(locale, 'Navigation.loginMobile')}</div>
-      </Button>
-      <Button
-        href="https://portal.authgear.com/"
+        href={localizedPath(locale, '/schedule-demo')}
         variant="primary"
-        plausibleEvent="signup"
-        class="header-button-mobile signup"
+        plausibleEvent="get-demo"
+        plausibleLocation="nav-mobile"
+        class="header-button-mobile get-demo"
       >
-        {t(locale, 'Navigation.signupMobile')}
+        {t(locale, 'Navigation.getDemo')}
       </Button>
     </div>
   </nav>
 
   <div class="split-content header-right">
     <Button
-      href={localizedPath(locale, '/schedule-demo')}
-      variant="primary"
-      class="header-button"
-    >
-      {t(locale, 'Navigation.getDemo')}
-    </Button>
-    <Button
       href="https://portal.authgear.com/"
       target="_blank"
+      variant="primary"
+      plausibleEvent="signup-login"
+      plausibleLocation="nav-header"
+      class="header-button"
+    >
+      {t(locale, 'Navigation.signupLogin')}
+    </Button>
+    <Button
+      href={localizedPath(locale, '/schedule-demo')}
       variant="ghost"
-      plausibleEvent="login"
+      plausibleEvent="get-demo"
+      plausibleLocation="nav-desktop"
       class="login"
     >
-      <div>{t(locale, 'Navigation.signupLogin')}</div>
+      <div>{t(locale, 'Navigation.getDemo')}</div>
     </Button>
     <button
       type="button"
@@ -249,6 +244,20 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
   /* Fresh hamburger button — no Webflow inheritance. Fixed 40×40
      hit target, icon lines sized within the button. `position: relative`
      confines the inner absolute wrapper (if any) to the button itself. */
+  /* The Webflow export keyed the ghost nav-button styles to the old
+     `.plausible-event-name--login` class (selector:
+     `.nav-button.login.plausible-event-name--login`). Restated here so
+     the ghost button keeps its look regardless of which Plausible event
+     class it carries (e.g. `get-demo`). */
+  .nav-button.login {
+    flex: 0 auto;
+    transition: transform 0.35s, color 0.35s;
+    display: inline-flex;
+  }
+  .nav-button.login:hover {
+    transform: scale(0.97);
+  }
+
   .site-nav-toggle {
     display: none;
     position: relative;
@@ -305,6 +314,19 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     .site-nav-toggle {
       display: inline-flex;
     }
+    /* Size the drawer's Get a Demo button like the signup button it
+       replaced — the Webflow export keys those rules to the `.signup`
+       class (`.button-primary.header-button-mobile.signup`), so they
+       are restated here for the `.get-demo` modifier. */
+    .button-primary.header-button-mobile.get-demo {
+      flex: 1;
+      align-self: stretch;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+    }
     /* At mobile the .container-header switches to display: flex (from
        grid), so the grid-based justify-self: end in global.css no
        longer positions .header-right. Push it to the right edge with
@@ -314,9 +336,9 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
       margin-left: auto;
       justify-content: flex-end;
     }
-    /* Keep the Get a Demo CTA visible on mobile (primary conversion
-       action), hide only the Signup/Login ghost link — its mobile
-       equivalent lives inside the drawer as .mobile-nav-buttons. */
+    /* Keep the blue Signup/Login CTA visible on mobile (primary
+       conversion action), hide only the Get a Demo ghost link — its
+       mobile equivalent lives inside the drawer as .mobile-nav-buttons. */
     .split-content.header-right > a.nav-button {
       display: none;
     }

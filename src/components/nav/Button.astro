@@ -19,6 +19,13 @@ interface Props {
    * and matches the existing site convention.
    */
   plausibleEvent?: string;
+  /**
+   * Plausible `location` event property. Adds the
+   * `plausible-event-location--<value>` class so the tagged-events script
+   * sends `props.location` with the event. Only meaningful together with
+   * `plausibleEvent`.
+   */
+  plausibleLocation?: string;
   /** Extra class names (size / placement modifiers). */
   class?: string;
   'aria-label'?: string;
@@ -29,6 +36,7 @@ const {
   rel,
   variant,
   plausibleEvent,
+  plausibleLocation,
   class: extra,
   'aria-label': ariaLabel,
 } = Astro.props;
@@ -37,6 +45,9 @@ const base = variant === 'primary' ? 'button-primary w-button' : 'nav-button';
 const classList = [
   base,
   plausibleEvent ? `plausible-event-name--${plausibleEvent}` : null,
+  plausibleEvent && plausibleLocation
+    ? `plausible-event-location--${plausibleLocation}`
+    : null,
   extra,
 ]
   .filter(Boolean)
