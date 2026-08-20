@@ -236,7 +236,7 @@ export default function SmsCostWidget({ locale }: Props) {
         </div>
 
         <div className="sc-cta-row">
-          <a className="sc-cta-btn sc-cta-primary plausible-event-name--signup plausible-event-location--sms-cost-widget" href="https://accounts.portal.authgear.com/signup">
+          <a className="sc-cta-btn sc-cta-primary plausible-event-name--signup plausible-event-location--sms-cost-widget" href="https://portal.authgear.com/">
             {t('ctaStartFree')}
           </a>
           <a className="sc-cta-btn sc-cta-secondary plausible-event-name--sms-solutions-click" href="/solutions/reduce-sms-otp-cost/">

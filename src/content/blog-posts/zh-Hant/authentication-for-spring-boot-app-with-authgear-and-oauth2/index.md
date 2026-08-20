@@ -52,7 +52,7 @@ draft: false
 在開始之前，您將需要以下內容：
 
 - Java 17 或更高版本。您可以使用 <a href="https://sdkman.io/" target="_blank">SDKMAN！</a> 如果您還沒有安裝 Java，請安裝它。
-- **免費的 Authgear 帳號**。 <a href="https://accounts.portal.authgear.com/signup" target="_blank">報名</a> 如果您還沒有的話。
+- **免費的 Authgear 帳號**。 <a href="https://portal.authgear.com/" target="_blank">報名</a> 如果您還沒有的話。
 
 ## 第 1 部分：配置 Authgear
 

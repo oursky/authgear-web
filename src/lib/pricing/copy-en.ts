@@ -21,7 +21,7 @@ export const pricingCopyEn: PricingCopy = {
       {
         name: 'Free',
         priceLine: '$0',
-        cta: { label: 'Get Started', href: 'https://accounts.portal.authgear.com/signup', external: true },
+        cta: { label: 'Get Started', href: 'https://portal.authgear.com/', external: true },
         features: [
           'Unlimited MAUs',
           '100 SMS/WhatsApp Messages',

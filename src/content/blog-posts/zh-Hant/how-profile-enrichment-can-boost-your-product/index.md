@@ -48,7 +48,7 @@ Hooks 是以 **JavaScript / TypeScript** 撰寫的程式碼片段，會在身分
 
 假設你希望取得比使用者初次註冊時提供的基本資訊更細緻的資料。在這種情況下，你可以使用 Hook。這個 Hook 可以在使用者建立帳號後立刻執行（使用 <a href="https://docs.authgear.com/integrate/events-hooks/event-list#user.pre_create" target="_blank">user.pre_create</a> event），並串接地理位置資料 API 來蒐集更多人口統計資訊：城市、國家與時區。接著，Hook 會把這些額外資訊寫入**使用者檔案 custom attributes**。以下是實作步驟：
 
-Step 1. 請先確認你有 Authgear 帳號。若還沒有，可到 Authgear 官網<a href="https://accounts.portal.authgear.com/signup" target="_blank">免費建立</a>。接著登入你的 <a href="https://portal.authgear.com/" target="_blank">Authgear dashboard</a>，這是你管理 App 驗證功能的控制中心。
+Step 1. 請先確認你有 Authgear 帳號。若還沒有，可到 Authgear 官網<a href="https://portal.authgear.com/" target="_blank">免費建立</a>。接著登入你的 <a href="https://portal.authgear.com/" target="_blank">Authgear dashboard</a>，這是你管理 App 驗證功能的控制中心。
 
 Step 2. 前往 **User Profile** → **Custom Attributes** 頁面。
 

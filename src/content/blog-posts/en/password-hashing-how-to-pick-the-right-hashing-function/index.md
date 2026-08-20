@@ -210,4 +210,4 @@ The last but not least recommendation for protecting user authentication on your
 
 Authgear offers a tested and trusted Authentication-as-a-Service solution that you can try for free today. They remove the stress of trying to find out what hash algorithm is right and safe for your use case. Authgear uses up-to-date hashing and application security practices.
 
-In addition to username and password-based authentication, a third-party authentication service provider such as Authgear, offers other secure authentication methods like SMS and Email OTP, TOTP, and biometric authentication. [Create a free account](https://accounts.portal.authgear.com/signup) or use the [contact form](/schedule-demo) on Authgear’s site to get started.
+In addition to username and password-based authentication, a third-party authentication service provider such as Authgear, offers other secure authentication methods like SMS and Email OTP, TOTP, and biometric authentication. [Create a free account](https://portal.authgear.com/) or use the [contact form](/schedule-demo) on Authgear’s site to get started.

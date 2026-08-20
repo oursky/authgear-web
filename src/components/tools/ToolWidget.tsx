@@ -42,7 +42,7 @@ export default function ToolWidget({ locale, src, iframeTitle, height, policy, i
           <div className="tools-demo-cta">
             <p className="tools-demo-cta__text">{t('demoCtaText')}</p>
             <a
-              href="https://accounts.portal.authgear.com/signup"
+              href="https://portal.authgear.com/"
               target="_blank"
               rel="noopener"
               className="tools-demo-cta__button plausible-event-name--signup plausible-event-location--tool-widget"

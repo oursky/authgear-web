@@ -116,4 +116,4 @@ SMS 訊息未進行端對端加密。因此，政府和行動服務提供者實�
 
 Authgear 是一種客戶身分和存取管理解決方案，具有您的應用程式所需的所有安全性和使用者管理功能。透過將您的軟體或應用程式與Authgear集成，您可以輕鬆實現多種身份驗證方式，例如SMS OTP、WhatsApp OTP、社交登入、生物識別身份驗證等，不僅提供流暢的用戶體驗，更重要的是增強資料安全性、提高用戶對話率並降低成本。
 
-<a href="/schedule-demo/" target="_blank">Request a demo</a> or <a href="https://accounts.portal.authgear.com/signup" target="_blank">sign up for a free</a> trial to see how you can benefit from Authgear.
+<a href="/schedule-demo/" target="_blank">Request a demo</a> or <a href="https://portal.authgear.com/" target="_blank">sign up for a free</a> trial to see how you can benefit from Authgear.

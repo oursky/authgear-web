@@ -52,7 +52,7 @@ This example uses <a href="https://docs.spring.io/spring/docs/current/spring-fra
 Before you get started, you will need the following:
 
 - Java 17 or higher. You can use <a href="https://sdkman.io/" target="_blank">SDKMAN!</a> to install Java if you don't have it already.
-- A **free Authgear account**. <a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up</a> if you don't have one already.
+- A **free Authgear account**. <a href="https://portal.authgear.com/" target="_blank">Sign up</a> if you don't have one already.
 
 ## Part 1: Configure Authgear
 

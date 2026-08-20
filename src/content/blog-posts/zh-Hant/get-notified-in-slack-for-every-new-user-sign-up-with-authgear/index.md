@@ -21,7 +21,7 @@ draft: false
 
 ## Prerequisites
 
-- **Authgear 帳號：** 如果你還沒有帳號，可以註冊<a href="https://accounts.portal.authgear.com/signup?_ga=2.4973620.602174723.1690789558-1174359617.1686657394" target="_blank">免費 Authgear 帳號</a>。
+- **Authgear 帳號：** 如果你還沒有帳號，可以註冊<a href="https://portal.authgear.com/" target="_blank">免費 Authgear 帳號</a>。
 - **在 Authgear 中設定一個應用程式**。無論是 Web、行動或桌面應用都可使用。若你還沒有任何串接 Authgear 的應用，可依照 <a href="https://docs.authgear.com/get-started/start-building" target="_blank">Authgear Start Building</a> 建立。
 - **Slack 帳號：** 若你尚未有 Slack 帳號，可到 [這裡](https://slack.com/get-started) 免費註冊，並前往 Slack 的 <a href="https://slack.com/get-started#/createnew" target="_blank">Get Started page</a>。
 - **Slack workspace：** 你需要可管理該 workspace 的權限。若你正在建立全新 workspace，可參考<a href="https://slack.com/help/articles/206845317-Create-a-Slack-workspace" target="_blank">這份指南</a>。

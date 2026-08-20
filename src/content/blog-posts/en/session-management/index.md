@@ -123,4 +123,4 @@ A lot can go wrong when implementing session management and data breaches result
 
 Let Authgear secure session management and the overall security of your apps. Authgear not only follows cybersecurity best practices to ensure that your users’ personal data is well-protected but also provides various authentication and user management features, including <a href="/features/biometric-authentication" target="_blank">biometric authentication</a>, <a href="/features/social-login" target="_blank">social login</a>, <a href="/features/passkeys" target="_blank">passkeys</a>, <a href="/features/whatsapp-otp" target="_blank">WhatsApp OTP</a>, and more, to make sure that you can deliver a secure yet frictionless digital experience to your users.
 
-<a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up for a free trial</a> or <a href="/schedule-demo/" target="_blank">contact us</a> to see how your app can benefit from integrating with Authgear.
+<a href="https://portal.authgear.com/" target="_blank">Sign up for a free trial</a> or <a href="/schedule-demo/" target="_blank">contact us</a> to see how your app can benefit from integrating with Authgear.

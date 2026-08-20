@@ -135,4 +135,4 @@ draft: false
 
 雖然整合只涉及兩個功能，但如果我們決心讓密鑰的使用體驗像密碼一樣簡單易用，這並不是一件容易的事。對於想要在其 Web 或應用程式上啟用金鑰的開發人員來說，平台之間相容性的差異和錯誤處理的不一致是一個挑戰。
 
-如果穩健性對您的應用程式和使用者至關重要，那麼手動實施您的實作可能並不好。 <a href="https://accounts.portal.authgear.com/signup" target="_blank">開始免費試用</a> 或者 <a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a> 了解如何從 Authgear 中受益，並為您的用戶提供順暢的體驗，而不會遇到任何麻煩。
+如果穩健性對您的應用程式和使用者至關重要，那麼手動實施您的實作可能並不好。 <a href="https://portal.authgear.com/" target="_blank">開始免費試用</a> 或者 <a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a> 了解如何從 Authgear 中受益，並為您的用戶提供順暢的體驗，而不會遇到任何麻煩。

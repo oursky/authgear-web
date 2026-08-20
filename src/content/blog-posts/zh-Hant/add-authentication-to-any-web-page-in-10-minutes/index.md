@@ -40,7 +40,7 @@ SPA 應用程式的身份驗證實作由兩部分組成。在第一部分中，�
 
 ### 建立 Authgear 帳戶
 
-您需要做的第一件事是創建一個 <a href="https://accounts.portal.authgear.com/signup" target="_blank">Authgear帳戶</a> 開始使用 <a href="https://portal.authgear.com/" target="_blank">Authgear 的門戶</a> 免費。
+您需要做的第一件事是創建一個 <a href="https://portal.authgear.com/" target="_blank">Authgear帳戶</a> 開始使用 <a href="https://portal.authgear.com/" target="_blank">Authgear 的門戶</a> 免費。
 
 ### 在入口網站中建立應用程式
 

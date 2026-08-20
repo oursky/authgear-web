@@ -160,4 +160,4 @@ Moreover, developers can also easily configure two-factor authentication, as sho
 ![](./figure-6.webp)
 <!--/FIGURE-->
 
-<a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up</a> now to easily enable MFA with Authgear or <a href="/schedule-demo/" target="_blank">contact us</a> to chat more about the solution that works best for you and your security requirements.
+<a href="https://portal.authgear.com/" target="_blank">Sign up</a> now to easily enable MFA with Authgear or <a href="/schedule-demo/" target="_blank">contact us</a> to chat more about the solution that works best for you and your security requirements.

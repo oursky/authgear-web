@@ -210,4 +210,4 @@ Argon2 輸入參數包括密碼、salt、記憶體成本、時間成本、平行
 
 Authgear 提供經過測試且值得信賴的身份驗證即服務解決方案，您現在就可以免費試用。它們消除了嘗試找出哪種雜湊演算法對於您的用例來說是正確且安全的壓力。 Authgear 使用最新的雜湊和應用程式安全實踐。
 
-除了基於使用者名稱和密碼的身份驗證之外，Authgear 等第三方身份驗證服務提供者還提供其他安全身份驗證方法，例如簡訊和電子郵件 OTP、TOTP 和生物識別身份驗證。 [建立免費帳戶](https://accounts.portal.authgear.com/signup) 或使用 Authgear 網站上的[聯絡表單](/schedule-demo) 開始使用。
+除了基於使用者名稱和密碼的身份驗證之外，Authgear 等第三方身份驗證服務提供者還提供其他安全身份驗證方法，例如簡訊和電子郵件 OTP、TOTP 和生物識別身份驗證。 [建立免費帳戶](https://portal.authgear.com/) 或使用 Authgear 網站上的[聯絡表單](/schedule-demo) 開始使用。

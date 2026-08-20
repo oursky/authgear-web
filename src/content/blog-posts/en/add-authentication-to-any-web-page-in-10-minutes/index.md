@@ -40,7 +40,7 @@ The implementation of authentication for SPA apps consists of two parts. In the 
 
 ### Create an Authgear Account
 
-The first thing you’ll need to do is create an <a href="https://accounts.portal.authgear.com/signup" target="_blank">Authgear account</a> to get started with <a href="https://portal.authgear.com/" target="_blank">Authgear’s Portal</a> for free.
+The first thing you’ll need to do is create an <a href="https://portal.authgear.com/" target="_blank">Authgear account</a> to get started with <a href="https://portal.authgear.com/" target="_blank">Authgear’s Portal</a> for free.
 
 ### Create an application in the Portal
 

@@ -48,7 +48,7 @@ By default, Authgear has <a href="https://docs.authgear.com/integrate/user-profi
 
 Suppose you wanted to gather more detailed information about your users than the basic details they gave when they first registered for their accounts. In this case, you could use a Hook. This Hook could activate right after a user creates an account (using <a href="https://docs.authgear.com/integrate/events-hooks/event-list#user.pre_create" target="_blank">user.pre_create</a> event), and it would link to location data APIs to collect more demographic data about them: city, country, and timezone. This Hook would then put this extra information into the **user's profile custom attributes**. Here are easy steps on how to achieve this:
 
-Step 1. Make sure that you have an Authgear account. If you don't have one, you can <a href="https://accounts.portal.authgear.com/signup" target="_blank">create it for free</a> on the Authgear website. Start by logging into your <a href="https://portal.authgear.com/" target="_blank">Authgear dashboard</a>. This is your command center for managing authentication for your apps.
+Step 1. Make sure that you have an Authgear account. If you don't have one, you can <a href="https://portal.authgear.com/" target="_blank">create it for free</a> on the Authgear website. Start by logging into your <a href="https://portal.authgear.com/" target="_blank">Authgear dashboard</a>. This is your command center for managing authentication for your apps.
 
 Step 2. Go to **User Profile** → **Custom Attributes** page.
 

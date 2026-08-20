@@ -104,7 +104,7 @@ npm install @authgear/react-native
 
 ### 3. Configure Authgear
 
-Next, configure the Authgear SDK with the credentials from your Authgear application. To get the credentials, you’ll need to [sign up](https://accounts.portal.authgear.com/signup) for an Authgear account and create an application.
+Next, configure the Authgear SDK with the credentials from your Authgear application. To get the credentials, you’ll need to [sign up](https://portal.authgear.com/) for an Authgear account and create an application.
 
 You can create an application on the Authgear Portal by navigating to **Application** > **Add Application**. Then select **Native App** and click **Save**.
 

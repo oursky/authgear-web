@@ -21,7 +21,7 @@ As **Authgear** is an identity-as-a-service (IDaaS) platform that supports vario
 
 ## Prerequisites
 
-- **Authgear Account:** If you do not have one, you can sign up for a <a href="https://accounts.portal.authgear.com/signup?_ga=2.4973620.602174723.1690789558-1174359617.1686657394" target="_blank">free Authgear account</a>.
+- **Authgear Account:** If you do not have one, you can sign up for a <a href="https://portal.authgear.com/" target="_blank">free Authgear account</a>.
 - **Configure an application in Authgear**. Any web-based, mobile, or desktop application will work. If you don't have any applications that use Authgear, you can create one by following the <a href="https://docs.authgear.com/get-started/start-building" target="_blank">Authgear Start Building</a> page.
 - **Slack account:** If don't have a Slack account, sign up for a new free one [here](https://slack.com/get-started) and go to the Slack <a href="https://slack.com/get-started#/createnew" target="_blank">Get Started page</a>.
 - **Slack workspace:** You need access to a Slack workspace where you're an admin. If you are creating just a new workspace, follow <a href="https://slack.com/help/articles/206845317-Create-a-Slack-workspace" target="_blank">this guide</a>.

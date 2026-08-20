@@ -28,7 +28,7 @@ You can check the end product of this guide in [here](https://authgear-webflow.w
 
 ### Prerequisites
 
-- An active **Authgear account**. If you don't have one, you can [sign up for free](https://accounts.portal.authgear.com/signup).
+- An active **Authgear account**. If you don't have one, you can [sign up for free](https://portal.authgear.com/).
 - A **Webflow account** and a project you want to add authentication to.
 
 ## Step 1: Create Your Authgear Project
@@ -156,4 +156,4 @@ Here is the complete, final script to be placed in your Webflow project's **Foot
 
 By following this guide, you’ve seen how Authgear can seamlessly fill the gap left by Webflow’s native User Accounts, enabling you to offer secure, intuitive authentication and personalized experiences for your users. With features like easy integration, customizable UI, and robust user management, Authgear empowers you to protect your content and build thriving communities with confidence.
 
-Ready to secure your Webflow site and delight your users? <a href="https://accounts.portal.authgear.com/signup" target="_blank">Sign up for Authgear for free</a> and start building today!
+Ready to secure your Webflow site and delight your users? <a href="https://portal.authgear.com/" target="_blank">Sign up for Authgear for free</a> and start building today!

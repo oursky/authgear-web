@@ -19,7 +19,7 @@ export const pricingCopyZhHant: PricingCopy = {
       {
         name: '免費版',
         priceLine: '$0',
-        cta: { label: '立即開始', href: 'https://accounts.portal.authgear.com/signup', external: true },
+        cta: { label: '立即開始', href: 'https://portal.authgear.com/', external: true },
         features: [
           '無限 MAU',
           '100 則 SMS/WhatsApp 訊息',

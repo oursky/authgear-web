@@ -19,7 +19,7 @@ export default function ToolReadyTo({ locale, title, subtitle, href, ctaLabel }:
         <p className="paragraph-13">{resolvedTitle}</p>
         <p className="paragraph-12 speciial-color">{resolvedSubtitle}</p>
         <a
-          href={href ?? 'https://accounts.portal.authgear.com/signup'}
+          href={href ?? 'https://portal.authgear.com/'}
           className="gallery-button gallery-page-button w-button"
         >
           {ctaLabel ?? t('getStartedFree')}

@@ -160,4 +160,4 @@ Authgear 為希望在其應用程式中添加身份驗證的開發人員提供�
 ![](./figure-6.webp)
 <!--/FIGURE-->
 
-<a href="https://accounts.portal.authgear.com/signup" target="_blank">立即註冊</a>，輕鬆啟用 Authgear 的 MFA，或<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>，進一步討論最適合您和您的安全需求的解決方案。
+<a href="https://portal.authgear.com/" target="_blank">立即註冊</a>，輕鬆啟用 Authgear 的 MFA，或<a href="/zh-hant/schedule-demo/" target="_blank">聯絡我們</a>，進一步討論最適合您和您的安全需求的解決方案。

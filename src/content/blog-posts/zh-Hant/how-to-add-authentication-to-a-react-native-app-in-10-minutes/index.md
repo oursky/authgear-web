@@ -104,7 +104,7 @@ npm install @authgear/react-native
 
 ### 3.配置Authgear
 
-接下來，使用 Authgear 應用程式中的憑證來設定 Authgear SDK。要取得憑證，您需要 [sign up](https://accounts.portal.authgear.com/signup) 取得 Authgear 帳戶並建立一個應用程式。
+接下來，使用 Authgear 應用程式中的憑證來設定 Authgear SDK。要取得憑證，您需要 [sign up](https://portal.authgear.com/) 取得 Authgear 帳戶並建立一個應用程式。
 
 您可以透過導覽至 **應用程式** > **新增應用程式** 在 Authgear 入口網站上建立應用程式。然後選擇**本機應用程式**並點擊**儲存**。
 
