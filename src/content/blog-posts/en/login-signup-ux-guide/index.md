@@ -129,7 +129,7 @@ Finally, remember **not to overwhelm** with too many options on one screen. Offe
 
 The **sign-up flow** is where a potential user becomes an actual user – every extra field or confusing step here can hurt your conversion. Here’s how to optimize signup UX:
 
-**Shortcut:** Authgear ships pre-built signup and login pages that already follow the practices below — social login, passkeys, and MFA included. <a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">Try it free</a> and customize the UI to your brand.
+**Shortcut:** Authgear ships pre-built signup and login pages that already follow the practices below, with social login, passkeys, and MFA included. <a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">Try it free</a> and customize the UI to your brand.
 
 ### Keep It Simple & Essential
 

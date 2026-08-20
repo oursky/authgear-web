@@ -329,19 +329,19 @@
   },
   "ScheduleDemo": {
     "title": "預約展示 — Authgear",
-    "description": "預約 Authgear 個人化展示，了解安全存取、簡化入職流程，以及 Authgear 如何融入您的延伸勞動力架構。",
-    "heroTitle": "為您的延伸勞動力建立安全、流暢、賦能的存取",
+    "description": "預約 Authgear 個人化展示：阻擋機器人與帳戶盜用、讓真實用戶順暢登入，並大幅降低驗證成本。",
+    "heroTitle": "防詐欺、擋攻擊，驗證成本更低",
     "heroLede": "預約個人化展示，了解:",
-    "feature1Label": "安全存取:",
-    "feature1Desc": "透過細緻的權限控管與多因子驗證，保護您的資料與資源。",
-    "feature2Label": "簡化入職流程:",
-    "feature2Desc": "透過自動化供應與自助入口，讓延伸團隊即刻上手。",
-    "feature3Label": "無縫協作:",
-    "feature3Desc": "打破部門藩籬，讓整個勞動力團隊順暢協作。",
-    "feature4Label": "減輕 IT 負擔:",
-    "feature4Desc": "釋放 IT 資源，為所有人簡化存取管理。",
-    "feature5Label": "擴展性與彈性:",
-    "feature5Desc": "因應獨特需求，與既有系統無縫整合。",
+    "feature1Label": "攻擊與詐欺防護:",
+    "feature1Desc": "內建速率限制與智慧 MFA，阻擋撞庫攻擊、機器人註冊、帳戶盜用與 SMS Pumping 詐騙。",
+    "feature2Label": "真實用戶順暢登入:",
+    "feature2Desc": "通行密鑰、社交登入與生物辨識，讓真正的客戶快速登入，把攻擊者擋在門外。",
+    "feature3Label": "更低的驗證成本:",
+    "feature3Desc": "將 OTP 改經 WhatsApp 與電子郵件發送，取代簡訊，大幅降低驗證費用。",
+    "feature4Label": "數天內上線，而非數月:",
+    "feature4Desc": "內建可自訂的註冊與登入頁面，不必自行開發與維護驗證程式碼。",
+    "feature5Label": "隨業務成長擴展:",
+    "feature5Desc": "從新創到百萬用戶，定價可預期，沒有意外費用。",
     "trustedBy": "信賴 Authgear 的客戶"
   },
   "Security": {
@@ -1462,7 +1462,7 @@
     "savingPerMonth": "節省 {amount} / 月",
     "month6CostLabel": "第 6 個月以上成本",
     "afterBioAdoption": "在 {pct}% 生物辨識採用後",
-    "ctaButton": "立即開始節省 — 預約示範 →"
+    "ctaButton": "立即開始節省：預約示範 →"
   },
   "Auth0Alternative": {
     "metaTitle": "Authgear 與 Auth0",

@@ -17,25 +17,25 @@ export const common = {
   // when a slug has no entry.
   popupPitches: {
     'base64-decode-encode':
-      'Decoding tokens by hand? Authgear issues and validates OIDC tokens for you — add login to your app in minutes.',
+      'Decoding tokens by hand? Authgear issues and validates OIDC tokens for you. Add login to your app in minutes.',
     'jwt-jwe-debugger':
-      'Debugging JWTs? Authgear issues, rotates, and validates these tokens for you — OIDC-compliant out of the box.',
+      'Debugging JWTs? Authgear issues, rotates, and validates these tokens for you, OIDC-compliant out of the box.',
     'jwk-generator':
-      'Hand-rolling JWKs? Authgear manages keys and rotation for you — a compliant OIDC provider in minutes.',
+      'Hand-rolling JWKs? Authgear manages keys and rotation for you. Get a compliant OIDC provider in minutes.',
     'oidc-discovery-endpoint':
-      'Exploring OIDC endpoints? Authgear gives you a fully compliant OIDC provider — discovery, JWKS, and tokens managed for you.',
+      'Exploring OIDC endpoints? Authgear gives you a fully compliant OIDC provider: discovery, JWKS, and tokens managed for you.',
     'totp-authenticator':
-      'Add TOTP MFA to your app in an afternoon — Authgear ships authenticator support out of the box.',
+      'Add TOTP MFA to your app in an afternoon. Authgear ships authenticator support out of the box.',
     'password-hash-generator':
-      'Never store password hashes yourself again — Authgear handles hashing, storage, and account security for you.',
+      'Never store password hashes yourself again. Authgear handles hashing, storage, and account security for you.',
     'hmac-signature-generator-verifier':
       'Signing requests by hand? Authgear secures your app with standards-based tokens and sessions.',
     'ssl-checker':
-      'Certs sorted? Add secure, managed login to your site with Authgear — SSO, MFA, passkeys included.',
+      'Certs sorted? Add secure, managed login to your site with Authgear. SSO, MFA, and passkeys included.',
     'uuidv7-generator':
-      'Generating user IDs? Authgear gives every user a secure identity — signup, SSO, and MFA out of the box.',
+      'Generating user IDs? Authgear gives every user a secure identity: signup, SSO, and MFA out of the box.',
     'passkey-demo':
-      'Like passkeys? Ship them to your users in an afternoon with Authgear — no protocol code required.',
+      'Like passkeys? Ship them to your users in an afternoon with Authgear. No protocol code required.',
     'sms-cost-calculator':
       'Worried about OTP costs? Authgear routes OTPs via WhatsApp and email to cut your SMS bill.',
   },

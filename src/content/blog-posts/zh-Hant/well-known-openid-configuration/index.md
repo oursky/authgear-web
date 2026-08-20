@@ -265,7 +265,7 @@ print(config['jwks_uri'])
 
 探索讓 OIDC 整合具韌性且可自我設定。多數成熟的 OAuth／OIDC 函式庫（Passport.js、python-social-auth、Spring Security 等）接受 issuer URL 後，會自動抓取探索文件並完成設定。
 
-**需要一個把探索做對的 issuer？** Authgear 提供完全合規的 OIDC 供應商——探索文件、JWKS 與權杖端點都替你管理。<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">免費開始</a>，把函式庫指向你的 issuer URL 即可。
+**需要一個把探索做對的 issuer？** Authgear 提供完全合規的 OIDC 供應商，探索文件、JWKS 與權杖端點都替你管理。<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">免費開始</a>，把函式庫指向你的 issuer URL 即可。
 
 ## 探索失敗時常見原因
 

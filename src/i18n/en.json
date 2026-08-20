@@ -329,19 +329,19 @@
   },
   "ScheduleDemo": {
     "title": "Schedule a Demo — Authgear",
-    "description": "Request a personalized Authgear demo. We'll show you secure access, streamlined onboarding, and how Authgear fits into your extended-workforce stack.",
-    "heroTitle": "Secure, streamline & empower your extended workforce",
+    "description": "Request a personalized Authgear demo. See how to block bots and account takeovers, give real users frictionless login, and cut your authentication costs.",
+    "heroTitle": "Stop fraud and cut your auth costs",
     "heroLede": "Request a personalized demo and discover:",
-    "feature1Label": "Secure access:",
-    "feature1Desc": "Secure your data and resources with granular controls and multi-factor authentication.",
-    "feature2Label": "Streamlined onboarding:",
-    "feature2Desc": "Get your extended team productive instantly with automated provisioning and self-service portals.",
-    "feature3Label": "Seamless collaboration:",
-    "feature3Desc": "Break down silos and empower collaboration across your entire workforce.",
-    "feature4Label": "Reduced IT burden:",
-    "feature4Desc": "Free up IT resources and simplify access management for everyone.",
-    "feature5Label": "Scalability and flexibility:",
-    "feature5Desc": "Adapt to your unique needs and integrate seamlessly with existing systems.",
+    "feature1Label": "Attack & fraud protection:",
+    "feature1Desc": "Stop credential stuffing, bot signups, account takeovers, and SMS-pumping fraud with built-in rate limiting and smart MFA.",
+    "feature2Label": "Frictionless login for real users:",
+    "feature2Desc": "Passkeys, social login, and biometrics get genuine customers in fast and keep attackers out.",
+    "feature3Label": "Lower authentication costs:",
+    "feature3Desc": "Route OTPs through WhatsApp and email instead of SMS and watch your verification bill shrink.",
+    "feature4Label": "Launch in days, not months:",
+    "feature4Desc": "Pre-built, customizable signup and login pages mean no auth code to write or maintain.",
+    "feature5Label": "Scales with your business:",
+    "feature5Desc": "From startup to millions of users, with predictable pricing and no surprise fees.",
     "trustedBy": "Authgear is trusted by"
   },
   "Security": {
@@ -1462,7 +1462,7 @@
     "savingPerMonth": "saving {amount} / mo",
     "month6CostLabel": "Month 6+ Cost",
     "afterBioAdoption": "After {pct}% biometric adoption",
-    "ctaButton": "Start Saving Now — Get a Demo →"
+    "ctaButton": "Start Saving Now: Get a Demo →"
   },
   "Auth0Alternative": {
     "metaTitle": "Authgear vs Auth0",
