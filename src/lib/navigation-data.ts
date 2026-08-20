@@ -124,7 +124,7 @@ export const footerStrings: Record<string, Record<string, string>> = {
   productsTitle: { en: 'Products', 'zh-Hant': '產品' },
   home: { en: 'Home', 'zh-Hant': '首頁' },
   pricing: { en: 'Pricing', 'zh-Hant': '定價' },
-  samlMigration: { en: 'SAML Migration', 'zh-Hant': 'SAML 遷移' },
+  migrateToAuthgear: { en: 'Migrate to Authgear', 'zh-Hant': '遷移至 Authgear' },
   alternativeTitle: { en: 'alternative', 'zh-Hant': '產品替代方案' },
   oktaAlternative: { en: 'Okta Alternative', 'zh-Hant': 'Okta 替代方案' },
   auth0Alternative: { en: 'Auth0 Alternative', 'zh-Hant': 'Auth0 替代方案' },
