@@ -137,7 +137,7 @@ SMS OTP 對用戶友好，使用戶更容易登入線上應用程式和服務。
 - 開箱即用的**跨平台支援**（桌面及行動端）。
 - **漸進式推出**：在遷移期間保留密碼/OTP 作為備用方案。
 
-<a href="https://portal.authgear.com/" target="_blank">*立即透過 Authgear 啟用通行密鑰，推出能夠抵禦網路釣魚的登入方式。*</a>
+<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">*立即透過 Authgear 啟用通行密鑰，推出能夠抵禦網路釣魚的登入方式。*</a>
 
 <h3 id="whatsapp">2) WhatsApp OTP——覆蓋範圍最廣且交付成本低於 SMS</h3>
 
@@ -159,7 +159,7 @@ SMS OTP 對用戶友好，使用戶更容易登入線上應用程式和服務。
 - 在 Portal 中**簡單切換**；可與 SMS/電子郵件/通行密鑰並行使用。
 - 內建**分析及防濫用**控制機制。
 
-<a href="https://portal.authgear.com/" target="_blank">*透過 Authgear 將 OTP 切換至 WhatsApp，降低成本並提升交付率。*</a>
+<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">*透過 Authgear 將 OTP 切換至 WhatsApp，降低成本並提升交付率。*</a>
 
 <h3 id="social-login">3) 社交登入——首次注冊速度最快</h3>
 
@@ -183,7 +183,7 @@ SMS OTP 對用戶友好，使用戶更容易登入線上應用程式和服務。
 - **風險控制及 MFA 附加功能**（例如，鏈接到通行密鑰進行升級驗證）。
 - **統一用戶資料庫**——無需處理複雜的自定義 OAuth 流程。
 
-<a href="https://portal.authgear.com/" target="_blank">*透過 Authgear 添加一鍵社交登入，消除注冊阻力。*</a>
+<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">*透過 Authgear 添加一鍵社交登入，消除注冊阻力。*</a>
 
 <h3 id="compare">快速比較</h3>
 
@@ -241,5 +241,5 @@ SMS OTP 是驗證登入和交易最常見的方式之一。
 
 ****透過 Authgear，您可以在數天內——而非數月——推出**通行密鑰**、**WhatsApp OTP** 和**社交登入**。從通行密鑰開始，獲得安全性和轉換率的最大提升；在 SMS 成本高或不可靠的地方添加 WhatsApp OTP；並保留社交登入用於即時注冊。
 
-[獲取即時演示](/zh-hant/schedule-demo/)，了解您的團隊能夠以多快的速度推出安全、低阻力的登入方式。
+<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">建立免費帳號</a>親自試用這些驗證方式，或<a href="/zh-hant/schedule-demo/" class="plausible-event-name--get-demo plausible-event-location--post-inline">獲取即時演示</a>，了解您的團隊能夠以多快的速度推出安全、低阻力的登入方式。
 
