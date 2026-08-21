@@ -55,7 +55,8 @@ These indicate the user took a meaningful step toward becoming a customer.
 | `signup` | `SmsCostWidget` — "Start Free" CTA | Click | `portal.authgear.com` — fires with `props.location = 'sms-cost-widget'` |
 | `signup` | `ToolWidget` — "Building authentication into your app? / Start Building" banner CTA | Click | `portal.authgear.com` — fires with `props.location = 'tool-widget'`. Replaced the `tool-demo-click` "Book a demo" CTA in Aug 2026 |
 | `signup` | `ToolPopup` — "Start building for Free" | Click | `portal.authgear.com` — fires with `props.location = 'tool-popup'`. Popup body is per-tool (`Tools.common.popupPitches`), shows after 15s, dismissal persists 7 days |
-| `signup` | Blog posts — inline CTA (what-is-jwks, well-known-openid-configuration, login-signup-ux-guide; EN + zh-Hant) | Click | `portal.authgear.com` — fires with `props.location = 'post-inline'` |
+| `signup` | Blog posts — inline CTA (what-is-jwks, well-known-openid-configuration, login-signup-ux-guide, top-10-sso-providers, authentication-solutions-guide, authentication-as-a-service, oidc-vs-saml, sms-otp-vulnerabilities-and-alternatives; EN + zh-Hant) | Click | `portal.authgear.com` — fires with `props.location = 'post-inline'` |
+| `get-demo` | Blog posts — inline demo CTA (top-10-sso-providers, authentication-solutions-guide, authentication-as-a-service, sms-otp-vulnerabilities-and-alternatives; EN + zh-Hant) | Click | `/schedule-demo` — fires with `props.location = 'post-inline'` |
 
 ### Engagement events
 

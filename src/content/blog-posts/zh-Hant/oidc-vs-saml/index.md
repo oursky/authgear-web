@@ -285,9 +285,9 @@ SAML 以 XML assertion 與簽章驗證見長，適合瀏覽器型企業登入流
 
 **OIDC vs SAML** 的選擇不必複雜。若你主要開發現代 Web、行動或 API 應用，OIDC 通常更好整合；若是既有企業系統，SAML 仍是可靠且成熟的方案。
 
-許多企業同時使用兩者，以最小干擾方式推進現代化。若你希望在微服務、行動與舊系統間實現集中式身分管理，Authgear Cloud 可協助你簡化驗證策略並提升整體安全性。
+許多企業同時使用兩者，以最小干擾方式推進現代化。若協定選擇只是更大範圍平台評估的一環，可參考我們的[驗證方案完整指南](/zh-hant/post/authentication-solutions-guide)。若你希望在微服務、行動與舊系統間實現集中式身分管理，Authgear Cloud 可協助你簡化驗證策略並提升整體安全性。
 
-<a href="https://portal.authgear.com/" rel="https://portal.authgear.com/">立即開始你的 Authgear 免費試用</a>，統一所有應用的身分管理。
+<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">立即開始你的 Authgear 免費試用</a>，統一所有應用的身分管理。
 
 ## **FAQs**
 

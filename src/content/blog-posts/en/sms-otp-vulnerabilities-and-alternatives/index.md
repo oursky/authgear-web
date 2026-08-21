@@ -239,11 +239,11 @@ By integrating your apps with Authgear, you can implement a variety of authentic
 
 ## **Skip fragile SMS codes.**
 
-With Authgear you can roll out **Passkeys**, **WhatsApp OTP**, and **Social Login** in days—not months. Start with passkeys for the biggest lift in security and conversion, add WhatsApp OTP where SMS is costly or unreliable, and keep Social Login for instant signups.
+With Authgear you can roll out **Passkeys**, **WhatsApp OTP**, and **Social Login** in days, not months. Start with passkeys for the biggest lift in security and conversion, add WhatsApp OTP where SMS is costly or unreliable, and keep Social Login for instant signups.
 
-[Get a live demo](/schedule-demo/) to see how quickly your team can ship secure, low-friction login.
+<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">Create a free account</a> to try these methods yourself, or <a href="/schedule-demo/" class="plausible-event-name--get-demo plausible-event-location--post-inline">get a live demo</a> to see how quickly your team can ship secure, low-friction login.
 
 Working out the cost side? Estimate your savings with the [SMS cost reduction calculator](/solutions/reduce-sms-otp-cost).
 
-**Related reading:** [SMS OTP vs WhatsApp OTP](/post/sms-otp-vs-whatsapp-otp), [OTP bots explained](/post/otp-bot-explained), and [How much does 2FA cost?](/post/two-factor-authentication-cost).
+**Related reading:** [SMS OTP vs WhatsApp OTP](/post/sms-otp-vs-whatsapp-otp), [OTP bots explained](/post/otp-bot-explained), [How much does 2FA cost?](/post/two-factor-authentication-cost), and our [complete guide to authentication solutions](/post/authentication-solutions-guide).
 
