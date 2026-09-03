@@ -1,5 +1,5 @@
 export const base64 = {
-  metaTitle: 'Base64 解碼與編碼——免費線上工具 | Authgear',
+  metaTitle: 'Base64 解碼與編碼 | Authgear',
   metaDescription:
     '以精確字元集控制編解碼 Base64。適合檢視原始資料、轉換承載與除錯編碼問題的開發者工具。',
   heroTitle: 'Base64 解碼與編碼',

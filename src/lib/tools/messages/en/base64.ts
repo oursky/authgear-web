@@ -1,5 +1,5 @@
 export const base64 = {
-  metaTitle: 'Base64 Decode and Encode — Free Online Tool | Authgear',
+  metaTitle: 'Base64 Decode and Encode | Authgear',
   metaDescription:
     'Encode or decode Base64 with precise charset control. A developer-friendly tool for inspecting raw data, converting payloads, and debugging encoding issues.',
   heroTitle: 'Base64 Decode & Encode',
