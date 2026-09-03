@@ -1,7 +1,7 @@
 export const base64 = {
   metaTitle: 'Base64 Decode and Encode | Authgear',
   metaDescription:
-    'Encode or decode Base64 with precise charset control. A developer-friendly tool for inspecting raw data, converting payloads, and debugging encoding issues.',
+    'Decode Base64 to text or encode text to Base64 instantly, 100% in your browser. Base64URL for JWTs, UTF-8, UTF-16, ASCII and more. Nothing is uploaded.',
   heroTitle: 'Base64 Decode & Encode',
   heroDescription: 'Easily decode or encode Base64 strings directly in your browser.',
   iframeTitle: 'Base64 Encoder & Decoder',
