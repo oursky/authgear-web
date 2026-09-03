@@ -453,3 +453,10 @@ Check the `Server` response header. Nginx returns `Server: nginx`. The format of
 ## Summary
 
 A 502 Bad Gateway almost always means one of three things: the upstream server is not running, the proxy cannot reach it (wrong port, stale DNS, firewall), or the upstream is too slow. Check your upstream process status first, then your proxy error logs, then work outward from there. The `curl` commands and log snippets above will get you to the root cause quickly in most cases.
+
+**Related reading:**
+
+- [HTTP 504 Gateway Timeout](/post/http-504-gateway-timeout): the sibling error, when the upstream is reachable but too slow to respond
+- [HTTP 401 Unauthorized](/post/http-401-unauthorized): if a proxy strips the `Authorization` header, a 502 investigation often ends in a 401
+- [SSL Certificate Chain Explained](/post/ssl-certificate-chain): an incomplete chain on the upstream is a classic cause of `upstream SSL certificate verify error`
+- [Free SSL Checker](/tools/ssl-checker): verify the upstream's certificate chain in your browser
