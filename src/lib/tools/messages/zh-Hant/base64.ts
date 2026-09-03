@@ -1,7 +1,7 @@
 export const base64 = {
   metaTitle: 'Base64 解碼與編碼 | Authgear',
   metaDescription:
-    '在瀏覽器中即時解碼或編碼 Base64，資料不會上傳。支援 JWT 使用的 Base64URL，以及 UTF-8、UTF-16、ASCII 等字元集。',
+    '在瀏覽器中即時解碼或編碼 Base64，免費、開放原始碼、資料不會上傳。支援 JWT 使用的 Base64URL，以及 UTF-8、UTF-16、ASCII 等字元集。',
   heroTitle: 'Base64 解碼與編碼',
   heroDescription: '在瀏覽器中輕鬆將文字編碼或解碼為 Base64。',
   iframeTitle: 'Base64 編碼與解碼器',
