@@ -60,4 +60,12 @@ export const totp = {
     '6 位為常見標準（平衡易用與安全）。8 位熵稍高但消費型驗證器較少見。',
   faq6Title: '如何從 otpauth:// URI 取出密鑰？',
   faq6Body: 'otpauth:// URL 中的 secret= 參數即 base32 密鑰。',
+  faq7Title: '驗證器 App 是如何產生這些驗證碼的？',
+  faq7Body:
+    'Google Authenticator、Microsoft Authenticator、Authy 與 1Password 都使用與本工具相同的 RFC 6238 演算法：以共享密鑰加上目前的 30 秒時間區段計算 HMAC，再截短為 6 或 8 位數。因此只要密鑰相同，本頁顯示的驗證碼就會與你 App 上的一致。',
+  faq7GuidePart1: '完整原理請閱讀 ',
+  faq7GuideLinkLabel: '驗證器 App 是如何運作的',
+  faq7GuidePart2: '。想完全不用輸入驗證碼？試試 ',
+  faq7PasskeyLinkLabel: '通行密鑰示範',
+  faq7GuidePart3: '，體驗防釣魚的無密碼登入。',
 } as const;
