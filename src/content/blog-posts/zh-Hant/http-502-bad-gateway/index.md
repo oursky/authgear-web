@@ -364,3 +364,10 @@ RestartSec=5
 ## 摘要
 
 502 Bad Gateway 幾乎總是三者之一：**上游未執行**、**代理連不上上游**（錯埠、DNS 過期、防火牆）、或**上游過慢**。先查上游程序與代理錯誤日誌，再向外擴查。上文 `curl` 與日誌片段在多數情境可快速定位根因。
+
+**延伸閱讀：**
+
+- [HTTP 504 Gateway Timeout](/zh-hant/post/http-504-gateway-timeout)：上游連得上但回應太慢時的姊妹錯誤
+- [HTTP 401 Unauthorized](/zh-hant/post/http-401-unauthorized)：代理剝除 `Authorization` 標頭時，502 的排查常會走到 401
+- [SSL 憑證鏈解說](/zh-hant/post/ssl-certificate-chain)：上游憑證鏈不完整是 `upstream SSL certificate verify error` 的常見原因
+- [免費 SSL 檢查工具](/zh-hant/tools/ssl-checker)：直接在瀏覽器中檢查上游的憑證鏈
