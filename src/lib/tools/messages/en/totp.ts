@@ -62,4 +62,12 @@ export const totp = {
     '6 digits is the common standard (balances usability and security). 8 digits provide slightly more entropy but are less common for consumer authenticators.',
   faq6Title: 'How do I extract a secret from an otpauth:// URI?',
   faq6Body: 'The secret= parameter in the otpauth:// URL is the base32 secret.',
+  faq7Title: 'How do authenticator apps generate these codes?',
+  faq7Body:
+    'Google Authenticator, Microsoft Authenticator, Authy and 1Password all run the same RFC 6238 algorithm you see here: the shared secret and the current 30-second time step go through HMAC, and the result is truncated to 6 or 8 digits. That is why, for the same secret, the code on this page matches the one in your app.',
+  faq7GuidePart1: 'For the full walkthrough, read ',
+  faq7GuideLinkLabel: 'How do authenticator apps work',
+  faq7GuidePart2: '. Prefer to skip codes altogether? Try the ',
+  faq7PasskeyLinkLabel: 'passkey demo',
+  faq7GuidePart3: ' to see phishing-resistant, passwordless login in action.',
 } as const;

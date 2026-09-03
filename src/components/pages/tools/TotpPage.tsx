@@ -6,6 +6,7 @@ import ToolHowItWorks from '@/components/tools/ToolHowItWorks';
 import ToolReadyTo from '@/components/tools/ToolReadyTo';
 import ToolFaq, { ToolFaqCard, ToolFaqCheckItem } from '@/components/tools/ToolFaq';
 import ToolPopup from '@/components/tools/ToolPopup';
+import { localizedPath } from '@/lib/i18n';
 
 interface Props { locale: string }
 
@@ -91,6 +92,16 @@ export default function TotpPage({ locale }: Props) {
           <ToolFaqCard title={t('faq6Title')}>
             <div className="tools-faq-content">
               {t('faq6Body')}
+            </div>
+          </ToolFaqCard>
+          <ToolFaqCard title={t('faq7Title')}>
+            <div className="tools-faq-content">{t('faq7Body')}</div>
+            <div className="tools-faq-content">
+              {t('faq7GuidePart1')}
+              <a href={localizedPath(locale, '/post/how-do-authenticator-apps-work')}>{t('faq7GuideLinkLabel')}</a>
+              {t('faq7GuidePart2')}
+              <a href={localizedPath(locale, '/tools/passkey-demo')}>{t('faq7PasskeyLinkLabel')}</a>
+              {t('faq7GuidePart3')}
             </div>
           </ToolFaqCard>
         </div>
