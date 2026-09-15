@@ -37,3 +37,6 @@ playwright-report/
 
 # Brainstorming session artifacts (visual companion mockups)
 .superpowers/
+
+# marketing-image-generation scratch output (generated artefacts, never committed)
+local/

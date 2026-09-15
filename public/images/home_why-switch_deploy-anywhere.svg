@@ -1,0 +1,107 @@
+<svg width="420" height="260" viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- soft glow behind the platform node -->
+<circle cx="100" cy="130" r="145" fill="url(#dpGlow)"/>
+<circle cx="100" cy="130" r="102" fill="white" fill-opacity="0.03"/>
+<circle cx="100" cy="130" r="80" fill="white" fill-opacity="0.03"/>
+<circle cx="100" cy="130" r="67.5" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+
+<!-- connectors -->
+<g stroke="#C9CEFF" stroke-opacity="0.55" stroke-width="1" stroke-dasharray="4 6" stroke-linecap="round">
+  <path d="M155 130H250"/>
+  <path d="M250 43V217"/>
+  <path d="M250 43H306"/>
+  <path d="M250 130H306"/>
+  <path d="M250 217H306"/>
+</g>
+
+<!-- junction dots -->
+<g filter="url(#dpSoft)">
+  <circle cx="155" cy="130" r="6" fill="white" fill-opacity="0.22"/>
+  <circle cx="250" cy="43" r="6" fill="white" fill-opacity="0.22"/>
+  <circle cx="250" cy="130" r="6" fill="white" fill-opacity="0.22"/>
+  <circle cx="250" cy="217" r="6" fill="white" fill-opacity="0.22"/>
+</g>
+<circle cx="155" cy="130" r="3.25" fill="white" fill-opacity="0.9"/>
+<circle cx="250" cy="43" r="3.25" fill="white" fill-opacity="0.9"/>
+<circle cx="250" cy="130" r="3.25" fill="white" fill-opacity="0.9"/>
+<circle cx="250" cy="217" r="3.25" fill="white" fill-opacity="0.9"/>
+
+<!-- central platform node -->
+<circle cx="100" cy="130" r="55" fill="black" fill-opacity="0.3"/>
+<circle cx="100" cy="130" r="54.5" stroke="url(#dpNodeEdge)" stroke-opacity="0.7" stroke-width="0.875"/>
+<path d="M74 116L100 130V159L74 145V116Z" fill="white" fill-opacity="0.17"/>
+<path d="M126 116L100 130V159L126 145V116Z" fill="white" fill-opacity="0.08"/>
+<path d="M100 102L126 116L100 130L74 116L100 102Z" fill="white" fill-opacity="0.26"/>
+<g stroke="url(#dpGlyph)" stroke-width="2.25" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M100 102L126 116V145L100 159L74 145V116L100 102Z"/>
+  <path d="M74 116L100 130L126 116"/>
+  <path d="M100 130V159"/>
+</g>
+
+<!-- tile: managed cloud -->
+<rect x="306" y="8" width="70" height="70" rx="20" fill="black" fill-opacity="0.3"/>
+<rect x="306.5" y="8.5" width="69" height="69" rx="19.5" stroke="url(#dpTileEdge1)" stroke-opacity="0.62"/>
+<path d="M322.5 59.7A10.35 10.35 0 0 1 324.1 39.2A15.87 15.87 0 0 1 353.5 44.5A11.04 11.04 0 0 1 361.1 59.7Z" fill="white" fill-opacity="0.20" stroke="url(#dpGlyph)" stroke-width="2" stroke-linejoin="round"/>
+
+<!-- tile: your own VPC -->
+<rect x="306" y="95" width="70" height="70" rx="20" fill="black" fill-opacity="0.3"/>
+<rect x="306.5" y="95.5" width="69" height="69" rx="19.5" stroke="url(#dpTileEdge2)" stroke-opacity="0.62"/>
+<g stroke="url(#dpGlyph)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M324 112H318V148H324"/>
+  <path d="M358 112H364V148H358"/>
+  <rect x="328" y="116" width="26" height="12" rx="3.5" fill="white" fill-opacity="0.20"/>
+  <rect x="328" y="132" width="26" height="12" rx="3.5" fill="white" fill-opacity="0.20"/>
+</g>
+<circle cx="333.5" cy="122" r="1.6" fill="white"/>
+<circle cx="333.5" cy="138" r="1.6" fill="white"/>
+<path d="M339 122H349M339 138H349" stroke="white" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round"/>
+
+<!-- tile: your own hardware -->
+<rect x="306" y="182" width="70" height="70" rx="20" fill="black" fill-opacity="0.3"/>
+<rect x="306.5" y="182.5" width="69" height="69" rx="19.5" stroke="url(#dpTileEdge3)" stroke-opacity="0.62"/>
+<g stroke="url(#dpGlyph)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M320 234H362"/>
+  <path d="M327 234V204A4 4 0 0 1 331 200H351A4 4 0 0 1 355 204V234" fill="white" fill-opacity="0.17"/>
+</g>
+<g fill="white" fill-opacity="0.78">
+  <rect x="331.5" y="207" width="6" height="6" rx="1"/>
+  <rect x="344.5" y="207" width="6" height="6" rx="1"/>
+  <rect x="331.5" y="216" width="6" height="6" rx="1"/>
+  <rect x="344.5" y="216" width="6" height="6" rx="1"/>
+  <rect x="331.5" y="225" width="6" height="6" rx="1"/>
+  <rect x="344.5" y="225" width="6" height="6" rx="1"/>
+</g>
+
+<defs>
+<linearGradient id="dpGlyph" x1="0" y1="90" x2="0" y2="250" gradientUnits="userSpaceOnUse">
+  <stop stop-color="white"/>
+  <stop offset="1" stop-color="#AEB6E4"/>
+</linearGradient>
+<radialGradient id="dpGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 130) scale(145)">
+  <stop stop-color="#C3C8FF" stop-opacity="0.26"/>
+  <stop offset="0.5" stop-color="#8E97F5" stop-opacity="0.09"/>
+  <stop offset="1" stop-color="#8E97F5" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="dpNodeEdge" x1="100" y1="75" x2="100" y2="185" gradientUnits="userSpaceOnUse">
+  <stop stop-color="white"/>
+  <stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="dpTileEdge1" x1="341" y1="8" x2="341" y2="78" gradientUnits="userSpaceOnUse">
+  <stop stop-color="white"/>
+  <stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="dpTileEdge2" x1="341" y1="95" x2="341" y2="165" gradientUnits="userSpaceOnUse">
+  <stop stop-color="white"/>
+  <stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="dpTileEdge3" x1="341" y1="182" x2="341" y2="252" gradientUnits="userSpaceOnUse">
+  <stop stop-color="white"/>
+  <stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<filter id="dpSoft" x="130" y="20" width="140" height="220" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+  <feGaussianBlur stdDeviation="1.6" result="effect1_foregroundBlur"/>
+</filter>
+</defs>
+</svg>

@@ -61,13 +61,18 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
             <a href="https://portal.authgear.com/?utm_source=landing-page&utm_medium=link&utm_campaign=login_button" target="_blank" rel="noopener noreferrer" class="button-primary home-hero new-home radius-16 w-button plausible-event-name--signup plausible-event-location--home-hero">{t(locale, 'Home.heroCtaGetStarted')}</a>
             <a href="https://docs.authgear.com/" class="developer-docs">{t(locale, 'Home.heroCtaHowToIntegrate')}</a>
           </div>
+          <ul class="hero-trust-strip">
+            <li>{t(locale, 'Home.heroTrust1')}</li>
+            <li>{t(locale, 'Home.heroTrust2')}</li>
+            <li>{t(locale, 'Home.heroTrust3')}</li>
+            <li>{t(locale, 'Home.heroTrust4')}</li>
+          </ul>
         </div>
         <div class="home-hero-img-wrapper"><img src="/images/home_kv_ui2x.webp" loading="lazy" width="683" sizes="(max-width: 767px) 100vw, 683px" alt="" srcset="/images/home_kv_ui2x-p-500.webp 500w, /images/home_kv_ui2x-p-800.webp 800w, /images/home_kv_ui2x-p-1080.webp 1080w, /images/home_kv_ui2x.webp 1366w" class="image-9" /></div>
       </div>
     </div>
   </div>
 
-  <!-- Trusted By Section -->
   <section class="bg-0e0f28">
     <div class="container-default flex-center gap20 padding48 w-container">
       <div class="w-layout-vflex flex-block-56">
@@ -90,7 +95,6 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     </div>
   </section>
 
-  <!-- Streamline Security and Growth -->
   <div class="bg-0e0f28">
     <div class="container-default">
       <div class="container-default-inner">
@@ -105,7 +109,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
               <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.growthCard1Desc')}</div>
             </div>
           </div>
-          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29c7f-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_growth-with-authgear_integration.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-60 height-100" />
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29c7f-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_why-switch_deploy-anywhere.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-60 height-100" />
             <div>
               <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
                 <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.growthCard2Title')}</h3>
@@ -113,7 +117,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
               </div>
             </div>
           </div>
-          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29c87-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_growth-with-authgear_security.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-60 height-100" />
+          <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29c87-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_why-switch_data-export.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-60 height-100" />
             <div>
               <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
                 <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.growthCard3Title')}</h3>
@@ -134,7 +138,111 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     </div>
   </div>
 
-  <!-- Secure Every User Journey / CIAM Solutions -->
+  <div>
+    <div class="container-default">
+      <div class="container-default-inner">
+        <div class="top-content flex-column text-center">
+          <h2 class="cloud-h2 dark-cloud-h2" set:html={tRich(locale, 'Home.enterpriseTrustHeading', 'dark-cloud-h2')}></h2>
+          <div class="top-content-description ibm-plex-sans">{t(locale, 'Home.enterpriseTrustSubheading')}</div>
+        </div>
+        <div class="w-layout-hflex flex-block-86">
+          <div class="w-layout-vflex flex-block-87">
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-place2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyPlaceDesc')}</div>
+              <a href={localizedPath(locale, "/customer-stories/palace")} class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-HKL2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyHKLDesc')}</div>
+              <a href={localizedPath(locale, "/customer-stories/hongkong-land")} class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="w-layout-vflex flex-block-87">
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-MTR2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyMTRDesc')}</div>
+              <a href={localizedPath(locale, "/customer-stories/hongkong-mtr")} class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-cornerstone2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyCornerstoneDesc')}</div>
+              <a href={localizedPath(locale, "/customer-stories/cornerstone-technologies")} class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="w-layout-vflex flex-block-87">
+            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-Bupa2x.png" loading="lazy" alt="" class="image-95" />
+              <div class="customer-story-description">{t(locale, 'Home.storyBupaDesc')}</div>
+              <a href={localizedPath(locale, "/customer-stories/bupa")} class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+            <div class="w-layout-vflex container-1470 no-logo">
+              <div class="customer-story-title">{t(locale, 'Home.storyFnBTitle')}</div>
+              <div class="customer-story-description">{t(locale, 'Home.storyFnBDesc')}</div>
+              <a href={localizedPath(locale, "/customer-stories/global-qsr")} class="customer-story-link w-inline-block">
+                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-0e0f28">
+    <div class="container-default py-80 flex-column">
+      <div class="top-content flex-column text-center center">
+        <h2 class="cloud-h2" set:html={tRich(locale, 'Home.buildFasterHeading')}></h2>
+        <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.buildFasterSubheading')}</div>
+      </div>
+      <div class="home-feature-cards-v2_wrap">
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d23-19df57f8" class="home-feature-cards-v2_card dark center py-60 bf-align-card"><img src="/images/home_build-faster_login-page.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100 bf-align-img" />
+          <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+            <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard1Title')}</h3>
+            <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff bf-desc" set:html={tRich(locale, 'Home.buildFasterCard1Desc')}></div>
+          </div>
+        </div>
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d2a-19df57f8" class="home-feature-cards-v2_card dark center py-60 bf-align-card"><img src="/images/home_build-faster_login-methods.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100 bf-align-img" />
+          <div>
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard2Title')}</h3>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff bf-desc" set:html={tRich(locale, 'Home.buildFasterCard2Desc')}></div>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d32-19df57f8" class="home-feature-cards-v2_card dark center py-60 bf-align-card"><img src="/images/home_built-faster-with-authgear_user-management.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100 bf-align-img" />
+          <div>
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard3Title')}</h3>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff bf-desc" set:html={tRich(locale, 'Home.buildFasterCard3Desc')}></div>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d3a-19df57f8" class="home-feature-cards-v2_card dark center py-60 bf-align-card"><img src="/images/home_build-faster_native-sdks.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100 bf-align-img-wide" />
+          <div>
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard4Title')}</h3>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff bf-desc" set:html={tRich(locale, 'Home.buildFasterCard4Desc')}></div>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d42-19df57f8" class="home-feature-cards-v2_card dark center py-60 bf-align-card"><img src="/images/home_build-faster_flow-builder.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100 bf-align-img-wide" />
+          <div>
+            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
+              <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard5Title')}</h3>
+              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff bf-desc" set:html={tRich(locale, 'Home.buildFasterCard5Desc')}></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="bg-0e0f28">
     <div class="container-default">
       <div class="container-default-inner">
@@ -230,7 +338,6 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     </div>
   </div>
 
-  <!-- Microservices Architecture -->
   <div>
     <div class="container-default">
       <div class="container-default-inner">
@@ -282,7 +389,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
                 <div class="home-card-title-text text-white">{t(locale, 'Home.microCard2Title')}</div>
               </div>
               <div class="home-card-description">
-                <div class="home-card-description-text text-cee9ff">{t(locale, 'Home.microCard2Desc')}</div>
+                <div class="home-card-description-text text-cee9ff" set:html={tRich(locale, 'Home.microCard2Desc')}></div>
               </div>
             </div>
           </div>
@@ -303,7 +410,38 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
                 <div class="home-card-title-text text-white">{t(locale, 'Home.microCard3Title')}</div>
               </div>
               <div class="home-card-description">
-                <div class="home-card-description-text text-cee9ff">{t(locale, 'Home.microCard3Desc')}</div>
+                <div class="home-card-description-text text-cee9ff" set:html={tRich(locale, 'Home.microCard3Desc')}></div>
+              </div>
+            </div>
+          </div>
+          <div class="home-card radius-48 bg-diagonal-gradient-dark content-center mc-agents">
+            <div class="home-card-wrap home-card-content">
+              <div class="home-card-image hover-to-white">
+                <div class="home-card-svg"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="59" height="59" rx="15.5" fill="url(#paint0_ag)" stroke="url(#paint1_ag)" />
+                    <g fill="url(#paint2_ag)">
+                      <circle cx="30" cy="12" r="2.4" />
+                      <rect x="29" y="13.6" width="2" height="5.4" rx="1" />
+                      <path fill-rule="evenodd" d="M19 19h22a4 4 0 0 1 4 4v9a4 4 0 0 1-4 4H19a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Zm5.5 6.2a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm11 0a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Z" />
+                      <rect x="26" y="36" width="8" height="3.2" rx="1.4" />
+                      <path d="M22 41h16a3 3 0 0 1 3 3v3H19v-3a3 3 0 0 1 3-3Z" />
+                      <circle cx="9.8" cy="27.5" r="2.2" />
+                      <circle cx="50.2" cy="27.5" r="2.2" />
+                      <rect x="11.6" y="26.6" width="3.6" height="1.8" rx="0.9" />
+                      <rect x="44.8" y="26.6" width="3.6" height="1.8" rx="0.9" />
+                    </g>
+                    <defs>
+                      <linearGradient id="paint0_ag" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#96D3FF" /><stop offset="1" stop-color="#001EB7" /></linearGradient>
+                      <linearGradient id="paint1_ag" x1="0" y1="0" x2="54.8395" y2="64.3586" gradientUnits="userSpaceOnUse"><stop stop-color="#001EB7" /><stop offset="1" stop-color="#96D3FF" /></linearGradient>
+                      <linearGradient id="paint2_ag" x1="30" y1="9.6" x2="30" y2="47" gradientUnits="userSpaceOnUse"><stop stop-color="white" /><stop offset="1" stop-color="#AFC9FF" /></linearGradient>
+                    </defs>
+                  </svg></div>
+              </div>
+              <div class="home-card-title hover-to-white">
+                <div class="home-card-title-text text-white">{t(locale, 'Home.microCard4Title')}</div>
+              </div>
+              <div class="home-card-description">
+                <div class="home-card-description-text text-cee9ff" set:html={tRich(locale, 'Home.microCard4Desc')}></div>
               </div>
             </div>
           </div>
@@ -312,7 +450,6 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     </div>
   </div>
 
-  <!-- Zero Trust Foundation -->
   <div>
     <div class="container-default">
       <div class="container-default-inner">
@@ -340,7 +477,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
                 <div class="home-card-title-text color-2e2e2e">{t(locale, 'Home.zeroTrustCard1Title')}</div>
               </div>
               <div class="home-card-description">
-                <div class="home-card-description-text color-626262 line-height-24">{t(locale, 'Home.zeroTrustCard1Desc')}</div>
+                <div class="home-card-description-text color-626262 line-height-24" set:html={tRich(locale, 'Home.zeroTrustCard1Desc')}></div>
               </div>
             </div>
           </div>
@@ -368,7 +505,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
                 <div class="home-card-title-text color-2e2e2e">{t(locale, 'Home.zeroTrustCard2Title')}</div>
               </div>
               <div class="home-card-description">
-                <div class="home-card-description-text color-626262 line-height-24">{t(locale, 'Home.zeroTrustCard2Desc')}</div>
+                <div class="home-card-description-text color-626262 line-height-24" set:html={tRich(locale, 'Home.zeroTrustCard2Desc')}></div>
               </div>
             </div>
           </div>
@@ -392,7 +529,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
                 <div class="home-card-title-text color-2e2e2e">{t(locale, 'Home.zeroTrustCard3Title')}</div>
               </div>
               <div class="home-card-description">
-                <div class="home-card-description-text color-626262 line-height-24">{t(locale, 'Home.zeroTrustCard3Desc')}</div>
+                <div class="home-card-description-text color-626262 line-height-24" set:html={tRich(locale, 'Home.zeroTrustCard3Desc')}></div>
               </div>
             </div>
           </div>
@@ -401,114 +538,6 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     </div>
   </div>
 
-  <!-- Security Should Not Slow You Down -->
-  <div class="bg-0e0f28">
-    <div class="container-default py-80 flex-column">
-      <div class="top-content flex-column text-center center">
-        <h2 class="cloud-h2" set:html={tRich(locale, 'Home.buildFasterHeading')}></h2>
-        <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.buildFasterSubheading')}</div>
-      </div>
-      <div class="home-feature-cards-v2_wrap">
-        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d23-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_threats.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
-          <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
-            <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard1Title')}</h3>
-            <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard1Desc')}</div>
-          </div>
-        </div>
-        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d2a-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_user-trust.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
-          <div>
-            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
-              <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard2Title')}</h3>
-              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard2Desc')}</div>
-            </div>
-          </div>
-        </div>
-        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d32-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_user-management.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
-          <div>
-            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
-              <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard3Title')}</h3>
-              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard3Desc')}</div>
-            </div>
-          </div>
-        </div>
-        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d3a-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_user-experience.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
-          <div>
-            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
-              <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard4Title')}</h3>
-              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard4Desc')}</div>
-            </div>
-          </div>
-        </div>
-        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d42-19df57f8" class="home-feature-cards-v2_card dark center py-60"><img src="/images/home_built-faster-with-authgear_flexibility.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100" />
-          <div>
-            <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
-              <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard5Title')}</h3>
-              <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.buildFasterCard5Desc')}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Why Enterprises Trust / Customer Stories -->
-  <div class="bg-image-customer-story">
-    <div class="container-default">
-      <div class="container-default-inner">
-        <div class="top-content flex-column text-center">
-          <h2 class="cloud-h2" set:html={tRich(locale, 'Home.enterpriseTrustHeading')}></h2>
-          <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.enterpriseTrustSubheading')}</div>
-        </div>
-        <div class="w-layout-hflex flex-block-86">
-          <div class="w-layout-vflex flex-block-87">
-            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-place2x.png" loading="lazy" alt="" class="image-95" />
-              <div class="customer-story-description">{t(locale, 'Home.storyPlaceDesc')}</div>
-              <a href={localizedPath(locale, "/customer-stories/palace")} class="customer-story-link w-inline-block">
-                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
-              </a>
-            </div>
-            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-HKL2x.png" loading="lazy" alt="" class="image-95" />
-              <div class="customer-story-description">{t(locale, 'Home.storyHKLDesc')}</div>
-              <a href={localizedPath(locale, "/customer-stories/hongkong-land")} class="customer-story-link w-inline-block">
-                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
-              </a>
-            </div>
-          </div>
-          <div class="w-layout-vflex flex-block-87">
-            <div class="w-layout-vflex container-1470 no-logo">
-              <div class="customer-story-title">{t(locale, 'Home.storyFnBTitle')}</div>
-              <div class="customer-story-description">{t(locale, 'Home.storyFnBDesc')}</div>
-              <a href={localizedPath(locale, "/customer-stories/global-qsr")} class="customer-story-link w-inline-block">
-                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
-              </a>
-            </div>
-            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-MTR2x.png" loading="lazy" alt="" class="image-95" />
-              <div class="customer-story-description">{t(locale, 'Home.storyMTRDesc')}</div>
-              <a href={localizedPath(locale, "/customer-stories/hongkong-mtr")} class="customer-story-link w-inline-block">
-                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
-              </a>
-            </div>
-          </div>
-          <div class="w-layout-vflex flex-block-87">
-            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-Bupa2x.png" loading="lazy" alt="" class="image-95" />
-              <div class="customer-story-description">{t(locale, 'Home.storyBupaDesc')}</div>
-              <a href={localizedPath(locale, "/customer-stories/bupa")} class="customer-story-link w-inline-block">
-                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
-              </a>
-            </div>
-            <div class="w-layout-vflex container-1470"><img src="/images/home_customer-story-logo-cornerstone2x.png" loading="lazy" alt="" class="image-95" />
-              <div class="customer-story-description">{t(locale, 'Home.storyCornerstoneDesc')}</div>
-              <a href={localizedPath(locale, "/customer-stories/cornerstone-technologies")} class="customer-story-link w-inline-block">
-                <div class="text-block-87">{t(locale, 'Home.readStory')}</div><img src="/images/home_customer-story-more.svg" loading="lazy" alt="" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Contact Form -->
   <div class="footer-form-section form__bg-dark">
     <div class="container-default">
       <div class="container-default-inner px-0">
@@ -528,3 +557,118 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     </div>
   </div>
 </div>
+
+<style>
+  .hero-trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hero-trust-strip li {
+    position: relative;
+    color: #afb7ff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .hero-trust-strip li + li::before {
+    content: '';
+    position: absolute;
+    left: -0.68rem;
+    top: 50%;
+    width: 3px;
+    height: 3px;
+    margin-top: -1.5px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.55;
+  }
+  @media (max-width: 767px) {
+    .hero-trust-strip { justify-content: center; }
+  }
+
+  /* "Security shouldn't slow you down" — top row of 3 cards.
+     The three source SVGs have different intrinsic aspect ratios, so at
+     width:auto/height:100% the middle one rendered 22px taller than its
+     neighbours. Pin all three to one ratio (object-fit keeps them undistorted)
+     and stack from the top, so the headings share a baseline regardless of how
+     many lines each description runs to. */
+  .home-feature-cards-v2_image.width-auto.px-30.height-100.bf-align-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 378 / 343;
+    object-fit: contain;
+  }
+  /* The stock rule for these cards is display:flex with the default row
+     direction plus align-items:center, which centres the single content block
+     VERTICALLY — so a card with fewer lines of copy starts lower than its
+     neighbour. Top-align instead, so icons and titles share a baseline. */
+  .home-card.radius-48.bg-diagonal-gradient-dark.content-center {
+    align-items: flex-start;
+  }
+
+  /* Inline doc links inside card copy. set:html markup gets no Astro scoping
+     attribute, so these need :global(). */
+  .home-card-description-text :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    font-weight: 500;
+    transition: opacity .15s;
+  }
+  .home-card-description-text :global(a:hover) { opacity: 0.75; }
+  .home-card-description-text.text-cee9ff :global(a) { color: #fff; }
+  .home-card-description-text.color-626262 :global(a) { color: #0b63e9; }
+
+  /* "One identity across every app you run" is now four cards, not three.
+     The first card was a Webflow 2-row hero tile (span 2 / span 6); drop it to
+     one row and give the new AI-agents card the same 6-of-12 span so the
+     section reads as an even 2x2. ID selectors beat classes, so the override
+     has to target the same w-node id. */
+  #w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29cd1-19df57f8 {
+    grid-area: span 1 / span 6 / span 1 / span 6;
+  }
+  .mc-agents {
+    grid-area: span 1 / span 6 / span 1 / span 6;
+  }
+
+  /* Customer-story cards now sit on a light band. The stock Webflow rule
+     fades them to transparent (#5524f3 -> #4b4fa200), which on white washed
+     out the lower half of each card and left white body text on near-white.
+     End the gradient on the same solid navy the no-logo card already uses, so
+     every card is self-contained and the anonymous card stops being the only
+     dark one in the grid. Only used on this page (.container-1470 appears
+     nowhere else), so this is safe to override here. */
+  .container-1470,
+  .container-1470.no-logo {
+    background-image: radial-gradient(circle at -10% -10%, #5524f3, #1c1d3c);
+    border-color: #4a4c7a;
+  }
+
+  /* Card body copy: a bold one-line hook on its own line, then short
+     supporting text — so the row can be skimmed by hook alone. */
+  /* :global() is required — Astro's scoped attribute is not applied to
+     markup injected through set:html, so a plain descendant selector
+     would never match these <strong> elements. */
+  .bf-desc :global(strong) {
+    display: block;
+    margin-bottom: 0.4em;
+    color: #fff;
+    font-weight: 600;
+  }
+  /* Bottom row of 2 — same treatment, that row's own ratio. */
+  .home-feature-cards-v2_image.width-auto.px-30.height-100.bf-align-img-wide {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 480 / 260;
+    object-fit: contain;
+  }
+  .home-feature-cards-v2_card.dark.center.bf-align-card {
+    justify-content: flex-start;
+  }
+</style>
