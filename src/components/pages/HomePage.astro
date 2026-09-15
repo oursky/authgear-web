@@ -592,6 +592,17 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
   @media (max-width: 767px) {
     .hero-trust-strip { justify-content: center; }
   }
+  /* The separator is an absolutely-positioned dot to the left of each item, so
+     once the strip wraps it leads the new line ("· Self-hostable"). Below 480px
+     the strip always wraps; drop the dots there and let the gap do the work. */
+  @media (max-width: 479px) {
+    .hero-trust-strip {
+      column-gap: 1rem;
+    }
+    .hero-trust-strip li + li::before {
+      content: none;
+    }
+  }
 
   /* "Security shouldn't slow you down" — top row of 3 cards.
      The three source SVGs have different intrinsic aspect ratios, so at
@@ -670,5 +681,13 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
   }
   .home-feature-cards-v2_card.dark.center.bf-align-card {
     justify-content: flex-start;
+  }
+
+  /* Card titles inherit the global h3 leading of 1.063em, which is a display
+     ratio tuned for the 32px heading size. These titles render at 22px and
+     eight of the nine wrap to two lines on a phone, where 1.063 leaves the
+     lines almost touching. */
+  .home-feature-cards-v2_info-heading {
+    line-height: 1.25;
   }
 </style>
