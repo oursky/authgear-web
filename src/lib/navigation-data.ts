@@ -118,8 +118,8 @@ export const developersDropdownLinks: NavLink[] = [
 ];
 
 export const footerStrings: Record<string, Record<string, string>> = {
-  poweredBy: { en: 'Authgear powered by ', 'zh-Hant': 'Authgear 由 ' },
-  poweredBySuffix: { en: '', 'zh-Hant': ' 提供' },
+  poweredBy: { en: 'Designed by ', 'zh-Hant': '由 ' },
+  poweredBySuffix: { en: '', 'zh-Hant': ' 設計' },
   isoCertAlt: { en: 'ISO 27001 Certified', 'zh-Hant': 'ISO 27001 認證' },
   productsTitle: { en: 'Products', 'zh-Hant': '產品' },
   home: { en: 'Home', 'zh-Hant': '首頁' },
@@ -176,5 +176,5 @@ export const footerStrings: Record<string, Record<string, string>> = {
   aboutUs: { en: 'About Us', 'zh-Hant': '關於我們' },
   contactSales: { en: 'Contact Sales', 'zh-Hant': '聯絡業務' },
   ourPromises: { en: 'Our Promises', 'zh-Hant': '我們的承諾' },
-  copyright: { en: 'Authgear. All rights reserved.', 'zh-Hant': 'Authgear。保留所有權利。' },
+  copyright: { en: 'Skymakers Digital Ltd. All rights reserved.', 'zh-Hant': 'Skymakers Digital Ltd. 保留所有權利。' },
 };

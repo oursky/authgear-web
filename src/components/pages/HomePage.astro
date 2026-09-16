@@ -550,7 +550,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
         <div class="_2-block-flex footer-form">
           <div class="_2-block-flex-content footer-form">
             <div class="_2-block-flex-content-text-wrap footer-form">
-              <h2 class="form-heading color-white footer-form">{t(locale, 'Home.formHeading')}</h2>
+              <h2 class="form-heading color-white footer-form" set:html={tRich(locale, 'Home.formHeading')}></h2>
               <div class="footerform__divider-sm"></div>
               <div class="color-white footer-get-started-text">{t(locale, 'Home.formSubheading')}</div>
             </div>
@@ -809,6 +809,12 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
       max-width: 640px;
       margin-inline: auto;
     }
+  }
+
+  /* Footer form: the supporting line under the heading is body copy, not a
+     second heading, so it drops Webflow's bold weight. */
+  .footer-get-started-text {
+    font-weight: 400;
   }
 
   /* Card titles inherit the global h3 leading of 1.063em, which is a display
