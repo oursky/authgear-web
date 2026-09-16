@@ -390,10 +390,12 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
      bar, its dropdown panels, and, below 991px, the drawer. The background
      matches the footer (.footer.dark, #000). */
   .header.header--dark {
-    background-color: #000;
+    background-color: #0e0f28;
   }
+  /* No divider under the dark bar; transparent rather than 0 so the bar's
+     height, which the drawer offset is measured from, does not change. */
   .container-header.nav--dark {
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    border-bottom-color: transparent;
   }
   .nav--dark .site-nav-toggle__bars > span {
     background-color: #fff;
