@@ -1200,6 +1200,14 @@ button.ds-sms-warning-faq__trigger {
   font-weight: 600;
 }
 
+/* Dark pages (BaseLayout theme="dark"): paint the canvas navy so the
+   rubber-band over-scroll at the top or bottom shows the page colour, not
+   the light default. The body class from Webflow sets the light colour. */
+html[data-theme='dark'],
+html[data-theme='dark'] body {
+  background-color: #0e0f28;
+}
+
 /* Header grid placement — replaces the legacy #w-node-* rules in
    authgear-new.webflow.css. The .container-header grid itself
    (grid-template-columns: auto auto 1fr) still comes from the Webflow

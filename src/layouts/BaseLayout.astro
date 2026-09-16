@@ -13,8 +13,9 @@ interface Props {
   canonical?: string;
   ogType?: 'website' | 'article';
   twitterCard?: 'summary' | 'summary_large_image';
-  /** Nav colour scheme. 'dark' matches the footer for pages that are mostly dark. */
-  navTheme?: 'light' | 'dark';
+  /** Page colour scheme. 'dark' gives the nav its dark styling and paints the
+      document canvas navy, so over-scroll bounce never shows a light gap. */
+  theme?: 'light' | 'dark';
 }
 
 const { locale } = Astro.props;
@@ -24,7 +25,7 @@ const {
   canonical: canonicalProp,
   ogType = 'website',
   twitterCard = 'summary',
-  navTheme = 'light',
+  theme = 'light',
 } = Astro.props;
 
 const htmlLang = localeToHtmlLang(locale);
@@ -64,7 +65,7 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
 ---
 
 <!doctype html>
-<html lang={htmlLang}>
+<html lang={htmlLang} data-theme={theme === 'dark' ? 'dark' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -153,8 +154,8 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
       </noscript>
     )}
 
-    <div role="banner" class:list={["header event", { "header--dark": navTheme === "dark" }]}>
-      <SiteNav locale={locale} theme={navTheme} />
+    <div role="banner" class:list={["header event", { "header--dark": theme === "dark" }]}>
+      <SiteNav locale={locale} theme={theme} />
     </div>
 
     <main>
