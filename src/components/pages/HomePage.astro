@@ -811,6 +811,21 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     }
   }
 
+  /* Hero alignment: the header and every other section sit in a 1271px
+     container with 24px side padding, but the hero used a 1440px container
+     plus 60px of inner padding, so its left edge never lined up with the
+     logo. On desktop the hero now uses the same container geometry, with the
+     inner padding removed, so text starts under the logo and the artwork
+     ends under the Get a Demo link. */
+  @media (min-width: 992px) {
+    .container-1440.home-mobile-banner {
+      max-width: 1271px;
+    }
+    .home-hero-wrapper {
+      padding-left: 0;
+    }
+  }
+
   /* Hero buttons: the plain primary style (tokens in global.css) for Start
      Free and the active product-switch tab. */
   .home-hero__cta .ds-btn-primary,
