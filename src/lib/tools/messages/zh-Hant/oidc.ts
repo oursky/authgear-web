@@ -1,7 +1,7 @@
 export const oidc = {
   metaTitle: 'OIDC Discovery 端點瀏覽器 | Authgear',
   metaDescription:
-    '擷取並檢視任何 OIDC 提供者的 .well-known/openid-configuration。檢視授權端點、權杖端點、JWKS、範圍與簽章演算法。',
+    '擷取並檢視任何 OIDC 提供者的 .well-known/openid-configuration。檢視授權端點、Token 端點、JWKS、範圍與簽章演算法。',
   heroTitle: 'OpenID Connect Discovery 瀏覽器',
   heroDescription:
     '輸入任意 OIDC issuer URL 擷取 discovery 端點。立即檢視 .well-known/openid-configuration、支援範圍、簽章演算法與 JWKS，無需登入。',
@@ -14,7 +14,7 @@ export const oidc = {
     '依您提供的 issuer URL 自動擷取 OpenID Connect discovery 文件（/.well-known/openid-configuration）。',
   card2Title: '重點端點摘要',
   card2Desc:
-    '快速檢視 issuer、授權端點、權杖端點、JWKS URI 及其他常用欄位。',
+    '快速檢視 issuer、授權端點、Token 端點、JWKS URI 及其他常用欄位。',
   card3Title: 'JSON Discovery 輸出',
   card3Desc:
     '以語法高亮檢視完整 discovery 文件，可複製整份回應或單一欄位供除錯或文件使用。',
@@ -27,7 +27,7 @@ export const oidc = {
   s3Title: '一鍵複製欄位、檢視原始 JSON 或 JWKS。',
   faq1Title: 'OIDC 的 discovery 端點是什麼？',
   faq1Body:
-    'OIDC discovery 端點是 {issuer}/.well-known/openid-configuration 的標準化 URL，回傳描述提供者設定的 JSON。內含授權端點、權杖端點、JWKS URI、支援範圍、回應類型、簽章演算法等，客戶端可自動設定而無需硬編碼 URL。',
+    'OIDC discovery 端點是 {issuer}/.well-known/openid-configuration 的標準化 URL，回傳描述提供者設定的 JSON。內含授權端點、Token 端點、JWKS URI、支援範圍、回應類型、簽章演算法等，客戶端可自動設定而無需硬編碼 URL。',
   faq2Title: '所有 OIDC 提供者都支援 discovery 嗎？',
   faq2Body:
     '多數現代相容的 OIDC 提供者皆支援。規格要求欲支援自動客戶端設定的提供者提供 discovery。部分舊系統或封閉系統可能沒有 /.well-known/openid-configuration，則需手動設定。若此工具擷取失敗，可能是提供者不支援 discovery 或端點有存取限制。',

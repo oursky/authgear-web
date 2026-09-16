@@ -14,7 +14,7 @@ export const base64 = {
   card3Title: '開發者友善',
   card3Desc: '易於準確且有效率地編解碼 Base64 資料。',
   card4Title: '支援 Base64URL',
-  card4Desc: '可編解碼網址安全的 Base64URL——JWT、OAuth 權杖與網址常用的變體。',
+  card4Desc: '可編解碼網址安全的 Base64URL——JWT、OAuth Token 與網址常用的變體。',
   step1Label: '步驟 1.',
   step1Title: '選擇字元集',
   step1Item1:
@@ -32,7 +32,7 @@ export const base64 = {
     'Base64 是一種二進位轉文字的編碼格式，以 ASCII 字元表示二進位資料。\n可安全地將二進位內容嵌入 JSON、XML 或 HTTP 標頭等格式。\n範例：\nAuthgear → QXV0aGdlYXI=',
   faqUrlTitle: 'Base64 與 Base64URL 有什麼不同？',
   faqUrlBody:
-    'Base64URL 是為網址與權杖格式設計的 Base64 變體，將 + 換成 -、/ 換成 _，並常省略填充字元 = 以符合網址安全。\n常見於 JWT、OAuth 權杖與 OpenID Connect。',
+    'Base64URL 是為網址與 Token 格式設計的 Base64 變體，將 + 換成 -、/ 換成 _，並常省略填充字元 = 以符合網址安全。\n常見於 JWT、OAuth Token 與 OpenID Connect。',
   faqGuidePart1: '想深入了解 Base64 的原理與使用時機？請閱讀我們的',
   faqGuideLinkLabel: 'Base64 編碼與解碼指南',
   faqGuidePart2: '。',

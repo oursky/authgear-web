@@ -22,7 +22,7 @@ faq:
 
 ## 為何 JWT 與 Next.js 很合拍
 
-Next.js App Router 專案一超過原型階段，每個開發者都會碰到：**「我要如何知道是誰在發這個請求？」** JSON Web Token（JWT）是 Next.js JWT 驗證的標準答案。JWT 是**自包含**、經密碼學簽章的權杖，內含已登入使用者的 **claims**。因權杖**無狀態**，每次請求不必查資料庫——伺服器驗簽後直接讀 claims。對 serverless 或 edge 部署的 Next.js 而言，這是有感的效能優勢。
+Next.js App Router 專案一超過原型階段，每個開發者都會碰到：**「我要如何知道是誰在發這個請求？」** JSON Web Token（JWT）是 Next.js JWT 驗證的標準答案。JWT 是**自包含**、經密碼學簽章的 Token，內含已登入使用者的 **claims**。因 Token**無狀態**，每次請求不必查資料庫——伺服器驗簽後直接讀 claims。對 serverless 或 edge 部署的 Next.js 而言，這是有感的效能優勢。
 
 本指南將以 App Router 建置完整 Next.js JWT 驗證，涵蓋：
 
@@ -37,7 +37,7 @@ Next.js App Router 專案一超過原型階段，每個開發者都會碰到：*
 
 把 JWT 想成演唱會手環：進場（登入）時查證件後發給你印有區域的手環；整晚任何工作人員看到手環就知道你可坐哪——不必每次都打電話回售票處。
 
-技術上，JWT 為以點分隔的三段 Base64URL：**header**（簽章演算法）、**payload**（使用者 ID、電子郵件、過期時間等 claims）、**signature**（無人竄改密碼學證明）。Next.js 伺服器收到帶 JWT 的請求時，以密鑰重算簽章並與權杖內比對；相符即可信任 payload。格式深入說明見 [JWT 驗證指南](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，或即時檢視權杖請用 [Authgear JWT Debugger](/zh-hant/tools/jwt-jwe-debugger)。
+技術上，JWT 為以點分隔的三段 Base64URL：**header**（簽章演算法）、**payload**（使用者 ID、電子郵件、過期時間等 claims）、**signature**（無人竄改密碼學證明）。Next.js 伺服器收到帶 JWT 的請求時，以密鑰重算簽章並與 Token 內比對；相符即可信任 payload。格式深入說明見 [JWT 驗證指南](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，或即時檢視 Token 請用 [Authgear JWT Debugger](/zh-hant/tools/jwt-jwe-debugger)。
 
 ## JWT 該存在哪裡
 
@@ -86,7 +86,7 @@ localStorage.setItem('token', jwt);
 ```
 
 <blockquote>
-    <p><strong>警告：</strong> 將 JWT 存在 localStorage 會暴露於跨站腳本（XSS）。頁面上任何 JavaScript——包含遭入侵的 npm 套件——都能讀取 localStorage 並竊取權杖。httpOnly Cookie 對 JavaScript 完全不可見，可消除該攻擊面。</p>
+    <p><strong>警告：</strong> 將 JWT 存在 localStorage 會暴露於跨站腳本（XSS）。頁面上任何 JavaScript——包含遭入侵的 npm 套件——都能讀取 localStorage 並竊取 Token。httpOnly Cookie 對 JavaScript 完全不可見，可消除該攻擊面。</p>
   </blockquote>
 
 ### 登入時設定 httpOnly Cookie
@@ -200,13 +200,13 @@ export const config = {
 
 <ul>
     <li><code>jose</code> 的 <strong><code>jwtVerify</code></strong> 一次檢查簽章與過期時間（<code>exp</code>）；任一失敗即拋錯。</li>
-    <li>將 claims 轉成 <strong>request 標頭</strong>（<code>x-user-id</code> 等）可讓 Server Components 與 Route Handlers 讀取使用者資訊，而不必每次渲染都重驗權杖。</li>
+    <li>將 claims 轉成 <strong>request 標頭</strong>（<code>x-user-id</code> 等）可讓 Server Components 與 Route Handlers 讀取使用者資訊，而不必每次渲染都重驗 Token。</li>
     <li><strong><code>config.matcher</code></strong> 限制 middleware 執行範圍——公開頁與行銷路由無額外開銷。</li>
   </ul>
 
 ## 在 Server Components 讀取 JWT Claims
 
-middleware 驗證權杖並轉成標頭後，任何 Server Component 都可用 Next.js 的 `headers()` 讀取——無需客戶端 JavaScript。
+middleware 驗證 Token 並轉成標頭後，任何 Server Component 都可用 Next.js 的 `headers()` 讀取——無需客戶端 JavaScript。
 
 ```typescript
 
@@ -285,7 +285,7 @@ export default async function ProfilePage() {
 
 自建 JWT 適合學習，但正式環境還需要 refresh 輪替、PKCE、全裝置登出、社交登入、MFA 等——每一塊都是安全關鍵、實作不簡單。
 
-Authgear 的 [`@authgear/nextjs` SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 內建上述能力。你仍取得應用 JWKS 簽署的標準 JWT，但權杖生命週期、Cookie 管理與 middleware 整合已預先完成。若團隊想專注產品而非維護驗證函式庫，這是較快路徑。亦可搭配我們的 [WebAuthn 實作通行密鑰指南](/zh-hant/post/how-to-implement-passkeys-developer-guide)，在 JWT 之上加入無密碼登入。
+Authgear 的 [`@authgear/nextjs` SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 內建上述能力。你仍取得應用 JWKS 簽署的標準 JWT，但 Token 生命週期、Cookie 管理與 middleware 整合已預先完成。若團隊想專注產品而非維護驗證函式庫，這是較快路徑。亦可搭配我們的 [WebAuthn 實作通行密鑰指南](/zh-hant/post/how-to-implement-passkeys-developer-guide)，在 JWT 之上加入無密碼登入。
 
 ## 常見問題
 
@@ -307,4 +307,4 @@ Authgear 的 [`@authgear/nextjs` SDK](https://docs.authgear.com/get-started/regu
 
 ## 下一步
 
-你現已具備可用的 Next.js JWT 模式：httpOnly Cookie 安全存權杖、edge middleware 保護路由、可重用的伺服器端 helper 讀取 claims。若要含 refresh、社交登入與 MFA 的正式環境版本，請[開始使用 Authgear Next.js SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs)——約 15 分鐘可整合，讓你專注打造產品。
+你現已具備可用的 Next.js JWT 模式：httpOnly Cookie 安全存 Token、edge middleware 保護路由、可重用的伺服器端 helper 讀取 claims。若要含 refresh、社交登入與 MFA 的正式環境版本，請[開始使用 Authgear Next.js SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs)——約 15 分鐘可整合，讓你專注打造產品。

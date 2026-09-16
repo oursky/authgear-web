@@ -21,7 +21,7 @@ draft: false
 
 這正是 Next.js 中 `middleware.ts` 做的事。它在伺服器上、在任何路由渲染**之前**執行，因此你可以檢查使用者是否已驗證並重新導向——全部集中在一處，頁面之間零重複。
 
-本指南將說明 Next.js middleware 如何運作、如何設定 matcher 只鎖定你在意的路由、如何驗證工作階段權杖、如何重新導向未驗證使用者，以及——至關重要地——如何避免無限重新導向迴圈、誤對靜態資源執行 middleware 等常見陷阱。
+本指南將說明 Next.js middleware 如何運作、如何設定 matcher 只鎖定你在意的路由、如何驗證工作階段 Token、如何重新導向未驗證使用者，以及——至關重要地——如何避免無限重新導向迴圈、誤對靜態資源執行 middleware 等常見陷阱。
 
 ## Next.js Middleware 如何運作
 
@@ -125,7 +125,7 @@ export const config = {
 
 ## 在 Middleware 驗證工作階段
 
-最常見作法是在使用者登入後把工作階段權杖存在 `httpOnly` Cookie，之後在每個受保護請求的 middleware 讀取並驗證該 Cookie。
+最常見作法是在使用者登入後把工作階段 Token 存在 `httpOnly` Cookie，之後在每個受保護請求的 middleware 讀取並驗證該 Cookie。
 
 ### 在 Middleware 讀取 Cookie
 
@@ -134,11 +134,11 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  // 從 Cookie 讀取工作階段權杖
+  // 從 Cookie 讀取工作階段 Token
   const token = request.cookies.get('session-token')?.value
 
   if (!token) {
-    // 沒有權杖——導向登入
+    // 沒有 Token——導向登入
     return NextResponse.redirect(new URL('/login', request.url))
   }
 
@@ -168,7 +168,7 @@ async function verifyToken(token: string): Promise<boolean> {
     await jwtVerify(token, JWT_SECRET)
     return true
   } catch {
-    // 權杖過期、遭竄改或其他無效情況
+    // Token 過期、遭竄改或其他無效情況
     return false
   }
 }
@@ -264,16 +264,16 @@ export const config = {
 
 ## 使用 Authgear 做 Next.js 驗證
 
-若你使用 [Authgear 作為驗證提供者](https://docs.authgear.com/get-started/regular-web-app/nextjs)，`@authgear/nextjs` 套件會處理權杖驗證、工作階段重新整理與驗證狀態管理，不必手動接線。
+若你使用 [Authgear 作為驗證提供者](https://docs.authgear.com/get-started/regular-web-app/nextjs)，`@authgear/nextjs` 套件會處理 Token 驗證、工作階段重新整理與驗證狀態管理，不必手動接線。
 
 ```bash
 npm install @authgear/nextjs
 
 ```
 
-安裝後，你在 middleware 保護路由的方式與上文相同——使用 Authgear 的工作階段 Cookie 與標準 JWT 驗證模式。套件也提供伺服器端輔助函式如 `currentUser()`，可在 Server Components 與 Route Handlers 取得已驗證使用者，無須自行重複驗證權杖。
+安裝後，你在 middleware 保護路由的方式與上文相同——使用 Authgear 的工作階段 Cookie 與標準 JWT 驗證模式。套件也提供伺服器端輔助函式如 `currentUser()`，可在 Server Components 與 Route Handlers 取得已驗證使用者，無須自行重複驗證 Token。
 
-自行實作驗證時，最棘手的部分之一是權杖重新整理——當使用者的 access token 即將過期，你需以 refresh token 靜默換發新權杖，讓使用者不中斷地保持登入。Authgear 會透明處理這件事。
+自行實作驗證時，最棘手的部分之一是 Token 重新整理——當使用者的 access token 即將過期，你需以 refresh token 靜默換發新 Token，讓使用者不中斷地保持登入。Authgear 會透明處理這件事。
 
 完整設定說明（含環境變數與登入頁實作）請見 [Authgear Next.js 快速入門](https://docs.authgear.com/get-started/regular-web-app/nextjs)。
 
@@ -310,7 +310,7 @@ export const config = {
 
 2025 年 3 月揭露重大漏洞（CVE-2025-29927，CVSS 9.1）：透過偽造的 `x-middleware-subrequest` 標頭可**完全繞過** middleware。此問題影響執行 `next start` 的自架 Next.js 部署——Vercel 與 Netlify 部署不受影響。已於 **12.3.5、13.5.9、14.2.25、15.2.3** 修復。請務必使用已修補版本。
 
-更重要的是：把 middleware 當第一道防線——多數未授權存取的 UX 便利——但**務必在 Server Components 與 API route handler 再次驗證身分**，再暴露敏感資料。多層防禦才是正途。若欲了解為何在資料層驗證權杖很重要，請讀 [JWT 如何運作](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)。
+更重要的是：把 middleware 當第一道防線——多數未授權存取的 UX 便利——但**務必在 Server Components 與 API route handler 再次驗證身分**，再暴露敏感資料。多層防禦才是正途。若欲了解為何在資料層驗證 Token 很重要，請讀 [JWT 如何運作](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)。
 
 ### 陷阱 4：使用僅限 Node.js 的函式庫
 
@@ -404,6 +404,6 @@ export default async function DashboardPage() {
 
 ```
 
-若要更完整了解工作階段管理與權杖處理，請見 [驗證方案指南](/zh-hant/post/authentication-solutions-guide)，或進一步閱讀 [JWT 如何承載使用者身分](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)。
+若要更完整了解工作階段管理與 Token 處理，請見 [驗證方案指南](/zh-hant/post/authentication-solutions-guide)，或進一步閱讀 [JWT 如何承載使用者身分](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)。
 
-若要完全跳過樣板程式，在幾分鐘內為 Next.js 加入可上線的驗證，請[免費試用 Authgear](https://portal.authgear.com/)——內建權杖發放、重新整理、工作階段管理與 MFA。
+若要完全跳過樣板程式，在幾分鐘內為 Next.js 加入可上線的驗證，請[免費試用 Authgear](https://portal.authgear.com/)——內建 Token 發放、重新整理、工作階段管理與 MFA。

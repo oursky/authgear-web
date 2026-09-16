@@ -260,7 +260,7 @@ public function handleRedirect() {
 
 ```
 
-我們剛剛新增的程式碼將提供者的授權代碼交換為存取令牌。然後，它使用存取令牌向 Authgear 請求當前使用者的資訊。
+我們剛剛新增的程式碼將提供者的授權代碼交換為 Access Token。然後，它使用 Access Token 向 Authgear 請求當前使用者的資訊。
 
 ### 第 6 步：登入用戶
 

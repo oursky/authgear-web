@@ -11,41 +11,41 @@ updatedAt: 2026-02-12T02:33:54.744Z
 draft: false
 ---
 
-開發者仰賴權杖式驗證來安全管理使用者工作階段、授權 API 存取，並串接現代應用程式。但隨著系統日益分散，且客戶端橫跨瀏覽器、裝置與原生環境，權杖也成為高價值攻擊目標。
+開發者仰賴 Token 式驗證來安全管理使用者工作階段、授權 API 存取，並串接現代應用程式。但隨著系統日益分散，且客戶端橫跨瀏覽器、裝置與原生環境，Token 也成為高價值攻擊目標。
 
-傳統 Bearer Token 使用簡單，但也很容易被濫用：任何拿到權杖的人都能呼叫受保護 API。這個弱點在 SPA 與行動 App 等公開客戶端中特別嚴重，因為其儲存環境通常較不安全。
+傳統 Bearer Token 使用簡單，但也很容易被濫用：任何拿到 Token 的人都能呼叫受保護 API。這個弱點在 SPA 與行動 App 等公開客戶端中特別嚴重，因為其儲存環境通常較不安全。
 
-Demonstrating Proof-of-Possession（DPoP）透過確保只有發出請求的合法客戶端能使用權杖，來解決這個問題。DPoP 不再把權杖視為可轉移憑證，而是將權杖綁定到由客戶端控制的加密金鑰。
+Demonstrating Proof-of-Possession（DPoP）透過確保只有發出請求的合法客戶端能使用 Token，來解決這個問題。DPoP 不再把 Token 視為可轉移憑證，而是將 Token 綁定到由客戶端控制的加密金鑰。
 
-即使權杖外洩，也無法被重放。在本文中，我會從基礎到實作拆解 DPoP，並說明像 Authgear 這類框架如何透過 DPoP 強化 Refresh Token 安全，避免濫用。
+即使 Token 外洩，也無法被重放。在本文中，我會從基礎到實作拆解 DPoP，並說明像 Authgear 這類框架如何透過 DPoP 強化 Refresh Token 安全，避免濫用。
 
 ## **什麼是 DPoP？**
 
 DPoP（Demonstrating Proof-of-Possession）是 RFC 9449 定義的 OAuth 2.0 安全增強機制。它要求客戶端產生並使用一組公私鑰，且在每次請求時附上加密簽章證明。
 
-它的目的，是把 OAuth 權杖綁定到提出請求的特定客戶端實例。在傳統 OAuth 流程中，Access Token 與 Refresh Token 都是「Bearer Token」：只要持有就可使用，與請求來源無關。
+它的目的，是把 OAuth Token 綁定到提出請求的特定客戶端實例。在傳統 OAuth 流程中，Access Token 與 Refresh Token 都是「Bearer Token」：只要持有就可使用，與請求來源無關。
 
-DPoP 透過建立「客戶端私鑰」與「簽發給該客戶端的權杖」之間的關聯，改變了這個模式。之後只要使用該權杖，就必須附上以同一把私鑰簽署的 DPoP proof。
+DPoP 透過建立「客戶端私鑰」與「簽發給該客戶端的 Token」之間的關聯，改變了這個模式。之後只要使用該 Token，就必須附上以同一把私鑰簽署的 DPoP proof。
 
-這個機制讓權杖在密碼學上與客戶端綁定，使權杖竊取或外洩不再直接導致未授權存取。
+這個機制讓 Token 在密碼學上與客戶端綁定，使 Token 竊取或外洩不再直接導致未授權存取。
 
 ## **為什麼會有 DPoP？**
 
-DPoP 是為了解決 OAuth 的根本弱點：權杖重放攻擊。當攻擊者偷到權杖後再拿去冒用合法客戶端，就是重放攻擊。由於傳統 Bearer Token 沒有綁定，伺服器無法分辨攻擊者與真實使用者。
+DPoP 是為了解決 OAuth 的根本弱點：Token 重放攻擊。當攻擊者偷到 Token 後再拿去冒用合法客戶端，就是重放攻擊。由於傳統 Bearer Token 沒有綁定，伺服器無法分辨攻擊者與真實使用者。
 
-隨著行動 App、單頁應用與 IoT 裝置快速普及，這項風險更高。這些平台通常無法安全保存 Client Secret，只能依賴 Bearer Token 進行 API 授權。實務上，權杖可能透過 API 日誌、網路代理、瀏覽器擴充或不安全裝置儲存而外洩。
+隨著行動 App、單頁應用與 IoT 裝置快速普及，這項風險更高。這些平台通常無法安全保存 Client Secret，只能依賴 Bearer Token 進行 API 授權。實務上，Token 可能透過 API 日誌、網路代理、瀏覽器擴充或不安全裝置儲存而外洩。
 
-DPoP 透過「僅持有權杖不足以使用」來降低風險。每一個受權杖保護的請求都必須附上由合法客戶端私鑰簽署的 DPoP proof。沒有私鑰，偷來的權杖就沒有價值，重放攻擊可被有效阻斷。
+DPoP 透過「僅持有 Token 不足以使用」來降低風險。每一個受 Token 保護的請求都必須附上由合法客戶端私鑰簽署的 DPoP proof。沒有私鑰，偷來的 Token 就沒有價值，重放攻擊可被有效阻斷。
 
 ## **DPoP 如何運作**
 
-DPoP 透過一套結構化加密流程運作，包含金鑰產生、proof 建立、伺服器驗證與權杖綁定。
+DPoP 透過一套結構化加密流程運作，包含金鑰產生、proof 建立、伺服器驗證與 Token 綁定。
 
 每一步都對強制 sender-constrained token 使用至關重要。
 
 ### 1. 客戶端產生公私鑰
 
-每個啟用 DPoP 的客戶端都必須產生唯一金鑰對。私鑰安全保留在客戶端，用於簽署 DPoP proof。對應的公鑰以 JWK 格式在換取權杖時送給 Authorization Server。
+每個啟用 DPoP 的客戶端都必須產生唯一金鑰對。私鑰安全保留在客戶端，用於簽署 DPoP proof。對應的公鑰以 JWK 格式在換取 Token 時送給 Authorization Server。
 
 Authorization Server 之後會用此公鑰驗證進來的 DPoP proof 是否由正確客戶端簽署。
 
@@ -76,29 +76,29 @@ Authorization Server 會驗證：
 - `iat` 是否有效
 - `jti` 是否未重複使用
 - `htu` 與 `htm` 是否與當前請求一致
-- 權杖是否綁定正確金鑰
+- Token 是否綁定正確金鑰
 
 只有全部驗證成功，伺服器才會接受請求。
 
-#### **4. 權杖變成金鑰綁定**
+#### **4. Token 變成金鑰綁定**
 
 驗證成功後，伺服器會簽發帶有 `cnf`（confirmation）claim 的 sender-constrained refresh 或 access token，例如：
 
 `"cnf": { "jkt": "<thumbprint_of_public_key>" }`
 
-從這一刻起，權杖與客戶端私鑰不可分離。
+從這一刻起，Token 與客戶端私鑰不可分離。
 
 ## **DPoP 在防止重放攻擊中的角色**
 
-重放攻擊是惡意者攔截權杖後，嘗試在未授權下使用。DPoP 透過多種方式化解這類攻擊：
+重放攻擊是惡意者攔截 Token 後，嘗試在未授權下使用。DPoP 透過多種方式化解這類攻擊：
 
 ### **必須持有私鑰**
 
-偷到權杖但無法產生有效簽章 proof，就不能使用。
+偷到 Token 但無法產生有效簽章 proof，就不能使用。
 
-### **權杖綁定到金鑰對**
+### **Token 綁定到金鑰對**
 
-`cnf` claim 強制金鑰與權杖的一對一連結。
+`cnf` claim 強制金鑰與 Token 的一對一連結。
 
 ### **新鮮度要求**
 
@@ -127,7 +127,7 @@ Bearer Token 方便但天生不安全，無法提供擁有者的加密證明。�
       <tr><td>被竊取後可重用</td><td>是</td><td>否</td></tr>
       <tr><td>需要私鑰</td><td>否</td><td>是</td></tr>
       <tr><td>容易遭重放攻擊</td><td>是</td><td>否</td></tr>
-      <tr><td>權杖綁定客戶端</td><td>否</td><td>是</td></tr>
+      <tr><td>Token 綁定客戶端</td><td>否</td><td>是</td></tr>
       <tr><td>對公開客戶端安全性</td><td>弱</td><td>強</td></tr>
     </tbody>
   </table></div>
@@ -155,12 +155,12 @@ DPoP 與 mTLS 都能提供 sender-constrained token，但 mTLS 部署較複雜�
 
 ## **Authgear 中的 DPoP**
 
-Authgear 目前將 DPoP 用於 Refresh Token，確保即使在不受信任環境中，權杖續期仍然安全。這在保護強度與 API 伺服器效能間取得平衡。
+Authgear 目前將 DPoP 用於 Refresh Token，確保即使在不受信任環境中，Token 續期仍然安全。這在保護強度與 API 伺服器效能間取得平衡。
 
 ### **Authgear 如何套用 DPoP**
 
 1. 客戶端照常啟動 OAuth 流程。
-1. 權杖簽發時，Authgear 會把 Refresh Token 綁定到客戶端公鑰。
+1. Token 簽發時，Authgear 會把 Refresh Token 綁定到客戶端公鑰。
 1. 請求新 Access Token 時，客戶端必須提供有效 DPoP proof。
 1. Authgear 驗證 proof 與 `cnf` claim 後才簽發新 Access Token。
 1. 驗證失敗時會拒絕 refresh 請求。
@@ -169,13 +169,13 @@ Authgear 目前將 DPoP 用於 Refresh Token，確保即使在不受信任環境
 
 ## **何時應該使用 DPoP？**
 
-當 Access Token 重放是現實威脅，且客戶端環境無法保證權杖機密性時，DPoP 很有價值。透過金鑰綁定，攻擊者無法在其他裝置重用偷來的權杖。
+當 Access Token 重放是現實威脅，且客戶端環境無法保證 Token 機密性時，DPoP 很有價值。透過金鑰綁定，攻擊者無法在其他裝置重用偷來的 Token。
 
 你可優先考慮 DPoP 的情境：
 
-- **行動應用存取受保護 API**：行動裝置與網路不受伺服器控制，若權杖外洩，金鑰綁定可防跨裝置重放。
+- **行動應用存取受保護 API**：行動裝置與網路不受伺服器控制，若 Token 外洩，金鑰綁定可防跨裝置重放。
 - **無法採用 mTLS 或安全保存 Client Secret 的裝置**：DPoP 不需雙向 TLS 也能綁定金鑰。
-- **權杖可能在傳輸或監控中暴露**：缺少私鑰時依然無法重放。
+- **Token 可能在傳輸或監控中暴露**：缺少私鑰時依然無法重放。
 - **Refresh Token 高價值風險**：綁定金鑰可大幅降低遭竊後濫用成功率。
 
 若客戶端能穩定使用 mTLS，或全部為可安全保管私鑰的機密型伺服器客戶端，DPoP 需求就相對較低。
@@ -195,15 +195,15 @@ DPoP 無法保護「客戶端本身已遭入侵」的情境，這是機制固有
 
 ### **一旦私鑰外洩，DPoP 就無法再提供保護**
 
-DPoP 只在「攻擊者拿到權杖但拿不到私鑰」時可防重放。
+DPoP 只在「攻擊者拿到 Token 但拿不到私鑰」時可防重放。
 
 ### **在瀏覽器中，DPoP 主要緩解客戶端外部洩漏**
 
 DPoP 有效的案例包括：
 
-- 權杖被寫進日誌
-- 權杖被伺服器端監控工具暴露
-- 權杖被網路元件攔截
+- Token 被寫進日誌
+- Token 被伺服器端監控工具暴露
+- Token 被網路元件攔截
 
 這些情況下攻擊者缺乏私鑰，無法產生有效 proof。
 
@@ -229,7 +229,7 @@ DPoP 必須使用 ES256、RS256 等非對稱演算法，不允許對稱法。
 
 ### **跨工作階段混用金鑰**
 
-若客戶端輪替或遺失私鑰，既有權杖將無法使用。
+若客戶端輪替或遺失私鑰，既有 Token 將無法使用。
 
 避免這些錯誤可確保與相容 OAuth 伺服器可靠互通。
 
@@ -238,7 +238,7 @@ DPoP 必須使用 ES256、RS256 等非對稱演算法，不允許對稱法。
 DPoP 錯誤通常集中在少數類型，掌握後除錯更快：
 
 - **Invalid DPoP Proof**：常見原因是 JWT 結構錯誤、簽章演算法不符或 proof header 損壞。
-- **cnf.jkt 不匹配**：代表權杖綁定金鑰與目前簽章金鑰不同。
+- **cnf.jkt 不匹配**：代表 Token 綁定金鑰與目前簽章金鑰不同。
 - **iat 無效**：通常是裝置時鐘設定錯誤。
 - **Proof replay detected**：每次 proof 都要產生新的隨機 UUID。
 - **htm/htu 不匹配**：與目前 token 請求方法或 URL 不一致。
@@ -269,13 +269,13 @@ DPoP 在 OAuth 流程中加入額外加密步驟，但對大多數實務部署�
 
 ## **總結**
 
-DPoP 是 OAuth 生態中強而有力的增強，讓開發者能可靠地把權杖綁定到提出請求的客戶端。透過在每次 refresh 週期要求 proof-of-possession，即使權杖外洩，也無法被未授權方濫用或重放。
+DPoP 是 OAuth 生態中強而有力的增強，讓開發者能可靠地把 Token 綁定到提出請求的客戶端。透過在每次 refresh 週期要求 proof-of-possession，即使 Token 外洩，也無法被未授權方濫用或重放。
 
-這讓瀏覽器 App、行動裝置與分散式客戶端等難以安全儲存憑證的環境中，權杖式驗證更安全。
+這讓瀏覽器 App、行動裝置與分散式客戶端等難以安全儲存憑證的環境中，Token 式驗證更安全。
 
 理解 DPoP 的運作方式、適用時機與常見陷阱後，開發者能打造更具韌性、更安全且更符合現代 OAuth 最佳實務的驗證流程。
 
-藉由 Authgear 對 DPoP 綁定 Refresh Token 的支援，團隊可在不增加 Resource Server 複雜度下，強化權杖續期流程並降低權杖被竊風險。
+藉由 Authgear 對 DPoP 綁定 Refresh Token 的支援，團隊可在不增加 Resource Server 複雜度下，強化 Token 續期流程並降低 Token 被竊風險。
 
 <a href="https://portal.authgear.com/" target="_blank">立即開始 Authgear 免費試用</a>，在你的 OAuth 流程啟用 DPoP 保護，打造更安全、面向未來的驗證體驗。
 
@@ -283,7 +283,7 @@ DPoP 是 OAuth 生態中強而有力的增強，讓開發者能可靠地把權�
 
 ### **1. DPoP 是加密嗎？**
 
-不是。DPoP 不負責資料加密，而是提供 *proof-of-possession*，確保提出權杖的客戶端同時持有綁定私鑰。
+不是。DPoP 不負責資料加密，而是提供 *proof-of-possession*，確保提出 Token 的客戶端同時持有綁定私鑰。
 
 ### **2. DPoP 會取代 mTLS 嗎？**
 
@@ -291,16 +291,16 @@ DPoP 不會完全取代 mTLS，但可在不管理憑證的前提下提供類似 
 
 ### **3. 客戶端遺失私鑰會怎樣？**
 
-若遺失私鑰，所有 DPoP 綁定的 Refresh Token 都會失效，必須重新啟動授權流程取得新權杖。
+若遺失私鑰，所有 DPoP 綁定的 Refresh Token 都會失效，必須重新啟動授權流程取得新 Token。
 
 ### **4. Access Token 與 Refresh Token 都需要 DPoP 嗎？**
 
-不一定。許多平台（包含 Authgear）只綁定 Refresh Token，以簡化 Resource Server 設定，同時仍能防止長期權杖濫用。
+不一定。許多平台（包含 Authgear）只綁定 Refresh Token，以簡化 Resource Server 設定，同時仍能防止長期 Token 濫用。
 
 ### **5. 攻擊者能偽造 DPoP proof 嗎？**
 
-不能。沒有客戶端私鑰就無法在密碼學上產生有效 proof；即使權杖外洩，也無法產生匹配 proof。
+不能。沒有客戶端私鑰就無法在密碼學上產生有效 proof；即使 Token 外洩，也無法產生匹配 proof。
 
-### **6. DPoP 能防所有權杖攻擊嗎？**
+### **6. DPoP 能防所有 Token 攻擊嗎？**
 
 DPoP 主要防止重放與未授權客戶端濫用，不會取代 HTTPS、授權檢查或存取控制邏輯。

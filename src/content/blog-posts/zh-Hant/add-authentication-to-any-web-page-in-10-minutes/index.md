@@ -21,12 +21,12 @@ draft: false
 
 ## 它是如何運作的
 
-當您的使用者登入時，Authgear 會建立一個特殊的 **ID 令牌**，並將其發送回您的應用程式：
+當您的使用者登入時，Authgear 會建立一個特殊的 **ID Token**，並將其發送回您的應用程式：
 
 1. 當使用者點擊客戶端應用程式中的「登入」按鈕或連結時，您的應用程式會將他們發送到 Authgear 登入頁面。您還可以 <a href="https://docs.authgear.com/how-to-guide/customize/branding" target="_blank">客製化</a> 此頁。
 1. 使用者使用您設定的登入選項之一（例如使用者名稱/密碼、社群媒體登入、無密碼或電子郵件魔術連結）登入 Authgear。
-1. 使用者通過身份驗證後，您的應用程式會要求使用者提供 ID 令牌。
-1. 然後，Authgear 將使用者的 ID 令牌傳回給您的應用程式。
+1. 使用者通過身份驗證後，您的應用程式會要求使用者提供 ID Token。
+1. 然後，Authgear 將使用者的 ID Token 傳回給您的應用程式。
 
 <!--FIGURE-->
 ![](./figure-1.webp)

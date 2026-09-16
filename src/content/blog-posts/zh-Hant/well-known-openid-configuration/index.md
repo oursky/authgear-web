@@ -23,7 +23,7 @@ draft: false
   <li>Authgear：<code>https://your-project.authgear.cloud/.well-known/openid-configuration</code></li>
 </ul>
 
-這份文件是 OIDC **自動探索**的基礎。你不必在應用裡硬編碼授權端點、權杖端點與簽章金鑰；取得文件一次，即可從中讀取所需資訊。
+這份文件是 OIDC **自動探索**的基礎。你不必在應用裡硬編碼授權端點、Token 端點與簽章金鑰；取得文件一次，即可從中讀取所需資訊。
 
 <blockquote>
 <p>&#x1F4A1; <strong>立即試用：</strong>使用 <a href="/zh-hant/tools/oidc-discovery-endpoint">Authgear OIDC Discovery Endpoint Explorer</a> 取得並檢視任何提供者的 <code>.well-known/openid-configuration</code>——無需 curl 或指令列。輸入 issuer URL 即可看到完整文件與結構化欄位摘要。</p>
@@ -52,7 +52,7 @@ draft: false
     <tbody>
       <tr>
         <td><code>issuer</code></td>
-        <td>規範化的 issuer URL。必須與此提供者所發權杖中 <code>iss</code> 宣告完全一致。</td>
+        <td>規範化的 issuer URL。必須與此提供者所發 Token 中 <code>iss</code> 宣告完全一致。</td>
       </tr>
       <tr>
         <td><code>authorization_endpoint</code></td>
@@ -60,11 +60,11 @@ draft: false
       </tr>
       <tr>
         <td><code>token_endpoint</code></td>
-        <td>以授權碼交換存取權杖與 ID 權杖的 URL。</td>
+        <td>以授權碼交換 Access Token 與 ID Token 的 URL。</td>
       </tr>
       <tr>
         <td><code>jwks_uri</code></td>
-        <td>JSON Web Key Set 的 URL——用於驗證權杖簽章的公鑰。</td>
+        <td>JSON Web Key Set 的 URL——用於驗證 Token 簽章的公鑰。</td>
       </tr>
       <tr>
         <td><code>response_types_supported</code></td>
@@ -76,7 +76,7 @@ draft: false
       </tr>
       <tr>
         <td><code>id_token_signing_alg_values_supported</code></td>
-        <td>ID 權杖支援的簽章演算法。通常包含 <code>RS256</code>。</td>
+        <td>ID Token 支援的簽章演算法。通常包含 <code>RS256</code>。</td>
       </tr>
     </tbody>
   </table></div>
@@ -94,7 +94,7 @@ draft: false
     <tbody>
       <tr>
         <td><code>userinfo_endpoint</code></td>
-        <td>以有效存取權杖取得已驗證使用者宣告的 URL。</td>
+        <td>以有效 Access Token 取得已驗證使用者宣告的 URL。</td>
       </tr>
       <tr>
         <td><code>end_session_endpoint</code></td>
@@ -114,7 +114,7 @@ draft: false
       </tr>
       <tr>
         <td><code>token_endpoint_auth_methods_supported</code></td>
-        <td>客戶端向權杖端點驗證的方式（例如 <code>client_secret_basic</code>、<code>private_key_jwt</code>）。</td>
+        <td>客戶端向 Token 端點驗證的方式（例如 <code>client_secret_basic</code>、<code>private_key_jwt</code>）。</td>
       </tr>
       <tr>
         <td><code>code_challenge_methods_supported</code></td>
@@ -122,11 +122,11 @@ draft: false
       </tr>
       <tr>
         <td><code>revocation_endpoint</code></td>
-        <td>撤銷存取或重新整理權杖的 URL。</td>
+        <td>撤銷存取或 Refresh Token 的 URL。</td>
       </tr>
       <tr>
         <td><code>introspection_endpoint</code></td>
-        <td>檢查權杖目前是否仍有效（權杖內省）的 URL。</td>
+        <td>檢查 Token 目前是否仍有效（Token 內省）的 URL。</td>
       </tr>
     </tbody>
   </table></div>
@@ -260,12 +260,12 @@ print(config['jwks_uri'])
 <ul>
   <li><strong>提供者變更會弄壞你的應用。</strong>若端點 URL 變更，應用可能靜默失敗直到有人發現。</li>
   <li><strong>多租戶應用需每租戶不同設定。</strong>Azure AD 每租戶 URL 不同。沒有探索時只能維護硬編碼對照表；有探索時可依租戶 ID 動態組 URL。</li>
-  <li><strong>JWKS 輪替會破壞權杖驗證。</strong>提供者會輪替簽章金鑰。若你硬編碼公鑰，輪替後驗證即失效。從探索文件中的 <code>jwks_uri</code> 取得金鑰可自動處理輪替。</li>
+  <li><strong>JWKS 輪替會破壞 Token 驗證。</strong>提供者會輪替簽章金鑰。若你硬編碼公鑰，輪替後驗證即失效。從探索文件中的 <code>jwks_uri</code> 取得金鑰可自動處理輪替。</li>
 </ul>
 
 探索讓 OIDC 整合具韌性且可自我設定。多數成熟的 OAuth／OIDC 函式庫（Passport.js、python-social-auth、Spring Security 等）接受 issuer URL 後，會自動抓取探索文件並完成設定。
 
-**需要一個把探索做對的 issuer？** Authgear 提供完全合規的 OIDC 供應商，探索文件、JWKS 與權杖端點都替你管理。<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">免費開始</a>，把函式庫指向你的 issuer URL 即可。
+**需要一個把探索做對的 issuer？** Authgear 提供完全合規的 OIDC 供應商，探索文件、JWKS 與 Token 端點都替你管理。<a href="https://portal.authgear.com/" target="_blank" rel="noreferrer" class="plausible-event-name--signup plausible-event-location--post-inline">免費開始</a>，把函式庫指向你的 issuer URL 即可。
 
 ## 探索失敗時常見原因
 
@@ -280,7 +280,7 @@ print(config['jwks_uri'])
 
 ## 探索文件與 JWKS URI
 
-探索文件中的 <code>jwks_uri</code> 是最重要的欄位之一。它指向 **JSON Web Key Set**——應用驗證 JWT 簽章所需的公鑰。每次收到 ID 權杖或存取權杖，都應依此 URI 上的金鑰驗證簽章。這些權杖本身是 JWT——由三段 Base64URL 編碼組成——可將任一段貼到[免費 Base64 解碼工具](/zh-hant/tools/base64-decode-encode)檢視標頭或 payload。
+探索文件中的 <code>jwks_uri</code> 是最重要的欄位之一。它指向 **JSON Web Key Set**——應用驗證 JWT 簽章所需的公鑰。每次收到 ID Token 或 Access Token，都應依此 URI 上的金鑰驗證簽章。這些 Token 本身是 JWT——由三段 Base64URL 編碼組成——可將任一段貼到[免費 Base64 解碼工具](/zh-hant/tools/base64-decode-encode)檢視標頭或 payload。
 
 若要進一步了解 JWKS URI 的運作與在驗證程式中的用法，請見 [什麼是 JWKS URI？開發者必懂的 JWT 金鑰組](/zh-hant/post/what-is-jwks)。
 

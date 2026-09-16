@@ -48,7 +48,7 @@ export const totp = {
   faq2Title: '為何使用 TOTP？',
   faq2b1: '以 2FA 強化安全',
   faq2b2: '獲 Google、Microsoft、GitHub 等廣採用',
-  faq2b3: '權杖快速過期，降低重複使用風險',
+  faq2b3: 'Token 快速過期，降低重複使用風險',
   faq3Title: 'TOTP 多久有效？',
   faq3Body:
     '預設 30 秒（RFC 6238 建議 30s）。伺服器驗證常允許一步寬容以因應時鐘誤差。',

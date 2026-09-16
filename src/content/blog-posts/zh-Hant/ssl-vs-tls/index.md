@@ -103,8 +103,8 @@ openssl s_client -connect yourdomain.com:443 -tls1_1  # TLS 1.1 — 應失敗
 
 對驗證系統而言，TLS 是所有上層機制依賴的傳輸層安全：
 
-- **權杖安全**——OAuth access token、JWT bearer token、工作階段 Cookie 若以 HTTP 傳送會完全暴露；實務上靠 TLS 才讓權杖式驗證安全可行。  
-- **OAuth 2.0 要求 TLS**——OAuth 2.0 規格（RFC 6749）規定授權端點與權杖端點必須使用 TLS。沒有 HTTPS 就沒有 OAuth。  
+- **Token 安全**——OAuth access token、JWT bearer token、工作階段 Cookie 若以 HTTP 傳送會完全暴露；實務上靠 TLS 才讓 Token 式驗證安全可行。  
+- **OAuth 2.0 要求 TLS**——OAuth 2.0 規格（RFC 6749）規定授權端點與 Token 端點必須使用 TLS。沒有 HTTPS 就沒有 OAuth。  
 - **mTLS（雙向 TLS）**——標準 TLS 僅伺服器出示憑證；mTLS 下客戶端亦出示憑證，實現密碼學上的客戶端驗證。用於服務網格、零信任網路與高安全 API。Authgear 企業部署支援 mTLS。  
 - **憑證釘選（Certificate pinning）**——行動 App 有時「釘選」特定憑證或公開金鑰，若伺服器出示不同憑證即拒絕連線，可防 MITM 即便 CA 遭入侵；但憑證續約規劃需格外謹慎。
 

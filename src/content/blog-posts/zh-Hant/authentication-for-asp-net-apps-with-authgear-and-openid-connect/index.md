@@ -13,7 +13,7 @@ draft: false
 
 <a href="/zh-hant/" target="_blank">Authgear</a> 充當 IAM 提供者，它是您以 Web 和行動應用程式、API 等形式提供給客戶的資源**的看門人。看門人啟動授權，如 <a href="https://oauth.net/2/" target="_blank">OAuth 2.0</a>。添加的 <a href="https://openid.net/developers/how-connect-works/" target="_blank">OpenID 連接</a> 層添加身份驗證以保護使用者的數位身分和產品。
 
-這篇部落格文章提供了一個使用 [網路平台](http://ASP.NET) 創建的基本演示 Web 應用程序，並演示瞭如何添加身份驗證功能 <a href="/zh-hant/" target="_blank">Authgear</a> 透過實作 [OpenID 連線](https://docs.authgear.com/concepts/identity-fundamentals#open-id-connect) 流程，然後擷取 OAuth 令牌，以便呼叫 API。看法 <a href="https://github.com/authgear/authgear-example-dotnet/blob/main/README.md" target="_blank">執行</a> 在 GitHub 上。
+這篇部落格文章提供了一個使用 [網路平台](http://ASP.NET) 創建的基本演示 Web 應用程序，並演示瞭如何添加身份驗證功能 <a href="/zh-hant/" target="_blank">Authgear</a> 透過實作 [OpenID 連線](https://docs.authgear.com/concepts/identity-fundamentals#open-id-connect) 流程，然後擷取 OAuth Token，以便呼叫 API。看法 <a href="https://github.com/authgear/authgear-example-dotnet/blob/main/README.md" target="_blank">執行</a> 在 GitHub 上。
 
 ## 學習目標
 
@@ -43,7 +43,7 @@ draft: false
 ![](./figure-1.webp)
 <!--/FIGURE-->
 
-Authgear 中的每個應用程式都指派一個字母數字的唯一客戶端 ID，您的應用程式程式碼將使用該 ID 透過 .NET 應用程式中的 OpenID Connect 用戶端呼叫 Authgear API。記下 Authgear ISSUER（例如，[https://example-auth.authgear-apps.com](https://example-auth.authgear-apps.com)）、CLIENT ID、CLIENT SECRET 和 OpenID 令牌端點（<a href="https://example-auth.authgear-apps.com/oauth2/token" target="_blank">https://example-auth.authgear-apps.com/oauth2/token</a>）從輸出。您將在客戶端應用程式配置的下一步中使用這些值。
+Authgear 中的每個應用程式都指派一個字母數字的唯一客戶端 ID，您的應用程式程式碼將使用該 ID 透過 .NET 應用程式中的 OpenID Connect 用戶端呼叫 Authgear API。記下 Authgear ISSUER（例如，[https://example-auth.authgear-apps.com](https://example-auth.authgear-apps.com)）、CLIENT ID、CLIENT SECRET 和 OpenID Token 端點（<a href="https://example-auth.authgear-apps.com/oauth2/token" target="_blank">https://example-auth.authgear-apps.com/oauth2/token</a>）從輸出。您將在客戶端應用程式配置的下一步中使用這些值。
 
 <!--FIGURE-->
 ![](./figure-2.webp)
@@ -55,9 +55,9 @@ Authgear 中的每個應用程式都指派一個字母數字的唯一客戶端 I
 
 設定以下重定向 URI： <a href="http://localhost:5002/signin-oidc" target="_blank">http://localhost:5002/signin-oidc</a> 如果未設置，用戶登入後將不會返回您的應用程式。
 
-### 步驟 3：啟用訪問令牌
+### 步驟 3：啟用 Access Token
 
-另外，在應用程式配置的 **存取權杖** 部分下啟用 **將 JWT 作為存取權杖** 選項：
+另外，在應用程式配置的 **Access Token** 部分下啟用 **將 JWT 作為 Access Token** 選項：
 
 <!--FIGURE-->
 ![](./figure-3.webp)
@@ -329,7 +329,7 @@ dotnet 建置 dotnet 運行
 ![](./figure-8.webp)
 <!--/FIGURE-->
 
-經過身份驗證後，將呈現受保護的視圖。應用程式接收一個存取令牌，用於在螢幕上呈現使用者數據，以及可在對某些後端 API 的上游請求中使用的令牌，以代表使用者存取資料。
+經過身份驗證後，將呈現受保護的視圖。應用程式接收一個 Access Token，用於在螢幕上呈現使用者數據，以及可在對某些後端 API 的上游請求中使用的 Token，以代表使用者存取資料。
 
 <!--FIGURE-->
 ![](./figure-9.webp)

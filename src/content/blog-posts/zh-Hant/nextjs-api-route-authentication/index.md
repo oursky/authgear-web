@@ -1,11 +1,11 @@
 ---
 title: "Next.js API Route 驗證：如何保護你的端點"
-excerpt: "Next.js 的 API route 與頁面保護不同——Route Handler 必須回傳 HTTP 狀態碼，而不是重新導向。本篇涵蓋工作階段 Cookie、Bearer 權杖、RBAC 與 Server Actions，並附完整 TypeScript 範例。"
+excerpt: "Next.js 的 API route 與頁面保護不同——Route Handler 必須回傳 HTTP 狀態碼，而不是重新導向。本篇涵蓋工作階段 Cookie、Bearer Token、RBAC 與 Server Actions，並附完整 TypeScript 範例。"
 coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "Next.js API Routes：驗證指南與範例"
-metaDescription: "學習如何以工作階段 Cookie 與 Bearer 權杖驗證 Next.js Route Handler。含 App Router、RBAC、Server Actions 的 TypeScript 範例。"
+metaDescription: "學習如何以工作階段 Cookie 與 Bearer Token 驗證 Next.js Route Handler。含 App Router、RBAC、Server Actions 的 TypeScript 範例。"
 publishedAt: 2026-03-25T18:41:16.137Z
 updatedAt: 2026-03-25T18:46:20.452Z
 draft: false
@@ -18,7 +18,7 @@ draft: false
 Route Handler 是**端點**，不是頁面。呼叫方可能是行動 App、`fetch()`，或自動化腳本——它們都**無法**跟著 `302 Found` 重新導向走。因此 Route Handler 必須回傳正確的 HTTP 狀態碼：
 
 <ul>
-  <li><strong>401 Unauthorized</strong>——請求沒有有效憑證（缺少權杖、工作階段過期）。</li>
+  <li><strong>401 Unauthorized</strong>——請求沒有有效憑證（缺少 Token、工作階段過期）。</li>
   <li><strong>403 Forbidden</strong>——請求有有效憑證，但使用者沒有執行此動作的權限。</li>
 </ul>
 
@@ -53,7 +53,7 @@ export async function GET(request: Request) {
 
 若你正在從 `pages/api` 遷移，邏輯相同——只需調整函式簽章與回應寫法。
 
-## 在 Route Handler 讀取工作階段 Cookie 與 Bearer 權杖
+## 在 Route Handler 讀取工作階段 Cookie 與 Bearer Token
 
 Route Handler 必須從進來的請求讀取憑證。常見有兩種模式。
 
@@ -77,7 +77,7 @@ export async function GET(request: Request) {
 
 ```
 
-### 讀取 Bearer 權杖
+### 讀取 Bearer Token
 
 機器對機器呼叫——行動 App、其他後端——通常會在 `Authorization` 標頭帶 JWT：
 
@@ -95,7 +95,7 @@ export async function GET(request: Request) {
 
 ```
 
-該用哪一種？**瀏覽器應用**適合用工作階段 Cookie——由瀏覽器自動送出，避免在客戶端存權杖。**非瀏覽器**的 API 消費者較適合 Bearer。Authgear 兩者皆支援，下文會示範。
+該用哪一種？**瀏覽器應用**適合用工作階段 Cookie——由瀏覽器自動送出，避免在客戶端存 Token。**非瀏覽器**的 API 消費者較適合 Bearer。Authgear 兩者皆支援，下文會示範。
 
 ## 完整範例：受保護的 Route Handler
 
@@ -147,7 +147,7 @@ export async function GET(request: NextRequest) {
 
 ```
 
-注意兩段分開的 `401` 檢查：一段對應缺少權杖，一段對應無效權杖。這讓 API 客戶端有更清楚的錯誤訊息，又不過度暴露是哪個條件觸發拒絕。
+注意兩段分開的 `401` 檢查：一段對應缺少 Token，一段對應無效 Token。這讓 API 客戶端有更清楚的錯誤訊息，又不過度暴露是哪個條件觸發拒絕。
 
 ## 在 Route Handlers 使用 Authgear Next.js SDK
 
@@ -321,9 +321,9 @@ export const config = {
         <td>每個非公開 action 頂端都加 <code>currentUser()</code> 檢查</td>
       </tr>
       <tr>
-        <td>把權杖存在 <code>localStorage</code></td>
+        <td>把 Token 存在 <code>localStorage</code></td>
         <td>易受 XSS 攻擊</td>
-        <td>工作階段權杖請用 <code>HttpOnly</code> Cookie</td>
+        <td>工作階段 Token 請用 <code>HttpOnly</code> Cookie</td>
       </tr>
       <tr>
         <td>驗證通過後未檢查過期</td>
@@ -337,7 +337,7 @@ export const config = {
 
 ### Next.js API route 中 401 與 403 差在哪？
 
-**401 Unauthorized** 表示請求沒有有效身分——Cookie 缺失、權杖沒帶、或權杖無效／過期。客戶端應提示登入。**403 Forbidden** 表示身分有效，但**沒有權限**執行此動作。客戶端應顯示「存取遭拒」，而非登入畫面。正確狀態碼讓 API 客戶端不必解析錯誤 body 也能正確反應。
+**401 Unauthorized** 表示請求沒有有效身分——Cookie 缺失、Token 沒帶、或 Token 無效／過期。客戶端應提示登入。**403 Forbidden** 表示身分有效，但**沒有權限**執行此動作。客戶端應顯示「存取遭拒」，而非登入畫面。正確狀態碼讓 API 客戶端不必解析錯誤 body 也能正確反應。
 
 ### `currentUser()` 能同時用在 Route Handler 與 Server Component 嗎？
 
