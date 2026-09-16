@@ -15,13 +15,13 @@ draft: false
 
 唯一的問題是：你的使用者 **不在 Supabase Auth 裡**，而 Supabase 內建的第三方選項（Clerk、WorkOS、Auth0、Amazon Cognito）不符合你的架構。你不會遷移使用者，也絕對不想有兩份真實來源。
 
-好消息是？你不需要。Supabase 的資料庫其實 *不要求* 使用 Supabase Auth；它只需要 **Supabase 簽發的 JWT** 來評估列層級安全（RLS）。只要你能驗證現有 JWT，就可以在邊緣把它們 **交換** 成 Supabase 簽發的權杖，並完全維持既有 SSO／IdP 不變。無需匯入使用者。無需重複 session。
+好消息是？你不需要。Supabase 的資料庫其實 *不要求* 使用 Supabase Auth；它只需要 **Supabase 簽發的 JWT** 來評估列層級安全（RLS）。只要你能驗證現有 JWT，就可以在邊緣把它們 **交換** 成 Supabase 簽發的 Token，並完全維持既有 SSO／IdP 不變。無需匯入使用者。無需重複 session。
 
 在這篇指南中，你會學到如何：
 
 - 驗證你的 IdP JWT（任何有 JWKS 端點的發行者都可以）。
 - 簽發 Supabase 簽名 JWT。
-- 設定 `supabase-js` 按需取得該權杖。
+- 設定 `supabase-js` 按需取得該 Token。
 - 撰寫根據使用者 `sub` claim 的 RLS policy。
 
 如果你還沒有 IdP，**Authgear** 也很適合放在這個位置，提供 MFA、生物辨識、社群登入。但這套模式可套用在 *任何* JWT 發行者。現在就讓你的既有 SSO 以正確方式接上 Supabase。

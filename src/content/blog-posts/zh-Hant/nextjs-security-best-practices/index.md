@@ -31,10 +31,10 @@ Next.js 已從單純的 React 框架成長為全端平台——能力越強，�
 
 ### 使用 httpOnly Cookie，不要用 localStorage
 
-把工作階段權杖或 JWT 存在 `localStorage` 是 Next.js 驗證最常見的錯誤。頁面上任何 JavaScript——包含 XSS 注入的程式碼——都能讀取 `localStorage`。`httpOnly` Cookie 無法被 JavaScript 讀取，因此在 XSS 下較能存活。
+把工作階段 Token 或 JWT 存在 `localStorage` 是 Next.js 驗證最常見的錯誤。頁面上任何 JavaScript——包含 XSS 注入的程式碼——都能讀取 `localStorage`。`httpOnly` Cookie 無法被 JavaScript 讀取，因此在 XSS 下較能存活。
 
 ```typescript
-// ✅ 正確——在 httpOnly Cookie 設定工作階段權杖（Server Action 或 API Route）
+// ✅ 正確——在 httpOnly Cookie 設定工作階段 Token（Server Action 或 API Route）
 import { cookies } from 'next/headers';
 
 export async function setSessionCookie(token: string) {
@@ -51,14 +51,14 @@ export async function setSessionCookie(token: string) {
 ```
 
 ```typescript
-// ❌ 錯誤——把權杖存在 localStorage 會暴露給 XSS
+// ❌ 錯誤——把 Token 存在 localStorage 會暴露給 XSS
 localStorage.setItem('token', userToken);
 
 ```
 
 ### 實作工作階段逾時與輪替
 
-長期有效的工作階段是風險。請設定合理的 `maxAge`（一般應用 24 小時；管理工具 15 分鐘）。在權限升級後——例如重新驗證後——輪替工作階段 ID。如此即使權杖被偷，也會在攻擊者大量濫用前過期。
+長期有效的工作階段是風險。請設定合理的 `maxAge`（一般應用 24 小時；管理工具 15 分鐘）。在權限升級後——例如重新驗證後——輪替工作階段 ID。如此即使 Token 被偷，也會在攻擊者大量濫用前過期。
 
 ## 2. 保護 API Route 與 Server Actions
 
@@ -302,7 +302,7 @@ export default nextConfig;
 
 ## 7. 使用驗證平台
 
-從零安全實作驗證很難。你必須處理工作階段管理、權杖輪替、MFA、passkey、暴力破解防護等——每個細節都必須正確。這正是像 <a href="https://www.authgear.com" target="_blank" rel="noopener">Authgear</a> 這類驗證平台的價值。Authgear 為 Next.js 提供可嵌入的驗證層，內建 passkey、TOTP MFA、社交登入與工作階段管理——讓你專注在應用本身，而非驗證基礎建設。請見 <a href="https://docs.authgear.com/get-started/regular-web-app/nextjs" target="_blank" rel="noopener">Next.js 快速入門</a>，約 15 分鐘內可開始。
+從零安全實作驗證很難。你必須處理工作階段管理、Token 輪替、MFA、passkey、暴力破解防護等——每個細節都必須正確。這正是像 <a href="https://www.authgear.com" target="_blank" rel="noopener">Authgear</a> 這類驗證平台的價值。Authgear 為 Next.js 提供可嵌入的驗證層，內建 passkey、TOTP MFA、社交登入與工作階段管理——讓你專注在應用本身，而非驗證基礎建設。請見 <a href="https://docs.authgear.com/get-started/regular-web-app/nextjs" target="_blank" rel="noopener">Next.js 快速入門</a>，約 15 分鐘內可開始。
 
 ## Next.js 安全檢查清單
 
@@ -320,11 +320,11 @@ export default nextConfig;
       <td>✅ / ❌</td>
     </tr>
     <tr>
-      <td>工作階段權杖存在 <code>httpOnly</code>、<code>Secure</code>、<code>SameSite=Lax</code> Cookie</td>
+      <td>工作階段 Token 存在 <code>httpOnly</code>、<code>Secure</code>、<code>SameSite=Lax</code> Cookie</td>
       <td>✅ / ❌</td>
     </tr>
     <tr>
-      <td>未將驗證權杖存在 <code>localStorage</code> 或 <code>sessionStorage</code></td>
+      <td>未將驗證 Token 存在 <code>localStorage</code> 或 <code>sessionStorage</code></td>
       <td>✅ / ❌</td>
     </tr>
     <tr>

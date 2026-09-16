@@ -26,7 +26,7 @@ Session management refers to handling multiple requests and responses from a use
 
 ### 會話ID
 
-會話 ID 或會話令牌是隨機產生的字串形式的唯一標識符，用於識別使用者在網站或應用程式上的會話。當使用者登入網站或應用程式時，伺服器會建立一個會話 ID，並在會話終止時銷毀它。
+會話 ID 或會話 Token 是隨機產生的字串形式的唯一標識符，用於識別使用者在網站或應用程式上的會話。當使用者登入網站或應用程式時，伺服器會建立一個會話 ID，並在會話終止時銷毀它。
 
 There are a few different ways to generate session ID, but it is recommended by <a href="https://owasp.org/" target="_blank">OWASP</a> to use a good Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to create session IDs. This ensures that each cookie is unique and thus can withstand guessing attacks.
 

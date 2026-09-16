@@ -11,7 +11,7 @@ updatedAt: 2026-03-30T16:58:12.782Z
 draft: false
 faq:
   - q: "可以把 Authgear 和 Supabase 資料庫一起用嗎？"
-    a: "可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href=\"/zh-hant/post/supabase-any-auth-provider\" target=\"_blank\" rel=\"noopener\">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。"
+    a: "可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href=\"/zh-hant/post/supabase-any-auth-provider\" target=\"_blank\" rel=\"noopener\">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的 Token 以搭配 RLS。"
   - q: "Supabase Auth 支援 Next.js App Router 嗎？"
     a: "支援。`@supabase/ssr` 完整支援 Next.js App Router，含 Server Components、Route Handlers 與 middleware。舊套件 `@supabase/auth-helpers-nextjs` 已棄用——新專案請使用 `@supabase/ssr`。"
   - q: "Authgear 的 Next.js SDK 能上正式環境嗎？"
@@ -107,7 +107,7 @@ Authgear 建於開放標準（OpenID Connect、OAuth 2.0、SAML），內建可�
 
 ### Next.js 中的 Supabase Auth
 
-Supabase 以 `@supabase/ssr` 在 Server Components 與 middleware 處理 cookie 工作階段。你會建立兩種 client——瀏覽器與伺服器各一——並加上 middleware 以重新整理權杖。
+Supabase 以 `@supabase/ssr` 在 Server Components 與 middleware 處理 cookie 工作階段。你會建立兩種 client——瀏覽器與伺服器各一——並加上 middleware 以 Refresh Token。
 
 **1. 安裝套件**
 
@@ -157,7 +157,7 @@ export async function createClient() {
 
 ```
 
-**4. 在伺服器端保護路由**時請使用 `getClaims()`——不要用 `getSession()`。`getClaims()` 每次呼叫都會依專案公開金鑰驗證 JWT 簽章。`getSession()` 不會重新驗證權杖，**不可**用於伺服器端的存取控管。
+**4. 在伺服器端保護路由**時請使用 `getClaims()`——不要用 `getSession()`。`getClaims()` 每次呼叫都會依專案公開金鑰驗證 JWT 簽章。`getSession()` 不會重新驗證 Token，**不可**用於伺服器端的存取控管。
 
 ```typescript
 // src/app/dashboard/page.tsx
@@ -176,11 +176,11 @@ export default async function DashboardPage() {
 }
 ```
 
-你也需要 middleware 在每次請求時重新整理過期權杖——完整範例見 <a href="https://supabase.com/docs/guides/auth/server-side/nextjs" target="_blank" rel="noopener">Supabase Next.js 伺服器端驗證文件</a>。
+你也需要 middleware 在每次請求時重新整理過期 Token——完整範例見 <a href="https://supabase.com/docs/guides/auth/server-side/nextjs" target="_blank" rel="noopener">Supabase Next.js 伺服器端驗證文件</a>。
 
 ### Next.js 中的 Authgear
 
-Authgear 提供專用的 `@authgear/nextjs` SDK，對 App Router 為一等公民。設定採 catch-all route handler——登入、登出、權杖更新等回呼都走同一個 API route，並以 `currentUser()` 在伺服器端保護頁面。
+Authgear 提供專用的 `@authgear/nextjs` SDK，對 App Router 為一等公民。設定採 catch-all route handler——登入、登出、Token 更新等回呼都走同一個 API route，並以 `currentUser()` 在伺服器端保護頁面。
 
 **1. 安裝套件**
 
@@ -294,7 +294,7 @@ export default async function DashboardPage() {
 
 ### 可以把 Authgear 和 Supabase 資料庫一起用嗎？
 
-可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href="/zh-hant/post/supabase-any-auth-provider" target="_blank" rel="noopener">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的權杖以搭配 RLS。
+可以。Authgear 與 Supabase 並非二選一。你可以用 Authgear 作身分提供者、Supabase 作資料庫。Authgear 簽發標準 JWT，你可在 API route 先驗證再查詢 Supabase。Authgear 也提供<a href="/zh-hant/post/supabase-any-auth-provider" target="_blank" rel="noopener">將 Supabase 與任何驗證提供者串接</a>的指南，包含如何從外部 JWT 產生相容 Supabase 的 Token 以搭配 RLS。
 
 ### Supabase Auth 支援 Next.js App Router 嗎？
 

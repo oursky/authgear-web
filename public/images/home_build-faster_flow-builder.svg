@@ -1,0 +1,82 @@
+<svg width="420" height="260" viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Drag-and-drop auth flow builder: a chain of step cards with one step lifted mid-drag over a dashed insertion gap. Transparent background by design. -->
+<ellipse cx="204" cy="144" rx="188" ry="136" fill="url(#fbGlow)"/>
+<g stroke="#C9CEFF" stroke-opacity="0.72" stroke-width="1.15" stroke-dasharray="4 5" stroke-linecap="round">
+  <path d="M124 58V74"/><path d="M124 120V136"/><path d="M124 182V198"/>
+</g>
+<g filter="url(#fbSoft)">
+  <circle cx="124" cy="66" r="6" fill="white" fill-opacity="0.22"/>
+  <circle cx="124" cy="128" r="6" fill="white" fill-opacity="0.22"/>
+  <circle cx="124" cy="190" r="6" fill="white" fill-opacity="0.22"/>
+</g>
+<g fill="white" fill-opacity="0.9"><circle cx="124" cy="66" r="2.8"/><circle cx="124" cy="128" r="2.8"/><circle cx="124" cy="190" r="2.8"/></g>
+
+<rect x="26" y="12" width="196" height="46" rx="16" fill="black" fill-opacity="0.3"/>
+<rect x="26.5" y="12.5" width="195" height="45" rx="15.5" stroke="url(#fbEdgeA)" stroke-opacity="0.62"/>
+<g fill="white" fill-opacity="0.55"><circle cx="40" cy="27.5" r="1.9"/><circle cx="46" cy="27.5" r="1.9"/><circle cx="40" cy="35" r="1.9"/><circle cx="46" cy="35" r="1.9"/><circle cx="40" cy="42.5" r="1.9"/><circle cx="46" cy="42.5" r="1.9"/></g>
+<rect x="58" y="23" width="24" height="24" rx="7.5" fill="white" fill-opacity="0.12"/>
+<rect x="58.7" y="23.7" width="22.6" height="22.6" rx="6.8" stroke="url(#fbGlyph)" stroke-opacity="0.6" stroke-width="1.2"/>
+<g stroke="url(#fbGlyph)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="70" cy="31.4" r="3.6"/><path d="M64 42.6A6 6 0 0 1 76 42.6"/></g>
+<rect x="92" y="24.5" width="88" height="7.5" rx="3.75" fill="white" fill-opacity="0.5"/>
+<rect x="92" y="37" width="52" height="6.5" rx="3.25" fill="white" fill-opacity="0.24"/>
+
+<rect x="26" y="74" width="196" height="46" rx="16" fill="black" fill-opacity="0.3"/>
+<rect x="26.5" y="74.5" width="195" height="45" rx="15.5" stroke="url(#fbEdgeB)" stroke-opacity="0.62"/>
+<g fill="white" fill-opacity="0.55"><circle cx="40" cy="89.5" r="1.9"/><circle cx="46" cy="89.5" r="1.9"/><circle cx="40" cy="97" r="1.9"/><circle cx="46" cy="97" r="1.9"/><circle cx="40" cy="104.5" r="1.9"/><circle cx="46" cy="104.5" r="1.9"/></g>
+<rect x="58" y="85" width="24" height="24" rx="7.5" fill="white" fill-opacity="0.12"/>
+<rect x="58.7" y="85.7" width="22.6" height="22.6" rx="6.8" stroke="url(#fbGlyph)" stroke-opacity="0.6" stroke-width="1.2"/>
+<g stroke="url(#fbGlyph)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="60" y="90.5" width="20" height="14" rx="3" fill="white" fill-opacity="0.14"/>
+  <path d="M61.2 92L70 98.5L78.8 92"/>
+</g>
+<rect x="92" y="86.5" width="72" height="7.5" rx="3.75" fill="white" fill-opacity="0.5"/>
+<rect x="92" y="99" width="46" height="6.5" rx="3.25" fill="white" fill-opacity="0.24"/>
+
+<rect x="34" y="142" width="180" height="34" rx="16" fill="#AEB6E4" fill-opacity="0.18" filter="url(#fbSlotGlow)"/>
+<rect x="26.5" y="136.5" width="195" height="45" rx="15.5" fill="white" fill-opacity="0.04" stroke="#C9CEFF" stroke-opacity="0.6" stroke-width="1.3" stroke-dasharray="5 6"/>
+<g stroke="white" stroke-opacity="0.5" stroke-width="2.2" stroke-linecap="round"><path d="M60 159H78"/><path d="M69 150V168"/></g>
+<rect x="92" y="155.5" width="60" height="7" rx="3.5" fill="white" fill-opacity="0.12"/>
+
+<rect x="26" y="198" width="196" height="46" rx="16" fill="black" fill-opacity="0.3"/>
+<rect x="26.5" y="198.5" width="195" height="45" rx="15.5" stroke="url(#fbEdgeC)" stroke-opacity="0.62"/>
+<g fill="white" fill-opacity="0.55"><circle cx="40" cy="213.5" r="1.9"/><circle cx="46" cy="213.5" r="1.9"/><circle cx="40" cy="221" r="1.9"/><circle cx="46" cy="221" r="1.9"/><circle cx="40" cy="228.5" r="1.9"/><circle cx="46" cy="228.5" r="1.9"/></g>
+<rect x="58" y="209" width="24" height="24" rx="7.5" fill="white" fill-opacity="0.12"/>
+<rect x="58.7" y="209.7" width="22.6" height="22.6" rx="6.8" stroke="url(#fbGlyph)" stroke-opacity="0.6" stroke-width="1.2"/>
+<g stroke="url(#fbGlyph)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="61.5" y="212.5" width="17" height="17" rx="5" fill="white" fill-opacity="0.14"/>
+  <path d="M65.2 221L68.6 224.4L74.8 217.8"/>
+</g>
+<rect x="92" y="210.5" width="82" height="7.5" rx="3.75" fill="white" fill-opacity="0.5"/>
+<rect x="92" y="223" width="48" height="6.5" rx="3.25" fill="white" fill-opacity="0.24"/>
+
+<g filter="url(#fbLift)">
+  <g transform="translate(172 115) rotate(-5 98 23)">
+    <rect width="196" height="46" rx="16" fill="black" fill-opacity="0.34"/>
+    <rect width="196" height="46" rx="16" fill="white" fill-opacity="0.1"/>
+    <rect x="0.5" y="0.5" width="195" height="45" rx="15.5" stroke="url(#fbEdgeDrag)" stroke-opacity="0.95"/>
+    <g fill="white" fill-opacity="0.75"><circle cx="14" cy="15.5" r="1.9"/><circle cx="20" cy="15.5" r="1.9"/><circle cx="14" cy="23" r="1.9"/><circle cx="20" cy="23" r="1.9"/><circle cx="14" cy="30.5" r="1.9"/><circle cx="20" cy="30.5" r="1.9"/></g>
+    <rect x="32" y="11" width="24" height="24" rx="7.5" fill="white" fill-opacity="0.18"/>
+    <rect x="32.7" y="11.7" width="22.6" height="22.6" rx="6.8" stroke="white" stroke-opacity="0.75" stroke-width="1.2"/>
+    <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M44 14.4L50.8 17.2V22.6C50.8 26.6 47.9 29.6 44 30.8C40.1 29.6 37.2 26.6 37.2 22.6V17.2L44 14.4Z" fill="white" fill-opacity="0.16"/>
+      <path d="M41 22.4L43.2 24.6L47 20.6"/>
+    </g>
+    <rect x="66" y="14" width="88" height="7.5" rx="3.75" fill="white" fill-opacity="0.78"/>
+    <rect x="66" y="26.5" width="54" height="6.5" rx="3.25" fill="white" fill-opacity="0.4"/>
+  </g>
+</g>
+<g transform="translate(338 126)">
+  <path d="M0 0L0 19.6L5.2 15L8.3 22.2L12 20.5L8.8 13.6L15.3 13.2Z" fill="white" stroke="#141A52" stroke-opacity="0.5" stroke-width="1.5" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="fbGlyph" x1="0" y1="10" x2="0" y2="250" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="#AEB6E4"/></linearGradient>
+<radialGradient id="fbGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(204 144) rotate(90) scale(136 188)"><stop stop-color="#C3C8FF" stop-opacity="0.24"/><stop offset="0.5" stop-color="#8E97F5" stop-opacity="0.09"/><stop offset="1" stop-color="#8E97F5" stop-opacity="0"/></radialGradient>
+<linearGradient id="fbEdgeA" x1="124" y1="12" x2="124" y2="58" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
+<linearGradient id="fbEdgeB" x1="124" y1="74" x2="124" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
+<linearGradient id="fbEdgeC" x1="124" y1="198" x2="124" y2="244" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
+<linearGradient id="fbEdgeDrag" x1="98" y1="0" x2="98" y2="46" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="white" stop-opacity="0.18"/></linearGradient>
+<filter id="fbSlotGlow" x="4" y="112" width="240" height="94" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="9"/></filter>
+<filter id="fbSoft" x="104" y="46" width="40" height="164" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="1.6" result="effect1_foregroundBlur"/></filter>
+<filter id="fbLift" x="134" y="82" width="270" height="152" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="13" stdDeviation="11" flood-color="#00042A" flood-opacity="0.62"/><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#00042A" flood-opacity="0.45"/></filter>
+</defs>
+</svg>

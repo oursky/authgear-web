@@ -13,7 +13,7 @@ faq:
   - q: "Authgear 能用於 Next.js Pages Router 嗎？"
     a: "可以。`@authgear/nextjs` SDK 同時支援 App Router 與 Pages Router。在 Pages Router 會改用 `getServerSideProps` 或 API routes，而非 Server Components，但底層驗證函式用法相同。本篇以 App Router 為主，因為它是 2026 年新專案的建議做法。"
   - q: "`currentUser()` 會回傳什麼？"
-    a: "`currentUser()` 會從 Authgear userinfo 端點回傳使用者設定檔（姓名、電子郵件、大頭照、使用者 ID）；若沒有有效工作階段則為 `null`。呼叫前也會在背景靜默重新整理過期的 access token，因此你通常不必手動處理權杖過期。在任何 Server Component、Route Handler 或 Server Action 中，只要要知道「是誰在發請求」即可使用。"
+    a: "`currentUser()` 會從 Authgear userinfo 端點回傳使用者設定檔（姓名、電子郵件、大頭照、使用者 ID）；若沒有有效工作階段則為 `null`。呼叫前也會在背景靜默重新整理過期的 access token，因此你通常不必手動處理 Token 過期。在任何 Server Component、Route Handler 或 Server Action 中，只要要知道「是誰在發請求」即可使用。"
   - q: "通行密鑰與密碼如何並存？"
     a: "Authgear 同時支援兩者。你可在入口網站設定讓使用者把通行密鑰註冊為額外或主要登入方式。已有密碼帳戶的使用者可從個人設定新增通行密鑰——無須重新註冊。若要走完全無密碼，也可要求所有新註冊僅能使用通行密鑰。"
   - q: "Authgear 是否符合 GDPR／SOC 2？"
@@ -24,7 +24,7 @@ faq:
 
 ## 導言：Next.js 驗證已經不一樣了
 
-若你上次碰 Next.js 驗證還在 Pages Router 時代，接下來會是明顯升級。App Router 自 Next.js 13 穩定，並在 2026 年成為新專案預設——它**預設把驗證放在伺服器**。這代表不再依賴大量 `getServerSideProps` 樣板、不會先閃出未登入內容，也不用在瀏覽器執行敏感的權杖驗證邏輯。
+若你上次碰 Next.js 驗證還在 Pages Router 時代，接下來會是明顯升級。App Router 自 Next.js 13 穩定，並在 2026 年成為新專案預設——它**預設把驗證放在伺服器**。這代表不再依賴大量 `getServerSideProps` 樣板、不會先閃出未登入內容，也不用在瀏覽器執行敏感的 Token 驗證邏輯。
 
 但「搬到伺服器」**不代表**「已經解決」。2026 年的 Next.js 開發者仍要面對真實取捨：該自建嗎？用 NextAuth（Auth.js v5）？還是採用代管平台？通行密鑰呢？企業 SSO？防詐？Middleware 怎麼接？
 
@@ -43,7 +43,7 @@ faq:
   <li><strong>SSO／企業登入</strong>——SAML 與 OIDC 串接，讓企業客戶用自家 IdP 登入。</li>
   <li><strong>多因素驗證（MFA）</strong>——TOTP、簡訊 OTP，以及敏感操作時的升級 MFA（step-up）。</li>
   <li><strong>防詐</strong>——機器人偵測、可疑登入警示、驗證端點限流——常要到出事才被想起。</li>
-  <li><strong>Edge Runtime 相容</strong>——Middleware 跑在 Edge，權杖驗證也要能在該環境執行。</li>
+  <li><strong>Edge Runtime 相容</strong>——Middleware 跑在 Edge，Token 驗證也要能在該環境執行。</li>
   <li><strong>TypeScript 優先的 SDK</strong>——型別安全能在上線前攔下許多驗證相關錯誤。</li>
 </ul>
 
@@ -194,7 +194,7 @@ export const { GET, POST } = createAuthgearHandlers(authgearConfig);
         <tr>
           <td>GET</td>
           <td><code>/api/auth/logout</code></td>
-          <td>清除工作階段並撤銷權杖</td>
+          <td>清除工作階段並撤銷 Token</td>
         </tr>
         <tr>
           <td>POST</td>
@@ -277,7 +277,7 @@ export default async function DashboardPage() {
 
 ```
 
-無需在客戶端抓權杖、也不用 loading 遮住未登入閃爍——在伺服器確認使用者身分之前，頁面不會完成渲染。
+無需在客戶端抓 Token、也不用 loading 遮住未登入閃爍——在伺服器確認使用者身分之前，頁面不會完成渲染。
 
 完整設定請見 [Authgear Next.js 快速入門文件](https://docs.authgear.com/get-started/regular-web-app/nextjs)。
 
@@ -394,7 +394,7 @@ export async function updateDisplayName(formData: FormData) {
 
 ```
 
-檔案頂端的 `"use server"` 將模組標記為 Server Action。驗證檢查完全在伺服器執行——權杖不會因此暴露到瀏覽器。
+檔案頂端的 `"use server"` 將模組標記為 Server Action。驗證檢查完全在伺服器執行——Token 不會因此暴露到瀏覽器。
 
 ## 以 Middleware 保護路由
 
@@ -406,17 +406,17 @@ export async function updateDisplayName(formData: FormData) {
 
 ## JWT 處理
 
-使用者登入後，Authgear 會簽發短效 JWT access token。你的 Next.js 應用以該權杖代表使用者呼叫後端 API。SDK 會以存於 `httpOnly` Cookie 的長效 refresh token 自動更新 access token——使用者不必一直被要求重新登入。
+使用者登入後，Authgear 會簽發短效 JWT access token。你的 Next.js 應用以該 Token 代表使用者呼叫後端 API。SDK 會以存於 `httpOnly` Cookie 的長效 refresh token 自動更新 access token——使用者不必一直被要求重新登入。
 
 重點：
 
 <ul>
     <li>不要把 JWT 放在 <code>localStorage</code>——請用 <code>httpOnly</code> Cookie（<code>@authgear/nextjs</code> 預設如此）。</li>
-    <li>在後端以 Authgear 的 JWKS 端點驗證 JWT。未經驗證的權杖不可信任。</li>
-    <li>短效 access token + 長效 refresh token 是正確組合——可限制權杖外洩時的暴露窗口。</li>
+    <li>在後端以 Authgear 的 JWKS 端點驗證 JWT。未經驗證的 Token 不可信任。</li>
+    <li>短效 access token + 長效 refresh token 是正確組合——可限制 Token 外洩時的暴露窗口。</li>
   </ul>
 
-JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安全地驗證與使用權杖](/zh-hant/post/nextjs-jwt-authentication)。
+JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安全地驗證與使用 Token](/zh-hant/post/nextjs-jwt-authentication)。
 
 ## 工作階段管理
 
@@ -440,7 +440,7 @@ JWT 驗證、輪替與常見陷阱的完整說明見：[Next.js JWT 驗證：安
 
 ### `currentUser()` 會回傳什麼？
 
-`currentUser()` 會從 Authgear userinfo 端點回傳使用者設定檔（姓名、電子郵件、大頭照、使用者 ID）；若沒有有效工作階段則為 `null`。呼叫前也會在背景靜默重新整理過期的 access token，因此你通常不必手動處理權杖過期。在任何 Server Component、Route Handler 或 Server Action 中，只要要知道「是誰在發請求」即可使用。
+`currentUser()` 會從 Authgear userinfo 端點回傳使用者設定檔（姓名、電子郵件、大頭照、使用者 ID）；若沒有有效工作階段則為 `null`。呼叫前也會在背景靜默重新整理過期的 access token，因此你通常不必手動處理 Token 過期。在任何 Server Component、Route Handler 或 Server Action 中，只要要知道「是誰在發請求」即可使用。
 
 ### 通行密鑰與密碼如何並存？
 

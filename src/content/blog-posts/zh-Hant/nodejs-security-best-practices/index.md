@@ -24,7 +24,7 @@ Node.js 是大量 Web API 與後端服務的執行環境。其非阻塞 I/O 模�
 <ul>
 <li><strong>憑證填充與暴力破解</strong>——使用外洩憑證清單的自動化登入嘗試。</li>
 <li><strong>注入攻擊</strong>——登入查詢使用的 MongoDB 查詢遭 NoSQL 注入，或未使用參數化查詢的關聯式資料庫遭 SQL 注入。</li>
-<li><strong>不安全的權杖處理</strong>——儲存在 <code>localStorage</code> 的 JWT 可被頁面上任何 JavaScript 讀取，易受 XSS 影響。</li>
+<li><strong>不安全的 Token 處理</strong>——儲存在 <code>localStorage</code> 的 JWT 可被頁面上任何 JavaScript 讀取，易受 XSS 影響。</li>
 <li><strong>時序攻擊</strong>——天真的字串比對會在找到不符時提早結束，透過回應時間差外洩密碼正確性資訊。</li>
 <li><strong>相依套件漏洞</strong>——驗證流程中遭入侵或有漏洞的 npm 套件可能帶來災難性後果。</li>
 <li><strong>工作階段固定（Session fixation）</strong>——攻擊者在使用者登入前預先植入已知工作階段 ID，登入後劫持已驗證工作階段。</li>
@@ -92,7 +92,7 @@ JWT（JSON Web Tokens）廣泛用於無狀態驗證，但有多處尖銳邊角�
 
 ### 多服務架構請用 RS256，勿用 HS256
 
-`HS256` 以單一共用密鑰簽署與驗證。若有多個服務，每個需驗證權杖的服務都需要該密鑰——而持有密鑰的每個服務都能**發行**權杖。
+`HS256` 以單一共用密鑰簽署與驗證。若有多個服務，每個需驗證 Token 的服務都需要該密鑰——而持有密鑰的每個服務都能**發行**Token。
 
 `RS256` 使用非對稱金鑰對：以私鑰簽署（僅驗證服務持有），以公鑰驗證（任何服務皆可持有）。在微服務環境中安全得多。
 
@@ -127,11 +127,11 @@ function verifyToken(token) {
 }
 ```
 
-務必在 `jwt.verify` 中**明確指定** `algorithms`。若未指定，攻擊者可將權杖標頭中的演算法改為 `none` 並完全繞過驗證——這是知名的 JWT 漏洞。
+務必在 `jwt.verify` 中**明確指定** `algorithms`。若未指定，攻擊者可將 Token 標頭中的演算法改為 `none` 並完全繞過驗證——這是知名的 JWT 漏洞。
 
-### 權杖過期與重新整理
+### Token 過期與重新整理
 
-存取權杖應為短期（15 分鐘是常見選擇）。搭配長效、安全儲存的重新整理權杖，用以交換新的存取權杖。
+Access Token 應為短期（15 分鐘是常見選擇）。搭配長效、安全儲存的 Refresh Token，用以交換新的 Access Token。
 
 ```
 function issueRefreshToken(userId) {
@@ -166,12 +166,12 @@ app.post('/token/refresh', async (req, res) => {
 });
 ```
 
-### 權杖存哪裡：httpOnly cookie 對上 localStorage
+### Token 存哪裡：httpOnly cookie 對上 localStorage
 
-將權杖存在 `httpOnly` cookie，**不要**存在 `localStorage`。
+將 Token 存在 `httpOnly` cookie，**不要**存在 `localStorage`。
 
 <ul>
-<li><code>localStorage</code> 可被頁面上任何 JavaScript 存取。單一 XSS 漏洞即可讓攻擊者竊取儲存中的所有權杖。</li>
+<li><code>localStorage</code> 可被頁面上任何 JavaScript 存取。單一 XSS 漏洞即可讓攻擊者竊取儲存中的所有 Token。</li>
 <li><code>httpOnly</code> cookie 完全無法被 JavaScript 讀取。會隨請求自動送出，搭配 <code>Secure</code> 與 <code>SameSite=Strict</code> 可同時抵抗基於 XSS 的竊取與 CSRF。</li>
 </ul>
 
@@ -184,13 +184,13 @@ res.cookie('accessToken', token, {
 });
 ```
 
-### 權杖撤銷模式
+### Token 撤銷模式
 
-JWT 在設計上是無狀態的，內建沒有撤銷機制。當使用者登出或你需要提早作廢權杖（例如密碼重設後），主要有兩種做法：
+JWT 在設計上是無狀態的，內建沒有撤銷機制。當使用者登出或你需要提早作廢 Token（例如密碼重設後），主要有兩種做法：
 
 <ol>
-<li><strong>拒絕清單（Denylist／blocklist）</strong>：將已撤銷權杖的 JTI（<code>jti</code> 宣告）存入 Redis，直到其自然過期。每次請求檢查此清單。</li>
-<li><strong>短效期＋重新整理輪替</strong>：存取權杖極短效，每次使用重新整理權杖時輪替並立即作廢舊權杖。</li>
+<li><strong>拒絕清單（Denylist／blocklist）</strong>：將已撤銷 Token 的 JTI（<code>jti</code> 宣告）存入 Redis，直到其自然過期。每次請求檢查此清單。</li>
+<li><strong>短效期＋重新整理輪替</strong>：Access Token 極短效，每次使用 Refresh Token 時輪替並立即作廢舊 Token。</li>
 </ol>
 
 ```
@@ -468,7 +468,7 @@ app.post('/login/mfa', async (req, res) => {
 經戰場驗證的驗證平台預設處理這些。**Authgear** 即為此而建：提供幾行程式即可與 Express 整合的 Node.js SDK，並負責：
 
 <ul>
-<li>安全的工作階段與權杖管理</li>
+<li>安全的工作階段與 Token 管理</li>
 <li>密碼雜湊與外洩偵測</li>
 <li>MFA（TOTP、簡訊、通行密鑰）</li>
 <li>社群登入（Google、Apple、GitHub 等）</li>
@@ -500,9 +500,9 @@ app.get('/api/me', authgear.middleware(), (req, res) => {
 <tr><td>密碼</td><td>強制最小長度（12 字元以上）</td><td>亦可對照已知外洩清單（HaveIBeenPwned API）</td></tr>
 <tr><td>JWT</td><td>使用 RS256 演算法</td><td>單一服務可用 HS256；避免 <code>none</code></td></tr>
 <tr><td>JWT</td><td>在 <code>verify()</code> 明確設定 <code>algorithms</code></td><td>防止演算法混淆攻擊</td></tr>
-<tr><td>JWT</td><td>短效期（15 分）＋重新整理輪替</td><td>重新整理權杖須安全儲存</td></tr>
+<tr><td>JWT</td><td>短效期（15 分）＋重新整理輪替</td><td>Refresh Token 須安全儲存</td></tr>
 <tr><td>JWT</td><td>加入 <code>jti</code> 以支援撤銷</td><td>Redis 拒絕清單</td></tr>
-<tr><td>權杖</td><td>存在 httpOnly、Secure、SameSite cookie</td><td>勿用 localStorage</td></tr>
+<tr><td>Token</td><td>存在 httpOnly、Secure、SameSite cookie</td><td>勿用 localStorage</td></tr>
 <tr><td>工作階段</td><td>登入後重新產生 ID</td><td>防止工作階段固定</td></tr>
 <tr><td>工作階段</td><td>持久化儲存（Redis）</td><td>勿用記憶體內</td></tr>
 <tr><td>工作階段</td><td><code>saveUninitialized: false</code></td><td>避免幽靈工作階段</td></tr>
@@ -522,11 +522,11 @@ app.get('/api/me', authgear.middleware(), (req, res) => {
 
 ### Node.js 驗證該用 JWT 還是伺服器端工作階段？
 
-兩者皆可。JWT 無狀態，易於跨多台伺服器擴展而無需共用工作階段儲存。伺服器端工作階段較易**立即**撤銷（刪除工作階段紀錄即可）。多數應用下，短效 JWT 搭配重新整理權杖輪替是不錯平衡。若**立即**撤銷是硬性需求——例如高安全金融應用——以 Redis 支援的伺服器端工作階段可給你更多控制。
+兩者皆可。JWT 無狀態，易於跨多台伺服器擴展而無需共用工作階段儲存。伺服器端工作階段較易**立即**撤銷（刪除工作階段紀錄即可）。多數應用下，短效 JWT 搭配 Refresh Token 輪替是不錯平衡。若**立即**撤銷是硬性需求——例如高安全金融應用——以 Redis 支援的伺服器端工作階段可給你更多控制。
 
 ### JWT 簽署何時可用 HS256？
 
-可以，在**單一服務**部署且同一服務同時發行與驗證權杖時。若有多個服務需驗證權杖，請用 RS256，就不必共用簽署密鑰。
+可以，在**單一服務**部署且同一服務同時發行與驗證 Token 時。若有多個服務需驗證 Token，請用 RS256，就不必共用簽署密鑰。
 
 ### 如何防止 Node.js 登入查詢的 NoSQL 注入？
 
@@ -534,7 +534,7 @@ app.get('/api/me', authgear.middleware(), (req, res) => {
 
 ### HttpOnly 與 Secure cookie 旗標差異？
 
-`HttpOnly` 防止 JavaScript 讀取 cookie——阻擋基於 XSS 的權杖竊取。`Secure` 確保 cookie 僅經 HTTPS 傳送——防止在未加密連線上被攔截。兩者請與 `SameSite=Strict` 一併使用以阻擋跨站請求偽造。
+`HttpOnly` 防止 JavaScript 讀取 cookie——阻擋基於 XSS 的 Token 竊取。`Secure` 確保 cookie 僅經 HTTPS 傳送——防止在未加密連線上被攔截。兩者請與 `SameSite=Strict` 一併使用以阻擋跨站請求偽造。
 
 ## 摘要
 
@@ -543,7 +543,7 @@ Node.js 讓你能隨意建置驗證——這也表示若不刻意為之，很容
 <ul>
 <li>密碼使用刻意的慢雜湊演算法（bcrypt 或 argon2id）。</li>
 <li>以 RS256 簽署 JWT，並設定短效期。</li>
-<li>將權杖存在 httpOnly cookie，絕不放在 localStorage。</li>
+<li>將 Token 存在 httpOnly cookie，絕不放在 localStorage。</li>
 <li>登入後重新產生工作階段 ID，並使用持久化工作階段儲存。</li>
 <li>為登入端點加入速率限制，並以 MFA 保護。</li>
 <li>在 CI 執行 <code>npm audit</code>，在漏洞進入正式環境前攔截。</li>

@@ -1,11 +1,11 @@
 ---
 title: "從登入到鎖定：構建安全的身份驗證應用程式"
-excerpt: "掌握構建安全身份驗證應用程式的藝術。了解身份驗證方法、存取權杖，並使用 Authgear 實現強健的安全性。您的用戶數據安全保護全面指南。"
+excerpt: "掌握構建安全身份驗證應用程式的藝術。了解身份驗證方法、Access Token，並使用 Authgear 實現強健的安全性。您的用戶數據安全保護全面指南。"
 coverImage: ./cover.webp
 category: engineering
 featured: false
 metaTitle: "從登入到鎖定：構建安全的身份驗證應用程式"
-metaDescription: "掌握構建安全身份驗證應用程式的藝術。了解身份驗證方法、存取權杖，並使用 Authgear 實現強健的安全性。您的用戶數據安全保護全面指南。"
+metaDescription: "掌握構建安全身份驗證應用程式的藝術。了解身份驗證方法、Access Token，並使用 Authgear 實現強健的安全性。您的用戶數據安全保護全面指南。"
 publishedAt: 2022-06-24T06:05:49.487Z
 updatedAt: 2026-02-12T02:33:54.722Z
 draft: false
@@ -21,13 +21,13 @@ draft: false
         <li><a href="#methods">網頁應用程式中的身份驗證方法</a>
             <ul style="margin-top:15px; margin-bottom:15px">
                 <li><a href="#cookie">基於 Cookie 的身份驗證</a></li>
-                <li><a href="#token">基於令牌的身份驗證</a></li>
-                <li><a href="#third-party">第三方存取（OAuth、API 令牌）</a></li>
+                <li><a href="#token">基於 Token 的身份驗證</a></li>
+                <li><a href="#third-party">第三方存取（OAuth、API Token）</a></li>
                 <li><a href="#openid">OpenID Connect（OIDC）</a></li>
                 <li><a href="#saml">安全聲明標記語言（SAML）</a></li>
             </ul>
         </li>
-        <li><a href="#access-token">存取權杖如何在網頁應用程式中運作</a></li>
+        <li><a href="#access-token">Access Token 如何在網頁應用程式中運作</a></li>
         <li><a href="#authgear">如何使用 Authgear 在您的網頁應用程式中實現身份驗證？</a></li>
     </ul>
  </nav>
@@ -38,7 +38,7 @@ draft: false
 
 **已驗證身份的應用程式是一種在授予存取其功能和數據之前驗證用戶身份的軟體應用程式。** 這一重要的安全措施確保只有經過授權的個人才能與應用程式互動。
 
-身份驗證涉及確認用戶是否就是其所聲稱的那個人。這通常透過要求用戶提供憑證（如用戶名、密碼或生物識別數據）來實現。一旦驗證通過，應用程式會發出數位令牌或會話 Cookie，允許用戶存取受保護的資源。
+身份驗證涉及確認用戶是否就是其所聲稱的那個人。這通常透過要求用戶提供憑證（如用戶名、密碼或生物識別數據）來實現。一旦驗證通過，應用程式會發出數位 Token 或會話 Cookie，允許用戶存取受保護的資源。
 
 從本質上說，已驗證身份的應用程式充當一個守門人，保護敏感資訊並防止未授權存取。
 
@@ -58,25 +58,25 @@ Cookie 通常用於處理網頁應用程式中的用戶身份驗證。以下是�
 
 <p>如您所見，客戶端瀏覽器向伺服器發送登入憑證的 <span class="inline-code">POST</span> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST" target="_blank">請求</a>。伺服器隨後以 <span class="inline-code">HTTP 200 OK</span> 狀態碼驗證發送的憑證。它在伺服器端建立一個會話 ID 並透過 <span class="inline-code">Set-Cookie: session=…</span> 將其返回給客戶端。在後續請求中，伺服器會驗證 Cookie 中的會話 ID，並處理相應的請求。當您登出應用程式時，您的會話 ID 將從客戶端和伺服器端同時清除。</p>
 
-<h3 id="token">基於令牌的身份驗證</h3>
+<h3 id="token">基於 Token 的身份驗證</h3>
 
 隨著越來越多的單頁應用程式（SPA）的出現，這種方法正在興起。
 
-實現基於令牌的身份驗證最常見的方法之一是使用 <a href="https://jwt.io/" target="_blank">JSON Web Tokens（JWT）</a>。JWT 是一種開放標準，定義了一種以 JSON 物件形式在各方之間安全傳輸資訊的自包含方式。
+實現基於 Token 的身份驗證最常見的方法之一是使用 <a href="https://jwt.io/" target="_blank">JSON Web Tokens（JWT）</a>。JWT 是一種開放標準，定義了一種以 JSON 物件形式在各方之間安全傳輸資訊的自包含方式。
 
-基於令牌的身份驗證運作原理：
+基於 Token 的身份驗證運作原理：
 
 <!--FIGURE-->
 ![](./figure-2.webp)
 <!--/FIGURE-->
 
-當從客戶端瀏覽器接收到憑證後，伺服器會驗證這些憑證，並生成一個包含所有用戶資訊的已簽名 JWT。令牌是無狀態的，因此它永遠不會儲存在伺服器上。在後續請求中，令牌被傳遞到伺服器，然後在伺服器端進行解碼以驗證其有效性。
+當從客戶端瀏覽器接收到憑證後，伺服器會驗證這些憑證，並生成一個包含所有用戶資訊的已簽名 JWT。Token 是無狀態的，因此它永遠不會儲存在伺服器上。在後續請求中，Token 被傳遞到伺服器，然後在伺服器端進行解碼以驗證其有效性。
 
-<h3 id="third-party">第三方存取（OAuth、API 令牌）</h3>
+<h3 id="third-party">第三方存取（OAuth、API Token）</h3>
 
 第三方存取身份驗證可以透過兩種方式運作：
 
-- **透過 API 令牌**：這通常與我們上面討論的 JWT 相同，令牌被發送到授權標頭，並在某個 API 閘道器進行處理以驗證用戶身份。
+- **透過 API Token**：這通常與我們上面討論的 JWT 相同，Token 被發送到授權標頭，並在某個 API 閘道器進行處理以驗證用戶身份。
 - **透過開放式身份驗證（OAuth）**：顧名思義，<a href="https://oauth.net/" target="_blank">OAuth</a> 是一種開放協議，允許來自網頁、行動和桌面應用程式的安全身份驗證方法。此協議以用戶身份對伺服器進行身份驗證。
 
 <h3 id="openid">OpenID Connect（OIDC）</h3>
@@ -95,21 +95,21 @@ Cookie 通常用於處理網頁應用程式中的用戶身份驗證。以下是�
 
 [OIDC 與 SAML：解碼 SSO 之爭（以及為何這對您的企業至關重要）](/zh-hant/post/oidc-vs-saml)
 
-<h2 id="access-token">存取權杖如何在網頁應用程式中運作？</h2>
+<h2 id="access-token">Access Token 如何在網頁應用程式中運作？</h2>
 
-每當我們談論身份驗證時，都會聽到「存取權杖」這個詞。但它們到底是什麼呢？讓我們來弄清楚。
+每當我們談論身份驗證時，都會聽到「Access Token」這個詞。但它們到底是什麼呢？讓我們來弄清楚。
 
-### 什麼是存取權杖？
+### 什麼是 Access Token？
 
-<blockquote class="def-quote"><span style="font-weight:700">存取權杖</span>是用於驗證網頁應用程式存取特定資源的代碼。</blockquote>
+<blockquote class="def-quote"><span style="font-weight:700">Access Token</span>是用於驗證網頁應用程式存取特定資源的代碼。</blockquote>
 
-這些存取權杖以 <a href="https://jwt.io/" target="_blank">JSON Web Tokens（JWT）</a> 的形式提供，在傳輸過程中透過安全的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/https" target="_blank">HTTPS 協議</a> 傳遞。
+這些 Access Token 以 <a href="https://jwt.io/" target="_blank">JSON Web Tokens（JWT）</a> 的形式提供，在傳輸過程中透過安全的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/https" target="_blank">HTTPS 協議</a> 傳遞。
 
-它們用於基於令牌的身份驗證類型。當您成功通過身份驗證後，網頁應用程式會收到一個存取權杖。此後每當在應用程式上調用 API 時，此令牌將作為憑證傳遞。
+它們用於基於 Token 的身份驗證類型。當您成功通過身份驗證後，網頁應用程式會收到一個 Access Token。此後每當在應用程式上調用 API 時，此 Token 將作為憑證傳遞。
 
-網頁令牌的基本結構由以下幾個以點（.）分隔的部分組成：
+JWT 的基本結構由以下幾個以點（.）分隔的部分組成：
 
-1.**標頭（Header）**：這又由兩部分組成；令牌類型（如 JWT）和所使用的令牌簽名演算法（如 SHA256）。以下是一個範例：
+1.**標頭（Header）**：這又由兩部分組成；Token 類型（如 JWT）和所使用的 Token 簽名演算法（如 SHA256）。以下是一個範例：
 
 ```
 
@@ -143,7 +143,7 @@ secret)
 
 ```
 
-將它們組合在一起，輸出的網頁令牌是三個以點分隔的 Base64-URL 字串：
+將它們組合在一起，輸出的 JWT 是三個以點分隔的 Base64-URL 字串：
 
 ```
 
@@ -154,32 +154,32 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 
 ```
 
-### **網頁令牌的運作原理**
+### **JWT 的運作原理**
 
 <p>
-    以下是這些令牌在網站和網頁應用程式中的運作方式：
+    以下是這些 Token 在網站和網頁應用程式中的運作方式：
     </p><ol>
-        <li>當用戶使用其憑證（如電子郵件/密碼）成功登入時，將返回一個網頁令牌。</li>
-        <li>此後，每當用戶想要存取網頁應用程式上受保護的路由或資源時，用戶代理就會在授權標頭中發送此令牌，如：<span class="inline-code">Authorization: Bearer token</span></li>
+        <li>當用戶使用其憑證（如電子郵件/密碼）成功登入時，將返回一個 JWT。</li>
+        <li>此後，每當用戶想要存取網頁應用程式上受保護的路由或資源時，用戶代理就會在授權標頭中發送此 Token，如：<span class="inline-code">Authorization: Bearer token</span></li>
     </ol>
     <p>如您所見，它使用 Bearer 模式，這是一個通常由伺服器在回應登入請求時生成的加密字串。</p>
     <ol start="3">
-        <li>接下來，伺服器的路由將檢查授權標頭中提供的存取權杖是否有效。</li>
+        <li>接下來，伺服器的路由將檢查授權標頭中提供的 Access Token 是否有效。</li>
         <li>如果有效，則允許用戶存取所請求的受保護路由。</li>
     </ol>
 <p></p>
 
-以下是一個示意圖，說明如何從授權伺服器獲取存取權杖以存取受保護路由：
+以下是一個示意圖，說明如何從授權伺服器獲取 Access Token 以存取受保護路由：
 
 <!--FIGURE-->
 ![](./figure-3.webp)
 <!--/FIGURE-->
 
 1. 客戶端向身份驗證伺服器請求授權。
-1. 授權完成後，授權伺服器向應用程式返回一個存取權杖。
-1. 應用程式使用該令牌透過某個 API 存取受保護的路由。
+1. 授權完成後，授權伺服器向應用程式返回一個 Access Token。
+1. 應用程式使用該 Token 透過某個 API 存取受保護的路由。
 
-現在您已了解存取權杖是什麼、在何處使用以及如何在網頁應用程式中運作，讓我們嘗試了解一下其中一個身份驗證提供商——Authgear。
+現在您已了解 Access Token 是什麼、在何處使用以及如何在網頁應用程式中運作，讓我們嘗試了解一下其中一個身份驗證提供商——Authgear。
 
 <h2 id="authgear">如何使用 Authgear 在您的網頁應用程式中實現身份驗證？</h2>
 
@@ -277,7 +277,7 @@ gRG91IiwiaXNTb2NpYWwiOnRydWV9.
 
 #### **步驟四：配置應用程式**
 
-在您應用程式的「Edit Application」部分，勾選「Token Settings」部分下的「Issue JWT as access token」核取方塊。這使得可以使用 JWT 作為存取權杖，並允許更容易地解碼存取權杖。但如果您要將傳入請求轉發到 Authgear Resolver Endpoint 進行身份驗證，請保持此選項未勾選。
+在您應用程式的「Edit Application」部分，勾選「Token Settings」部分下的「Issue JWT as access token」核取方塊。這使得可以使用 JWT 作為 Access Token，並允許更容易地解碼 Access Token。但如果您要將傳入請求轉發到 Authgear Resolver Endpoint 進行身份驗證，請保持此選項未勾選。
 
 #### **步驟五：將您的網站新增至允許的來源**
 

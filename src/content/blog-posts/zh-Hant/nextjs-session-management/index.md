@@ -1,11 +1,11 @@
 ---
 title: "Next.js 工作階段管理：Cookie、JWT 與伺服器端 Session（2026）"
-excerpt: "Next.js 的工作階段管理比傳統 SSR 應用更細膩。本篇說明具狀態與無狀態工作階段、安全 Cookie 屬性、以 jose 簽署 JWT、權杖輪替與滑動過期，以及如何在 Server Components、Route Handlers 與 Middleware 讀取工作階段資料。"
+excerpt: "Next.js 的工作階段管理比傳統 SSR 應用更細膩。本篇說明具狀態與無狀態工作階段、安全 Cookie 屬性、以 jose 簽署 JWT、Token 輪替與滑動過期，以及如何在 Server Components、Route Handlers 與 Middleware 讀取工作階段資料。"
 coverImage: ./cover.webp
 category: engineering
 featured: false
-metaTitle: "Next.js 工作階段管理：Cookie、JWT 與權杖"
-metaDescription: "了解 Next.js App Router 如何以 Cookie 與 JWT 管理工作階段：httpOnly Cookie、jose、權杖輪替、middleware 與登出。"
+metaTitle: "Next.js 工作階段管理：Cookie、JWT 與 Token"
+metaDescription: "了解 Next.js App Router 如何以 Cookie 與 JWT 管理工作階段：httpOnly Cookie、jose、Token 輪替、middleware 與登出。"
 publishedAt: 2026-03-27T15:28:51.407Z
 updatedAt: 2026-03-27T15:32:23.137Z
 draft: false
@@ -17,7 +17,7 @@ faq:
   - q: "該在 Middleware 還是 Route Handler 設定 Cookie？"
     a: "你可以在 Middleware 用 `request.cookies` **讀取** Cookie，並在回應上**修改** Cookie（如滑動工作階段範例）。但你**無法**在 Middleware **初次設定**工作階段 Cookie——它執行於 Route Handlers 之前，無法取得已驗證的使用者身分。登入流程應一律經過 Route Handler 或 Server Action。"
   - q: "如何在使用者活躍時維持登入，閒置時讓工作階段過期？"
-    a: "採用 Middleware 範例中的滑動視窗：每次請求若帶有有效工作階段權杖，就重設過期時間。將 Cookie 的 `expires` 與 JWT 過期設為同一滑動視窗（例如 7 天）。每天活躍的使用者可一直保持登入；連續 7 天未活動則自動登出。若安全要求更高，可縮短為 15–30 分鐘。"
+    a: "採用 Middleware 範例中的滑動視窗：每次請求若帶有有效工作階段 Token，就重設過期時間。將 Cookie 的 `expires` 與 JWT 過期設為同一滑動視窗（例如 7 天）。每天活躍的使用者可一直保持登入；連續 7 天未活動則自動登出。若安全要求更高，可縮短為 15–30 分鐘。"
 ---
 
 ## Next.js 應用裡的「工作階段」是什麼？
@@ -26,7 +26,7 @@ HTTP 本身是無狀態的——每次請求都不記得先前發生過什麼。
 
 Next.js 的工作階段管理比傳統伺服器渲染應用更細膩。混合式架構——Server Components、Route Handlers、Edge Middleware 各自在不同脈絡執行——代表你必須刻意決定工作階段資料**放在哪裡**、**如何**在請求生命週期中流動。
 
-主要有兩種策略：**具狀態工作階段**（伺服器儲存資料，瀏覽器只拿不透明 ID）與**無狀態 JWT 工作階段**（權杖本身承載資料）。兩者都把識別資訊放在 **Cookie**——而不是 `localStorage`。實作前先比較兩者。
+主要有兩種策略：**具狀態工作階段**（伺服器儲存資料，瀏覽器只拿不透明 ID）與**無狀態 JWT 工作階段**（Token 本身承載資料）。兩者都把識別資訊放在 **Cookie**——而不是 `localStorage`。實作前先比較兩者。
 
 ## 兩種做法：具狀態 vs 無狀態工作階段
 
@@ -43,7 +43,7 @@ Next.js 的工作階段管理比傳統伺服器渲染應用更細膩。混合式
         <tr>
           <td>資料存放位置</td>
           <td>資料庫／Redis</td>
-          <td>簽署過的權杖內</td>
+          <td>簽署過的 Token 內</td>
         </tr>
         <tr>
           <td>需要伺服器儲存</td>
@@ -53,7 +53,7 @@ Next.js 的工作階段管理比傳統伺服器渲染應用更細膩。混合式
         <tr>
           <td>立即撤銷</td>
           <td>可——刪除資料庫紀錄</td>
-          <td>困難——須等權杖過期或維護封鎖名單</td>
+          <td>困難——須等 Token 過期或維護封鎖名單</td>
         </tr>
         <tr>
           <td>水平擴充</td>
@@ -61,7 +61,7 @@ Next.js 的工作階段管理比傳統伺服器渲染應用更細膩。混合式
           <td>可——每台伺服器獨立驗簽</td>
         </tr>
         <tr>
-          <td>權杖大小</td>
+          <td>Token 大小</td>
           <td>小（僅 ID）</td>
           <td>較大（含 payload）</td>
         </tr>
@@ -78,7 +78,7 @@ Next.js 的工作階段管理比傳統伺服器渲染應用更細膩。混合式
 無論採哪種策略，工作階段 Cookie 的安全性取決於屬性。建立 Cookie 時請盡量四項都設：
 
 <ul>
-  <li><strong>httpOnly</strong>——瀏覽器內的 JavaScript 無法讀取此 Cookie。這是防 XSS 竊取工作階段權杖的第一道防線。</li>
+  <li><strong>httpOnly</strong>——瀏覽器內的 JavaScript 無法讀取此 Cookie。這是防 XSS 竊取工作階段 Token 的第一道防線。</li>
   <li><strong>Secure</strong>——僅透過 HTTPS 傳送。正式環境絕對不要省略。</li>
   <li><strong>SameSite: 'lax'</strong>——在同站請求與最上層跨站導覽（例如從郵件點連結）會帶 Cookie，但背景跨站請求不會。<code>'lax'</code> 是多數情境的好預設；高安全需求可考慮 <code>'strict'</code>。</li>
   <li><strong>expires / maxAge</strong>——務必設定過期時間。沒有過期的 Cookie 會活到瀏覽器關閉，在共用裝置上是安全風險。</li>
@@ -117,10 +117,10 @@ export async function POST(request: NextRequest) {
 ### 把 JWT 放在 Cookie，不要放 localStorage
 
 <blockquote>
-  <p><strong>警告：</strong>絕不要把工作階段權杖或 JWT 放在 <code>localStorage</code> 或 <code>sessionStorage</code>。頁面上任何 JavaScript——含第三方腳本——都能讀取 <code>localStorage</code>，使權杖暴露於 XSS。請一律把工作階段權杖放在 <strong>httpOnly Cookie</strong>。</p>
+  <p><strong>警告：</strong>絕不要把工作階段 Token 或 JWT 放在 <code>localStorage</code> 或 <code>sessionStorage</code>。頁面上任何 JavaScript——含第三方腳本——都能讀取 <code>localStorage</code>，使 Token 暴露於 XSS。請一律把工作階段 Token 放在 <strong>httpOnly Cookie</strong>。</p>
 </blockquote>
 
-JWT 自帶 payload（使用者 ID、角色、過期時間）並經密碼學簽署。伺服器驗簽時不必查資料庫，因此很適合無狀態工作階段。權杖仍透過安全 Cookie 在每次請求送往伺服器。
+JWT 自帶 payload（使用者 ID、角色、過期時間）並經密碼學簽署。伺服器驗簽時不必查資料庫，因此很適合無狀態工作階段。Token 仍透過安全 Cookie 在每次請求送往伺服器。
 
 ### 使用 `jose` 的工作階段輔助函式
 
@@ -194,11 +194,11 @@ SESSION_SECRET=your_generated_secret_here
 
 ```
 
-## 重新整理權杖輪替與滑動工作階段
+## Refresh Token 輪替與滑動工作階段
 
 ### 為什麼重要
 
-短效權杖可限制外洩後的損害——很快失效。但若每 15 分鐘就逼使用者重登，體驗很差。**重新整理權杖輪替**可解決：長效的 **refresh token** 在背景簽發新的短效 **access token**，無須重新驗證。
+短效 Token 可限制外洩後的損害——很快失效。但若每 15 分鐘就逼使用者重登，體驗很差。**Refresh Token 輪替**可解決：長效的 **refresh token** 在背景簽發新的短效 **access token**，無須重新驗證。
 
 關鍵安全規則：**每個 refresh token 只能使用一次**。伺服器簽發新 access token 時，應立刻作廢舊的 refresh token。若有人重複使用已用過的 refresh token，伺服器可視為工作階段遭竊並撤銷整串關聯工作階段。
 
@@ -360,17 +360,17 @@ export default function LogoutButton() {
 
 ```
 
-### 優雅處理過期權杖
+### 優雅處理過期 Token
 
-當 `decrypt()` 回傳 `null`（簽章無效或權杖已過期）時，應視為未登入並導向登入頁。不要帶著過期工作階段默默繼續。
+當 `decrypt()` 回傳 `null`（簽章無效或 Token 已過期）時，應視為未登入並導向登入頁。不要帶著過期工作階段默默繼續。
 
-JWT 工作階段在登出時刪除 Cookie 即足夠：Cookie 消失後權杖不會再被送出。若是具狀態（資料庫）工作階段，還應刪除資料庫中的工作階段紀錄，以免 session ID 在 Cookie 被復原時仍遭重放。
+JWT 工作階段在登出時刪除 Cookie 即足夠：Cookie 消失後 Token 不會再被送出。若是具狀態（資料庫）工作階段，還應刪除資料庫中的工作階段紀錄，以免 session ID 在 Cookie 被復原時仍遭重放。
 
 ## 省去樣板程式：使用 Authgear 的 Next.js SDK
 
-上述 Cookie 屬性、JWT 簽署、權杖輪替、跨 Server Components 與 Middleware 讀取工作階段——要全部正確維護是大量樣板。一個 Cookie 旗標或過期時間算錯，就可能造成實際安全漏洞。
+上述 Cookie 屬性、JWT 簽署、Token 輪替、跨 Server Components 與 Middleware 讀取工作階段——要全部正確維護是大量樣板。一個 Cookie 旗標或過期時間算錯，就可能造成實際安全漏洞。
 
-[Authgear 的 Next.js SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 可代管完整工作階段生命週期：簽發與更新權杖、設定安全 Cookie、在 Server Components 與客戶端 hook 暴露目前使用者，並提供現成登出端點。你可取得符合 OIDC、含 refresh token 輪替的工作階段，而無須自行寫加密或 Cookie 管理。
+[Authgear 的 Next.js SDK](https://docs.authgear.com/get-started/regular-web-app/nextjs) 可代管完整工作階段生命週期：簽發與 Refresh Token、設定安全 Cookie、在 Server Components 與客戶端 hook 暴露目前使用者，並提供現成登出端點。你可取得符合 OIDC、含 refresh token 輪替的工作階段，而無須自行寫加密或 Cookie 管理。
 
 若還需要社交登入、通行密鑰或多因素驗證，Authgear 的託管驗證 UI 也能涵蓋——讓你專心做產品，而不是維護一整層驗證。
 
@@ -392,4 +392,4 @@ JWT 工作階段在登出時刪除 Cookie 即足夠：Cookie 消失後權杖不�
 
 ### 如何在使用者活躍時維持登入，閒置時讓工作階段過期？
 
-採用 Middleware 範例中的滑動視窗：每次請求若帶有有效工作階段權杖，就重設過期時間。將 Cookie 的 `expires` 與 JWT 過期設為同一滑動視窗（例如 7 天）。每天活躍的使用者可一直保持登入；連續 7 天未活動則自動登出。若安全要求更高，可縮短為 15–30 分鐘。
+採用 Middleware 範例中的滑動視窗：每次請求若帶有有效工作階段 Token，就重設過期時間。將 Cookie 的 `expires` 與 JWT 過期設為同一滑動視窗（例如 7 天）。每天活躍的使用者可一直保持登入；連續 7 天未活動則自動登出。若安全要求更高，可縮短為 15–30 分鐘。

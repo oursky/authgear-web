@@ -31,14 +31,29 @@
   max-width: 320px;
 }
 
-/* Allow long Free Tools labels (e.g. UUID v7 Generator & Timestamp Extractor) to wrap */
+/* Allow long Free Tools labels (e.g. UUID v7 Generator & Timestamp Extractor) to wrap.
+   break-word, not anywhere: only split a word that cannot fit its line on its own,
+   so labels never render as "Documentatio / n". */
 .footer-menu-link {
   white-space: normal;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 .footer-menu-link > div {
   white-space: normal;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+}
+
+/* Below 480px the Webflow export tries to stack the footer link columns with
+   grid-template-columns, but the wrapper is display:flex so that declaration is
+   inert. The columns stay flex: 1 1 0 and pack three-across at ~106px, which
+   squeezes labels and orphans the fourth column full-width on its own row.
+   Force one column per row instead. */
+@media screen and (max-width: 479px) {
+  .footer-menu-navigation-wrapper.workshop > .footer-menu-links-wrapper {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
 }
 
 /* MfaOptionsTabs — optional description under the active tab label */
@@ -1185,6 +1200,31 @@ button.ds-sms-warning-faq__trigger {
   font-weight: 600;
 }
 
+/* Plain primary button: a flat indigo-blue fill with the depth carried by a
+   soft glow outside the button. Used by the home hero's Start Free and
+   product switch, and by the nav's Signup/Login. Other buttons keep the
+   design system's gradient. */
+:root {
+  --btn-plain-bg: #3e5cf5;
+  --btn-plain-bg-hover: #4d6bff;
+  --btn-plain-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 6px 16px -6px rgba(62, 92, 245, 0.35),
+    0 2px 4px rgba(0, 4, 42, 0.3);
+  --btn-plain-shadow-hover:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 20px -6px rgba(62, 92, 245, 0.45),
+    0 3px 6px rgba(0, 4, 42, 0.3);
+}
+
+/* Dark pages (BaseLayout theme="dark"): paint the canvas navy so the
+   rubber-band over-scroll at the top or bottom shows the page colour, not
+   the light default. The body class from Webflow sets the light colour. */
+html[data-theme='dark'],
+html[data-theme='dark'] body {
+  background-color: #0e0f28;
+}
+
 /* Header grid placement — replaces the legacy #w-node-* rules in
    authgear-new.webflow.css. The .container-header grid itself
    (grid-template-columns: auto auto 1fr) still comes from the Webflow
@@ -1408,4 +1448,22 @@ select.ds-form-input {
   font-weight: 500;
   line-height: 1.1;
   color: #8f9aff;
+}
+
+/* Section headings (.cloud-h2) — the Webflow export hard-codes line-height: 56px
+   with no responsive override, but the h2 font-size steps down from 42px to 35px
+   below 768px and to 29px below 480px. That leaves a 1.6-1.9 ratio on phones, so
+   wrapped headings read as separate paragraphs. Scale the leading with the font
+   size instead.
+
+   The authored <br> in these headings splits them cleanly at 768px and up. Below
+   that the text already wraps, so the forced break only strands a word ("Secure
+   Every User Journey / with"). Let the heading wrap on its own. */
+@media screen and (max-width: 767px) {
+  .cloud-h2 {
+    line-height: 1.3;
+  }
+  .cloud-h2 br {
+    display: none;
+  }
 }

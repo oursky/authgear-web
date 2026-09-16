@@ -13,7 +13,7 @@ draft: false
 
 現代應用高度依賴 API、雲端服務、行動客戶端與第三方整合。在這樣的環境中，如何安全控管受保護資源存取是關鍵。OAuth 2.0 已成為處理此問題的標準授權框架。
 
-OAuth 2.0 讓應用程式可以代表使用者或其他系統存取資源，而不必暴露原始憑證。應用不再共享密碼，而是請求代表特定權限的權杖。這些權杖具備範圍限制、有效期限，且可撤銷，因此非常符合現代安全需求。
+OAuth 2.0 讓應用程式可以代表使用者或其他系統存取資源，而不必暴露原始憑證。應用不再共享密碼，而是請求代表特定權限的 Token。這些 Token 具備範圍限制、有效期限，且可撤銷，因此非常符合現代安全需求。
 
 然而，OAuth 2.0 並非單一流程。它定義了多種授權類型（Grant Type），每一種都對應不同應用模型與安全假設。選對授權類型非常重要：選錯會增加複雜度甚至引入風險；選對則能簡化實作並提升長期可維護性。
 
@@ -43,13 +43,13 @@ Grant Type 用來定義 Client 如何向 Authorization Server 取得 Access Toke
 - 有些不涉及終端使用者
 - 有些運行在輸入能力受限的裝置上
 
-OAuth 2.0 的多種 Grant Type 正是為了對應這些差異。每種 Grant Type 都預設了特定信任程度與技術能力。把 Grant Type 用在不適合的情境，容易造成權杖外洩、安全控制薄弱或營運問題。
+OAuth 2.0 的多種 Grant Type 正是為了對應這些差異。每種 Grant Type 都預設了特定信任程度與技術能力。把 Grant Type 用在不適合的情境，容易造成 Token 外洩、安全控制薄弱或營運問題。
 
 理解這些差異，有助於團隊設計更符合系統架構的授權流程。
 
 ## Authorization Code Grant
 
-Authorization Code Grant 是最常見的 OAuth 2.0 流程，適用於有使用者互動且具後端伺服器的應用。它把面向使用者的驗證步驟與權杖交換步驟分離，確保 Access Token 不會暴露給瀏覽器或終端使用者。
+Authorization Code Grant 是最常見的 OAuth 2.0 流程，適用於有使用者互動且具後端伺服器的應用。它把面向使用者的驗證步驟與 Token 交換步驟分離，確保 Access Token 不會暴露給瀏覽器或終端使用者。
 
 ### 流程如何運作
 
@@ -69,7 +69,7 @@ Authorization Code Grant 是最常見的 OAuth 2.0 流程，適用於有使用�
 ### 優點
 
 - 安全保證強
-- 權杖不會出現在瀏覽器 redirect URL
+- Token 不會出現在瀏覽器 redirect URL
 - 可搭配 Refresh Token
 - 廣泛支援且文件成熟
 
@@ -84,14 +84,14 @@ Authorization Code Grant 是最常見的 OAuth 2.0 流程，適用於有使用�
 
 ## Authorization Code Grant + PKCE
 
-PKCE（Proof Key for Code Exchange）是對 Authorization Code Grant 的增強，特別適用無法安全儲存 Secret 的 Client。它已成為多數公開客戶端的最佳實務。PKCE 會把授權請求與權杖交換綁定，以避免授權碼攔截。
+PKCE（Proof Key for Code Exchange）是對 Authorization Code Grant 的增強，特別適用無法安全儲存 Secret 的 Client。它已成為多數公開客戶端的最佳實務。PKCE 會把授權請求與 Token 交換綁定，以避免授權碼攔截。
 
 ### PKCE 如何運作
 
 - Client 先產生隨機 `code_verifier`
 - 將其雜湊後的 `code_challenge` 傳入授權請求
-- 權杖交換時必須帶回原始 `code_verifier`
-- 若比對不符，權杖請求失敗
+- Token 交換時必須帶回原始 `code_verifier`
+- 若比對不符，Token 請求失敗
 
 ### 常見使用情境
 
@@ -117,14 +117,14 @@ PKCE（Proof Key for Code Exchange）是對 Authorization Code Grant 的增強�
 
 ## Implicit Grant
 
-Implicit Grant 原本為無法做後端權杖交換的瀏覽器應用設計。在此流程中，Access Token 會直接在 redirect 回應中返回。
+Implicit Grant 原本為無法做後端 Token 交換的瀏覽器應用設計。在此流程中，Access Token 會直接在 redirect 回應中返回。
 
 ### 安全疑慮
 
-- 權杖暴露在 URL 中
-- 權杖可能透過瀏覽器歷史或日誌外洩
+- Token 暴露在 URL 中
+- Token 可能透過瀏覽器歷史或日誌外洩
 - 不支援 Refresh Token
-- 權杖重放風險較高
+- Token 重放風險較高
 
 ### 目前狀態
 
@@ -142,7 +142,7 @@ Client Credentials Grant 用於機器對機器（M2M）情境，不涉及終端�
 
 1. Client 使用自己的憑證向 Authorization Server 驗證
 1. Authorization Server 簽發 Access Token
-1. Client 以該權杖存取受保護 API
+1. Client 以該 Token 存取受保護 API
 
 ### 常見使用情境
 
@@ -160,7 +160,7 @@ Client Credentials Grant 用於機器對機器（M2M）情境，不涉及終端�
 ### 缺點
 
 - 沒有使用者脈絡
-- 權杖代表應用，不代表個人
+- Token 代表應用，不代表個人
 
 ### 什麼時候該用
 
@@ -168,7 +168,7 @@ Client Credentials Grant 用於機器對機器（M2M）情境，不涉及終端�
 
 ## Resource Owner Password Credentials Grant（ROPC）
 
-ROPC 允許 Client 直接收集使用者帳密，再向授權伺服器交換權杖。
+ROPC 允許 Client 直接收集使用者帳密，再向授權伺服器交換 Token。
 
 ### 安全考量
 
@@ -233,7 +233,7 @@ Device Authorization Grant 專為沒有瀏覽器或輸入能力有限的裝置�
 
 當裝置無法進行標準 redirect 或無法顯示完整登入畫面時，應使用此 Grant。
 
-## Refresh Token 與權杖生命週期
+## Refresh Token 與 Token 生命週期
 
 Refresh Token 讓應用在不要求使用者重新登入的情況下取得新 Access Token，對維持安全會話很重要。
 
@@ -241,7 +241,7 @@ Refresh Token 讓應用在不要求使用者重新登入的情況下取得新 Ac
 
 - 安全儲存 Refresh Token
 - 若支援，啟用 Refresh Token 旋轉
-- 登出或疑似入侵時撤銷權杖
+- 登出或疑似入侵時撤銷 Token
 - 除非明確支援，避免把 Refresh Token 暴露到瀏覽器
 
 ## 如何選擇正確 Grant Type
@@ -269,9 +269,9 @@ Refresh Token 讓應用在不要求使用者重新登入的情況下取得新 Ac
 
 - 在公開客戶端使用 Client Secret
 - SPA 未啟用 PKCE
-- 權杖儲存不安全
+- Token 儲存不安全
 - 請求過寬的 scopes
-- 未正確旋轉或撤銷權杖
+- 未正確旋轉或撤銷 Token
 
 嚴謹實作與遵循最佳實務缺一不可。
 
@@ -289,11 +289,11 @@ OAuth 2.0 為現代應用提供彈性且安全的存取控制框架，但成效�
 
 ### 最安全的 OAuth 2.0 Grant Type 是哪一種？
 
-沒有對所有場景都「唯一最安全」的 Grant Type，但對多數現代面向使用者的應用而言，Authorization Code + PKCE 通常是最佳選擇，能有效防止權杖攔截，並適用 Web、行動與 SPA。
+沒有對所有場景都「唯一最安全」的 Grant Type，但對多數現代面向使用者的應用而言，Authorization Code + PKCE 通常是最佳選擇，能有效防止 Token 攔截，並適用 Web、行動與 SPA。
 
 ### SPA 還應該使用 Implicit Grant 嗎？
 
-不應該。Implicit Grant 已不再被建議使用。現代最佳實務是改用 Authorization Code + PKCE，以獲得更好的安全性與權杖管理能力。
+不應該。Implicit Grant 已不再被建議使用。現代最佳實務是改用 Authorization Code + PKCE，以獲得更好的安全性與 Token 管理能力。
 
 ### 什麼時候應該使用 Client Credentials Grant？
 

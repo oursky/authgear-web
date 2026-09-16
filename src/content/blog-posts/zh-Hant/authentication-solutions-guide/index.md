@@ -25,7 +25,7 @@ draft: false
 
 完整的驗證系統通常涵蓋：
 
-<ul><li><strong>憑證驗證</strong>（密碼、通行密鑰、權杖、生物辨識）</li><li><strong>工作階段管理</strong>（發放與撤銷權杖）</li><li><strong>多因素挑戰</strong>（OTP、推播通知）</li><li><strong>身分聯盟</strong>（SSO、社交登入）</li><li><strong>權杖標準</strong>（JWT、OIDC、SAML）</li></ul>
+<ul><li><strong>憑證驗證</strong>（密碼、通行密鑰、Token、生物辨識）</li><li><strong>工作階段管理</strong>（發放與撤銷 Token）</li><li><strong>多因素挑戰</strong>（OTP、推播通知）</li><li><strong>身分聯盟</strong>（SSO、社交登入）</li><li><strong>Token 標準</strong>（JWT、OIDC、SAML）</li></ul>
 
 現代 App 需要以上多項，因此「驗證方案」自成一類產品。
 
@@ -81,7 +81,7 @@ SSO 是 **B2B SaaS** 關鍵功能；企業採購常列為必要條件。若面�
 
 並非所有驗證都與人有關。服務、背景工作與 API 也需證明身分。標準作法是 **OAuth 2.0 client credentials flow**：服務向驗證伺服器出示 client ID 與 secret，取得 access token 再呼叫下游 API。
 
-M2M 宜及早規劃。若使用者與服務共用同一驗證平台，權杖發行與稽核模型一致——合規較單純。
+M2M 宜及早規劃。若使用者與服務共用同一驗證平台，Token 發行與稽核模型一致——合規較單純。
 
 ## 自建 vs 採購：何時該自建驗證？
 
@@ -89,7 +89,7 @@ M2M 宜及早規劃。若使用者與服務共用同一驗證平台，權杖發�
 
 ### 「自建驗證」實際包含
 
-<ul><li>安全憑證儲存與正確雜湊（<code>bcrypt</code>、<code>Argon2</code>）</li><li>權杖生命週期（發放、輪替、撤銷）</li><li>跨裝置工作階段管理</li><li>MFA 與備援碼流程</li><li>抗枚舉與計時攻擊的重設密碼流程</li><li>速率限制與暴力破解防護</li><li>社交登入與 M2M 的 OAuth 2.0 伺服器</li><li>SSO 的 OIDC 提供者整合</li><li>稽核記錄</li><li>符合 GDPR／CCPA 的資料處理</li><li>漏洞與標準演進下的持續維護</li></ul>
+<ul><li>安全憑證儲存與正確雜湊（<code>bcrypt</code>、<code>Argon2</code>）</li><li>Token 生命週期（發放、輪替、撤銷）</li><li>跨裝置工作階段管理</li><li>MFA 與備援碼流程</li><li>抗枚舉與計時攻擊的重設密碼流程</li><li>速率限制與暴力破解防護</li><li>社交登入與 M2M 的 OAuth 2.0 伺服器</li><li>SSO 的 OIDC 提供者整合</li><li>稽核記錄</li><li>符合 GDPR／CCPA 的資料處理</li><li>漏洞與標準演進下的持續維護</li></ul>
 
 這是**數月**工程，且幾乎**沒有終點**——新攻擊模式、標準演進、企業客戶要求的功能都可能超出你已建置範圍。
 
@@ -118,7 +118,7 @@ M2M 宜及早規劃。若使用者與服務共用同一驗證平台，權杖發�
 - 異常偵測與機器人防護（可疑登入告警、速率限制）  
 - 外洩密碼偵測  
 - 暴力破解防護與鎖帳政策  
-- 安全權杖儲存與輪替  
+- 安全 Token 儲存與輪替  
 - 具防竄改紀錄的稽核日誌  
 
 ### 開發者體驗
@@ -175,11 +175,11 @@ Authgear 是面向開發者的開源驗證與身分平台。差異化重點：
 
 ### 步驟 2：註冊並設定平台
 
-多數平台有開發免費額度。建立專案、設定應用（Web、行動或 API）、啟用所需登入方式。此時一併設定重新導向 URL、權杖生命週期與品牌。
+多數平台有開發免費額度。建立專案、設定應用（Web、行動或 API）、啟用所需登入方式。此時一併設定重新導向 URL、Token 生命週期與品牌。
 
 ### 步驟 3：安裝 SDK
 
-在前後端加入平台 SDK。多數現代 SDK 會代處理 OIDC 流程——呼叫 `login()`、使用者被導向驗證入口、回呼由 SDK 處理權杖儲存。
+在前後端加入平台 SDK。多數現代 SDK 會代處理 OIDC 流程——呼叫 `login()`、使用者被導向驗證入口、回呼由 SDK 處理 Token 儲存。
 
 ```
 // Authgear React SDK 範例（偽程式）
@@ -191,7 +191,7 @@ await authgear.startAuthentication({ redirectURI: "https://your-app.com/callback
 
 ### 步驟 4：保護路由與 API
 
-以驗證伺服器發放的 access token 保護 API。後端應驗證權杖簽章（使用提供者的 JWKS 端點——可用 [OIDC Discovery 探索工具](/zh-hant/tools/oidc-discovery-endpoint) 查找）、檢查過期與 audience 等宣告。
+以驗證伺服器發放的 access token 保護 API。後端應驗證 Token 簽章（使用提供者的 JWKS 端點——可用 [OIDC Discovery 探索工具](/zh-hant/tools/oidc-discovery-endpoint) 查找）、檢查過期與 audience 等宣告。
 
 ### 步驟 5：啟用 MFA
 
@@ -201,7 +201,7 @@ await authgear.startAuthentication({ redirectURI: "https://your-app.com/callback
 
 驗證的 bug 常躲在邊界：
 
-- 過期權杖與重新整理流程  
+- 過期 Token 與重新整理流程  
 - 多裝置同時工作階段  
 - 帳戶復原（忘密碼、遺失 MFA 裝置）  
 - 社交提供者不可用時  
@@ -215,11 +215,11 @@ await authgear.startAuthentication({ redirectURI: "https://your-app.com/callback
 
 ### 什麼是驗證入口網站（authentication portal）？
 
-由驗證平台代管的登入、註冊、重設密碼、MFA 挑戰等 UI。你將使用者導向入口，平台處理互動後再以權杖導回你的 App。多數平台可自訂品牌（Logo、色彩、自訂網域），讓體驗貼近你的產品。
+由驗證平台代管的登入、註冊、重設密碼、MFA 挑戰等 UI。你將使用者導向入口，平台處理互動後再以 Token 導回你的 App。多數平台可自訂品牌（Logo、色彩、自訂網域），讓體驗貼近你的產品。
 
 ### 驗證與授權差在哪？
 
-驗證確認身分（「你是誰？」）；授權決定可執行動作（「你能做什麼？」）。驗證永遠在前。像 Authgear 這類平台常透過 OIDC 權杖與 RBAC 同時涵蓋兩者。
+驗證確認身分（「你是誰？」）；授權決定可執行動作（「你能做什麼？」）。驗證永遠在前。像 Authgear 這類平台常透過 OIDC Token 與 RBAC 同時涵蓋兩者。
 
 ### 使用第三方驗證安全嗎？
 

@@ -21,7 +21,7 @@ export const jwtJwe = {
   s1Label: '步驟 1.',
   s1Title: '貼上或產生 JWT：',
   s1i1: '輸入 JWT 即可立即看到解碼後的標頭與 payload。',
-  s1i2: '工具可驗證簽章並顯示權杖是否有效或遭竄改。',
+  s1i2: '工具可驗證簽章並顯示 Token 是否有效或遭竄改。',
   s2Label: '步驟 2.',
   s2Title: '驗證簽章（JWT verification）：',
   s2i1:
@@ -44,7 +44,7 @@ export const jwtJwe = {
   s6Label: '步驟 6.',
   s6Title: '檢視 claims 與除錯',
   s6i1:
-    '檢視 claims、檢查 exp／iat／nbf，並顯示易讀警告。可使用複製按鈕匯出權杖或金鑰供本機測試。',
+    '檢視 claims、檢查 exp／iat／nbf，並顯示易讀警告。可使用複製按鈕匯出 Token 或金鑰供本機測試。',
   faqJwtLinkText: '什麼是 JWT',
   faqJwtTitleSuffix: '（JSON Web Token）？',
   faqJwtBodyP1:
@@ -52,7 +52,7 @@ export const jwtJwe = {
   faqJwtBodyLinkMid: 'JWT 廣泛用於驗證與授權',
   faqJwtBodyLinkMidHref: '/post/web-application-authentication-guide',
   faqJwtBodyP2: '，支援無狀態工作階段與 API 安全。標準 JWT 包含三部分：',
-  faqJwtBullet1: 'Header：權杖類型與雜湊演算法。',
+  faqJwtBullet1: 'Header：Token 類型與雜湊演算法。',
   faqJwtBullet2: 'Payload：claims—關於使用者與其他後設資料。',
   faqJwtBullet3: 'Signature：驗證發送者身分並確保內容未被竄改。',
   faqJwtUseCases: '常見用途：',
@@ -77,5 +77,5 @@ export const jwtJwe = {
   dbgBpTitle: 'JWT 與 JWE 除錯最佳實踐',
   dbgBp1: '簽章可驗證發送者並確保內容未被竄改。',
   dbgBp2: 'Payload 含 claims 與後設資料。',
-  dbgBp3: 'Header 指定權杖類型與雜湊演算法。',
+  dbgBp3: 'Header 指定 Token 類型與雜湊演算法。',
 } as const;

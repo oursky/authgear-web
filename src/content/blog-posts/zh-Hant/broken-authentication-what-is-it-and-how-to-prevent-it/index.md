@@ -166,7 +166,7 @@ Web 應用程式會在特定時間點自動結束 Session。這可能發生在�
 
 <h4 id="mfa">導入多因素驗證</h4>
 
-<a href="/zh-hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多因素驗證</a>（MFA）是一種需要兩種以上因子來驗證使用者身分的方法。最常見因子是使用者知道的資訊（通常是密碼）、使用者持有的物件（如安全權杖）、以及使用者本身特徵（如指紋）。
+<a href="/zh-hant/post/what-is-multi-factor-authentication-mfa" target="_blank">多因素驗證</a>（MFA）是一種需要兩種以上因子來驗證使用者身分的方法。最常見因子是使用者知道的資訊（通常是密碼）、使用者持有的物件（如安全 Token）、以及使用者本身特徵（如指紋）。
 
 舉例來說，當使用者登入你的網站應用程式時，除了密碼外，還可能需要輸入發送至手機的驗證碼。MFA 為登入流程增加了額外安全層。即使網路犯罪者成功竊取密碼，沒有第二因子仍無法存取帳號。
 

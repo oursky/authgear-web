@@ -1,21 +1,21 @@
 ---
-title: "會話與令牌身份驗證"
-h1: "會話與令牌身份驗證：您應該選擇哪一個？"
-excerpt: "了解基於會話的身份驗證與基於令牌的身份驗證、cookie 與 JWT、優缺點、CSRF/XSS 權衡以及何時使用每個身份驗證以及範例。"
+title: "會話與 Token 身份驗證"
+h1: "會話與 Token 身份驗證：您應該選擇哪一個？"
+excerpt: "了解基於會話的身份驗證與基於 Token 的身份驗證、cookie 與 JWT、優缺點、CSRF/XSS 權衡以及何時使用每個身份驗證以及範例。"
 coverImage: ./cover.webp
 category: highlight
 featured: false
-metaTitle: "會話與基於令牌的身份驗證：Cookie、JWT 和最佳實踐"
-metaDescription: "基於會話的身份驗證使用 cookie 管理伺服器上的狀態，而令牌身份驗證使用無狀態 JWT 跨網域授權使用者。"
+metaTitle: "會話與基於 Token 的身份驗證：Cookie、JWT 和最佳實踐"
+metaDescription: "基於會話的身份驗證使用 cookie 管理伺服器上的狀態，而 Token 身份驗證使用無狀態 JWT 跨網域授權使用者。"
 publishedAt: 2021-11-25T09:10:30.130Z
 updatedAt: 2026-02-28T12:45:07.918Z
 draft: false
 ---
 
     
-基於會話和基於令牌的身份驗證之間的選擇定義了應用程式的可擴展性和安全性。會話身份驗證是有狀態的，依賴伺服器端記憶體和 cookie，這使其成為單域 Web 應用程式的理想選擇。相較之下，基於令牌的身份驗證 (JWT) 是無狀態且適合行動裝置的，透過授權標頭傳遞憑證。本指南在安全性（CSRF 與 XSS）、效能和實現複雜性方面比較了這兩種方法，以幫助您為堆疊選擇正確的架構。
+基於會話和基於 Token 的身份驗證之間的選擇定義了應用程式的可擴展性和安全性。會話身份驗證是有狀態的，依賴伺服器端記憶體和 cookie，這使其成為單域 Web 應用程式的理想選擇。相較之下，基於 Token 的身份驗證 (JWT) 是無狀態且適合行動裝置的，透過授權標頭傳遞憑證。本指南在安全性（CSRF 與 XSS）、效能和實現複雜性方面比較了這兩種方法，以幫助您為堆疊選擇正確的架構。
 
-在網路上進行使用者身份驗證有兩種主要方法：會話和令牌。
+在網路上進行使用者身份驗證有兩種主要方法：會話和 Token。
 
 在確定哪種方法更好之前，了解它們的工作原理至關重要。此外，以下哪種身份驗證方法最適合您的網站或應用程式？讓我們來看看。
 
@@ -59,7 +59,7 @@ Many factors make the limitations of session authentication more pronounced. The
 
 #### **可擴展性有限**
 
-由於 Cookie 儲存在伺服器的記憶體中，因此本質上難以擴展，尤其是在系統上同時存在太多使用者的情況下。然而，這與基於令牌的身份驗證完全相反。請繼續閱讀以了解更多資訊。
+由於 Cookie 儲存在伺服器的記憶體中，因此本質上難以擴展，尤其是在系統上同時存在太多使用者的情況下。然而，這與基於 Token 的身份驗證完全相反。請繼續閱讀以了解更多資訊。
 
 #### **多域挑戰**
 
@@ -87,19 +87,19 @@ Cookies are relatively more susceptible to Cross-Site Request Forgery (XSRF or C
   <a href="/schedule-demo/" target="_blank" class="w-inline-block">
   	<div class="cta-v2-ctabtn button-primary">Get Demo
 
-## **什麼是令牌認證**
+## **什麼是 Token 認證**
 
 Note that talks about Token Authentication typically refer to the JSON Web Token. Nowadays, it’s very common for web applications to use the JSON Web Token (JWT Token) rather than sessions for authentication. This can perhaps be linked to the rise of <a href="https://dzone.com/articles/cookies-vs-tokens-the-definitive-guide" target="_blank">Single Page Applications</a> (SPAs) in recent times. When user attempts to log in, the Server creates a JWT Token with a secret and sends it to the Client for Token-based apps. The JWT is stored by the client and included in the header with every request. When a request is made from a Client, the Server validates the JWT before sending a response, which is what differentiates token authentication from session authentication. When the server receives the token, it does not look up for the user's session ID in the database for authentication. The server simply checks whether the token is valid or not.
 
-### **令牌身份驗證的工作原理**
+### **Token 身份驗證的工作原理**
 
-讓我們探討一下令牌身份驗證通常如何運作。
+讓我們探討一下 Token 身份驗證通常如何運作。
 
 1. 您嘗試使用您的使用者憑證登入。
-1. 伺服器驗證您的憑證，如果有效，則會傳回簽章令牌。
-1. 然後簽名的令牌儲存在客戶端。它可以存储在本地存储、会话存储或 cookie 中。
-1. 此令牌會作為「授權標頭」放置在標頭中，以便後續向伺服器發出請求。然後，伺服器會對標頭中的令牌進行解碼，如果有效則對其進行處理。
-1. 如果您從應用程式登出，令牌將從客戶端刪除，從而阻止進一步的互動。
+1. 伺服器驗證您的憑證，如果有效，則會傳回簽章 Token。
+1. 然後簽名的 Token 儲存在客戶端。它可以存储在本地存储、会话存储或 cookie 中。
+1. 此 Token 會作為「授權標頭」放置在標頭中，以便後續向伺服器發出請求。然後，伺服器會對標頭中的 Token 進行解碼，如果有效則對其進行處理。
+1. 如果您從應用程式登出，Token 將從客戶端刪除，從而阻止進一步的互動。
 
 Web api 驗證請求通常如下所示：
 
@@ -109,52 +109,52 @@ Web api 驗證請求通常如下所示：
 
 > Authorization: Bearer <AUTHGEAR_ACCESS_TOKEN>
 
-### **令牌認證的優點**
+### **Token 認證的優點**
 
-令牌身份驗證改善了 cookie 身份驗證的限制，並提供了更多功能。
+Token 身份驗證改善了 cookie 身份驗證的限制，並提供了更多功能。
 
 #### **移動就緒**
 
-雖然本機行動平台可能無法與 cookie 無縫結合，但令牌在 iOS 和 Android 上更容易實現。對於不一定有 cookie 儲存的物聯網應用程式或服務實施令牌也更容易。
+雖然本機行動平台可能無法與 cookie 無縫結合，但 Token 在 iOS 和 Android 上更容易實現。對於不一定有 cookie 儲存的物聯網應用程式或服務實施 Token 也更容易。
 
 #### **提高速度和性能**
 
-使用 Cookie 驗證，您的後端必須執行 SQL 資料庫或非 SQL 替代資料庫的查找。此查找將花費比解碼令牌更多的時間。同樣，由於您可以在 JWT 中存儲權限級別和角色等附加數據，因此您基本上可以節省進行其他查找調用所需的時間和資源。
+使用 Cookie 驗證，您的後端必須執行 SQL 資料庫或非 SQL 替代資料庫的查找。此查找將花費比解碼 Token 更多的時間。同樣，由於您可以在 JWT 中存儲權限級別和角色等附加數據，因此您基本上可以節省進行其他查找調用所需的時間和資源。
 
 #### **可擴展性和無狀態性**
 
-JWT 令牌身份驗證的最大吸引力之一是它是無狀態的且高度可擴展。後端不需要儲存JWT token，每一個都包含了驗證所需的全部資料。使用這種身份驗證方法，伺服器的主要任務是在成功登入請求時對令牌進行簽名，並驗證傳入的令牌是否有效。在某些情況下，您可以使用 Authgear 等第三方服務來頒發令牌，隨後由您的伺服器進行驗證。
+JWT 身份驗證的最大吸引力之一是它是無狀態的且高度可擴展。後端不需要儲存JWT token，每一個都包含了驗證所需的全部資料。使用這種身份驗證方法，伺服器的主要任務是在成功登入請求時對 Token 進行簽名，並驗證傳入的 Token 是否有效。在某些情況下，您可以使用 Authgear 等第三方服務來頒發 Token，隨後由您的伺服器進行驗證。
 
 #### **支援多個域**
 
-雖然 cookie 綁定到單一網域，但您可以將令牌傳送到您想要的任何網域。想像一個單頁應用程式向多個服務發出多個請求，可以使用相同的令牌在這些伺服器中進行身份驗證。
+雖然 cookie 綁定到單一網域，但您可以將 Token 傳送到您想要的任何網域。想像一個單頁應用程式向多個服務發出多個請求，可以使用相同的 Token 在這些伺服器中進行身份驗證。
 
-### **令牌認證的限制**
+### **Token 認證的限制**
 
-令牌身份驗證提供了許多好處，但並不完美，因為根據您的用例，您可能會遇到一些缺點。
+Token 身份驗證提供了許多好處，但並不完美，因為根據您的用例，您可能會遇到一些缺點。
 
 #### **JWT 代幣的大小**
 
-與 cookie 不同，JWT 令牌的大小要大得多，這是因為它們包含更多資訊。
+與 cookie 不同，JWT 的大小要大得多，這是因為它們包含更多資訊。
 
 #### **代幣可能被劫持**
 
-使用 JWT 令牌進行身份驗證很常見。身份驗證狀態在客戶端中處理。令牌可能會被駭客劫持，並且它們在伺服器上更難失效。
+使用 JWT 進行身份驗證很常見。身份驗證狀態在客戶端中處理。Token 可能會被駭客劫持，並且它們在伺服器上更難失效。
 
-### **令牌身份驗證的最佳實踐**
+### **Token 身份驗證的最佳實踐**
 
-1. 驗證您的 JWT 令牌並拒絕那些不符合您的簽名演算法的令牌。您還應該驗證所有聲明、發行者、到期日和受眾。
-1. 確保為令牌設定過期時間。如果您未能明確設定令牌的到期時間，則它可能會被設定為永遠有效。
-1. 您應該避免對令牌進行硬編碼，因為它最終可能使駭客輕鬆破壞您的應用程式。
-1. 強制執行 HTTPS 通訊並避免透過非安全連線發送令牌，因為令牌可能會被攔截和洩漏。
+1. 驗證您的 JWT 並拒絕那些不符合您的簽名演算法的 Token。您還應該驗證所有聲明、發行者、到期日和受眾。
+1. 確保為 Token 設定過期時間。如果您未能明確設定 Token 的到期時間，則它可能會被設定為永遠有效。
+1. 您應該避免對 Token 進行硬編碼，因為它最終可能使駭客輕鬆破壞您的應用程式。
+1. 強制執行 HTTPS 通訊並避免透過非安全連線發送 Token，因為 Token 可能會被攔截和洩漏。
 
-### **何時使用令牌身份驗證**
+### **何時使用 Token 身份驗證**
 
-這種身份驗證方法最適合行動應用程式或單頁 Web 應用程式。這裡的關鍵傳輸機制是授權標頭中的存取權杖。
+這種身份驗證方法最適合行動應用程式或單頁 Web 應用程式。這裡的關鍵傳輸機制是授權標頭中的 Access Token。
 
-## 會話與令牌身份驗證（並排）
+## 會話與 Token 身份驗證（並排）
 
-下表總結了會話身份驗證和令牌身份驗證之間的差異。
+下表總結了會話身份驗證和 Token 身份驗證之間的差異。
 
 <div class="ag-table-wrap">
   <table class="ag-table">
@@ -214,33 +214,33 @@ JWT 令牌身份驗證的最大吸引力之一是它是無狀態的且高度可�
   </table></div>
 
 *注意：*「CSRF 風險」是指瀏覽器自動傳送憑證； 「XSS 風險」指任意腳本竊取/使用憑證。
-使用「HttpOnly」cookie 可以減少令牌盜竊，但不能消除 XSS——與 CSP 和清理相結合。如果必須使用 JS 存儲，請保持令牌短暫並輪換。
+使用「HttpOnly」cookie 可以減少 Token 盜竊，但不能消除 XSS——與 CSP 和清理相結合。如果必須使用 JS 存儲，請保持 Token 短暫並輪換。
 
 ## **常見誤解**
 
-雖然傳統上網站使用帶有 cookie 的會話身份驗證，而行動應用程式/SPA 使用帶有授權標頭的令牌身份驗證，但情況並非一定如此。 Authorization Header和Cookies是關於傳輸機制的。令牌和會話本質上是關於處理授權狀態的位置，無論是在伺服器端還是在客戶端。例如，伺服器可以透過 cookie 發出 JWT 令牌，或期望在「Authorization」標頭中提供有狀態會話 ID。
+雖然傳統上網站使用帶有 cookie 的會話身份驗證，而行動應用程式/SPA 使用帶有授權標頭的 Token 身份驗證，但情況並非一定如此。 Authorization Header和Cookies是關於傳輸機制的。Token 和會話本質上是關於處理授權狀態的位置，無論是在伺服器端還是在客戶端。例如，伺服器可以透過 cookie 發出 JWT，或期望在「Authorization」標頭中提供有狀態會話 ID。
 
 ## 常見問題解答
 
-### 基於令牌的身份驗證比基於會話的身份驗證更好嗎？
+### 基於 Token 的身份驗證比基於會話的身份驗證更好嗎？
 
-兩者都不是“總是更好”。對單域 Web 應用程式使用會話；當您需要無狀態擴展時，請對 API/移動/跨域使用令牌。
+兩者都不是“總是更好”。對單域 Web 應用程式使用會話；當您需要無狀態擴展時，請對 API/移動/跨域使用 Token。
 
-### 會話令牌與 JWT 相同嗎？
+### 會話 Token 與 JWT 相同嗎？
 
-不。會話令牌通常是伺服器端會話資料的 ID。 JWT 是一種獨立的不記名令牌；它可能不需要伺服器狀態。
+不。會話 Token 通常是伺服器端會話資料的 ID。 JWT 是一種獨立的 Bearer Token；它可能不需要伺服器狀態。
 
-### 我應該在哪裡儲存令牌？
+### 我應該在哪裡儲存 Token？
 
-首選具有短 TTL 和 SameSite 的 httpOnly cookie。避免在“localStorage”中使用長期存在的令牌。
+首選具有短 TTL 和 SameSite 的 httpOnly cookie。避免在“localStorage”中使用長期存在的 Token。
 
-### 如何撤銷令牌？
+### 如何撤銷 Token？
 
-使用短 TTL + 刷新輪換（或具有內省/拒絕列表的不透明令牌）。
+使用短 TTL + 刷新輪換（或具有內省/拒絕列表的不透明 Token）。
 
 
 ## **結束語：您應該使用哪種身份驗證？ **
 
-確定使用哪種身份驗證方法是開發行動應用程式或單頁 Web 應用程式的關鍵因素。雖然使用行動就緒的身份驗證方法進行擴展的需求將吸引許多開發人員使用令牌，但 cookie 的簡單性可能會吸引其他人。最終，有關 cookie 與令牌身份驗證方法的問題將取決於正在建置的應用程式或 Web 平台的類型。
+確定使用哪種身份驗證方法是開發行動應用程式或單頁 Web 應用程式的關鍵因素。雖然使用行動就緒的身份驗證方法進行擴展的需求將吸引許多開發人員使用 Token，但 cookie 的簡單性可能會吸引其他人。最終，有關 cookie 與 Token 身份驗證方法的問題將取決於正在建置的應用程式或 Web 平台的類型。
 
-Authgear 等身份驗證解決方案提供者提供了滿足所有用例的全面解決方案。例如，[Authgear](/) 提供基於 cookie 和基於令牌的身份驗證，以適應各種 Web 和行動應用程式。它提供了開箱即用的身份驗證解決方案，可在不影響安全性的情況下提升流暢的用戶體驗。 [請求演示](https://oursky.typeform.com/to/ybfyNrs​​k) 查看 Authgear 今天的實際應用。
+Authgear 等身份驗證解決方案提供者提供了滿足所有用例的全面解決方案。例如，[Authgear](/) 提供基於 cookie 和基於 Token 的身份驗證，以適應各種 Web 和行動應用程式。它提供了開箱即用的身份驗證解決方案，可在不影響安全性的情況下提升流暢的用戶體驗。 [請求演示](https://oursky.typeform.com/to/ybfyNrs​​k) 查看 Authgear 今天的實際應用。

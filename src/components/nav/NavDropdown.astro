@@ -78,6 +78,74 @@ const panelClassList = [panelClass, panelModifier].filter(Boolean).join(' ');
     transform: rotate(180deg);
   }
 
+  /* Desktop: panels hang a little below the bar instead of touching it. The
+     gap is bridged by an invisible ::before strip that belongs to the panel,
+     so the pointer can cross it without leaving the dropdown wrapper, which
+     would otherwise close the menu on mouseleave. */
+  @media (min-width: 992px) {
+    .nav-menu-dropdown {
+      --nav-panel-gap: 8px;
+    }
+    .nav-menu-dropdown-list.w--open,
+    .nav-menu-dropdown-list-full-width.w--open {
+      top: calc(100% + var(--nav-panel-gap));
+      /* Set by the script when a panel would run past the viewport edge. */
+      transform: translateX(var(--nav-panel-shift, 0px));
+    }
+    .nav-menu-dropdown-list.w--open::before,
+    .nav-menu-dropdown-list-full-width.w--open::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(-1 * var(--nav-panel-gap));
+      height: var(--nav-panel-gap);
+    }
+
+    /* Products used to be a viewport-wide sheet. Make it a contained, rounded
+       panel like the other menus. Its wrapper goes static so the panel is
+       positioned against the header container instead of the toggle, which
+       anchors it to the logo's left edge and keeps it inside the viewport. */
+    .container-header {
+      position: relative;
+    }
+    .nav-menu-dropdown:has(> .nav-menu-dropdown-list-full-width) {
+      position: static;
+    }
+    .nav-menu-dropdown-list-full-width.w--open {
+      position: absolute;
+      left: 24px;
+      right: auto;
+      min-width: 0; /* the shared base rule says 100%, which would beat max-width */
+      width: max-content;
+      max-width: calc(100% - 48px);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 9px 21.6px #0000001a;
+    }
+    .nav-menu-dropdown .nav-menu-dropdown-list-full-width .nav-full-width-wrapper {
+      display: block;
+      position: static;
+      width: auto;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+    .nav-menu-dropdown .nav-menu-dropdown-list-full-width .nav-full-width-inner {
+      width: auto;
+      max-width: none;
+      grid-template-columns: repeat(5, minmax(0, max-content));
+      column-gap: 32px;
+    }
+  }
+  /* Narrow desktops: the five columns no longer fit at their natural width,
+     so let the link labels wrap instead of spilling out of the panel. */
+  @media (min-width: 992px) and (max-width: 1279px) {
+    .nav-menu-dropdown .nav-menu-dropdown-list-full-width .nav-menu-dropdown-link {
+      white-space: normal;
+    }
+  }
+
   /* Mobile: sections are stacked in the drawer; animate open/close instead
      of show/hide so it no longer jumps. */
   @media (max-width: 991px) {
@@ -146,9 +214,29 @@ const panelClassList = [panelClass, panelModifier].filter(Boolean).join(' ');
     return d.querySelector<HTMLElement>('[data-nav-dropdown-panel]');
   }
 
+  // Desktop panels are anchored to their toggle's left edge. On narrower
+  // desktops a wide panel can run past the right edge of the viewport, so
+  // after opening, measure it and shift it left just enough to fit, without
+  // pushing its left edge past the same margin. The shift is a custom
+  // property the desktop CSS reads; mobile styles never see it.
+  const VIEWPORT_MARGIN = 24;
+  function keepInViewport(panel: HTMLElement) {
+    panel.style.removeProperty('--nav-panel-shift');
+    if (!DESKTOP.matches) return;
+    const rect = panel.getBoundingClientRect();
+    const overflow = rect.right - (window.innerWidth - VIEWPORT_MARGIN);
+    if (overflow <= 0) return;
+    const room = Math.max(0, rect.left - VIEWPORT_MARGIN);
+    panel.style.setProperty('--nav-panel-shift', `${-Math.min(overflow, room)}px`);
+  }
+
   function setOpen(d: HTMLElement, open: boolean) {
     toggleEl(d)?.setAttribute('aria-expanded', open ? 'true' : 'false');
-    panelEl(d)?.classList.toggle('w--open', open);
+    const panel = panelEl(d);
+    if (!panel) return;
+    panel.classList.toggle('w--open', open);
+    if (open) keepInViewport(panel);
+    else panel.style.removeProperty('--nav-panel-shift');
   }
 
   function closeAll(except?: HTMLElement) {

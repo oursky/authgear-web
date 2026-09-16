@@ -52,7 +52,7 @@ draft: false
       </tr>
       <tr>
         <td>使用 JWT，驗證流程清楚且效率高</td>
-        <td>需要妥善儲存與保護權杖</td>
+        <td>需要妥善儲存與保護 Token</td>
       </tr>
       <tr>
         <td>在行動端與 SPA 提供流暢登入體驗</td>
@@ -126,7 +126,7 @@ SAML 與 OIDC 都是聯邦身分標準，核心目標一致：在多應用間提
 
 - **聯邦與 SSO**：在中央 IdP 驗證一次即可存取多應用
 - **瀏覽器轉址流程**：透過 redirect 傳遞身分資訊，降低在多系統儲存密碼風險
-- **權杖式身分交換**：SAML 用 XML assertion、OIDC 用 JWT
+- **Token 式身分交換**：SAML 用 XML assertion、OIDC 用 JWT
 - **主流 IdP 都支援**：Azure AD、Okta、Ping、Auth0、Google、AWS Cognito、ADFS 等
 - **標準成熟**：皆為開放標準，工具與企業採用度高
 
@@ -171,7 +171,7 @@ SAML 在集中式稽核與單一登出（SLO）方面具優勢。理解 **OIDC v
 
 ## **OIDC vs SAML：清楚比較**
 
-兩者都可支援 SSO，但在底層技術、權杖格式與開發者體驗上差異顯著。
+兩者都可支援 SSO，但在底層技術、Token 格式與開發者體驗上差異顯著。
 
 ### **關鍵差異**
 
@@ -200,7 +200,7 @@ SAML 需謹慎處理 metadata 與憑證；OIDC 則可透過 well-known endpoint 
         <td>Web、SPA、行動端、API-first</td>
       </tr>
       <tr>
-        <td>權杖格式</td>
+        <td>Token 格式</td>
         <td>XML assertion</td>
         <td>JWT</td>
       </tr>

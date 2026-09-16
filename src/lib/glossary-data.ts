@@ -156,7 +156,7 @@ const zhHant: GlossarySection[] = [
   {
     letter: 'A',
     entries: [
-      { term: 'Access Token(存取權杖)', body: '存取權杖是用戶端應用程式代表使用者向後端伺服器存取資源時使用的憑證。在已登入的工作階段中,用戶端對後端的請求應夾帶存取權杖。存取權杖可以採用多種格式,而 JWT 是常見的選擇。' },
+      { term: 'Access Token', body: 'Access Token 是用戶端應用程式代表使用者向後端伺服器存取資源時使用的憑證。在已登入的工作階段中,用戶端對後端的請求應夾帶 Access Token。Access Token 可以採用多種格式,而 JWT 是常見的選擇。' },
       { term: 'Admin API', body: 'Admin API 提供 GraphQL 介面,讓開發者可以從自己的程式碼或自訂應用程式與 Authgear 上的服務及資料互動。<br /><br />您也可以在 Authgear Portal 中使用 GraphiQL Explorer 檢視 GraphQL Schema,並建立查詢與變更操作。' },
       { term: 'Anonymous Users(匿名使用者)', body: '匿名使用者是指帳號上沒有任何身分(例如電子郵件或電話號碼)的使用者,但日後可以升級為一般使用者。<br /><br />這個概念讓您可以在網站或應用程式上為訪客建立暫時帳號,讓他們能在以電子郵件或電話號碼註冊前先體驗功能。將匿名使用者升級時,其 <strong>sub</strong>(使用者 ID)的值會保持不變,因此您可以輕鬆地在使用者註冊後串接其先前的活動紀錄。' },
       { term: 'Auth UI', body: 'Authgear 預設為您的專案提供可自訂的登入、註冊與個人資料設定頁面使用者介面(UI)。這些頁面合稱為 Auth UI。' },
@@ -164,8 +164,8 @@ const zhHant: GlossarySection[] = [
       { term: 'Authgear Endpoint(Authgear 端點)', body: 'Authgear 端點(或專案端點)是指向您 Authgear 專案的有效網域。Authgear 端點有許多用途,例如將用戶端應用程式連線至 Authgear 專案,或將使用者導向您的登入與註冊頁面。要快速找出 Authgear 端點,可以前往 Authgear Portal 的 Custom Domains,標示為綠色 Active 狀態的網域即為您的端點。' },
       { term: 'Authentication(身份驗證)', link: '/features/authentication', body: '身份驗證是確認應用程式上使用者身分的程序。Authgear 支援多種驗證方式,包括電子郵件、行動電話、使用者名稱、密碼、OTP、Passkey、生物辨識、社交與企業登入。' },
       { term: 'Authorization(授權)', link: '/features/authorization', body: '授權是依據使用者身分決定是否允許存取資源的程序。例如使用者可以授權某個用戶端應用程式存取自己在 Authgear 上的資料,但這個授權不能用來存取其他使用者的資料。' },
-      { term: 'Authorization Code(授權碼)', body: '在 OAuth 2.0 Authorization Code Flow 中,當使用者同意授權後,授權伺服器會透過 redirect URI 將授權碼傳送給用戶端,用戶端再以授權碼換取存取權杖。' },
-      { term: 'Authorized Redirect URIs(授權重新導向網址)', body: '這些是用戶端應用程式中合法頁面的網址,使用者完成驗證後會被導向這些頁面。通常這是您實作從 URL 參數讀取授權碼,並使用授權碼向 Authgear 換取存取權杖的頁面。<br /><br />在 Authgear 中,您也可以在 Authorized Redirect URIs 設定匿名使用者升級後要導向的頁面。' },
+      { term: 'Authorization Code(授權碼)', body: '在 OAuth 2.0 Authorization Code Flow 中,當使用者同意授權後,授權伺服器會透過 redirect URI 將授權碼傳送給用戶端,用戶端再以授權碼換取 Access Token。' },
+      { term: 'Authorized Redirect URIs(授權重新導向網址)', body: '這些是用戶端應用程式中合法頁面的網址,使用者完成驗證後會被導向這些頁面。通常這是您實作從 URL 參數讀取授權碼,並使用授權碼向 Authgear 換取 Access Token 的頁面。<br /><br />在 Authgear 中,您也可以在 Authorized Redirect URIs 設定匿名使用者升級後要導向的頁面。' },
     ],
   },
   {
@@ -178,7 +178,7 @@ const zhHant: GlossarySection[] = [
   {
     letter: 'C',
     entries: [
-      { term: 'Claims', body: 'Claim 包含可用來識別使用者或應用程式的資訊,通常會夾帶在 JWT 等驗證權杖中,內容可能包含使用者名稱、scope 與角色等。<br /><br />您可以參考相關文章,將自訂欄位加入 Authgear 的 JWT 存取權杖,以滿足特定需求。' },
+      { term: 'Claims', body: 'Claim 包含可用來識別使用者或應用程式的資訊,通常會夾帶在 JWT 等驗證 Token 中,內容可能包含使用者名稱、scope 與角色等。<br /><br />您可以參考相關文章,將自訂欄位加入 Authgear 的 JWT Access Token,以滿足特定需求。' },
       { term: 'Client ID', body: '這是用來識別您 Authgear 應用程式的唯一字串,當用戶端應用程式發送請求時會帶上它。' },
       { term: 'Client Secret', body: 'Client Secret 是與 Client ID 一起傳送的機密字串,用於在 Authgear 伺服器上驗證您的用戶端應用程式。' },
       { term: 'Cloudflare Turnstile', link: '/features/attack-protection', body: 'Turnstile 是 Cloudflare 提供的服務,可在不需要使用者解圖形驗證的情況下保護網站免於機器人與自動化濫用。它會在背景分析使用者行為以判斷是否為真人,並僅在偵測到可疑行為時才要求互動。在 Authgear 中,Cloudflare Turnstile 是您可以整合用於防止機器人攻擊的服務之一。' },
@@ -201,7 +201,7 @@ const zhHant: GlossarySection[] = [
   {
     letter: 'J',
     entries: [
-      { term: 'JWT', body: 'JWT 為 JSON Web Token 的縮寫。JWT 是自包含的權杖,可在伺服器與用戶端之間安全地傳遞驗證與授權資訊。' },
+      { term: 'JWT', body: 'JWT 為 JSON Web Token 的縮寫。JWT 是自包含的 Token,可在伺服器與用戶端之間安全地傳遞驗證與授權資訊。' },
       { term: 'JavaScript / TypeScript Hooks', link: '/features/extensibility', body: 'JavaScript / TypeScript Hooks 是 Authgear Portal 上的功能,讓您撰寫自訂的 JavaScript / TypeScript 程式碼,在特定事件觸發時執行。其運作方式與傳統 Webhook 類似,但無須將指令稿託管在外部伺服器上。' },
     ],
   },
@@ -210,7 +210,7 @@ const zhHant: GlossarySection[] = [
     entries: [
       { term: 'Magic Link(魔術連結)', link: '/features/passwordless-authentication', body: 'Magic Link,又稱 Email Login Link(電子郵件登入連結),是一種免密碼的驗證方式;系統會將獨一無二的登入連結寄到使用者的電子郵件,取代傳統密碼。' },
       { term: 'Multi-factor Authentication (MFA,多因素驗證)', link: '/features/multi-factor-authentication', body: '多因素驗證(MFA)是一種應用程式安全機制,要求使用者提供兩個以上的驗證因素來證明身分。例如同時要求輸入密碼(知道的東西)以及收到的手機 OTP(擁有的東西)。' },
-      { term: 'Machine-to-Machine Token(機器對機器權杖)', link: '/features/machine-to-machine-token', body: 'M2M(Machine-to-Machine)權杖是供軟體系統或裝置之間相互驗證與授權的存取權杖,過程中不需要人為介入。這類權杖通常透過 OAuth 2.0 的 Client Credentials Flow 發行,讓受信任的服務透過在 API 請求中帶上權杖來安全存取受保護資源。' },
+      { term: 'Machine-to-Machine Token(機器對機器 Token)', link: '/features/machine-to-machine-token', body: 'M2M(Machine-to-Machine)Token 是供軟體系統或裝置之間相互驗證與授權的 Access Token,過程中不需要人為介入。這類 Token 通常透過 OAuth 2.0 的 Client Credentials Flow 發行,讓受信任的服務透過在 API 請求中帶上 Token 來安全存取受保護資源。' },
     ],
   },
   {
@@ -239,9 +239,9 @@ const zhHant: GlossarySection[] = [
     letter: 'R',
     entries: [
       { term: 'Role-Based Access Control (RBAC,角色型存取控制)', link: '/post/what-is-role-based-access-control-rbac-benefits-comparisons-and-best-practices', body: '角色型存取控制(RBAC)是一種安全模型,依據使用者在組織中預先定義的角色來授予系統、應用程式與資料的權限。RBAC 不會為每位使用者單獨設定權限,而是把使用者依角色(例如管理員、HR 主管、終端使用者)分組,並依該角色的職責授予存取權限,簡化管理並落實最小權限原則,提升安全性。' },
-      { term: 'Roles(角色)', body: '在 Authgear 中可以為使用者指派角色以實作 RBAC。角色會以陣列形式透過 Authgear JWT 存取權杖與 UserInfo 中的 <a href="#">https://authgear.com/claims/user/roles</a> 屬性回傳。' },
+      { term: 'Roles(角色)', body: '在 Authgear 中可以為使用者指派角色以實作 RBAC。角色會以陣列形式透過 Authgear JWT Access Token 與 UserInfo 中的 <a href="#">https://authgear.com/claims/user/roles</a> 屬性回傳。' },
       { term: 'Reauthentication(重新驗證)', body: '重新驗證是指在已驗證的使用者執行敏感操作前,再次確認其身分的程序。此程序可避免使用者使用可能已被攻陷的舊授權執行敏感操作,藉此提升安全性。' },
-      { term: 'Refresh Token(更新權杖)', body: '更新權杖是一種特殊的權杖,讓您可以在不重新驗證使用者的情況下取得新的存取權杖。' },
+      { term: 'Refresh Token', body: 'Refresh Token 是一種特殊的 Token,讓您可以在不重新驗證使用者的情況下取得新的 Access Token。' },
     ],
   },
   {

@@ -26,7 +26,7 @@ draft: false
 
 ## 授權代碼流如何與 Authgear 配合使用
 
-在深入實施之前，我們先了解一下 <a href="https://tools.ietf.org/html/rfc6749#section-4.1" target="_blank">授權碼流程</a> 在我們的範例中有效。此流程只能用於機密應用程式（例如常規 Web 應用程式），因為涉及**將授權代碼交換為令牌**。以下是此流程中的步驟：
+在深入實施之前，我們先了解一下 <a href="https://tools.ietf.org/html/rfc6749#section-4.1" target="_blank">授權碼流程</a> 在我們的範例中有效。此流程只能用於機密應用程式（例如常規 Web 應用程式），因為涉及**將授權代碼交換為 Token**。以下是此流程中的步驟：
 
 <!--FIGURE-->
 ![](./figure-1.webp)
@@ -39,8 +39,8 @@ draft: false
 1. **Authgear** 使用一次性授權代碼將使用者重新導向回應用程式。
 1. **Spring OAuth2** 用戶端將授權程式碼、應用程式的用戶端 ID 和應用程式的憑證（例如用戶端金鑰）傳送至 **Authgear** （/oauth2/token 端點）。
 1. **Authgear** 驗證授權代碼、應用程式的用戶端 ID 和應用程式的憑證。
-1. **Authgear** 使用 ID 令牌和存取權杖（以及可選的刷新令牌）進行回應。
-1. 應用程式可以使用存取令牌呼叫 API 來存取有關使用者的信息。
+1. **Authgear** 使用 ID Token 和 Access Token（以及可選的 Refresh Token）進行回應。
+1. 應用程式可以使用 Access Token 呼叫 API 來存取有關使用者的信息。
 1. API 使用請求的資料進行回應。
 
 ## 將登入新增至您的 Spring Web 應用程式

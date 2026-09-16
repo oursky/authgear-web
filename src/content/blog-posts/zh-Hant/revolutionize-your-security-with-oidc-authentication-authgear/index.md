@@ -22,7 +22,7 @@ OIDC 驗證是一套建立在 [OAuth 2.0](/zh-hant/post/what-is-oauth-2-0-and-ho
 
 ## OIDC 驗證的運作原理
 
-OIDC 驗證是 OAuth 2.0 的延伸：它在授權流程之上加上一層身分層（identity layer），確保使用者確實是其宣稱的身分。當使用者登入成功後，系統會簽發安全權杖，封裝身分資訊。這個權杖通常是 [JSON Web Token（JWT）](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，可讓你的應用程式以一致且安全的方式驗證使用者。
+OIDC 驗證是 OAuth 2.0 的延伸：它在授權流程之上加上一層身分層（identity layer），確保使用者確實是其宣稱的身分。當使用者登入成功後，系統會簽發安全 Token，封裝身分資訊。這個 Token 通常是 [JSON Web Token（JWT）](/zh-hant/post/jwt-authentication-a-secure-scalable-solution-for-modern-applications)，可讓你的應用程式以一致且安全的方式驗證使用者。
 
 典型 OIDC 驗證流程包含幾個步驟：啟動使用者登入、取得 authorization code、再以該 code 交換包含身分資訊的 token。每一步都旨在兼顧安全性與使用便利。導入 OIDC 驗證後，企業可優化登入體驗並降低安全漏洞，讓系統完整性與使用者體驗同時提升。
 
