@@ -270,6 +270,23 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     transition: none;
   }
 
+  /* Signup/Login, desktop and in the drawer: the plain primary style
+     (tokens in global.css) in place of Webflow's diagonal gradient and its
+     shrink-on-hover. */
+  .button-primary.header-button,
+  .button-primary.header-button-mobile {
+    background-image: none;
+    background-color: var(--btn-plain-bg);
+    box-shadow: var(--btn-plain-shadow);
+    transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+  .button-primary.header-button:hover,
+  .button-primary.header-button-mobile:hover {
+    background-color: var(--btn-plain-bg-hover);
+    box-shadow: var(--btn-plain-shadow-hover);
+    transform: translateY(-1px);
+  }
+
   .site-nav-toggle {
     display: none;
     position: relative;

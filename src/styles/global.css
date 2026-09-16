@@ -1200,6 +1200,23 @@ button.ds-sms-warning-faq__trigger {
   font-weight: 600;
 }
 
+/* Plain primary button: a flat indigo-blue fill with the depth carried by a
+   soft glow outside the button. Used by the home hero's Start Free and
+   product switch, and by the nav's Signup/Login. Other buttons keep the
+   design system's gradient. */
+:root {
+  --btn-plain-bg: #3e5cf5;
+  --btn-plain-bg-hover: #4d6bff;
+  --btn-plain-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 6px 16px -6px rgba(62, 92, 245, 0.35),
+    0 2px 4px rgba(0, 4, 42, 0.3);
+  --btn-plain-shadow-hover:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 20px -6px rgba(62, 92, 245, 0.45),
+    0 3px 6px rgba(0, 4, 42, 0.3);
+}
+
 /* Dark pages (BaseLayout theme="dark"): paint the canvas navy so the
    rubber-band over-scroll at the top or bottom shows the page colour, not
    the light default. The body class from Webflow sets the light colour. */

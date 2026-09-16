@@ -811,6 +811,23 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     }
   }
 
+  /* Hero buttons: the plain primary style (tokens in global.css) for Start
+     Free and the active product-switch tab. */
+  .home-hero__cta .ds-btn-primary,
+  .flex-block-66.active {
+    background-image: none;
+    background-color: var(--btn-plain-bg);
+    box-shadow: var(--btn-plain-shadow);
+  }
+  .home-hero__cta .ds-btn-primary {
+    transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+  .home-hero__cta .ds-btn-primary:hover {
+    background-color: var(--btn-plain-bg-hover);
+    box-shadow: var(--btn-plain-shadow-hover);
+    transform: translateY(-1px);
+  }
+
   /* Footer form: the supporting line under the heading is body copy, not a
      second heading, so it drops Webflow's bold weight. */
   .footer-get-started-text {
