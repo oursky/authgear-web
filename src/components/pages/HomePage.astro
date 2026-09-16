@@ -215,7 +215,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
             </div>
           </div>
         </div>
-        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d32-19df57f8" class="home-feature-cards-v2_card dark center py-60 bf-align-card"><img src="/images/home_built-faster-with-authgear_user-management.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100 bf-align-img" />
+        <div id="w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d32-19df57f8" class="home-feature-cards-v2_card dark center py-60 bf-align-card"><img src="/images/home_build-faster_hooks-admin-api.svg" loading="lazy" width="235" alt="" class="home-feature-cards-v2_image width-auto px-30 height-100 bf-align-img bf-align-img-landscape" />
           <div>
             <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
               <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.buildFasterCard3Title')}</h3>
@@ -718,6 +718,39 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
   }
   .home-feature-cards-v2_card.dark.center.bf-align-card {
     justify-content: flex-start;
+  }
+  /* Below 991px Webflow's grid hands the hooks card the full 12-column row and
+     pins the two bottom-row cards to grid row 2, so the cards ran 1,2 / 4,5 / 3
+     and the hooks graphic scaled to the card's full width (930px wide, 845px
+     tall at a 979px viewport). Reflow to 1,2 / 3,4 with "Design your flows"
+     as the closing full-row card, and cap every graphic at 480px so a wide
+     card stays compact. Below 767px the wrap becomes a flex column, so DOM
+     order applies and the flow card closes the list there as well. ID
+     selectors are required to beat Webflow's own. */
+  @media (max-width: 991px) {
+    #w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d32-19df57f8,
+    #w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d3a-19df57f8 {
+      grid-area: auto / span 6 / auto / span 6;
+    }
+    #w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d42-19df57f8 {
+      grid-area: auto / span 12 / auto / span 12;
+    }
+    .home-feature-cards-v2_image.width-auto.px-30.height-100.bf-align-img,
+    .home-feature-cards-v2_image.width-auto.px-30.height-100.bf-align-img-wide {
+      max-width: 480px;
+      align-self: center;
+    }
+    /* The hooks graphic is landscape (420x260). Its near-square desktop box
+       only exists to align the top row's headings; here it shares a row with
+       the SDK card, so take that card's box ratio instead. */
+    .home-feature-cards-v2_image.width-auto.px-30.height-100.bf-align-img.bf-align-img-landscape {
+      aspect-ratio: 480 / 260;
+    }
+    /* Keep the full-row card's copy at a readable measure. */
+    #w-node-d65fc3a0-b6c2-ca3b-1f39-c1cfdab29d42-19df57f8 .home-feature-cards-v2_info-wrap {
+      max-width: 640px;
+      margin-inline: auto;
+    }
   }
 
   /* Card titles inherit the global h3 leading of 1.063em, which is a display
