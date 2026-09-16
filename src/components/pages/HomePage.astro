@@ -55,11 +55,11 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
           </div>
           <div class="w-layout-vflex flex-block-55">
             <h1 class="heading herotag text-white ibm-plex-sans cloud-h1">{t(locale, 'Home.heroHeading')}</h1>
-            <p class="paragraph-large home-hero text-afb7ff ibm-plex-sans new-kv-desc no-margin">{t(locale, 'Home.heroParagraph')}</p>
+            <p class="home-hero__desc">{t(locale, 'Home.heroParagraph')}</p>
           </div>
-          <div class="w-layout-hflex home-hero-cta-wrapper">
-            <a href="https://portal.authgear.com/?utm_source=landing-page&utm_medium=link&utm_campaign=login_button" target="_blank" rel="noopener noreferrer" class="button-primary home-hero new-home radius-16 w-button plausible-event-name--signup plausible-event-location--home-hero">{t(locale, 'Home.heroCtaGetStarted')}</a>
-            <a href="https://docs.authgear.com/" class="developer-docs">{t(locale, 'Home.heroCtaHowToIntegrate')}</a>
+          <div class="home-hero__cta">
+            <a href="https://portal.authgear.com/?utm_source=landing-page&utm_medium=link&utm_campaign=login_button" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn-primary plausible-event-name--signup plausible-event-location--home-hero">{t(locale, 'Home.heroCtaGetStarted')}</a>
+            <a href="https://docs.authgear.com/" class="home-hero__docs">{t(locale, 'Home.heroCtaHowToIntegrate')}</a>
           </div>
           <ul class="hero-trust-strip">
             <li>{t(locale, 'Home.heroTrust1')}</li>
@@ -138,12 +138,12 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     </div>
   </div>
 
-  <div>
+  <div class="bg-image-customer-story">
     <div class="container-default">
       <div class="container-default-inner">
         <div class="top-content flex-column text-center">
-          <h2 class="cloud-h2 dark-cloud-h2" set:html={tRich(locale, 'Home.enterpriseTrustHeading', 'dark-cloud-h2')}></h2>
-          <div class="top-content-description ibm-plex-sans">{t(locale, 'Home.enterpriseTrustSubheading')}</div>
+          <h2 class="cloud-h2" set:html={tRich(locale, 'Home.enterpriseTrustHeading')}></h2>
+          <div class="top-content-description color-afb7ff ibm-plex-sans">{t(locale, 'Home.enterpriseTrustSubheading')}</div>
         </div>
         <div class="w-layout-hflex flex-block-86">
           <div class="w-layout-vflex flex-block-87">
@@ -559,6 +559,43 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
 </div>
 
 <style>
+  /* Hero description + CTA row. These used to ride on Webflow's
+     `.paragraph-large.home-hero` / `.home-hero-cta-wrapper` / `.button-primary`
+     stack, whose breakpoint rules centred the copy between 768px and 991px and
+     stacked the CTAs into a column (with a full-width button that never
+     materialised) below 768px. Styled here directly instead: left-aligned at
+     every width, button and docs link side by side, wrapping only when the row
+     genuinely runs out of room. The button is the design-system primary. */
+  .home-hero__desc {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    color: var(--color-text-secondary);
+    text-align: left;
+  }
+  .home-hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .home-hero__docs {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 180ms ease;
+  }
+  .home-hero__docs:hover {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
   .hero-trust-strip {
     display: flex;
     flex-wrap: wrap;
