@@ -18,7 +18,9 @@
     "signupMobile": "註冊",
     "getDemo": "預約示範",
     "signupLogin": "註冊／登入",
-    "menuToggleLabel": "開啟選單"
+    "menuToggleLabel": "開啟選單",
+    "githubStar": "Star",
+    "githubStarLabel": "在 GitHub 上為 Authgear 加星"
   },
   "Blog": {
     "title": "資源中心",

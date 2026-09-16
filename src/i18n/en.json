@@ -18,7 +18,9 @@
     "signupMobile": "Signup",
     "getDemo": "Get a Demo",
     "signupLogin": "Signup/Login",
-    "menuToggleLabel": "Open menu"
+    "menuToggleLabel": "Open menu",
+    "githubStar": "Star",
+    "githubStarLabel": "Star Authgear on GitHub"
   },
   "Blog": {
     "title": "Resource Center",

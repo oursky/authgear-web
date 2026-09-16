@@ -10,6 +10,7 @@ import {
   type NavLink,
 } from '@/lib/navigation-data';
 import Button from './Button.astro';
+import { GITHUB_REPO, GITHUB_REPO_URL, getGithubStars, formatStars } from '@/lib/github-stars';
 import NavDropdown from './NavDropdown.astro';
 import SolutionsNavIcons from './SolutionsNavIcons.astro';
 import ResourcesDevelopersNavIcons from './ResourcesDevelopersNavIcons.astro';
@@ -36,6 +37,7 @@ function href(pathOrUrl: string): string {
   return localizedPath(locale, pathOrUrl);
 }
 
+const stars = formatStars(await getGithubStars());
 const sideHref = href(solutionsSideImage.path);
 const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?? '';
 ---
@@ -202,6 +204,20 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
   </nav>
 
   <div class="split-content header-right">
+    <a
+      href={GITHUB_REPO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-github-star"
+      aria-label={t(locale, 'Navigation.githubStarLabel')}
+      data-github-stars={GITHUB_REPO}
+    >
+      <svg class="nav-github-star__icon" viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+      <span class="nav-github-star__label">{t(locale, 'Navigation.githubStar')}</span>
+      <span class="nav-github-star__count" data-github-star-count>{stars}</span>
+    </a>
     <Button
       href="https://portal.authgear.com/"
       target="_blank"
@@ -285,6 +301,80 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     background-color: var(--btn-plain-bg-hover);
     box-shadow: var(--btn-plain-shadow-hover);
     transform: translateY(-1px);
+  }
+
+  /* GitHub star pill: mark, "Star", divider, live count. Light by default,
+     recoloured under .nav--dark. Hidden on phones, where the bar is full. */
+  .nav-github-star {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 14px;
+    margin-right: 16px;
+    border-radius: 14px;
+    border: 1px solid #e4e8f0;
+    background-color: #f5f7fb;
+    color: #3e4f6f;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 180ms ease, border-color 180ms ease;
+  }
+  .nav-github-star:hover {
+    background-color: #eceff6;
+    border-color: #d5dbe7;
+    color: #3e4f6f;
+  }
+  .nav-github-star__icon {
+    flex: 0 0 auto;
+  }
+  .nav-github-star__count {
+    padding-left: 8px;
+    border-left: 1px solid #d5dbe7;
+    font-variant-numeric: tabular-nums;
+  }
+  .nav--dark .nav-github-star {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .nav--dark .nav-github-star:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+  .nav--dark .nav-github-star__count {
+    border-left-color: rgba(255, 255, 255, 0.18);
+  }
+  /* Small laptops (992 to 1199px): the bar has no room for the pill, the
+     two CTAs, five menu items, and the logo at full size. Below 1200px the
+     pill steps aside, the menu tightens, the logo holds a fixed width so it
+     cannot be squeezed, and Get a Demo stays on one line. */
+  @media (max-width: 1199px) {
+    .nav-github-star {
+      display: none;
+    }
+  }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .container-header > .nav-menu {
+      grid-column-gap: 16px;
+    }
+    .container-header > .brand .header-logo {
+      width: 140px;
+      min-width: 140px;
+    }
+    .button-primary.header-button {
+      margin-right: 12px;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+    .split-content.header-right .nav-button.login {
+      white-space: nowrap;
+    }
   }
 
   .site-nav-toggle {
@@ -484,6 +574,38 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
 </style>
 
 <script>
+  // Refresh the GitHub star count after load. The build-time number is
+  // already in the markup; this keeps it current between deploys. Cached in
+  // localStorage for six hours so repeat visits make no request at all.
+  (() => {
+    const el = document.querySelector<HTMLElement>('[data-github-stars]');
+    const out = el?.querySelector<HTMLElement>('[data-github-star-count]');
+    if (!el || !out) return;
+    const repo = el.dataset.githubStars!;
+    const key = `gh-stars:${repo}`;
+    const TTL = 6 * 60 * 60 * 1000;
+    const format = (n: number) => {
+      if (n < 1000) return String(n);
+      const k = n / 1000;
+      return (k >= 10 ? Math.round(k).toString() : k.toFixed(1).replace(/\.0$/, '')) + 'k';
+    };
+    try {
+      const cached = JSON.parse(localStorage.getItem(key) ?? 'null') as { n: number; t: number } | null;
+      if (cached && Date.now() - cached.t < TTL) {
+        out.textContent = format(cached.n);
+        return;
+      }
+    } catch {}
+    fetch(`https://api.github.com/repos/${repo}`, { headers: { Accept: 'application/vnd.github+json' } })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: { stargazers_count?: number } | null) => {
+        if (typeof d?.stargazers_count !== 'number') return;
+        out.textContent = format(d.stargazers_count);
+        try { localStorage.setItem(key, JSON.stringify({ n: d.stargazers_count, t: Date.now() })); } catch {}
+      })
+      .catch(() => {});
+  })();
+
   const BREAKPOINT = window.matchMedia('(max-width: 991px)');
   const toggle = document.querySelector<HTMLButtonElement>(
     '[data-site-nav-toggle]',
