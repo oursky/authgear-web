@@ -16,8 +16,11 @@ import ResourcesDevelopersNavIcons from './ResourcesDevelopersNavIcons.astro';
 
 interface Props {
   locale: string;
+  /** Colour scheme. Same markup either way; 'dark' only changes colours. */
+  theme?: 'light' | 'dark';
 }
-const { locale } = Astro.props;
+const { locale, theme = 'light' } = Astro.props;
+const dark = theme === 'dark';
 
 function label(link: NavLink): string {
   return link.label[locale] ?? link.label['en'] ?? '';
@@ -37,7 +40,7 @@ const sideHref = href(solutionsSideImage.path);
 const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?? '';
 ---
 
-<div class="container-header">
+<div class:list={["container-header", { "nav--dark": dark }]}>
   <a href={localizedPath(locale, '/')} class="brand">
     <img src="/images/authgear-logo.svg" alt={t(locale, 'Navigation.logoAlt')} class="header-logo" />
   </a>
@@ -258,6 +261,15 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     transform: scale(0.97);
   }
 
+  /* The Webflow export shrinks the logo on hover (.brand:hover scales it
+     down). It reads as a glitch rather than affordance, so the logo now
+     holds still on every page. */
+  .container-header .brand,
+  .container-header .brand:hover {
+    transform: none;
+    transition: none;
+  }
+
   .site-nav-toggle {
     display: none;
     position: relative;
@@ -373,6 +385,83 @@ const sideAlt = solutionsSideImage.alt[locale] ?? solutionsSideImage.alt['en'] ?
     }
   }
 
+  /* Dark colour scheme, opted into per page through BaseLayout's navTheme
+     prop. One component, one set of markup: these rules only recolour the
+     bar, its dropdown panels, and, below 991px, the drawer. The background
+     matches the footer (.footer.dark, #000). */
+  .header.header--dark {
+    background-color: #000;
+  }
+  .container-header.nav--dark {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+  .nav--dark .site-nav-toggle__bars > span {
+    background-color: #fff;
+  }
+  /* Same logo file as the light bar, recoloured to white. The separate
+     white logo asset is cropped differently and sat lower than the nav
+     text, so reusing this one keeps the baseline where it is. */
+  .nav--dark .header-logo {
+    filter: brightness(0) invert(1);
+  }
+  .nav--dark .dropdown-toggle,
+  .nav--dark .nav-link,
+  .nav--dark .header-navigation,
+  .nav--dark .nav-button.login {
+    color: rgba(255, 255, 255, 0.86);
+  }
+  .nav--dark .dropdown-toggle:hover,
+  .nav--dark .dropdown-toggle[aria-expanded='true'],
+  .nav--dark .nav-link:hover,
+  .nav--dark .nav-button.login:hover {
+    color: #fff;
+  }
+  /* Dropdown panels and everything inside them, at every width. */
+  /* Menus sit a shade above the black bar: the site's dark indigo, the same
+     colour the .bg-1c1d3c cards use. */
+  .nav--dark .nav-menu-dropdown-list,
+  .nav--dark .nav-menu-dropdown-list-full-width {
+    background-color: #1c1d3c;
+    color: rgba(255, 255, 255, 0.86);
+  }
+  .nav--dark .nav-menu-dropdown-link {
+    color: rgba(255, 255, 255, 0.86);
+  }
+  .nav--dark .nav-menu-dropdown-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  .nav--dark .nav-menu-dropdown-link-note,
+  .nav--dark .nav-menu-dropdown-subtitle {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .nav--dark .nav-menu-dropdown-column.nav-column-line,
+  .nav--dark .nav-menu-dropdown-column.image {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  @media (min-width: 992px) {
+    /* Desktop panels float below the bar: a faint edge and a deep shadow
+       separate them from whatever the page shows behind them. */
+    .nav--dark .nav-menu-dropdown-list.w--open,
+    .nav--dark .nav-menu-dropdown-list-full-width.w--open {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+    }
+  }
+  @media (max-width: 991px) {
+    /* The drawer itself; the section panels unfolding inside it share its
+       black, so only the dividers need attention. */
+    .nav--dark .nav-menu[data-site-nav-panel] {
+      background: #1c1d3c !important;
+      color: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    .nav--dark .dropdown-toggle,
+    .nav--dark .nav-item-wrapper {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+  }
 </style>
 
 <script>
