@@ -670,7 +670,9 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
     transition: opacity .15s;
   }
   .home-card-description-text :global(a:hover) { opacity: 0.75; }
-  .home-card-description-text.text-cee9ff :global(a) { color: #fff; }
+  /* Dark cards: the link keeps the paragraph's colour and weight, so the
+     underline alone marks it. */
+  .home-card-description-text.text-cee9ff :global(a) { color: inherit; font-weight: inherit; }
   .home-card-description-text.color-626262 :global(a) { color: #0b63e9; }
 
   /* "One identity across every app you run" is now four cards, not three.
