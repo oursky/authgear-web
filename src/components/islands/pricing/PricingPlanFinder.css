@@ -760,3 +760,18 @@
     display: block !important;
   }
 }
+
+/* Plan cards: the "Most Popular" badge keeps to one line and drops under the
+   plan name when the card is too narrow for both, instead of wrapping to
+   two lines and spilling past the card's edge (seen around 900px). */
+.free-div {
+  flex-wrap: wrap;
+  align-items: center;
+}
+.most-popular {
+  flex: 0 0 auto;
+  align-items: center;
+}
+.most-popular-content {
+  white-space: nowrap;
+}
