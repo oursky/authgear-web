@@ -68,8 +68,9 @@ These indicate the user is exploring content or interacting with features.
 | `calculator-open` | `ReduceSmsOtpCostPage` — hero "Calculate My Savings" | Click | `#Saving-Calculator` anchor scroll — renamed from `signup-calculator` in Aug 2026 (it never was a signup click) |
 | `tool-banner-click` | `ToolWidget` — banner image | Click | Links to `/` (placeholder) |
 | `tool-tag-click` | `ToolWidget` — "This tool is crafted by Authgear" tag | Click | Links to `/` (placeholder) |
-| `tool-github-click` | `ToolPopup` — "Star us on GitHub" | Click | `github.com/authgear/authgear-server` |
-| `tool-github-tag-click` | `ToolWidget` — GitHub star badge | Click | `github.com/authgear/authgear-server` |
+| `github-star` | `SiteNav` — GitHub star pill in the header bar (shown at ≥1200px) | Click | `github.com/authgear/authgear-server` — fires with `props.location = 'nav-header'` |
+| `github-star` | `ToolPopup` — "Star us on GitHub" | Click | `github.com/authgear/authgear-server` — fires with `props.location = 'tool-popup'` (renamed from `tool-github-click` in Sep 2026; earlier clicks live under the old name) |
+| `github-star` | `ToolWidget` — GitHub star badge | Click | `github.com/authgear/authgear-server` — fires with `props.location = 'tool-widget'` (renamed from `tool-github-tag-click` in Sep 2026) |
 | `popup-close-click` | `ToolPopup` — "Close" button | Click | — |
 | `pricing-plan-finder-interact` | `PricingPageClient` — plan finder (SMS toggle, log retention, apps/members/MAU sliders) | First interaction per page view | One-shot per page load (`useRef`). Fires with `props.first_action` = `sms` / `log-retention` / `apps` / `members` / `mau`. Refresh starts a new page view and can fire again. |
 | `pricing-plan-finder-result` | `PricingPageClient` — plan finder recommended tier changes | SMS / log retention: on change if tier changes. Sliders: on pointer/key release if tier differs from gesture start | Does not fire on initial mount. Not fired on every slider step while dragging. Props: `recommended_plan`, `sms`, `log_retention`, `apps`, `members`, `mau` (`unlimited` when MAU slider locked). |
@@ -88,6 +89,7 @@ Properties unlock filtering in Plausible's dashboard and remove the need for sep
 | `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"`, `"post-inline"` | Distinguish where signups originate — all implemented |
 | `signup` | `plan` | `"free"`, `"developers"`, `"business"` | Plan finder recommended tier when CTA is clicked (`location` must be `plan-finder`; the Enterprise tier fires `get-demo` instead) |
 | `signup-login` | `location` | `"nav-header"` | Implemented — the header-bar Signup/Login button serves all widths (the mobile drawer login/signup buttons were removed in Aug 2026); split desktop vs mobile clicks with the device dimension |
+| `github-star` | `location` | `"nav-header"`, `"tool-popup"`, `"tool-widget"` | Implemented — every GitHub star click on the site fires this one goal; split by location |
 | `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"`, `"sms-calculator"`, `"plan-finder"` | Implemented — leaves room for tagging other get-demo CTAs later |
 | `get-demo` | `plan` | `"enterprise"` | Sent only from the plan finder's Enterprise CTA (`location` = `plan-finder`) |
 | `calculator-preset` | `preset` | `"10K"`, `"100K"`, `"500K"`, `"1M"` | See which preset is most popular |
@@ -110,11 +112,11 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 
 | Gap | Recommendation |
 |-----|---------------|
-| `get-demo` / `signup-login` / `calculator-open` goals not registered | These custom events fire from the site but only show in the Plausible dashboard's Goals panel after adding them as goals in the site settings. The retired goals (`login`, `tool-demo-click`, `tool-popup-signup-click`, `signup-hero`, `signup-calculator`) no longer receive events — keep them for history |
+| ~~Goal registration~~ (done 2026-08-21) | `get-demo`, `signup-login`, and `calculator-open` are registered as goals in Plausible. The retired goals (`login`, `tool-demo-click`, `tool-popup-signup-click`, `signup-hero`, `signup-calculator`) no longer receive events — kept for history |
 | `tool-banner-click` / `tool-tag-click` destination is `/` | These are placeholder `href` values; update to real URLs and confirm event names still apply |
 | No page-context on `contact-form-submit` | The form is used on multiple pages (schedule-demo, pricing, etc.) — add a `page` property to distinguish |
 | Calculator interaction depth | Only preset clicks are tracked; slider changes are not — consider adding `calculator-result` event when the user sees the output |
-| GitHub star clicks tracked in two places (`tool-github-click` and `tool-github-tag-click`) | Consider unifying under one event name with a `location` property |
+| `github-star` goal not registered | Sep 2026: all GitHub star clicks (nav pill, tool popup, tool widget) fire `github-star` with a `location` prop. Register it as a custom-event goal in Plausible; events are stored regardless, so history backfills once the goal exists. The retired `tool-github-click` and `tool-github-tag-click` goals keep their pre-rename history |
 
 ---
 
