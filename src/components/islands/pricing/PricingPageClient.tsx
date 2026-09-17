@@ -911,7 +911,7 @@ function PlanFinderBlock({
 }) {
   const [appsIdx, setAppsIdx] = useState(1);
   const [membersIdx, setMembersIdx] = useState(1);
-  const [mauIdx, setMauIdx] = useState(MAU_RANGE_MAX);
+  const [mauIdx, setMauIdx] = useState<number>(MAU_RANGE_MAX);
   const [needsSmsWhatsapp, setNeedsSmsWhatsapp] = useState(false);
   const [logRetentionDays, setLogRetentionDays] = useState<LogRetentionDays>(1);
 
