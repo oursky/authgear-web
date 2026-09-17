@@ -14,9 +14,6 @@ const MAU_RANGE_MAX = MAU_STEPS.length;
 /** Numeric MAU used for 50K+ slider position (plan logic, competitor compare). */
 const MAU_FIFTY_K_PLUS_NUMERIC = 50_000;
 
-/** Half of range thumb width (see `PricingPlanFinder.css`); tick centers use the same inset as native range thumb travel. */
-const RANGE_THUMB_INSET_PX = 10;
-
 type PlanFinderLabels = {
   heading: string;
   labelApplications: string;
@@ -44,6 +41,9 @@ type PlanFinderLabels = {
   enterpriseFeatures: string[];
   /** CTA label for Developers / Business in the recommended-plan summary (e.g. "Get Started"). */
   ctaGetStarted: string;
+  subtitleFree: string;
+  subtitleDevelopers: string;
+  subtitleBusiness: string;
 };
 
 type Props = {
@@ -97,7 +97,7 @@ function mauTickLabels(mauScaleLast: string): string[] {
 type LogRetentionDays = 1 | 60 | 180;
 
 /** First plan-finder control touched; sent once per page view with `pricing-plan-finder-interact`. */
-type PlanFinderFirstAction = 'sms' | 'log-retention' | 'apps' | 'members' | 'mau';
+type PlanFinderFirstAction = 'sms' | 'log-retention' | 'apps' | 'members' | 'mau' | 'tab';
 
 function PlanFinderLogRetentionToggle({
   id,
@@ -207,6 +207,7 @@ function RangeWithTicks({
   ariaValueText,
   ariaValueNow,
   disabled = false,
+  includedIndex = null,
 }: {
   labelledBy: string;
   value: number;
@@ -218,16 +219,22 @@ function RangeWithTicks({
   ariaValueText: string;
   ariaValueNow?: number;
   disabled?: boolean;
+  includedIndex?: number | null;
 }) {
   const denom = max > 0 ? max : 1;
   const fillPct = max <= 0 ? 50 : (value / max) * 100;
-  const rangeStyle = { '--range-fill-pct': `${fillPct}%` } as CSSProperties;
+  const hasOverage = includedIndex != null && !disabled && value > includedIndex;
+  const includedPct = hasOverage && includedIndex != null ? (includedIndex / denom) * 100 : null;
+  const rangeStyle = {
+    '--range-fill-pct': `${fillPct}%`,
+    ...(includedPct != null ? { '--range-included-pct': `${includedPct}%` } : {}),
+  } as CSSProperties;
 
   return (
     <div className={`plan-finder__slider-shell${disabled ? ' plan-finder__slider-shell--disabled' : ''}`}>
       <input
         type="range"
-        className="plan-finder__range"
+        className={`plan-finder__range${hasOverage ? ' plan-finder__range--overage' : ''}`}
         min={0}
         max={max}
         step={1}
@@ -259,16 +266,16 @@ function RangeWithTicks({
       />
       <div className="plan-finder__ticks" aria-hidden>
         {tickLabels.map((text, i) => {
-          const left =
-            max === 0
-              ? '50%'
-              : `calc(${RANGE_THUMB_INSET_PX}px + (100% - ${2 * RANGE_THUMB_INSET_PX}px) * ${i / denom})`;
+          const isFirst = i === 0;
+          const isLast = i === tickLabels.length - 1;
+          const left = max === 0 ? '50%' : `${(i / denom) * 100}%`;
           const isActive = i === value;
+          const transform = isFirst ? 'none' : isLast ? 'translateX(-100%)' : 'translateX(-50%)';
           return (
             <span
               key={i}
-              className={`plan-finder__tick${isActive ? ' plan-finder__tick--active' : ''}`}
-              style={{ left, transform: 'translateX(-50%)' }}
+              className={`plan-finder__tick${isActive ? ' plan-finder__tick--active' : ''}${isFirst ? ' plan-finder__tick--first' : ''}${isLast ? ' plan-finder__tick--last' : ''}`}
+              style={{ left, transform }}
             >
               {text}
             </span>
@@ -369,6 +376,16 @@ const DEVELOPERS_BASE_USD = 50;
 const DEVELOPERS_EXTRA_APP_USD = 100;
 const DEVELOPERS_EXTRA_MEMBER_USD = 50;
 
+/** Slider index of the included quota for the current plan, or null when there is no overage visualization. */
+function includedSliderIndex(kind: 'apps' | 'members' | 'mau', planIndex: number): number | null {
+  if (kind === 'mau') {
+    return planIndex === CLOUD_PLAN_INDEX_BUSINESS ? 2 : null;
+  }
+  if (planIndex === CLOUD_PLAN_INDEX_FREE || planIndex === CLOUD_PLAN_INDEX_DEVELOPERS) return 1;
+  if (planIndex === CLOUD_PLAN_INDEX_BUSINESS) return 4;
+  return null;
+}
+
 function qualifiesForFreePlan(
   apps: number,
   members: number,
@@ -408,16 +425,15 @@ function businessPlanFinderMonthlyUsd(apps: number, members: number, mauIdx: num
 function qualifiesForEnterprisePlan(
   apps: number,
   members: number,
-  mauIdx: number,
-  needsSmsWhatsapp: boolean,
+  _mauIdx: number,
+  _needsSmsWhatsapp: boolean,
   logRetentionDays: LogRetentionDays,
 ): boolean {
+  // 10+ apps / members, or 180-day log retention → Enterprise
   if (apps >= APPS_MEMBERS_PLUS_NUMERIC || members >= APPS_MEMBERS_PLUS_NUMERIC) return true;
   if (logRetentionDays === 180) return true;
-  const mauSliderUnlocked =
-    !qualifiesForFreePlan(apps, members, needsSmsWhatsapp, logRetentionDays) &&
-    !qualifiesForDevelopersPlan(needsSmsWhatsapp, logRetentionDays);
-  return mauSliderUnlocked && mauIdx >= MAU_STEPS.length;
+  // High MAU on Business plan is handled via overage pricing — no Enterprise trigger needed.
+  return false;
 }
 
 /** Maps needs to cloud plan index: 0 Free, 1 Developers, 2 Business, 3 Enterprise (aligned to copy.cloud.plans). */
@@ -669,7 +685,6 @@ function PlanFinderCompetitorCompare({
       mauSliderLocked,
     ],
   );
-  const maxBasis = useMemo(() => Math.max(1, ...rows.map((r) => r.barBasis)), [rows]);
   const disclaimer = useMemo(
     () =>
       formatCompareDisclaimer(
@@ -686,25 +701,14 @@ function PlanFinderCompetitorCompare({
       <div className="plan-finder-compare__panel">
         <ul className="plan-finder-compare__list" aria-live="polite">
           {rows.map((row) => {
-            const pct = Math.min(100, Math.round((row.barBasis / maxBasis) * 100));
             return (
               <li
                 key={row.id}
                 className={`plan-finder-compare__row${row.highlight ? '' : ' plan-finder-compare__row--competitor'}`}
               >
                 <span className="plan-finder-compare__name">{row.name}</span>
-                <div className="plan-finder-compare__bar-track" aria-hidden>
-                  <div
-                    className={`plan-finder-compare__bar${
-                      row.highlight ? ' plan-finder-compare__bar--authgear' : ' plan-finder-compare__bar--other'
-                    }`}
-                    style={{ width: `${pct}%` }}
-                  />
-                </div>
                 <span
-                  className={`plan-finder-compare__price${
-                    row.highlight ? ' plan-finder-compare__price--authgear' : ''
-                  }`}
+                  className={`plan-finder-compare__price${row.highlight ? ' plan-finder-compare__price--authgear' : ''}`}
                 >
                   {row.priceLine}
                 </span>
@@ -789,6 +793,19 @@ function PlanFinderEnterpriseIcon() {
   );
 }
 
+function planFeatureSubtitle(planIndex: number, labels: PlanFinderLabels): string {
+  switch (planIndex) {
+    case CLOUD_PLAN_INDEX_FREE:
+      return labels.subtitleFree;
+    case CLOUD_PLAN_INDEX_DEVELOPERS:
+      return labels.subtitleDevelopers;
+    case CLOUD_PLAN_INDEX_BUSINESS:
+      return labels.subtitleBusiness;
+    default:
+      return '';
+  }
+}
+
 function PlanFinderPlanSummary({
   plan,
   planIndex,
@@ -835,8 +852,7 @@ function PlanFinderPlanSummary({
   }
 
   const authgearUsd = authgearPlanFinderMonthlyUsd(plan, planIndex, mauIdx, appsN, membersN);
-  const showPriceFrom =
-    planIndex === CLOUD_PLAN_INDEX_DEVELOPERS || planIndex === CLOUD_PLAN_INDEX_BUSINESS;
+  const featureSubtitle = planFeatureSubtitle(planIndex, labels);
   return (
     <div className="plan-finder__summary">
       {plan.badge && !plan.highlight ? (
@@ -858,7 +874,6 @@ function PlanFinderPlanSummary({
         </div>
       ) : (
         <div className="plan-finder__price-line">
-          {showPriceFrom ? <span className="plan-finder__price-from">{labels.priceFrom}</span> : null}
           <span className="plan-finder__currency">$</span>
           <span className="plan-finder__price-amount">
             {authgearUsd !== null ? authgearUsd.toLocaleString('en-US') : plan.priceLine.replace(/^\$/, '')}
@@ -866,6 +881,9 @@ function PlanFinderPlanSummary({
           <span className="plan-finder__price-period">{month}</span>
         </div>
       )}
+      {featureSubtitle ? (
+        <p className="plan-finder__feature-subtitle">{featureSubtitle}</p>
+      ) : null}
       <div className="plan-finder__cta-wrap">
         <PlanCta
           plan={plan}
@@ -893,7 +911,7 @@ function PlanFinderBlock({
 }) {
   const [appsIdx, setAppsIdx] = useState(1);
   const [membersIdx, setMembersIdx] = useState(1);
-  const [mauIdx, setMauIdx] = useState(0);
+  const [mauIdx, setMauIdx] = useState<number>(MAU_RANGE_MAX);
   const [needsSmsWhatsapp, setNeedsSmsWhatsapp] = useState(false);
   const [logRetentionDays, setLogRetentionDays] = useState<LogRetentionDays>(1);
 
@@ -912,6 +930,48 @@ function PlanFinderBlock({
     logRetentionDays,
   });
   finderStateRef.current = { appsIdx, membersIdx, mauIdx, needsSmsWhatsapp, logRetentionDays };
+
+  /** Bidirectional inference: clicking a plan tab snaps the left-column inputs
+   *  to the minimal representative configuration for that plan. */
+  const handleTabClick = (tabIdx: number) => {
+    markInteract('tab');
+    const beforePlanIndex = computePlanFinderPlanIndex(finderStateRef.current);
+    let next = { ...finderStateRef.current };
+
+    if (tabIdx === CLOUD_PLAN_INDEX_FREE) {
+      // Free: no SMS, 1-day logs, max 2 apps & 2 members, MAU back to Unlimited
+      next = { ...next, needsSmsWhatsapp: false, logRetentionDays: 1, appsIdx: 1, membersIdx: 1, mauIdx: MAU_RANGE_MAX };
+      setNeedsSmsWhatsapp(false);
+      setLogRetentionDays(1);
+      setAppsIdx(1);
+      setMembersIdx(1);
+      setMauIdx(MAU_RANGE_MAX);
+    } else if (tabIdx === CLOUD_PLAN_INDEX_DEVELOPERS) {
+      // Developers: SMS on, 1-day logs, MAU back to Unlimited
+      next = { ...next, needsSmsWhatsapp: true, logRetentionDays: 1, mauIdx: MAU_RANGE_MAX };
+      setNeedsSmsWhatsapp(true);
+      setLogRetentionDays(1);
+      setMauIdx(MAU_RANGE_MAX);
+    } else if (tabIdx === CLOUD_PLAN_INDEX_BUSINESS) {
+      // Business: 60-day logs, snap to included quota (5 apps, 5 members, 25K MAUs)
+      const businessAppsMembersIdx = 4; // slider index 4 → 5
+      const businessMauIdx = 2; // MAU_STEPS[2] = 25,000
+      next = {
+        ...next,
+        logRetentionDays: 60,
+        appsIdx: businessAppsMembersIdx,
+        membersIdx: businessAppsMembersIdx,
+        mauIdx: businessMauIdx,
+      };
+      setLogRetentionDays(60);
+      setAppsIdx(businessAppsMembersIdx);
+      setMembersIdx(businessAppsMembersIdx);
+      setMauIdx(businessMauIdx);
+    }
+
+    finderStateRef.current = next;
+    maybeTrackPlanFinderResult(beforePlanIndex, next);
+  };
 
   const sliderDragPlanIndexRef = useRef<number | null>(null);
 
@@ -938,48 +998,25 @@ function PlanFinderBlock({
   const plan = copy.cloud.plans[planIndex];
   const mauSliderLocked =
     planIndex === CLOUD_PLAN_INDEX_FREE || planIndex === CLOUD_PLAN_INDEX_DEVELOPERS;
-  const mauSliderDisabled = mauSliderLocked || scaleSlidersDisabled || appsOrMembersTenPlus;
+  // mauSliderLocked means the plan has Unlimited MAUs — display "Unlimited" label, but the slider stays interactive.
+  // mauSliderDisabled means the slider is truly non-interactive (180-day log retention or 10+ apps/members).
+  const mauSliderDisabled = scaleSlidersDisabled || appsOrMembersTenPlus;
   const mauSliderValue = mauSliderDisabled ? MAU_RANGE_MAX : mauIdx;
-  const mauAriaValueText = mauSliderDisabled
+  const mauAriaValueText = mauSliderLocked || mauSliderDisabled
     ? labels.mauUnlimitedValue
     : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus);
-  const mauAriaValueNow = mauSliderDisabled ? undefined : mauNumericForLogic(mauIdx);
+  const mauAriaValueNow = mauSliderLocked || mauSliderDisabled ? undefined : mauNumericForLogic(mauIdx);
   const appsTicks = appsMembersTickLabels(labels.appsTenPlus);
   const mauTicks = mauTickLabels(labels.mauScaleLast);
+  const appsIncludedIdx = isEnterprisePlan ? null : includedSliderIndex('apps', planIndex);
+  const membersIncludedIdx = isEnterprisePlan ? null : includedSliderIndex('members', planIndex);
+  const mauIncludedIdx =
+    mauSliderDisabled || mauSliderLocked ? null : includedSliderIndex('mau', planIndex);
 
   return (
     <div className="plan-finder">
       <div className="plan-finder__grid">
         <div className="plan-finder__controls">
-          <PlanFinderYesNoToggle
-            id="plan-finder-sms-label"
-            label={labels.labelSmsWhatsapp}
-            value={needsSmsWhatsapp}
-            onChange={(next) => {
-              markInteract('sms');
-              const beforePlanIndex = computePlanFinderPlanIndex(finderStateRef.current);
-              finderStateRef.current = { ...finderStateRef.current, needsSmsWhatsapp: next };
-              setNeedsSmsWhatsapp(next);
-              maybeTrackPlanFinderResult(beforePlanIndex, finderStateRef.current);
-            }}
-            yesLabel={labels.toggleYes}
-            noLabel={labels.toggleNo}
-          />
-          <PlanFinderLogRetentionToggle
-            id="plan-finder-log-retention-label"
-            label={labels.labelLogRetention}
-            value={logRetentionDays}
-            onChange={(next) => {
-              markInteract('log-retention');
-              const beforePlanIndex = computePlanFinderPlanIndex(finderStateRef.current);
-              finderStateRef.current = { ...finderStateRef.current, logRetentionDays: next };
-              setLogRetentionDays(next);
-              maybeTrackPlanFinderResult(beforePlanIndex, finderStateRef.current);
-            }}
-            option1Day={labels.logRetention1Day}
-            option60Days={labels.logRetention60Days}
-            option180Days={labels.logRetention180Days}
-          />
           <div className="plan-finder__field">
             <div className="plan-finder__label-row">
               <span className="plan-finder__label" id="plan-finder-apps-label">
@@ -1004,6 +1041,34 @@ function PlanFinderBlock({
               ariaValueNow={appsN}
               ariaValueText={formatCountDisplay(appsIdxEffective, labels.appsTenPlus)}
               disabled={scaleSlidersDisabled}
+              includedIndex={appsIncludedIdx}
+            />
+          </div>
+          <div className="plan-finder__field">
+            <div className="plan-finder__label-row">
+              <span className="plan-finder__label" id="plan-finder-mau-label">
+                {labels.labelMaus}
+              </span>
+              <span className="plan-finder__value" aria-live="polite">
+                {mauSliderLocked || mauSliderDisabled ? labels.mauUnlimitedValue : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus)}
+              </span>
+            </div>
+            <RangeWithTicks
+              labelledBy="plan-finder-mau-label"
+              value={mauSliderValue}
+              max={MAU_RANGE_MAX}
+              onChange={(next) => {
+                markInteract('mau');
+                finderStateRef.current = { ...finderStateRef.current, mauIdx: next };
+                setMauIdx(next);
+              }}
+              onSliderGestureStart={mauSliderDisabled ? undefined : beginSliderGesture}
+              onSliderGestureEnd={mauSliderDisabled ? undefined : endSliderGesture}
+              tickLabels={mauTicks}
+              ariaValueNow={mauAriaValueNow}
+              ariaValueText={mauAriaValueText}
+              disabled={mauSliderDisabled}
+              includedIndex={mauIncludedIdx}
             />
           </div>
           <div className="plan-finder__field">
@@ -1030,32 +1095,38 @@ function PlanFinderBlock({
               ariaValueNow={membersN}
               ariaValueText={formatCountDisplay(membersIdxEffective, labels.appsTenPlus)}
               disabled={scaleSlidersDisabled}
+              includedIndex={membersIncludedIdx}
             />
           </div>
-          <div className="plan-finder__field">
-            <div className="plan-finder__label-row">
-              <span className="plan-finder__label" id="plan-finder-mau-label">
-                {labels.labelMaus}
-              </span>
-              <span className="plan-finder__value" aria-live="polite">
-                {mauSliderDisabled ? labels.mauUnlimitedValue : formatMauDisplay(mauIdx, locale, labels.mauThirtyKPlus)}
-              </span>
-            </div>
-            <RangeWithTicks
-              labelledBy="plan-finder-mau-label"
-              value={mauSliderValue}
-              max={MAU_RANGE_MAX}
+          <div className="plan-finder__toggles-row">
+            <PlanFinderYesNoToggle
+              id="plan-finder-sms-label"
+              label={labels.labelSmsWhatsapp}
+              value={needsSmsWhatsapp}
               onChange={(next) => {
-                markInteract('mau');
-                finderStateRef.current = { ...finderStateRef.current, mauIdx: next };
-                setMauIdx(next);
+                markInteract('sms');
+                const beforePlanIndex = computePlanFinderPlanIndex(finderStateRef.current);
+                finderStateRef.current = { ...finderStateRef.current, needsSmsWhatsapp: next };
+                setNeedsSmsWhatsapp(next);
+                maybeTrackPlanFinderResult(beforePlanIndex, finderStateRef.current);
               }}
-              onSliderGestureStart={mauSliderDisabled ? undefined : beginSliderGesture}
-              onSliderGestureEnd={mauSliderDisabled ? undefined : endSliderGesture}
-              tickLabels={mauTicks}
-              ariaValueNow={mauAriaValueNow}
-              ariaValueText={mauAriaValueText}
-              disabled={mauSliderDisabled}
+              yesLabel={labels.toggleYes}
+              noLabel={labels.toggleNo}
+            />
+            <PlanFinderLogRetentionToggle
+              id="plan-finder-log-retention-label"
+              label={labels.labelLogRetention}
+              value={logRetentionDays}
+              onChange={(next) => {
+                markInteract('log-retention');
+                const beforePlanIndex = computePlanFinderPlanIndex(finderStateRef.current);
+                finderStateRef.current = { ...finderStateRef.current, logRetentionDays: next };
+                setLogRetentionDays(next);
+                maybeTrackPlanFinderResult(beforePlanIndex, finderStateRef.current);
+              }}
+              option1Day={labels.logRetention1Day}
+              option60Days={labels.logRetention60Days}
+              option180Days={labels.logRetention180Days}
             />
           </div>
         </div>
@@ -1063,7 +1134,24 @@ function PlanFinderBlock({
           className={`plan-finder__result${isEnterprisePlan ? ' plan-finder__result--enterprise' : ''}`}
         >
           {!isEnterprisePlan ? (
-            <div className="plan-finder__result-heading">{labels.recommendedHeading}</div>
+            <div className="plan-finder__plan-tabs" role="tablist" aria-label="Recommended plan">
+              {[
+                { idx: CLOUD_PLAN_INDEX_FREE, label: copy.cloud.plans[CLOUD_PLAN_INDEX_FREE].name },
+                { idx: CLOUD_PLAN_INDEX_DEVELOPERS, label: copy.cloud.plans[CLOUD_PLAN_INDEX_DEVELOPERS].name },
+                { idx: CLOUD_PLAN_INDEX_BUSINESS, label: copy.cloud.plans[CLOUD_PLAN_INDEX_BUSINESS].name },
+              ].map(({ idx, label }) => (
+                <button
+                  key={idx}
+                  type="button"
+                  role="tab"
+                  aria-selected={planIndex === idx}
+                  className={`plan-finder__plan-tab${planIndex === idx ? ' plan-finder__plan-tab--active' : ''}`}
+                  onClick={() => handleTabClick(idx)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           ) : null}
           <PlanFinderPlanSummary
             plan={plan}
@@ -1077,7 +1165,6 @@ function PlanFinderBlock({
           />
           {!isEnterprisePlan ? (
             <div className="plan-finder__result-tail">
-              <hr className="plan-finder__recommend-divider" />
               <PlanFinderCompetitorCompare
                 labels={labels}
                 plan={plan}

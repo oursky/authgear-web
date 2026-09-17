@@ -11,6 +11,8 @@
 .plan-finder {
   --plan-finder-track-bg: #e8e8e8;
   --plan-finder-track-inset: inset 0 0 0 1px rgba(46, 46, 46, 0.06);
+  --plan-finder-overage-from: #cdbfff;
+  --plan-finder-overage-to: #b39dff;
   /* Tallest desktop layout: recommended column with competitor compare. */
   --plan-finder-grid-min-height: 27rem;
   width: 100%;
@@ -60,10 +62,10 @@
 }
 
 .plan-finder__controls {
-  padding: 28px 24px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 28px;
   overflow: visible;
 }
 
@@ -87,45 +89,54 @@
 }
 
 .plan-finder__field--toggle {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px 16px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .plan-finder__field--toggle .plan-finder__label {
-  flex: 1;
-  min-width: 0;
-  font-weight: 400;
-  line-height: 1.4;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* SMS + Log retention side-by-side row at the bottom of controls */
+.plan-finder__toggles-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+  align-items: flex-start;
 }
 
 .plan-finder__yes-no {
   display: inline-flex;
   flex-shrink: 0;
-  align-self: center;
-  padding: 2px;
-  border-radius: 999px;
-  border: 1px solid #e0e0e0;
-  gap: 1px;
+  align-self: flex-start;
+  padding: 5px;
+  border-radius: 18px;
+  border: 1px solid #e4e4e4;
+  gap: 4px;
   overflow: hidden;
+  background: #fff;
 }
 
 .plan-finder__yes-no-btn {
-  min-width: 40px;
-  padding: 4px 10px;
+  min-width: 80px;
+  min-height: 48px;
+  padding: 14px 24px;
   border: none;
-  border-radius: 999px;
+  border-radius: 14px;
   background: transparent;
-  color: #626262;
-  font-size: 11px;
-  font-weight: 600;
+  color: #8a8a8a;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1.2;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   cursor: pointer;
   transition:
     background 0.15s ease,
-    color 0.15s ease;
+    color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .plan-finder__yes-no-btn:hover {
@@ -140,6 +151,7 @@
 .plan-finder__yes-no-btn--active {
   background: linear-gradient(160deg, #7f3df1, #20c7ff);
   color: #fff;
+  box-shadow: none;
 }
 
 .plan-finder__yes-no-btn--active:hover {
@@ -147,8 +159,8 @@
 }
 
 .plan-finder__yes-no--triple .plan-finder__yes-no-btn {
-  min-width: 0;
-  padding: 4px 8px;
+  min-width: 96px;
+  padding: 14px 22px;
   white-space: nowrap;
 }
 
@@ -177,8 +189,8 @@
 .plan-finder__slider-shell {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 0 2px;
+  gap: 6px;
+  padding: 0;
 }
 
 .plan-finder__slider-shell--disabled {
@@ -192,7 +204,7 @@
 
 .plan-finder input[type='range'].plan-finder__range {
   width: 100%;
-  height: 6px;
+  height: 20px;
   margin: 0;
   padding: 0;
   border-radius: 3px;
@@ -247,11 +259,39 @@
   box-shadow: 0 1px 4px rgba(37, 99, 235, 0.25);
 }
 
+.plan-finder input[type='range'].plan-finder__range--overage::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    #7f3df1 0%,
+    #20c7ff var(--range-included-pct, 0%),
+    var(--plan-finder-overage-from) var(--range-included-pct, 0%),
+    var(--plan-finder-overage-to) var(--range-fill-pct, 0%),
+    var(--plan-finder-track-bg) var(--range-fill-pct, 0%),
+    var(--plan-finder-track-bg) 100%
+  );
+}
+
+.plan-finder input[type='range'].plan-finder__range--overage::-moz-range-track {
+  background: linear-gradient(
+    to right,
+    #7f3df1 0%,
+    #20c7ff var(--range-included-pct, 0%),
+    var(--plan-finder-overage-from) var(--range-included-pct, 0%),
+    var(--plan-finder-overage-to) var(--range-fill-pct, 0%),
+    var(--plan-finder-track-bg) var(--range-fill-pct, 0%),
+    var(--plan-finder-track-bg) 100%
+  );
+}
+
+.plan-finder input[type='range'].plan-finder__range--overage::-moz-range-progress {
+  background: transparent;
+}
+
 .plan-finder__ticks {
   position: relative;
   width: 100%;
-  height: 14px;
-  margin-top: 2px;
+  height: 16px;
+  margin-top: 4px;
   user-select: none;
 }
 
@@ -267,13 +307,21 @@
   white-space: nowrap;
 }
 
+.plan-finder__tick--first {
+  text-align: left;
+}
+
+.plan-finder__tick--last {
+  text-align: right;
+}
+
 .plan-finder__tick--active {
   color: #2e2e2e;
   font-weight: 500;
 }
 
 .plan-finder__result {
-  padding: 28px 24px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -281,6 +329,47 @@
 
 .plan-finder__result-tail {
   margin-top: 0;
+}
+
+/* Plan tabs — Free / Developers / Business indicator at the top of the result column. */
+.plan-finder__plan-tabs {
+  display: flex;
+  background: #efefef;
+  border-radius: 24px;
+  padding: 4px;
+  gap: 2px;
+  margin-bottom: 20px;
+}
+
+.plan-finder__plan-tab {
+  flex: 1;
+  padding: 8px 4px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  color: #8a8a8a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: none;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.plan-finder__plan-tab:not(.plan-finder__plan-tab--active):hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #2e2e2e;
+}
+
+.plan-finder__plan-tab--active {
+  background: linear-gradient(160deg, #7f3df1, #20c7ff);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(127, 61, 241, 0.3);
 }
 
 .plan-finder__result-heading {
@@ -370,9 +459,9 @@
 
 .plan-finder__plan-name {
   color: #2e2e2e;
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1.25;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
@@ -415,30 +504,43 @@
   line-height: 1.35;
 }
 
-/* $, amount, and / month — same type size; weight/color carry hierarchy (see reference). */
-.plan-finder__price-from,
-.plan-finder__currency,
-.plan-finder__price-amount,
-.plan-finder__price-period {
-  font-size: 20px;
-  line-height: 1.35;
+/* $, amount, and / month — amount is hero-sized; $ and period are smaller. */
+.plan-finder__price-line {
+  align-items: flex-end;
+  gap: 0 2px;
 }
 
-.plan-finder__price-from,
 .plan-finder__currency {
+  font-size: 20px;
   font-weight: 600;
   color: #2e2e2e;
+  line-height: 1;
+  padding-bottom: 6px;
 }
 
 .plan-finder__price-amount {
-  font-weight: 600;
+  font-size: 52px;
+  font-weight: 700;
   color: #2e2e2e;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
 .plan-finder__price-period {
+  font-size: 14px;
   font-weight: 400;
   color: #8a8a8a;
+  line-height: 1;
+  padding-bottom: 8px;
+  padding-left: 2px;
+}
+
+.plan-finder__feature-subtitle {
+  margin: 6px 0 0;
+  color: #8a8a8a;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .plan-finder__cta-wrap {
@@ -458,38 +560,37 @@
   border-radius: 16px;
 }
 
-/* Full-width outline CTA (aligned across plans; matches reference ghost button on light card). */
+/* Full-width gradient CTA (primary action in plan finder). */
 .plan-finder__cta-wrap .pricing-buy-now,
 .plan-finder__cta-wrap .pricing-buy-now.developers-bg,
 .plan-finder__cta-wrap .pricing-buy-now.enterprise {
-  background-color: transparent;
-  background-image: none;
-  color: #2e2e2e;
-  border: 1px solid #2e2e2e;
+  background: linear-gradient(160deg, #7f3df1, #20c7ff) !important;
+  background-image: linear-gradient(160deg, #7f3df1, #20c7ff) !important;
+  background-color: transparent !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 14px rgba(127, 61, 241, 0.35);
 }
 
 .plan-finder__cta-wrap .pricing-buy-now:hover,
 .plan-finder__cta-wrap .pricing-buy-now.developers-bg:hover,
 .plan-finder__cta-wrap .pricing-buy-now.enterprise:hover {
-  background-color: #2e2e2e;
-  background-image: none;
-  color: #fff;
-  border-color: #2e2e2e;
-}
-
-.plan-finder__recommend-divider {
-  margin: 14px 0 0;
-  border: none;
-  border-top: 1px solid #eaeaea;
+  background: linear-gradient(160deg, #6b2fd8, #18b0e8) !important;
+  background-image: linear-gradient(160deg, #6b2fd8, #18b0e8) !important;
+  background-color: transparent !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 6px 18px rgba(127, 61, 241, 0.45);
 }
 
 /* Competitor cost comparison (recommended column, below CTA). */
 .plan-finder-compare {
   margin-top: 12px;
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 0;
+  overflow: visible;
   border: none;
-  background: #f6f7f9;
+  background: transparent;
 }
 
 .plan-finder-compare__heading {
@@ -506,12 +607,9 @@
 }
 
 .plan-finder-compare__list {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  /* Fixed name | bar fills row | fixed price */
-  grid-template-columns: 4.25rem 1fr 20ch;
-  column-gap: 8px;
-  align-items: center;
   margin: 0;
   padding: 4px 0 0;
   list-style: none;
@@ -519,18 +617,11 @@
   line-height: 1.25;
 }
 
-@media (min-width: 992px) {
-  .plan-finder-compare__list {
-    grid-template-columns: 4.75rem 1fr 21ch;
-    column-gap: 10px;
-  }
-}
-
 .plan-finder-compare__row {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: subgrid;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   padding: 8px 0;
   border-bottom: 1px solid #eaeaea;
 }
@@ -539,19 +630,6 @@
   border-bottom: none;
 }
 
-.plan-finder-compare__bar-track {
-  width: 100%;
-  height: 6px;
-  min-height: 6px;
-  max-height: 6px;
-  box-sizing: border-box;
-  border-radius: 999px;
-  background: var(--plan-finder-track-bg);
-  box-shadow: var(--plan-finder-track-inset);
-  overflow: hidden;
-  align-self: center;
-  flex-shrink: 0;
-}
 
 .plan-finder-compare__name {
   color: #2e2e2e;
@@ -565,6 +643,7 @@
 
 .plan-finder-compare__row:not(.plan-finder-compare__row--competitor) .plan-finder-compare__name {
   color: #1d4ed8;
+  font-size: 13px;
 }
 
 .plan-finder-compare__row--competitor .plan-finder-compare__name,
@@ -572,32 +651,13 @@
   font-size: 11px;
 }
 
-.plan-finder-compare__bar {
-  height: 6px;
-  min-height: 6px;
-  max-height: 6px;
-  min-width: 4px;
-  border-radius: 999px;
-  transition: width 0.25s ease;
-}
-
-.plan-finder-compare__bar--authgear {
-  background: linear-gradient(90deg, #1d4ed8, #3b82f6);
-}
-
-.plan-finder-compare__bar--other {
-  background: #9ca3af;
-}
-
 .plan-finder-compare__price {
   display: block;
-  width: 100%;
   color: #2e2e2e;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   text-align: right;
-  justify-self: end;
 }
 
 .plan-finder-compare__price--authgear {
@@ -699,4 +759,19 @@
   .cloud.pricing-info .comparison.static-table .comparison-column.plan-data.comparison-plan-col--active {
     display: block !important;
   }
+}
+
+/* Plan cards: the "Most Popular" badge keeps to one line and drops under the
+   plan name when the card is too narrow for both, instead of wrapping to
+   two lines and spilling past the card's edge (seen around 900px). */
+.free-div {
+  flex-wrap: wrap;
+  align-items: center;
+}
+.most-popular {
+  flex: 0 0 auto;
+  align-items: center;
+}
+.most-popular-content {
+  white-space: nowrap;
 }

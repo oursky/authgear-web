@@ -20,7 +20,7 @@ export const fullComparisonZhHant: Pick<PricingCopy['comparison'], 'planNames' |
     comparisonSection('用量與配額'),
     comparisonFeature('MAU', [txt('無限'), txt('無限'), txt('25,000'), txt('客製')]),
     comparisonFeature('應用程式', [txt('2'), txt('2'), txt('5'), txt('客製')]),
-    comparisonFeature('專案成員', [txt('2'), txt('2'), txt('5'), txt('客製')]),
+    comparisonFeature('管理員席位', [txt('2'), txt('2'), txt('5'), txt('客製')]),
     comparisonFeature('SMS OTP 訊息', [
       smsOtpFreeQuotaZh,
       smsOtpMeteredZh,
@@ -79,10 +79,10 @@ export const fullComparisonZhHant: Pick<PricingCopy['comparison'], 'planNames' |
       addonPrice('$100', '每個額外應用程式'),
       emp,
     ]),
-    comparisonFeature('專案成員', [
+    comparisonFeature('管理員席位', [
       dash,
-      addonPrice('$50', '每位額外成員'),
-      addonPrice('$50', '每位額外成員'),
+      addonPrice('$50', '每個額外席位'),
+      addonPrice('$50', '每個額外席位'),
       emp,
     ]),
     comparisonFeature('MAU', [dash, dash, addonPrice('$50', '每 5K MAU'), emp]),

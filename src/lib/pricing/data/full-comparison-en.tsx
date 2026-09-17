@@ -20,7 +20,7 @@ export const fullComparisonEn: Pick<PricingCopy['comparison'], 'planNames' | 'ro
     comparisonSection('Usage & limits'),
     comparisonFeature('MAUs', [txt('Unlimited'), txt('Unlimited'), txt('25,000'), txt('Custom')]),
     comparisonFeature('Applications', [txt('2'), txt('2'), txt('5'), txt('Custom')]),
-    comparisonFeature('Project Members', [txt('2'), txt('2'), txt('5'), txt('Custom')]),
+    comparisonFeature('Admin seats', [txt('2'), txt('2'), txt('5'), txt('Custom')]),
     comparisonFeature('SMS OTP Messages', [
       smsOtpFreeQuotaEn,
       smsOtpMeteredEn,
@@ -79,10 +79,10 @@ export const fullComparisonEn: Pick<PricingCopy['comparison'], 'planNames' | 'ro
       addonPrice('$100', 'each extra applications'),
       emp,
     ]),
-    comparisonFeature('Project members', [
+    comparisonFeature('Admin seats', [
       dash,
-      addonPrice('$50', 'each extra members'),
-      addonPrice('$50', 'each extra members'),
+      addonPrice('$50', 'each extra seat'),
+      addonPrice('$50', 'each extra seat'),
       emp,
     ]),
     comparisonFeature('MAUs', [dash, dash, addonPrice('$50', 'per 5K MAUs'), emp]),
