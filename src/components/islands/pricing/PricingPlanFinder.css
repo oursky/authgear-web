@@ -11,8 +11,8 @@
 .plan-finder {
   --plan-finder-track-bg: #e8e8e8;
   --plan-finder-track-inset: inset 0 0 0 1px rgba(46, 46, 46, 0.06);
-  --plan-finder-overage-from: #f5c16c;
-  --plan-finder-overage-to: #f0b429;
+  --plan-finder-overage-from: #cdbfff;
+  --plan-finder-overage-to: #b39dff;
   /* Tallest desktop layout: recommended column with competitor compare. */
   --plan-finder-grid-min-height: 27rem;
   width: 100%;
