@@ -4004,6 +4004,12 @@ button.ds-pricing-faq__summary[aria-expanded='true'] .ds-pricing-faq__icon::befo
     padding-bottom: var(--spacing-m);
     border-bottom: 0.0625rem solid var(--color-border-light-subtle);
   }
+  /* The download banner is a square 640px artwork. Once the sidebar stacks
+     above the article it would stretch to the full column width and tower
+     over the story details, so cap it at a card-sized width instead. */
+  .ds-customer-story-cta {
+    max-width: 20rem;
+  }
 }
 
 /*
