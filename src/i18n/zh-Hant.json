@@ -131,7 +131,7 @@
     "month": "／月",
     "planFinderHeading": "哪個方案適合我？",
     "planFinderApplications": "應用程式",
-    "planFinderProjectMembers": "專案成員",
+    "planFinderProjectMembers": "管理員席位",
     "planFinderMaus": "MAU（每月活躍用戶）",
     "planFinderRecommended": "建議方案",
     "planFinderAppsTenPlus": "10+",
@@ -152,14 +152,14 @@
     "planFinderNo": "否",
     "planFinderEnterpriseTitle": "看來您需要 Enterprise 方案。",
     "planFinderEnterpriseBody": "您的團隊規模已超出標準方案範圍。讓我們聊聊您的需求。",
-    "planFinderEnterpriseFeatureAppsMembers": "無限 MAU、應用程式與專案成員",
+    "planFinderEnterpriseFeatureAppsMembers": "無限 MAU、應用程式與管理員席位",
     "planFinderEnterpriseFeatureLogRetention": "180 天紀錄保留",
     "planFinderEnterpriseFeaturePrivateCloud": "私有雲與資料落地",
     "planFinderEnterpriseFeatureSla": "專屬 SLA",
     "planFinderEnterpriseFeatureAccountManager": "專屬客戶經理",
-    "planFinderSubtitleFree": "無限 MAU · 最多 2 個應用程式 · 最多 2 位專案成員",
-    "planFinderSubtitleDevelopers": "無限 MAU · 最多 2 個應用程式 · 最多 2 位專案成員",
-    "planFinderSubtitleBusiness": "含 25K MAU · 最多 5 個應用程式 · 最多 5 位專案成員 · 自訂閘道"
+    "planFinderSubtitleFree": "無限 MAU · 最多 2 個應用程式 · 最多 2 個管理員席位",
+    "planFinderSubtitleDevelopers": "無限 MAU · 最多 2 個應用程式 · 最多 2 個管理員席位",
+    "planFinderSubtitleBusiness": "含 25K MAU · 最多 5 個應用程式 · 最多 5 個管理員席位 · 自訂閘道"
   },
   "Home": {
     "title": "Authgear — 安全登入與身份管理，全託管",
