@@ -143,7 +143,7 @@
     "planFinderPriceFree": "免費",
     "planFinderPriceFrom": "由",
     "planFinderOr": "/",
-    "planFinderSmsWhatsapp": "使用者是否透過 SMS 或 WhatsApp 註冊／登入？",
+    "planFinderSmsWhatsapp": "SMS 或 WhatsApp 登入？",
     "planFinderLogRetention": "紀錄保留",
     "planFinderLogRetention1Day": "1 天",
     "planFinderLogRetention60Days": "60 天",
@@ -156,7 +156,10 @@
     "planFinderEnterpriseFeatureLogRetention": "180 天紀錄保留",
     "planFinderEnterpriseFeaturePrivateCloud": "私有雲與資料落地",
     "planFinderEnterpriseFeatureSla": "專屬 SLA",
-    "planFinderEnterpriseFeatureAccountManager": "專屬客戶經理"
+    "planFinderEnterpriseFeatureAccountManager": "專屬客戶經理",
+    "planFinderSubtitleFree": "無限 MAU · 最多 2 個應用程式 · 最多 2 位專案成員",
+    "planFinderSubtitleDevelopers": "無限 MAU · 最多 2 個應用程式 · 最多 2 位專案成員",
+    "planFinderSubtitleBusiness": "含 25K MAU · 最多 5 個應用程式 · 最多 5 位專案成員 · 自訂閘道"
   },
   "Home": {
     "title": "Authgear — 安全登入與身份管理，全託管",
