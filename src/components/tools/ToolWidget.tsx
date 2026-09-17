@@ -74,7 +74,7 @@ export default function ToolWidget({ locale, src, iframeTitle, height, policy, i
               className="image-100 mobile"
             />
           </a>
-          <a href="https://github.com/authgear/authgear-server" target="_blank" className="tools-github-tag w-inline-block plausible-event-name--tool-github-tag-click">
+          <a href="https://github.com/authgear/authgear-server" target="_blank" className="tools-github-tag w-inline-block plausible-event-name--github-star plausible-event-location--tool-widget">
             <div className="text-block-92">{t('supportStarUs')}</div>
             <img src="https://img.shields.io/github/stars/authgear/authgear-server" width="110px" alt="" />
           </a>

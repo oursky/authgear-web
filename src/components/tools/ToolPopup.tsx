@@ -72,7 +72,7 @@ export default function ToolPopup({ locale, tool }: Props) {
           href="https://github.com/authgear/authgear-server"
           target="_blank"
           rel="noreferrer"
-          className="tool-popup-button secondary plausible-event-name--tool-github-click"
+          className="tool-popup-button secondary plausible-event-name--github-star plausible-event-location--tool-popup"
         >
           <div>{t('popupStarUs')}</div>
           <img
