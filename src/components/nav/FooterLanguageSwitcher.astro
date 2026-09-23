@@ -1,5 +1,5 @@
 ---
-import { LOCALES, localizedPath, stripLocaleSegment } from '@/lib/i18n';
+import { localesWithPage, localizedPath, stripLocaleSegment } from '@/lib/i18n';
 
 interface Props {
   locale: string;
@@ -12,15 +12,16 @@ const LOCALE_LABELS: Record<string, string> = {
   en: 'English',
   'zh-Hant': '中文',
   ja: '日本語',
+  es: 'Español',
+  de: 'Deutsch',
 };
 
-// Locales offered as switch-TO targets in the global footer. `ja` is a valid
-// current locale (its label shows on ja pages) but has only partial (pilot)
-// coverage, so we don't offer a footer link to it — that would 404 on the
-// many pages without a Japanese version. A ja page can still switch to en/zh.
-const SWITCHABLE_LOCALES = LOCALES.filter((l) => l !== 'ja');
-
 const basePath = stripLocaleSegment(currentPath);
+
+// Locales offered as switch-TO targets. Home-only locales (ja, es, de) appear
+// on the home page, where their translation exists, and nowhere else, so the
+// switcher never sends anyone to a URL that would redirect back to English.
+const SWITCHABLE_LOCALES = localesWithPage(basePath);
 const currentLabel = LOCALE_LABELS[locale] ?? 'Language';
 ---
 
