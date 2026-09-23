@@ -4,7 +4,7 @@
  * form, used in `<html lang>` and `hreflang`) but served at lowercase
  * `/zh-hant/...` URLs to match standard URL casing conventions.
  */
-export const LOCALES = ['en', 'zh-Hant', 'ja'] as const;
+export const LOCALES = ['en', 'zh-Hant', 'ja', 'es', 'de'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
@@ -13,7 +13,76 @@ const LOCALE_URL_SEGMENT: Record<Locale, string> = {
   en: '',
   'zh-Hant': '/zh-hant',
   ja: '/ja',
+  es: '/es',
+  de: '/de',
 };
+
+/** URL-path prefix for a locale (`''` for English). */
+export function localeUrlSegment(locale: string): string {
+  return LOCALE_URL_SEGMENT[locale as Locale] ?? '';
+}
+
+/**
+ * Locales with partial coverage (market test): the home page, the pricing
+ * page, the auth-toolkit hub, the schedule-demo page and every `/tools/*` page are translated; every
+ * other path falls back to the English page. Links from their pages point at
+ * unprefixed URLs for those paths, and `public/_redirects` sends stray prefixed
+ * URLs there too. `ja` additionally has translated blog posts under `/ja/post/`.
+ * URL slugs are never translated: `/es/pricing/`, not `/es/precios/`.
+ */
+export const PARTIAL_LOCALES: readonly Locale[] = ['ja', 'es', 'de'];
+
+const PARTIAL_LOCALE_PATHS = ['/', '/pricing/', '/auth-toolkit/', '/schedule-demo/'] as const;
+const PARTIAL_LOCALE_PATH_PREFIXES = ['/tools/'] as const;
+
+function withTrailingSlash(pathname: string): string {
+  if (pathname === '') return '/';
+  return pathname.endsWith('/') ? pathname : pathname + '/';
+}
+
+/**
+ * Blog posts that have a Japanese translation under `/ja/post/`. Keep in sync
+ * with `src/content/blog-posts/ja/`; `i18n.test.ts` fails when they drift.
+ */
+export const JA_POST_SLUGS: readonly string[] = [
+  'how-to-implement-passkeys-developer-guide',
+  'passwordless-authentication-magic-links-passkeys-otp',
+  'sms-otp-vs-whatsapp-otp',
+  'two-factor-authentication-cost',
+  'whatsapp-api-pricing',
+];
+
+function isJaPostPath(pathname: string): boolean {
+  const match = withTrailingSlash(pathname).match(/^\/post\/([^/]+)\/$/);
+  return match !== null && JA_POST_SLUGS.includes(match[1]);
+}
+
+/** Is this locale-neutral pathname one that every partial locale has translated? */
+function isPartialLocalePath(pathname: string): boolean {
+  const path = withTrailingSlash(pathname);
+  return (
+    (PARTIAL_LOCALE_PATHS as readonly string[]).includes(path) ||
+    PARTIAL_LOCALE_PATH_PREFIXES.some((prefix) => path.startsWith(prefix) && path.length > prefix.length)
+  );
+}
+
+/** Does `locale` have its own page at this locale-neutral pathname? */
+export function hasLocalizedPage(locale: string, pathname: string): boolean {
+  if (!PARTIAL_LOCALES.includes(locale as Locale)) return true;
+  if (isPartialLocalePath(pathname)) return true;
+  if (locale === 'ja' && isJaPostPath(pathname)) return true;
+  return false;
+}
+
+/**
+ * Locales that can be offered as alternates for a page, both to search
+ * engines (hreflang) and to people (the footer switcher). Full-coverage
+ * locales always; partial locales only on the paths they all translate, so
+ * nobody is pointed at a URL that would redirect.
+ */
+export function localesWithPage(pathname: string): Locale[] {
+  return LOCALES.filter((loc) => hasLocalizedPage(loc, pathname));
+}
 
 /**
  * Public URL for a path. Default English has no prefix; `zh-Hant` uses `/zh-hant`.
@@ -26,6 +95,10 @@ export function localizedPath(locale: string, path: string): string {
   const search = q === -1 ? '' : raw.slice(q);
   const normalized = pathname.endsWith('/') ? pathname : pathname + '/';
   if (locale === DEFAULT_LOCALE || locale === 'en') {
+    return normalized + search;
+  }
+  // Partial locales send untranslated paths to the English page.
+  if (!hasLocalizedPage(locale, normalized)) {
     return normalized + search;
   }
   const prefix = LOCALE_URL_SEGMENT[locale as Locale] ?? '';
@@ -78,6 +151,12 @@ export function resolveLocale(acceptLanguage: string | null): Locale {
     if (tag === 'ja' || tag.startsWith('ja-')) {
       return 'ja';
     }
+    if (tag === 'es' || tag.startsWith('es-')) {
+      return 'es';
+    }
+    if (tag === 'de' || tag.startsWith('de-')) {
+      return 'de';
+    }
   }
   return DEFAULT_LOCALE;
 }
@@ -86,6 +165,8 @@ export function resolveLocale(acceptLanguage: string | null): Locale {
 export function localeToHtmlLang(locale: Locale | typeof LEGACY_ZH_PATH_LOCALE | string): string {
   if (locale === 'zh-Hant' || locale === LEGACY_ZH_PATH_LOCALE) return 'zh-Hant';
   if (locale === 'ja') return 'ja';
+  if (locale === 'es') return 'es';
+  if (locale === 'de') return 'de';
   // if (locale === 'zh-HK') return 'zh-HK';
   return 'en';
 }

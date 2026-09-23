@@ -70,7 +70,7 @@ authgear-web/
 │   │   ├── navigation-data.ts
 │   │   ├── pricing/, compare/, features/, tools/
 │   │   └── plausible.ts                       # Event tagging helpers
-│   ├── i18n/{en,zh-Hant}.json                 # Flat message dictionaries, t(locale, key) helper
+│   ├── i18n/{en,zh-Hant,ja,es,de}.json        # Flat message dictionaries, t(locale, key) helper
 │   └── styles/
 │       ├── global.css                         # Tailwind entry + imports authgear-design-system.css
 │       └── authgear-design-system.css
@@ -168,6 +168,7 @@ The site's public URLs are stable across the Webflow → Astro transition:
 - `/integrations`, `/integrations/{slug}`
 - `/terms`, `/policy`, `/data-privacy`, `/security`, `/sla`, `/terms-of-enterprise-license`
 - `/zh-hant/*` mirrors for Traditional Chinese (locale id `zh-Hant` in code)
+- `/ja/*`, `/es/*`, `/de/*` partial mirrors (home, `/pricing`, `/auth-toolkit`, `/schedule-demo`, `/tools/*`; plus a few `/ja/post/*`) for the market-test locales
 
 Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (301) to `/zh-hant/*` via forced (`301!`) rules in `public/_redirects`.
 
@@ -179,6 +180,16 @@ Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (301) to 
 - Messages: flat JSON in `src/i18n/{en,zh-Hant}.json`, accessed via `t(locale, 'Namespace.key')`.
 - Legal pages render English content in both locales by user direction.
 - Content-collection routes prefer the `zh-Hant/{slug}` entry and fall back to the `en/{slug}` entry when a translation is missing.
+
+### Partial locales (Japanese, Spanish, German)
+
+`ja`, `es` and `de` are market-test locales with only a handful of translated pages: the home page, `/pricing`, `/auth-toolkit`, `/schedule-demo` and every `/tools/*` page (Japanese also has a few blog posts under `/ja/post/*`). URL slugs stay English (`/es/pricing`, never `/es/precios`).
+
+- The allowlist lives in `src/lib/i18n.ts` (`PARTIAL_LOCALES`, `isPartialLocalePath`). `localizedPath()` returns the unprefixed English path for anything outside it, so translated pages never link into a non-existent prefixed page.
+- `hasLocalizedPage()` / `localesWithPage()` drive the footer language switcher and the `hreflang` set in `BaseLayout.astro`: a partial locale is only advertised on paths where its page really exists, and untranslated pages keep their `en` + `zh-Hant` set.
+- As a safety net, non-forced `302` rules in `public/_redirects` send any other `/ja/*`, `/es/*`, `/de/*` URL to the English page (real files still win over the redirect).
+- Messages: `src/i18n/{ja,es,de}.json` carry only the translated namespaces (`Navigation`, `Seo`, `Home`, `Pricing`, `AuthToolkit`); `t()` falls back to English for the rest. Tool strings live in `src/lib/tools/messages/{locale}/` and pricing copy in `src/lib/pricing/copy-{locale}.ts`. The nav dropdown and footer label maps in `src/lib/navigation-data.ts` carry `ja`/`es`/`de` entries too, so the site chrome is fully localized even where a link lands on an English page.
+- The translations were machine-drafted for the market test and still need a native-speaker review before being treated as final copy.
 
 ## Interactivity (islands)
 

@@ -7,7 +7,7 @@ import { trackEvent } from '@/lib/plausible';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-type Locale = 'en' | 'zh-Hant';
+type Locale = 'en' | 'zh-Hant' | 'ja' | 'es' | 'de';
 
 interface Props {
   /** Page locale — drives user-facing copy. Payload field names stay locale-neutral. */
@@ -68,7 +68,68 @@ const MESSAGES = {
     successTitle: '感謝您!我們已收到。',
     successBody: '我們會盡快與您聯繫。',
   },
+  ja: {
+    labelFullName: 'お名前',
+    labelWorkEmail: '会社のメールアドレス',
+    labelPhoneNumber: '電話番号',
+    labelCompanyName: '会社名',
+    labelHowHear: 'どこで Authgear を知りましたか？',
+    labelAnythingElse: 'その他ご要望があればお書きください',
+    useCasePlaceholder: 'プロジェクトの内容、要件、スケジュールなどをお聞かせください',
+    howHearSelectOne: '選択してください',
+    howHearSearch: '検索エンジン',
+    howHearLLM: 'AI ツール（ChatGPT、Gemini など）',
+    howHearGitHub: 'GitHub',
+    howHearOther: 'その他',
+    submitError: '送信中にエラーが発生しました。もう一度お試しください。',
+    submit: '送信',
+    submitting: '送信中…',
+    successTitle: 'ありがとうございます。受け付けました。',
+    successBody: '担当者より折り返しご連絡いたします。',
+  },
+  es: {
+    labelFullName: 'Nombre completo',
+    labelWorkEmail: 'Correo de trabajo',
+    labelPhoneNumber: 'Número de teléfono',
+    labelCompanyName: 'Nombre de la empresa',
+    labelHowHear: '¿Cómo nos has conocido?',
+    labelAnythingElse: '¿Algo más?',
+    useCasePlaceholder: 'Cuéntanos más sobre tu proyecto, necesidades y plazos',
+    howHearSelectOne: 'Selecciona una opción',
+    howHearSearch: 'Motor de búsqueda',
+    howHearLLM: 'Herramientas de IA (p. ej. ChatGPT, Gemini, etc.)',
+    howHearGitHub: 'GitHub',
+    howHearOther: 'Otros',
+    submitError: '¡Vaya! Algo ha fallado al enviar el formulario.',
+    submit: 'Enviar',
+    submitting: 'Enviando…',
+    successTitle: '¡Gracias! Lo hemos recibido.',
+    successBody: 'Nos pondremos en contacto contigo muy pronto.',
+  },
+  de: {
+    labelFullName: 'Vollständiger Name',
+    labelWorkEmail: 'Geschäftliche E-Mail',
+    labelPhoneNumber: 'Telefonnummer',
+    labelCompanyName: 'Unternehmen',
+    labelHowHear: 'Wie haben Sie von uns erfahren?',
+    labelAnythingElse: 'Noch etwas?',
+    useCasePlaceholder: 'Erzählen Sie uns mehr über Ihr Projekt, Ihre Anforderungen und Ihren Zeitplan',
+    howHearSelectOne: 'Bitte auswählen',
+    howHearSearch: 'Suchmaschine',
+    howHearLLM: 'KI-Tools (z. B. ChatGPT, Gemini usw.)',
+    howHearGitHub: 'GitHub',
+    howHearOther: 'Sonstiges',
+    submitError: 'Hoppla! Beim Absenden des Formulars ist ein Fehler aufgetreten.',
+    submit: 'Absenden',
+    submitting: 'Wird gesendet…',
+    successTitle: 'Vielen Dank! Ihre Anfrage ist eingegangen.',
+    successBody: 'Wir melden uns in Kürze bei Ihnen.',
+  },
 } as const satisfies Record<Locale, Record<string, string>>;
+
+function resolveLocale(locale: string): Locale {
+  return locale in MESSAGES ? (locale as Locale) : 'en';
+}
 
 function getQueryParam(key: string): string {
   if (typeof window === 'undefined') return '';
@@ -81,7 +142,7 @@ function getSubmissionPage(): string {
 }
 
 export default function ContactForm({ locale = 'en' }: Props) {
-  const l: Locale = locale === 'zh-Hant' ? 'zh-Hant' : 'en';
+  const l = resolveLocale(locale);
   const t = MESSAGES[l];
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

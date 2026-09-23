@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState, type CSSProperties } from 'react';
 import type { PricingCell, PricingCopy, PricingNodeVariant } from '@/lib/pricing/types';
+import { localeToHtmlLang } from '@/lib/i18n';
 import { PricingFaqItem } from '@/components/islands/pricing/PricingFaqItem';
 import { trackEvent } from '@/lib/plausible';
 import './PricingPlanFinder.css';
@@ -46,6 +47,11 @@ type PlanFinderLabels = {
   subtitleBusiness: string;
 };
 
+type ComparisonCellLabels = {
+  seePricing: string;
+  orCustomGateway: string;
+};
+
 type Props = {
   copy: PricingCopy;
   locale: string;
@@ -53,7 +59,13 @@ type Props = {
   whatsappPath: string;
   month: string;
   planFinder: PlanFinderLabels;
+  cellLabels: ComparisonCellLabels;
 };
+
+/** BCP-47 tag for Intl formatting (en, zh-Hant, ja, es, de). */
+function intlLocale(locale: string): string {
+  return localeToHtmlLang(locale);
+}
 
 function appsMembersNumericFromSliderIndex(idx: number): number {
   return idx >= APPS_MEMBERS_SLIDER_MAX ? APPS_MEMBERS_PLUS_NUMERIC : idx + 1;
@@ -71,8 +83,7 @@ function mauNumericForLogic(mauIdx: number): number {
 function formatMauDisplay(mauIdx: number, locale: string, mauThirtyKPlus: string): string {
   if (mauIdx >= MAU_STEPS.length) return mauThirtyKPlus;
   const n = MAU_STEPS[mauIdx];
-  const loc = locale === 'zh-Hant' ? 'zh-Hant' : 'en-US';
-  return new Intl.NumberFormat(loc).format(n);
+  return new Intl.NumberFormat(intlLocale(locale)).format(n);
 }
 
 /** Short labels under the MAU slider (e.g. 500, 1K, 7.5K). */
@@ -508,8 +519,7 @@ function compareMauNumeric(mauIdx: number, mauSliderLocked: boolean): number {
 }
 
 function formatCompareDisclaimerMau(mauN: number, locale: string): string {
-  const loc = locale === 'zh-Hant' ? 'zh-Hant' : 'en-US';
-  return new Intl.NumberFormat(loc).format(mauN);
+  return new Intl.NumberFormat(intlLocale(locale)).format(mauN);
 }
 
 function formatCompareDisclaimer(template: string, mauN: number, locale: string): string {
@@ -1194,10 +1204,12 @@ function NodeVariantCell({
   variant,
   whatsappPath,
   locale,
+  labels,
 }: {
   variant: PricingNodeVariant;
   whatsappPath: string;
   locale: string;
+  labels: ComparisonCellLabels;
 }) {
   const isZhHant = locale === 'zh-Hant';
   switch (variant) {
@@ -1205,10 +1217,10 @@ function NodeVariantCell({
       return (
         <>
           <a href={whatsappPath} className="comparison-link comparison-link--btn">
-            {isZhHant ? '請參閱定價' : 'See Pricing'}
+            {labels.seePricing}
           </a>
           <br />
-          {isZhHant ? '或自訂閘道' : 'Or custom gateway'}
+          {labels.orCustomGateway}
         </>
       );
     case 'othersBusiness':
@@ -1262,10 +1274,12 @@ function CellContent({
   cell,
   whatsappPath,
   locale,
+  labels,
 }: {
   cell: PricingCell;
   whatsappPath: string;
   locale: string;
+  labels: ComparisonCellLabels;
 }) {
   if (cell.kind === 'check') {
     return <ComparisonCheckIcon />;
@@ -1273,7 +1287,7 @@ function CellContent({
   if (cell.kind === 'dash') return <>-</>;
   if (cell.kind === 'empty') return null;
   if (cell.kind === 'nodeVariant') {
-    return <NodeVariantCell variant={cell.variant} whatsappPath={whatsappPath} locale={locale} />;
+    return <NodeVariantCell variant={cell.variant} whatsappPath={whatsappPath} locale={locale} labels={labels} />;
   }
   if (cell.value.includes('\n')) {
     return <span className="whitespace-pre-line">{cell.value}</span>;
@@ -1387,6 +1401,7 @@ export default function PricingPageClient({
   whatsappPath,
   month,
   planFinder,
+  cellLabels,
 }: Props) {
   const [comparisonPlanIndex, setComparisonPlanIndex] = useState(0);
 
@@ -1483,7 +1498,7 @@ export default function PricingPageClient({
                           comparisonPlanIndex === i ? ' comparison-plan-col--active' : ''
                         }`}
                       >
-                        <CellContent cell={cell} whatsappPath={whatsappPath} locale={locale} />
+                        <CellContent cell={cell} whatsappPath={whatsappPath} locale={locale} labels={cellLabels} />
                       </div>
                     ))}
                   </div>

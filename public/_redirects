@@ -92,3 +92,11 @@
 # the BaseLayout-emitted zh-Hant hreflang alternate resolves rather than 404s.
 /zh-hant/integration-category/*                                                     /integration-category/:splat                                                                                            301
 /zh-hant/once/license                                                               /once/license/                                                                                                          301
+
+# Partial locales (market test): only the home page, /pricing, /auth-toolkit,
+# /schedule-demo and /tools/* are translated. Anything else under these prefixes falls back to
+# the English page. Not forced, so real files such as /ja/post/... still win
+# over the redirect.
+/es/*        /:splat    302
+/de/*        /:splat    302
+/ja/*        /:splat    302
