@@ -28,7 +28,7 @@ You will learn the following throughout the article:
 
 Before you get started, you will need the following:
 
-- A **free Authgear account**. <a href="https://oursky.typeform.com/to/S5lvI8rN" target="_blank">Sign up</a> if you don't have one already.
+- A **free Authgear account**. <a href="https://portal.authgear.com/" target="_blank">Sign up</a> if you don't have one already.
 - <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">.NET 7</a> downloaded and installed on your machine. You can also use <a href="https://visualstudio.microsoft.com/" target="_blank">Visual Studio</a> and <a href="https://code.visualstudio.com/" target="_blank">VS code</a> to automatically detect the .NET version.
 
 ## Part 1: Configure Authgear

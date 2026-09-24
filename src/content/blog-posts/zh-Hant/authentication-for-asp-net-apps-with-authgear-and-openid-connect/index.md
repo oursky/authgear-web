@@ -28,7 +28,7 @@ draft: false
 
 在開始之前，您將需要以下內容：
 
-- **免費的 Authgear 帳號**。 <a href="https://oursky.typeform.com/to/S5lvI8rN" target="_blank">報名</a> 如果您還沒有的話。
+- **免費的 Authgear 帳號**。 <a href="https://portal.authgear.com/" target="_blank">報名</a> 如果您還沒有的話。
 - <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">.NET 7</a> 下載並安裝在您的電腦上。您也可以使用 <a href="https://visualstudio.microsoft.com/" target="_blank">視覺工作室</a> 和 <a href="https://code.visualstudio.com/" target="_blank">VS程式碼</a> 自動偵測 .NET 版本。
 
 ## 第 1 部分：配置 Authgear
