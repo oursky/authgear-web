@@ -1,0 +1,15 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import DataSovereigntyPage from '@/components/pages/DataSovereigntyPage.astro';
+
+// Static file beside solutions/[slug].astro; Astro prefers it over the dynamic route.
+const locale = 'de';
+const title = t(locale, 'DataSovereignty.title');
+const description = t(locale, 'DataSovereignty.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <DataSovereigntyPage locale={locale} />
+</BaseLayout>

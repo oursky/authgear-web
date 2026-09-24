@@ -83,6 +83,7 @@ export const productsDropdownColumns: NavColumn[] = [
 ];
 
 export const solutionsDropdownLinks: NavLink[] = [
+  { path: '/solutions/data-sovereignty', label: { en: 'Data Sovereignty', 'zh-Hant': '資料主權', ja: 'データ主権', es: 'Soberanía de datos', de: 'Datensouveränität' } },
   { path: '/solutions/frontline-workers-identity', label: { en: 'Frontline Worker Identity', 'zh-Hant': '第一線員工身份', ja: 'フロントラインワーカー向け ID', es: 'Identidad para trabajadores de primera línea', de: 'Identität für Frontline-Mitarbeiter' } },
   { path: '/solutions/ciam-solution', label: { en: 'Customer Identity Management', 'zh-Hant': '客戶身份管理', ja: '顧客 ID 管理', es: 'Gestión de identidad de clientes', de: 'Customer Identity Management' } },
   { path: '/solutions/b2b-saas-authentication', label: { en: 'B2B SaaS Applications', 'zh-Hant': 'B2B SaaS 應用', ja: 'B2B SaaS アプリケーション', es: 'Aplicaciones SaaS B2B', de: 'B2B-SaaS-Anwendungen' } },
@@ -126,6 +127,7 @@ export const footerStrings: Record<string, Record<string, string>> = {
   home: { en: 'Home', 'zh-Hant': '首頁', ja: 'ホーム', es: 'Inicio', de: 'Startseite' },
   pricing: { en: 'Pricing', 'zh-Hant': '定價', ja: '料金', es: 'Precios', de: 'Preise' },
   migrateToAuthgear: { en: 'Migrate to Authgear', 'zh-Hant': '遷移至 Authgear', ja: 'Authgear への移行', es: 'Migra a Authgear', de: 'Zu Authgear migrieren' },
+  dataSovereignty: { en: 'Data Sovereignty', 'zh-Hant': '資料主權', ja: 'データ主権', es: 'Soberanía de datos', de: 'Datensouveränität' },
   alternativeTitle: { en: 'alternative', 'zh-Hant': '產品替代方案', ja: '代替ソリューション', es: 'alternativas', de: 'Alternativen' },
   oktaAlternative: { en: 'Okta Alternative', 'zh-Hant': 'Okta 替代方案', ja: 'Okta の代替', es: 'Alternativa a Okta', de: 'Okta-Alternative' },
   auth0Alternative: { en: 'Auth0 Alternative', 'zh-Hant': 'Auth0 替代方案', ja: 'Auth0 の代替', es: 'Alternativa a Auth0', de: 'Auth0-Alternative' },

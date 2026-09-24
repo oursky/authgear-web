@@ -1,0 +1,606 @@
+---
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+
+interface Props { locale: string }
+const { locale } = Astro.props;
+const T = (key: string) => t(locale, `DataSovereignty.${key}`);
+
+// docs.authgear.com/deploy-on-your-cloud/helm 307s here; link the final URL.
+const HELM_GUIDE_URL = 'https://docs.authgear.com/deployment/helm';
+const PORTAL_SIGNUP_URL =
+  'https://portal.authgear.com/?utm_source=data-sovereignty&utm_medium=link&utm_campaign=start-free';
+
+// Certification and licence names stay in English in every locale.
+const trustSignals = ['Apache-2.0', 'ISO 27001', 'SOC 2 Type II'];
+
+const controlCards = [1, 2, 3, 4].map((i) => ({
+  icon: `/images/data-sovereignty_icon-0${i}.svg`,
+  title: T(`control${i}Title`),
+  body: T(`control${i}Desc`),
+}));
+
+const threeWaysColumns = [T('waysColSelfHosted'), T('waysColCloud'), T('waysColPrivateCloud')];
+const threeWaysRows = [
+  [T('waysRowWhere'), T('waysWhereSelfHosted'), T('waysWhereCloud'), T('waysWherePrivateCloud')],
+  [T('waysRowWho'), T('waysWhoSelfHosted'), T('waysWhoCloud'), T('waysWhoPrivateCloud')],
+  [T('waysRowCost'), T('waysCostSelfHosted'), T('waysCostCloud'), T('waysCostPrivateCloud')],
+  [T('waysRowBestFor'), T('waysBestSelfHosted'), T('waysBestCloud'), T('waysBestPrivateCloud')],
+];
+
+const expectItems = [1, 2, 3, 4, 5, 6].map((i) => ({ lead: T(`expect${i}Lead`), rest: T(`expect${i}Rest`) }));
+
+// Vendor names stay as-is in every locale.
+const compareColumns = ['Authgear', 'Keycloak', 'Auth0 / Okta'];
+const compareRows = [
+  [T('compareRowBased'), T('compareBasedUk'), T('compareBasedUsRedHat'), T('compareBasedUs')],
+  [T('compareRowOpenSource'), T('compareYesApache'), T('compareYesApache'), T('compareNo')],
+  [T('compareRowSelfHost'), T('compareYes'), T('compareYes'), T('compareNo')],
+  [T('compareRowManagedCloud'), T('compareYes'), T('compareNoThirdParties'), T('compareYes')],
+];
+---
+
+<section class="ds-hero-banner--dark">
+  <div class="ds-container ds-container--hero">
+    <div class="ds-hero-banner__row">
+      <div class="ds-hero-banner__body">
+      <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{T('heroEyebrow')}</p>
+      <h1 class="ds-hero-banner__title">{T('heroTitle')}</h1>
+      <p class="ds-hero-banner__description">{T('heroDescription')}</p>
+      <div class="ds-hero-banner__ctas">
+        <a href="#waitlist" class="ds-btn ds-btn-secondary">
+          {T('ctaWaitlist')}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+        <a
+          href={HELM_GUIDE_URL}
+          target="_blank"
+          rel="noreferrer"
+          class="ds-btn ds-btn-tertiary plausible-event-name--self-host-guide-click plausible-event-location--hero"
+        >
+          {T('ctaSelfHostGuide')}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ds-btn__icon-arrow" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+      <ul class="dsov-trust" role="list" aria-label={T('trustAriaLabel')}>
+        {trustSignals.map((label) => (
+          <li class="dsov-trust__item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dsov-trust__icon" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+            </svg>
+            {label}
+          </li>
+        ))}
+      </ul>
+      </div>
+      <img
+        class="ds-hero-banner__media"
+        src="/images/data-sovereignty_hero.svg"
+        width={640}
+        height={520}
+        alt=""
+      />
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{T('controlTitle')}</h2>
+      <p class="section-lede-on-light">{T('controlLede')}</p>
+    </div>
+    <div class="ds-grid-4">
+      {controlCards.map((card) => (
+        <div class="svg-card">
+          <img src={card.icon} loading="lazy" alt="" />
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{card.title}</div>
+            <div class="ds-svg-card-description">{card.body}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{T('waysTitle')}</h2>
+    </div>
+    <div class="ds-compare-table-wrapper">
+      <table class="ds-compare-table dsov-table">
+        <thead>
+          <tr>
+            <th scope="col"><span class="dsov-visually-hidden">{T('waysAspect')}</span></th>
+            {threeWaysColumns.map((col) => <th scope="col">{col}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {threeWaysRows.map(([label, ...cells]) => (
+            <tr>
+              <td>{label}</td>
+              {cells.map((cell, i) => <td data-label={threeWaysColumns[i]}>{cell}</td>)}
+            </tr>
+          ))}
+          <tr>
+            <td>{T('waysRowGetStarted')}</td>
+            <td data-label={threeWaysColumns[0]}>
+              <a
+                href={HELM_GUIDE_URL}
+                target="_blank"
+                rel="noreferrer"
+                class="dsov-link plausible-event-name--self-host-guide-click plausible-event-location--table"
+              >{T('waysCtaHelm')}</a>
+            </td>
+            <td data-label={threeWaysColumns[1]}>
+              <a
+                href={PORTAL_SIGNUP_URL}
+                target="_blank"
+                rel="noreferrer"
+                class="dsov-link plausible-event-name--signup plausible-event-location--data-sovereignty-table"
+              >{T('waysCtaStartFree')}</a>
+            </td>
+            <td data-label={threeWaysColumns[2]}>
+              <a
+                href={localizedPath(locale, '/schedule-demo')}
+                class="dsov-link plausible-event-name--get-demo plausible-event-location--data-sovereignty-table"
+              >{T('ctaTalkToUs')}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dsov-table-note">
+      {T('waysNote')}{' '}
+      <a
+        href={localizedPath(locale, '/schedule-demo')}
+        class="dsov-link plausible-event-name--get-demo plausible-event-location--data-sovereignty-table"
+      >{T('ctaTalkToUs')}</a>
+    </p>
+  </div>
+</section>
+
+<section id="waitlist" class="ds-section dsov-waitlist-section">
+  <div class="ds-container">
+    <div class="ds-feature-callout dsov-waitlist">
+      <div class="ds-feature-callout__title">
+        <h2 class="heading-on-dark">{T('waitlistTitle')}</h2>
+        <p class="section-lede-on-dark">{T('waitlistBody')}</p>
+      </div>
+      <div class="ds-feature-callout__body">
+        <div class="dsov-waitlist__form-card">
+          <ContactForm client:visible locale={locale} submitLabel={T('waitlistSubmit')} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{T('expectTitle')}</h2>
+      <p class="section-lede-on-light">{T('expectLede')}</p>
+    </div>
+    <ul class="dsov-checklist" role="list">
+      {expectItems.map((item) => (
+        <li class="dsov-checklist__item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dsov-checklist__icon" aria-hidden="true">
+            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+          </svg>
+          <p class="dsov-checklist__text"><strong>{item.lead}</strong>{item.rest}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{T('compareTitle')}</h2>
+    </div>
+    <div class="dsov-table-card">
+      <div class="ds-compare-table-wrapper">
+        <table class="ds-compare-table dsov-table">
+          <thead>
+            <tr>
+              <th scope="col"><span class="dsov-visually-hidden">{T('compareCriteria')}</span></th>
+              {compareColumns.map((col) => <th scope="col">{col}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map(([label, ...cells]) => (
+              <tr>
+                <td>{label}</td>
+                {cells.map((cell, i) => <td data-label={compareColumns[i]}>{cell}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="ds-feature-callout">
+      <div class="ds-feature-callout__title">
+        <h2 class="heading-on-dark">{T('migrateTitle')}</h2>
+      </div>
+      <div class="ds-feature-callout__body">
+        <p class="section-lede-on-dark">{T('migrateBody')}</p>
+        <div class="ds-feature-callout__ctas">
+          <a
+            href={localizedPath(locale, '/schedule-demo')}
+            class="ds-btn ds-btn-primary plausible-event-name--get-demo plausible-event-location--data-sovereignty-migration"
+          >
+            {T('migrateCta')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="dsov-faq">
+      <h2 class="dsov-faq__heading">{T('faqTitle')}</h2>
+      <div class="dsov-faq__list">
+        <div class="dsov-faq__item">
+          <h3 class="dsov-faq__question">{T('faq1Q')}</h3>
+          <div class="dsov-faq__answer">
+            <p>{T('faq1A')}</p>
+          </div>
+        </div>
+        <div class="dsov-faq__item">
+          <h3 class="dsov-faq__question">{T('faq2Q')}</h3>
+          <div class="dsov-faq__answer">
+            <p>{T('faq2APre')}<a href="#waitlist" class="dsov-link">{T('faq2ALink')}</a>{T('faq2APost')}</p>
+          </div>
+        </div>
+        <div class="dsov-faq__item">
+          <h3 class="dsov-faq__question">{T('faq3Q')}</h3>
+          <div class="dsov-faq__answer">
+            <p>{T('faq3A')}</p>
+          </div>
+        </div>
+        <div class="dsov-faq__item">
+          <h3 class="dsov-faq__question">{T('faq4Q')}</h3>
+          <div class="dsov-faq__answer">
+            <p>{T('faq4APre')}<a href={localizedPath(locale, '/dpa')} class="dsov-link">{T('faq4ALink1')}</a>{T('faq4AMid')}<a href={localizedPath(locale, '/sub-processors')} class="dsov-link">{T('faq4ALink2')}</a>{T('faq4APost')}</p>
+          </div>
+        </div>
+        <div class="dsov-faq__item">
+          <h3 class="dsov-faq__question">{T('faq5Q')}</h3>
+          <div class="dsov-faq__answer">
+            <p>{T('faq5A')}</p>
+          </div>
+        </div>
+        <div class="dsov-faq__item">
+          <h3 class="dsov-faq__question">{T('faq6Q')}</h3>
+          <div class="dsov-faq__answer">
+            <p>{T('faq6APre')}<a href={localizedPath(locale, '/schedule-demo')} class="dsov-link plausible-event-name--get-demo plausible-event-location--data-sovereignty-faq">{T('faq6ALink')}</a>{T('faq6APost')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-footer-cta-section">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-dark">{T('closingTitle')}</h2>
+      <p class="section-lede-on-dark">{T('closingBody')}</p>
+    </div>
+    <div class="ds-footer-cta__actions">
+      <a href="#waitlist" class="ds-btn ds-btn-secondary">{T('ctaWaitlist')}</a>
+      <a
+        href={HELM_GUIDE_URL}
+        target="_blank"
+        rel="noreferrer"
+        class="ds-btn ds-btn-outline-light plausible-event-name--self-host-guide-click plausible-event-location--footer"
+      >
+        {T('ctaSelfHostGuide')}
+      </a>
+      <a
+        href={localizedPath(locale, '/schedule-demo')}
+        class="ds-btn ds-btn-outline-light plausible-event-name--get-demo plausible-event-location--data-sovereignty-footer"
+      >
+        {T('ctaTalkToUs')}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dsov-trust {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.75rem 1.75rem;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .dsov-trust__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.5rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .dsov-trust__icon {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+    color: var(--color-primary-300);
+  }
+
+  .dsov-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .dsov-link {
+    color: var(--color-primary-600);
+    font-weight: var(--font-weight-medium);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .dsov-link:hover {
+    color: var(--color-primary-800);
+  }
+
+  .dsov-table-note {
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+    margin: 0 auto;
+    color: var(--color-text-light-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+    text-align: center;
+  }
+
+  /* Compare table on a light-blue section: lift it onto a white card so the
+     light-blue header row still reads as a header. */
+  .dsov-table-card {
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+    margin-inline: auto;
+    box-sizing: border-box;
+    padding: var(--spacing-s);
+    background-color: var(--color-bg-light-card);
+    border-radius: var(--radius-card);
+  }
+
+  .dsov-table-card .ds-compare-table-wrapper {
+    max-width: 100%;
+  }
+
+  /* Desktop: keep the row-label column wide enough for "Who operates it". */
+  @media (width >= 768px) {
+    .dsov-table thead th:first-child,
+    .dsov-table tbody td:first-child {
+      min-width: 11rem;
+    }
+  }
+
+  /* Mobile: the design-system table drops the row-label column, which these
+     tables can't afford ("Yes / No" rows lose their meaning). Stack each row
+     into a card instead, labelling every cell with its column header. */
+  @media (width < 768px) {
+    .dsov-table thead {
+      display: none;
+    }
+
+    .dsov-table,
+    .dsov-table tbody,
+    .dsov-table tbody tr,
+    .dsov-table tbody td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .dsov-table {
+      border-spacing: 0;
+    }
+
+    .dsov-table tbody tr {
+      padding: 1rem 0 1.125rem;
+      border-bottom: 0.0625rem solid var(--color-border-light-subtle);
+    }
+
+    .dsov-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .dsov-table tbody td {
+      padding: 0.375rem 0;
+      border-bottom: none;
+    }
+
+    .dsov-table tbody td:first-child {
+      display: block;
+      padding: 0 0 0.5rem;
+      color: var(--color-text-light-primary);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--text-body);
+      line-height: var(--text-body--line-height);
+    }
+
+    .dsov-table tbody td[data-label]::before {
+      content: attr(data-label);
+      display: block;
+      margin-bottom: 0.125rem;
+      color: var(--color-text-light-muted);
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: var(--font-weight-medium);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  /* Waitlist: the callout's gradient runs edge to edge on the section instead
+     of on a rounded card; the callout keeps its two-column grid and max-width. */
+  .dsov-waitlist-section {
+    scroll-margin-top: calc(var(--layout-fixed-header-height) + 1rem);
+    background: linear-gradient(342deg, #592fff, #202342 74%);
+  }
+
+  .dsov-waitlist {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  /* The shared ContactForm sits on a white card so its light-theme labels and
+     inputs keep their contrast against the gradient. */
+  .dsov-waitlist__form-card {
+    width: 100%;
+    background-color: var(--color-bg-light-card);
+    border-radius: var(--radius-card);
+  }
+
+  /* Checklist: two columns on tablet and up. */
+  .dsov-checklist {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem 2.5rem;
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (width >= 768px) {
+    .dsov-checklist {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .dsov-checklist__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .dsov-checklist__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    color: var(--color-primary-600);
+  }
+
+  .dsov-checklist__text {
+    margin: 0;
+    color: var(--color-text-light-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+  }
+
+  .dsov-checklist__text strong {
+    color: var(--color-text-light-primary);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  /* FAQ: heading left, divider list on the right with every answer shown,
+     after the pricing page's FAQ layout but on a light background. */
+  .dsov-faq {
+    display: grid;
+    grid-template-columns: minmax(0, 32%) minmax(0, 1fr);
+    column-gap: 3.75rem;
+    row-gap: 2.5rem;
+    align-items: start;
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+    margin-inline: auto;
+  }
+
+  @media (width < 1024px) {
+    .dsov-faq {
+      grid-template-columns: 1fr;
+      row-gap: var(--spacing-m);
+    }
+  }
+
+  .dsov-faq__heading {
+    margin: 0;
+    color: var(--color-text-light-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: normal;
+    text-align: left;
+  }
+
+  .dsov-faq__list {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .dsov-faq__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: var(--spacing-s) 0;
+    border-bottom: 0.0625rem solid var(--color-border-light-subtle);
+  }
+
+  .dsov-faq__item:first-of-type {
+    border-top: 0.0625rem solid var(--color-border-light-subtle);
+  }
+
+  .dsov-faq__question {
+    margin: 0;
+    color: var(--color-text-light-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: normal;
+    text-align: left;
+  }
+
+  .dsov-faq__answer {
+    padding: 0;
+  }
+
+  .dsov-faq__answer p {
+    margin: 0;
+    color: var(--color-text-light-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+    font-weight: var(--font-weight-regular);
+  }
+</style>

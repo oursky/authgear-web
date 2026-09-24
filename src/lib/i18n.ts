@@ -35,6 +35,24 @@ export const PARTIAL_LOCALES: readonly Locale[] = ['ja', 'es', 'de'];
 const PARTIAL_LOCALE_PATHS = ['/', '/pricing/', '/auth-toolkit/', '/schedule-demo/'] as const;
 const PARTIAL_LOCALE_PATH_PREFIXES = ['/tools/'] as const;
 
+/**
+ * Pages that exist in English only (no `src/pages/zh-hant/` twin): legal
+ * pages and UK/EU-market pages. Every other locale links to, and advertises,
+ * the English page instead of a prefixed URL that would 404. Keep in sync
+ * with `src/pages/`; `i18n.test.ts` checks each entry against disk.
+ */
+export const EN_ONLY_PATHS: readonly string[] = ['/dpa/', '/sub-processors/'];
+
+/**
+ * Paths translated for some partial locales but not all of them. Each entry
+ * needs a route at `src/pages/<locale>/<path>.astro`; `i18n.test.ts` checks
+ * that against disk.
+ */
+export const PARTIAL_LOCALE_EXTRA_PATHS: Partial<Record<Locale, readonly string[]>> = {
+  es: ['/solutions/data-sovereignty/'],
+  de: ['/solutions/data-sovereignty/'],
+};
+
 function withTrailingSlash(pathname: string): string {
   if (pathname === '') return '/';
   return pathname.endsWith('/') ? pathname : pathname + '/';
@@ -68,8 +86,11 @@ function isPartialLocalePath(pathname: string): boolean {
 
 /** Does `locale` have its own page at this locale-neutral pathname? */
 export function hasLocalizedPage(locale: string, pathname: string): boolean {
+  if (locale === DEFAULT_LOCALE) return true;
+  if (EN_ONLY_PATHS.includes(withTrailingSlash(pathname))) return false;
   if (!PARTIAL_LOCALES.includes(locale as Locale)) return true;
   if (isPartialLocalePath(pathname)) return true;
+  if (PARTIAL_LOCALE_EXTRA_PATHS[locale as Locale]?.includes(withTrailingSlash(pathname))) return true;
   if (locale === 'ja' && isJaPostPath(pathname)) return true;
   return false;
 }
@@ -77,8 +98,9 @@ export function hasLocalizedPage(locale: string, pathname: string): boolean {
 /**
  * Locales that can be offered as alternates for a page, both to search
  * engines (hreflang) and to people (the footer switcher). Full-coverage
- * locales always; partial locales only on the paths they all translate, so
- * nobody is pointed at a URL that would redirect.
+ * locales everywhere except `EN_ONLY_PATHS`; partial locales only on the
+ * paths they all translate, so nobody is pointed at a URL that would
+ * redirect or 404.
  */
 export function localesWithPage(pathname: string): Locale[] {
   return LOCALES.filter((loc) => hasLocalizedPage(loc, pathname));
@@ -97,7 +119,8 @@ export function localizedPath(locale: string, path: string): string {
   if (locale === DEFAULT_LOCALE || locale === 'en') {
     return normalized + search;
   }
-  // Partial locales send untranslated paths to the English page.
+  // Partial locales send untranslated paths, and every locale sends
+  // English-only pages, to the unprefixed English URL.
   if (!hasLocalizedPage(locale, normalized)) {
     return normalized + search;
   }
