@@ -22,6 +22,12 @@ const copyByLocale: Record<string, typeof pricingCopyEn> = {
 };
 const baseCopy = copyByLocale[locale] ?? pricingCopyEn;
 const contactPath = localizedPath(locale, '/schedule-demo');
+const euRegion = {
+  title: t(locale, 'Pricing.euRegionTitle'),
+  body: t(locale, 'Pricing.euRegionBody'),
+  cta: t(locale, 'Pricing.euRegionCta'),
+  href: `${localizedPath(locale, '/solutions/data-sovereignty')}#waitlist`,
+};
 const whatsappPath = localizedPath(locale, '/whatsapp-otp-pricing');
 
 const copy = {
@@ -101,6 +107,7 @@ const planFinder = {
   whatsappPath={whatsappPath}
   month={t(locale, 'Pricing.month')}
   planFinder={planFinder}
+  euRegion={euRegion}
   cellLabels={{
     seePricing: t(locale, 'Pricing.cellSeePricing'),
     orCustomGateway: t(locale, 'Pricing.cellOrCustomGateway'),
