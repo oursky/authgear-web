@@ -43,3 +43,20 @@ test.describe('Phase 2e-2: /pricing', () => {
     expect(after).not.toBe(before);
   });
 });
+
+test.describe('EU data region notice under the plan cards', () => {
+  test('en: shows the notice and links to the data-sovereignty waitlist', async ({ page }) => {
+    await page.goto('/pricing/');
+    const note = page.locator('.pricing-eu-region');
+    await note.scrollIntoViewIfNeeded();
+    await expect(note).toBeVisible();
+    await expect(note.locator('a')).toHaveAttribute('href', '/solutions/data-sovereignty/#waitlist');
+  });
+
+  test('de: links to the German page; ja: falls back to the English page', async ({ page }) => {
+    await page.goto('/de/pricing/');
+    await expect(page.locator('.pricing-eu-region a')).toHaveAttribute('href', '/de/solutions/data-sovereignty/#waitlist');
+    await page.goto('/ja/pricing/');
+    await expect(page.locator('.pricing-eu-region a')).toHaveAttribute('href', '/solutions/data-sovereignty/#waitlist');
+  });
+});

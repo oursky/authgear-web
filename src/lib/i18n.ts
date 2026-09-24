@@ -4,7 +4,7 @@
  * form, used in `<html lang>` and `hreflang`) but served at lowercase
  * `/zh-hant/...` URLs to match standard URL casing conventions.
  */
-export const LOCALES = ['en', 'zh-Hant', 'ja', 'es', 'de'] as const;
+export const LOCALES = ['en', 'zh-Hant', 'ja', 'es', 'de', 'fr'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
@@ -15,6 +15,7 @@ const LOCALE_URL_SEGMENT: Record<Locale, string> = {
   ja: '/ja',
   es: '/es',
   de: '/de',
+  fr: '/fr',
 };
 
 /** URL-path prefix for a locale (`''` for English). */
@@ -30,7 +31,7 @@ export function localeUrlSegment(locale: string): string {
  * URLs there too. `ja` additionally has translated blog posts under `/ja/post/`.
  * URL slugs are never translated: `/es/pricing/`, not `/es/precios/`.
  */
-export const PARTIAL_LOCALES: readonly Locale[] = ['ja', 'es', 'de'];
+export const PARTIAL_LOCALES: readonly Locale[] = ['ja', 'es', 'de', 'fr'];
 
 const PARTIAL_LOCALE_PATHS = ['/', '/pricing/', '/auth-toolkit/', '/schedule-demo/'] as const;
 const PARTIAL_LOCALE_PATH_PREFIXES = ['/tools/'] as const;
@@ -51,6 +52,7 @@ export const EN_ONLY_PATHS: readonly string[] = ['/dpa/', '/sub-processors/'];
 export const PARTIAL_LOCALE_EXTRA_PATHS: Partial<Record<Locale, readonly string[]>> = {
   es: ['/solutions/data-sovereignty/'],
   de: ['/solutions/data-sovereignty/'],
+  fr: ['/solutions/data-sovereignty/'],
 };
 
 function withTrailingSlash(pathname: string): string {
@@ -180,6 +182,9 @@ export function resolveLocale(acceptLanguage: string | null): Locale {
     if (tag === 'de' || tag.startsWith('de-')) {
       return 'de';
     }
+    if (tag === 'fr' || tag.startsWith('fr-')) {
+      return 'fr';
+    }
   }
   return DEFAULT_LOCALE;
 }
@@ -190,6 +195,7 @@ export function localeToHtmlLang(locale: Locale | typeof LEGACY_ZH_PATH_LOCALE |
   if (locale === 'ja') return 'ja';
   if (locale === 'es') return 'es';
   if (locale === 'de') return 'de';
+  if (locale === 'fr') return 'fr';
   // if (locale === 'zh-HK') return 'zh-HK';
   return 'en';
 }

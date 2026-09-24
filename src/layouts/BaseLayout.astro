@@ -44,7 +44,7 @@ const urlFor = (loc: string) => `${siteOrigin}${localeUrlSegment(loc)}${neutralP
 const enUrl = urlFor('en');
 const alternateLocales = LOCALES.filter((loc) => loc === locale || localesWithPage(neutralPath).includes(loc));
 const canonical = canonicalProp ?? urlFor(LOCALES.includes(locale as Locale) ? locale : 'en');
-const OG_LOCALES: Record<string, string> = { en: 'en_US', 'zh-Hant': 'zh_TW', ja: 'ja_JP', es: 'es_ES', de: 'de_DE' };
+const OG_LOCALES: Record<string, string> = { en: 'en_US', 'zh-Hant': 'zh_TW', ja: 'ja_JP', es: 'es_ES', de: 'de_DE', fr: 'fr_FR' };
 const ogLocale = OG_LOCALES[locale] ?? 'en_US';
 const ogLocaleAlternate = locale === 'en' ? 'zh_TW' : 'en_US';
 const gtmId = import.meta.env.PUBLIC_GTM_ID ?? '';

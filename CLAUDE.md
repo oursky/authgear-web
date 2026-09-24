@@ -29,7 +29,7 @@ authgear-web/
 - Traditional Chinese uses `/zh-hant/...` prefix (URL is lowercase). Internal locale id is `zh-Hant` (BCP-47 mixed case) — that's what `src/content/{collection}/zh-Hant/`, `src/i18n/zh-Hant.json`, and the `locale` prop all use.
 - Locale helpers live in `src/i18n/`; `localizedPath()` builds locale-aware URLs.
 - For content collections, the `zh-Hant` entry falls back to the English entry by slug when a translation is missing.
-- `ja`, `es`, `de` are partial market-test locales: only the home page, `/pricing`, `/auth-toolkit`, `/schedule-demo` and `/tools/*` are translated (URL slugs stay English), plus `/solutions/data-sovereignty` for `es` and `de` only. The allowlist is `PARTIAL_LOCALES` / `isPartialLocalePath` / `PARTIAL_LOCALE_EXTRA_PATHS` in `src/lib/i18n.ts`; everything else links to and redirects (302, non-forced, `public/_redirects`) to the English page. See "Partial locales" in `docs/ARCHITECTURE-ASTRO.md`.
+- `ja`, `es`, `de`, `fr` are partial market-test locales: only the home page, `/pricing`, `/auth-toolkit`, `/schedule-demo` and `/tools/*` are translated (URL slugs stay English), plus `/solutions/data-sovereignty` for `es`, `de` and `fr` only. The allowlist is `PARTIAL_LOCALES` / `isPartialLocalePath` / `PARTIAL_LOCALE_EXTRA_PATHS` in `src/lib/i18n.ts`; everything else links to and redirects (302, non-forced, `public/_redirects`) to the English page. See "Partial locales" in `docs/ARCHITECTURE-ASTRO.md`.
 
 ### URL preservation
 

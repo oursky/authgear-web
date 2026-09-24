@@ -112,6 +112,9 @@
     "noContentYet": "目前尚無內容。"
   },
   "Pricing": {
+    "euRegionTitle": "Authgear Cloud 的 EU 資料區域：即將推出。",
+    "euRegionBody": "現在就需要把資料留在歐洲？私有雲與自主架設已經能滿足。",
+    "euRegionCta": "加入候補名單",
     "metaTitle": "定價 - Authgear",
     "metaDescription": "為您的應用程式與 API 提供驗證與授權解決方案，並為開發者與企業提供彈性定價。",
     "cloudTitleLine1": "簡單",

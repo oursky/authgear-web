@@ -5,6 +5,7 @@ import { pricingCopyEn } from '@/lib/pricing/copy-en';
 import { pricingCopyZhHant } from '@/lib/pricing/copy-zh-Hant';
 import { pricingCopyEs } from '@/lib/pricing/copy-es';
 import { pricingCopyDe } from '@/lib/pricing/copy-de';
+import { pricingCopyFr } from '@/lib/pricing/copy-fr';
 import { pricingCopyJa } from '@/lib/pricing/copy-ja';
 import PricingPageClient from '@/components/islands/pricing/PricingPageClient';
 
@@ -18,10 +19,17 @@ const copyByLocale: Record<string, typeof pricingCopyEn> = {
   'zh-Hant': pricingCopyZhHant,
   es: pricingCopyEs,
   de: pricingCopyDe,
+  fr: pricingCopyFr,
   ja: pricingCopyJa,
 };
 const baseCopy = copyByLocale[locale] ?? pricingCopyEn;
 const contactPath = localizedPath(locale, '/schedule-demo');
+const euRegion = {
+  title: t(locale, 'Pricing.euRegionTitle'),
+  body: t(locale, 'Pricing.euRegionBody'),
+  cta: t(locale, 'Pricing.euRegionCta'),
+  href: `${localizedPath(locale, '/solutions/data-sovereignty')}#waitlist`,
+};
 const whatsappPath = localizedPath(locale, '/whatsapp-otp-pricing');
 
 const copy = {
@@ -101,6 +109,7 @@ const planFinder = {
   whatsappPath={whatsappPath}
   month={t(locale, 'Pricing.month')}
   planFinder={planFinder}
+  euRegion={euRegion}
   cellLabels={{
     seePricing: t(locale, 'Pricing.cellSeePricing'),
     orCustomGateway: t(locale, 'Pricing.cellOrCustomGateway'),

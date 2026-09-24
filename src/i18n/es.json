@@ -105,6 +105,9 @@
     "microCard4Desc": "Pon Authgear delante de tu servidor MCP como su servidor de autorización OAuth. Los agentes se registran mediante <a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a> o <a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">Dynamic Client Registration</a>. Los usuarios conceden scopes en una pantalla de consentimiento, así que un agente nunca obtiene más de lo que tiene el usuario, ni más de lo que el usuario aprobó."
   },
   "Pricing": {
+    "euRegionTitle": "Región de datos UE para Authgear Cloud: próximamente.",
+    "euRegionBody": "¿Necesitas tus datos en Europa hoy? La nube privada y el autoalojamiento ya lo cubren.",
+    "euRegionCta": "Únete a la lista de espera",
     "metaTitle": "Precios - Authgear",
     "metaDescription": "Solución de autenticación y autorización para tus aplicaciones y APIs, con precios flexibles para desarrolladores y empresas.",
     "cloudTitleLine1": "Precios simples y ",

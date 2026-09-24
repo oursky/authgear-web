@@ -105,6 +105,9 @@
     "microCard4Desc": "Authgear を MCP サーバーの前に置き、その OAuth 認可サーバーとして使います。エージェントは<a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a>または<a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">Dynamic Client Registration</a>で登録します。ユーザーは同意画面でスコープを許可するため、エージェントがユーザー以上の権限や、ユーザーが承認した以上の権限を得ることはありません。"
   },
   "Pricing": {
+    "euRegionTitle": "Authgear Cloud の EU データリージョン：近日提供予定。",
+    "euRegionBody": "今すぐデータを欧州に置く必要がありますか？プライベートクラウドとセルフホスティングで既に対応できます。",
+    "euRegionCta": "ウェイトリストに登録",
     "metaTitle": "料金 - Authgear",
     "metaDescription": "アプリケーションと API のための認証・認可ソリューション。開発者から企業まで、柔軟な料金プランをご用意しています。",
     "cloudTitleLine1": "シンプルで",

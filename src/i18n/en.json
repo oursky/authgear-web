@@ -112,6 +112,9 @@
     "noContentYet": "No content yet."
   },
   "Pricing": {
+    "euRegionTitle": "EU data region for Authgear Cloud: coming soon.",
+    "euRegionBody": "Need your data in Europe today? Private cloud and self-hosting already cover it.",
+    "euRegionCta": "Join the waitlist",
     "metaTitle": "Pricing - Authgear",
     "metaDescription": "Authentication and authorization solution for your applications and APIs, with flexible pricing for developers and corporations.",
     "cloudTitleLine1": "Simple, ",

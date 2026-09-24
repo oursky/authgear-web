@@ -168,7 +168,7 @@ The site's public URLs are stable across the Webflow → Astro transition:
 - `/integrations`, `/integrations/{slug}`
 - `/terms`, `/policy`, `/data-privacy`, `/security`, `/sla`, `/terms-of-enterprise-license`
 - `/zh-hant/*` mirrors for Traditional Chinese (locale id `zh-Hant` in code)
-- `/ja/*`, `/es/*`, `/de/*` partial mirrors (home, `/pricing`, `/auth-toolkit`, `/schedule-demo`, `/tools/*`; plus a few `/ja/post/*`) for the market-test locales
+- `/ja/*`, `/es/*`, `/de/*`, `/fr/*` partial mirrors (home, `/pricing`, `/auth-toolkit`, `/schedule-demo`, `/tools/*`; plus a few `/ja/post/*` and `/solutions/data-sovereignty` for es, de, fr) for the market-test locales
 
 Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (301) to `/zh-hant/*` via forced (`301!`) rules in `public/_redirects`.
 
@@ -183,12 +183,12 @@ Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (301) to 
 
 ### Partial locales (Japanese, Spanish, German)
 
-`ja`, `es` and `de` are market-test locales with only a handful of translated pages: the home page, `/pricing`, `/auth-toolkit`, `/schedule-demo` and every `/tools/*` page (Japanese also has a few blog posts under `/ja/post/*`). URL slugs stay English (`/es/pricing`, never `/es/precios`).
+`ja`, `es`, `de` and `fr` are market-test locales with only a handful of translated pages: the home page, `/pricing`, `/auth-toolkit`, `/schedule-demo` and every `/tools/*` page (Japanese also has a few blog posts under `/ja/post/*`). URL slugs stay English (`/es/pricing`, never `/es/precios`).
 
 - The allowlist lives in `src/lib/i18n.ts` (`PARTIAL_LOCALES`, `isPartialLocalePath`). `localizedPath()` returns the unprefixed English path for anything outside it, so translated pages never link into a non-existent prefixed page.
-- `hasLocalizedPage()` / `localesWithPage()` drive the footer language switcher and the `hreflang` set in `BaseLayout.astro`: a partial locale is only advertised on paths where its page really exists, and untranslated pages keep their `en` + `zh-Hant` set. A few pages exist in English only (`EN_ONLY_PATHS` in `src/lib/i18n.ts`: `/dpa`, `/sub-processors`); they advertise `en` alone and every locale links to the unprefixed URL. `PARTIAL_LOCALE_EXTRA_PATHS` lists paths translated for some partial locales only (currently `/solutions/data-sovereignty` for `es` and `de`, not `ja`).
-- As a safety net, non-forced `302` rules in `public/_redirects` send any other `/ja/*`, `/es/*`, `/de/*` URL to the English page (real files still win over the redirect).
-- Messages: `src/i18n/{ja,es,de}.json` carry only the translated namespaces (`Navigation`, `Seo`, `Home`, `Pricing`, `AuthToolkit`); `t()` falls back to English for the rest. Tool strings live in `src/lib/tools/messages/{locale}/` and pricing copy in `src/lib/pricing/copy-{locale}.ts`. The nav dropdown and footer label maps in `src/lib/navigation-data.ts` carry `ja`/`es`/`de` entries too, so the site chrome is fully localized even where a link lands on an English page.
+- `hasLocalizedPage()` / `localesWithPage()` drive the footer language switcher and the `hreflang` set in `BaseLayout.astro`: a partial locale is only advertised on paths where its page really exists, and untranslated pages keep their `en` + `zh-Hant` set. A few pages exist in English only (`EN_ONLY_PATHS` in `src/lib/i18n.ts`: `/dpa`, `/sub-processors`); they advertise `en` alone and every locale links to the unprefixed URL. `PARTIAL_LOCALE_EXTRA_PATHS` lists paths translated for some partial locales only (currently `/solutions/data-sovereignty` for `es`, `de` and `fr`, not `ja`).
+- As a safety net, non-forced `302` rules in `public/_redirects` send any other `/ja/*`, `/es/*`, `/de/*`, `/fr/*` URL to the English page (real files still win over the redirect).
+- Messages: `src/i18n/{ja,es,de,fr}.json` carry only the translated namespaces (`Navigation`, `Seo`, `Home`, `Pricing`, `AuthToolkit`, `ScheduleDemo`, and `DataSovereignty` for es/de/fr); `t()` falls back to English for the rest. Tool strings live in `src/lib/tools/messages/{locale}/` and pricing copy in `src/lib/pricing/copy-{locale}.ts`. The nav dropdown and footer label maps in `src/lib/navigation-data.ts` carry `ja`/`es`/`de`/`fr` entries too, so the site chrome is fully localized even where a link lands on an English page.
 - The translations were machine-drafted for the market test and still need a native-speaker review before being treated as final copy.
 
 ## Interactivity (islands)
