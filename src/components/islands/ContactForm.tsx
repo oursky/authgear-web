@@ -290,18 +290,19 @@ export default function ContactForm({ locale = 'en' }: Props) {
             ref={itiRef}
             initOptions={{
               initialCountry: 'auto',
-              geoIpLookup: (success, failure) => {
+              geoIpLookup: (success) => {
                 // geojs.io is CORS-enabled for all origins and free. Earlier
                 // we used ipapi.co but its free-tier responses started
                 // failing CORS on production domains.
                 fetch('https://get.geojs.io/v1/ip/country.json')
                   .then((r) => r.json())
                   .then((data: { country?: string }) =>
-                    success((data.country ?? 'hk').toLowerCase() as Iso2)
+                    success((data.country ?? 'gb').toLowerCase() as Iso2)
                   )
-                  .catch(() => failure());
+                  // Default to the UK when the lookup is blocked or fails.
+                  .catch(() => success('gb' as Iso2));
               },
-              countryOrder: (['hk', 'sg', 'tw', 'gb'] as const) as unknown as Iso2[],
+              countryOrder: (['gb', 'hk', 'sg', 'tw'] as const) as unknown as Iso2[],
               placeholderNumberType: 'MOBILE',
               nationalMode: true,
             }}

@@ -248,7 +248,7 @@
   },
   "About": {
     "title": "About Authgear — open-source CIAM built to last",
-    "description": "Authgear is the open-source CIAM platform built for teams who can't afford to re-platform their auth stack every time a vendor gets acquired. Built by Skymakers, serving Asia since 2009.",
+    "description": "Authgear is the open-source CIAM platform built for teams who can't afford to re-platform their auth stack every time a vendor gets acquired. Built in the UK by Skymakers Digital, trusted by enterprises since 2009.",
     "heroTitle": "Authentication is infrastructure. We treat it that way.",
     "heroSubhead": "Authgear is the open-source CIAM platform built for teams who can't afford to re-platform their auth stack every time a vendor gets acquired.",
     "heroCta1": "Get a Demo",
@@ -271,7 +271,7 @@
     "snapshotFoundedLabel": "Serving customers since",
     "snapshotFoundedValue": "2009",
     "snapshotTeamLabel": "Remote team",
-    "snapshotTeamValue": "Hong Kong · Taiwan · UK · Canada · US",
+    "snapshotTeamValue": "UK · Canada · US · Taiwan · Hong Kong",
     "snapshotComplianceLabel": "Compliance",
     "snapshotComplianceValue": "ISO 27001 + SoC 2 Type II",
     "snapshotPledgeLabel": "Standards",

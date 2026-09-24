@@ -17,7 +17,7 @@ const PRESETS = [
   { label: '1M', val: 1000000 },
 ];
 
-const hkDefault = AG_DATA.find((d) => d.iso === 'HK')!;
+const defaultCountry = AG_DATA.find((d) => d.iso === 'GB')!;
 
 interface Props { locale: string }
 
@@ -30,8 +30,8 @@ export default function SmsCostCalculator({ locale }: Props) {
     const s = tFn(locale, `SmsCostCalculator.${key}`);
     return vars ? interpolate(s, vars) : s;
   };
-  const [selectedCountry, setSelectedCountry] = useState<AgCountryRow>(hkDefault);
-  const [searchQuery, setSearchQuery] = useState(hkDefault.country);
+  const [selectedCountry, setSelectedCountry] = useState<AgCountryRow>(defaultCountry);
+  const [searchQuery, setSearchQuery] = useState(defaultCountry.country);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [volume, setVolume] = useState(100000);
   const [waPct, setWaPct] = useState(90);
