@@ -248,7 +248,7 @@
   },
   "About": {
     "title": "關於 Authgear——持久的開源 CIAM",
-    "description": "Authgear 是為「不想每次供應商被併購就重建身份驗證系統的團隊」打造的開源 CIAM 平台。由 Skymakers 打造，自 2009 年起服務亞洲各地客戶。",
+    "description": "Authgear 是為「不想每次供應商被併購就重建身份驗證系統的團隊」打造的開源 CIAM 平台。由英國的 Skymakers Digital 打造，自 2009 年起深受企業信賴。",
     "heroTitle": "身份驗證是基礎建設，我們也是這麼對待它的。",
     "heroSubhead": "Authgear 是開源 CIAM 平台，為那些不想每次供應商被併購就重建身份驗證系統的團隊而打造。",
     "heroCta1": "預約展示",
@@ -271,7 +271,7 @@
     "snapshotFoundedLabel": "服務客戶自",
     "snapshotFoundedValue": "2009 年",
     "snapshotTeamLabel": "遠距團隊",
-    "snapshotTeamValue": "香港 · 台灣 · 英國 · 加拿大 · 美國",
+    "snapshotTeamValue": "英國 · 加拿大 · 美國 · 台灣 · 香港",
     "snapshotComplianceLabel": "合規認證",
     "snapshotComplianceValue": "ISO 27001 + SoC 2 Type II",
     "snapshotPledgeLabel": "產業標準",

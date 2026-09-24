@@ -13,12 +13,12 @@ const { locale } = Astro.props;
 // Logo wall: customer-story logos link to the company website. FormX has no
 // customer story; its logo lives in src/assets/logos/.
 const logoWallConfig: { slug?: string; name: string; website: string; logo?: ImageMetadata }[] = [
+  { slug: 'bupa', name: 'Bupa', website: 'https://www.bupa.com' },
   { slug: 'hongkong-mtr', name: 'HongKong MTR', website: 'https://www.mtr.com.hk' },
   { slug: 'hongkong-land', name: 'Hongkong Land', website: 'https://www.hkland.com' },
   { slug: 'k11', name: 'K11', website: 'https://hk.k11.com/' },
   { slug: 'cornerstone-technologies', name: 'Cornerstone Technologies', website: 'https://www.cstl.com.hk/' },
   { slug: 'outback-steakhouse', name: 'Outback Steakhouse', website: 'https://www.outback.com.hk/' },
-  { slug: 'bupa', name: 'Bupa', website: 'https://www.bupa.com' },
   { name: 'FormX.ai', website: 'https://www.formx.ai', logo: formxLogo },
 ];
 
@@ -135,8 +135,14 @@ const logoWall = logoWallConfig.flatMap((item) => {
       </dl>
       <div class="about-snapshot__badges">
         <img
-          src="/images/Authgear_footer_certificated_blue2x.png"
-          alt="ISO 27001 and SoC 2 Type II certified"
+          src="/images/Authgear_footer_soc2_blue2x.png"
+          alt="SOC 2 Type II attested"
+          class="about-snapshot__badge"
+          loading="lazy"
+        />
+        <img
+          src="/images/intercert-iso27001-mark.png"
+          alt="ISO 27001 certified by InterCert"
           class="about-snapshot__badge"
           loading="lazy"
         />
@@ -155,15 +161,15 @@ const logoWall = logoWallConfig.flatMap((item) => {
           />
         </a>
         <img
-          src="/images/1111.png"
+          src="/images/azure.png"
           alt="Microsoft Azure"
-          class="about-snapshot__cloud-logo"
+          class="about-snapshot__cloud-logo about-snapshot__cloud-logo--azure"
           loading="lazy"
         />
         <img
-          src="/images/gcp.png"
+          src="/images/google-cloud.png"
           alt="Google Cloud"
-          class="about-snapshot__cloud-logo"
+          class="about-snapshot__cloud-logo about-snapshot__cloud-logo--gcp"
           loading="lazy"
         />
       </div>
@@ -313,6 +319,14 @@ const logoWall = logoWallConfig.flatMap((item) => {
     height: 40px;
     width: auto;
     opacity: 0.85;
+  }
+  /* The Azure lockup is wide and the Google Cloud one is stacked, so equal
+     heights make Azure dominate. Size each for similar visual weight. */
+  .about-snapshot__cloud-logo--azure {
+    height: 30px;
+  }
+  .about-snapshot__cloud-logo--gcp {
+    height: 48px;
   }
   .about-snapshot__badge-link {
     display: inline-flex;

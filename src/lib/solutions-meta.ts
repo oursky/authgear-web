@@ -20,10 +20,6 @@ const en: Record<string, SolutionMeta> = {
     title: 'Master Enterprise SSO: Secure and Efficient Access Management',
     description: 'Overcome enterprise SSO challenges with expert guidance. Learn best practices, use cases, and solutions to implement a robust SSO strategy.',
   },
-  'external-identity-access-management': {
-    title: 'Identity and Access Management Solution for Enterprises',
-    description: "Authgear's solution for enterprises centralizes identity and access management for your internal and external workforce.",
-  },
   'frontline-workers-identity': {
     title: 'Secure & Cost-Effective Access for Your Frontline Workers | Authgear',
     description: 'Managing access for a growing, diverse workforce can be complex. Authgear for Extended Workforce streamlines frontline identity management.',
@@ -50,10 +46,6 @@ const zhHant: Record<string, SolutionMeta> = {
   'enterprise-sso': {
     title: '駕馭企業 SSO：安全且高效的存取管理',
     description: '透過專業指引克服企業 SSO 的挑戰。掌握最佳實踐、使用情境與解決方案，建構完善的 SSO 策略。',
-  },
-  'external-identity-access-management': {
-    title: '為企業打造的身份與存取管理方案',
-    description: 'Authgear 為企業集中管理內部與外部員工的身份與存取權限。',
   },
   'frontline-workers-identity': {
     title: '為前線員工提供安全且具成本效益的存取方案 | Authgear',

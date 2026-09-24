@@ -20,6 +20,7 @@ metrics:
   - num: "5x"
     text: "faster integration of new Identity and Access Management features"
 publishedAt: 2025-11-28T18:51:18.660Z
+order: 2
 ---
 
 A global quick‑service restaurant (QSR) leader needed to modernize authentication for thousands of frontline employees—without slowing down operations or violating strict corporate security mandates. With Authgear, the local market team launched 2FA, SSO, and biometric sign‑in in an intuitive interface that met global compliance while making daily access faster and simpler.

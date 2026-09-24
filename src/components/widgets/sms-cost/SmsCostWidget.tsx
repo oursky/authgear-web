@@ -24,7 +24,7 @@ const PRESETS = [
   { label: '1M', val: 1000000 },
 ];
 
-const defaultCountry = SMS_COST_DATA.find((d) => d.iso === 'HK') ?? SMS_COST_DATA[0];
+const defaultCountry = SMS_COST_DATA.find((d) => d.iso === 'GB') ?? SMS_COST_DATA[0];
 
 export default function SmsCostWidget({ locale }: Props) {
   const t = (key: string, vars?: Record<string, string | number>): string => {

@@ -162,7 +162,7 @@ Logging is a valuable tool for debugging and monitoring applications. However, i
 
 **To prevent accidental logging of sensitive information:**
 
-- **Implement data masking:** Create a [SensitiveContent interface](https://code.oursky.com/data-masking-and-handling-to-minimize-sensitive-data-exposure/) to encapsulate sensitive data. This forces developers to consider the implications of logging such information.
+- **Implement data masking:** Create a SensitiveContent interface to encapsulate sensitive data. This forces developers to consider the implications of logging such information.
 - **Utilize logging frameworks:** Use logging frameworks that offer built-in mechanisms to filter or redact sensitive data.
 - **Regularly review logs:** Conduct audits of your logs to identify and remove sensitive information.
 - **Train developers:** Educate your team about the risks of logging sensitive data and best practices for avoiding it.

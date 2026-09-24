@@ -3,7 +3,7 @@ title: "K11 Unifies Login Across Lifestyle Apps with Authgear"
 excerpt: "Discover how K11 / New World Development used Authgear to unify login across apps with SSO, MFA, magic links, and SMS OTPs, enabling secure authentication and faster product updates."
 customerName: K11
 companyIndustry: "Luxury retail, property & lifestyle"
-companyLocation: HongKong
+companyLocation: "Hong Kong"
 companyLogo: ./logo.webp
 coverImage: ./cover.webp
 thumbnail: ./thumbnail.webp
@@ -22,6 +22,7 @@ metrics:
   - num: "50%"
     text: "users login with email links"
 publishedAt: 2025-11-28T18:51:18.660Z
+order: 6
 ---
 
 K11 / NWD standardized authentication across the K11, Artisanal Living, and K Dollar apps with Authgear—enabling SSO, MFA, and passwordless login in an embedded, brand‑perfect UI. The result is a consistent, secure sign‑in, lower friction, and faster iteration across a growing lifestyle ecosystem.

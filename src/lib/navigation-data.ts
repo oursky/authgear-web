@@ -120,6 +120,7 @@ export const developersDropdownLinks: NavLink[] = [
 export const footerStrings: Record<string, Record<string, string>> = {
   poweredBy: { en: 'Designed by ', 'zh-Hant': '由 ', ja: 'デザイン：', es: 'Diseñado por ', de: 'Gestaltet von ' },
   poweredBySuffix: { en: '', 'zh-Hant': ' 設計', ja: '', es: '', de: '' },
+  soc2CertAlt: { en: 'SOC 2 Type II Attested', 'zh-Hant': 'SOC 2 Type II 認證', ja: 'SOC 2 Type II 認証', es: 'Certificación SOC 2 Type II', de: 'SOC 2 Type II attestiert' },
   isoCertAlt: { en: 'ISO 27001 Certified', 'zh-Hant': 'ISO 27001 認證', ja: 'ISO 27001 認証取得', es: 'Certificación ISO 27001', de: 'ISO 27001 zertifiziert' },
   productsTitle: { en: 'Products', 'zh-Hant': '產品', ja: '製品', es: 'Productos', de: 'Produkte' },
   home: { en: 'Home', 'zh-Hant': '首頁', ja: 'ホーム', es: 'Inicio', de: 'Startseite' },

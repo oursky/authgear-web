@@ -5,7 +5,6 @@ const SLUGS = [
   'ciam-solution',
   'customer-identity-and-access-management',
   'enterprise-sso',
-  'external-identity-access-management',
   'frontline-workers-identity',
   'reduce-sms-otp-cost',
 ] as const;
@@ -52,3 +51,16 @@ test('ContactForm hydrates on /solutions/enterprise-sso', async ({ page }) => {
   await nameInput.fill('Enterprise Lead');
   await expect(nameInput).toHaveValue('Enterprise Lead');
 });
+
+// Retired page: the old External IAM solution redirects to the frontline
+// workers page in both locales (rules in public/_redirects).
+for (const [from, to] of [
+  ['/solutions/external-identity-access-management/', '/solutions/frontline-workers-identity/'],
+  ['/zh-hant/solutions/external-identity-access-management/', '/zh-hant/solutions/frontline-workers-identity/'],
+]) {
+  test(`${from} redirects (301) to ${to}`, async ({ request }) => {
+    const resp = await request.get(from, { maxRedirects: 0 });
+    expect(resp.status()).toBe(301);
+    expect(new URL(resp.headers()['location'], 'http://localhost').pathname).toBe(to);
+  });
+}

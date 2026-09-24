@@ -57,6 +57,7 @@
 /events/authgear-x-identityweek-sso-workshop                                        /                                                                                                                       301
 /events/authgear-x-identityweek-sso-workshop/*                                      /                                                                                                                       301
 /solutions/external-identity-access-management                                      /solutions/frontline-workers-identity/                                                                                  301
+/zh-hant/solutions/external-identity-access-management                                      /zh-hant/solutions/frontline-workers-identity/                                                                                  301
 /scopes/full-userinfo                                                               https://docs.authgear.com/reference/apis/oauth-2.0-and-openid-connect-oidc/userinfo                                     301
 /post/passkey-compatibility                                                         /post/passkeys-compatibility/                                                                                           301
 /post/password-hashing-salting                                                      /post/password-hashing-salting-function-and-algorithm-explained/                                                        301

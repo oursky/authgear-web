@@ -17,6 +17,7 @@ technicalDetails:
   - 單一登入（SSO）
 metrics: []
 publishedAt: 2025-11-28T18:51:18.660Z
+order: 8
 ---
 
 ## 挑戰：簡化使用者註冊，並實現無縫跨平台登入
