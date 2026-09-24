@@ -57,6 +57,9 @@ These indicate the user took a meaningful step toward becoming a customer.
 | `signup` | `ToolPopup` — "Start building for Free" | Click | `portal.authgear.com` — fires with `props.location = 'tool-popup'`. Popup body is per-tool (`Tools.common.popupPitches`), shows after 15s, dismissal persists 7 days |
 | `signup` | Blog posts — inline CTA (what-is-jwks, well-known-openid-configuration, login-signup-ux-guide, top-10-sso-providers, authentication-solutions-guide, authentication-as-a-service, oidc-vs-saml, sms-otp-vulnerabilities-and-alternatives; EN + zh-Hant) | Click | `portal.authgear.com` — fires with `props.location = 'post-inline'` |
 | `get-demo` | Blog posts — inline demo CTA (top-10-sso-providers, authentication-solutions-guide, authentication-as-a-service, sms-otp-vulnerabilities-and-alternatives; EN + zh-Hant) | Click | `/schedule-demo` — fires with `props.location = 'post-inline'` |
+| `contact-form-submit` | `DataSovereigntyPage` — EU region waitlist callout (`#waitlist`) reuses `ContactForm` with a "Get in touch" button | Form submit | Netlify Forms (`contact`). Same event as every other `ContactForm`; split it out in Plausible by filtering on page `/solutions/data-sovereignty/`. Submissions carry `page = /solutions/data-sovereignty/` in the payload |
+| `signup` | `DataSovereigntyPage` — "Start free" link in the Self-hosted vs Cloud table | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'data-sovereignty-table'` |
+| `get-demo` | `DataSovereigntyPage` — "Talk to us" (Private cloud column and note under the table, FAQ cost answer, closing CTA) and "Plan your migration" (migration callout) | Click | `/schedule-demo` — fires with `props.location` = `data-sovereignty-table` \| `data-sovereignty-faq` \| `data-sovereignty-migration` \| `data-sovereignty-footer` |
 
 ### Engagement events
 
@@ -77,6 +80,7 @@ These indicate the user is exploring content or interacting with features.
 | `playground-interact` | `LoginCustomizationPlayground` — any meaningful control change | First interaction per page view | One-shot per session. Fires with `props.first_action` = `preset` / `logo` / `background` / `alignment` / `color` / `radius` / `link-decoration` / `accordion` |
 | `playground-sheet-open` | `LoginCustomizationPlayground` — mobile "⚙ Customize" pill | First sheet open per page view | One-shot per page view (mobile only, `< 900px`). Pairs with `playground-interact` to measure open-rate vs. interact-rate. |
 | `playground-cta` | `LoginCustomizationPlayground` — "Explore Login Gallery" button | Click | Links to `/login-gallery/` — mid-funnel signal |
+| `self-host-guide-click` | `DataSovereigntyPage` — "Self-host guide" / "Deploy with Helm" links (hero, table, closing CTA) | Click | `docs.authgear.com/deployment/helm` — fires with `props.location` = `hero` \| `table` \| `footer`. Self-host intent signal for the data-sovereignty audience |
 
 ---
 
@@ -86,11 +90,11 @@ Properties unlock filtering in Plausible's dashboard and remove the need for sep
 
 | Event | Property | Value example | Rationale |
 |-------|----------|---------------|-----------|
-| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"`, `"post-inline"` | Distinguish where signups originate — all implemented |
+| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"`, `"post-inline"`, `"data-sovereignty-table"` | Distinguish where signups originate — all implemented |
 | `signup` | `plan` | `"free"`, `"developers"`, `"business"` | Plan finder recommended tier when CTA is clicked (`location` must be `plan-finder`; the Enterprise tier fires `get-demo` instead) |
 | `signup-login` | `location` | `"nav-header"` | Implemented — the header-bar Signup/Login button serves all widths (the mobile drawer login/signup buttons were removed in Aug 2026); split desktop vs mobile clicks with the device dimension |
 | `github-star` | `location` | `"nav-header"`, `"tool-popup"`, `"tool-widget"` | Implemented — every GitHub star click on the site fires this one goal; split by location |
-| `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"`, `"sms-calculator"`, `"plan-finder"` | Implemented — leaves room for tagging other get-demo CTAs later |
+| `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"`, `"sms-calculator"`, `"plan-finder"`, `"data-sovereignty-table"`, `"data-sovereignty-faq"`, `"data-sovereignty-migration"`, `"data-sovereignty-footer"` | Implemented — leaves room for tagging other get-demo CTAs later |
 | `get-demo` | `plan` | `"enterprise"` | Sent only from the plan finder's Enterprise CTA (`location` = `plan-finder`) |
 | `calculator-preset` | `preset` | `"10K"`, `"100K"`, `"500K"`, `"1M"` | See which preset is most popular |
 | `pricing-plan-finder-interact` | `first_action` | `"sms"`, `"log-retention"`, `"apps"`, `"members"`, `"mau"` | Which control drew the first plan-finder interaction on that page view |
@@ -100,6 +104,7 @@ Properties unlock filtering in Plausible's dashboard and remove the need for sep
 | `pricing-plan-finder-result` | `apps`, `members` | numeric (e.g. `10` for 10+) | Effective app/member counts |
 | `pricing-plan-finder-result` | `mau` | numeric or `"unlimited"` | MAU used for recommendation, or unlimited when slider locked |
 | `contact-form-submit` | `page` | `"schedule-demo"`, `"pricing"` | Form appears on multiple pages — not yet implemented |
+| `self-host-guide-click` | `location` | `"hero"`, `"table"`, `"footer"` | Which self-host link on `/solutions/data-sovereignty` drew the click |
 
 To add a property, pass it as the second argument to `plausible()`:
 ```tsx
@@ -117,6 +122,7 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 | No page-context on `contact-form-submit` | The form is used on multiple pages (schedule-demo, pricing, etc.) — add a `page` property to distinguish |
 | Calculator interaction depth | Only preset clicks are tracked; slider changes are not — consider adding `calculator-result` event when the user sees the output |
 | `github-star` goal not registered | Sep 2026: all GitHub star clicks (nav pill, tool popup, tool widget) fire `github-star` with a `location` prop. Register it as a custom-event goal in Plausible; events are stored regardless, so history backfills once the goal exists. The retired `tool-github-click` and `tool-github-tag-click` goals keep their pre-rename history |
+| `self-host-guide-click` goal not registered | Sep 2026: added with the `/solutions/data-sovereignty` page. Register it as a custom-event goal in Plausible (events are stored regardless, so history backfills once the goal exists) |
 
 ---
 
@@ -135,6 +141,6 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 
 | Category | Count |
 |----------|-------|
-| Conversion | 10 event placements (5 distinct names) |
-| Engagement | 7 event placements (7 distinct names) |
-| **Total** | **17 event placements across 12 distinct event names** |
+| Conversion | 13 event placements (5 distinct names) |
+| Engagement | 8 event placements (8 distinct names) |
+| **Total** | **21 event placements across 13 distinct event names** |

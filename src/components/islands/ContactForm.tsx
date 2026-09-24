@@ -12,6 +12,8 @@ type Locale = 'en' | 'zh-Hant' | 'ja' | 'es' | 'de';
 interface Props {
   /** Page locale — drives user-facing copy. Payload field names stay locale-neutral. */
   locale?: string;
+  /** Override the submit button label (defaults to the locale's "Submit"). */
+  submitLabel?: string;
 }
 
 const NETLIFY_FORM_NAME = 'contact';
@@ -141,7 +143,7 @@ function getSubmissionPage(): string {
   return window.location.pathname + window.location.search;
 }
 
-export default function ContactForm({ locale = 'en' }: Props) {
+export default function ContactForm({ locale = 'en', submitLabel }: Props) {
   const l = resolveLocale(locale);
   const t = MESSAGES[l];
   const [name, setName] = useState('');
@@ -385,7 +387,7 @@ export default function ContactForm({ locale = 'en' }: Props) {
           disabled={status === 'submitting'}
           aria-busy={status === 'submitting'}
         >
-          {status === 'submitting' ? t.submitting : t.submit}
+          {status === 'submitting' ? t.submitting : (submitLabel ?? t.submit)}
           {status !== 'submitting' && (
             <svg
               xmlns="http://www.w3.org/2000/svg"

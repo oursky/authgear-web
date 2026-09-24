@@ -1,0 +1,79 @@
+<svg width="640" height="520" viewBox="0 0 640 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#391CE9"/>
+      <stop offset="1" stop-color="#31B7FF"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="320" y1="70" x2="320" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6D8BFF"/>
+      <stop offset="1" stop-color="#2A1E9E"/>
+    </linearGradient>
+    <linearGradient id="slab" x1="200" y1="0" x2="440" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="320" cy="250" r="270" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8FA0FF" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#8FA0FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="320" cy="250" r="270" fill="url(#glow)"/>
+
+  <!-- orbit -->
+  <ellipse cx="320" cy="350" rx="280" ry="118" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="6 10"/>
+
+  <!-- server stack -->
+  <g stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="2">
+    <rect x="200" y="300" width="240" height="46" rx="10" fill="url(#slab)"/>
+    <rect x="200" y="356" width="240" height="46" rx="10" fill="url(#slab)"/>
+    <rect x="200" y="412" width="240" height="46" rx="10" fill="url(#slab)"/>
+  </g>
+  <g fill="url(#accent)">
+    <circle cx="224" cy="323" r="5"/>
+    <circle cx="224" cy="379" r="5"/>
+    <circle cx="224" cy="435" r="5"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="4" stroke-linecap="round">
+    <path d="M246 323H306"/>
+    <path d="M246 379H306"/>
+    <path d="M246 435H306"/>
+    <path d="M392 323H416"/>
+    <path d="M392 379H416"/>
+    <path d="M392 435H416"/>
+  </g>
+
+  <!-- shield -->
+  <path d="M320 62L446 106V212C446 288 392 344 320 372C248 344 194 288 194 212V106L320 62Z" fill="url(#shield)" stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M320 92L420 127V212C420 274 376 320 320 344C264 320 220 274 220 212V127L320 92Z" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- lock -->
+  <path d="M298 206V186C298 172 308 162 320 162C332 162 342 172 342 186V206" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/>
+  <rect x="282" y="204" width="76" height="62" rx="12" fill="#FFFFFF"/>
+  <circle cx="320" cy="229" r="8" fill="url(#accent)"/>
+  <rect x="316" y="232" width="8" height="18" rx="4" fill="url(#accent)"/>
+
+  <!-- region pins on the orbit -->
+  <g>
+    <path d="M42 382C42 382 20 360 20 344C20 331.8 29.8 322 42 322C54.2 322 64 331.8 64 344C64 360 42 382 42 382Z" fill="#FFFFFF"/>
+    <circle cx="42" cy="344" r="7" fill="url(#accent)"/>
+  </g>
+  <g>
+    <path d="M598 382C598 382 576 360 576 344C576 331.8 585.8 322 598 322C610.2 322 620 331.8 620 344C620 360 598 382 598 382Z" fill="#FFFFFF"/>
+    <circle cx="598" cy="344" r="7" fill="url(#accent)"/>
+  </g>
+  <g>
+    <path d="M320 506C320 506 298 484 298 468C298 455.8 307.8 446 320 446C332.2 446 342 455.8 342 468C342 484 320 506 320 506Z" fill="#FFFFFF"/>
+    <circle cx="320" cy="468" r="7" fill="url(#accent)"/>
+  </g>
+
+  <!-- sparkle dots -->
+  <g fill="#FFFFFF">
+    <circle cx="118" cy="120" r="3" fill-opacity="0.7"/>
+    <circle cx="530" cy="96" r="4" fill-opacity="0.55"/>
+    <circle cx="560" cy="210" r="2.5" fill-opacity="0.6"/>
+    <circle cx="96" cy="230" r="2.5" fill-opacity="0.5"/>
+    <circle cx="150" cy="470" r="3" fill-opacity="0.45"/>
+    <circle cx="500" cy="480" r="2.5" fill-opacity="0.5"/>
+  </g>
+</svg>

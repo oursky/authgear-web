@@ -89,3 +89,53 @@ describe('JA_POST_SLUGS', () => {
     expect(localesWithPage('/post/some-untranslated-slug/')).toEqual(['en', 'zh-Hant']);
   });
 });
+
+import { existsSync } from 'node:fs';
+import { EN_ONLY_PATHS, PARTIAL_LOCALE_EXTRA_PATHS } from './i18n';
+
+describe('EN_ONLY_PATHS', () => {
+  it('each has an English route and no zh-hant route on disk', () => {
+    for (const path of EN_ONLY_PATHS) {
+      const slug = path.replace(/^\//, '').replace(/\/$/, '');
+      expect(existsSync(new URL(`../pages/${slug}.astro`, import.meta.url)), `src/pages/${slug}.astro`).toBe(true);
+      expect(existsSync(new URL(`../pages/zh-hant/${slug}.astro`, import.meta.url)), `src/pages/zh-hant/${slug}.astro`).toBe(false);
+    }
+  });
+
+  it('are linked and advertised in English only', () => {
+    for (const path of EN_ONLY_PATHS) {
+      expect(hasLocalizedPage('en', path)).toBe(true);
+      expect(hasLocalizedPage('zh-Hant', path)).toBe(false);
+      expect(hasLocalizedPage('ja', path)).toBe(false);
+      expect(localesWithPage(path)).toEqual(['en']);
+      expect(localizedPath('zh-Hant', path)).toBe(path);
+      expect(localizedPath('de', path)).toBe(path);
+    }
+    expect(localizedPath('zh-Hant', '/dpa')).toBe('/dpa/');
+    expect(localizedPath('zh-Hant', '/about')).toBe('/zh-hant/about/');
+  });
+});
+
+describe('PARTIAL_LOCALE_EXTRA_PATHS', () => {
+  it('each has a route on disk for that locale', () => {
+    for (const [loc, paths] of Object.entries(PARTIAL_LOCALE_EXTRA_PATHS)) {
+      for (const path of paths ?? []) {
+        const slug = path.replace(/^\//, '').replace(/\/$/, '');
+        expect(existsSync(new URL(`../pages/${loc}/${slug}.astro`, import.meta.url)), `src/pages/${loc}/${slug}.astro`).toBe(true);
+      }
+    }
+  });
+
+  it('advertise and link the page only for the locales that translate it', () => {
+    const path = '/solutions/data-sovereignty/';
+    expect(hasLocalizedPage('es', path)).toBe(true);
+    expect(hasLocalizedPage('de', path)).toBe(true);
+    expect(hasLocalizedPage('ja', path)).toBe(false);
+    expect(hasLocalizedPage('zh-Hant', path)).toBe(true);
+    expect(localesWithPage(path)).toEqual(['en', 'zh-Hant', 'es', 'de']);
+    expect(localizedPath('de', '/solutions/data-sovereignty')).toBe('/de/solutions/data-sovereignty/');
+    expect(localizedPath('es', '/solutions/data-sovereignty')).toBe('/es/solutions/data-sovereignty/');
+    expect(localizedPath('ja', '/solutions/data-sovereignty')).toBe('/solutions/data-sovereignty/');
+    expect(localizedPath('zh-Hant', '/solutions/data-sovereignty')).toBe('/zh-hant/solutions/data-sovereignty/');
+  });
+});
