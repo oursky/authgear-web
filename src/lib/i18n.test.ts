@@ -14,9 +14,11 @@ describe('partial locales (es, de, ja)', () => {
   it('are registered with their own URL segment', () => {
     expect(LOCALES).toContain('es');
     expect(LOCALES).toContain('de');
+    expect(LOCALES).toContain('fr');
     expect(localizedPath('es', '/')).toBe('/es/');
     expect(localizedPath('de', '/')).toBe('/de/');
     expect(localizedPath('ja', '/')).toBe('/ja/');
+    expect(localizedPath('fr', '/')).toBe('/fr/');
   });
 
   it('keep their translated pages: home, pricing, toolkit hub, every tool', () => {
@@ -68,7 +70,9 @@ describe('partial locales (es, de, ja)', () => {
     expect(localeToHtmlLang('de')).toBe('de');
     expect(resolveLocale('es-MX,es;q=0.9')).toBe('es');
     expect(resolveLocale('de-CH')).toBe('de');
-    expect(resolveLocale('fr')).toBe('en');
+    expect(resolveLocale('fr-BE,fr;q=0.9')).toBe('fr');
+    expect(localeToHtmlLang('fr')).toBe('fr');
+    expect(resolveLocale('it')).toBe('en');
   });
 });
 
@@ -132,9 +136,11 @@ describe('PARTIAL_LOCALE_EXTRA_PATHS', () => {
     expect(hasLocalizedPage('de', path)).toBe(true);
     expect(hasLocalizedPage('ja', path)).toBe(false);
     expect(hasLocalizedPage('zh-Hant', path)).toBe(true);
-    expect(localesWithPage(path)).toEqual(['en', 'zh-Hant', 'es', 'de']);
+    expect(hasLocalizedPage('fr', path)).toBe(true);
+    expect(localesWithPage(path)).toEqual(['en', 'zh-Hant', 'es', 'de', 'fr']);
     expect(localizedPath('de', '/solutions/data-sovereignty')).toBe('/de/solutions/data-sovereignty/');
     expect(localizedPath('es', '/solutions/data-sovereignty')).toBe('/es/solutions/data-sovereignty/');
+    expect(localizedPath('fr', '/solutions/data-sovereignty')).toBe('/fr/solutions/data-sovereignty/');
     expect(localizedPath('ja', '/solutions/data-sovereignty')).toBe('/solutions/data-sovereignty/');
     expect(localizedPath('zh-Hant', '/solutions/data-sovereignty')).toBe('/zh-hant/solutions/data-sovereignty/');
   });

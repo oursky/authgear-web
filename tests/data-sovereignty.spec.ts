@@ -87,6 +87,7 @@ test.describe('/solutions/data-sovereignty', () => {
     { prefix: '/zh-hant', lang: 'zh-Hant' },
     { prefix: '/de', lang: 'de' },
     { prefix: '/es', lang: 'es' },
+    { prefix: '/fr', lang: 'fr' },
   ]) {
     test(`${prefix}${PATH} is translated (lang=${lang})`, async ({ page }) => {
       const resp = await page.goto(`${prefix}${PATH}`);
@@ -102,7 +103,7 @@ test.describe('/solutions/data-sovereignty', () => {
     const langs = (await page.locator('link[rel="alternate"][hreflang]').evaluateAll((els) =>
       els.map((el) => el.getAttribute('hreflang')),
     )).sort();
-    expect(langs).toEqual(['de', 'en', 'es', 'x-default', 'zh-Hant']);
+    expect(langs).toEqual(['de', 'en', 'es', 'fr', 'x-default', 'zh-Hant']);
   });
 
   test('/ja/ falls back to the English page', async ({ request }) => {

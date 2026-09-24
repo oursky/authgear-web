@@ -7,7 +7,7 @@ import { trackEvent } from '@/lib/plausible';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-type Locale = 'en' | 'zh-Hant' | 'ja' | 'es' | 'de';
+type Locale = 'en' | 'zh-Hant' | 'ja' | 'es' | 'de' | 'fr';
 
 interface Props {
   /** Page locale — drives user-facing copy. Payload field names stay locale-neutral. */
@@ -126,6 +126,25 @@ const MESSAGES = {
     submitting: 'Wird gesendet…',
     successTitle: 'Vielen Dank! Ihre Anfrage ist eingegangen.',
     successBody: 'Wir melden uns in Kürze bei Ihnen.',
+  },
+  fr: {
+    labelFullName: 'Nom complet',
+    labelWorkEmail: 'E-mail professionnel',
+    labelPhoneNumber: 'Numéro de téléphone',
+    labelCompanyName: 'Entreprise',
+    labelHowHear: 'Comment avez-vous entendu parler de nous ?',
+    labelAnythingElse: 'Autre chose ?',
+    useCasePlaceholder: 'Parlez-nous de votre projet, de vos besoins et de votre calendrier',
+    howHearSelectOne: 'Sélectionnez une option',
+    howHearSearch: 'Moteur de recherche',
+    howHearLLM: 'Outils IA (ChatGPT, Gemini, etc.)',
+    howHearGitHub: 'GitHub',
+    howHearOther: 'Autre',
+    submitError: "Oups ! Une erreur est survenue lors de l'envoi du formulaire.",
+    submit: 'Envoyer',
+    submitting: 'Envoi en cours…',
+    successTitle: 'Merci ! Nous avons bien reçu votre demande.',
+    successBody: 'Nous vous recontacterons très bientôt.',
   },
 } as const satisfies Record<Locale, Record<string, string>>;
 

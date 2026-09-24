@@ -1,12 +1,14 @@
 import { test, expect } from '@playwright/test';
 
-// Market-test locales: only the home page, /pricing, /auth-toolkit and
-// /tools/* are translated. Every other path under the prefix falls back to
+// Market-test locales (es, de, ja, fr): only the home page, /pricing,
+// /auth-toolkit, /schedule-demo and /tools/* are translated (plus
+// /solutions/data-sovereignty for es, de and fr). Every other path under the prefix falls back to
 // the English page via a non-forced redirect in public/_redirects.
 const PARTIAL = [
   { prefix: '/es', lang: 'es' },
   { prefix: '/de', lang: 'de' },
   { prefix: '/ja', lang: 'ja' },
+  { prefix: '/fr', lang: 'fr' },
 ] as const;
 
 const TRANSLATED_PATHS = ['/', '/pricing/', '/auth-toolkit/', '/schedule-demo/', '/tools/oidc-discovery-endpoint/'];
@@ -29,7 +31,7 @@ for (const { prefix, lang } of PARTIAL) {
 
     test(`${prefix}/pricing/ lists every locale in hreflang`, async ({ page }) => {
       await page.goto(`${prefix}/pricing/`);
-      expect(await hreflangs(page)).toEqual(['de', 'en', 'es', 'ja', 'x-default', 'zh-Hant']);
+      expect(await hreflangs(page)).toEqual(['de', 'en', 'es', 'fr', 'ja', 'x-default', 'zh-Hant']);
     });
 
     test(`${prefix}/about/ falls back to the English page`, async ({ request }) => {
@@ -71,7 +73,7 @@ test('localized contact forms submit the same payload shape as English', async (
   await page.goto('/schedule-demo/');
   const english = await formSignature(page);
   expect(english.names).toContain('Name');
-  for (const prefix of ['/es', '/de', '/ja']) {
+  for (const prefix of ['/es', '/de', '/ja', '/fr']) {
     await page.goto(`${prefix}/schedule-demo/`);
     expect(await formSignature(page)).toEqual(english);
   }
