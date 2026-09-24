@@ -1,13 +1,14 @@
 import styles from './LogoMarquee.module.css';
 
 const DEFAULT_CUSTOMER_LOGOS = [
+  { src: '/images/demo_customer-logo-Bupa2x.png', alt: 'Bupa' },
   { src: '/images/logo-CIMIC2x.png', alt: 'CIMIC' },
-  { src: '/images/logo-HKL2x.png', alt: 'HKL' },
-  { src: '/images/logo-hkpc2x.png', alt: 'HKPC' },
-  { src: '/images/logo-K112x.png', alt: 'K11' },
   { src: '/images/logo-MTR2x.png', alt: 'MTR' },
-  { src: '/images/logo-outback2x.png', alt: 'Outback' },
+  { src: '/images/logo-HKL2x.png', alt: 'HKL' },
+  { src: '/images/logo-K112x.png', alt: 'K11' },
+  { src: '/images/logo-hkpc2x.png', alt: 'HKPC' },
   { src: '/images/logo-cornerstone2x.png', alt: 'Cornerstone' },
+  { src: '/images/logo-outback2x.png', alt: 'Outback' },
   { src: '/images/logo-place2x.png', alt: 'PLACE' },
 ] as const;
 

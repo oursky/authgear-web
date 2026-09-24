@@ -17,6 +17,7 @@ metrics:
   - num: "80%"
     text: "reduction in password recovery requests"
 publishedAt: 2025-11-28T18:51:18.660Z
+order: 1
 ---
 
 Bupa replaced Azure AD B2C with Authgear to enable Face/Touch ID for infrequent users—cutting password resets, lowering support costs, and improving satisfaction, with a platform ready for future authentication needs.
