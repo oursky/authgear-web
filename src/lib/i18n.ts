@@ -28,7 +28,8 @@ export function localeUrlSegment(locale: string): string {
  * page, the auth-toolkit hub, the schedule-demo page and every `/tools/*` page are translated; every
  * other path falls back to the English page. Links from their pages point at
  * unprefixed URLs for those paths, and `public/_redirects` sends stray prefixed
- * URLs there too. `ja` additionally has translated blog posts under `/ja/post/`.
+ * URLs there too. `ja` and `de` additionally have a few translated blog posts
+ * under `/<locale>/post/` (`PARTIAL_LOCALE_POST_SLUGS`).
  * URL slugs are never translated: `/es/pricing/`, not `/es/precios/`.
  */
 export const PARTIAL_LOCALES: readonly Locale[] = ['ja', 'es', 'de', 'fr'];
@@ -63,20 +64,25 @@ function withTrailingSlash(pathname: string): string {
 }
 
 /**
- * Blog posts that have a Japanese translation under `/ja/post/`. Keep in sync
- * with `src/content/blog-posts/ja/`; `i18n.test.ts` fails when they drift.
+ * Blog posts translated for a partial locale, served at `/<locale>/post/<slug>/`
+ * by `src/pages/<locale>/post/[slug].astro` under the same slug as the English
+ * post. Keep each list in sync with `src/content/blog-posts/<locale>/`;
+ * `i18n.test.ts` fails when they drift.
  */
-export const JA_POST_SLUGS: readonly string[] = [
-  'how-to-implement-passkeys-developer-guide',
-  'passwordless-authentication-magic-links-passkeys-otp',
-  'sms-otp-vs-whatsapp-otp',
-  'two-factor-authentication-cost',
-  'whatsapp-api-pricing',
-];
+export const PARTIAL_LOCALE_POST_SLUGS: Partial<Record<Locale, readonly string[]>> = {
+  ja: [
+    'how-to-implement-passkeys-developer-guide',
+    'passwordless-authentication-magic-links-passkeys-otp',
+    'sms-otp-vs-whatsapp-otp',
+    'two-factor-authentication-cost',
+    'whatsapp-api-pricing',
+  ],
+  de: ['best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik'],
+};
 
-function isJaPostPath(pathname: string): boolean {
+function isTranslatedPostPath(locale: string, pathname: string): boolean {
   const match = withTrailingSlash(pathname).match(/^\/post\/([^/]+)\/$/);
-  return match !== null && JA_POST_SLUGS.includes(match[1]);
+  return match !== null && (PARTIAL_LOCALE_POST_SLUGS[locale as Locale]?.includes(match[1]) ?? false);
 }
 
 /** Is this locale-neutral pathname one that every partial locale has translated? */
@@ -95,7 +101,7 @@ export function hasLocalizedPage(locale: string, pathname: string): boolean {
   if (!PARTIAL_LOCALES.includes(locale as Locale)) return !NO_ZH_HANT_PATHS.includes(path);
   if (isPartialLocalePath(pathname)) return true;
   if (PARTIAL_LOCALE_EXTRA_PATHS[locale as Locale]?.includes(path)) return true;
-  if (locale === 'ja' && isJaPostPath(pathname)) return true;
+  if (isTranslatedPostPath(locale, pathname)) return true;
   return false;
 }
 
