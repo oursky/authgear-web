@@ -77,20 +77,38 @@ describe('partial locales (es, de, ja)', () => {
 });
 
 import { readdirSync } from 'node:fs';
-import { JA_POST_SLUGS } from './i18n';
+import { PARTIAL_LOCALE_POST_SLUGS } from './i18n';
 
-describe('JA_POST_SLUGS', () => {
-  it('matches the Japanese blog posts on disk', () => {
-    const onDisk = readdirSync(new URL('../content/blog-posts/ja/', import.meta.url), { withFileTypes: true })
-      .filter((entry) => entry.isDirectory())
-      .map((entry) => entry.name)
-      .sort();
-    expect([...JA_POST_SLUGS].sort()).toEqual(onDisk);
+const DE_POST = '/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik';
+
+describe('PARTIAL_LOCALE_POST_SLUGS', () => {
+  it('covers ja and de', () => {
+    expect(Object.keys(PARTIAL_LOCALE_POST_SLUGS).sort()).toEqual(['de', 'ja']);
   });
 
-  it('only advertises ja on translated posts', () => {
+  it('matches the translated blog posts on disk, each locale with a post route', () => {
+    for (const [loc, slugs] of Object.entries(PARTIAL_LOCALE_POST_SLUGS)) {
+      const onDisk = readdirSync(new URL(`../content/blog-posts/${loc}/`, import.meta.url), { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => entry.name)
+        .sort();
+      expect([...(slugs ?? [])].sort(), loc).toEqual(onDisk);
+      expect(existsSync(new URL(`../pages/${loc}/post/[slug].astro`, import.meta.url)), `src/pages/${loc}/post/[slug].astro`).toBe(true);
+    }
+  });
+
+  it('only advertises a partial locale on the posts it translates', () => {
     expect(localesWithPage('/post/sms-otp-vs-whatsapp-otp/')).toEqual(['en', 'zh-Hant', 'ja']);
+    expect(localesWithPage(`${DE_POST}/`)).toEqual(['en', 'zh-Hant', 'de']);
     expect(localesWithPage('/post/some-untranslated-slug/')).toEqual(['en', 'zh-Hant']);
+  });
+
+  it('links German readers to the German post and everyone else to the English one', () => {
+    expect(localizedPath('de', DE_POST)).toBe(`/de${DE_POST}/`);
+    expect(localizedPath('ja', DE_POST)).toBe(`${DE_POST}/`);
+    expect(localizedPath('fr', DE_POST)).toBe(`${DE_POST}/`);
+    expect(localizedPath('zh-Hant', DE_POST)).toBe(`/zh-hant${DE_POST}/`);
+    expect(localizedPath('de', '/post/sms-otp-vs-whatsapp-otp')).toBe('/post/sms-otp-vs-whatsapp-otp/');
   });
 });
 

@@ -1,171 +1,208 @@
 ---
-title: "Best Self-Hosted SSO Platforms Compared: Authgear vs Keycloak vs Authentik"
-excerpt: "Compare the top self-hosted SSO platforms in 2026. Learn how Authgear, Keycloak, and Authentik differ in features, deployment options, and enterprise readiness."
+title: "Authentik vs Keycloak (and Authgear): Self-Hosted SSO Compared"
+excerpt: "Authentik or Keycloak? A fair, up-to-date comparison of the two most popular self-hosted identity providers, with Authgear as a third option, plus what each means for data sovereignty."
 coverImage: ./cover.webp
 category: industry
 featured: false
-metaTitle: "Best Self-Hosted SSO Platforms Compared: Authgear vs Keycloak vs Authentik"
-metaDescription: "Compare the top self-hosted SSO platforms in 2026. Learn how Authgear, Keycloak, and Authentik differ in features, deployment options, and enterprise readiness."
+readTime: 10
+metaTitle: "Authentik vs Keycloak vs Authgear: Self-Hosted SSO (2026)"
+metaDescription: "Authentik vs Keycloak in 2026: licences, passkeys, MFA, customisation, support and data sovereignty compared, with Authgear as a third self-hosted SSO option."
 publishedAt: 2026-02-11T08:47:19.221Z
-updatedAt: 2026-03-04T12:42:13.525Z
+updatedAt: 2026-09-25T00:00:00.000Z
 draft: false
+faq:
+  - q: "Is Authentik better than Keycloak?"
+    a: "Neither is better across the board. Authentik is usually quicker to set up and easier to shape with its visual flow editor, and it can act as an LDAP, RADIUS or proxy provider for older apps. Keycloak is the more mature choice for large enterprises, with deep LDAP and Active Directory federation, identity brokering and a CNCF-governed community."
+  - q: "Is Keycloak free?"
+    a: "Yes. Keycloak is open source under the Apache-2.0 licence and free to run. Paid, supported builds come from Red Hat as part of its subscriptions, and several third parties sell hosted Keycloak."
+  - q: "Is Authentik free?"
+    a: "The core of Authentik is open source under the MIT licence and free to self-host. Some features, such as the Google Workspace and Microsoft Entra ID providers and privileged access management, need an Enterprise licence, which is priced per user."
+  - q: "What is a lightweight alternative to Keycloak?"
+    a: "Authentik is the alternative people mention most, and since version 2025.10 it needs only PostgreSQL, with no Redis. Authgear is another option if you want passkeys, magic links and SMS or WhatsApp OTP built in, and the choice between self-hosting and a managed service."
+  - q: "Does Keycloak support passkeys?"
+    a: "Yes. Keycloak supports passkeys and WebAuthn, and since version 26.3 passkeys can be switched on in the default login forms."
+  - q: "Can I move from Keycloak to Authgear without resetting passwords?"
+    a: "Yes. You can import your Keycloak users with their passwords."
+  - q: "Is self-hosted SSO better for GDPR and data sovereignty?"
+    a: "Self-hosting lets you decide where user data is stored and who can reach it, which makes GDPR and data residency questions easier to answer. It doesn't make you compliant on its own. You still need the right agreements, security controls and processes."
 ---
 
-Organizations increasingly need self-hosted single sign-on (SSO) platforms to maintain control over identity data, reduce costs, and meet compliance requirements. Choosing the right self-hosted identity provider impacts security, user experience, and long-term operational costs.
+Authentik and Keycloak are the two open-source identity providers most teams shortlist when they want single sign-on (SSO) on their own servers. Both are good. They suit different teams.
 
-This guide compares three leading self-hosted SSO platforms - Authgear, Keycloak, and Authentik to help you select the best solution for your organization.
+This guide gives you the short answer first, then the detail: licences, login methods, customisation, support, and what each means for data sovereignty. We also cover Authgear, the open-source identity platform we build, as a third option. We've tried to be fair to all three and to say where each one wins.
 
-## Why Choose a Self-Hosted SSO Platform?
+## Authentik vs Keycloak: the short answer
 
-Self-hosted SSO platforms offer distinct advantages over cloud-only identity services:
+- **Choose Keycloak** if you're a larger organisation with existing LDAP or Active Directory, complex federation needs, and a team that's comfortable with Java.
+- **Choose Authentik** if you want a quicker start, a visual flow editor, and one tool that can also act as an LDAP, RADIUS or proxy provider for older internal apps.
+- **Consider Authgear** if you're building customer-facing or frontline apps and want passkeys, magic links and SMS or WhatsApp OTP built in, with the choice of self-hosting or having us run it.
 
-**Data sovereignty**: User credentials, session data, and authentication logs remain on your infrastructure. No third-party provider accesses your identity data.
+| | Keycloak | Authentik | Authgear |
+|---|---|---|---|
+| **Licence** | Apache-2.0 | MIT core; enterprise features under a separate licence | Apache-2.0 |
+| **Current release** | 26.x | 2026.8 | Rolling releases |
+| **Written in** | Java (Quarkus) | Python, with Go outposts | Go |
+| **Protocols** | OIDC, OAuth 2.0, SAML 2.0 | OIDC, OAuth 2.0, SAML 2.0, plus LDAP, RADIUS, SCIM, Kerberos and proxy providers | OIDC, OAuth 2.0, SAML 2.0 |
+| **Passkeys** | Yes (in default login forms since 26.3) | Yes (WebAuthn / FIDO2 stage) | Yes |
+| **SMS OTP** | Community extensions | Built in (Twilio or a generic HTTP provider) | Built in |
+| **WhatsApp OTP** | No | No | Built in |
+| **Magic links** | Community extensions | Via a passwordless email-link flow | Built in |
+| **LDAP / Active Directory** | Built-in federation | Built-in sources, and can act as an LDAP server | Supported |
+| **Login page customisation** | FreeMarker themes, packaged as JARs | Flows, stages and CSS | Branding editor plus full CSS and HTML |
+| **Paid support** | Red Hat build of Keycloak | Enterprise, from $5 per internal user a month | Enterprise |
+| **Managed service from the maker** | No (third parties only) | No | Yes, plus private cloud |
+| **Company behind it** | CNCF project, led by Red Hat (US) | Authentik Security Inc. (US) | Skymakers Digital Limited (UK) |
 
-**Cost predictability**: No per-user pricing surprises. Your costs don't scale with your user base.
+Prices and features checked against each project's own docs in September 2026.
 
-**Full control**: You decide when to update, how to configure, and where to deploy.
+## Why teams self-host their identity provider
 
-**Compliance flexibility**: For regulated industries, self-hosting simplifies compliance since you control the entire authentication stack.
+Your identity provider holds your users' email addresses, phone numbers, password hashes and login history. Self-hosting it means:
 
-## Feature Comparison
+- **You choose where that data sits.** It lives in your data centre or your cloud account, in the country you pick.
+- **You choose whose law applies.** If no outside vendor holds the data, no outside vendor can be asked to hand it over.
+- **Costs follow your infrastructure, not your user count.** There's no per-user bill from a SaaS provider (though some paid editions still price per user).
+- **You control upgrades.** You decide when to patch and when to move to a new version.
 
-**Authgear** is a modern, open-source identity platform supporting OIDC, OAuth 2.0, and SAML protocols. MFA options include SMS OTP, WhatsApp OTP, email-based login, TOTP with recovery codes, passkeys (FIDO2), and biometrics. It offers both self-hosted and managed deployment options with a pre-built UI that saves teams from maintaining custom authentication forms. Built-in security includes account lockout, bot detection, and rate limiting.
+The trade-off is that you run it. Patching, backups, scaling and on-call are your job.
 
-**Keycloak** supports OIDC, OAuth 2.0, and SAML 2.0 protocols with multi-factor authentication and role-based access control. Phone-based authentication requires additional configuration. It offers native LDAP and Active Directory integration, identity brokering, and multi-tenant support through realms. The admin UI is functional but not modern. Developed by Red Hat, it is widely used in enterprise environments.
+## Data sovereignty: how the three compare
 
-**Authentik** supports OIDC, OAuth 2.0, and SAML 2.0 protocols with multi-factor authentication. Its flow-based approach makes authentication customization accessible without deep technical expertise. The admin UI is modern with a visual flow builder. Kubernetes-friendly deployment with commercial support available.
+Self-hosting any of these three puts user data wherever you run it. The differences show up when you want help: a supported build, a hosted service, or someone to call at 3am.
 
-## Authgear
+- **Keycloak.** The open-source project doesn't offer a managed service. Supported builds come from Red Hat, a US company owned by IBM, as part of its subscriptions, and you still run them yourself. If you want Keycloak hosted, you use a third party, and several are based in Europe.
+- **Authentik.** Authentik Security Inc. is a US company. It doesn't currently offer a hosted version, so you always run Authentik yourself. The Enterprise licence adds features and support, not hosting.
+- **Authgear.** You can self-host it, use Authgear Cloud, or have us run a private cloud for you in any region you choose. Authgear is built by Skymakers Digital Limited, registered in the UK. Authgear Cloud runs in the US and Hong Kong today, and an EU region is coming soon.
 
-Authgear is a fully open-source identity platform designed for organizations that need comprehensive authentication without complex setup.
-
-### Key Capabilities
-
-- **Modern authentication**: Native support for passkeys (FIDO2/WebAuthn), biometric login, and passwordless flows
-- **Pre-built UI**: Ready-to-use authentication forms that save development time
-- **Comprehensive MFA**: SMS OTP, WhatsApp OTP, email-based login, TOTP with recovery codes, passkeys, and biometric login
-- **Built-in security**: Account lockout, bot detection, and rate limiting included by default
-- **Flexible deployment**: Both self-hosted and managed cloud options available
-
-### Best For
-
-Frontline staff, partners, contractors, and customer-facing apps. SaaS platforms requiring secure, fast login at scale. Organizations avoiding corporate IAM sprawl and unpredictable MAU costs.
+For a longer look at where identity data lives and whose law reaches it, see [data sovereignty for identity](/solutions/data-sovereignty).
 
 ## Keycloak
 
-Keycloak is one of the most mature open-source identity and access management platforms. Developed by Red Hat, it is widely used in enterprise environments.
+Keycloak is the most established open-source identity and access management server. It became a CNCF Incubating project in 2023, and Red Hat remains its main contributor.
 
-### Key Capabilities
+### Where Keycloak wins
 
-- Comprehensive feature set covering SSO, identity brokering, and user federation
-- Native LDAP support and AD user federation
-- Strong community with extensive documentation
-- Red Hat backing provides enterprise credibility
+- **Enterprise federation.** Built-in LDAP, Active Directory and Kerberos user federation, plus identity brokering to other SAML and OIDC providers.
+- **Maturity.** Years of production use at large organisations, lots of documentation, and a big community.
+- **Multi-tenancy.** Realms keep tenants apart, and Organisations add B2B tenancy within a realm.
+- **Modern login where it counts.** Passkeys are supported and can be switched on in the default login forms since 26.3, alongside TOTP and recovery codes.
+- **Vendor-neutral governance** under the CNCF, with an Apache-2.0 licence.
 
-### Considerations
+### What to plan for
 
-- Requires infrastructure management
-- Customization often requires Java knowledge
-- User interface is functional but not modern
+- **Login pages are FreeMarker themes.** Production themes are packaged as JARs, and the upgrade guide tells you to re-test custom themes after each upgrade.
+- **Some login methods need extensions.** SMS OTP, email OTP and magic links aren't built in. Community extensions fill the gap, but you maintain them.
+- **Custom logic means Java.** Service Provider Interfaces (SPIs) are powerful, but they're Java code you build, test and redeploy.
+- **No official mobile SDK.** Keycloak recommends the AppAuth libraries for iOS and Android.
 
-### Best For
+### Best for
 
-Large enterprises with dedicated infrastructure teams, complex federation requirements, and existing directory infrastructure.
+Large organisations with existing directories, complex federation requirements, and a platform team that can own a Java service.
 
 ## Authentik
 
-Authentik is a modern, policy-driven open-source identity provider that emphasizes usability and flexibility.
+Authentik is a newer open-source identity provider built around flows: you chain stages (identification, password, MFA, consent and so on) in a visual editor to shape each login journey.
 
-### Key Capabilities
+### Where Authentik wins
 
-- Visual flow builder for authentication customization
-- Modern, intuitive admin interface
-- Kubernetes-friendly deployment
-- Active development with regular releases
+- **Quick to start.** Docker Compose or Helm, and since 2025.10 PostgreSQL is the only datastore it needs (Redis is gone).
+- **Flows you can see.** The flow and stage model makes it easy to build and follow custom login and enrolment journeys.
+- **One tool for many protocols.** Besides OIDC and SAML, Authentik can act as an LDAP server, a RADIUS server, a SCIM provider, and a proxy that adds SSO to apps that have none.
+- **MFA built in.** Passkeys (WebAuthn), TOTP, static codes, Duo, SMS (Twilio or a generic HTTP provider) and email codes are all stages you can drop in.
+- **Active development.** Regular releases; 2026.8 added privileged access management, agent accounts, account switching and scheduled offboarding.
 
-### Considerations
+### What to plan for
 
-- Smaller ecosystem compared to Keycloak
-- Fewer enterprise case studies
+- **Some features need Enterprise.** Google Workspace and Microsoft Entra ID providers, mTLS, device trust, privileged access management and enhanced audit logging need a paid licence ($5 per internal user a month, $0.02 per external user a month).
+- **Smaller ecosystem than Keycloak.** Fewer large-enterprise case studies and third-party guides.
+- **No WhatsApp OTP.**
+- **No hosted option from the vendor**, so you always run it.
 
-### Best For
+### Best for
 
-SaaS teams that require modern authentication flows and self-hosting support for enterprise clients. Strong choice for Kubernetes-centric deployments.
+Small and mid-sized teams, internal tools and homelabs through to company-wide SSO, especially where older apps need LDAP, RADIUS or proxy-based login.
 
-## Which Platform Should You Choose?
+## Authgear
 
-### Choose Authgear if:
+Authgear is an open-source identity platform for customer-facing and frontline apps. It's licensed under Apache-2.0, the same licence as Keycloak.
 
-- You need modern authentication (passkeys, biometrics) with minimal setup
-- Both cloud and self-hosted deployment options matter
-- Frontline workforce authentication is your use case
-- You prefer pre-built UI over maintaining custom login forms
+### Where Authgear wins
 
-### Choose Keycloak if:
+- **Modern login built in.** Passkeys, biometric login in native apps through the iOS and Android SDKs, magic links, SMS OTP and WhatsApp OTP. You turn them on in the portal rather than adding extensions.
+- **Login pages without templates.** A branding editor for logo, colours and themes, plus full CSS and HTML customisation on every plan, including self-hosted.
+- **The same product wherever it runs.** The self-hosted version has every Authgear Cloud feature. Run it yourself with our Helm chart, use Authgear Cloud, or have us run a private cloud for you in any region.
+- **LDAP and Active Directory** are supported for teams with existing directories.
+- **Security included.** MFA, account lockout, bot protection and rate limiting come as standard.
+- **Support when you need it.** Paid support for self-hosted Authgear is part of Enterprise.
 
-- You need comprehensive identity federation across many systems
-- Your organization has existing AD/LDAP infrastructure
-- You have dedicated identity management staff
-- Enterprise support through Red Hat is valuable
+### What to plan for
 
-### Choose Authentik if:
+- **Self-hosters bring their own messaging providers.** Magic links, SMS OTP and WhatsApp OTP work on self-hosted Authgear once you connect your own email, SMS or WhatsApp provider.
+- **Younger than Keycloak** and with a smaller community than either Keycloak or Authentik.
+- **Built for customer and frontline login first.** For deep workforce federation across many enterprise directories, Keycloak has more history.
 
-- Visual flow configuration appeals to your team
-- Kubernetes-friendly deployment is needed
-- You want a modern admin experience
+### Best for
 
-## Recommendations by Use Case
+SaaS and consumer apps, frontline staff without corporate email, and teams that want modern login methods without maintaining themes and extensions.
 
-- **Modern auth (passkeys, biometrics)**: Authgear
-- **Frontline workforce without corporate email**: Authgear
-- **Mid-sized company seeking simplicity**: Authgear
-- **Enterprise with existing AD/LDAP**: Keycloak
-- **Kubernetes-native organization**: Authentik
+## Recommendations by use case
 
-## Migration Considerations
+- **Enterprise with existing AD/LDAP and complex federation:** Keycloak
+- **Adding SSO to older apps through LDAP, RADIUS or a proxy:** Authentik
+- **Visual, flow-based login journeys:** Authentik
+- **Customer-facing apps with passkeys, magic links and WhatsApp OTP:** Authgear
+- **Frontline workforce without corporate email:** Authgear
+- **Self-hosted today, managed later (or the reverse):** Authgear
+- **Vendor-neutral, foundation-governed project:** Keycloak
 
-All three platforms support standard protocols (OIDC, SAML), which helps with compatibility when switching identity providers. However, the migration effort depends on how deeply platform-specific features are embedded in your application. Each application must be reconfigured with new client IDs, redirect URIs, and token validation logic. User data migration involves exporting records, mapping attributes to the new provider's schema, and reviewing differences in password hashing algorithms  - and in some cases, users may need to reset their passwords during the transition.
+## Moving between them
 
-## Bottom Line
+All three speak OIDC and SAML, so your applications mostly need new client IDs, redirect URIs and issuer settings rather than new code.
 
-Selecting a self-hosted SSO platform depends on your specific requirements, team capabilities, and infrastructure.
+User data is the harder part. You export users, map their attributes, and deal with password hashes. Keycloak uses Argon2 by default since version 25, so check that your new provider can import those hashes, or some users will have to reset their passwords.
 
-**Authgear** offers modern authentication features, pre-built UI, and both cloud and self-hosted options -ideal for organizations wanting comprehensive SSO without complexity.
+If you're moving from Keycloak to Authgear, you can import your Keycloak users with their passwords. See our [Keycloak alternative](/compare/keycloak-alternative) page for how the two compare side by side.
 
-**Keycloak** provides the most battle-tested solution with maximum enterprise features for organizations with dedicated identity teams.
+## Bottom line
 
-**Authentik** delivers modern UX with visual configuration for Kubernetes-centric organizations.
+- **Keycloak** is the safe, mature choice for large enterprises with directories to federate and a team to run it.
+- **Authentik** is the friendlier start for small and mid-sized teams, and a good all-rounder for older internal apps.
+- **Authgear** fits customer-facing and frontline apps that need modern login methods, with the freedom to self-host or have it run for you.
 
-**Ready to evaluate Authgear for your SSO needs?** [Schedule a demo](/schedule-demo) to discuss your specific requirements.
+Want to see how Authgear would fit your setup? [Schedule a demo](/schedule-demo).
 
-## Self-Hosted SSO for Specific Deployment Scenarios
+## Further reading
 
-### Replacing Cloud-Only Identity Services
+- [How to implement passkeys: a developer guide](/post/how-to-implement-passkeys-developer-guide)
+- [OIDC vs SAML](/post/oidc-vs-saml)
+- [UK data sovereignty for login and identity](/post/uk-data-sovereignty-login-identity)
 
-Organizations that started with cloud-only identity providers (Auth0, Firebase Auth, Cognito) often face data residency requirements, cost scaling issues, or compliance gaps as they grow. Auth0 pricing is tied to monthly active users and can increase rapidly and become unpredictable for SaaS platforms with large user bases. Open-source solutions like Authgear allow self-hosting, giving organizations control over data residency and infrastructure compliance - with predictable costs without MAU pricing. Authgear supports OAuth 2.0, OpenID Connect, and SAML, covering the standard protocols required for enterprise SSO compatibility.
+## Frequently Asked Questions
 
-### Hybrid On-Premises and Cloud Deployments
+### Is Authentik better than Keycloak?
 
-Many organizations run development and staging on managed cloud while keeping production identity on-premise for compliance reasons. Authgear supports both self-hosted and managed deployment options, allowing teams to choose the deployment model that meets their compliance requirements.
+Neither is better across the board. Authentik is usually quicker to set up and easier to shape with its visual flow editor, and it can act as an LDAP, RADIUS or proxy provider for older apps. Keycloak is the more mature choice for large enterprises, with deep LDAP and Active Directory federation, identity brokering and a CNCF-governed community.
 
-### Compliance-Sensitive Internal Systems
+### Is Keycloak free?
 
-Internal systems in regulated industries - finance, healthcare, government contractors - need identity infrastructure that supports audit and compliance requirements. Authgear provides audit logs and open-source self-hosting, allowing teams to implement and audit policies directly without relying on external vendors. For MFA on internal systems, TOTP authenticator apps and passkeys (FIDO2/WebAuthn) are available. For sensitive operations, WebAuthn/passkeys are preferable as the default step-up over SMS, which remains suitable for low-risk contexts.
+Yes. Keycloak is open source under the Apache-2.0 licence and free to run. Paid, supported builds come from Red Hat as part of its subscriptions, and several third parties sell hosted Keycloak.
 
-### Web and Mobile Applications with 2FA and Passkeys
+### Is Authentik free?
 
-Modern application stacks span web and mobile. Authgear supports passwordless authentication with passkeys (FIDO2/WebAuthn) and biometric login, alongside SMS OTP, WhatsApp OTP, and email-based login - covering the authentication methods required for both web and mobile application stacks. Both self-hosted and managed deployment options are available.
+The core of Authentik is open source under the MIT licence and free to self-host. Some features, such as the Google Workspace and Microsoft Entra ID providers and privileged access management, need an Enterprise licence, which is priced per user.
 
-## FAQs
+### What is a lightweight alternative to Keycloak?
 
-### What makes Authgear different from other self-hosted options?
+Authentik is the alternative people mention most, and since version 2025.10 it needs only PostgreSQL, with no Redis. Authgear is another option if you want passkeys, magic links and SMS or WhatsApp OTP built in, and the choice between self-hosting and a managed service.
 
-Authgear offers both managed cloud and self-hosted deployment options. It focuses on modern authentication methods like passkeys and biometrics, with a pre-built UI that reduces development and maintenance burden.
+### Does Keycloak support passkeys?
 
-### Can I migrate from one platform to another?
+Yes. Keycloak supports passkeys and WebAuthn, and since version 26.3 passkeys can be switched on in the default login forms.
 
-Yes. All three support standard protocols (OIDC, SAML), which helps with compatibility. Applications will need to be reconfigured with new client IDs, redirect URIs, and token validation logic. User data migration involves exporting records and mapping attributes to the new provider's schema, and differences in password hashing may require some users to reset their passwords.
+### Can I move from Keycloak to Authgear without resetting passwords?
 
-### Is self-hosted SSO worth the operational overhead?
+Yes. You can import your Keycloak users with their passwords.
 
-For organizations prioritizing data sovereignty, cost predictability, or compliance requirements -yes. For teams without infrastructure experience, managed cloud solutions may be simpler. Authgear offers both options.
+### Is self-hosted SSO better for GDPR and data sovereignty?
+
+Self-hosting lets you decide where user data is stored and who can reach it, which makes GDPR and data residency questions easier to answer. It doesn't make you compliant on its own. You still need the right agreements, security controls and processes.
