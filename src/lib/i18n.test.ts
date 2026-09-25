@@ -120,18 +120,18 @@ describe('NO_ZH_HANT_PATHS', () => {
     expect(localizedPath('zh-Hant', '/about')).toBe('/zh-hant/about/');
   });
 
-  it('legal pages are English only; the Keycloak page adds de and fr', () => {
+  it('legal pages are English only; the Keycloak page adds es, de and fr', () => {
     for (const path of ['/dpa/', '/sub-processors/']) {
       expect(localesWithPage(path)).toEqual(['en']);
       expect(localizedPath('de', path)).toBe(path);
     }
     const keycloak = '/compare/keycloak-alternative/';
-    expect(localesWithPage(keycloak)).toEqual(['en', 'de', 'fr']);
-    expect(hasLocalizedPage('es', keycloak)).toBe(false);
+    expect(localesWithPage(keycloak)).toEqual(['en', 'es', 'de', 'fr']);
+    expect(hasLocalizedPage('es', keycloak)).toBe(true);
     expect(hasLocalizedPage('ja', keycloak)).toBe(false);
     expect(localizedPath('de', '/compare/keycloak-alternative')).toBe('/de/compare/keycloak-alternative/');
     expect(localizedPath('fr', '/compare/keycloak-alternative')).toBe('/fr/compare/keycloak-alternative/');
-    expect(localizedPath('es', '/compare/keycloak-alternative')).toBe('/compare/keycloak-alternative/');
+    expect(localizedPath('es', '/compare/keycloak-alternative')).toBe('/es/compare/keycloak-alternative/');
     expect(localizedPath('zh-Hant', '/compare/keycloak-alternative')).toBe('/compare/keycloak-alternative/');
   });
 });

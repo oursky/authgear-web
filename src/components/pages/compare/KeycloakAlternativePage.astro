@@ -223,20 +223,18 @@ const faqItems = [1, 2, 3, 4, 5, 6].map((i) => ({ q: tK(`faq${i}Q`), a: tK(`faq$
     </div>
   </div>
 
-  <section class="ds-section ds-bg-white">
+  {/* Light band between the white table and the dark migration band, so two
+      successive sections never share the same treatment. */}
+  <section class="ds-section ds-bg-light-blue" data-sovereignty-block>
     <div class="ds-container">
-      <div class="ds-feature-callout" data-sovereignty-callout>
-        <div class="ds-feature-callout__title">
-          <h2 class="heading-on-dark">{tK('sovereigntyTitle')}</h2>
-        </div>
-        <div class="ds-feature-callout__body">
-          <p class="section-lede-on-dark">{tK('sovereigntyDescription')}</p>
-          <div class="ds-feature-callout__ctas">
-            <a href={localizedPath(locale, '/solutions/data-sovereignty')} class="ds-btn ds-btn-outline-light">
-              {tK('sovereigntyLink')}
-            </a>
-          </div>
-        </div>
+      <div class="title-content">
+        <h2 class="heading-on-light">{tK('sovereigntyTitle')}</h2>
+        <p class="section-lede-on-light">{tK('sovereigntyDescription')}</p>
+      </div>
+      <div class="ds-footer-cta__actions">
+        <a href={localizedPath(locale, '/solutions/data-sovereignty')} class="ds-btn ds-btn-primary">
+          {tK('sovereigntyLink')}
+        </a>
       </div>
     </div>
   </section>

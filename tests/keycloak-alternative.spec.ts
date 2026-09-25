@@ -27,7 +27,7 @@ test.describe('/compare/keycloak-alternative', () => {
 
   test('sovereignty callout links to the data-sovereignty page; FAQ shows six answers', async ({ page }) => {
     await page.goto(PATH);
-    await expect(page.locator('[data-sovereignty-callout] a')).toHaveAttribute('href', '/solutions/data-sovereignty/');
+    await expect(page.locator('[data-sovereignty-block] a')).toHaveAttribute('href', '/solutions/data-sovereignty/');
     await expect(page.locator('.faq-list__item')).toHaveCount(6);
     const ld = await page.locator('script[type="application/ld+json"]').evaluateAll((els) => els.map((el) => el.textContent ?? ''));
     expect(ld.some((s) => s.includes('"FAQPage"'))).toBe(true);
@@ -41,6 +41,7 @@ test.describe('/compare/keycloak-alternative', () => {
   });
 
   for (const { prefix, lang, h1 } of [
+    { prefix: '/es', lang: 'es', h1: 'Authgear: la alternativa open source a Keycloak' },
     { prefix: '/de', lang: 'de', h1: 'Authgear: die Open-Source-Alternative zu Keycloak' },
     { prefix: '/fr', lang: 'fr', h1: "Authgear\u00a0: l'alternative open source à Keycloak" },
   ]) {
@@ -49,20 +50,20 @@ test.describe('/compare/keycloak-alternative', () => {
       expect(resp?.status()).toBe(200);
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
       await expect(page.locator('main h1')).toHaveText(h1);
-      await expect(page.locator('[data-sovereignty-callout] a')).toHaveAttribute('href', `${prefix}/solutions/data-sovereignty/`);
+      await expect(page.locator('[data-sovereignty-block] a')).toHaveAttribute('href', `${prefix}/solutions/data-sovereignty/`);
     });
   }
 
-  test('advertises en, de and fr only', async ({ page }) => {
+  test('advertises en, es, de and fr only', async ({ page }) => {
     await page.goto(PATH);
     const langs = (await page.locator('link[rel="alternate"][hreflang]').evaluateAll((els) =>
       els.map((el) => el.getAttribute('hreflang')),
     )).sort();
-    expect(langs).toEqual(['de', 'en', 'fr', 'x-default']);
+    expect(langs).toEqual(['de', 'en', 'es', 'fr', 'x-default']);
   });
 
   test('other locales fall back to the English page', async ({ request }) => {
-    for (const prefix of ['/es', '/ja']) {
+    for (const prefix of ['/ja']) {
       const resp = await request.get(`${prefix}${PATH}`, { maxRedirects: 0 });
       expect(resp.status(), prefix).toBe(302);
       expect(new URL(resp.headers()['location'], 'http://localhost').pathname).toBe(PATH);
