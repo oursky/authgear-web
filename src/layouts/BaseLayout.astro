@@ -35,7 +35,7 @@ const siteName = t(locale, 'Seo.siteName');
 // canonical origin from astro.config.mjs. Strip the locale segment to get the
 // locale-neutral path, then rebuild a URL per locale. Alternates are emitted
 // only for locales that really have this page: full-coverage locales except on
-// English-only pages (`EN_ONLY_PATHS`), partial locales just on their translated
+// pages without a zh-Hant twin (`NO_ZH_HANT_PATHS`), partial locales just on their translated
 // paths, plus the current locale itself.
 const siteOrigin = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const pathname = Astro.url.pathname;

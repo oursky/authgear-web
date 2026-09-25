@@ -1,0 +1,16 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import KeycloakAlternativePage from '@/components/pages/compare/KeycloakAlternativePage.astro';
+
+// Static file beside the English compare/[slug].astro pattern; this page is
+// translated for de and fr only (see PARTIAL_LOCALE_EXTRA_PATHS).
+const locale = 'de';
+const title = t(locale, 'KeycloakAlternative.metaTitle');
+const description = t(locale, 'KeycloakAlternative.metaDescription');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <KeycloakAlternativePage locale={locale} />
+</BaseLayout>

@@ -95,28 +95,44 @@ describe('JA_POST_SLUGS', () => {
 });
 
 import { existsSync } from 'node:fs';
-import { EN_ONLY_PATHS, PARTIAL_LOCALE_EXTRA_PATHS } from './i18n';
+import { NO_ZH_HANT_PATHS, PARTIAL_LOCALE_EXTRA_PATHS } from './i18n';
 
-describe('EN_ONLY_PATHS', () => {
-  it('each has an English route and no zh-hant route on disk', () => {
-    for (const path of EN_ONLY_PATHS) {
+describe('NO_ZH_HANT_PATHS', () => {
+  it('each has an English route (static file or dynamic sibling) and no zh-hant route on disk', () => {
+    for (const path of NO_ZH_HANT_PATHS) {
       const slug = path.replace(/^\//, '').replace(/\/$/, '');
-      expect(existsSync(new URL(`../pages/${slug}.astro`, import.meta.url)), `src/pages/${slug}.astro`).toBe(true);
+      const dir = slug.includes('/') ? slug.slice(0, slug.lastIndexOf('/')) + '/' : '';
+      const enStatic = existsSync(new URL(`../pages/${slug}.astro`, import.meta.url));
+      const enDynamic = existsSync(new URL(`../pages/${dir}[slug].astro`, import.meta.url));
+      expect(enStatic || enDynamic, `English route for ${path}`).toBe(true);
       expect(existsSync(new URL(`../pages/zh-hant/${slug}.astro`, import.meta.url)), `src/pages/zh-hant/${slug}.astro`).toBe(false);
     }
   });
 
-  it('are linked and advertised in English only', () => {
-    for (const path of EN_ONLY_PATHS) {
+  it('never link to or advertise a zh-Hant page', () => {
+    for (const path of NO_ZH_HANT_PATHS) {
       expect(hasLocalizedPage('en', path)).toBe(true);
       expect(hasLocalizedPage('zh-Hant', path)).toBe(false);
-      expect(hasLocalizedPage('ja', path)).toBe(false);
-      expect(localesWithPage(path)).toEqual(['en']);
+      expect(localesWithPage(path)).not.toContain('zh-Hant');
       expect(localizedPath('zh-Hant', path)).toBe(path);
-      expect(localizedPath('de', path)).toBe(path);
     }
     expect(localizedPath('zh-Hant', '/dpa')).toBe('/dpa/');
     expect(localizedPath('zh-Hant', '/about')).toBe('/zh-hant/about/');
+  });
+
+  it('legal pages are English only; the Keycloak page adds de and fr', () => {
+    for (const path of ['/dpa/', '/sub-processors/']) {
+      expect(localesWithPage(path)).toEqual(['en']);
+      expect(localizedPath('de', path)).toBe(path);
+    }
+    const keycloak = '/compare/keycloak-alternative/';
+    expect(localesWithPage(keycloak)).toEqual(['en', 'de', 'fr']);
+    expect(hasLocalizedPage('es', keycloak)).toBe(false);
+    expect(hasLocalizedPage('ja', keycloak)).toBe(false);
+    expect(localizedPath('de', '/compare/keycloak-alternative')).toBe('/de/compare/keycloak-alternative/');
+    expect(localizedPath('fr', '/compare/keycloak-alternative')).toBe('/fr/compare/keycloak-alternative/');
+    expect(localizedPath('es', '/compare/keycloak-alternative')).toBe('/compare/keycloak-alternative/');
+    expect(localizedPath('zh-Hant', '/compare/keycloak-alternative')).toBe('/compare/keycloak-alternative/');
   });
 });
 

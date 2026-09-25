@@ -59,6 +59,8 @@ These indicate the user took a meaningful step toward becoming a customer.
 | `get-demo` | Blog posts — inline demo CTA (top-10-sso-providers, authentication-solutions-guide, authentication-as-a-service, sms-otp-vulnerabilities-and-alternatives; EN + zh-Hant) | Click | `/schedule-demo` — fires with `props.location = 'post-inline'` |
 | `contact-form-submit` | `DataSovereigntyPage` — EU region waitlist callout (`#waitlist`) reuses `ContactForm` with a "Get in touch" button | Form submit | Netlify Forms (`contact`). Same event as every other `ContactForm`; split it out in Plausible by filtering on page `/solutions/data-sovereignty/`. Submissions carry `page = /solutions/data-sovereignty/` in the payload |
 | `signup` | `DataSovereigntyPage` — "Start free" link in the Self-hosted vs Cloud table | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'data-sovereignty-table'` |
+| `signup` | `KeycloakAlternativePage` — hero "Start for Free" and migration band "Start for Free" | Click | `portal.authgear.com` (with UTM) — fires with `props.location` = `keycloak-alternative-hero` \| `keycloak-alternative-migrate` |
+| `get-demo` | `KeycloakAlternativePage` — hero "Schedule Demo" and migration band "Schedule Demo" | Click | `/schedule-demo` — fires with `props.location` = `keycloak-alternative-hero` \| `keycloak-alternative-migrate` |
 | `get-demo` | `DataSovereigntyPage` — "Talk to us" (Private cloud column and note under the table, FAQ cost answer, closing CTA) and "Plan your migration" (migration callout) | Click | `/schedule-demo` — fires with `props.location` = `data-sovereignty-table` \| `data-sovereignty-faq` \| `data-sovereignty-migration` \| `data-sovereignty-footer` |
 
 ### Engagement events
@@ -91,11 +93,11 @@ Properties unlock filtering in Plausible's dashboard and remove the need for sep
 
 | Event | Property | Value example | Rationale |
 |-------|----------|---------------|-----------|
-| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"`, `"post-inline"`, `"data-sovereignty-table"` | Distinguish where signups originate — all implemented |
+| `signup` | `location` | `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"`, `"post-inline"`, `"data-sovereignty-table"`, `"keycloak-alternative-hero"`, `"keycloak-alternative-migrate"` | Distinguish where signups originate — all implemented |
 | `signup` | `plan` | `"free"`, `"developers"`, `"business"` | Plan finder recommended tier when CTA is clicked (`location` must be `plan-finder`; the Enterprise tier fires `get-demo` instead) |
 | `signup-login` | `location` | `"nav-header"` | Implemented — the header-bar Signup/Login button serves all widths (the mobile drawer login/signup buttons were removed in Aug 2026); split desktop vs mobile clicks with the device dimension |
 | `github-star` | `location` | `"nav-header"`, `"tool-popup"`, `"tool-widget"` | Implemented — every GitHub star click on the site fires this one goal; split by location |
-| `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"`, `"sms-calculator"`, `"plan-finder"`, `"data-sovereignty-table"`, `"data-sovereignty-faq"`, `"data-sovereignty-migration"`, `"data-sovereignty-footer"` | Implemented — leaves room for tagging other get-demo CTAs later |
+| `get-demo` | `location` | `"nav-desktop"`, `"nav-mobile"`, `"home-product-switch"`, `"sms-calculator"`, `"plan-finder"`, `"data-sovereignty-table"`, `"data-sovereignty-faq"`, `"data-sovereignty-migration"`, `"data-sovereignty-footer"`, `"keycloak-alternative-hero"`, `"keycloak-alternative-migrate"` | Implemented — leaves room for tagging other get-demo CTAs later |
 | `get-demo` | `plan` | `"enterprise"` | Sent only from the plan finder's Enterprise CTA (`location` = `plan-finder`) |
 | `calculator-preset` | `preset` | `"10K"`, `"100K"`, `"500K"`, `"1M"` | See which preset is most popular |
 | `pricing-plan-finder-interact` | `first_action` | `"sms"`, `"log-retention"`, `"apps"`, `"members"`, `"mau"` | Which control drew the first plan-finder interaction on that page view |
@@ -143,6 +145,6 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 
 | Category | Count |
 |----------|-------|
-| Conversion | 13 event placements (5 distinct names) |
+| Conversion | 15 event placements (5 distinct names) |
 | Engagement | 9 event placements (9 distinct names) |
-| **Total** | **22 event placements across 14 distinct event names** |
+| **Total** | **24 event placements across 14 distinct event names** |

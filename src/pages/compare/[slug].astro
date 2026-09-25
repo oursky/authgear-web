@@ -6,12 +6,14 @@ import { t } from '@/i18n';
 import Auth0AlternativePage from '@/components/pages/compare/Auth0AlternativePage.astro';
 import CognitoAlternativePage from '@/components/pages/compare/CognitoAlternativePage.astro';
 import FirebaseAlternativePage from '@/components/pages/compare/FirebaseAlternativePage.astro';
+import KeycloakAlternativePage from '@/components/pages/compare/KeycloakAlternativePage.astro';
 import OktaAlternativePage from '@/components/pages/compare/OktaAlternativePage.astro';
 
 const pageMap = {
   'auth0-alternative': { component: Auth0AlternativePage, namespace: 'Auth0Alternative' },
   'cognito-alternative': { component: CognitoAlternativePage, namespace: 'CognitoAlternative' },
   'firebase-alternative': { component: FirebaseAlternativePage, namespace: 'FirebaseAlternative' },
+  'keycloak-alternative': { component: KeycloakAlternativePage, namespace: 'KeycloakAlternative' },
   'okta-alternative': { component: OktaAlternativePage, namespace: 'OktaAlternative' },
 } as const;
 
@@ -22,6 +24,7 @@ export function getStaticPaths() {
     'auth0-alternative',
     'cognito-alternative',
     'firebase-alternative',
+    'keycloak-alternative',
     'okta-alternative',
   ].map((slug) => ({ params: { slug } }));
 }
