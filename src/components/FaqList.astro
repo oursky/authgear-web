@@ -1,0 +1,113 @@
+---
+/**
+ * Static FAQ: heading on the left, a divider list with every answer shown on
+ * the right (no toggles). Same look as the data-sovereignty page's FAQ; use
+ * this when the answers are plain text. Emits FAQPage structured data.
+ */
+interface Props {
+  heading: string;
+  items: { q: string; a: string }[];
+}
+const { heading, items } = Astro.props;
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="faq-list">
+      <h2 class="faq-list__heading">{heading}</h2>
+      <div class="faq-list__items">
+        {items.map(({ q, a }) => (
+          <div class="faq-list__item">
+            <h3 class="faq-list__question">{q}</h3>
+            <div class="faq-list__answer">
+              <p>{a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+<script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+
+<style>
+  .faq-list {
+    display: grid;
+    grid-template-columns: minmax(0, 32%) minmax(0, 1fr);
+    column-gap: 3.75rem;
+    row-gap: 2.5rem;
+    align-items: start;
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+    margin-inline: auto;
+  }
+
+  @media (width < 1024px) {
+    .faq-list {
+      grid-template-columns: 1fr;
+      row-gap: var(--spacing-m);
+    }
+  }
+
+  .faq-list__heading {
+    margin: 0;
+    color: var(--color-text-light-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: normal;
+    text-align: left;
+  }
+
+  .faq-list__items {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .faq-list__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: var(--spacing-s) 0;
+    border-bottom: 0.0625rem solid var(--color-border-light-subtle);
+  }
+
+  .faq-list__item:first-of-type {
+    border-top: 0.0625rem solid var(--color-border-light-subtle);
+  }
+
+  .faq-list__question {
+    margin: 0;
+    color: var(--color-text-light-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: normal;
+    text-align: left;
+  }
+
+  .faq-list__answer {
+    padding: 0;
+  }
+
+  .faq-list__answer p {
+    margin: 0;
+    color: var(--color-text-light-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+    font-weight: var(--font-weight-regular);
+  }
+</style>

@@ -133,6 +133,7 @@ export const footerStrings: Record<string, Record<string, string>> = {
   auth0Alternative: { en: 'Auth0 Alternative', 'zh-Hant': 'Auth0 替代方案', ja: 'Auth0 の代替', es: 'Alternativa a Auth0', de: 'Auth0-Alternative', fr: 'Alternative à Auth0' },
   cognitoAlternative: { en: 'Cognito Alternative', 'zh-Hant': 'Cognito 替代方案', ja: 'Cognito の代替', es: 'Alternativa a Cognito', de: 'Cognito-Alternative', fr: 'Alternative à Cognito' },
   firebaseAlternative: { en: 'Firebase Alternative', 'zh-Hant': 'Firebase 替代方案', ja: 'Firebase の代替', es: 'Alternativa a Firebase', de: 'Firebase-Alternative', fr: 'Alternative à Firebase' },
+  keycloakAlternative: { en: 'Keycloak Alternative', 'zh-Hant': 'Keycloak 替代方案', ja: 'Keycloak の代替', es: 'Alternativa a Keycloak', de: 'Keycloak-Alternative', fr: 'Alternative à Keycloak' },
   developersTitle: { en: 'developers', 'zh-Hant': '開發者', ja: '開発者', es: 'desarrolladores', de: 'Entwickler', fr: 'développeurs' },
   documentation: { en: 'Documentation', 'zh-Hant': '文件', ja: 'ドキュメント', es: 'Documentación', de: 'Dokumentation', fr: 'Documentation' },
   apiReference: { en: 'API Reference', 'zh-Hant': 'API 參考', ja: 'API リファレンス', es: 'Referencia de la API', de: 'API-Referenz', fr: 'Référence API' },
