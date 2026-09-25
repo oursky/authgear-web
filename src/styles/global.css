@@ -1239,6 +1239,30 @@ html[data-theme='dark'] body {
   justify-self: end;
 }
 
+/* Products mega-menu: labels may wrap. Its five columns are fixed grid tracks
+   (.nav-full-width-inner), and the Webflow white-space: nowrap on
+   .nav-menu-dropdown-link made long localized labels (French "Protection
+   contre le SMS pumping") run into the neighbouring column. The other
+   dropdowns size their single column to the longest label, so they keep
+   nowrap. */
+.nav-menu-dropdown-list-full-width .nav-menu-dropdown-link {
+  white-space: normal;
+  /* 16px → 12px sides: buys the 8px that keeps "Machine-to-Machine Token" on
+     one line in English at 1440px. */
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.nav-menu-dropdown-list-full-width .nav-menu-dropdown-link > div {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+/* The Products column links carry min-width: 250px from Webflow, wider than
+   their grid track below 1280px, so they spilled past the panel edge. Let the
+   track decide. */
+.nav-menu-dropdown-list-full-width .nav-menu-dropdown-link.products {
+  min-width: 0;
+}
+
 /* ------------------------------------------------------------------ */
 /* ContactForm / reusable form primitives (`.ds-form-*` namespace)     */
 /* ------------------------------------------------------------------ */
