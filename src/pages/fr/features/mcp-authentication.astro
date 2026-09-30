@@ -1,0 +1,15 @@
+---
+export const prerender = true;
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n';
+import McpAuthenticationPage from '@/components/pages/features/McpAuthenticationPage.astro';
+
+// Static file; the other feature pages redirect to English for this locale.
+const locale = 'fr';
+const title = t(locale, 'McpAuthentication.title');
+const description = t(locale, 'McpAuthentication.description');
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <McpAuthenticationPage locale={locale} />
+</BaseLayout>

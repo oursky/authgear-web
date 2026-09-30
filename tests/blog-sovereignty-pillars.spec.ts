@@ -82,11 +82,14 @@ for (const post of POSTS) {
   });
 }
 
-test('the French guide uses non-breaking spaces before French punctuation', async ({ page }) => {
+test('the French guide uses narrow no-break spaces before French punctuation', async ({ page }) => {
   await page.goto(POSTS[0].url);
   const h1 = (await page.locator('main h1').textContent()) ?? '';
-  expect(h1).toContain(' :');
+  // U+202F NARROW NO-BREAK SPACE is the house standard before `: ; ? !` and
+  // inside guillemets — not U+00A0, which reads too wide at body sizes.
+  expect(h1).toContain('\u202f:');
   const body = (await page.locator('.blog-post__body').textContent()) ?? '';
-  // No ordinary space may precede French double punctuation.
-  expect(body).not.toMatch(/\S [:;?!]/);
+  // Neither an ordinary space nor a full-width no-break space may precede
+  // French double punctuation.
+  expect(body).not.toMatch(/\S[ \u00a0][:;?!]/);
 });
