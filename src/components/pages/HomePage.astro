@@ -3,6 +3,7 @@ import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
 import ContactForm from '@/components/islands/ContactForm';
 import LogoMarquee from '@/components/islands/LogoMarquee';
+import HomeHeroKv from '@/components/pages/home/HomeHeroKv.astro';
 
 interface Props { locale: string }
 const { locale } = Astro.props;
@@ -68,7 +69,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
             <li>{t(locale, 'Home.heroTrust4')}</li>
           </ul>
         </div>
-        <div class="home-hero-img-wrapper"><img src="/images/home_kv_ui2x.webp" loading="lazy" width="683" sizes="(max-width: 767px) 100vw, 683px" alt="" srcset="/images/home_kv_ui2x-p-500.webp 500w, /images/home_kv_ui2x-p-800.webp 800w, /images/home_kv_ui2x-p-1080.webp 1080w, /images/home_kv_ui2x.webp 1366w" class="image-9" /></div>
+        <div class="home-hero-img-wrapper"><HomeHeroKv locale={locale} /></div>
       </div>
     </div>
   </div>

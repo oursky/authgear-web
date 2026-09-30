@@ -1,0 +1,627 @@
+---
+/**
+ * Home hero key visual: a sign-in card with the auth methods around it (Face
+ * ID, OTP, social toggles, fingerprint). It replaces the flattened
+ * `home_kv_ui2x.webp` with markup, so the copy is translated through
+ * `Home.heroKv.*` and stays sharp at any size.
+ *
+ * Layout is authored on the original image's 1366 × 991 frame: every length is
+ * `calc(N * var(--u))`, where `--u` is 1/1366 of the component's width (a
+ * container query unit), so the whole scene scales as one picture.
+ *
+ * An 8s CSS loop plays one beat after another: Face ID scans → the fingerprint
+ * is scanned top to bottom → the OTP code is typed → a shimmer crosses
+ * Continue. The sign-in methods panel stays still on purpose; animating it
+ * made the scene too busy. At rest (and under `prefers-reduced-motion`) every
+ * part shows its original state.
+ */
+import { t } from '@/i18n';
+
+interface Props { locale: string }
+const { locale } = Astro.props;
+const k = (key: string) => t(locale, `Home.heroKv.${key}`);
+
+const digits = ['3', '2', '9', '6'];
+const toggles = [
+  { icon: 'apple', label: 'Apple' },
+  { icon: 'facebook', label: 'Facebook' },
+  { icon: 'passkey', label: k('passkeys') },
+  { icon: 'biometrics', label: k('biometrics') },
+];
+
+const appleIcon =
+  'M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701';
+const facebookIcon =
+  'M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z';
+
+/* Face ID glyph, drawn on a 136 × 136 box. */
+const faceIdPaths = [
+  'M0 44V26A26 26 0 0 1 26 0H44',
+  'M92 0H110A26 26 0 0 1 136 26V44',
+  'M0 92V110A26 26 0 0 0 26 136H44',
+  'M92 136H110A26 26 0 0 0 136 110V92',
+  'M46 44V60',
+  'M92 44V60',
+  'M70 42V76Q70 84 62 84',
+  'M46 96Q69 116 92 96',
+];
+
+/* Fingerprint glyph (Lucide "fingerprint", ISC), 24-unit grid. */
+const fingerprintPaths = [
+  'M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4',
+  'M14 13.12c0 2.38 0 6.38-1 8.88',
+  'M17.29 21.02c.12-.6.43-2.3.5-3.02',
+  'M2 12a10 10 0 0 1 18-6',
+  'M2 16h.01',
+  'M21.8 16c.2-2 .131-5.354 0-6',
+  'M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2',
+  'M8.65 22c.21-.66.45-1.32.57-2',
+  'M9 6.8a6 6 0 0 1 9 5.2v2',
+];
+---
+
+<div class="kv" aria-hidden="true">
+  <div class="kv__glow"></div>
+
+  {['back', 'front'].map((variant) => (
+    <div class={`kv-card kv-card--${variant}`}>
+      <div class="kv-card__brand">
+        <svg class="kv-card__logo" viewBox="0 0 70 40">
+          <defs>
+            <linearGradient id={`kv-logo-${variant}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8FE3FF" />
+              <stop offset="1" stop-color="#B5C4FF" />
+            </linearGradient>
+          </defs>
+          <path d="M0 0H10L28 40H0Z" fill={`url(#kv-logo-${variant})`} />
+          <path d="M16 0H28L46 40H34Z" fill="#F1F3FF" />
+          <path d="M34 0H46L64 40H52Z" fill="#FF5DBB" />
+          <path d="M58 0H70V40H64L58 26.5Z" fill="#FF5DBB" />
+        </svg>
+        <span>SuperApp</span>
+      </div>
+      <div class="kv-card__title">{k('welcome')}</div>
+      <div class="kv-card__subtitle">{k('loginTo')}</div>
+      <div class="kv-card__field">{k('email')}</div>
+      <div class="kv-card__primary">
+        <span>{k('continue')}</span>
+        {variant === 'front' && <span class="kv-card__shimmer"></span>}
+      </div>
+      <div class="kv-card__divider"><span>{k('or')}</span></div>
+      <div class="kv-card__social kv-card__social--apple">
+        <svg viewBox="0 0 24 24"><path d={appleIcon} fill="currentColor" /></svg>
+        <span>{k('continueWithApple')}</span>
+      </div>
+      <div class="kv-card__social kv-card__social--facebook">
+        <svg viewBox="0 0 24 24"><path d={facebookIcon} fill="currentColor" /></svg>
+        <span>{k('continueWithFacebook')}</span>
+      </div>
+    </div>
+  ))}
+
+  <div class="kv-otp">
+    {digits.map((digit, i) => (
+      <div class="kv-otp__cell"><span class={`kv-otp__digit kv-otp__digit--${i + 1}`}>{digit}</span></div>
+    ))}
+    <div class="kv-otp__cell"></div>
+    <div class="kv-otp__cell"></div>
+    <svg class="kv-otp__ring" viewBox="0 0 40 67">
+      <defs>
+        <linearGradient id="kv-otp-ring" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#46D79F" />
+          <stop offset="1" stop-color="#41B8D4" />
+        </linearGradient>
+      </defs>
+      <rect x="1.25" y="1.25" width="37.5" height="64.5" rx="9" fill="none" stroke="url(#kv-otp-ring)" stroke-width="2.5" />
+    </svg>
+  </div>
+
+  <div class="kv-methods">
+    {toggles.map(({ icon, label }) => (
+      <div class="kv-methods__row">
+        <div class="kv-methods__icon">
+          {icon === 'apple' && <svg viewBox="0 0 24 24"><path d={appleIcon} fill="currentColor" /></svg>}
+          {icon === 'facebook' && <svg viewBox="0 0 24 24"><path d={facebookIcon} fill="currentColor" /></svg>}
+          {icon === 'passkey' && (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="9" r="5.5" />
+              <circle cx="8.2" cy="8.2" r="1.4" />
+              <path d="M13 13l7.5 7.5M16.5 16.5l-2 2M19 19l-1.8 1.8" />
+            </svg>
+          )}
+          {icon === 'biometrics' && (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M4 16v2a2 2 0 0 0 2 2h2M16 20h2a2 2 0 0 0 2-2v-2" />
+              <circle cx="12" cy="9.8" r="2.2" fill="currentColor" stroke="none" />
+              <path d="M8 16.8a4 3 0 0 1 8 0Z" fill="currentColor" stroke="none" />
+            </svg>
+          )}
+        </div>
+        <span class="kv-methods__label">{label}</span>
+        <span class="kv-methods__toggle"><span class="kv-methods__knob"></span></span>
+      </div>
+    ))}
+  </div>
+
+  <div class="kv-faceid">
+    <svg class="kv-faceid__glyph" viewBox="-6 -6 148 148" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      {faceIdPaths.map((d) => <path d={d} />)}
+    </svg>
+    <svg class="kv-faceid__glyph kv-faceid__glyph--tint" viewBox="-6 -6 148 148" fill="none" stroke="url(#kv-tint)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <defs>
+        <linearGradient id="kv-tint" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="136">
+          <stop offset="0" stop-color="#46D79F" />
+          <stop offset="1" stop-color="#41B8D4" />
+        </linearGradient>
+      </defs>
+      {faceIdPaths.map((d) => <path d={d} />)}
+    </svg>
+    <span class="kv-scan kv-faceid__scan"></span>
+  </div>
+
+  <div class="kv-finger">
+    <svg class="kv-finger__glyph" viewBox="1.5 1.5 21 21" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      {fingerprintPaths.map((d) => <path d={d} />)}
+    </svg>
+    <div class="kv-finger__glyph kv-finger__tint">
+      <svg viewBox="1.5 1.5 21 21" fill="none" stroke="url(#kv-tint-finger)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        {/* Glyph-wide gradient: a bounding-box one would paint each ridge
+            separately and nothing at all on the zero-height dot. */}
+        <defs>
+          <linearGradient id="kv-tint-finger" gradientUnits="userSpaceOnUse" x1="0" y1="2" x2="0" y2="22">
+            <stop offset="0" stop-color="#46D79F" />
+            <stop offset="1" stop-color="#41B8D4" />
+          </linearGradient>
+        </defs>
+        {fingerprintPaths.map((d) => <path d={d} />)}
+      </svg>
+    </div>
+    <span class="kv-scan kv-finger__scan"></span>
+  </div>
+</div>
+
+<style>
+  .kv {
+    --u: calc(100cqw / 1366);
+    --loop: 8s;
+    --teal: #46d79f;
+    --blue: #6372ff;
+    container-type: inline-size;
+    position: relative;
+    width: 600px;
+    max-width: 100%;
+    aspect-ratio: 1366 / 991;
+    font-family: Inter, 'Noto Sans TC', 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
+    color: #fff;
+    text-align: left;
+    user-select: none;
+  }
+  @media screen and (min-width: 1920px) {
+    .kv {
+      width: 88%;
+    }
+  }
+  .kv svg {
+    display: block;
+    overflow: visible;
+  }
+
+  .kv__glow {
+    position: absolute;
+    left: calc(940 * var(--u));
+    top: calc(40 * var(--u));
+    width: calc(520 * var(--u));
+    height: calc(700 * var(--u));
+    background:
+      radial-gradient(closest-side at 60% 40%, rgba(64, 170, 255, 0.55), transparent),
+      radial-gradient(closest-side at 40% 70%, rgba(140, 110, 255, 0.35), transparent);
+    filter: blur(calc(40 * var(--u)));
+  }
+
+  /* --- Sign-in card ------------------------------------------------------ */
+
+  .kv-card {
+    position: absolute;
+    left: calc(168 * var(--u));
+    top: 0;
+    width: calc(662 * var(--u));
+    height: calc(991 * var(--u));
+    border-radius: calc(40 * var(--u));
+    overflow: hidden;
+    background:
+      radial-gradient(130% 55% at 100% 100%, rgba(124, 66, 216, 0.95), rgba(124, 66, 216, 0) 70%),
+      linear-gradient(180deg, #3b56aa 0%, #1b2a80 42%, #15136f 100%);
+    box-shadow: 0 calc(30 * var(--u)) calc(80 * var(--u)) rgba(5, 4, 40, 0.45);
+  }
+  .kv-card--front {
+    z-index: 1;
+  }
+  /* The same card, smaller and fainter, peeking out behind. */
+  .kv-card--back {
+    left: calc(552 * var(--u));
+    top: calc(146.5 * var(--u));
+    transform: scale(0.745);
+    transform-origin: 0 0;
+    opacity: 0.45;
+    box-shadow: none;
+  }
+  .kv-card > * {
+    position: absolute;
+    left: calc(52 * var(--u));
+    right: calc(52 * var(--u));
+  }
+  .kv-card__brand {
+    top: calc(92 * var(--u));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(18 * var(--u));
+    font-size: calc(35 * var(--u));
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: calc(47 * var(--u));
+  }
+  .kv-card__logo {
+    width: calc(69 * var(--u));
+    height: calc(39 * var(--u));
+  }
+  .kv-card__title,
+  .kv-card__subtitle {
+    text-align: center;
+    white-space: nowrap;
+  }
+  .kv-card__title {
+    top: calc(160 * var(--u));
+    font-size: calc(49 * var(--u));
+    font-weight: 700;
+    line-height: calc(60 * var(--u));
+    letter-spacing: -0.01em;
+  }
+  .kv-card__subtitle {
+    top: calc(245 * var(--u));
+    font-size: calc(26 * var(--u));
+    line-height: calc(36 * var(--u));
+    color: #a9b5ff;
+  }
+  .kv-card__field,
+  .kv-card__primary,
+  .kv-card__social {
+    display: flex;
+    align-items: center;
+    height: calc(90 * var(--u));
+    border-radius: calc(20 * var(--u));
+    font-size: calc(26 * var(--u));
+    white-space: nowrap;
+  }
+  .kv-card__field {
+    top: calc(336 * var(--u));
+    padding: 0 calc(28 * var(--u));
+    background: rgba(10, 17, 72, 0.62);
+    color: #e7eaff;
+  }
+  .kv-card__primary {
+    top: calc(453 * var(--u));
+    justify-content: center;
+    overflow: hidden;
+    background: var(--blue);
+    font-weight: 600;
+  }
+  .kv-card__divider {
+    top: calc(597 * var(--u));
+    display: flex;
+    align-items: center;
+    gap: calc(24 * var(--u));
+    font-size: calc(26 * var(--u));
+    line-height: calc(32 * var(--u));
+    color: #9a9bb8;
+  }
+  .kv-card__divider::before,
+  .kv-card__divider::after {
+    content: '';
+    flex: 1;
+    height: calc(2 * var(--u));
+    background: #afb8ee;
+  }
+  .kv-card__social {
+    justify-content: center;
+    gap: calc(14 * var(--u));
+    background: rgba(6, 9, 72, 0.5);
+    font-weight: 600;
+  }
+  .kv-card__social svg {
+    width: calc(31 * var(--u));
+    height: calc(31 * var(--u));
+  }
+  .kv-card__social--apple {
+    top: calc(687 * var(--u));
+  }
+  .kv-card__social--facebook {
+    top: calc(804 * var(--u));
+  }
+
+  /* --- OTP --------------------------------------------------------------- */
+
+  .kv-otp {
+    z-index: 2;
+    position: absolute;
+    left: calc(755 * var(--u));
+    top: calc(70 * var(--u));
+    width: calc(400 * var(--u));
+    height: calc(135 * var(--u));
+    box-sizing: border-box;
+    padding: calc(33 * var(--u)) calc(39 * var(--u));
+    display: flex;
+    gap: calc(16 * var(--u));
+    border-radius: calc(24 * var(--u));
+    background: rgba(30, 38, 84, 0.5);
+    backdrop-filter: blur(calc(24 * var(--u)));
+    -webkit-backdrop-filter: blur(calc(24 * var(--u)));
+    box-shadow: 0 calc(20 * var(--u)) calc(50 * var(--u)) rgba(5, 4, 40, 0.35);
+  }
+  .kv-otp__cell {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(40 * var(--u));
+    height: calc(67 * var(--u));
+    border-radius: calc(10 * var(--u));
+    background: rgba(12, 18, 44, 0.6);
+    font-size: calc(23 * var(--u));
+    font-weight: 600;
+  }
+  .kv-otp__ring {
+    position: absolute;
+    left: calc(39 * var(--u));
+    top: calc(33 * var(--u));
+    width: calc(40 * var(--u));
+    height: calc(67 * var(--u));
+    transform: translateX(calc(168 * var(--u)));
+  }
+
+  /* --- Sign-in methods --------------------------------------------------- */
+
+  .kv-methods {
+    z-index: 2;
+    position: absolute;
+    left: calc(965 * var(--u));
+    top: calc(270 * var(--u));
+    width: calc(401 * var(--u));
+    height: calc(400 * var(--u));
+    box-sizing: border-box;
+    padding: calc(42 * var(--u)) calc(43 * var(--u));
+    display: flex;
+    flex-direction: column;
+    gap: calc(22 * var(--u));
+    border-radius: calc(28 * var(--u));
+    background: rgba(30, 48, 96, 0.45);
+    backdrop-filter: blur(calc(24 * var(--u)));
+    -webkit-backdrop-filter: blur(calc(24 * var(--u)));
+    box-shadow: 0 calc(20 * var(--u)) calc(50 * var(--u)) rgba(5, 4, 40, 0.35);
+  }
+  .kv-methods__row {
+    display: flex;
+    align-items: center;
+    height: calc(62 * var(--u));
+  }
+  .kv-methods__icon {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(62 * var(--u));
+    height: calc(62 * var(--u));
+    border-radius: calc(14 * var(--u));
+    background: rgba(8, 22, 56, 0.6);
+  }
+  .kv-methods__icon svg {
+    width: calc(34 * var(--u));
+    height: calc(34 * var(--u));
+  }
+  .kv-methods__label {
+    flex: 1;
+    min-width: 0;
+    margin: 0 calc(10 * var(--u)) 0 calc(22 * var(--u));
+    font-size: calc(24 * var(--u));
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .kv-methods__toggle {
+    flex: none;
+    position: relative;
+    width: calc(66 * var(--u));
+    height: calc(32 * var(--u));
+    border-radius: calc(16 * var(--u));
+    background: rgba(18, 22, 38, 0.8);
+  }
+  .kv-methods__knob {
+    position: absolute;
+    top: calc(3 * var(--u));
+    right: calc(3 * var(--u));
+    width: calc(26 * var(--u));
+    height: calc(26 * var(--u));
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  /* --- Face ID and fingerprint tiles ------------------------------------- */
+
+  .kv-faceid,
+  .kv-finger {
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    backdrop-filter: blur(calc(20 * var(--u)));
+    -webkit-backdrop-filter: blur(calc(20 * var(--u)));
+    box-shadow: 0 calc(20 * var(--u)) calc(50 * var(--u)) rgba(5, 4, 40, 0.4);
+  }
+  .kv-faceid {
+    left: 0;
+    top: calc(140 * var(--u));
+    width: calc(220 * var(--u));
+    height: calc(220 * var(--u));
+    border-radius: calc(40 * var(--u));
+    background: rgba(6, 6, 20, 0.66);
+  }
+  .kv-faceid__glyph {
+    position: absolute;
+    left: calc(42 * var(--u));
+    top: calc(44 * var(--u));
+    width: calc(136 * var(--u));
+    height: calc(136 * var(--u));
+    transform-origin: 50% 50%;
+  }
+  .kv-faceid__glyph--tint {
+    opacity: 0;
+  }
+  /* A scan line: bright core with a teal glow either side, hidden at rest. */
+  .kv-scan {
+    position: absolute;
+    height: calc(44 * var(--u));
+    opacity: 0;
+    background:
+      linear-gradient(#e8fff7, #e8fff7) center / 100% calc(3 * var(--u)) no-repeat,
+      linear-gradient(180deg, rgba(70, 215, 159, 0), rgba(70, 215, 159, 0.55), rgba(65, 184, 212, 0));
+    border-radius: calc(2 * var(--u));
+  }
+  .kv-faceid__scan {
+    left: calc(38 * var(--u));
+    top: calc(22 * var(--u));
+    width: calc(144 * var(--u));
+  }
+  .kv-finger {
+    left: calc(790 * var(--u));
+    top: calc(812 * var(--u));
+    width: calc(158 * var(--u));
+    height: calc(158 * var(--u));
+    border-radius: calc(30 * var(--u));
+    background: linear-gradient(90deg, rgba(60, 34, 132, 0.96), rgba(20, 17, 60, 0.96) 62%);
+  }
+  .kv-finger__glyph {
+    position: absolute;
+    left: calc(27 * var(--u));
+    top: calc(27 * var(--u));
+    width: calc(104 * var(--u));
+    height: calc(104 * var(--u));
+  }
+  /* Same box as the glyph, so the reveal edge tracks the scan line exactly. */
+  .kv-finger__tint {
+    clip-path: inset(0 0 100% 0);
+  }
+  .kv-finger__tint svg {
+    width: 100%;
+    height: 100%;
+  }
+  .kv-finger__scan {
+    left: calc(21 * var(--u));
+    top: calc(5 * var(--u));
+    width: calc(116 * var(--u));
+  }
+
+  /* --- The loop ---------------------------------------------------------- */
+
+  @media (prefers-reduced-motion: no-preference) {
+    .kv-faceid__scan {
+      animation: kv-face-scan var(--loop) infinite;
+    }
+    .kv-faceid__glyph--tint {
+      animation: kv-face-tint var(--loop) infinite;
+    }
+    .kv-finger__tint {
+      animation: kv-finger-fill var(--loop) infinite;
+    }
+    .kv-finger__scan {
+      animation: kv-finger-scan var(--loop) infinite;
+    }
+    .kv-otp__ring {
+      animation: kv-otp-ring var(--loop) infinite;
+    }
+    .kv-otp__digit--1 { animation: kv-otp-digit-1 var(--loop) infinite; }
+    .kv-otp__digit--2 { animation: kv-otp-digit-2 var(--loop) infinite; }
+    .kv-otp__digit--3 { animation: kv-otp-digit-3 var(--loop) infinite; }
+    .kv-otp__digit--4 { animation: kv-otp-digit-4 var(--loop) infinite; }
+    .kv-otp__digit {
+      display: inline-block;
+    }
+    .kv-card__shimmer {
+      position: absolute;
+      top: -50%;
+      left: 0;
+      width: calc(120 * var(--u));
+      height: 200%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+      transform: translateX(calc(-160 * var(--u))) rotate(20deg);
+      animation: kv-shimmer var(--loop) infinite;
+    }
+  }
+
+  /* 1% of the loop = 0.08s. */
+  @keyframes kv-face-scan {
+    0%, 5% { opacity: 0; transform: translateY(0); animation-timing-function: ease-in-out; }
+    6.875% { opacity: 1; }
+    14.375% { opacity: 1; }
+    16.25% { opacity: 0; transform: translateY(calc(132 * var(--u))); }
+    100% { opacity: 0; transform: translateY(calc(132 * var(--u))); }
+  }
+  @keyframes kv-face-tint {
+    0%, 15% { opacity: 0; transform: scale(1); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+    16.875% { transform: scale(1.06); }
+    18.75% { opacity: 1; }
+    20.625% { transform: scale(1); }
+    23.75% { opacity: 1; animation-timing-function: ease-in-out; }
+    30%, 100% { opacity: 0; transform: scale(1); }
+  }
+  /* The fingerprint turns teal from the top down, behind its scan line. */
+  @keyframes kv-finger-scan {
+    0%, 25% { opacity: 0; transform: translateY(0); animation-timing-function: ease-in-out; }
+    26.875% { opacity: 1; }
+    34.375% { opacity: 1; }
+    36.25% { opacity: 0; transform: translateY(calc(104 * var(--u))); }
+    100% { opacity: 0; transform: translateY(calc(104 * var(--u))); }
+  }
+  @keyframes kv-finger-fill {
+    0%, 25% { clip-path: inset(0 0 100% 0); opacity: 1; animation-timing-function: ease-in-out; }
+    36.25% { clip-path: inset(0 0 0 0); opacity: 1; }
+    40% { clip-path: inset(0 0 0 0); opacity: 1; animation-timing-function: ease-in-out; }
+    46.25% { clip-path: inset(0 0 0 0); opacity: 0; }
+    46.375%, 100% { clip-path: inset(0 0 100% 0); opacity: 0; }
+  }
+  /* The ring rests on cell 4, jumps back to cell 1 as the code clears, then
+     steps ahead of each digit. */
+  @keyframes kv-otp-ring {
+    0%, 49.375% { transform: translateX(calc(168 * var(--u))); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+    55%, 56.625% { transform: translateX(0); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+    58.75%, 61.625% { transform: translateX(calc(56 * var(--u))); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+    63.75%, 66.625% { transform: translateX(calc(112 * var(--u))); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+    68.75%, 100% { transform: translateX(calc(168 * var(--u))); }
+  }
+  @keyframes kv-otp-digit-1 {
+    0%, 47.5% { opacity: 1; transform: scale(1); }
+    49.75%, 55.625% { opacity: 0; transform: scale(0.55); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+    57.125% { opacity: 1; }
+    58.75%, 100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes kv-otp-digit-2 {
+    0%, 48% { opacity: 1; transform: scale(1); }
+    50.25%, 60.625% { opacity: 0; transform: scale(0.55); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+    62.125% { opacity: 1; }
+    63.75%, 100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes kv-otp-digit-3 {
+    0%, 48.5% { opacity: 1; transform: scale(1); }
+    50.75%, 65.625% { opacity: 0; transform: scale(0.55); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+    67.125% { opacity: 1; }
+    68.75%, 100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes kv-otp-digit-4 {
+    0%, 49% { opacity: 1; transform: scale(1); }
+    51.25%, 70.625% { opacity: 0; transform: scale(0.55); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+    72.125% { opacity: 1; }
+    73.75%, 100% { opacity: 1; transform: scale(1); }
+  }
+  /* Straight after the last OTP digit lands (≈5.9s). */
+  @keyframes kv-shimmer {
+    0%, 77.5% { transform: translateX(calc(-160 * var(--u))) rotate(20deg); animation-timing-function: ease-in-out; }
+    87.5%, 100% { transform: translateX(calc(720 * var(--u))) rotate(20deg); }
+  }
+</style>
