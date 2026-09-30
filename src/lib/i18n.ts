@@ -53,9 +53,10 @@ export const NO_ZH_HANT_PATHS: readonly string[] = ['/dpa/', '/sub-processors/',
  * that against disk.
  */
 export const PARTIAL_LOCALE_EXTRA_PATHS: Partial<Record<Locale, readonly string[]>> = {
-  es: ['/solutions/data-sovereignty/', '/compare/keycloak-alternative/'],
-  de: ['/solutions/data-sovereignty/', '/compare/keycloak-alternative/'],
-  fr: ['/solutions/data-sovereignty/', '/compare/keycloak-alternative/'],
+  ja: ['/features/mcp-authentication/'],
+  es: ['/solutions/data-sovereignty/', '/compare/keycloak-alternative/', '/features/mcp-authentication/'],
+  de: ['/solutions/data-sovereignty/', '/compare/keycloak-alternative/', '/features/mcp-authentication/'],
+  fr: ['/solutions/data-sovereignty/', '/compare/keycloak-alternative/', '/features/mcp-authentication/'],
 };
 
 function withTrailingSlash(pathname: string): string {

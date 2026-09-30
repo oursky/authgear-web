@@ -10,6 +10,7 @@ const SLUGS = [
   'extensibility',
   'identity-security',
   'machine-to-machine-token',
+  'mcp-authentication',
   'multi-factor-authentication',
   'passkeys',
   'passwordless-authentication',

@@ -114,6 +114,8 @@ MCP authentication is one front in a larger shift: AI agents becoming **first-cl
 
 If you're building MCP servers, the practical takeaway: **don't build the authorization server yourself.** The spec explicitly lets you point `authorization_servers` at an existing identity platform. An OAuth 2.1/OIDC provider like [Authgear](/) gives you the authorization-code + PKCE flow, consent, token issuance, and session management out of the box — your MCP server only needs to serve its metadata document and validate audiences and scopes on incoming tokens.
 
+Want to set this up without running your own authorization server? [Authgear's Auth for MCP](/features/mcp-authentication) handles sign-in, consent and audience-bound tokens for your MCP server.
+
 ## Frequently Asked Questions
 
 ### Does MCP require authentication?

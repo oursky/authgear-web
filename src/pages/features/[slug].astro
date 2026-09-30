@@ -12,6 +12,7 @@ import BiometricLoginPage from '@/components/pages/features/BiometricLoginPage.a
 import CustomizationPage from '@/components/pages/features/CustomizationPage.astro';
 import ExtensibilityPage from '@/components/pages/features/ExtensibilityPage.astro';
 import MachineToMachineTokenPage from '@/components/pages/features/MachineToMachineTokenPage.astro';
+import McpAuthenticationPage from '@/components/pages/features/McpAuthenticationPage.astro';
 import MultiFactorAuthenticationPage from '@/components/pages/features/MultiFactorAuthenticationPage.astro';
 import PasskeysPage from '@/components/pages/features/PasskeysPage.astro';
 import PasswordlessAuthenticationPage from '@/components/pages/features/PasswordlessAuthenticationPage.astro';
@@ -31,6 +32,7 @@ const pageMap = {
   customization: CustomizationPage,
   extensibility: ExtensibilityPage,
   'machine-to-machine-token': MachineToMachineTokenPage,
+  'mcp-authentication': McpAuthenticationPage,
   'multi-factor-authentication': MultiFactorAuthenticationPage,
   passkeys: PasskeysPage,
   'passwordless-authentication': PasswordlessAuthenticationPage,
@@ -52,6 +54,7 @@ export function getStaticPaths() {
     'customization',
     'extensibility',
     'machine-to-machine-token',
+    'mcp-authentication',
     'multi-factor-authentication',
     'passkeys',
     'passwordless-authentication',
