@@ -44,6 +44,11 @@ const en: Record<string, FeatureMeta> = {
     description:
       'Secure service-to-service authentication with short-lived M2M tokens. Authgear supports OAuth 2.0 Client Credentials Flow for backend APIs and microservices.',
   },
+  'mcp-authentication': {
+    title: 'MCP Authentication & OAuth for MCP Servers | Authgear',
+    description:
+      'Add OAuth to your MCP server. AI agents like Claude and ChatGPT sign users in and get a token that only works on your server. Users can revoke it any time.',
+  },
   'multi-factor-authentication': {
     title: 'Multi-Factor Authentication | Authgear',
     description:
@@ -131,6 +136,11 @@ const zhHant: Record<string, FeatureMeta> = {
     title: '機器對機器身份驗證（M2M Tokens） | Authgear',
     description:
       '以短效 M2M token 安全地處理服務間身份驗證。Authgear 支援 OAuth 2.0 Client Credentials Flow，適用於後端 API 與微服務架構。',
+  },
+  'mcp-authentication': {
+    title: 'MCP 身份驗證與 MCP 伺服器 OAuth | Authgear',
+    description:
+      '為您的 MCP 伺服器加上 OAuth。Claude、ChatGPT 等 AI 代理讓使用者登入後，取得只能在您伺服器使用的 Token，使用者也能隨時撤銷。',
   },
   'multi-factor-authentication': {
     title: '多重因素驗證 | Authgear',

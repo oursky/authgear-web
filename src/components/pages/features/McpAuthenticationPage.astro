@@ -1,0 +1,466 @@
+---
+import { t } from '@/i18n';
+import { localizedPath } from '@/lib/i18n';
+import ContactForm from '@/components/islands/ContactForm';
+import FaqList from '@/components/FaqList.astro';
+import LottiePlayer from '@/components/LottiePlayer.astro';
+
+interface Props { locale: string }
+const { locale } = Astro.props;
+
+const tM = (key: string) => t(locale, `McpAuthentication.${key}`);
+
+const PORTAL_SIGNUP_URL =
+  'https://portal.authgear.com/?utm_source=feature-mcp&utm_medium=link&utm_campaign=start-for-free';
+const DOCS_URL = 'https://docs.authgear.com/get-started/auth-for-mcp';
+
+// Client names are product names — the same six in both locales, and no logos.
+const CLIENTS = ['Claude', 'Claude Code', 'ChatGPT', 'Codex', 'Cursor', 'VS Code'];
+
+// One row of three: each step is both a box in the flow and the step's own
+// copy, so the section says each thing once. Built in HTML/CSS rather than an
+// SVG so every label comes from `t()` and reflows per locale.
+const FLOW_STEPS = [
+  { key: 'Agent', accent: false },
+  { key: 'Authgear', accent: true },
+  { key: 'Server', accent: false },
+];
+
+const faqItems = [1, 2, 3, 4, 5].map((i) => ({ q: tM(`faq${i}Q`), a: tM(`faq${i}A`) }));
+
+// Heroicons (MIT), 24px outline.
+const BENEFIT_ICONS = [
+  'M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z',
+  'M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z',
+  'M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75',
+  'M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418',
+  'M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z',
+  'M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z',
+];
+
+---
+
+<section class="ds-hero-banner--dark">
+  <div class="ds-container ds-container--hero">
+    <div class="ds-hero-banner__row">
+      <div class="ds-hero-banner__body">
+        <p class="ds-section-eyebrow ds-section-eyebrow--on-dark">{tM('heroSmallTitle')}</p>
+        <h1 class="ds-hero-banner__title">{tM('heroTitle')}</h1>
+        <p class="ds-hero-banner__description">{tM('heroDescription')}</p>
+        <div class="ds-hero-banner__ctas">
+          <a
+            href={PORTAL_SIGNUP_URL}
+            target="_blank"
+            rel="noreferrer"
+            class="ds-btn ds-btn-secondary plausible-event-name--signup plausible-event-location--mcp-hero"
+          >
+            {t(locale, 'Features.startForFree')}
+            <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
+          <a
+            href={DOCS_URL}
+            target="_blank"
+            rel="noreferrer"
+            class="ds-btn ds-btn-tertiary plausible-event-name--docs-click plausible-event-location--mcp-hero"
+          >
+            {tM('heroCtaDocs')}
+            <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ds-hero-banner__media">
+        <div
+          class="lottie-hero-animation"
+          data-animation-type="lottie"
+          data-src="/documents/features-mcp-hero-kv.json"
+          data-loop="0"
+          data-direction="1"
+          data-autoplay="1"
+          data-is-ix2-target="0"
+          data-renderer="svg"
+          data-default-duration="0"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{tM('howTitle')}</h2>
+      <p class="section-lede-on-light">{tM('howLede')}</p>
+    </div>
+
+    <div class="mcp-flow" role="group" aria-label={tM('diagramAlt')}>
+      {FLOW_STEPS.map((step, i) => (
+        <>
+          {i > 0 && (
+            <div class="mcp-flow__link">
+              <span class="mcp-flow__link-label">{tM(`diagramArrow${i}`)}</span>
+              <svg class="mcp-flow__arrow mcp-flow__arrow--h" viewBox="0 0 64 16" fill="none" aria-hidden="true">
+                <path d="M2 8h50" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="m47 2.5 6 5.5-6 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <svg class="mcp-flow__arrow mcp-flow__arrow--v" viewBox="0 0 16 64" fill="none" aria-hidden="true">
+                <path d="M8 2v50" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M2.5 47 8 53l5.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          )}
+          <div class:list={['mcp-flow__step', step.accent && 'mcp-flow__step--accent']}>
+            <div class="mcp-flow__head">
+              <span class="mcp-flow__number">{i + 1}</span>
+              <span class="mcp-flow__actor">{tM(`diagram${step.key}`)}</span>
+            </div>
+            <h3 class="mcp-flow__title">{tM(`step${i + 1}Title`)}</h3>
+            <p class="mcp-flow__desc">{tM(`step${i + 1}Desc`)}</p>
+          </div>
+        </>
+      ))}
+    </div>
+
+    <p class="mcp-explainer-link">
+      <a href={localizedPath(locale, '/post/mcp-authentication')}>{tM('howReadPost')}</a>
+    </p>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-white">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{tM('benefitsTitle')}</h2>
+    </div>
+    <div class="ds-grid-3">
+      {BENEFIT_ICONS.map((d, i) => (
+        <div class="svg-card mcp-card">
+          <span class="mcp-benefit__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d={d} />
+            </svg>
+          </span>
+          <div class="ds-svg-card-content">
+            <div class="ds-svg-card-title">{tM(`benefit${i + 1}Title`)}</div>
+            <div class="ds-svg-card-description">{tM(`benefit${i + 1}Desc`)}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="ds-section ds-bg-light-blue">
+  <div class="ds-container">
+    <div class="title-content">
+      <h2 class="heading-on-light">{tM('worksWithTitle')}</h2>
+    </div>
+    <ul class="mcp-clients">
+      {CLIENTS.map((name) => (
+        <li class="mcp-clients__badge">{name}</li>
+      ))}
+    </ul>
+    <a
+      href={DOCS_URL}
+      target="_blank"
+      rel="noreferrer"
+      class="ds-btn ds-btn-primary plausible-event-name--docs-click plausible-event-location--mcp-works-with"
+    >
+      {tM('codeReadDocs')}
+      <svg xmlns="http://www.w3.org/2000/svg" class="ds-btn__icon-arrow" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+    </a>
+  </div>
+</section>
+
+<FaqList heading={tM('faqTitle')} items={faqItems} />
+
+<div class="footer-form-section form__bg-dark">
+  <div class="container-default">
+    <div class="container-default-inner px-0">
+      <div class="_2-block-flex footer-form">
+        <div class="_2-block-flex-content footer-form">
+          <div class="_2-block-flex-content-text-wrap footer-form">
+            <h2 class="form-heading color-white footer-form">{tM('ctaTitle')}</h2>
+            <div class="color-cee9ff">{tM('ctaDesc')}</div>
+            <div class="footerform__divider-sm"></div>
+            <a
+              href={PORTAL_SIGNUP_URL}
+              target="_blank"
+              rel="noreferrer"
+              class="footer-link w-inline-block plausible-event-name--signup plausible-event-location--mcp-footer"
+            >
+              <div class="color-white footer-get-started-text">{tM('ctaLink')} &gt;</div>
+            </a>
+          </div>
+        </div>
+        <div class="_2-block-flex-image footer-form">
+          <ContactForm client:visible locale={locale} />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<LottiePlayer />
+
+<style>
+  /* ---------------------------------------------------------------------
+   * "How it works" — one row of three. Each step carries the actor, the
+   * headline and the detail, with the flow verb on the connector between
+   * them, so the section shows the shape of the flow without repeating
+   * itself in a second grid of cards. Horizontal on wide screens, stacked
+   * with the arrows pointing down below 768px.
+   * ------------------------------------------------------------------- */
+  .mcp-flow {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: var(--spacing-xxs);
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+    margin-inline: auto;
+  }
+
+  .mcp-flow__step {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: var(--spacing-m);
+    border: 0.0625rem solid var(--color-border-light);
+    border-radius: var(--radius-card);
+    background-color: var(--color-bg-light-card);
+    box-shadow: 0 0.0625rem 0.1875rem rgba(10, 36, 97, 0.05);
+  }
+
+  /*
+   * Authgear is the focal step, but it keeps the same white surface as its
+   * siblings: a ring and a blue-cast shadow lift it instead. A filled card
+   * reads either too loud (saturated blue) or too heavy (navy) next to two
+   * white ones, so the only saturated blue left is the small number chip.
+   */
+  .mcp-flow__step--accent {
+    border: 0.125rem solid var(--color-primary-300);
+    padding: calc(var(--spacing-m) - 0.0625rem);
+    box-shadow: 0 0.75rem 2rem rgba(20, 124, 255, 0.16);
+  }
+
+  .mcp-flow__head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .mcp-flow__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-product);
+    background-color: var(--color-bg-light-blue, #f3f6ff);
+    color: var(--color-primary-800, #0043e0);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .mcp-flow__step--accent .mcp-flow__number {
+    background-color: var(--color-primary-600);
+    color: #ffffff;
+  }
+
+  .mcp-flow__actor {
+    min-width: 0;
+    color: var(--color-text-light-muted);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .mcp-flow__step--accent .mcp-flow__actor {
+    color: var(--color-primary-700);
+  }
+
+  .mcp-flow__title {
+    margin: 0;
+    color: var(--color-text-light-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-h4);
+    line-height: var(--text-h4--line-height);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .mcp-flow__desc {
+    margin: 0;
+    color: var(--color-text-light-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+  }
+
+  .mcp-flow__link {
+    flex: 0 1 8.5rem;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    /* Muted, so the connectors read as plumbing and the navy step keeps the
+       eye. */
+    color: var(--color-text-light-muted);
+  }
+
+  .mcp-flow__link-label {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    /* Two lines' worth, so a label that wraps doesn't push its arrow out of
+       line with the other one. */
+    min-height: calc(2 * var(--text-body2--line-height));
+    color: var(--color-text-light-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+    text-align: center;
+  }
+
+  .mcp-flow__arrow {
+    flex-shrink: 0;
+  }
+
+  .mcp-flow__arrow--h {
+    width: 100%;
+    max-width: 3.5rem;
+    height: 1rem;
+  }
+
+  .mcp-flow__arrow--v {
+    display: none;
+  }
+
+  @media (width < 768px) {
+    .mcp-flow {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--spacing-xxs);
+    }
+
+    .mcp-flow__link {
+      flex: 0 0 auto;
+      padding-block: 0.25rem;
+    }
+
+    .mcp-flow__link-label {
+      min-height: 0;
+    }
+
+    .mcp-flow__arrow--h {
+      display: none;
+    }
+
+    .mcp-flow__arrow--v {
+      display: block;
+      width: 1rem;
+      height: 3rem;
+    }
+  }
+
+  /* --- Cards ----------------------------------------------------------
+   * `.svg-card` is white with no border, which vanishes on a white section.
+   * A hairline and a soft shadow give both grids the same card surface on
+   * either background.
+   * ------------------------------------------------------------------- */
+
+  .mcp-card {
+    border: 0.0625rem solid var(--color-border-light);
+    box-shadow: 0 0.0625rem 0.1875rem rgba(10, 36, 97, 0.05);
+  }
+
+  .mcp-explainer-link {
+    margin: 0;
+    text-align: center;
+  }
+
+  .mcp-explainer-link a {
+    color: var(--color-primary-800);
+    font-family: var(--font-sans);
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+  }
+
+  .mcp-explainer-link a::after {
+    content: ' \2192';
+  }
+
+  .mcp-explainer-link a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  /* --- Benefit icons -------------------------------------------------- */
+
+  .mcp-benefit__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: var(--icon-size-md, 3rem);
+    height: var(--icon-size-md, 3rem);
+    border-radius: var(--radius-icon, 1rem);
+    background-color: var(--color-bg-light-blue, #f3f6ff);
+    color: var(--color-primary-800, #0043e0);
+  }
+
+  .mcp-benefit__icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* --- "Works with" badges -------------------------------------------- */
+
+  .mcp-clients {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xxs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    max-width: var(--ds-feature-callout-max-width);
+    margin-inline: auto;
+  }
+
+  .mcp-clients__badge {
+    padding: 0.625rem 1.25rem;
+    border: 0.0625rem solid var(--color-border-light);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-bg-light-card);
+    color: var(--color-text-light-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body2);
+    line-height: var(--text-body2--line-height);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+  }
+
+</style>

@@ -2,6 +2,7 @@
 import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
 import ContactForm from '@/components/islands/ContactForm';
+import LottiePlayer from '@/components/LottiePlayer.astro';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
@@ -256,3 +257,4 @@ const { locale } = Astro.props;
     </div>
   </div>
 </div>
+<LottiePlayer />

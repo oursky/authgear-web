@@ -87,6 +87,7 @@ These indicate the user took a meaningful step toward becoming a customer.
 | `contact-form-submit` | `DataSovereigntyPage` — EU region waitlist callout (`#waitlist`) reuses `ContactForm` with a "Get in touch" button | Form submit | Netlify Forms (`contact`). Same event as every other `ContactForm`; split it out in Plausible by filtering on page `/solutions/data-sovereignty/`. Submissions carry `page = /solutions/data-sovereignty/` in the payload |
 | `signup` | `DataSovereigntyPage` — "Start free" link in the Self-hosted vs Cloud table | Click | `portal.authgear.com` (with UTM) — fires with `props.location = 'data-sovereignty-table'` |
 | `signup` | `KeycloakAlternativePage` — hero "Start for Free" and migration band "Start for Free" | Click | `portal.authgear.com` (with UTM) — fires with `props.location` = `keycloak-alternative-hero` \| `keycloak-alternative-migrate` |
+| `signup` | `McpAuthenticationPage` — hero "Start for free" and footer CTA "Start for free" | Click | `portal.authgear.com` (with UTM) — fires with `props.location` = `mcp-hero` \| `mcp-footer` |
 | `get-demo` | `KeycloakAlternativePage` — hero "Schedule Demo" and migration band "Schedule Demo" | Click | `/schedule-demo` — fires with `props.location` = `keycloak-alternative-hero` \| `keycloak-alternative-migrate` |
 | `get-demo` | `DataSovereigntyPage` — "Talk to us" (Private cloud column and note under the table, FAQ cost answer, closing CTA) and "Plan your migration" (migration callout) | Click | `/schedule-demo` — fires with `props.location` = `data-sovereignty-table` \| `data-sovereignty-faq` \| `data-sovereignty-migration` \| `data-sovereignty-footer` |
 
@@ -111,6 +112,7 @@ These indicate the user is exploring content or interacting with features.
 | `playground-cta` | `LoginCustomizationPlayground` — "Explore Login Gallery" button | Click | Links to `/login-gallery/` — mid-funnel signal |
 | `eu-waitlist-click` | `PricingPageClient` — "Join the waitlist" pill in the EU data region notice under the plan cards | Click | `/solutions/data-sovereignty/#waitlist` — fires with `props.location = 'pricing-cards'`. One name for every entry point into the EU waitlist; sign-ups themselves are `contact-form-submit` on the destination page |
 | `self-host-guide-click` | `DataSovereigntyPage` — "Self-host guide" / "Deploy with Helm" links (hero, table, closing CTA) | Click | `docs.authgear.com/deployment/helm` — fires with `props.location` = `hero` \| `table` \| `footer`. Self-host intent signal for the data-sovereignty audience |
+| `docs-click` | `McpAuthenticationPage` — hero "Read the guide" and "Full setup guide" under the client badges | Click | `docs.authgear.com/get-started/auth-for-mcp` — fires with `props.location` = `mcp-hero` \| `mcp-works-with`. Developer-intent signal: the reader went to the setup docs rather than the portal |
 | `announcement` | `TopBar` — the news line above the nav (whole line is the link, headline included) | Click | Wherever `src/lib/announcement.ts` points — fires with `props.location = 'top-bar'`. One goal for every announcement the bar ever carries; segment campaigns by the destination page rather than by event name |
 
 ---
@@ -121,7 +123,7 @@ Properties unlock filtering in Plausible's dashboard and remove the need for sep
 
 | Event | Property | Value example | Rationale |
 |-------|----------|---------------|-----------|
-| `signup` | `location` | `"nav-header"`, `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"`, `"post-inline"`, `"data-sovereignty-table"`, `"keycloak-alternative-hero"`, `"keycloak-alternative-migrate"` | Distinguish where signups originate — all implemented. `nav-header` is the blue "Sign up" button, which serves all widths; split desktop vs mobile with the device dimension |
+| `signup` | `location` | `"nav-header"`, `"home-hero"`, `"playground-preview-hover"`, `"playground-mobile-chip"`, `"plan-finder"`, `"tool-widget"`, `"tool-popup"`, `"sms-hero"`, `"sms-cost-widget"`, `"post-inline"`, `"data-sovereignty-table"`, `"keycloak-alternative-hero"`, `"keycloak-alternative-migrate"`, `"mcp-hero"`, `"mcp-footer"` | Distinguish where signups originate — all implemented. `nav-header` is the blue "Sign up" button, which serves all widths; split desktop vs mobile with the device dimension |
 | `signup` | `plan` | `"free"`, `"developers"`, `"business"` | Plan finder recommended tier when CTA is clicked (`location` must be `plan-finder`; the Enterprise tier fires `get-demo` instead) |
 | `login` | `location` | `"top-bar"`, `"nav-drawer"` | Implemented — the top bar carries Login at ≥992px, the drawer below that, so the two values also read as desktop vs mobile. Pre-Aug-2026 `login` events carry no `location`; see "Two seams in the goal history" above |
 | `announcement` | `location` | `"top-bar"` | Implemented — the only placement today; the property is there so a second announcement surface can be told apart later |
@@ -138,6 +140,7 @@ Properties unlock filtering in Plausible's dashboard and remove the need for sep
 | `contact-form-submit` | `page` | `"schedule-demo"`, `"pricing"` | Form appears on multiple pages — not yet implemented |
 | `eu-waitlist-click` | `location` | `"pricing-cards"` | Which page or block sent the visitor to the EU waitlist; more values follow as comparison-page blocks land |
 | `self-host-guide-click` | `location` | `"hero"`, `"table"`, `"footer"` | Which self-host link on `/solutions/data-sovereignty` drew the click |
+| `docs-click` | `location` | `"mcp-hero"`, `"mcp-works-with"` | Which link on `/features/mcp-authentication` sent the reader to the docs. One goal for every "go read the docs" CTA; more values follow as other pages link out |
 
 To add a property, pass it as the second argument to `plausible()`:
 ```tsx

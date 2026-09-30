@@ -41,6 +41,7 @@ export const productsDropdownColumns: NavColumn[] = [
       { path: '/features/passkeys', label: { en: 'Passkeys', 'zh-Hant': '通行密鑰', ja: 'パスキー', es: 'Passkeys', de: 'Passkeys', fr: 'Passkeys' } },
       { path: '/features/biometric-authentication', label: { en: 'Biometric', 'zh-Hant': '生物辨識', ja: '生体認証', es: 'Biometría', de: 'Biometrie', fr: 'Biométrie' } },
       { path: '/features/machine-to-machine-token', label: { en: 'Machine-to-Machine Token', 'zh-Hant': '機器對機器 Token', ja: 'マシン間トークン', es: 'Tokens machine-to-machine', de: 'Machine-to-Machine-Token', fr: 'Jeton machine-to-machine' } },
+      { path: '/features/mcp-authentication', label: { en: 'MCP Authentication', 'zh-Hant': 'MCP 身份驗證', ja: 'MCP 認証', es: 'Autenticación MCP', de: 'MCP-Authentifizierung', fr: 'Authentification MCP' } },
     ],
   },
   {
