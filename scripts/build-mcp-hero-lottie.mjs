@@ -339,6 +339,185 @@ const T = {
 };
 
 // ---------------------------------------------------------------------------
+// SVG path → Lottie bezier
+// ---------------------------------------------------------------------------
+
+/**
+ * Parses an SVG path into Lottie contours. Supports M/L/H/V/C and Z, absolute
+ * and relative — which is everything the Authgear mark uses. No arcs, no
+ * quadratics, so there is nothing to approximate.
+ */
+function parseSvgPath(d) {
+  const tokens = d.match(/[MmLlHhVvCcZz]|-?\d*\.?\d+(?:e[-+]?\d+)?/g) ?? [];
+  const contours = [];
+  let contour = null;
+  let x = 0;
+  let y = 0;
+  let startX = 0;
+  let startY = 0;
+  let cmd = '';
+  let i = 0;
+  const num = () => parseFloat(tokens[i++]);
+  const push = (vx, vy) => {
+    contour.v.push([vx, vy]);
+    contour.i.push([0, 0]);
+    contour.o.push([0, 0]);
+  };
+
+  while (i < tokens.length) {
+    if (/[A-Za-z]/.test(tokens[i])) cmd = tokens[i++];
+    switch (cmd) {
+      case 'M':
+      case 'm': {
+        const nx = num();
+        const ny = num();
+        x = cmd === 'M' ? nx : x + nx;
+        y = cmd === 'M' ? ny : y + ny;
+        startX = x;
+        startY = y;
+        contour = { v: [], i: [], o: [], c: false };
+        contours.push(contour);
+        push(x, y);
+        // Further coordinate pairs after a moveto are an implicit lineto.
+        cmd = cmd === 'M' ? 'L' : 'l';
+        break;
+      }
+      case 'L':
+      case 'l': {
+        const nx = num();
+        const ny = num();
+        x = cmd === 'L' ? nx : x + nx;
+        y = cmd === 'L' ? ny : y + ny;
+        push(x, y);
+        break;
+      }
+      case 'H':
+      case 'h': {
+        const nx = num();
+        x = cmd === 'H' ? nx : x + nx;
+        push(x, y);
+        break;
+      }
+      case 'V':
+      case 'v': {
+        const ny = num();
+        y = cmd === 'V' ? ny : y + ny;
+        push(x, y);
+        break;
+      }
+      case 'C':
+      case 'c': {
+        const rel = cmd === 'c';
+        const ox = rel ? x : 0;
+        const oy = rel ? y : 0;
+        const c1x = ox + num();
+        const c1y = oy + num();
+        const c2x = ox + num();
+        const c2y = oy + num();
+        const px = ox + num();
+        const py = oy + num();
+        const last = contour.v.length - 1;
+        contour.o[last] = [c1x - contour.v[last][0], c1y - contour.v[last][1]];
+        push(px, py);
+        contour.i[contour.v.length - 1] = [c2x - px, c2y - py];
+        x = px;
+        y = py;
+        break;
+      }
+      case 'Z':
+      case 'z': {
+        contour.c = true;
+        // A path that closes back onto its first point carries a duplicate
+        // vertex; Lottie implies the closing segment instead.
+        const first = contour.v[0];
+        const last = contour.v[contour.v.length - 1];
+        if (
+          contour.v.length > 1 &&
+          Math.abs(first[0] - last[0]) < 1e-6 &&
+          Math.abs(first[1] - last[1]) < 1e-6
+        ) {
+          contour.i[0] = contour.i[contour.v.length - 1];
+          contour.v.pop();
+          contour.i.pop();
+          contour.o.pop();
+        }
+        x = startX;
+        y = startY;
+        break;
+      }
+      default:
+        i += 1;
+    }
+  }
+  return contours;
+}
+
+const contourBounds = (contours) => {
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+  for (const c of contours) {
+    c.v.forEach(([vx, vy], idx) => {
+      for (const [px, py] of [[vx, vy], [vx + c.i[idx][0], vy + c.i[idx][1]], [vx + c.o[idx][0], vy + c.o[idx][1]]]) {
+        minX = Math.min(minX, px);
+        minY = Math.min(minY, py);
+        maxX = Math.max(maxX, px);
+        maxY = Math.max(maxY, py);
+      }
+    });
+  }
+  return { minX, minY, maxX, maxY };
+};
+
+const contourToShape = (c, scale, tx, ty) => ({
+  ty: 'sh',
+  d: 1,
+  ks: {
+    a: 0,
+    k: {
+      i: c.i.map(([px, py]) => [px * scale, py * scale]),
+      o: c.o.map(([px, py]) => [px * scale, py * scale]),
+      v: c.v.map(([px, py]) => [px * scale + tx, py * scale + ty]),
+      c: c.c,
+    },
+  },
+  nm: 'Path',
+});
+
+/**
+ * The Authgear mark, read from the real logo asset so it cannot drift. Only
+ * the first `MARK_PATHS` paths are the symbol — the rest are the wordmark.
+ */
+const MARK_PATHS = 7;
+
+function logoMark(cx, cy, height, color) {
+  const svg = fs.readFileSync(path.join(ROOT, 'public/images/authgear-logo.svg'), 'utf8');
+  const tags = [...svg.matchAll(/<path[^>]*>/g)].slice(0, MARK_PATHS).map((m) => m[0]);
+  const paths = tags.map((tag) => ({
+    d: tag.match(/\sd="([^"]+)"/)[1],
+    evenOdd: /fill-rule="evenodd"/.test(tag),
+  }));
+
+  const parsed = paths.map((pp) => ({ ...pp, contours: parseSvgPath(pp.d) }));
+  const b = contourBounds(parsed.flatMap((pp) => pp.contours));
+  const scale = height / (b.maxY - b.minY);
+  const tx = cx - ((b.minX + b.maxX) / 2) * scale;
+  const ty = cy - ((b.minY + b.maxY) / 2) * scale;
+
+  // One group per source path so each keeps its own fill rule.
+  return parsed.map((pp, idx) =>
+    group(
+      [
+        ...pp.contours.map((c) => contourToShape(c, scale, tx, ty)),
+        { ...fill(color), r: pp.evenOdd ? 2 : 1 },
+      ],
+      `Logo ${idx + 1}`,
+    ),
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Icons
 // ---------------------------------------------------------------------------
 
@@ -355,33 +534,6 @@ const checkMark = (cx, cy, scale = 1, color = C.white, width = 2.4) =>
     ],
     'Check',
   );
-
-/**
- * A paint operator applies to every path in the *same* group, so anything that
- * mixes an outline with a solid needs one group each — hence the pairs below.
- */
-const padlock = (cx, cy) => [
-  group(
-    [
-      bezier(
-        [
-          [cx - 7, cy + 1],
-          [cx, cy - 9],
-          [cx + 7, cy + 1],
-        ],
-        false,
-        [
-          [[0, 0], [0, -5.5]],
-          [[-4, 0], [4, 0]],
-          [[0, -5.5], [0, 0]],
-        ],
-      ),
-      stroke(C.ink, 2.6),
-    ],
-    'Padlock shackle',
-  ),
-  group([rectC(cx, cy + 9, 22, 17, 3.5), fill(C.ink)], 'Padlock body'),
-];
 
 const sparkle = (cx, cy) => group([star(cx, cy, 9, 2.6), fill(C.ink)], 'Sparkle');
 
@@ -600,7 +752,7 @@ layers.push(
     ...riseIn(authPivot, T.authIn),
     shapes: [
       ...card(AUTH.x, AUTH.y, AUTH.w, AUTH.h),
-      ...padlock(authPivot[0], AUTH.y + 26),
+      ...logoMark(authPivot[0], AUTH.y + 28, 24, C.blue),
       // Empty input bars
       group([rect(INPUT_X, gy(50), INPUT_W, 16, 5), fill(C.light)], 'Input 1'),
       group([rect(INPUT_X, gy(74), INPUT_W, 16, 5), fill(C.light)], 'Input 2'),
