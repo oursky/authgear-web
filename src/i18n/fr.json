@@ -101,7 +101,18 @@
     "heroTrust3": "Open source",
     "heroTrust4": "Auto-hébergeable",
     "microCard4Title": "Authentification pour agents IA et serveurs MCP",
-    "microCard4Desc": "Placez Authgear devant votre serveur MCP comme serveur d'autorisation OAuth. Les agents s'enregistrent via <a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a> ou <a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">Dynamic Client Registration</a>. Les utilisateurs accordent des scopes sur un écran de consentement : un agent n'obtient donc jamais plus que ce que l'utilisateur possède, ni plus que ce qu'il a approuvé."
+    "microCard4Desc": "Placez Authgear devant votre serveur MCP comme serveur d'autorisation OAuth. Les agents s'enregistrent via <a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a> ou <a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">Dynamic Client Registration</a>. Les utilisateurs accordent des scopes sur un écran de consentement : un agent n'obtient donc jamais plus que ce que l'utilisateur possède, ni plus que ce qu'il a approuvé.",
+    "heroKv": {
+      "welcome": "Bienvenue",
+      "loginTo": "Connexion à SuperApp",
+      "email": "E-mail",
+      "continue": "Continuer",
+      "or": "ou",
+      "continueWithApple": "Continuer avec Apple",
+      "continueWithFacebook": "Continuer avec Facebook",
+      "passkeys": "Clés d’accès",
+      "biometrics": "Biométrie"
+    }
   },
   "Pricing": {
     "euRegionTitle": "Région de données UE pour Authgear Cloud : bientôt disponible.",

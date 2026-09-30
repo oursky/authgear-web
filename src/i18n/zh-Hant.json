@@ -246,7 +246,18 @@
     "heroTrust3": "開源",
     "heroTrust4": "可自建部署",
     "microCard4Title": "為 AI 代理程式與 MCP 伺服器而生的身份驗證",
-    "microCard4Desc": "讓 Authgear 站在您的 MCP 伺服器前面，擔任它的 OAuth 授權伺服器。代理程式透過 <a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a> 或<a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">動態用戶端註冊</a>完成註冊。用戶在同意畫面上授予 scope，因此代理程式取得的權限，不會超過用戶本身擁有的，也不會超過用戶核可的範圍。"
+    "microCard4Desc": "讓 Authgear 站在您的 MCP 伺服器前面，擔任它的 OAuth 授權伺服器。代理程式透過 <a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a> 或<a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">動態用戶端註冊</a>完成註冊。用戶在同意畫面上授予 scope，因此代理程式取得的權限，不會超過用戶本身擁有的，也不會超過用戶核可的範圍。",
+    "heroKv": {
+      "welcome": "歡迎",
+      "loginTo": "登入 SuperApp",
+      "email": "電子郵件",
+      "continue": "繼續",
+      "or": "或",
+      "continueWithApple": "透過 Apple 繼續",
+      "continueWithFacebook": "透過 Facebook 繼續",
+      "passkeys": "通行密鑰",
+      "biometrics": "生物辨識"
+    }
   },
   "About": {
     "title": "關於 Authgear——持久的開源 CIAM",
