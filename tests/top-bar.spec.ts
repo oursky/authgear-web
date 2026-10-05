@@ -36,13 +36,42 @@ test.describe('top bar, desktop', () => {
     await page.goto('/');
     const bar = page.locator('.top-bar');
     await expect(bar).toBeVisible();
-    await expect(bar.locator('.top-bar__news-text')).toContainText('Data sovereignty');
+    const first = bar.locator('.top-bar__slide').first();
+    await expect(first.locator('.top-bar__news-text')).toContainText('Data sovereignty');
     // The headline itself is the link, not just the call to action.
-    const line = bar.locator('a.top-bar__news');
+    const line = first.locator('a.top-bar__news');
     await expect(line).toHaveAttribute('href', '/solutions/data-sovereignty/');
     await expect(line.locator('.top-bar__news-link')).toContainText('See how');
     await expect(bar.locator('.top-bar__login')).toBeVisible();
     await expect(bar.locator('.ds-lang-switcher--topbar')).toBeVisible();
+  });
+
+  test('rolls a second headline that links to the MCP feature page', async ({ page }) => {
+    await page.goto('/');
+    const slides = page.locator('.top-bar__slide');
+    // Two headlines plus a repeat of the first, which closes the loop.
+    await expect(slides).toHaveCount(3);
+
+    const second = slides.nth(1).locator('a.top-bar__news');
+    await expect(second).toHaveAttribute('href', '/features/mcp-authentication/');
+    await expect(second.locator('.top-bar__news-text')).toContainText('Auth for MCP');
+    // The two headlines are told apart in analytics.
+    await expect(slides.nth(0).locator('a')).toHaveClass(/plausible-event-headline--data-sovereignty/);
+    await expect(second).toHaveClass(/plausible-event-headline--mcp/);
+
+    // The repeat is decoration: not announced, not tabbable.
+    const repeat = slides.nth(2).locator('a.top-bar__news');
+    await expect(repeat).toHaveAttribute('aria-hidden', 'true');
+    await expect(repeat).toHaveAttribute('tabindex', '-1');
+  });
+
+  test('the roll never changes the bar height', async ({ page }) => {
+    await page.goto('/');
+    // The slot shows one headline at a time however many are in the track —
+    // pages offset their first section by a height derived from this.
+    const bar = await page.locator('.top-bar').boundingBox();
+    const slide = await page.locator('.top-bar__slide').first().boundingBox();
+    expect(bar!.height).toBeLessThan(slide!.height + 8);
   });
 
   test('the language menu opens and closes', async ({ page }) => {
@@ -60,8 +89,9 @@ test.describe('top bar, desktop', () => {
   test('the announcement follows the locale, and falls back to English where the page is untranslated', async ({
     page,
   }) => {
+    const firstSlide = page.locator('.top-bar__slide').first();
     await page.goto('/zh-hant/');
-    await expect(page.locator('a.top-bar__news')).toHaveAttribute(
+    await expect(firstSlide.locator('a.top-bar__news')).toHaveAttribute(
       'href',
       '/zh-hant/solutions/data-sovereignty/',
     );
@@ -69,10 +99,16 @@ test.describe('top bar, desktop', () => {
     // Japanese bar carries the English line and links to the English page
     // rather than relying on a redirect.
     await page.goto('/ja/');
-    await expect(page.locator('.top-bar__news-text')).toContainText('Data sovereignty');
-    await expect(page.locator('a.top-bar__news')).toHaveAttribute(
+    await expect(firstSlide.locator('.top-bar__news-text')).toContainText('Data sovereignty');
+    await expect(firstSlide.locator('a.top-bar__news')).toHaveAttribute(
       'href',
       '/solutions/data-sovereignty/',
+    );
+    // The MCP page *is* translated everywhere, so the second headline points
+    // at the reader's own language even where the first cannot.
+    await expect(page.locator('.top-bar__slide').nth(1).locator('a.top-bar__news')).toHaveAttribute(
+      'href',
+      '/ja/features/mcp-authentication/',
     );
   });
 
@@ -90,7 +126,7 @@ test.describe('top bar, mobile', () => {
 
   test('keeps the news but moves Login and language into the drawer', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.top-bar__news')).toBeVisible();
+    await expect(page.locator('.top-bar__news').first()).toBeVisible();
     await expect(page.locator('.top-bar__actions')).toBeHidden();
 
     const utilities = page.locator('.mobile-nav-utilities');
@@ -104,7 +140,7 @@ test.describe('top bar, mobile', () => {
 
   test('the announcement runs to two lines rather than being cut off', async ({ page }) => {
     await page.goto('/');
-    const line = page.locator('a.top-bar__news');
+    const line = page.locator('.top-bar__slide').first().locator('a.top-bar__news');
     const box = await line.boundingBox();
     // Two lines of 13px/1.4 text ≈ 36px; one line would be ~18px.
     expect(box!.height).toBeGreaterThan(30);

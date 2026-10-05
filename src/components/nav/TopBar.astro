@@ -1,6 +1,6 @@
 ---
 import { t } from '@/i18n';
-import { announcementFor } from '@/lib/announcement';
+import { announcementsFor } from '@/lib/announcement';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
@@ -11,24 +11,44 @@ interface Props {
 
 const { locale, theme = 'light' } = Astro.props;
 const dark = theme === 'dark';
-const news = announcementFor(locale);
+const news = announcementsFor(locale);
+// With more than one headline the track rolls, which needs the first one
+// repeated at the end so the loop closes on an identical frame instead of
+// snapping backwards.
+const rolls = news.length > 1;
+const slides = rolls ? [...news, news[0]] : news;
 ---
 
-{news && (
+{news.length > 0 && (
   <div class:list={['top-bar', { 'top-bar--dark': dark }]}>
     <div class="top-bar__inner">
-      {/* The whole line is the link, headline included — the call to action
-          is a span inside it rather than the only clickable target. */}
-      <a
-        href={news.href}
-        class="top-bar__news plausible-event-name--announcement plausible-event-location--top-bar"
-      >
-        <span class="top-bar__news-text">{news.text}</span>
-        <span class="top-bar__news-link">
-          {news.cta}
-          <span aria-hidden="true">&nbsp;→</span>
-        </span>
-      </a>
+      <div class:list={['top-bar__roll', { 'top-bar__roll--static': !rolls }]}>
+        <div class="top-bar__track">
+          {slides.map((item, i) => {
+            // The repeat is decoration: hidden from assistive tech and taken
+            // out of the tab order so the same link is not offered twice.
+            const isRepeat = rolls && i === slides.length - 1;
+            return (
+              <div class="top-bar__slide">
+                {/* The whole line is the link, headline included — the call to
+                    action is a span inside it rather than the only target. */}
+                <a
+                  href={item.href}
+                  class={`top-bar__news plausible-event-name--announcement plausible-event-location--top-bar plausible-event-headline--${item.id}`}
+                  aria-hidden={isRepeat ? 'true' : undefined}
+                  tabindex={isRepeat ? -1 : undefined}
+                >
+                  <span class="top-bar__news-text">{item.text}</span>
+                  <span class="top-bar__news-link">
+                    {item.cta}
+                    <span aria-hidden="true">&nbsp;→</span>
+                  </span>
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
       <div class="top-bar__actions">
         <a
@@ -93,6 +113,84 @@ const news = announcementFor(locale);
     min-height: 40px;
     margin: 0 auto;
     padding: 0 24px;
+  }
+
+  /* The roll.
+     The bar's height is load-bearing — pages offset their first section by
+     --layout-fixed-header-height, which is derived from it — so the headlines
+     do not stack and make the bar taller. They sit in a track inside a slot of
+     exactly one headline's height, and the track slides by whole slots.
+     The first headline is repeated at the end of the track, so the last slide
+     lands on a frame identical to the first and the loop restarts invisibly
+     instead of snapping back up. */
+  .top-bar__roll {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    /* One slot tall. Matches .top-bar__inner's min-height less its border. */
+    height: 40px;
+  }
+  .top-bar__track {
+    display: flex;
+    flex-direction: column;
+    animation: top-bar-roll 13.2s infinite;
+  }
+  .top-bar__slide {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    height: 40px;
+    min-width: 0;
+  }
+  /* A single headline does not move, so it needs no track animation. */
+  .top-bar__roll--static .top-bar__track {
+    animation: none;
+  }
+
+  @keyframes top-bar-roll {
+    /* 6s on the first headline, 0.6s to slide, 6s on the second, 0.6s back to
+       the repeat of the first. */
+    0%,
+    45.45% {
+      transform: translateY(0);
+    }
+    50%,
+    95.45% {
+      transform: translateY(-33.3333%);
+    }
+    100% {
+      transform: translateY(-66.6666%);
+    }
+  }
+
+  /* Let a reader stop it to finish reading, or to click. */
+  .top-bar__roll:hover .top-bar__track {
+    animation-play-state: paused;
+  }
+
+  /* Keyboard: tabbing must not land on a headline that is rolled out of sight,
+     so focus parks the track on whichever one is focused. */
+  .top-bar__roll:has(.top-bar__slide:nth-child(1) .top-bar__news:focus-visible) .top-bar__track {
+    animation: none;
+    transform: translateY(0);
+  }
+  .top-bar__roll:has(.top-bar__slide:nth-child(2) .top-bar__news:focus-visible) .top-bar__track {
+    animation: none;
+    transform: translateY(-33.3333%);
+  }
+
+  /* Reduced motion: no roll at all. The first headline stays; the rest are
+     hidden outright rather than merely clipped, so they are neither tabbable
+     nor announced. The second headline's page is still reachable from the nav
+     and the page itself. */
+  @media (prefers-reduced-motion: reduce) {
+    .top-bar__track {
+      animation: none;
+      transform: translateY(0);
+    }
+    .top-bar__slide:not(:first-child) {
+      visibility: hidden;
+    }
   }
 
   /* One line, never two: a long headline is cut off rather than allowed to
@@ -220,6 +318,12 @@ const news = announcementFor(locale);
       min-height: 44px;
       padding: 4px 21px;
       font-size: 13px;
+    }
+    /* The slot and the slides follow the taller bar, so the roll still moves
+       by exactly one headline. */
+    .top-bar__roll,
+    .top-bar__slide {
+      height: 36px;
     }
     /* Text and call to action flow as one inline run and wrap together,
        clamped at two lines — the headline no longer gets cut mid-word. */

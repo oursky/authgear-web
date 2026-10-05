@@ -6,7 +6,7 @@ import SiteFooter from '@/components/nav/SiteFooter.astro';
 import CookieConsentBanner from '@/components/CookieConsentBanner.astro';
 import { LOCALES, localeAlternates, localeToHtmlLang, localeUrlSegment, stripLocaleSegment, type Locale } from '@/lib/i18n';
 import { t } from '@/i18n';
-import { announcementFor } from '@/lib/announcement';
+import { announcementsFor } from '@/lib/announcement';
 
 interface Props {
   locale: string;
@@ -58,7 +58,7 @@ const ogLocaleAlternate = locale === 'en' ? 'zh_TW' : 'en_US';
 // The top bar adds to the fixed banner height, which pages offset against
 // via --layout-fixed-header-height. Flagged on <html> so the token only moves
 // when the bar is actually there.
-const hasTopBar = announcementFor(locale) !== null;
+const hasTopBar = announcementsFor(locale).length > 0;
 
 const gtmId = import.meta.env.PUBLIC_GTM_ID ?? '';
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN ?? '';
