@@ -18,60 +18,67 @@ export type NavColumn =
       links: NavLink[];
     };
 
+/*
+ * Grouped by what the reader is trying to do, not by internal taxonomy. The
+ * old AUTHENTICATION column held nine links — login methods, identity
+ * plumbing and non-human callers all at once — which set the height of the
+ * whole menu and left the other columns mostly empty. The two shortest
+ * groups share the first column so the menu stays even.
+ */
 export const productsDropdownColumns: NavColumn[] = [
-  {
-    type: 'simple',
-    subtitle: { en: 'SECURITY', 'zh-Hant': '安全性', ja: 'セキュリティ', es: 'SEGURIDAD', de: 'SICHERHEIT', fr: 'SÉCURITÉ' },
-    links: [
-      { path: '/features/attack-protection', label: { en: 'Attack Protection', 'zh-Hant': '攻擊防護', ja: '攻撃対策', es: 'Protección contra ataques', de: 'Angriffsschutz', fr: 'Protection contre les attaques' } },
-      { path: '/features/multi-factor-authentication', label: { en: 'Adaptive MFA', 'zh-Hant': '自適應 MFA', ja: 'アダプティブ MFA', es: 'MFA adaptativa', de: 'Adaptive MFA', fr: 'MFA adaptative' } },
-      { path: '/features/sms-pumping-fraud', label: { en: 'SMS Pumping Protection', 'zh-Hant': '簡訊濫發防護', ja: 'SMS ポンピング対策', es: 'Protección contra SMS pumping', de: 'Schutz vor SMS-Pumping', fr: 'Protection contre le SMS pumping' } },
-      { path: '/features/authorization', label: { en: 'Authorization', 'zh-Hant': '授權', ja: '認可', es: 'Autorización', de: 'Autorisierung', fr: 'Autorisation' } },
-    ],
-  },
-  {
-    type: 'simple',
-    subtitle: { en: 'AUTHENTICATION', 'zh-Hant': '驗證', ja: '認証', es: 'AUTENTICACIÓN', de: 'AUTHENTIFIZIERUNG', fr: 'AUTHENTIFICATION' },
-    links: [
-      { path: '/features/authentication', label: { en: 'Authentication', 'zh-Hant': '身份驗證', ja: '認証', es: 'Autenticación', de: 'Authentifizierung', fr: 'Authentification' } },
-      { path: '/features/single-sign-on', label: { en: 'Single Sign-On', 'zh-Hant': '單一登入', ja: 'シングルサインオン', es: 'Inicio de sesión único (SSO)', de: 'Single Sign-On', fr: 'Authentification unique (SSO)' } },
-      { path: '/features/social-login', label: { en: 'Social Login', 'zh-Hant': '社群登入', ja: 'ソーシャルログイン', es: 'Login social', de: 'Social Login', fr: 'Connexion sociale' } },
-      { path: '/features/passwordless-authentication', label: { en: 'Passwordless', 'zh-Hant': '無密碼登入', ja: 'パスワードレス', es: 'Sin contraseña', de: 'Passwortlos', fr: 'Sans mot de passe' } },
-      { path: '/features/whatsapp-otp', label: { en: 'WhatsApp OTP', 'zh-Hant': 'WhatsApp OTP', ja: 'WhatsApp OTP', es: 'WhatsApp OTP', de: 'WhatsApp OTP', fr: 'WhatsApp OTP' } },
-      { path: '/features/passkeys', label: { en: 'Passkeys', 'zh-Hant': '通行密鑰', ja: 'パスキー', es: 'Passkeys', de: 'Passkeys', fr: 'Passkeys' } },
-      { path: '/features/biometric-authentication', label: { en: 'Biometric', 'zh-Hant': '生物辨識', ja: '生体認証', es: 'Biometría', de: 'Biometrie', fr: 'Biométrie' } },
-      { path: '/features/machine-to-machine-token', label: { en: 'Machine-to-Machine Token', 'zh-Hant': '機器對機器 Token', ja: 'マシン間トークン', es: 'Tokens machine-to-machine', de: 'Machine-to-Machine-Token', fr: 'Jeton machine-to-machine' } },
-      { path: '/features/mcp-authentication', label: { en: 'MCP Authentication', 'zh-Hant': 'MCP 身份驗證', ja: 'MCP 認証', es: 'Autenticación MCP', de: 'MCP-Authentifizierung', fr: 'Authentification MCP' } },
-    ],
-  },
-  {
-    type: 'simple',
-    subtitle: { en: 'USER', 'zh-Hant': '使用者', ja: 'ユーザー', es: 'USUARIO', de: 'NUTZER', fr: 'UTILISATEUR' },
-    links: [
-      { path: '/features/user-management', label: { en: 'User Management', 'zh-Hant': '使用者管理', ja: 'ユーザー管理', es: 'Gestión de usuarios', de: 'Nutzerverwaltung', fr: 'Gestion des utilisateurs' } },
-      { path: '/features/self-serve-settings-page', label: { en: 'Self-serve Settings', 'zh-Hant': '自助設定', ja: 'セルフサービス設定', es: 'Ajustes de autoservicio', de: 'Self-Service-Einstellungen', fr: 'Paramètres en libre-service' } },
-    ],
-  },
   {
     type: 'stacked',
     sections: [
       {
-        subtitle: { en: 'BRANDING', 'zh-Hant': '品牌', ja: 'ブランディング', es: 'MARCA', de: 'BRANDING', fr: 'IMAGE DE MARQUE' },
+        subtitle: { en: 'SECURITY', 'zh-Hant': '安全性', ja: 'セキュリティ', es: 'SEGURIDAD', de: 'SICHERHEIT', fr: 'SÉCURITÉ' },
         links: [
-          { path: '/features/customization', label: { en: 'Customization', 'zh-Hant': '自訂外觀', ja: 'カスタマイズ', es: 'Personalización', de: 'Anpassung', fr: 'Personnalisation' } },
+          { path: '/features/attack-protection', label: { en: 'Attack Protection', 'zh-Hant': '攻擊防護', ja: '攻撃対策', es: 'Protección contra ataques', de: 'Angriffsschutz', fr: 'Protection contre les attaques' } },
+          { path: '/features/multi-factor-authentication', label: { en: 'Adaptive MFA', 'zh-Hant': '自適應 MFA', ja: 'アダプティブ MFA', es: 'MFA adaptativa', de: 'Adaptive MFA', fr: 'MFA adaptative' } },
+          { path: '/features/sms-pumping-fraud', label: { en: 'SMS Pumping Protection', 'zh-Hant': '簡訊濫發防護', ja: 'SMS ポンピング対策', es: 'Protección contra SMS pumping', de: 'Schutz vor SMS-Pumping', fr: 'Protection contre le SMS pumping' } },
         ],
       },
       {
-        subtitle: { en: 'INTEGRATION', 'zh-Hant': '整合', ja: '連携', es: 'INTEGRACIÓN', de: 'INTEGRATION', fr: 'INTÉGRATION' },
+        subtitle: { en: 'AI & MACHINES', 'zh-Hant': 'AI 與機器', ja: 'AI とマシン', es: 'IA Y MÁQUINAS', de: 'KI & MASCHINEN', fr: 'IA ET MACHINES' },
         links: [
-          { path: '/features/extensibility', label: { en: 'Extensibility', 'zh-Hant': '擴充性', ja: '拡張性', es: 'Extensibilidad', de: 'Erweiterbarkeit', fr: 'Extensibilité' } },
+          { path: '/features/mcp-authentication', label: { en: 'MCP Authentication', 'zh-Hant': 'MCP 身份驗證', ja: 'MCP 認証', es: 'Autenticación MCP', de: 'MCP-Authentifizierung', fr: 'Authentification MCP' } },
+          { path: '/features/machine-to-machine-token', label: { en: 'Machine-to-Machine Token', 'zh-Hant': '機器對機器 Token', ja: 'マシン間トークン', es: 'Tokens machine-to-machine', de: 'Machine-to-Machine-Token', fr: 'Jeton machine-to-machine' } },
         ],
       },
     ],
   },
   {
+    type: 'simple',
+    subtitle: { en: 'SIGN-IN METHODS', 'zh-Hant': '登入方式', ja: 'サインイン方法', es: 'MÉTODOS DE ACCESO', de: 'ANMELDEMETHODEN', fr: 'MÉTHODES DE CONNEXION' },
+    links: [
+      { path: '/features/social-login', label: { en: 'Social Login', 'zh-Hant': '社群登入', ja: 'ソーシャルログイン', es: 'Login social', de: 'Social Login', fr: 'Connexion sociale' } },
+      { path: '/features/passwordless-authentication', label: { en: 'Passwordless', 'zh-Hant': '無密碼登入', ja: 'パスワードレス', es: 'Sin contraseña', de: 'Passwortlos', fr: 'Sans mot de passe' } },
+      { path: '/features/passkeys', label: { en: 'Passkeys', 'zh-Hant': '通行密鑰', ja: 'パスキー', es: 'Passkeys', de: 'Passkeys', fr: 'Passkeys' } },
+      { path: '/features/biometric-authentication', label: { en: 'Biometric', 'zh-Hant': '生物辨識', ja: '生体認証', es: 'Biometría', de: 'Biometrie', fr: 'Biométrie' } },
+      { path: '/features/whatsapp-otp', label: { en: 'WhatsApp OTP', 'zh-Hant': 'WhatsApp OTP', ja: 'WhatsApp OTP', es: 'WhatsApp OTP', de: 'WhatsApp OTP', fr: 'WhatsApp OTP' } },
+    ],
+  },
+  {
+    type: 'simple',
+    subtitle: { en: 'ACCESS & IDENTITY', 'zh-Hant': '存取與身分', ja: 'アクセスと ID', es: 'ACCESO E IDENTIDAD', de: 'ZUGRIFF & IDENTITÄT', fr: 'ACCÈS ET IDENTITÉ' },
+    links: [
+      { path: '/features/authentication', label: { en: 'Authentication', 'zh-Hant': '身份驗證', ja: '認証', es: 'Autenticación', de: 'Authentifizierung', fr: 'Authentification' } },
+      { path: '/features/single-sign-on', label: { en: 'Single Sign-On', 'zh-Hant': '單一登入', ja: 'シングルサインオン', es: 'Inicio de sesión único (SSO)', de: 'Single Sign-On', fr: 'Authentification unique (SSO)' } },
+      { path: '/features/authorization', label: { en: 'Authorization', 'zh-Hant': '授權', ja: '認可', es: 'Autorización', de: 'Autorisierung', fr: 'Autorisation' } },
+      { path: '/features/user-management', label: { en: 'User Management', 'zh-Hant': '使用者管理', ja: 'ユーザー管理', es: 'Gestión de usuarios', de: 'Nutzerverwaltung', fr: 'Gestion des utilisateurs' } },
+    ],
+  },
+  {
+    type: 'simple',
+    subtitle: { en: 'EXPERIENCE', 'zh-Hant': '使用體驗', ja: 'エクスペリエンス', es: 'EXPERIENCIA', de: 'ERLEBNIS', fr: 'EXPÉRIENCE' },
+    links: [
+      { path: '/features/customization', label: { en: 'Customization', 'zh-Hant': '自訂外觀', ja: 'カスタマイズ', es: 'Personalización', de: 'Anpassung', fr: 'Personnalisation' } },
+      { path: '/features/self-serve-settings-page', label: { en: 'Self-serve Settings', 'zh-Hant': '自助設定', ja: 'セルフサービス設定', es: 'Ajustes de autoservicio', de: 'Self-Service-Einstellungen', fr: 'Paramètres en libre-service' } },
+      { path: '/features/extensibility', label: { en: 'Extensibility', 'zh-Hant': '擴充性', ja: '拡張性', es: 'Extensibilidad', de: 'Erweiterbarkeit', fr: 'Extensibilité' } },
+    ],
+  },
+  {
     type: 'productColumn',
-    subtitle: { en: 'PRODUCTS', 'zh-Hant': '產品', ja: '製品', es: 'PRODUCTOS', de: 'PRODUKTE', fr: 'PRODUITS' },
+    subtitle: { en: 'OTHERS', 'zh-Hant': '其他', ja: 'その他', es: 'OTROS', de: 'WEITERES', fr: 'AUTRES' },
     links: [
       {
         path: '/',
