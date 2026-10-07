@@ -3553,6 +3553,23 @@ button.ds-pill-tabs__tab[type='button'].ds-pill-tabs__tab--active {
    ─────────────────────────────────────────────────────────────────*/
 
 /* 橫向捲動容器（小螢幕保護） */
+/*
+ * Desktop gutters.
+ *
+ * `--layout-padding-lg` is 1.5rem, which is right on a phone but leaves hero
+ * and section content almost touching the window edge between about 1100px and
+ * 1440px — the band where `.ds-container` fills the viewport instead of
+ * capping at `--layout-max-width-wide` and centring. Widen it from 992px up.
+ * Unlayered, so it beats the `@layer base` declaration above without
+ * `!important`. Above 1440px nothing moves: the container is already centred
+ * and the gutter is whatever is left over.
+ */
+@media (width >= 992px) {
+  :root {
+    --layout-padding-lg: 3rem;
+  }
+}
+
 .ds-compare-table-wrapper {
   width: 100%;
   max-width: var(--ds-feature-callout-max-width);
