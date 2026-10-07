@@ -139,7 +139,7 @@ Properties unlock filtering in Plausible's dashboard and remove the need for sep
 | `pricing-plan-finder-result` | `apps`, `members` | numeric (e.g. `10` for 10+) | Effective app/member counts |
 | `pricing-plan-finder-result` | `mau` | numeric or `"unlimited"` | MAU used for recommendation, or unlimited when slider locked |
 | `contact-form-submit` | `page` | `"schedule-demo"`, `"pricing"` | Form appears on multiple pages — not yet implemented |
-| `eu-waitlist-click` | `location` | `"pricing-cards"` | Which page or block sent the visitor to the EU waitlist; more values follow as comparison-page blocks land |
+| `eu-waitlist-click` | `location` | `"pricing-cards"`, `"data-sovereignty-table"` | Which page or block sent the visitor to the EU waitlist. Note the zh-Hant data-sovereignty page fires `get-demo` from the same table cell instead: that page targets Taiwan and the anchor lands on a consultation block, not an EU waitlist |
 | `self-host-guide-click` | `location` | `"hero"`, `"table"`, `"footer"` | Which self-host link on `/solutions/data-sovereignty` drew the click |
 | `docs-click` | `location` | `"mcp-hero"`, `"mcp-works-with"` | Which link on `/features/mcp-authentication` sent the reader to the docs. One goal for every "go read the docs" CTA; more values follow as other pages link out |
 

@@ -112,12 +112,39 @@ test.describe('/solutions/data-sovereignty', () => {
     expect(new URL(resp.headers()['location'], 'http://localhost').pathname).toBe(PATH);
   });
 
-  test('comparison tables keep their row labels on mobile', async ({ page }) => {
+  test('the comparison table keeps its row labels on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(PATH);
-    const firstLabel = page.locator('table.dsov-table tbody tr td:first-child').first();
+    // The vendor comparison still renders as a table; the shared styles would
+    // drop its label column on mobile, and this page overrides that.
+    const firstLabel = page
+      .locator('table.dsov-table:not(.dsov-table--ways) tbody tr td:first-child')
+      .first();
     await firstLabel.scrollIntoViewIfNeeded();
     await expect(firstLabel).toBeVisible();
+  });
+
+  test('the three ways table becomes one card per option on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(PATH);
+    // Sideways scrolling through three columns reads badly on a phone, so the
+    // same data is grouped by option instead.
+    await expect(page.locator('.dsov-ways-table-wrapper')).toBeHidden();
+    const cards = page.locator('.dsov-ways-card');
+    await expect(cards).toHaveCount(3);
+    await expect(cards.first().locator('.dsov-ways-card__title')).toHaveText('Self-hosted');
+    // Every aspect keeps its label, including the row that is only links.
+    const terms = cards.first().locator('.dsov-ways-card__term');
+    await expect(terms).toHaveCount(5);
+    await expect(terms.first()).toHaveText('Where it runs');
+    await expect(terms.last()).toHaveText('Get started');
+  });
+
+  test('the three ways table stays a table on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(PATH);
+    await expect(page.locator('.dsov-ways-cards')).toBeHidden();
+    const firstLabel = page.locator('table.dsov-table--ways tbody tr td:first-child').first();
     await expect(firstLabel).toHaveText('Where it runs');
   });
 

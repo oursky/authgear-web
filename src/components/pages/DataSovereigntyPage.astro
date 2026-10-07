@@ -2,6 +2,7 @@
 import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
 import ContactForm from '@/components/islands/ContactForm';
+import WaysCell, { type WaysCellValue } from '@/components/pages/data-sovereignty/WaysCell.astro';
 
 interface Props { locale: string }
 const { locale } = Astro.props;
@@ -48,11 +49,43 @@ const controlCards = [1, 2, 3, 4].map((i) => ({
 }));
 
 const threeWaysColumns = [T('waysColSelfHosted'), T('waysColCloud'), T('waysColPrivateCloud')];
-const threeWaysRows = [
-  [T('waysRowWhere'), T('waysWhereSelfHosted'), T('waysWhereCloud'), T('waysWherePrivateCloud')],
+const threeWaysRows: [string, ...WaysCellValue[]][] = [
+  [
+    T('waysRowWhere'),
+    T('waysWhereSelfHosted'),
+    [
+      [T('waysWhereCloud')],
+      [
+        T('waysWhereCloudPre'),
+        {
+          text: T('waysWhereCloudLink'),
+          href: '#waitlist',
+          // Same anchor, different block: for zh-Hant it is a Taiwan
+          // consultation rather than an EU waitlist, so it must not count
+          // towards the EU waitlist goal.
+          className: `${
+            locale === 'zh-Hant'
+              ? 'plausible-event-name--get-demo'
+              : 'plausible-event-name--eu-waitlist-click'
+          } plausible-event-location--data-sovereignty-table`,
+        },
+        T('waysWhereCloudPost'),
+      ],
+    ],
+    T('waysWherePrivateCloud'),
+  ],
   [T('waysRowWho'), T('waysWhoSelfHosted'), T('waysWhoCloud'), T('waysWhoPrivateCloud')],
   [T('waysRowCost'), T('waysCostSelfHosted'), T('waysCostCloud'), T('waysCostPrivateCloud')],
   [T('waysRowBestFor'), T('waysBestSelfHosted'), T('waysBestCloud'), T('waysBestPrivateCloud')],
+  [
+    T('waysRowGetStarted'),
+    [[{ text: T('waysCtaHelm'), href: HELM_GUIDE_URL, external: true,
+        className: 'plausible-event-name--self-host-guide-click plausible-event-location--table' }]],
+    [[{ text: T('waysCtaStartFree'), href: PORTAL_SIGNUP_URL, external: true,
+        className: 'plausible-event-name--signup plausible-event-location--data-sovereignty-table' }]],
+    [[{ text: T('ctaTalkToUs'), href: localizedPath(locale, '/schedule-demo'),
+        className: 'plausible-event-name--get-demo plausible-event-location--data-sovereignty-table' }]],
+  ],
 ];
 
 const expectItems = [1, 2, 3, 4, 5, 6].map((i) => ({ lead: T(`expect${i}Lead`), rest: T(`expect${i}Rest`) }));
@@ -243,8 +276,9 @@ const faqLd = {
     <div class="title-content">
       <h2 class="heading-on-light">{T('waysTitle')}</h2>
     </div>
-    <div class="ds-compare-table-wrapper">
-      <table class="ds-compare-table dsov-table">
+    {/* Wide screens read this as a grid, so the aspects stay the rows. */}
+    <div class="ds-compare-table-wrapper dsov-ways-table-wrapper">
+      <table class="ds-compare-table dsov-table dsov-table--ways">
         <thead>
           <tr>
             <th scope="col"><span class="dsov-visually-hidden">{T('waysAspect')}</span></th>
@@ -255,36 +289,34 @@ const faqLd = {
           {threeWaysRows.map(([label, ...cells]) => (
             <tr>
               <td>{label}</td>
-              {cells.map((cell, i) => <td data-label={threeWaysColumns[i]}>{cell}</td>)}
+              {cells.map((cell, i) => (
+                <td data-label={threeWaysColumns[i]}>
+                  <WaysCell value={cell} />
+                </td>
+              ))}
             </tr>
           ))}
-          <tr>
-            <td>{T('waysRowGetStarted')}</td>
-            <td data-label={threeWaysColumns[0]}>
-              <a
-                href={HELM_GUIDE_URL}
-                target="_blank"
-                rel="noreferrer"
-                class="dsov-link plausible-event-name--self-host-guide-click plausible-event-location--table"
-              >{T('waysCtaHelm')}</a>
-            </td>
-            <td data-label={threeWaysColumns[1]}>
-              <a
-                href={PORTAL_SIGNUP_URL}
-                target="_blank"
-                rel="noreferrer"
-                class="dsov-link plausible-event-name--signup plausible-event-location--data-sovereignty-table"
-              >{T('waysCtaStartFree')}</a>
-            </td>
-            <td data-label={threeWaysColumns[2]}>
-              <a
-                href={localizedPath(locale, '/schedule-demo')}
-                class="dsov-link plausible-event-name--get-demo plausible-event-location--data-sovereignty-table"
-              >{T('ctaTalkToUs')}</a>
-            </td>
-          </tr>
         </tbody>
       </table>
+    </div>
+
+    {/* Narrow screens get the same data turned on its side: one card per way
+        of running Authgear, so a reader compares down a single option instead
+        of scrolling a three-column table sideways. */}
+    <div class="dsov-ways-cards">
+      {threeWaysColumns.map((col, i) => (
+        <div class="dsov-ways-card">
+          <h3 class="dsov-ways-card__title">{col}</h3>
+          <dl class="dsov-ways-card__list">
+            {threeWaysRows.map(([label, ...cells]) => (
+              <div class="dsov-ways-card__row">
+                <dt class="dsov-ways-card__term">{label}</dt>
+                <dd class="dsov-ways-card__value"><WaysCell value={cells[i]} /></dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ))}
     </div>
     <p class="dsov-table-note">
       {T('waysNote')}{' '}
@@ -531,6 +563,97 @@ const faqLd = {
     font-family: var(--font-sans);
     font-size: var(--text-body2);
     line-height: var(--text-body2--line-height);
+  }
+
+  /*
+   * Three ways to run Authgear: give the three option columns equal width.
+   * Left to itself the browser sizes columns by content, which squeezed
+   * "Authgear Cloud" — its cells are the shortest on the table — to about half
+   * the width of its neighbours. Desktop only: below 768px the shared styles
+   * drop the label column and the wrapper scrolls, and a fixed layout there
+   * would fight that.
+   */
+  @media (width >= 768px) {
+    .dsov-table--ways {
+      table-layout: fixed;
+    }
+    .dsov-table--ways thead th:first-child,
+    .dsov-table--ways tbody td:first-child {
+      width: 16%;
+    }
+    .dsov-table--ways thead th:not(:first-child),
+    .dsov-table--ways tbody td:not(:first-child) {
+      width: 28%;
+    }
+  }
+
+  /* A table cell that carries more than one line. */
+  .dsov-cell-line {
+    display: block;
+  }
+
+  /* The two views of the same data: the table on wide screens, the cards
+     below 768px, where the shared table styles would otherwise drop the
+     label column and leave a three-column sideways scroll. */
+  .dsov-ways-cards {
+    display: none;
+  }
+
+  @media (width < 768px) {
+    .dsov-ways-table-wrapper {
+      display: none;
+    }
+    .dsov-ways-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-s);
+      width: 100%;
+    }
+    .dsov-ways-card {
+      border: 0.0625rem solid var(--color-border-light);
+      border-radius: var(--radius-product);
+      background-color: var(--color-bg-light-card);
+      overflow: hidden;
+    }
+    .dsov-ways-card__title {
+      margin: 0;
+      padding: 0.75rem 1rem;
+      background-color: var(--color-bg-light-blue);
+      color: var(--color-text-light-primary);
+      font-family: var(--font-sans);
+      font-size: var(--text-body2);
+      line-height: var(--text-body2--line-height);
+      font-weight: var(--font-weight-semibold);
+    }
+    .dsov-ways-card__list {
+      margin: 0;
+      padding: 0;
+    }
+    .dsov-ways-card__row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+      padding: 0.75rem 1rem;
+      border-top: 0.0625rem solid var(--color-border-light-subtle);
+    }
+    .dsov-ways-card__row:first-child {
+      border-top: none;
+    }
+    .dsov-ways-card__term {
+      margin: 0;
+      color: var(--color-text-light-muted);
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      font-weight: var(--font-weight-semibold);
+    }
+    .dsov-ways-card__value {
+      margin: 0;
+      color: var(--color-text-light-secondary);
+      font-family: var(--font-sans);
+      font-size: var(--text-body2);
+      line-height: var(--text-body2--line-height);
+    }
   }
 
   .dsov-table-note {

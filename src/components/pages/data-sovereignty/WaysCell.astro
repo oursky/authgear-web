@@ -1,0 +1,46 @@
+---
+/**
+ * One cell of the "three ways to run Authgear" comparison, rendered the same
+ * way in the desktop table and the mobile cards so the two cannot drift.
+ *
+ * A cell is either a plain string or a list of lines, where each line is a run
+ * of segments and a segment may be a link — so part of a line can be clickable
+ * without making the whole cell a link.
+ */
+export type WaysSegment =
+  | string
+  | { text: string; href: string; className?: string; external?: boolean };
+export type WaysCellValue = string | WaysSegment[][];
+
+interface Props {
+  value: WaysCellValue;
+}
+const { value } = Astro.props;
+const lines = typeof value === 'string' ? [[value]] : value;
+---
+
+{lines.map((line) => (
+  <span class="dsov-cell-line">
+    {line.map((seg) =>
+      typeof seg === 'string' ? (
+        seg
+      ) : (
+        <a
+          href={seg.href}
+          target={seg.external ? '_blank' : undefined}
+          rel={seg.external ? 'noreferrer' : undefined}
+          class:list={['dsov-link', seg.className]}
+        >{seg.text}</a>
+      ),
+    )}
+  </span>
+))}
+
+<style>
+  /* Each line is its own block, so a cell can carry a value and a note under
+     it. Scoped here rather than in the page: these spans belong to this
+     component, so the page's scoped styles would not reach them. */
+  .dsov-cell-line {
+    display: block;
+  }
+</style>
