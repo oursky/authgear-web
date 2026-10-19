@@ -137,10 +137,20 @@ const fontsUrl = `https://fonts.googleapis.com/css2?${fontFamilies.map((f) => `f
       }
     </style>
 
-    {/* Google Tag Manager — deferred until analytics cookie consent is granted */}
+    {/* Google Tag Manager — deferred until analytics or marketing cookie consent is granted.
+        Consent Mode v2 defaults are queued first so GTM sees them before any tag fires;
+        CookieConsentBanner sends the `update` calls. */}
     {gtmId && (
       <script is:inline define:vars={{ gtmId }}>
         window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('consent', 'default', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          wait_for_update: 500,
+        });
         window.__loadGtm = function () {
           if (window.__gtmLoaded) return;
           window.__gtmLoaded = true;

@@ -165,6 +165,39 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 
 ---
 
+## GTM dataLayer events and Consent Mode
+
+Plausible is the cookieless baseline for all traffic. Google Tag Manager
+(`PUBLIC_GTM_ID`) carries the consent-gated marketing tags (Google Ads
+conversions and remarketing, LinkedIn Insight Tag) and reads the events below
+from `window.dataLayer`.
+
+### Consent Mode v2
+
+| Step | Where | What |
+|------|-------|------|
+| Default | `src/layouts/BaseLayout.astro` (inline, before GTM can load) | `gtag('consent', 'default', …)` with `analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization` all `denied`, `wait_for_update: 500` |
+| Update | `src/components/CookieConsentBanner.astro` — `onConsent` (first consent and every later page load) and `onChange` | `gtag('consent', 'update', …)`: `analytics_storage` from the **analytics** category; `ad_storage`, `ad_user_data`, `ad_personalization` from the **marketing** category |
+| GTM load | same | `window.__loadGtm()` runs once **analytics or marketing** is granted. "Reject all" never loads GTM |
+
+In GTM, fire ad tags only when `ad_storage` (and `ad_user_data` for
+conversions) is granted, using the built-in consent checks.
+
+### Events
+
+| Event | Component | Trigger | Fields |
+|-------|-----------|---------|--------|
+| `contact_form_submit` | `ContactForm` (every page that embeds it, incl. `/schedule-demo` and `/solutions/data-sovereignty`) | Netlify Forms POST returns OK | `form_page` — `location.pathname` (no query string); `topic` — `?topic=` query param, or `''` |
+
+`topic` tags campaign entry points, e.g.
+`/schedule-demo?topic=sovereignty-review`. It is also sent to Netlify Forms as
+the `topic` field. Never push personal data (name, email, phone, company) to
+the dataLayer; `form_page` drops the query string because the form can be
+prefilled from `?name=` / `?email=`. Push events through `pushDataLayer()` in
+`src/lib/gtm.ts`.
+
+---
+
 ## Implementation Reference
 
 | Helper | File | Use case |
@@ -173,6 +206,7 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 | `plausible-event-name--*` class | any static element | Astro components — tagged-events class convention |
 | `window.plausible()` via `src/lib/plausible.ts` | React islands | Programmatic calls with props |
 | Script tag | `src/layouts/BaseLayout.astro` | Loads `script.tagged-events.js`; domain from `PUBLIC_PLAUSIBLE_DOMAIN` |
+| `pushDataLayer()` | `src/lib/gtm.ts` | GTM dataLayer events (see "GTM dataLayer events and Consent Mode") |
 
 ---
 

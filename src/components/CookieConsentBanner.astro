@@ -62,6 +62,21 @@ const i18n = {
   const el = document.getElementById('cc-i18n')!;
   const { lang, translations } = JSON.parse(el.textContent!);
 
+  // Google Consent Mode v2: defaults (all denied) are set in BaseLayout before GTM can load.
+  function applyConsent(categories: string[]) {
+    const analytics = categories.includes('analytics') ? 'granted' : 'denied';
+    const marketing = categories.includes('marketing') ? 'granted' : 'denied';
+    (window as any).gtag?.('consent', 'update', {
+      analytics_storage: analytics,
+      ad_storage: marketing,
+      ad_user_data: marketing,
+      ad_personalization: marketing,
+    });
+    if (analytics === 'granted' || marketing === 'granted') {
+      (window as any).__loadGtm?.();
+    }
+  }
+
   CookieConsent.run({
     cookie: { name: 'authgear_cc' },
     guiOptions: {
@@ -83,16 +98,8 @@ const i18n = {
       marketing: {},
     },
     language: { default: lang, translations },
-    onConsent: ({ cookie }) => {
-      if (cookie.categories.includes('analytics')) {
-        (window as any).__loadGtm?.();
-      }
-    },
-    onChange: ({ cookie, changedCategories }) => {
-      if (changedCategories.includes('analytics') && cookie.categories.includes('analytics')) {
-        (window as any).__loadGtm?.();
-      }
-    },
+    onConsent: ({ cookie }) => applyConsent(cookie.categories),
+    onChange: ({ cookie }) => applyConsent(cookie.categories),
   });
 
   (window as any).__cc = CookieConsent;

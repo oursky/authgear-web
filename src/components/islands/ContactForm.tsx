@@ -4,6 +4,7 @@ import type { IntlTelInputRef } from 'intl-tel-input/react';
 import type { Iso2 } from 'intl-tel-input/data';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import { trackEvent } from '@/lib/plausible';
+import { pushDataLayer } from '@/lib/gtm';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -193,6 +194,8 @@ export default function ContactForm({ locale = 'en', submitLabel }: Props) {
         ? `+${dialCode}${rawPhone.replace(/^0+/, '')}`
         : rawPhone);
     setStatus('submitting');
+    // e.g. /schedule-demo?topic=sovereignty-review — lets GTM and the inbox tell campaign leads apart.
+    const topic = getQueryParam('topic');
     try {
       // Netlify Forms accepts URL-encoded POSTs to any path on the site;
       // the body must include `form-name` matching the registered form.
@@ -211,12 +214,17 @@ export default function ContactForm({ locale = 'en', submitLabel }: Props) {
           utm_source: getQueryParam('utm_source'),
           utm_medium: getQueryParam('utm_medium'),
           utm_campaign: getQueryParam('utm_campaign'),
+          topic,
           page: getSubmissionPage(),
           locale: l,
           source: 'contact-form',
           website: honeypot,
         }),
       });
+      if (res.ok) {
+        // Path only: the query string can carry prefilled ?name=&email=, which must stay out of GTM.
+        pushDataLayer({ event: 'contact_form_submit', form_page: window.location.pathname, topic });
+      }
       setStatus(res.ok ? 'success' : 'error');
     } catch {
       setStatus('error');
