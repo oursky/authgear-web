@@ -1,7 +1,6 @@
 ---
 title: "MTR Corporation Simplifies Part‑Time Hiring Login with Authgear"
-excerpt: "See how MTR integrated zure AD for managers and WhatsApp OTP for part‑time applicants—launching secure, mobile‑friendly authentication with fewer password issues and faster onboarding.
-"
+excerpt: "See how MTR integrated Azure AD for managers and WhatsApp OTP for part‑time applicants—launching secure, mobile‑friendly authentication with fewer password issues and faster onboarding."
 customerName: "HongKong MTR"
 companyIndustry: "Public transport & operations"
 companyLocation: "Hong Kong"

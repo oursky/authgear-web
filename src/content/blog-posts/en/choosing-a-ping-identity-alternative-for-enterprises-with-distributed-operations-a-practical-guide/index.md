@@ -17,27 +17,27 @@ faq:
   - q: "What is the best Ping Identity alternative for multi-national enterprises?"
     a: "The best alternative depends on your specific use case:
 
-- **Mobile-first with passwordless authentication:** Authgear
+      - **Mobile-first with passwordless authentication:** Authgear
 
-- **Microsoft-centric environments:** Microsoft Entra ID
+      - **Microsoft-centric environments:** Microsoft Entra ID
 
-- **Workforce lifecycle and governance:** Okta
+      - **Workforce lifecycle and governance:** Okta
 
-- **Developer-first customer CIAM:** Auth0 or Stytch
+      - **Developer-first customer CIAM:** Auth0 or Stytch
 
-Evaluate vendors using the criteria in this guide based on your mobile-first, multi-region, and compliance requirements."
+      Evaluate vendors using the criteria in this guide based on your mobile-first, multi-region, and compliance requirements."
   - q: "How long does it take to migrate from Ping Identity to a new platform?"
     a: "Typical migration timelines range from 8-12 weeks for POC and initial rollout, with phased expansion taking an additional 4-8 weeks. Timeline depends on complexity of existing integrations, number of users, and regional requirements. See the migration playbook section for detailed phases."
   - q: "What certifications should I look for in a Ping Identity alternative?"
     a: "Key certifications include:
 
-- **ISO 27001** (information security management)
+      - **ISO 27001** (information security management)
 
-- **SOC 2 Type II** (security, availability, confidentiality)
+      - **SOC 2 Type II** (security, availability, confidentiality)
 
-- **Regional certifications** (e.g., EU Cloud Code of Conduct, APAC-specific standards)
+      - **Regional certifications** (e.g., EU Cloud Code of Conduct, APAC-specific standards)
 
-Verify that certifications cover the specific regions where you'll host data."
+      Verify that certifications cover the specific regions where you'll host data."
   - q: "Can passwordless authentication work for mobile workforces?"
     a: "Yes, passwordless authentication is ideal for mobile workforces. Options include biometric authentication (Face ID, Touch ID), passkeys (FIDO2/WebAuthn), and SMS/WhatsApp OTP. These methods are more secure than passwords and provide better user experience on mobile devices."
 ---
