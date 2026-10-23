@@ -1177,7 +1177,7 @@
   "WhatsAppOtp": {
     "heroSmallTitle": "WhatsApp OTP",
     "heroTitle": "透過 WhatsApp OTP 驗證用戶",
-    "heroDescription": "讓您的用戶透過他們喜愛的聊天應用程式安全登入。",
+    "heroDescription": "以 WhatsApp 取代簡訊傳送一次性登入驗證碼：在許多國家成本更低、端對端加密，並可改用簡訊備援。",
     "freePlanIncludes": "免費方案包含",
     "unlimitedMAUs": "無限 MAU",
     "whyTitle": "為何選擇 Authgear 的 WhatsApp OTP",

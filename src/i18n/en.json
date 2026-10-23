@@ -1176,8 +1176,8 @@
   },
   "WhatsAppOtp": {
     "heroSmallTitle": "WhatsApp OTP",
-    "heroTitle": "Authentication users with WhatsApp OTPs",
-    "heroDescription": "Enable your users to login securely with the chat app they love.",
+    "heroTitle": "Authenticate users with WhatsApp OTP",
+    "heroDescription": "Send one-time login codes to WhatsApp instead of SMS: cheaper in many countries, end-to-end encrypted, with SMS fallback.",
     "freePlanIncludes": "Free plan includes",
     "unlimitedMAUs": "unlimited MAUs",
     "whyTitle": "Why WhatsApp OTP with Authgear",

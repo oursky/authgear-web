@@ -90,9 +90,9 @@ const en: Record<string, FeatureMeta> = {
       "Simplify user management with Authgear's powerful platform. From user migration and customization to advanced analytics, we offer a comprehensive solution for effective user access management.",
   },
   'whatsapp-otp': {
-    title: 'Integrate Whatsapp OTP for Seamless App Logins - Authgear',
+    title: 'WhatsApp OTP Verification API for App Logins | Authgear',
     description:
-      'Ditch unreliable SMS and level up security! Learn how Authgear seamlessly integrates WhatsApp OTP for secure, convenient app logins.',
+      'Send login codes over WhatsApp instead of SMS. Up to 80% cheaper in many countries, end-to-end encrypted, with SMS fallback. Free plan, unlimited MAUs.',
   },
 };
 
@@ -183,9 +183,9 @@ const zhHant: Record<string, FeatureMeta> = {
       '透過 Authgear 強大的平台簡化使用者管理。從使用者遷移、客製化到進階分析，提供一站式方案，協助您有效管理使用者存取。',
   },
   'whatsapp-otp': {
-    title: '整合 WhatsApp OTP，打造順暢的應用程式登入體驗 - Authgear',
+    title: 'WhatsApp OTP 驗證 API：以 WhatsApp 傳送登入驗證碼 | Authgear',
     description:
-      '揮別不穩定的簡訊並提升安全性！了解 Authgear 如何無縫整合 WhatsApp OTP，提供安全且便利的應用程式登入體驗。',
+      '以 WhatsApp 取代簡訊傳送登入驗證碼。在許多國家可節省高達 80% 成本，端對端加密，並支援簡訊備援。免費方案不限 MAU。',
   },
 };
 
