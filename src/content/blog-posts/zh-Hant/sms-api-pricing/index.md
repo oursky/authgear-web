@@ -103,7 +103,7 @@ faq:
 2. **降低回訪用戶的 OTP 用量。** Passkey 與生物辨識登入在受信任的裝置上完全跳過 OTP，因此你不必再為最活躍的用戶每次登入付費。
 3. **保護發送端點。** 速率限制與機器人偵測能把 SMS pumping 流量擋在你的帳單之外。
 4. **依國家挑選合適的供應商。** 如表所示，最便宜的供應商因目的地而異。如果你大量發送到某個地區，路由就很重要。
-5. **在投入之前先做試算。** 用你真實的用量與目的地來估算支出，而不是依賴單一平均值。如果你正在比較供應商，[Twilio Verify 定價與替代方案](/post/twilio-verify-pricing-and-alternatives) 是個實用的參考。
+5. **在投入之前先做試算。** 用你真實的用量與目的地來估算支出，而不是依賴單一平均值。如果你正在比較供應商，[Twilio Verify 定價與替代方案](/post/twilio-verify-pricing-and-alternatives) 與 [Twilio 替代方案：SMS 與 OTP 轉換指南](/zh-hant/post/twilio-alternatives) 都是實用的參考。
 
 要自己把這一切都建起來，是一個實實在在的工程專案：WhatsApp 優先搭配 SMS 備援的路由、對回訪用戶降階到 passkey，以及發送端點的機器人防護。像 [Authgear](https://www.authgear.com) 這類驗證平台開箱即提供這些功能，包含 WhatsApp OTP 與自動 SMS 備援、用來降低 OTP 用量的 passkey 與生物辨識登入，以及內建的 SMS pumping 防護。在你改動任何東西之前，都可以先 [用 SMS 成本計算器估算你的節省](/zh-hant/tools/sms-cost-calculator)。
 

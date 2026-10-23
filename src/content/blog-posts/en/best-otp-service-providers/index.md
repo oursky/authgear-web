@@ -74,7 +74,7 @@ The trap is scale. A $0.05 platform fee is invisible at 1,000 verifications a mo
 
 ### 1. Twilio Verify
 
-The default choice, and the most complete: one API covers SMS, voice, WhatsApp, email, push, TOTP, and silent network authentication, with SMS-pumping protection built in. You pay for the convenience — $0.05 per successful verification on top of channel fees, which for US SMS lands around $0.062 per verification all-in, and failed attempts still incur channel costs. Fine at low volume; at scale the platform fee usually becomes the biggest line on the bill. We've broken down the math and the escape routes in our [Twilio Verify pricing guide](/post/twilio-verify-pricing-and-alternatives).
+The default choice, and the most complete: one API covers SMS, voice, WhatsApp, email, push, TOTP, and silent network authentication, with SMS-pumping protection built in. You pay for the convenience — $0.05 per successful verification on top of channel fees, which for US SMS lands around $0.062 per verification all-in, and failed attempts still incur channel costs. Fine at low volume; at scale the platform fee usually becomes the biggest line on the bill. We've broken down the math and the escape routes in our [Twilio Verify pricing guide](/post/twilio-verify-pricing-and-alternatives), and compared the providers people switch to in [Twilio alternatives for SMS and OTP](/post/twilio-alternatives).
 
 ### 2. Vonage Verify
 

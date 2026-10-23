@@ -141,7 +141,7 @@ Assembling all of this yourself — authentication-category templates, direct Cl
 
 For a fuller breakdown of authentication cost across channels, including passkeys (which drive the marginal cost of returning-user logins toward zero), see [How much does two-factor authentication cost?](/post/two-factor-authentication-cost).
 
-**Related reading:** [SMS API pricing explained](/post/sms-api-pricing), [What is A2P SMS?](/post/what-is-a2p-sms), and [Best SMS API providers compared](/post/best-sms-api-providers).
+**Related reading:** [SMS API pricing explained](/post/sms-api-pricing), [What is A2P SMS?](/post/what-is-a2p-sms), [Best SMS API providers compared](/post/best-sms-api-providers), and [Twilio alternatives for SMS and OTP](/post/twilio-alternatives).
 
 ## Frequently Asked Questions
 

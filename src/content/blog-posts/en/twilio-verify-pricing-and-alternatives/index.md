@@ -94,6 +94,8 @@ If you're small, moving fast, or verification is a minor part of your product, t
 
 ## Twilio Verify alternatives (2026)
 
+Comparing providers one by one? Our switching guide, [Twilio alternatives for SMS and OTP](/post/twilio-alternatives), covers each in detail.
+
 If the per-verification fee is your problem, there are three broad directions:
 
 <div class="ag-table-wrap">

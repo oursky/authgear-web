@@ -105,4 +105,4 @@ Platforms like [Authgear](/solutions/reduce-sms-otp-cost) offer WhatsApp OTP wit
 
 Ready to cut your SMS OTP bill? [Get a live demo](/schedule-demo/) to see Authgear route OTPs over WhatsApp with automatic SMS fallback, or estimate your savings with the [SMS cost calculator](/tools/sms-cost-calculator/).
 
-**Related reading:** [How much does 2FA cost?](/post/two-factor-authentication-cost), [SMS OTP vulnerabilities and alternatives](/post/sms-otp-vulnerabilities-and-alternatives), [SMS pumping attacks](/post/sms-pumping-attack), [SMS API pricing explained](/post/sms-api-pricing), [SMS deliverability: why texts fail](/post/sms-deliverability), and [RCS vs SMS](/post/rcs-vs-sms).
+**Related reading:** [How much does 2FA cost?](/post/two-factor-authentication-cost), [SMS OTP vulnerabilities and alternatives](/post/sms-otp-vulnerabilities-and-alternatives), [SMS pumping attacks](/post/sms-pumping-attack), [SMS API pricing explained](/post/sms-api-pricing), [SMS deliverability: why texts fail](/post/sms-deliverability), [RCS vs SMS](/post/rcs-vs-sms), and [Twilio alternatives for SMS and OTP](/post/twilio-alternatives).

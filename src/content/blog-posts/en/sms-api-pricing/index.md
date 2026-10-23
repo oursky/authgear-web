@@ -103,7 +103,7 @@ You don't have to accept the bill as-is. A few levers, roughly in order of impac
 2. **Cut OTP volume for returning users.** Passkeys and biometric login skip the OTP entirely on trusted devices, so you stop paying per login for your most active users.
 3. **Protect the send endpoint.** Rate limiting and bot detection keep SMS pumping traffic off your bill.
 4. **Pick the right provider per country.** As the tables show, the cheapest provider varies by destination. If you send heavily to one region, the routing matters.
-5. **Model it before you commit.** Estimate the spend for your real volume and destinations rather than trusting a single average. If you're weighing providers, [Twilio Verify pricing and alternatives](/post/twilio-verify-pricing-and-alternatives) is a useful comparison.
+5. **Model it before you commit.** Estimate the spend for your real volume and destinations rather than trusting a single average. If you're weighing providers, [Twilio Verify pricing and alternatives](/post/twilio-verify-pricing-and-alternatives) and [Twilio alternatives for SMS and OTP](/post/twilio-alternatives) are useful comparisons.
 
 Building all of this yourself is a real engineering project: WhatsApp-first routing with SMS fallback, passkey step-down for returning users, and bot protection on the send endpoint. Authentication platforms like [Authgear](https://www.authgear.com) ship it out of the box, with WhatsApp OTP and automatic SMS fallback, passkeys and biometric login to cut OTP volume, and built-in SMS pumping protection. You can [estimate your savings with the SMS cost calculator](/tools/sms-cost-calculator) before you change anything.
 

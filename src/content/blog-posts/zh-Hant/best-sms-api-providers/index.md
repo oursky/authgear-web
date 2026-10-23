@@ -97,7 +97,7 @@ faq:
 
 ### 有哪些好的 Twilio 替代方案？
 
-Vonage、Sinch、Bird（前身為 MessageBird）、Plivo、Infobip 與 AWS SNS 是主要的替代方案。它們在價格、區域覆蓋與支援上競爭。正確的選擇取決於你的發送目的地，以及你是否需要 WhatsApp 或語音等額外通道。若想了解驗證方面的角度，可參考我們的 [Twilio Verify 定價與替代方案](/post/twilio-verify-pricing-and-alternatives) 指南。
+Vonage、Sinch、Bird（前身為 MessageBird）、Plivo、Infobip 與 AWS SNS 是主要的替代方案。它們在價格、區域覆蓋與支援上競爭。正確的選擇取決於你的發送目的地，以及你是否需要 WhatsApp 或語音等額外通道。逐一比較各家供應商與轉換步驟，請參考 [Twilio 替代方案：SMS 與 OTP 轉換指南](/zh-hant/post/twilio-alternatives)；若想了解驗證方面的角度，可參考我們的 [Twilio Verify 定價與替代方案](/post/twilio-verify-pricing-and-alternatives) 指南。
 
 ### SMS API 供應商支援 OTP 與 2FA 嗎？
 

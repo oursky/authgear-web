@@ -97,7 +97,7 @@ Per-message rates vary a lot by destination country, so the cheapest provider ch
 
 ### What are good alternatives to Twilio?
 
-Vonage, Sinch, Bird (formerly MessageBird), Plivo, Infobip, and AWS SNS are the main alternatives. They compete on price, regional coverage, and support. The right choice depends on your destinations and whether you need extra channels like WhatsApp or voice. See our guide to [Twilio Verify pricing and alternatives](/post/twilio-verify-pricing-and-alternatives) for the verification angle.
+Vonage, Sinch, Bird (formerly MessageBird), Plivo, Infobip, and AWS SNS are the main alternatives. They compete on price, regional coverage, and support. The right choice depends on your destinations and whether you need extra channels like WhatsApp or voice. See [Twilio alternatives for SMS and OTP](/post/twilio-alternatives) for a provider-by-provider switching guide, and [Twilio Verify pricing and alternatives](/post/twilio-verify-pricing-and-alternatives) for the verification angle.
 
 ### Do SMS API providers support OTP and 2FA?
 
