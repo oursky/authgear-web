@@ -34,6 +34,7 @@ export default function TotpPage({ locale }: Props) {
       <ToolHero title={t('heroTitle')} description={heroDescription} />
       <ToolWidget
         locale={locale}
+        tool="totp-authenticator"
         src="https://totp-mini-tool-authgear.vercel.app/"
         iframeTitle={t('iframeTitle')}
         height="600px"

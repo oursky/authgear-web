@@ -40,6 +40,11 @@ export const common = {
   },
   faqHeading: 'よくある質問',
   stepLabel: 'ステップ {n}.',
+  // Per-tool widget CTA line, keyed by tool slug. Falls back to demoCtaText.
+  widgetPitches: {
+    'totp-authenticator': 'アプリに TOTP による MFA を追加しますか？',
+    'password-hash-generator': 'パスワードハッシュを自分で保存していますか？',
+  },
   demoCtaText: 'アプリに認証機能を組み込んでいますか？',
   demoCtaButton: '開発を始める',
 } as const;

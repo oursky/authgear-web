@@ -41,6 +41,11 @@ export const common = {
   },
   faqHeading: 'FAQ',
   stepLabel: 'Étape {n}.',
+  // Per-tool widget CTA line, keyed by tool slug. Falls back to demoCtaText.
+  widgetPitches: {
+    'totp-authenticator': 'Vous ajoutez la MFA TOTP à votre application ?',
+    'password-hash-generator': 'Vous stockez vous-même des hachages de mots de passe ?',
+  },
   demoCtaText: 'Vous intégrez l’authentification dans votre application ?',
   demoCtaButton: 'Commencer à développer',
 } as const;

@@ -39,6 +39,11 @@ export const common = {
   },
   faqHeading: '常見問題',
   stepLabel: '步驟 {n}.',
+  // Per-tool widget CTA line, keyed by tool slug. Falls back to demoCtaText.
+  widgetPitches: {
+    'totp-authenticator': '要為應用程式加入 TOTP 多因素驗證嗎？',
+    'password-hash-generator': '還在自行儲存密碼雜湊嗎？',
+  },
   demoCtaText: '正在為您的應用程式建置身分驗證嗎？',
   demoCtaButton: '開始建置',
 } as const;

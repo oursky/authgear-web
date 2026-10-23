@@ -26,6 +26,11 @@ export const common = {
   },
   "faqHeading": "Preguntas frecuentes",
   "stepLabel": "Paso {n}.",
+  // Per-tool widget CTA line, keyed by tool slug. Falls back to demoCtaText.
+  "widgetPitches": {
+    "totp-authenticator": "¿Añadiendo MFA con TOTP a tu app?",
+    "password-hash-generator": "¿Almacenas hashes de contraseñas tú mismo?"
+  },
   "demoCtaText": "¿Integrando autenticación en tu app?",
   "demoCtaButton": "Empieza a construir"
 } as const;

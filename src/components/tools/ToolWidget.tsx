@@ -9,11 +9,17 @@ type Props = {
   policy?: ReactNode;
   iframeId?: string;
   iframeStyle?: CSSProperties;
+  /** Tool slug — selects a per-tool CTA line (common.widgetPitches). */
+  tool?: string;
   children?: ReactNode;
 };
 
-export default function ToolWidget({ locale, src, iframeTitle, height, policy, iframeId, iframeStyle, children }: Props) {
+export default function ToolWidget({ locale, src, iframeTitle, height, policy, iframeId, iframeStyle, tool, children }: Props) {
   const t = (key: string): string => tFn(locale, `Tools.common.${key}`);
+  // Same fallback as ToolPopup: tFn echoes the key back on a miss.
+  const pitchKey = tool ? `Tools.common.widgetPitches.${tool}` : null;
+  const pitch = pitchKey ? tFn(locale, pitchKey) : null;
+  const ctaText = pitch && pitch !== pitchKey ? pitch : t('demoCtaText');
   const defaultStyle: CSSProperties = { border: 'none', width: '100%', height, minHeight: '600px' };
   return (
     <section>
@@ -40,7 +46,7 @@ export default function ToolWidget({ locale, src, iframeTitle, height, policy, i
         )}
         <div className="tools-banner-wrapper">
           <div className="tools-demo-cta">
-            <p className="tools-demo-cta__text">{t('demoCtaText')}</p>
+            <p className="tools-demo-cta__text">{ctaText}</p>
             <a
               href="https://portal.authgear.com/"
               target="_blank"
