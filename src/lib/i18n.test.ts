@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   LOCALES,
   PARTIAL_LOCALES,
+  BLOG_ONLY_LOCALES,
   localizedPath,
   stripLocaleSegment,
   hasLocalizedPage,
@@ -9,6 +10,62 @@ import {
   localeToHtmlLang,
   resolveLocale,
 } from './i18n';
+
+/** Every locale that has the site-wide pages (home, pricing, tools). */
+const SITE_LOCALES = LOCALES.filter((loc) => !BLOG_ONLY_LOCALES.includes(loc));
+
+describe('blog-only locale (nl)', () => {
+  const NL_POST = '/post/digitale-soevereiniteit-inloggen/';
+
+  it('is registered with its own URL segment but is not a partial locale', () => {
+    expect(LOCALES).toContain('nl');
+    expect(BLOG_ONLY_LOCALES).toEqual(['nl']);
+    expect(PARTIAL_LOCALES).not.toContain('nl');
+    expect(stripLocaleSegment(`/nl${NL_POST}`)).toBe(NL_POST);
+    expect(localeToHtmlLang('nl')).toBe('nl');
+  });
+
+  it('links its own post under /nl/ and everything else to the English page', () => {
+    expect(localizedPath('nl', NL_POST)).toBe(`/nl${NL_POST}`);
+    expect(localizedPath('nl', '/post/digitale-soevereiniteit-inloggen')).toBe(`/nl${NL_POST}`);
+    expect(localizedPath('nl', '/')).toBe('/');
+    expect(localizedPath('nl', '/pricing')).toBe('/pricing/');
+    expect(localizedPath('nl', '/schedule-demo')).toBe('/schedule-demo/');
+    expect(localizedPath('nl', '/tools/jwt-jwe-debugger')).toBe('/tools/jwt-jwe-debugger/');
+    expect(localizedPath('nl', '/solutions/data-sovereignty')).toBe('/solutions/data-sovereignty/');
+    expect(localizedPath('nl', '/post/sms-otp-vs-whatsapp-otp')).toBe('/post/sms-otp-vs-whatsapp-otp/');
+    expect(localizedPath('nl', '/blog?category=x')).toBe('/blog/?category=x');
+  });
+
+  it('has no page other than its posts', () => {
+    expect(hasLocalizedPage('nl', NL_POST)).toBe(true);
+    expect(hasLocalizedPage('nl', '/')).toBe(false);
+    expect(hasLocalizedPage('nl', '/pricing/')).toBe(false);
+    expect(hasLocalizedPage('nl', '/tools/ssl-checker/')).toBe(false);
+    expect(hasLocalizedPage('nl', '/about/')).toBe(false);
+    expect(hasLocalizedPage('nl', '/post/sms-otp-vs-whatsapp-otp/')).toBe(false);
+    expect(localesWithPage('/')).not.toContain('nl');
+    expect(localesWithPage('/pricing/')).not.toContain('nl');
+    expect(localesWithPage('/about/')).not.toContain('nl');
+  });
+
+  it('advertises the Dutch post as a single-market page', () => {
+    // `localeAlternates` is imported further down; imports are hoisted.
+    expect(localesWithPage(NL_POST)).toEqual(['nl']);
+    expect(localeAlternates(NL_POST)).toEqual([{ locale: 'nl', path: NL_POST }]);
+    expect(hasLocalizedPage('en', NL_POST)).toBe(false);
+    expect(hasLocalizedPage('de', NL_POST)).toBe(false);
+    expect(localeAlternates('/post/digitale-souveraenitaet-login-identity-provider/')).toEqual([
+      { locale: 'de', path: '/post/digitale-souveraenitaet-login-identity-provider/' },
+    ]);
+  });
+
+  it('is never picked from Accept-Language', () => {
+    expect(resolveLocale('nl-NL,nl;q=0.9')).toBe('en');
+    expect(resolveLocale('nl')).toBe('en');
+    expect(resolveLocale('nl-BE,nl;q=0.9,fr;q=0.8')).toBe('fr');
+  });
+});
 
 describe('partial locales (es, de, ja)', () => {
   it('are registered with their own URL segment', () => {
@@ -52,9 +109,9 @@ describe('partial locales (es, de, ja)', () => {
   });
 
   it('are offered as alternates only on translated paths', () => {
-    expect(localesWithPage('/')).toEqual([...LOCALES]);
-    expect(localesWithPage('/pricing/')).toEqual([...LOCALES]);
-    expect(localesWithPage('/tools/ssl-checker/')).toEqual([...LOCALES]);
+    expect(localesWithPage('/')).toEqual(SITE_LOCALES);
+    expect(localesWithPage('/pricing/')).toEqual(SITE_LOCALES);
+    expect(localesWithPage('/tools/ssl-checker/')).toEqual(SITE_LOCALES);
     expect(localesWithPage('/about/')).toEqual(['en', 'zh-Hant']);
     expect(localesWithPage('/post/x/')).toEqual(['en', 'zh-Hant']);
   });
@@ -82,8 +139,8 @@ import { PARTIAL_LOCALE_POST_SLUGS, TRANSLATION_SETS, localeAlternates } from '.
 const DE_POST = '/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik';
 
 describe('PARTIAL_LOCALE_POST_SLUGS', () => {
-  it('covers ja, de and fr', () => {
-    expect(Object.keys(PARTIAL_LOCALE_POST_SLUGS).sort()).toEqual(['de', 'fr', 'ja']);
+  it('covers ja, de, fr and the blog-only nl', () => {
+    expect(Object.keys(PARTIAL_LOCALE_POST_SLUGS).sort()).toEqual(['de', 'fr', 'ja', 'nl']);
   });
 
   it('matches the translated blog posts on disk, each locale with a post route', () => {
@@ -243,7 +300,7 @@ describe('TRANSLATION_SETS', () => {
 
   it('leaves ordinary pages pairing on a shared path', () => {
     expect(localeAlternates('/pricing/')).toEqual(
-      [...LOCALES].map((locale) => ({ locale, path: '/pricing/' })),
+      SITE_LOCALES.map((locale) => ({ locale, path: '/pricing/' })),
     );
     expect(localeAlternates('/about/')).toEqual([
       { locale: 'en', path: '/about/' },
