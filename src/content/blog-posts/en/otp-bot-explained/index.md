@@ -96,7 +96,7 @@ The solution is proactive defense: rate limiting, CAPTCHAs, fraud detection, and
 
 [Start protecting your app today with Authgear](/schedule-demo/)**.**
 
-**Related reading:** [How OTP bots bypass SMS 2FA](/post/otp-bots-bypass-sms-2fa), [SMS OTP vulnerabilities and alternatives](/post/sms-otp-vulnerabilities-and-alternatives), and [SMS pumping attacks and how to prevent them](/post/sms-pumping-attack).
+**Related reading:** [How OTP bots bypass SMS 2FA](/post/otp-bots-bypass-sms-2fa), [SMS OTP vulnerabilities and alternatives](/post/sms-otp-vulnerabilities-and-alternatives), [SMS pumping attacks and how to prevent them](/post/sms-pumping-attack), and [Silent Network Authentication](/post/silent-network-authentication), which verifies the phone through the carrier so there is no code for a bot to steal.
 
 ---
 

@@ -97,6 +97,8 @@ Learn more:<a href="/features/sms-pumping-fraud" target="_blank">**Authgear SMS 
 
 [Get a live demo](/schedule-demo/) to see how Authgear blocks OTP abuse and cuts SMS costs with WhatsApp-first delivery, or estimate the savings with the [SMS cost reduction calculator](/solutions/reduce-sms-otp-cost).
 
+**Related reading:** [OTP bots explained](/post/otp-bot-explained), [SMS OTP vulnerabilities and alternatives](/post/sms-otp-vulnerabilities-and-alternatives), and [Silent Network Authentication](/post/silent-network-authentication), which checks the phone through the carrier instead of sending a code.
+
 ## FAQ: OTP bypass in practice
 
 **How do OTP bots bypass SMS 2FA?**  
