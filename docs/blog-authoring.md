@@ -107,6 +107,10 @@ Example:
 See our [JWT guide](/post/nextjs-jwt-authentication) for context.
 ```
 
+### Calls to action
+
+Don't add new inline signup CTAs (`plausible-event-location--post-inline`) to posts. Measured in September 2026, they fired once across the whole site, while the tool widget and popup produced almost all signup clicks. The existing ones can stay. End a post with a related-reading line instead, which also helps the linked posts rank.
+
 ### FAQ section
 
 If you want an on-page FAQ:
