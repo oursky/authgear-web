@@ -144,6 +144,8 @@ Keycloak is feature-rich and supports complex enterprise identity scenarios. It 
 
 Large SaaS platforms with dedicated infrastructure teams, complex user hierarchies, and enterprise-level identity requirements.
 
+For a closer look, see [Authentik vs Keycloak](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) and [Authgear as a Keycloak alternative](/compare/keycloak-alternative).
+
 ### 3. Authentik
 
 Authentik is a modern, policy-driven open-source identity provider. It emphasizes usability and flexibility, allowing teams to customize authentication workflows visually.

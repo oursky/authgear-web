@@ -86,7 +86,7 @@ The pattern in practice: SSO (SAML/OIDC) is the first enterprise requirement you
 
 ## Implementing both without building both
 
-Building a SAML SP, an OIDC RP, and a SCIM server from scratch is months of protocol work — XML signature validation, SCIM PATCH semantics, and group-sync edge cases are all notorious time sinks. An authentication platform like [Authgear](/) provides SAML, OIDC, and enterprise directory integration behind a single API, so your app implements one integration and inherits the full enterprise identity stack.
+Building a SAML SP, an OIDC RP, and a SCIM server from scratch is months of protocol work — XML signature validation, SCIM PATCH semantics, and group-sync edge cases are all notorious time sinks. An authentication platform like [Authgear](/) provides SAML, OIDC, and LDAP and Active Directory integration behind a single API, so your app implements one integration for login. For SCIM provisioning, check that your identity provider supports it before you commit.
 
 ## Frequently Asked Questions
 

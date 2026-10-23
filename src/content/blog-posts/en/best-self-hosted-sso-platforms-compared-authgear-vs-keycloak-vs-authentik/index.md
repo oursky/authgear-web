@@ -5,10 +5,10 @@ coverImage: ./cover.webp
 category: industry
 featured: false
 readTime: 10
-metaTitle: "Authentik vs Keycloak vs Authgear: Self-Hosted SSO (2026)"
-metaDescription: "Authentik vs Keycloak in 2026: licences, passkeys, MFA, customisation, support and data sovereignty compared, with Authgear as a third self-hosted SSO option."
+metaTitle: "Authentik vs Keycloak (2026): Self-Hosted SSO Compared"
+metaDescription: "Authentik vs Keycloak in 2026: licences, passkeys, MFA, customisation, support and hosting in the UK or EU compared, with Authgear as a third option."
 publishedAt: 2026-02-11T08:47:19.221Z
-updatedAt: 2026-09-25T00:00:00.000Z
+updatedAt: 2026-10-23T00:00:00.000Z
 draft: false
 faq:
   - q: "Is Authentik better than Keycloak?"
@@ -51,7 +51,7 @@ This guide gives you the short answer first, then the detail: licences, login me
 | **Login page customisation** | FreeMarker themes, packaged as JARs | Flows, stages and CSS | Branding editor plus full CSS and HTML |
 | **Paid support** | Red Hat build of Keycloak | Enterprise, from $5 per internal user a month | Enterprise |
 | **Managed service from the maker** | No (third parties only) | No | Yes, plus private cloud |
-| **Company behind it** | CNCF project, led by Red Hat (US) | Authentik Security Inc. (US) | Skymakers Digital Limited (UK) |
+| **Company behind it** | CNCF project, led by Red Hat (US) | Authentik Security Inc. (US) | A UK company |
 
 Prices and features checked against each project's own docs in September 2026.
 
@@ -72,7 +72,7 @@ Self-hosting any of these three puts user data wherever you run it. The differen
 
 - **Keycloak.** The open-source project doesn't offer a managed service. Supported builds come from Red Hat, a US company owned by IBM, as part of its subscriptions, and you still run them yourself. If you want Keycloak hosted, you use a third party, and several are based in Europe.
 - **Authentik.** Authentik Security Inc. is a US company. It doesn't currently offer a hosted version, so you always run Authentik yourself. The Enterprise licence adds features and support, not hosting.
-- **Authgear.** You can self-host it, use Authgear Cloud, or have us run a private cloud for you in any region you choose. Authgear is built by Skymakers Digital Limited, registered in the UK. Authgear Cloud runs in the US and Hong Kong today, and an EU region is coming soon.
+- **Authgear.** You can self-host it, use Authgear Cloud, or have us run a private cloud for you in any region you choose. Authgear is built by a UK company. Authgear Cloud runs in the US and Hong Kong today, and an EU region is coming soon.
 
 For a longer look at where identity data lives and whose law reaches it, see [data sovereignty for identity](/solutions/data-sovereignty).
 

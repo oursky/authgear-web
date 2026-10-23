@@ -50,7 +50,7 @@ In diesem Artikel finden Sie zuerst die kurze Antwort und danach die Details: Li
 | **Anpassung der Login-Seiten** | FreeMarker-Themes, als JAR verpackt | Flows, Stages und CSS | Branding-Editor plus volles CSS und HTML |
 | **Bezahlter Support** | Red Hat build of Keycloak | Enterprise, ab 5 $ pro internem Benutzer und Monat | Enterprise |
 | **Gemanagter Dienst vom Hersteller** | Nein (nur über Dritte) | Nein | Ja, dazu Private Cloud |
-| **Unternehmen dahinter** | CNCF-Projekt, federführend Red Hat (USA) | Authentik Security Inc. (USA) | Skymakers Digital Limited (Vereinigtes Königreich) |
+| **Unternehmen dahinter** | CNCF-Projekt, federführend Red Hat (USA) | Authentik Security Inc. (USA) | Ein britisches Unternehmen |
 
 Preise und Funktionen im September 2026 anhand der offiziellen Dokumentation der Projekte geprüft.
 
@@ -71,7 +71,7 @@ Egal welche der drei Lösungen Sie selbst hosten, die Benutzerdaten liegen dort,
 
 - **Keycloak.** Das Open-Source-Projekt selbst bietet keinen gemanagten Dienst an. Unterstützte Versionen liefert Red Hat, ein US-Unternehmen im Besitz von IBM, im Rahmen seiner Subscriptions. Betreiben müssen Sie diese weiterhin selbst. Gehostetes Keycloak gibt es von Drittanbietern, einige davon mit Sitz in Europa.
 - **Authentik.** Authentik Security Inc. ist ein US-Unternehmen. Eine gehostete Version gibt es derzeit nicht, Sie betreiben Authentik also immer selbst. Die Enterprise-Lizenz bringt Funktionen und Support, aber kein Hosting.
-- **Authgear.** Sie können Authgear selbst hosten, Authgear Cloud nutzen oder uns eine Private Cloud für Sie betreiben lassen, in einer Region Ihrer Wahl. Authgear wird von Skymakers Digital Limited entwickelt, einem im Vereinigten Königreich registrierten Unternehmen. Authgear Cloud läuft derzeit in den USA und in Hongkong, eine EU-Region ist in Vorbereitung.
+- **Authgear.** Sie können Authgear selbst hosten, Authgear Cloud nutzen oder uns eine Private Cloud für Sie betreiben lassen, in einer Region Ihrer Wahl. Authgear wird von einem britischen Unternehmen entwickelt. Authgear Cloud läuft derzeit in den USA und in Hongkong, eine EU-Region ist in Vorbereitung.
 
 Mehr dazu, wo Identitätsdaten liegen und welches Recht darauf zugreifen kann, lesen Sie auf unserer Seite zur [Datensouveränität](/de/solutions/data-sovereignty).
 

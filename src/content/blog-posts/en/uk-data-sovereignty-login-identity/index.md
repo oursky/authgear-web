@@ -3,8 +3,9 @@ title: "UK Data Sovereignty for Login and Identity Data (2026 Guide)"
 excerpt: "What UK data sovereignty means for your login system: where user data sits, who runs the system, and whose law applies, from UK GDPR and the Data (Use and Access) Act 2025 to the US CLOUD Act. With a checklist for choosing an auth provider."
 coverImage: ./cover.webp
 publishedAt: 2026-09-25
+updatedAt: 2026-10-23
 metaTitle: "UK Data Sovereignty for Login and Identity (2026 Guide)"
-metaDescription: "UK data sovereignty for login systems: where user data sits, who runs it, whose law applies. UK GDPR, data residency, the CLOUD Act and a vendor checklist."
+metaDescription: "UK data sovereignty for login systems: residency vs sovereignty, what a UK sovereign cloud really means, UK GDPR, the CLOUD Act and a vendor checklist."
 category: industry
 readTime: 9
 draft: false
@@ -15,6 +16,8 @@ faq:
     a: "Data residency is about location: which country the servers are in. Data sovereignty is wider. It also asks who operates the system and which country's law applies to that operator. Data can be resident in the UK and still be reachable under another country's law."
   - q: "Is a UK cloud region enough for data sovereignty?"
     a: "It solves residency, not jurisdiction. A UK region run by a US-owned provider keeps data in the UK, but the provider is still subject to US law, including the CLOUD Act. Whether that matters depends on your risk assessment and your customers' requirements."
+  - q: "What is a UK sovereign cloud?"
+    a: "There is no legal definition. Providers use the term for a cloud where data stays in the UK, but the stronger meaning also covers who runs it: a UK-owned operator, UK-based staff, and backups and support access that stay in the UK. Ask the provider which of these it actually offers."
   - q: "Does the CLOUD Act apply to data stored in the UK?"
     a: "It can. The CLOUD Act says a US provider must disclose data in its possession, custody or control regardless of whether the data is stored inside or outside the United States."
   - q: "Can I send personal data to the US under UK GDPR?"
@@ -147,7 +150,7 @@ Copy these into your vendor questionnaire:
 
 We'll be plain about what Authgear offers today.
 
-- **A UK company.** Authgear is built by Skymakers Digital Limited, registered in the UK.
+- **Built by a UK company.** The company behind Authgear is registered in the UK.
 - **Open source, Apache-2.0.** You can self-host Authgear on UK infrastructure with every feature of the cloud version. In a self-hosted setup your user data doesn't reach our servers, and you pick your own email and SMS providers.
 - **Private cloud.** We run a dedicated deployment for you in a UK or EU region.
 - **Audited.** Authgear holds [ISO 27001 and SOC 2 Type 2](/post/authgear-achieves-iso-27001-and-soc-2-type-2-compliance-enhanced-data-security).
@@ -169,6 +172,10 @@ Data residency is about location: which country the servers are in. Data soverei
 ### Is a UK cloud region enough for data sovereignty?
 
 It solves residency, not jurisdiction. A UK region run by a US-owned provider keeps data in the UK, but the provider is still subject to US law, including the CLOUD Act. Whether that matters depends on your risk assessment and your customers' requirements.
+
+### What is a UK sovereign cloud?
+
+There is no legal definition. Providers use the term for a cloud where data stays in the UK, but the stronger meaning also covers who runs it: a UK-owned operator, UK-based staff, and backups and support access that stay in the UK. Ask the provider which of these it actually offers.
 
 ### Does the CLOUD Act apply to data stored in the UK?
 

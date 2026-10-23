@@ -1597,8 +1597,8 @@
     "dataSovereigntyLink": "See your options"
   },
   "KeycloakAlternative": {
-    "metaTitle": "Keycloak Alternative: Open Source, Self-Hosted or Managed",
-    "metaDescription": "Open-source Keycloak alternative, same Apache-2.0 licence. Passkeys, magic links and WhatsApp OTP built in. Self-host it, or let us run it for you.",
+    "metaTitle": "Keycloak Alternatives: Open Source, Self-Hosted or Managed",
+    "metaDescription": "Open-source Keycloak alternative under the same Apache-2.0 licence, built by a UK company. Self-host it, or let us run a private cloud in the UK or EU.",
     "heroTitle": "Authgear: the open-source Keycloak alternative",
     "heroDescription": "The same Apache-2.0 licence and the freedom to self-host, with modern login built in and a team you can call. Run it yourself, or let us run it for you.",
     "whyChooseTitle": "Why teams choose Authgear over Keycloak",
@@ -1643,7 +1643,7 @@
     "tableSupportTitle": "Vendor support",
     "tableSupportAuthgear": "Direct from the Authgear team, with Enterprise support for self-hosted deployments",
     "tableSupportCompetitor": "Community, or Red Hat subscription for the Red Hat build",
-    "sovereigntyTitle": "Choosing Keycloak to keep control of your data?",
+    "sovereigntyTitle": "Choosing Keycloak to keep control of your data in the UK or EU?",
     "sovereigntyDescription": "So are we. Authgear is built by a UK company, and UK and EU customers can contract with it directly. You decide where your users' data lives: on your own servers, or in a private cloud we run for you in the UK or the EU.",
     "sovereigntyLink": "Read about data sovereignty with Authgear",
     "ctaMigrateTitle": "Moving off Keycloak?",
@@ -1660,7 +1660,9 @@
     "faq5Q": "Can I migrate from Keycloak to Authgear?",
     "faq5A": "Yes. Both use OIDC and SAML, so your apps mostly need new client settings. You can import your Keycloak users with their passwords.",
     "faq6Q": "Where is my data stored with Authgear?",
-    "faq6A": "Your choice. Self-host anywhere, including the UK and the EU. Authgear Cloud runs in the US or Hong Kong, and an EU region is coming soon. A private cloud we run for you can be in a UK or EU region today."
+    "faq6A": "Your choice. Self-host anywhere, including the UK and the EU. Authgear Cloud runs in the US or Hong Kong, and an EU region is coming soon. A private cloud we run for you can be in a UK or EU region today.",
+    "faq7Q": "Is Keycloak free?",
+    "faq7A": "Yes. Keycloak is open source under Apache-2.0 and free to download and run. The cost is in running it: servers, upgrades, re-testing custom themes, and the people who look after it. Red Hat sells a supported build as part of its subscriptions. Authgear is free to self-host under the same licence, and our team can run it for you instead."
   },
   "CognitoAlternative": {
     "metaTitle": "Authgear vs Amazon Cognito",

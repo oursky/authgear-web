@@ -420,7 +420,9 @@
     "faq5Q": "Puis-je migrer de Keycloak vers Authgear ?",
     "faq5A": "Oui. Les deux utilisent OIDC et SAML : vos applications ont surtout besoin de nouveaux paramètres client. Vous pouvez importer vos utilisateurs Keycloak avec leurs mots de passe.",
     "faq6Q": "Où sont stockées mes données avec Authgear ?",
-    "faq6A": "C'est vous qui choisissez. En auto-hébergement, partout, y compris au Royaume-Uni et dans l'UE. Authgear Cloud fonctionne aux États-Unis ou à Hong Kong, et une région UE arrive bientôt. Un cloud privé que nous exploitons pour vous est déjà possible dans une région au Royaume-Uni ou dans l'UE."
+    "faq6A": "C'est vous qui choisissez. En auto-hébergement, partout, y compris au Royaume-Uni et dans l'UE. Authgear Cloud fonctionne aux États-Unis ou à Hong Kong, et une région UE arrive bientôt. Un cloud privé que nous exploitons pour vous est déjà possible dans une région au Royaume-Uni ou dans l'UE.",
+    "faq7Q": "Keycloak est-il gratuit ?",
+    "faq7A": "Oui. Keycloak est open source sous licence Apache-2.0, gratuit à télécharger et à exploiter. Le coût est dans l'exploitation : serveurs, mises à jour, nouveaux tests des thèmes personnalisés et les personnes qui s'en occupent. Red Hat vend une version prise en charge dans le cadre de ses abonnements. Authgear est gratuit à auto-héberger sous la même licence, ou notre équipe peut l'exploiter pour vous."
   },
   "Features": {
     "startForFree": "Commencer gratuitement",

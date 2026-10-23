@@ -137,7 +137,7 @@ Für Unternehmen außerhalb der öffentlichen Verwaltung sind die meisten dieser
 
 ## Wo Authgear steht
 
-Authgear wird von Skymakers Digital Limited entwickelt, einem britischen Unternehmen. Großbritannien gehört nicht zur EU, und Authgear hat kein BSI-C5-Testat. Beides sollten Sie wissen, bevor Sie weiterlesen.
+Authgear wird von einem britischen Unternehmen entwickelt. Großbritannien gehört nicht zur EU, und Authgear hat kein BSI-C5-Testat. Beides sollten Sie wissen, bevor Sie weiterlesen.
 
 Für einen souveränen Betrieb gibt es zwei Wege, die wir auf unserer Seite zur [Datensouveränität](/de/solutions/data-sovereignty) ausführlicher beschreiben:
 
