@@ -15,7 +15,7 @@ faq:
   - q: "最便宜的 SMS API 是哪一個？"
     a: "每則訊息的費率會因目的地國家而有很大差異，所以最便宜的供應商會隨你發送的地區而改變。Plivo 通常是這三家中最便宜的；Bird 的費率變動較大，有時明顯高於 Twilio。與其挑出單一贏家，不如針對你實際的發送目的地來比較費率。我們的 SMS cost calculator 就能在 Twilio、Bird 與 Plivo 之間做這樣的比較。"
   - q: "有哪些好的 Twilio 替代方案？"
-    a: "Vonage、Sinch、Bird（前身為 MessageBird）、Plivo、Infobip 與 AWS SNS 是主要的替代方案。它們在價格、區域覆蓋與支援上競爭。正確的選擇取決於你的發送目的地，以及你是否需要 WhatsApp 或語音等額外通道。若想了解驗證方面的角度，可參考我們的 Twilio Verify 定價與替代方案指南。"
+    a: "Vonage、Sinch、Bird（前身為 MessageBird）、Plivo、Infobip 與 AWS SNS 是主要的替代方案。它們在價格、區域覆蓋與支援上競爭。正確的選擇取決於你的發送目的地，以及你是否需要 WhatsApp 或語音等額外通道。若想了解驗證服務的成本，可參考我們的 Twilio Verify 定價與替代方案指南。"
   - q: "SMS API 供應商支援 OTP 與 2FA 嗎？"
     a: "支援。大多數供應商會提供原始的 SMS API，讓你在上面自行建構 OTP；或是提供專用的驗證產品（例如 Twilio Verify 或 Vonage Verify），由它處理驗證碼的產生與傳送。驗證產品較為簡單，但會在訊息成本之上再加收每次驗證的費用。"
   - q: "透過這些供應商，WhatsApp 會比 SMS 便宜嗎？"
@@ -97,7 +97,7 @@ faq:
 
 ### 有哪些好的 Twilio 替代方案？
 
-Vonage、Sinch、Bird（前身為 MessageBird）、Plivo、Infobip 與 AWS SNS 是主要的替代方案。它們在價格、區域覆蓋與支援上競爭。正確的選擇取決於你的發送目的地，以及你是否需要 WhatsApp 或語音等額外通道。逐一比較各家供應商與轉換步驟，請參考 [Twilio 替代方案：SMS 與 OTP 轉換指南](/zh-hant/post/twilio-alternatives)；若想了解驗證方面的角度，可參考我們的 [Twilio Verify 定價與替代方案](/post/twilio-verify-pricing-and-alternatives) 指南。
+Vonage、Sinch、Bird（前身為 MessageBird）、Plivo、Infobip 與 AWS SNS 是主要的替代方案。它們在價格、區域覆蓋與支援上競爭。正確的選擇取決於你的發送目的地，以及你是否需要 WhatsApp 或語音等額外通道。逐一比較各家供應商與轉換步驟，請參考 [Twilio 替代方案：SMS 與 OTP 轉換指南](/zh-hant/post/twilio-alternatives)；若想了解驗證服務的成本，可參考我們的 [Twilio Verify 定價與替代方案](/post/twilio-verify-pricing-and-alternatives) 指南。
 
 ### SMS API 供應商支援 OTP 與 2FA 嗎？
 
