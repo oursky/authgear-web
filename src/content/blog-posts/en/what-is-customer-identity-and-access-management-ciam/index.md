@@ -1,114 +1,147 @@
 ---
-title: "Why You Need Customer Identity and Access Management (CIAM)? "
-excerpt: "Customer Identity and Access Management (CIAM) does more than managing and verifying users’ identities. See why you need a CIAM solution."
+title: "What Is CIAM? Customer Identity and Access Management Explained"
+excerpt: "CIAM is the system that lets your customers sign up, log in and manage their accounts in your apps. Here is how it differs from workforce IAM, the features that matter, and how to choose where it runs."
 coverImage: ./cover.webp
-category: industry
-featured: false
-metaTitle: "Why You Need Customer Identity and Access Management (CIAM)? "
-metaDescription: "Customer Identity and Access Management (CIAM) does more than managing and verifying users' identities. See why you need a CIAM solution."
 publishedAt: 2022-04-25T03:19:50.207Z
-updatedAt: 2026-02-12T02:36:33.476Z
+updatedAt: 2026-10-23
+metaTitle: "What Is CIAM? Customer Identity & Access Management"
+metaDescription: "CIAM (customer identity and access management) explained: how it differs from workforce IAM, the features to look for, open-source options and where it runs."
+category: industry
+readTime: 8
+featured: false
 draft: false
+faq:
+  - q: "What is CIAM?"
+    a: "CIAM stands for customer identity and access management. It is the system that lets the customers of your app or website sign up, log in, recover their accounts and control their data, and lets your team manage those accounts securely at scale."
+  - q: "What is the difference between CIAM and IAM?"
+    a: "Workforce IAM manages employees and contractors: a known, fairly small group whose accounts IT creates and controls. CIAM manages customers: a large, unpredictable group who create their own accounts, expect a fast branded login, and need to give and withdraw consent over their data."
+  - q: "Is there an open-source CIAM?"
+    a: "Yes. Keycloak and Authgear are both open source under the Apache-2.0 licence and can be self-hosted. Keycloak began as a general identity and access management server; Authgear is built for customer-facing apps and can also be run for you as a private cloud."
+  - q: "Is Keycloak a CIAM?"
+    a: "Keycloak describes itself as open-source identity and access management. It supports self-registration, social login and custom themes, so many teams use it for customer login. Getting a polished customer experience usually means building custom themes and extensions, and maintaining them through upgrades."
+  - q: "Do I need CIAM for GDPR?"
+    a: "GDPR and UK GDPR do not require a CIAM product. They require you to have a lawful basis for processing, keep personal data secure, record consent where you rely on it, and honour rights such as access and erasure. A CIAM system makes those tasks easier because consent, account data and deletion live in one place."
 ---
 
-    
-    Customer Identity and Access Management (CIAM) solutions are integrated into different applications or software to help organizations manage and verify end users’ identities to grant access to online services and securely collect, organize, and analyze user data to generate business insights.
+> **tl;dr** — CIAM (customer identity and access management) is the system that lets your customers sign up, log in and manage their own accounts in your apps, while giving you secure, consent-aware control over their identity data at scale.
 
-The CIAM market is <a href="https://www.marketsandmarkets.com/Market-Reports/consumer-iam-market-87038588.html" target="_blank">projected to grow from $8.6 billion in 2021 to $17.6 billion by 2026</a> due to the rise in security breaches and cyber attacks. The COVID-19 pandemic plays an important role in driving the growth of the CIAM market as “going digital” is now the norm and various vendors and service providers demand for CIAM to offer a frictionless customer experience and improve data security.
+If you build a product that people outside your company log in to, you already have a CIAM system. It might be a users table and a bcrypt library, a managed service, or an open-source server you run yourself. This guide explains what CIAM is, how it differs from the IAM your IT team uses, which features matter, and how to decide where it should run.
 
-In this blog post, we will be discussing a few points, such as what Customer Identity and Access Management is, what it does, how you can benefit from it, and what a good CIAM looks like, for you to better understand the importance of CIAM and why your apps need it.
+## What is CIAM?
 
-<nav id="table-of-content">Table of Content
-    <ul style="margin-bottom:0">
-        <li><a href="#ciam-vs-iam" style="margin-top:15px;">How Is CIAM Different From IAM? </a></li>
-        <li><a href="#why-ciam">Why Do You Need a CIAM Solution? </a></li>
-        <li><a href="#features" style="margin-bottom:0">What Are The Key Features of CIAM?</a>
-            <ol style="margin-bottom:0">
-                <li style="margin-top:15px"><a href="#registration">Frictionless User Registration</a></li>
-                <li><a href="#authentication">Different Authentication Mechanisms </a></li>
-                <li><a href="#privacy-consent">Consent and Privacy Management</a></li>
-                <li><a href="#user-analytics">User Analytics</a></li>
-            </ol>
-        </li>
-        <li><a href="#more-ciam">What Other Qualities or Features Should a Good CIAM Solution Have?</a>
-            <ul>
-                <li style="margin-top:15px"><a href="#integration">Integration & Scalability</a></li>
-                <li><a href="#cloud">Cloud-based Hosting</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+Customer identity and access management covers everything between "a stranger arrives at your sign-up page" and "a known customer reaches the right data":
 
-<h2 id="ciam-vs-iam">How Is CIAM Different from IAM?</h2>
+- **Registration**: customers create their own accounts.
+- **Authentication**: proving it is really them, with a password, a passkey, a one-time code or a social account.
+- **Authorisation**: deciding what a logged-in customer may see and do.
+- **Account management**: profile changes, password resets, linked logins, deleting the account.
+- **Consent and privacy**: recording what customers agreed to and letting them change their minds.
 
-Many confuse Identity and Access Management (IAM) with Customer Identity and Access Management (CIAM) as they both deal with user authentication. However, the key difference is that IAM, usually referred to as Enterprise Authentication or Workforce Identity Management, is a broader term that manages authentication or user identity **within an organization** while CIAM deals with the identities of **external consumers or users**. As a result, the required features and the main objectives of CIAM and IAM are quite different. For example, the main objective of IAM is to improve internal operational efficiency while that of CIAM is to provide better user experience for end users to maximize customer acquisition and retention rates. In addition, IAM usually does not have to be as scalable as CIAM since the number of employees is usually much lower than the potential number of consumers.
+**An analogy.** Think of a hotel. Staff come in through a side door with ID badges that HR issued on their first day. That is workforce IAM. Guests arrive at the front desk at any hour, often without a booking, and expect to be checked in within a minute. Some come back every week, some once, and a few try to sneak in. That front desk is CIAM. Same building, very different job.
 
-<h2 id="why-ciam">Why Do You Need a CIAM Solution?</h2>
+## CIAM vs IAM: what is the difference?
 
-Many businesses used to develop their own customer and identity management solutions in-house; however, the complexity of CIAM requires a lot of resources to develop, maintain, and improve. As a result, many businesses choose to integrate their software or applications with external CIAM solutions that can better fulfill their needs, reduce stress for the engineering team, decrease cost, etc.
+Workforce IAM (sometimes just "IAM") manages employees and contractors. CIAM manages customers. Both deal with logins, sessions and permissions, but the people on the other side behave differently, so the priorities change.
 
-Businesses can benefit much from integrating their software or apps with a well-developed CIAM solution in many ways, but the main two advantages that businesses can gain are to **improve user experience** and **enhance data security.**
+| | Workforce IAM | CIAM |
+|---|---|---|
+| **Who the users are** | Employees, contractors, partners | Customers and members of the public |
+| **Scale** | Hundreds to tens of thousands, fairly stable | Thousands to millions, with spikes from launches and campaigns |
+| **How accounts are created** | IT or HR creates them | Customers sign themselves up |
+| **Social login** | Rare | Expected: Google, Apple, Facebook and others |
+| **Branding** | Corporate login page is fine | Must look and feel like your product |
+| **Consent and privacy** | Covered by employment contracts | Explicit consent, privacy settings, self-service deletion |
+| **MFA style** | Can be mandatory and strict | Must be low-friction or customers drop off |
+| **Who manages accounts** | IT administrators | Customers themselves, plus your support team |
 
-### Improve User Experience
+The biggest shift is that every extra step in a customer login costs you sign-ups. An employee will put up with an awkward MFA prompt because they have to. A customer can simply leave.
 
-When users are deciding which software or app to use, it often comes down to which software or app has better user experience. Customer identity solutions can help businesses optimize user experience throughout the entire user journey for businesses to convert more customers and keep them satisfied so that they will eventually become loyal brand advocates.
+### Where Keycloak fits
 
-A CIAM solution provides a smooth and frictionless registration process powered by several features. CIAM solutions come with pre-built signup templates with minimal frictions and allow users to create new accounts with existing credentials provided by other identity providers, such as Google, Facebook, and LinkedIn. This significantly shortens and smoothens the registration process, which can have a bounce rate that’s up to 80%.
+[Keycloak](https://www.keycloak.org/) is a good example of a tool that sits between the two worlds. Its own site calls it "Open Source Identity and Access Management". It is Apache-2.0 licensed, a Cloud Native Computing Foundation incubating project, and it is strong on workforce-style needs: LDAP and Active Directory federation, SAML and OpenID Connect identity brokering, and a central admin console.
 
-<!--FIGURE-->
-![](./figure-1.webp)
-<!--/FIGURE-->
+Many teams also use Keycloak for customer login, and it has the building blocks: self-registration, social login set up from the admin console, and an account console where users update their profile, set up two-factor authentication and manage sessions. To make it feel like a customer product, teams usually:
 
-### Enhance Data Security
+- **Build custom themes.** Login pages are FreeMarker templates, so matching your brand means writing and maintaining your own theme.
+- **Write extensions.** Custom behaviour goes in Service Provider Interface (SPI) providers, Java code packaged as JARs and deployed to the server.
+- **Re-test after upgrades.** Custom themes and providers have to be checked against each new Keycloak release.
 
-According to <a href="https://www.ibm.com/security/data-breach" target="_blank">IBM’s Cost of a Data Breach Report 2021</a>, the average costs of data breach rose from USD 3.86 million to 4.24 million, where compromised credentials accounted for 20% of the data breaches. Businesses can no longer consider data security an afterthought as costs of data breaches continue to rise and studies show that <a href="https://businessinsights.bitdefender.com/businesses-can-lose-up-to-58-of-customers-after-a-data-breach-research-shows" target="_blank">more than 50% of consumers will not make another purchase for months after a security breach in the U.S</a>.
+That is a reasonable trade if you have Java skills and want full control. If you would rather not maintain that layer, look at tools built for customer login from the start. Our [Authentik vs Keycloak comparison](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) goes through the differences in detail.
 
-CIAM solutions do more than just provide an authentication server to verify users’ identities. It also secures users’ credentials through <a href="/post/password-hashing-salting-function-and-algorithm-explained" target="_blank">password hashing and salting</a>, requires multi-factor authentication to add another layer of security, and provides different authentication methods to eliminate password fatigue. By integrating their apps or software with CIAM solutions, businesses will not have to devote resources to developing and maintaining their own CIAM system and better protect their users’ credentials.
+## Core CIAM features: a checklist
 
-<h2 id="features">What Are The Key Features of CIAM?</h2>
+Use this list to judge any CIAM solution, whether you build, buy or self-host.
 
-<h3 id="registration" style="margin:0 auto 25px">Frictionless User Registration</h3>
+- **Self sign-up.** Customers register without waiting for anyone, with email or phone verification.
+- **Social login.** "Continue with Google" or "Sign in with Apple" removes a password from the sign-up flow.
+- **Passkeys and passwordless login.** Passkeys, magic links and one-time codes cut password resets and resist phishing.
+- **MFA customers will accept.** Step-up checks only when risk is higher, such as a new device or a payment, instead of a code on every login.
+- **Branded login pages.** Your fonts, colours and wording, on your own domain, so customers trust the page they are typing into.
+- **Account linking and de-duplication.** The same person who signed up with email and later used Google should end up with one account, not two.
+- **Consent and privacy controls.** Record what each customer agreed to, let them change it, and let them export or delete their data.
+- **Bot protection.** CAPTCHA, rate limiting and brute-force protection to stop fake sign-ups, credential stuffing and SMS pumping fraud.
+- **User management.** A console where your support team can find a customer, reset access, disable an account and see recent activity.
+- **SSO across your apps.** One login for your website, mobile apps and any sub-brands.
+- **APIs and SDKs.** Standard OAuth 2.0 and OpenID Connect, plus SDKs for web, iOS, Android and cross-platform frameworks such as React Native and Flutter.
+- **Scale and reliability.** Login is on the critical path. If it is down, your product is down.
 
-<!--FIGURE-->
-![](./figure-2.webp)
-<!--/FIGURE-->
+Audit logs belong on this list too. If you need to prove who did what and when, see our guide to [auditing and compliance in CIAM](/post/auditing-and-compliance-in-ciam-logs-events-controls).
 
-When was the last time you didn’t see “Sign in with Facebook” or “Sign in with Google” when you were about to create a new account in an app or on a website? Creating new accounts with existing credentials or identities is now the norm as it allows users to gain access to new services with minimal efforts. They will not have to come up with a new set of username and password or enter the same old credentials perhaps just to see if they will find this service valuable.
+## Where your CIAM runs
 
-CIAM solutions allow your users to easily register with existing credentials or identities provided by third party identity providers (IdPs), such as Google, Facebook, LinkedIn, Github, and more. Furthermore, some CIAM solutions also come with existing signup page templates so that you will not have to build your own form and page from scratch.
+A CIAM system holds some of the most sensitive data you have: names, emails, phone numbers, password hashes and login history. So "where does it run, and who runs it?" matters as much as the feature list. There are three common models.
 
-<h3 id="authentication">Different Authentication Mechanisms</h3>
+| | Managed SaaS | Self-hosted open source | Private cloud run for you |
+|---|---|---|---|
+| **Who operates it** | The vendor, on shared infrastructure | Your team | The vendor, on a dedicated deployment |
+| **Where data lives** | The vendor's regions | Wherever you deploy it | A region you choose |
+| **Effort for your team** | Lowest | Highest: upgrades, scaling, backups, on-call | Low |
+| **Control** | Limited to the vendor's settings | Full | High, often with audit rights |
 
-CIAM solutions equip consumer-facing apps with different authentication methods, such as social login, <a href="/post/biometric-authentication" target="_blank">biometric authentication</a>, and more, so that users are free from the password reset nightmare when they forget their passwords. Enabling <a href="/post/what-is-multi-factor-authentication-mfa" target="_blank">multi-factor authentication</a> not only allows users to have more login options to improve user experience but also adds layers of security as these types of authentication are often stronger than the traditional username-password authentication.
+For UK and EU buyers this choice is often about more than convenience. Data residency answers "which country are the servers in?" Data sovereignty also asks "who operates the system, and which country's law applies to them?" A US provider's European data centre gives you residency, but the provider still answers to US law. Our [UK data sovereignty guide](/post/uk-data-sovereignty-login-identity) covers UK GDPR, the US CLOUD Act and what to ask vendors, and our guide to [sovereign cloud and the CLOUD Act](/post/sovereign-cloud-cloud-act-login-data) explains what "sovereign" should mean.
 
-<h3 id="privacy-consent">Consent and Privacy Management</h3>
+If a regulator, a large customer or a public-sector tender asks where your user data lives, self-hosting or a private cloud in your region gives you a clear answer.
 
-As consumers are more aware of their digitals rights and concerned about how their personal information is collected and used, businesses certainly have to find a way to manage user’s consent and protect their data. CIAM solutions help you build customer trust by giving users more control over their data. Users can decide whether to accept your privacy policy or share different personal information with the help of CIAM.
+## How to choose a CIAM solution
 
-<h3 id="user-analytics">User Analytics</h3>
+A short checklist for developers, CTOs and IT leads:
 
-CIAM provides a centralized place to collect, organize, and analyze users’ data. You will be able to know things like:
+1. **Start with your users.** Consumers, business customers, or both? B2B products may need enterprise SSO (SAML, Microsoft Entra ID) alongside self sign-up.
+2. **Decide where data must live.** Write down the countries and the reasons: regulation, contracts, procurement rules. This narrows the hosting model fast.
+3. **Check the login experience yourself.** Sign up, log in with a passkey, reset a password and delete the account on a phone. Count the steps.
+4. **Check how far branding goes.** Colours and a logo, or full control of the HTML and CSS?
+5. **Look at the exit route.** Can you export users with their password hashes? Is the code open source, so you can keep running it if the vendor changes course?
+6. **Count the running cost.** For self-hosting, include the engineering time for upgrades, monitoring and security patches, not only server bills.
+7. **Price it at your growth target.** Many CIAM plans charge per monthly active user. Model the cost at ten times your current users.
 
-- Through what channels most of your users come from?
-- How many active and inactive users are there?
-- What are the methods used most frequently to sign up?
+### Open-source CIAM options
 
-More insights can be generated by integrating CIAM solutions with other analytical solutions so that businesses can provide personalized experiences to their users to build customer loyalty.
+If open source matters to you, the main self-hostable choices are Keycloak, Authentik, Ory, Zitadel and Authgear. They differ in language, licence, how much of the customer experience comes ready-made and whether a managed option exists. Our comparison of [open source identity providers](/post/best-open-source-identity-providers) goes through each one.
 
-<h2 id="more-ciam">What Other Qualities or Features Should a Good CIAM Solution Have?</h2>
+[Authgear](/solutions/data-sovereignty) is an open-source CIAM, Apache-2.0 licensed, built for customer-facing web and mobile apps. You can self-host it with every feature, or have us run a private cloud for you in the region you choose, including the UK and the EU. Login pages are fully customisable in HTML and CSS on every plan, including self-hosted, and you can import existing users with their bcrypt password hashes. If you are moving off Keycloak, see the [Keycloak alternative](/compare/keycloak-alternative) page.
 
-<h3 style="margin-top:0" id="integration">Integration & Scalability</h3>
+## Frequently Asked Questions
 
-Contrary to IAM that is used internally by enterprises with relatively user count, CIAM solutions used by consumer-facing apps are often required to accommodate hundreds of thousands of users, especially during holiday season or some major events. The number of users will continue to increase when your business grows or you offer more services and products; therefore, having a scalable CIAM that can handle a high volume of users is quite important.
+### What is CIAM?
 
-Furthermore, consumer-facing apps often need a lot of integrations to conduct business. The number of integration needed will certainly increase as the business grows. As a result, CIAM solutions often offer certain popular integrations as their unique selling points.
+CIAM stands for customer identity and access management. It is the system that lets the customers of your app or website sign up, log in, recover their accounts and control their data, and lets your team manage those accounts securely at scale.
 
-<h3 id="cloud">Cloud-based Hosting</h3>
+### What is the difference between CIAM and IAM?
 
-CIAM technology can be deployed or delivered in several ways, such as on a public cloud, a private cloud, or even on-premise. However, cloud deployment is the ideal way of hosting since businesses can access the service from any location and also easily scale and upgrade it.
+Workforce IAM manages employees and contractors: a known, fairly small group whose accounts IT creates and controls. CIAM manages customers: a large, unpredictable group who create their own accounts, expect a fast branded login, and need to give and withdraw consent over their data.
 
-## Integrate Your App or Website with Authgear to Earn & Build Customer Loyalty
+### Is there an open-source CIAM?
 
-Authgear is a Customer Identity and Access Management solution that provides all features, including social login, frictionless registration process, biometric authentication, two-factor authentication, user and session management, etc., that your consumer-facing apps need to grow user base and build customer loyalty.
+Yes. Keycloak and Authgear are both open source under the Apache-2.0 licence and can be self-hosted. Keycloak began as a general identity and access management server; Authgear is built for customer-facing apps and can also be run for you as a private cloud.
 
-<a href="/schedule-demo/" target="_blank">Contact us</a> now to see how easy it is to enjoy all the benefits that our CIAM can bring you.
+### Is Keycloak a CIAM?
+
+Keycloak describes itself as open-source identity and access management. It supports self-registration, social login and custom themes, so many teams use it for customer login. Getting a polished customer experience usually means building custom themes and extensions, and maintaining them through upgrades.
+
+### Do I need CIAM for GDPR?
+
+GDPR and UK GDPR do not require a CIAM product. They require you to have a lawful basis for processing, keep personal data secure, record consent where you rely on it, and honour rights such as access and erasure. A CIAM system makes those tasks easier because consent, account data and deletion live in one place.
+
+---
+
+**Related reading:** [UK data sovereignty for login and identity data](/post/uk-data-sovereignty-login-identity) · [Authentik vs Keycloak](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) · [Auditing and compliance in CIAM](/post/auditing-and-compliance-in-ciam-logs-events-controls)
