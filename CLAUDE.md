@@ -42,7 +42,7 @@ authgear-web/
 ```bash
 npm install
 npm run dev        # http://localhost:4321
-npm run build      # → dist/ (static HTML, hashed assets, sitemap, _redirects) + the locale-redirect Edge Function
+npm run build      # → dist/ (static HTML, hashed assets, sitemap, _redirects)
 npm run preview
 ```
 

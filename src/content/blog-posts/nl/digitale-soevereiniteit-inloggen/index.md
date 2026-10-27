@@ -21,7 +21,7 @@ faq:
     a: "Niet vanzelf. Open broncode maakt je onafhankelijk van de leverancier: je kunt de software controleren, aanpassen en zelf draaien. Soeverein wordt het pas als ook de infrastructuur, de beheerder en de partijen die meeverwerken passen bij jouw eisen."
 ---
 
-> **tl;dr** — Digitale soevereiniteit betekent dat je zelf de regie houdt over je IT en kunt overstappen naar een andere leverancier. Bij je inlogsysteem draait dat om vijf vragen: waar staan de gegevens, wie beheert het systeem, onder welk recht valt de beheerder, kun je weg, en wie verwerkt er nog meer mee? Een datacenter in Nederland beantwoordt alleen de eerste.
+> **tl;dr:** Digitale soevereiniteit betekent dat je zelf de regie houdt over je IT en kunt overstappen naar een andere leverancier. Bij je inlogsysteem draait dat om vijf vragen: waar staan de gegevens, wie beheert het systeem, onder welk recht valt de beheerder, kun je weg, en wie verwerkt er nog meer mee? Een datacenter in Nederland beantwoordt alleen de eerste.
 
 In mei 2026 verbood de staatssecretaris van Economische Zaken de overname van Solvinity door het Amerikaanse Kyndryl. Solvinity levert het [infrastructuurplatform voor een deel van de diensten van Logius](https://www.logius.nl/over-ons/onze-organisatie/informatie-leverancier-solvinity), waaronder DigiD en MijnOverheid. Het platform wordt opnieuw aanbesteed, en wel via de [Aanbestedingswet Defensie en Veiligheid](https://www.rijksoverheid.nl/actueel/nieuws/2026/06/04/nieuwe-aanbesteding-platform-digid-via-aanbestedingswet-defensie), omdat die meer mogelijkheden biedt om risico's voor de nationale veiligheid te beperken.
 
@@ -76,9 +76,9 @@ Wie heeft beheerderstoegang tot servers en database? Vanuit welke landen werkt d
 
 ### 3. Onder welk recht valt de beheerder?
 
-Hier zit het verschil tussen dataresidentie (waar de data staat) en soevereiniteit (wie er de baas over is). De Amerikaanse [CLOUD Act](https://www.justice.gov/criminal/cloud-act-resources) verplicht aanbieders die onder Amerikaans recht vallen om gegevens af te geven die zij in hun bezit of onder controle hebben, ongeacht waar de servers staan.
+Hier zit het verschil tussen dataresidentie (waar de data staat) en soevereiniteit (wie er de baas over is). De Amerikaanse [CLOUD Act](https://www.justice.gov/criminal/cloud-act-resources) verplicht aanbieders die onder Amerikaans recht vallen om gegevens af te geven die zij in hun bezit of onder controle hebben, ongeacht waar de servers staan. Wat de CLOUD Act precies inhoudt, lees je in [Sovereign cloud and the CLOUD Act](/post/sovereign-cloud-cloud-act-login-data) (in het Engels).
 
-Dat botst met de AVG, de Nederlandse naam voor de GDPR. Volgens [artikel 48 AVG](https://eur-lex.europa.eu/eli/reg/2016/679/oj/nld) mag een buitenlandse rechter of overheid alleen om doorgifte vragen op basis van een internationaal verdrag, zoals een rechtshulpverdrag. Een Amerikaanse aanbieder kan dus tussen twee wetten in komen te zitten. Kijk daarom naar het moederbedrijf, niet alleen naar de Nederlandse of Ierse dochter.
+Dat botst met de AVG, de Nederlandse naam voor de GDPR. Volgens [artikel 48 AVG](https://eur-lex.europa.eu/eli/reg/2016/679/oj/nld) wordt een vonnis of besluit van een buitenlandse rechter of overheid dat om doorgifte vraagt alleen erkend of uitgevoerd als het gebaseerd is op een internationaal verdrag, zoals een rechtshulpverdrag. Een Amerikaanse aanbieder kan dus tussen twee wetten in komen te zitten. Kijk daarom naar het moederbedrijf, niet alleen naar de Nederlandse of Ierse dochter.
 
 ### 4. Kun je overstappen?
 
@@ -132,7 +132,7 @@ Voor inloggen geldt hetzelfde als voor elke andere applicatie. Een Europese iden
 - Wie verstuurt e-mail en sms?
 - Welke andere diensten zien gebruikersgegevens, en waar zitten ze?
 
-## Hoe Authgear je helpt
+## Waar Authgear staat
 
 Authgear wordt gemaakt door een Brits bedrijf. Het Verenigd Koninkrijk hoort niet bij de EU. Dat is goed om te weten voordat je verder leest.
 
@@ -143,7 +143,7 @@ Voor soeverein beheer van je inlogsysteem heb je bij Authgear twee opties.
 
 Authgear werkt met open standaarden zoals OIDC en SAML, en koppelt met LDAP en Active Directory. Stap je over van een ander systeem? Je kunt gebruikers importeren met hun bestaande bcrypt-wachtwoord-hashes, zodat niemand een nieuw wachtwoord hoeft te kiezen.
 
-Wil je zien hoe dit in een ander land speelt? Lees onze gids over [datasoevereiniteit in het Verenigd Koninkrijk](/post/uk-data-sovereignty-login-identity) (in het Engels). Wil je weten of zelf hosten of een private cloud past bij jouw eisen? Vergelijk de opties op onze pagina over [datasoevereiniteit](/solutions/data-sovereignty).
+Wil je zien hoe dit in een ander land speelt? Lees onze gids over [datasoevereiniteit in het Verenigd Koninkrijk](/post/uk-data-sovereignty-login-identity) (in het Engels). Wil je weten of zelf hosten of een private cloud past bij jouw eisen? Vergelijk de opties op onze pagina over [datasoevereiniteit](/solutions/data-sovereignty) (in het Engels).
 
 ## Veelgestelde vragen
 
