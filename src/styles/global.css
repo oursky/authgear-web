@@ -94,6 +94,11 @@
 .legal-content .ds-richtext-prose > *:first-child {
   margin-top: 0;
 }
+/* Keep linked sections (e.g. /data-privacy/#google-user-data) clear of the
+   fixed header when opened by anchor. */
+.legal-content [id] {
+  scroll-margin-top: calc(var(--layout-fixed-header-height, 4rem) + 1.5rem);
+}
 .legal-content .ds-richtext-prose h2 {
   margin: 2.75rem 0 1rem;
   font-family: var(--font-sans);
