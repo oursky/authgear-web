@@ -30,6 +30,7 @@ authgear-web/
 - Locale helpers live in `src/i18n/`; `localizedPath()` builds locale-aware URLs.
 - For content collections, the `zh-Hant` entry falls back to the English entry by slug when a translation is missing.
 - `ja`, `es`, `de`, `fr` are partial market-test locales: only the home page, `/pricing`, `/auth-toolkit`, `/schedule-demo` and `/tools/*` are translated (page-route slugs stay English: `/es/pricing`, never `/es/precios`), plus `/solutions/data-sovereignty` for `es`, `de` and `fr` only. The allowlist is `PARTIAL_LOCALES` / `isPartialLocalePath` / `PARTIAL_LOCALE_EXTRA_PATHS` in `src/lib/i18n.ts`; everything else links to and redirects (302, non-forced, `public/_redirects`) to the English page. A few blog posts are translated for `ja`, `de` and `fr` (`src/content/blog-posts/{ja,de,fr}/`, listed in `PARTIAL_LOCALE_POST_SLUGS`). **Blog slug rule:** a translation of an English post keeps the English slug, so hreflang pairs by swapping the prefix; a post written for one market with no English original takes a slug in its own language, because each targets that market's own search terms, and needs an entry in `TRANSLATION_SETS`. See "Partial locales" in `docs/ARCHITECTURE-ASTRO.md`.
+- `nl` is a **blog-only** locale (`BLOG_ONLY_LOCALES` in `src/lib/i18n.ts`): it serves only `/nl/post/<slug>/` for the slugs in `PARTIAL_LOCALE_POST_SLUGS.nl`, with no home page, pricing or tools. Every other link from its pages goes to the English URL, the chrome stays English, `resolveLocale()` never picks it, and `/nl/*` falls back to English via the same 302 rule as the partial locales. Its posts are written for the Dutch market, so each also gets a single-locale `TRANSLATION_SETS` entry.
 
 ### URL preservation
 
@@ -41,7 +42,7 @@ authgear-web/
 ```bash
 npm install
 npm run dev        # http://localhost:4321
-npm run build      # → dist/ (static HTML, hashed assets, sitemap, _redirects) + the locale-redirect Edge Function
+npm run build      # → dist/ (static HTML, hashed assets, sitemap, _redirects)
 npm run preview
 ```
 

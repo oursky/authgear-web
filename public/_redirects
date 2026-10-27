@@ -102,3 +102,7 @@
 /de/*        /:splat    302
 /ja/*        /:splat    302
 /fr/*        /:splat    302
+
+# Blog-only locale: Dutch has nothing but the posts under /nl/post/ (no home
+# page, pricing or tools). Same non-forced fallback, so those real files win.
+/nl/*        /:splat    302

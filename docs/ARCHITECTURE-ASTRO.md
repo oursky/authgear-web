@@ -181,7 +181,7 @@ Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (301) to 
 - Legal pages render English content in both locales by user direction.
 - Content-collection routes prefer the `zh-Hant/{slug}` entry and fall back to the `en/{slug}` entry when a translation is missing.
 
-### Partial locales (Japanese, Spanish, German)
+### Partial locales (Japanese, Spanish, German, French)
 
 `ja`, `es`, `de` and `fr` are market-test locales with only a handful of translated pages: the home page, `/pricing`, `/auth-toolkit`, `/schedule-demo` and every `/tools/*` page (Japanese, German and French also have a few translated blog posts under `/ja/post/*`, `/de/post/*` and `/fr/post/*`, listed per locale in `PARTIAL_LOCALE_POST_SLUGS`). URL slugs stay English (`/es/pricing`, never `/es/precios`).
 
@@ -190,7 +190,16 @@ Legacy `/zh/*`, `/zh-TW/*`, `/zh-Hant/*`, and `/zh-Hant-TW/*` redirect (301) to 
 - **Market-specific pages** (`TRANSLATION_SETS` in `src/lib/i18n.ts`) are the one exception to "one locale-neutral path, many prefixes". A page written for particular markets with no English original — currently the CLOUD Act explainer, in German and French — carries a different slug per language, because each targets its own search terms. The entry lists the full path per locale, so `localeAlternates()` can pair slugs that differ, `hasLocalizedPage()` returns false for every locale outside the set (English included), and `BaseLayout.astro` omits `x-default` because there is no English page to point it at. Everything else keeps sharing one path.
 - As a safety net, non-forced `302` rules in `public/_redirects` send any other `/ja/*`, `/es/*`, `/de/*`, `/fr/*` URL to the English page (real files still win over the redirect).
 - Messages: `src/i18n/{ja,es,de,fr}.json` carry only the translated namespaces (`Navigation`, `Seo`, `Home`, `Pricing`, `AuthToolkit`, `ScheduleDemo`, and `DataSovereignty` for es/de/fr); `t()` falls back to English for the rest. Tool strings live in `src/lib/tools/messages/{locale}/` and pricing copy in `src/lib/pricing/copy-{locale}.ts`. The nav dropdown and footer label maps in `src/lib/navigation-data.ts` carry `ja`/`es`/`de`/`fr` entries too, so the site chrome is fully localized even where a link lands on an English page.
-- The translations were machine-drafted for the market test and still need a native-speaker review before being treated as final copy.
+- The translations were machine-drafted for the market test. The de, es and fr copy shipped up to September 2026 has since been reviewed by a native speaker; the ja copy has not. New copy needs the same review before it ships.
+
+#### Blog-only locale (Dutch)
+
+`nl` has blog posts and nothing else: no home page, `/pricing`, tools or `nl.json` bundle. It is listed in `BLOG_ONLY_LOCALES` in `src/lib/i18n.ts`, not `PARTIAL_LOCALES`, because a partial locale is assumed to have the home page, pricing and tools.
+
+- Posts live in `src/content/blog-posts/nl/`, are served by `src/pages/nl/post/[slug].astro` and are listed in `PARTIAL_LOCALE_POST_SLUGS.nl`. They are written for the Dutch market with Dutch slugs, so each also has its own single-locale `TRANSLATION_SETS` entry: hreflang and the footer switcher offer only that page, with no `x-default`.
+- `hasLocalizedPage('nl', …)` is true only for those posts, so `localizedPath()` sends every nav, footer and CTA link to the English URL, and the chrome renders in English (`t()` falls back). `<html lang="nl">` and `og:locale` `nl_NL` still apply.
+- `resolveLocale()` never returns `nl`, so Dutch browsers keep getting English, and a non-forced `/nl/* → /:splat 302` rule in `public/_redirects` catches any other `/nl/` URL.
+- Like the de/fr market posts, Dutch posts stay out of the English `/blog` and category listings but are in the sitemap.
 
 ## Interactivity (islands)
 

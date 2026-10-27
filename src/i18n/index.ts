@@ -13,7 +13,8 @@ import { toolsMessagesJa } from '@/lib/tools/messages/ja';
 
 // `ja`, `es`, `de` and `fr` ship as partial bundles (market test): home page, nav
 // labels, pricing, the auth-toolkit hub and every tool. Any missing key falls
-// back to English via `t()` below.
+// back to English via `t()` below. The blog-only `nl` locale has no bundle at
+// all, so `t()` gives its pages the English chrome.
 const messages: Record<string, Record<string, unknown>> = {
   en: { ...en, Tools: toolsMessagesEn },
   'zh-Hant': { ...zhHant, Tools: toolsMessagesZhHant },

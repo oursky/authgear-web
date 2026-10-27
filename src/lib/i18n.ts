@@ -4,7 +4,7 @@
  * form, used in `<html lang>` and `hreflang`) but served at lowercase
  * `/zh-hant/...` URLs to match standard URL casing conventions.
  */
-export const LOCALES = ['en', 'zh-Hant', 'ja', 'es', 'de', 'fr'] as const;
+export const LOCALES = ['en', 'zh-Hant', 'ja', 'es', 'de', 'fr', 'nl'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
@@ -16,6 +16,7 @@ const LOCALE_URL_SEGMENT: Record<Locale, string> = {
   es: '/es',
   de: '/de',
   fr: '/fr',
+  nl: '/nl',
 };
 
 /** URL-path prefix for a locale (`''` for English). */
@@ -33,6 +34,16 @@ export function localeUrlSegment(locale: string): string {
  * URL slugs are never translated: `/es/pricing/`, not `/es/precios/`.
  */
 export const PARTIAL_LOCALES: readonly Locale[] = ['ja', 'es', 'de', 'fr'];
+
+/**
+ * Locales that publish blog posts and nothing else: no home page, pricing or
+ * tools, which is why they are not partial locales. Only the posts listed for
+ * them in `PARTIAL_LOCALE_POST_SLUGS` exist, under `/<locale>/post/`; every
+ * other link from those pages points at the English URL, `resolveLocale()`
+ * never picks them, and `public/_redirects` sends stray prefixed URLs to the
+ * English page.
+ */
+export const BLOG_ONLY_LOCALES: readonly Locale[] = ['nl'];
 
 const PARTIAL_LOCALE_PATHS = ['/', '/pricing/', '/auth-toolkit/', '/schedule-demo/'] as const;
 const PARTIAL_LOCALE_PATH_PREFIXES = ['/tools/'] as const;
@@ -67,7 +78,7 @@ function withTrailingSlash(pathname: string): string {
 /**
  * Blog posts translated for a partial locale, served at `/<locale>/post/<slug>/`
  * by `src/pages/<locale>/post/[slug].astro` under the same slug as the English
- * post. Keep each list in sync with `src/content/blog-posts/<locale>/`;
+ * post, plus every post of a blog-only locale. Keep each list in sync with `src/content/blog-posts/<locale>/`;
  * `i18n.test.ts` fails when they drift.
  */
 export const PARTIAL_LOCALE_POST_SLUGS: Partial<Record<Locale, readonly string[]>> = {
@@ -87,6 +98,7 @@ export const PARTIAL_LOCALE_POST_SLUGS: Partial<Record<Locale, readonly string[]
     'cloud-act-fournisseur-identite-donnees-connexion',
     'souverainete-numerique-authentification',
   ],
+  nl: ['digitale-soevereiniteit-inloggen'],
 };
 
 /**
@@ -113,6 +125,9 @@ export const TRANSLATION_SETS: readonly Readonly<Partial<Record<Locale, string>>
   // individually so neither advertises the other as its alternate.
   { fr: '/post/souverainete-numerique-authentification/' },
   { de: '/post/digitale-souveraenitaet-login-identity-provider/' },
+  // Written for the Dutch market (Rijkscloudbeleid, DigiD), with no
+  // counterpart in any other language.
+  { nl: '/post/digitale-soevereiniteit-inloggen/' },
 ];
 
 /** The translation set this locale-neutral path belongs to, if any. */
@@ -142,6 +157,7 @@ export function hasLocalizedPage(locale: string, pathname: string): boolean {
   const set = translationSetFor(pathname);
   if (set) return set[locale as Locale] !== undefined;
   if (locale === DEFAULT_LOCALE) return true;
+  if (BLOG_ONLY_LOCALES.includes(locale as Locale)) return isTranslatedPostPath(locale, pathname);
   const path = withTrailingSlash(pathname);
   if (!PARTIAL_LOCALES.includes(locale as Locale)) return !NO_ZH_HANT_PATHS.includes(path);
   if (isPartialLocalePath(pathname)) return true;
@@ -154,8 +170,8 @@ export function hasLocalizedPage(locale: string, pathname: string): boolean {
  * Locales that can be offered as alternates for a page, both to search
  * engines (hreflang) and to people (the footer switcher). Full-coverage
  * locales everywhere except `NO_ZH_HANT_PATHS`; partial locales only on the
- * paths they all translate, so nobody is pointed at a URL that would
- * redirect or 404.
+ * paths they all translate, blog-only locales only on their own posts, so
+ * nobody is pointed at a URL that would redirect or 404.
  */
 export function localesWithPage(pathname: string): Locale[] {
   return LOCALES.filter((loc) => hasLocalizedPage(loc, pathname));
@@ -229,7 +245,11 @@ export function stripLocaleSegment(pathname: string): string {
 /** Legacy URL segment; middleware redirects `/zh-Hant-TW/...` → `/zh-hant/...`. */
 export const LEGACY_ZH_PATH_LOCALE = 'zh-Hant-TW' as const;
 
-/** Map Accept-Language header value to a supported locale. */
+/**
+ * Map Accept-Language header value to a supported locale. Blog-only locales
+ * (`BLOG_ONLY_LOCALES`) are deliberately never returned: they have no home
+ * page or pricing, so their readers stay on English.
+ */
 export function resolveLocale(acceptLanguage: string | null): Locale {
   if (!acceptLanguage) return DEFAULT_LOCALE;
   const tags = acceptLanguage
@@ -276,6 +296,7 @@ export function localeToHtmlLang(locale: Locale | typeof LEGACY_ZH_PATH_LOCALE |
   if (locale === 'es') return 'es';
   if (locale === 'de') return 'de';
   if (locale === 'fr') return 'fr';
+  if (locale === 'nl') return 'nl';
   // if (locale === 'zh-HK') return 'zh-HK';
   return 'en';
 }
