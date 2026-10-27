@@ -85,6 +85,9 @@ test.describe('help desk page', () => {
     });
 
     await page.goto('/help-desk/');
+    // Filling before React hydrates is wiped by the first client render. Astro
+    // drops the `ssr` attribute once the island has hydrated, so wait for that.
+    await page.locator('astro-island:not([ssr]):has(form[name="help-desk"])').waitFor();
     const form = page.locator('form[name="help-desk"]');
 
     // Fill everything the browser validates natively, leaving the one rule the
