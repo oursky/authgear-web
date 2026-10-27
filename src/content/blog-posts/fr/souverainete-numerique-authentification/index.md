@@ -137,7 +137,7 @@ Aucune de ces approches n'est bonne ou mauvaise en soi. Elles répondent différ
 
 ## Où se situe Authgear
 
-Autant être clair. Authgear est développé par Skymakers Digital Limited, une société britannique. Le Royaume-Uni n'est pas dans l'Union européenne, même s'il bénéficie d'une décision d'adéquation de la Commission. Authgear n'est pas qualifié SecNumCloud.
+Autant être clair. Authgear est développé par une société britannique. Le Royaume-Uni n'est pas dans l'Union européenne, même s'il bénéficie d'une décision d'adéquation de la Commission. Authgear n'est pas qualifié SecNumCloud.
 
 Deux modes de déploiement, détaillés sur notre page [souveraineté des données](/fr/solutions/data-sovereignty), répondent aux cinq dimensions ci-dessus :
 

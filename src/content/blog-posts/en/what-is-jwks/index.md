@@ -218,6 +218,7 @@ You don't need deep knowledge of JWT/JWE to use JWKS — just remember JWKS is t
 
 - [JWE vs JWT: Key Differences, Use Cases, and Security Tips](/post/jwe-vs-jwt) — when to sign and when to encrypt
 - [What Is .well-known/openid-configuration?](/post/well-known-openid-configuration) — the discovery document where the `jwks_uri` lives
+- [Authentik vs Keycloak](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) — choosing a self-hosted identity provider that publishes your JWKS
 
 ## Conclusion
 

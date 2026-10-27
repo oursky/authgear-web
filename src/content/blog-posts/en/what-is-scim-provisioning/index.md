@@ -219,6 +219,8 @@ For a deeper comparison of how the provisioning and authentication layers divide
 
 This separation of responsibilities keeps authentication lightweight while centralizing identity lifecycle management.
 
+SCIM support varies between identity providers. Keycloak, for example, only made its SCIM API fully supported in version 26.8, released in October 2026. If you're comparing self-hosted options, see [Authentik vs Keycloak](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) and [Authgear as a Keycloak alternative](/compare/keycloak-alternative).
+
 ## **Common SCIM Implementation Challenges and Pitfalls**
 
 While SCIM simplifies identity management in theory, production implementations frequently encounter challenges that can disrupt user lifecycle automation.

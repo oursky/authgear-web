@@ -44,9 +44,9 @@ Security today means moving beyond passwords. A modern platform must support a w
 
 This flexibility allows organizations to enforce strong MFA for internal administrators while providing accessible, user-friendly options for the public.
 
-### 3. Automated User Lifecycle Management with SCIM
+### 3. Connect Your Existing Directory with LDAP and Active Directory
 
-In a large organization, manually managing user access is not just inefficient—it's a major security risk. Authgear supports the **SCIM (System for Cross-Domain Identity Management)** standard, which is essential for regulated environments. SCIM automates the provisioning and de-provisioning of users from a central directory like Azure Active Directory. When an employee or contractor leaves, their access to all connected applications is revoked instantly and automatically, a critical requirement for compliance and security.
+In a large organization, managing user access by hand is not just inefficient—it's a major security risk. Authgear connects to LDAP and Active Directory, so staff sign in with the accounts your IT team already manages in one central directory. Access stays tied to that directory instead of a separate list of logins to keep in sync.
 
 ### 4. Robust Auditing and Compliance
 
@@ -64,7 +64,7 @@ A self-hosted Identity Provider (IdP) is the cornerstone of a modern **Zero-Trus
 
 ## Conclusion: Take Back Control of Your Identity Infrastructure
 
-Financial and government organizations no longer need to choose between modern security and data sovereignty. A self-hosted, open-source platform like Authgear resolves the dilemma, offering the advanced features of a SaaS solution—passwordless MFA, SCIM provisioning, and a great user experience—with the uncompromising control of an on-premise system.
+Financial and government organizations no longer need to choose between modern security and data sovereignty. A self-hosted, open-source platform like Authgear resolves the dilemma, offering the advanced features of a SaaS solution—passwordless MFA, LDAP and Active Directory integration, and a great user experience—with the uncompromising control of an on-premise system.
 
 By taking back control of your identity infrastructure, you can eliminate vendor lock-in, ensure data residency, maintain detailed audit logs, and build a security posture that meets the rigorous demands of your industry.
 

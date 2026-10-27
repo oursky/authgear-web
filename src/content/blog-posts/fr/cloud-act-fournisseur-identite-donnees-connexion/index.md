@@ -101,7 +101,7 @@ Les questions à poser à tout fournisseur :
 
 ## Et Authgear dans tout ça ?
 
-Authgear est développé par Skymakers Digital Limited, une société britannique. Le Royaume-Uni n'est pas les États-Unis, mais il existe un [accord Royaume-Uni–États-Unis sur l'accès aux données](https://www.gov.uk/government/publications/uk-us-data-access-agreement-factsheet/policy-factsheet-on-the-uk-us-data-access-agreement). Il ne vise que la criminalité grave, et son article 4 interdit aux injonctions américaines de cibler des personnes situées au Royaume-Uni. Les utilisateurs situés dans l'UE ne bénéficient pas de cette clause. Un siège britannique ne suffit donc pas, à lui seul, à répondre au CLOUD Act.
+Authgear est développé par une société britannique. Le Royaume-Uni n'est pas les États-Unis, mais il existe un [accord Royaume-Uni–États-Unis sur l'accès aux données](https://www.gov.uk/government/publications/uk-us-data-access-agreement-factsheet/policy-factsheet-on-the-uk-us-data-access-agreement). Il ne vise que la criminalité grave, et son article 4 interdit aux injonctions américaines de cibler des personnes situées au Royaume-Uni. Les utilisateurs situés dans l'UE ne bénéficient pas de cette clause. Un siège britannique ne suffit donc pas, à lui seul, à répondre au CLOUD Act.
 
 La réponse, c'est l'auto-hébergement ou le cloud privé :
 

@@ -7,7 +7,7 @@ test.describe('/compare/keycloak-alternative', () => {
     const resp = await page.goto(PATH);
     expect(resp?.status()).toBe(200);
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-    await expect(page).toHaveTitle('Keycloak Alternative: Open Source, Self-Hosted or Managed');
+    await expect(page).toHaveTitle('Keycloak Alternatives: Open Source, Self-Hosted or Managed');
     await expect(page.locator('main h1')).toHaveText('Authgear: the open-source Keycloak alternative');
     await expect(page.locator('.logo-section img')).toHaveCount(6);
     await expect(page.locator('footer').first()).toBeVisible();
@@ -25,10 +25,10 @@ test.describe('/compare/keycloak-alternative', () => {
     await expect(magic.locator('.compare-table-text-light')).toHaveText('Via community extensions');
   });
 
-  test('sovereignty callout links to the data-sovereignty page; FAQ shows six answers', async ({ page }) => {
+  test('sovereignty callout links to the data-sovereignty page; FAQ shows seven answers', async ({ page }) => {
     await page.goto(PATH);
     await expect(page.locator('[data-sovereignty-block] a')).toHaveAttribute('href', '/solutions/data-sovereignty/');
-    await expect(page.locator('.faq-list__item')).toHaveCount(6);
+    await expect(page.locator('.faq-list__item')).toHaveCount(7);
     const ld = await page.locator('script[type="application/ld+json"]').evaluateAll((els) => els.map((el) => el.textContent ?? ''));
     expect(ld.some((s) => s.includes('"FAQPage"'))).toBe(true);
   });
