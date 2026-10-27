@@ -3,10 +3,11 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.astro';
 interface Props { locale: string }
 const { locale } = Astro.props;
 ---
-<LegalPageLayout title="Data Privacy Policy" locale={locale}>
+<LegalPageLayout title="Data Privacy Policy" locale={locale} lastUpdated="2026-10-27">
   <h2>Who we are</h2>
   <p>When we refer to "Authgear," "we," or "us" in this policy, we mean Skymakers Digital Limited, which controls the information Authgear collects when you use Authgear's Services. Authgear owns and operates a number of websites.</p>
   <p>This Privacy Policy applies to our customers, prospective customers, our customers' customers/users and visitors to <a href="/">www.authgear.com</a>, an authentication as a service owned by Authgear. We refer to Authgear and its related services as "Services" in this policy.</p>
+  <p>This policy also covers the Authgear Portal (<a href="https://portal.authgear.com/">portal.authgear.com</a>), where developers create and manage Authgear projects.</p>
 
   <h2>What information we collect about you?</h2>
   <h3>Account and profile information</h3>
@@ -19,6 +20,7 @@ const { locale } = Astro.props;
   <p>We and our analytics partners collect information about your visits to our websites, together with information such as your IP address, cookies, and other tracking technologies. You can control or opt out of these cookies and tracking technologies.</p>
   <h3>Support channels</h3>
   <p>As we may use third-party platforms to provide support to you, we may collect public information of your third-party platform account that we believe is necessary to providing you support.</p>
+
 
   <h2>How we use information we collect</h2>
   <h3>To provide the Services</h3>
@@ -77,6 +79,16 @@ const { locale } = Astro.props;
 
   <h2>Children's privacy</h2>
   <p>The Services are not directed to individuals under 16. We do not knowingly collect personal information from children under 16. If we become aware that a child under 16 provided us with personal information, we will take steps to delete such information. If you are a parent or guardian and you are aware that your children have provided us with personal data, please contact us at <a href="mailto:support@authgear.com">support@authgear.com</a>.</p>
+
+  <h2 id="google-user-data">Google user data (Sign in with Google)</h2>
+  <p>You can create an Authgear Portal account or sign in with your Google account. This section explains how we handle the data we receive from Google.</p>
+  <p><strong>What we receive.</strong> Your name, email address, Google account identifier, and a link to your Google profile picture. We store the link, not the picture itself. We only request basic sign-in scopes (<code>openid</code>, <code>email</code>, <code>profile</code>). We do not access your Gmail, Drive, Calendar, contacts, or any other Google service.</p>
+  <p><strong>How we use it.</strong> Only to create your account, sign you in, show who you are in your projects, and contact you about your account and the service. We do not use it for advertising, we do not sell it, and we do not use it to train AI models.</p>
+  <p><strong>Sharing.</strong> We do not share it with third parties, except with service providers listed on our <a href="/sub-processors/">Sub-processors</a> page to run the Portal, with members of projects you join (who can see your name and email), or when required by law.</p>
+  <p><strong>Storage.</strong> It is stored on Google Cloud Platform in the United States and protected by encryption and access controls.</p>
+  <p><strong>Deletion.</strong> We keep it while your account is active. You can remove Authgear's access at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">https://myaccount.google.com/permissions</a>. To delete your account and data, email <a href="mailto:support@authgear.com">support@authgear.com</a> and we will delete it within 30 days.</p>
+  <p><strong>Limited Use.</strong> Authgear's use of information received from Google APIs follows the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+  <p><strong>Our customers' apps.</strong> If you sign in with Google to an app built by an Authgear customer, that customer manages its own Google sign-in and its own privacy policy.</p>
 
   <h2>Changes to this privacy policy</h2>
   <p>We may update our privacy policy from time to time. We will notify you of any changes by posting them on this page. We will let you know via email and/or a prominent notice on our Service prior to implementing the changes, and update the "effective date" at the top of this privacy policy. You are advised to review this privacy policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
