@@ -25,7 +25,7 @@ faq:
     a: "Auth0's public cloud offers UK and EU regions, among others, so tenant data can be hosted there. Auth0 is still run by Okta, a US company, which matters if your buyers ask whose law applies to the vendor as well as where the data sits."
 ---
 
-> **tl;dr** — Choose **Keycloak** if you want free, open-source identity on your own servers and have a team to run it. Choose **Auth0** if you want a hosted service with a large ecosystem and are happy to pay per active user. Consider **Authgear** if you want open source you can self-host, or have run for you, with passkeys and branded login pages built in.
+> **tl;dr:** Choose **Keycloak** if you want free, open-source identity on your own servers and have a team to run it. Choose **Auth0** if you want a hosted service with a large ecosystem and are happy to pay per active user. Consider **Authgear** if you want open source you can self-host, or have run for you, with passkeys and branded login pages built in.
 
 Keycloak and Auth0 turn up on the same shortlists, but they are very different products. Keycloak is an open-source server you download and run. Auth0 is a hosted service you sign up for. Comparing them is really a choice about who runs your login system and who you trust with your users' data.
 
@@ -62,7 +62,7 @@ Keycloak is the best-known open-source identity and access management server. It
 
 ### Where Keycloak wins
 
-- **No licence bill.** Apache-2.0 and free to run, however many users you have.
+- **No licence bill.** Apache-2.0 and free to run, however many users you have. The cost is in running it: see [Keycloak pricing](/post/keycloak-pricing).
 - **Your data stays on your servers.** You pick the country, the cloud and the people who can reach it.
 - **Enterprise federation.** Built-in LDAP, Active Directory and Kerberos, plus brokering to other SAML and OIDC providers.
 - **Standards keep moving.** Passkeys arrived in the default login forms in 26.3, and the SCIM API became fully supported in 26.8.
@@ -70,8 +70,8 @@ Keycloak is the best-known open-source identity and access management server. It
 
 ### What to plan for
 
-- **You run it.** Upgrades, patching, backups, scaling and on-call are your team's job.
-- **Login pages are FreeMarker themes.** Production themes are packaged as JARs, and Keycloak's upgrade guide tells you to re-test them after each upgrade.
+- **You run it.** Upgrades, patching, backups, scaling and on-call are your team's job. Our [Keycloak upgrade guide](/post/keycloak-upgrade-guide) shows what that involves, and [managed Keycloak vs a private cloud](/post/managed-keycloak-vs-private-cloud) covers paying someone else to do it.
+- **Login pages are FreeMarker themes.** Production themes are packaged as JARs, and Keycloak's upgrade guide tells you to re-test them after each upgrade. See our [Keycloak custom login page](/post/keycloak-custom-login-page) guide.
 - **Custom logic means Java.** Extensions are built as Service Provider Interfaces (SPIs) that you compile and redeploy.
 - **Some login methods need extensions.** SMS OTP and magic links aren't built in.
 - **No official mobile SDK.** Keycloak recommends the AppAuth libraries.
@@ -116,7 +116,7 @@ Authgear is an open-source identity platform for customer-facing and frontline a
 
 ## Data residency and sovereignty for UK and EU buyers
 
-Data residency is where the data sits. Sovereignty also asks who runs the system and whose law applies to them.
+Data residency is where the data sits. Sovereignty also asks who runs the system and whose law applies to the people who run it.
 
 - **Keycloak.** If you self-host, both answers are you. Red Hat supports the software but doesn't hold your data.
 - **Auth0.** You can pick a UK or EU region, which covers residency. Auth0 is run by Okta, a US company, so it is subject to the US CLOUD Act. That law lets US authorities require US providers to hand over data in their "possession, custody, or control", wherever it is stored. Providers can challenge such orders, and many UK and EU organisations use US services after their own risk assessment. It is still a question your customers or regulator may ask.
@@ -158,7 +158,7 @@ All three speak OIDC and SAML, so your apps mostly need new client IDs, redirect
 - **Auth0** gives you speed and a big ecosystem, in exchange for per-user pricing and a US vendor.
 - **Authgear** gives you open source and the choice between running it and having it run for you.
 
-Related reading: [Top open-source Auth0 alternatives](/post/top-open-source-auth0-alternatives) and [Keycloak vs Okta](/post/keycloak-vs-okta).
+Related reading: [Top open-source Auth0 alternatives](/post/top-open-source-auth0-alternatives), [Keycloak vs Okta](/post/keycloak-vs-okta) and [Keycloak vs Zitadel](/post/keycloak-vs-zitadel).
 
 ## Frequently Asked Questions
 

@@ -25,7 +25,7 @@ faq:
     a: "Self-hosting lets you decide where user data is stored and who can reach it, which makes residency and sovereignty questions easier to answer. It doesn't make you compliant on its own. You still need the right agreements, controls and processes."
 ---
 
-> **tl;dr** — Choose **Keycloak** if you want free, open-source identity on your own servers and have a team to run it. Choose **Okta** if you want workforce single sign-on as a service, with thousands of pre-built app integrations and no servers to manage. Consider **Authgear** for customer-facing and frontline apps where you want open source you can self-host, or have run for you.
+> **tl;dr:** Choose **Keycloak** if you want free, open-source identity on your own servers and have a team to run it. Choose **Okta** if you want workforce single sign-on as a service, with thousands of pre-built app integrations and no servers to manage. Consider **Authgear** for customer-facing and frontline apps where you want open source you can self-host, or have run for you.
 
 Keycloak and Okta sit at opposite ends of the identity market. Keycloak is an open-source server you download and run on your own infrastructure. Okta is a SaaS platform you subscribe to. Choosing between them is mostly a choice between self-hosted and SaaS.
 
@@ -79,7 +79,7 @@ Keycloak is the best-known open-source identity and access management server. It
 
 ### Where Keycloak wins
 
-- **No per-user bill.** Apache-2.0 and free to run, however many employees or customers you have.
+- **No per-user bill.** Apache-2.0 and free to run, however many employees or customers you have. The cost is in running it: see [Keycloak pricing](/post/keycloak-pricing).
 - **Full control over data.** It runs where you put it, under the access rules you set.
 - **Directory federation.** Built-in LDAP, Active Directory and Kerberos, plus brokering to other SAML and OIDC providers.
 - **Catching up on provisioning.** The SCIM API moved from preview to supported in 26.8.
@@ -87,9 +87,9 @@ Keycloak is the best-known open-source identity and access management server. It
 
 ### What to plan for
 
-- **You run it.** That means people with Java and Kubernetes skills, and time for upgrades.
+- **You run it.** That means people with Java and Kubernetes skills, and time for upgrades. Our [Keycloak upgrade guide](/post/keycloak-upgrade-guide) shows what that involves, and [managed Keycloak vs a private cloud](/post/managed-keycloak-vs-private-cloud) covers paying someone else to do it.
 - **Fewer ready-made app connectors.** Any app that speaks OIDC or SAML works, but there's no catalogue of pre-configured SaaS integrations like Okta's.
-- **Login pages are FreeMarker themes** packaged as JARs, which Keycloak's upgrade guide says to re-test after each upgrade.
+- **Login pages are FreeMarker themes** packaged as JARs, which Keycloak's upgrade guide says to re-test after each upgrade. See our [Keycloak custom login page](/post/keycloak-custom-login-page) guide.
 - **Custom logic means Java SPIs** that you build and redeploy.
 
 ## Okta Workforce Identity: SaaS for employee sign-in
@@ -132,7 +132,7 @@ Authgear is an open-source identity platform under the same Apache-2.0 licence a
 
 ## Data residency and sovereignty for UK and EU buyers
 
-Residency is where data sits. Sovereignty also asks who runs the system and whose law applies to them.
+Residency is where data sits. Sovereignty also asks who runs the system and whose law applies to the people who run it.
 
 - **Keycloak.** Self-hosted, both answers are you. Red Hat supports the software but doesn't hold your data.
 - **Okta.** You can place your org in an EMEA cell, which helps with residency. Okta is a US company, so it falls under the US CLOUD Act, which lets US authorities require US providers to disclose data in their "possession, custody, or control", wherever it is stored. Providers can challenge those orders, and plenty of UK and EU organisations use Okta after their own assessment. It's still worth knowing if your customers or regulator ask.
@@ -173,7 +173,7 @@ All three speak OIDC and SAML, so apps mostly need new client settings. Users an
 - **Okta** gives you a mature workforce SaaS with a huge integration catalogue, in exchange for per-user pricing and a US vendor.
 - **Authgear** gives you open source for customer and frontline apps, self-hosted or run for you.
 
-Related reading: [Keycloak vs Auth0](/post/keycloak-vs-auth0) and [Authentik vs Keycloak (and Authgear)](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik).
+Related reading: [Keycloak vs Auth0](/post/keycloak-vs-auth0), [Keycloak vs Zitadel](/post/keycloak-vs-zitadel) and [Authentik vs Keycloak](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik).
 
 ## Frequently Asked Questions
 

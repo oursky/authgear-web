@@ -7,6 +7,7 @@ metaTitle: "Keycloak Pricing: What It Really Costs to Run Keycloak"
 metaDescription: "Is Keycloak free? The licence is, but running it isn't. A fill-in cost model covering infrastructure, upgrades, themes, on-call, support and hosting options."
 category: industry
 readTime: 9
+draft: false
 faq:
   - q: "Is Keycloak free?"
     a: "Yes. Keycloak is open source under the Apache-2.0 licence, with no licence fee and no paid feature tier. What costs money is running it: servers and a database, the engineering time for upgrades and customisation, on-call cover, and support if you want someone to call."
@@ -70,11 +71,11 @@ Password hashing is what makes logins CPU-heavy, so a burst of logins on a Monda
 
 ### Upgrades
 
-Keycloak plans [four minor releases a year](https://www.keycloak.org/2024/10/release-updates) and a major release every two to three years, with patch releases in between. The community project doesn't publish a long-term support window, so staying current is the safe path. Each upgrade means reading the [upgrade notes](https://www.keycloak.org/docs/latest/upgrading/index.html), testing in a staging environment and rolling out.
+Keycloak plans [four minor releases a year](https://www.keycloak.org/2024/10/release-updates) and a major release every two to three years, with patch releases in between. The community project doesn't publish a long-term support window, so staying current is the safe path. Each upgrade means reading the [upgrade notes](https://www.keycloak.org/docs/latest/upgrading/index.html), testing in a staging environment and rolling out. Our [Keycloak upgrade guide](/post/keycloak-upgrade-guide) walks through it.
 
 ### Themes and extensions
 
-This is the line teams most often leave out. Custom login pages in Keycloak are FreeMarker themes, and custom logic is Java Service Provider Interfaces (SPIs) packaged as JARs. Features many teams need, such as SMS one-time codes or magic links, come from community extensions. The upgrade notes regularly ask you to re-test custom themes and extensions; the 26.8 notes, for example, ask you to check identity provider buttons in custom login themes. The more you customise, the more each upgrade costs.
+This is the line teams most often leave out. Custom login pages in Keycloak are FreeMarker themes, and custom logic is Java Service Provider Interfaces (SPIs) packaged as JARs. Features many teams need, such as SMS one-time codes or magic links, come from community extensions. The upgrade notes regularly ask you to re-test custom themes and extensions; the 26.8 notes, for example, ask you to check identity provider buttons in custom login themes. The more you customise, the more each upgrade costs. Our [Keycloak custom login page](/post/keycloak-custom-login-page) guide shows how to keep a theme thin.
 
 ### On-call
 
@@ -164,7 +165,8 @@ If Keycloak is the right fit, these habits keep the bill small:
 ## Further reading
 
 - [Managed Keycloak vs a private cloud: what you actually get](/post/managed-keycloak-vs-private-cloud)
-- [Authentik vs Keycloak vs Authgear: self-hosted SSO compared](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik)
+- [Authentik vs Keycloak: self-hosted SSO compared](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik)
+- Comparisons: [Keycloak vs Auth0](/post/keycloak-vs-auth0), [Keycloak vs Okta](/post/keycloak-vs-okta) and [Keycloak vs Zitadel](/post/keycloak-vs-zitadel)
 - [Best open source identity providers in 2026](/post/best-open-source-identity-providers)
 - [Data sovereignty for login and identity](/solutions/data-sovereignty)
 

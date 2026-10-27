@@ -7,6 +7,7 @@ metaTitle: "Keycloak Custom Login Page: Themes and Limits (26.x)"
 metaDescription: "Build a Keycloak custom login page in 26.x: theme types, theme.properties, a working CSS theme, JAR deployment, caching fixes and what breaks when you upgrade."
 category: engineering
 readTime: 10
+draft: false
 faq:
   - q: "How do I customise the Keycloak login page?"
     a: "Create a login theme that extends the built-in keycloak.v2 theme, add your own stylesheet and images, deploy it to the themes directory or as a JAR in providers/, then pick it under Realm settings, Themes, Login theme."
@@ -20,13 +21,13 @@ faq:
     a: "They can. Keycloak's upgrading guide tells you to compare any templates you overrode with the new base templates, and to check renamed messages and changed styles. A theme that only adds CSS is far less likely to break than one that overrides templates."
 ---
 
-> A Keycloak custom login page is a **login theme**: a folder of FreeMarker templates, CSS, images and messages that extends one of Keycloak's built-in themes and is selected per realm.
+> **tl;dr:** A Keycloak custom login page is a **login theme**: a folder of FreeMarker templates, CSS, images and messages that extends one of Keycloak's built-in themes and is selected per realm.
 
 Every Keycloak team hits the same moment. The login page works, but it says "Keycloak" and looks nothing like your product. This guide shows how theming works in Keycloak 26, walks through a small login theme you can deploy today, and covers the caching and upgrade problems that catch most people out.
 
 Everything here is checked against the Keycloak 26.8 documentation, current in October 2026.
 
-## How Keycloak theming works
+## How a Keycloak custom login page works
 
 A theme is a set of files that changes how one part of Keycloak looks. Keycloak has five [theme types](https://www.keycloak.org/ui-customization/themes):
 
@@ -275,13 +276,13 @@ Themes are powerful, but some things are awkward:
 
 - **Changing the flow isn't a theme job.** Adding a step, a field or a new login method means configuring authentication flows or writing a Java authenticator, not just editing templates.
 - **Login pages are server-rendered FreeMarker.** If your front-end team works in React, they either learn FreeMarker or adopt a community tool such as Keycloakify.
-- **Every customisation is code you maintain.** Templates, messages in each language and JARs all need testing at each upgrade.
+- **Every customisation is code you maintain.** Templates, messages in each language and JARs all need testing at each upgrade. We put numbers on that in [Keycloak pricing](/post/keycloak-pricing).
 
 If your team is happy owning that, Keycloak themes will take you a long way.
 
 ## The alternative: a hosted login UI you style in a portal
 
-Some teams decide the theme isn't where they want to spend their time. Authgear, the open-source identity platform we build, takes a different approach: you set the logo, colours and light or dark theme in a visual editor in the portal, and you can edit the CSS and HTML on every plan, self-hosted included. If you'd rather own the screens completely, you can build your own UI on the Auth Flow API. Like Keycloak, it's open source under Apache-2.0. See how the two compare on our [Keycloak alternative page](/compare/keycloak-alternative), or read [Authentik vs Keycloak vs Authgear](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) for a wider view.
+Some teams decide the theme isn't where they want to spend their time. Authgear, the open-source identity platform we build, takes a different approach: you set the logo, colours and light or dark theme in a visual editor in the portal, and you can edit the CSS and HTML on every plan, self-hosted included. If you'd rather own the screens completely, you can build your own UI on the Auth Flow API. Like Keycloak, it's open source under Apache-2.0. See how the two compare on our [Keycloak alternative page](/compare/keycloak-alternative), or read [Authentik vs Keycloak](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) for a wider view. Comparing Keycloak with hosted services instead? See [Keycloak vs Auth0](/post/keycloak-vs-auth0), [Keycloak vs Okta](/post/keycloak-vs-okta) and [Keycloak vs Zitadel](/post/keycloak-vs-zitadel).
 
 ## Frequently Asked Questions
 

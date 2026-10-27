@@ -7,6 +7,7 @@ metaTitle: "Keycloak vs Zitadel: Open Source Identity Compared (2026)"
 metaDescription: "Keycloak vs Zitadel compared for 2026: Apache-2.0 vs AGPL-3.0, realms vs organisations, login UI, passkeys, SAML, SCIM and hosting, plus where Authgear fits."
 category: industry
 readTime: 9
+draft: false
 faq:
   - q: "Is Zitadel better than Keycloak?"
     a: "Neither is better across the board. Zitadel suits multi-tenant B2B SaaS and teams that want a managed cloud from the people who build it. Keycloak suits workforce SSO, directory federation and teams that need a permissive Apache-2.0 licence and a choice of databases."
@@ -26,7 +27,7 @@ Keycloak and Zitadel come up together in almost every search for an open source 
 
 This guide compares them as they stand in October 2026: Keycloak 26.8 and Zitadel 4.20. We build Authgear, so we have added it as a third column and tried to be fair to all three.
 
-## Choose X if…
+## Keycloak vs Zitadel: which should you choose?
 
 - **Keycloak** if you need SSO for employees and internal apps, federation with LDAP, Active Directory or Kerberos, and a team comfortable running a Java service.
 - **Zitadel** if you are building B2B SaaS that signs up many customer companies, want a managed cloud with a Swiss or EU region, and can accept AGPL-3.0 or a commercial licence.
@@ -49,7 +50,7 @@ This guide compares them as they stand in October 2026: Keycloak 26.8 and Zitade
       <tr><td><strong>Passkeys and MFA</strong></td><td>Passkeys in default login forms since 26.3; TOTP, recovery codes</td><td>Passkeys, TOTP, U2F, email and SMS OTP</td><td>Passkeys, biometrics, magic links, SMS and WhatsApp OTP, MFA</td></tr>
       <tr><td><strong>Managed cloud from the vendor</strong></td><td>None (third-party hosts only)</td><td>Zitadel Cloud: EU, US, Switzerland, Australia</td><td>Authgear Cloud (US or Hong Kong), or a private cloud we run in the region you choose, including the UK and EU</td></tr>
       <tr><td><strong>Self-hosting database</strong></td><td>PostgreSQL, MySQL, MariaDB, SQL Server, Oracle, Aurora PostgreSQL</td><td>PostgreSQL (14–18) only</td><td>PostgreSQL (16+ recommended) and Redis</td></tr>
-      <tr><td><strong>Support</strong></td><td>Community; Red Hat build of Keycloak through Red Hat subscriptions</td><td>Community; SLOs on Pro; custom SLAs and self-hosted support on Enterprise</td><td>Community; paid support for self-hosted as part of Enterprise</td></tr>
+      <tr><td><strong>Support</strong></td><td>Community; Red Hat build of Keycloak through Red Hat subscriptions</td><td>Community; SLOs on Pro; custom SLAs and self-hosted support on Enterprise</td><td>Direct from the Authgear team; paid support for self-hosted with Enterprise</td></tr>
     </tbody>
   </table>
 </div>
@@ -64,7 +65,7 @@ Keycloak is the most established open source identity and access management serv
 - **Stack:** Java on Quarkus. Version 26.8 shipped on 1 October 2026.
 - **Multi-tenancy:** Each realm is a separate set of users, clients and settings. Organisations, fully supported since 26.0, model business customers inside one realm. In 26.8, one identity provider can be linked to several organisations.
 - **Protocols:** OIDC, OAuth 2.0 and SAML 2.0, plus identity brokering to other providers. The SCIM API moved from preview to supported in 26.8.
-- **Login UI:** FreeMarker templates, packaged as themes. Keycloak's upgrade guide tells you to re-test custom themes after each upgrade.
+- **Login UI:** FreeMarker templates, packaged as themes. Keycloak's upgrade guide tells you to re-test custom themes after each upgrade. Our [Keycloak custom login page](/post/keycloak-custom-login-page) guide and [Keycloak upgrade guide](/post/keycloak-upgrade-guide) cover both.
 - **Databases:** PostgreSQL, MySQL, MariaDB, Microsoft SQL Server, Oracle and Amazon Aurora PostgreSQL, among others.
 
 ### Where Keycloak wins
@@ -75,7 +76,7 @@ Keycloak is the most established open source identity and access management serv
 
 ### Watch-outs
 
-- No managed service from the project. Hosted Keycloak comes from third parties.
+- No managed service from the project. Hosted Keycloak comes from third parties; see [managed Keycloak vs a private cloud](/post/managed-keycloak-vs-private-cloud).
 - SMS OTP and magic links need community extensions.
 - Custom logic means writing Java Service Provider Interfaces (SPIs) and redeploying.
 
@@ -139,6 +140,8 @@ Authgear is an open source identity platform for customer-facing and frontline a
 
 ## When to choose which
 
+Zitadel vs Keycloak comes down to the job you need done:
+
 - **Workforce SSO with corporate directories:** Keycloak.
 - **B2B SaaS with many customer organisations:** Zitadel, if the licence works for you.
 - **Consumer or frontline login with passwordless methods:** Authgear.
@@ -147,7 +150,7 @@ Authgear is an open source identity platform for customer-facing and frontline a
 - **Strict open source policy against copyleft:** Keycloak or Authgear.
 - **Data must stay in the UK or EU:** all three can be self-hosted there. Zitadel Cloud offers EU and Swiss regions, and Authgear offers a private cloud in the UK or EU. Remember that hosting location and the provider's legal jurisdiction are separate questions.
 
-For a wider field, see our guide to the [best open source identity providers](/post/best-open-source-identity-providers), or the [Authentik vs Keycloak vs Authgear comparison](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) if you are focused on self-hosted SSO.
+For a wider field, see our guide to the [best open source identity providers](/post/best-open-source-identity-providers), or the [Authentik vs Keycloak](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik) comparison if you are focused on self-hosted SSO.
 
 ## Migration notes
 
@@ -158,7 +161,7 @@ Moving between identity providers is mostly about users, passwords and the apps 
 - **Beyond users:** plan for clients and redirect URIs, roles and groups, linked identity providers, and custom login themes. These rarely map one to one.
 - **Run in parallel:** move one app at a time and keep the old provider running until every client has switched.
 
-If you are also weighing a commercial option, see [Keycloak vs Auth0](/post/keycloak-vs-auth0).
+If you are also weighing a commercial option, see [Keycloak vs Auth0](/post/keycloak-vs-auth0) or [Keycloak vs Okta](/post/keycloak-vs-okta). For what running Keycloak costs, see [Keycloak pricing](/post/keycloak-pricing).
 
 ## Frequently Asked Questions
 

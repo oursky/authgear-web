@@ -7,6 +7,7 @@ metaTitle: "Keycloak Upgrade Guide: What Breaks and How to Plan It"
 metaDescription: "A practical Keycloak upgrade and migration guide for 26.x: release cadence, database migration, themes and providers, rolling updates, a checklist and rollback."
 category: engineering
 readTime: 10
+draft: false
 faq:
   - q: "How often does Keycloak release?"
     a: "Keycloak plans four minor releases a year and a major release every two to three years. Patch releases come out every few weeks. In the past year, 26.4 to 26.8 arrived roughly every three months."
@@ -20,13 +21,13 @@ faq:
     a: "It depends on whether the new provider can read Keycloak's password hashes. Authgear can import Keycloak users with their passwords, so users keep signing in as before."
 ---
 
-> Upgrading Keycloak means backing up the database, reading the migration notes for every version you cross, letting the new version migrate the schema on start-up, and re-testing your themes and custom providers. Patch upgrades can roll; minor and major upgrades need a full restart.
+> **tl;dr:** Upgrading Keycloak means backing up the database, reading the migration notes for every version you cross, letting the new version migrate the schema on start-up, and re-testing your themes and custom providers. Patch upgrades can roll; minor and major upgrades need a full restart.
 
 Keycloak upgrades are rarely hard. They are risky when they're rare. Skip a year and you have four minor releases of notes to read, themes that drifted from the templates they copied, and a database migration nobody has rehearsed.
 
 This guide covers how Keycloak releases work, what the official upgrading guide asks you to do, a checklist you can copy, and how to test and roll back. It's based on the Keycloak 26.8 documentation, current in October 2026.
 
-## How Keycloak releases work
+## How Keycloak upgrades and releases work
 
 Since Keycloak 26.0, the project has [planned four minor releases a year and a major release every two to three years](https://www.keycloak.org/2024/10/release-updates). The last year bears that out:
 
@@ -190,13 +191,13 @@ The teams that find Keycloak upgrades easy upgrade often:
 - **Keep customisation thin.** Fewer overridden templates and SPIs mean less to re-test.
 - **Script the upgrade.** Build the image, run the compatibility check, deploy to staging, run the login tests, deploy to production.
 
-If that work is more than you want to own, the options are someone running Keycloak for you, or a different platform. We compare them in [managed Keycloak vs a private cloud](/post/managed-keycloak-vs-private-cloud).
+If that work is more than you want to own (we put numbers on it in [Keycloak pricing](/post/keycloak-pricing)), the options are someone running Keycloak for you, or a different platform. We compare them in [managed Keycloak vs a private cloud](/post/managed-keycloak-vs-private-cloud).
 
 ## Or migrate off Keycloak
 
-Sometimes the honest answer to "how do we keep upgrading this?" is to move. If you're weighing that up, Authgear is an open-source identity platform under the same Apache-2.0 licence as Keycloak. You can self-host it with every feature, or have us run a private cloud for you in a region you choose. Login pages are styled in a portal editor with full CSS and HTML, so there are no theme templates to re-test.
+Sometimes the honest answer to "how do we keep upgrading this?" is to move. If you're weighing a Keycloak migration, Authgear is an open-source identity platform under the same Apache-2.0 licence as Keycloak. You can self-host it with every feature, or have us run a private cloud for you in a region you choose. Login pages are styled in a portal editor with full CSS and HTML, so there are no theme templates to re-test.
 
-The part most teams worry about is passwords. Authgear can import your Keycloak users with their passwords, so nobody has to reset. Both speak OIDC and SAML, so your apps mostly need new client settings. See the [Keycloak alternative page](/compare/keycloak-alternative), or compare the options in [Authentik vs Keycloak vs Authgear](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik).
+The part most teams worry about is passwords. Authgear can import your Keycloak users with their passwords, so nobody has to reset. Both speak OIDC and SAML, so your apps mostly need new client settings. See the [Keycloak alternative page](/compare/keycloak-alternative), or compare the options in [Authentik vs Keycloak](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik). For other products, see [Keycloak vs Auth0](/post/keycloak-vs-auth0), [Keycloak vs Okta](/post/keycloak-vs-okta) and [Keycloak vs Zitadel](/post/keycloak-vs-zitadel).
 
 ## Frequently Asked Questions
 

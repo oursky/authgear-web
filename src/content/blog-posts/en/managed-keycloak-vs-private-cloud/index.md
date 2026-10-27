@@ -7,6 +7,7 @@ metaTitle: "Managed Keycloak vs Private Cloud: What You Actually Get"
 metaDescription: "There is no official Keycloak cloud. Compare managed Keycloak hosting, Red Hat build of Keycloak and a vendor-run private cloud on upgrades, support and region."
 category: industry
 readTime: 9
+draft: false
 faq:
   - q: "Is there an official managed Keycloak service?"
     a: "No. The Keycloak project, a CNCF incubation project, publishes the software but does not run a hosted service. Managed Keycloak comes from third parties such as Cloud-IAM, Phase Two and Skycloak. Red Hat build of Keycloak is supported software that you install and run yourself."
@@ -63,8 +64,8 @@ This is how most teams start. You deploy Keycloak's container or the Kubernetes 
 
 **What stays with you:**
 
-- **Upgrades.** Keycloak plans [four minor releases a year](https://www.keycloak.org/2024/10/release-updates), plus patch releases. Each one means reading the [upgrade notes](https://www.keycloak.org/docs/latest/upgrading/index.html), testing and rolling out.
-- **Themes and extensions.** Custom login pages are FreeMarker themes, and custom logic is Java Service Provider Interfaces (SPIs). The upgrade notes regularly ask you to re-test custom themes and extensions; the 26.8 notes, for example, ask you to check that identity provider buttons still display correctly in custom login themes.
+- **Upgrades.** Keycloak plans [four minor releases a year](https://www.keycloak.org/2024/10/release-updates), plus patch releases. Each one means reading the [upgrade notes](https://www.keycloak.org/docs/latest/upgrading/index.html), testing and rolling out. Our [Keycloak upgrade guide](/post/keycloak-upgrade-guide) has a checklist.
+- **Themes and extensions.** Custom login pages are FreeMarker themes, and custom logic is Java Service Provider Interfaces (SPIs). The upgrade notes regularly ask you to re-test custom themes and extensions; the 26.8 notes, for example, ask you to check that identity provider buttons still display correctly in custom login themes. Our [Keycloak custom login page](/post/keycloak-custom-login-page) guide shows how to keep a theme thin.
 - **Sizing and on-call.** Keycloak's own [sizing guide](https://www.keycloak.org/high-availability/multi-cluster/concepts-memory-and-cpu-sizing) starts at 1,250 MB of RAM per pod and recommends 150% CPU headroom for spikes. If login goes down at 3am, it's your pager.
 
 **Best for:** teams with a platform or DevOps group that already runs Java services and wants complete control.
@@ -176,7 +177,8 @@ Keycloak is excellent software, and for workforce single sign-on (SSO) with comp
 ## Further reading
 
 - [Keycloak pricing: what it really costs to run Keycloak](/post/keycloak-pricing)
-- [Authentik vs Keycloak vs Authgear: self-hosted SSO compared](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik)
+- [Authentik vs Keycloak: self-hosted SSO compared](/post/best-self-hosted-sso-platforms-compared-authgear-vs-keycloak-vs-authentik)
+- Comparisons: [Keycloak vs Auth0](/post/keycloak-vs-auth0), [Keycloak vs Okta](/post/keycloak-vs-okta) and [Keycloak vs Zitadel](/post/keycloak-vs-zitadel)
 - [Best open source identity providers in 2026](/post/best-open-source-identity-providers)
 - [Authgear as a Keycloak alternative](/compare/keycloak-alternative)
 
