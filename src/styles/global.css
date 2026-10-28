@@ -1214,8 +1214,8 @@ button.ds-sms-warning-faq__trigger {
 }
 
 /* Plain primary button: a flat indigo-blue fill with the depth carried by a
-   soft glow outside the button. Used by the home hero's Start Free and
-   product switch, and by the nav's Signup/Login. Other buttons keep the
+   soft glow outside the button. Used by the home hero's Start Free and the
+   nav's Signup/Login. Other buttons keep the
    design system's gradient. */
 :root {
   --btn-plain-bg: #3e5cf5;
@@ -1622,26 +1622,6 @@ select.ds-form-input {
     text-align: center;
     padding: 16px;
   }
-}
-
-/* Homepage hero product switch — small demo CTA under "On your Server".
-   The stack must stay within the 32px icon height so the pill doesn't grow. */
-.product-switch-server-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2px;
-  text-align: left;
-}
-.product-switch-server-text .text-block-63 {
-  line-height: 1.1;
-}
-.product-switch-demo-note {
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.1;
-  color: #8f9aff;
 }
 
 /* Section headings (.cloud-h2) — the Webflow export hard-codes line-height: 56px

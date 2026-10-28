@@ -42,4 +42,9 @@ export function t(locale: string, key: string): string {
   return lookup(messages[loc], key) ?? lookup(messages.en, key) ?? key;
 }
 
+/** True when `locale` has its own string for `key`, without falling back to English. */
+export function hasOwnTranslation(locale: string, key: string): boolean {
+  return locale in messages && lookup(messages[locale], key) !== undefined;
+}
+
 export type TranslationKey = string;

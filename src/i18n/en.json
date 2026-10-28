@@ -3,7 +3,7 @@
     "siteName": "Authgear",
     "siteDescription": "Authgear makes it easier for developers to meet complex authentication requirements, delivering a frictionless and exceptional digital experience.",
     "home": {
-      "title": "Authgear — Secure Login & Identity, Fully Managed",
+      "title": "Authgear — Open-Source Login & Identity, in Our Cloud or Yours",
       "description": "Authgear makes it easier for developers to meet complex authentication requirements, delivering a frictionless and exceptional digital experience."
     }
   },
@@ -166,15 +166,13 @@
     "planFinderSubtitleBusiness": "25K MAUs included · Up to 5 Applications · up to 5 Admin seats · Custom gateway"
   },
   "Home": {
-    "title": "Authgear — Secure Login & Identity, Fully Managed",
+    "title": "Authgear — Open-Source Login & Identity, in Our Cloud or Yours",
     "description": "Authgear makes it easier for developers to meet complex authentication requirements, delivering a frictionless and exceptional digital experience.",
-    "productSwitchCloud": "On the Cloud",
-    "productSwitchServer": "On your Server",
-    "productSwitchServerDemo": "Get in touch",
     "heroHeading": "Auth done right, once.",
-    "heroParagraph": "Open-source auth and user management for consumer and frontline identity. Start free with Passkeys, WhatsApp and SMS OTP, SAML SSO and RBAC. Run it on our cloud, in your VPC, or on your own hardware.",
+    "heroParagraph": "Open-source auth and user management for consumer and frontline identity. Start free with Passkeys, WhatsApp and SMS OTP, SAML SSO and RBAC. Run it on our cloud, as a private cloud in the region you choose, or on your own servers.",
     "heroCtaGetStarted": "Start Free",
     "heroCtaHowToIntegrate": "Read the docs →",
+    "heroCtaDemo": "Get a demo",
     "trustedBy": "TRUSTED BY",
     "readCustomerStory": "Read customer story",
     "growthHeading": "Why teams <gradient>switch to Authgear</gradient>",
@@ -182,7 +180,7 @@
     "growthCard1Title": "No feature gates",
     "growthCard1Desc": "Every plan, including Free, ships with passkeys, adaptive MFA, SAML SSO, Active Directory login, and RBAC. Only a custom SMS gateway and advanced security cost more. You never buy a tier to unlock a login method.",
     "growthCard2Title": "Runs where your data has to live",
-    "growthCard2Desc": "One open-source platform, on Authgear Cloud, in your VPC, or on your own hardware. Regulated workloads stay in-region, on infrastructure you control.",
+    "growthCard2Desc": "Self-host it on any provider, including UK and EU ones, or let us run a private cloud for you in your region. Your users’ data stays where your regulators and customers need it.",
     "growthCard3Title": "An exit you can actually take",
     "growthCard3Desc": "Export every user, password hashes included, whenever you want. Authgear is open source and OIDC-compliant, so leaving is a decision, not a rebuild. We would rather you stay because it works.",
     "growthCard4Title": "A vendor that will still be here",
@@ -244,7 +242,7 @@
     "heroTrust1": "ISO 27001",
     "heroTrust2": "SOC 2 Type II",
     "heroTrust3": "Open source",
-    "heroTrust4": "Self-hostable",
+    "heroTrust4": "Self-host or private cloud",
     "microCard4Title": "Auth for AI agents and MCP servers",
     "microCard4Desc": "Put Authgear in front of your MCP server as its OAuth authorization server. Agents register through <a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a> or <a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">Dynamic Client Registration</a>. Users grant scopes on a consent screen, so an agent never gets more than the user has, or more than the user approved.",
     "heroKv": {
@@ -257,7 +255,8 @@
       "continueWithFacebook": "Continue with Facebook",
       "passkeys": "Passkeys",
       "biometrics": "Biometrics"
-    }
+    },
+    "growthCard2Link": "How data sovereignty works →"
   },
   "About": {
     "title": "About Authgear — open-source CIAM built to last",
