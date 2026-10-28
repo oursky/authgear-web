@@ -156,13 +156,13 @@ plausible('signup', { props: { location: 'nav-mobile' } });
 | Gap | Recommendation |
 |-----|---------------|
 | ~~Goal registration~~ (done 2026-08-21) | `get-demo`, `signup-login`, and `calculator-open` are registered as goals in Plausible. The retired goals (`tool-demo-click`, `tool-popup-signup-click`, `signup-hero`, `signup-calculator`) no longer receive events — kept for history |
-| `announcement` goal not registered | Sep 2026: added with the top bar. Register it as a custom-event goal in Plausible. Events are stored regardless, so history backfills once the goal exists |
+| ~~`announcement` goal~~ (registered, checked 2026-10-28) | Custom-event goal in Plausible for the top bar |
 | `login` and `signup-login` after the top-bar deploy | Sep 2026: `signup-login` stops receiving events (the nav CTA now fires `signup`), and `login` starts receiving them again with a new meaning. Leave `signup-login` registered for its history; confirm `login` is still registered so the new clicks show as a goal. See "Two seams in the goal history" |
 | `tool-banner-click` / `tool-tag-click` destination is `/` | These are placeholder `href` values; update to real URLs and confirm event names still apply |
 | No page-context on `contact-form-submit` | The form is used on multiple pages (schedule-demo, pricing, etc.) — add a `page` property to distinguish |
 | Calculator interaction depth | Only preset clicks are tracked; slider changes are not — consider adding `calculator-result` event when the user sees the output |
-| `github-star` goal not registered | Sep 2026: all GitHub star clicks (nav pill, tool popup, tool widget) fire `github-star` with a `location` prop. Register it as a custom-event goal in Plausible; events are stored regardless, so history backfills once the goal exists. The retired `tool-github-click` and `tool-github-tag-click` goals keep their pre-rename history |
-| `self-host-guide-click` / `eu-waitlist-click` goals not registered | Sep 2026: added with the `/solutions/data-sovereignty` page and the pricing-page EU notice. Register both as custom-event goals in Plausible (events are stored regardless, so history backfills once the goals exist) |
+| ~~`github-star` goal~~ (registered, checked 2026-10-28) | Sep 2026: all GitHub star clicks (nav pill, tool popup, tool widget) fire `github-star` with a `location` prop. Registered as a custom-event goal in Plausible. The retired `tool-github-click` and `tool-github-tag-click` goals keep their pre-rename history |
+| ~~`self-host-guide-click` / `eu-waitlist-click` / `home-sovereignty-click` goals~~ (registered, checked 2026-10-28) | All three are custom-event goals in Plausible. `home-sovereignty-click` counts from the home page link deploy (PR #150) |
 
 ---
 
