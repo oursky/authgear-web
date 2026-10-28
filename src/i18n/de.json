@@ -113,7 +113,8 @@
       "passkeys": "Passkeys",
       "biometrics": "Biometrie"
     },
-    "growthCard2Link": "So funktioniert Datensouveränität →"
+    "growthCard2Link": "So funktioniert Datensouveränität →",
+    "heroCtaSovereignty": "Datensouveränität →"
   },
   "Pricing": {
     "euRegionTitle": "EU-Datenregion für Authgear Cloud: bald verfügbar.",

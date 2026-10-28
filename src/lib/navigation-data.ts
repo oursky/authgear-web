@@ -198,5 +198,5 @@ export const footerStrings: Record<string, Record<string, string>> = {
   aboutUs: { en: 'About Us', 'zh-Hant': '關於我們', ja: '会社概要', es: 'Sobre nosotros', de: 'Über uns', fr: 'À propos' },
   contactSales: { en: 'Contact Sales', 'zh-Hant': '聯絡業務', ja: '営業に問い合わせ', es: 'Contactar con ventas', de: 'Vertrieb kontaktieren', fr: 'Contact commercial' },
   ourPromises: { en: 'Our Promises', 'zh-Hant': '我們的承諾', ja: '私たちの約束', es: 'Nuestros compromisos', de: 'Unsere Versprechen', fr: 'Nos engagements' },
-  copyright: { en: 'Skymakers Digital Ltd. All rights reserved.', 'zh-Hant': 'Skymakers Digital Ltd. 保留所有權利。', ja: 'Skymakers Digital Ltd. All rights reserved.', es: 'Skymakers Digital Ltd. Todos los derechos reservados.', de: 'Skymakers Digital Ltd. Alle Rechte vorbehalten.', fr: 'Skymakers Digital Ltd. Tous droits réservés.' },
+  copyright: { en: 'Skymakers Digital Ltd., a UK company. All rights reserved.', 'zh-Hant': 'Skymakers Digital Ltd.（英國公司）保留所有權利。', ja: 'Skymakers Digital Ltd.（英国企業）All rights reserved.', es: 'Skymakers Digital Ltd., empresa del Reino Unido. Todos los derechos reservados.', de: 'Skymakers Digital Ltd., ein Unternehmen aus dem Vereinigten Königreich. Alle Rechte vorbehalten.', fr: 'Skymakers Digital Ltd., société britannique. Tous droits réservés.' },
 };

@@ -61,6 +61,10 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
           <div class="home-hero__cta">
             <a href="https://portal.authgear.com/?utm_source=landing-page&utm_medium=link&utm_campaign=login_button" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn-primary plausible-event-name--signup plausible-event-location--home-hero">{t(locale, 'Home.heroCtaGetStarted')}</a>
             <a href="https://docs.authgear.com/" class="home-hero__docs">{t(locale, 'Home.heroCtaHowToIntegrate')}</a>
+            {/* German and French home pages lead with control over login data, so they link their data sovereignty page from the hero too. */}
+            {['de', 'fr'].includes(locale) && (
+              <a href={localizedPath(locale, '/solutions/data-sovereignty')} class="home-hero__docs plausible-event-name--home-sovereignty-click plausible-event-location--home-hero">{t(locale, 'Home.heroCtaSovereignty')}</a>
+            )}
           </div>
           <ul class="hero-trust-strip">
             <li>{t(locale, 'Home.heroTrust1')}</li>
@@ -117,7 +121,7 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
                 <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.growthCard2Desc')}</div>
                 {/* Only locales with their own link text and a localized /solutions/data-sovereignty page. */}
                 {['en', 'de', 'fr'].includes(locale) && (
-                  <a href={localizedPath(locale, '/solutions/data-sovereignty')} class="home-growth-card-link paragraph-small plausible-event-name--home-sovereignty-click">{t(locale, 'Home.growthCard2Link')}</a>
+                  <a href={localizedPath(locale, '/solutions/data-sovereignty')} class="home-growth-card-link paragraph-small plausible-event-name--home-sovereignty-click plausible-event-location--home-card">{t(locale, 'Home.growthCard2Link')}</a>
                 )}
               </div>
             </div>
