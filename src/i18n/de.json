@@ -23,13 +23,11 @@
   "Home": {
     "title": "Authgear — Open-Source-Login: selbst gehostet oder Private Cloud",
     "description": "Authgear erleichtert es Entwicklern, komplexe Authentifizierungsanforderungen zu erfüllen, und liefert dabei ein reibungsloses, herausragendes digitales Erlebnis.",
-    "productSwitchCloud": "In der Cloud",
-    "productSwitchServer": "Auf Ihrem Server",
-    "productSwitchServerDemo": "Kontakt aufnehmen",
     "heroHeading": "Login und Identität unter Ihrer Kontrolle.",
     "heroParagraph": "Open-Source-Authentifizierung und Nutzerverwaltung mit Passkeys, SAML SSO und MFA. Betreiben Sie Authgear auf eigenen Servern in Deutschland oder anderswo in der EU, als Private Cloud in Ihrer Region oder in unserer Cloud.",
     "heroCtaGetStarted": "Kostenlos starten",
     "heroCtaHowToIntegrate": "Zur Dokumentation →",
+    "heroCtaDemo": "Demo anfragen",
     "trustedBy": "VERTRAUEN UNS",
     "readCustomerStory": "Kundenreferenz lesen",
     "growthHeading": "Warum Teams <gradient>zu Authgear wechseln</gradient>",
@@ -113,8 +111,7 @@
       "passkeys": "Passkeys",
       "biometrics": "Biometrie"
     },
-    "growthCard2Link": "So funktioniert Datensouveränität →",
-    "heroCtaSovereignty": "Datensouveränität →"
+    "growthCard2Link": "So funktioniert Datensouveränität →"
   },
   "Pricing": {
     "euRegionTitle": "EU-Datenregion für Authgear Cloud: bald verfügbar.",
