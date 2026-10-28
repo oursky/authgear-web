@@ -182,7 +182,7 @@
     "growthCard1Title": "No feature gates",
     "growthCard1Desc": "Every plan, including Free, ships with passkeys, adaptive MFA, SAML SSO, Active Directory login, and RBAC. Only a custom SMS gateway and advanced security cost more. You never buy a tier to unlock a login method.",
     "growthCard2Title": "Runs where your data has to live",
-    "growthCard2Desc": "Self-host it on any provider, including UK and EU ones, or let us run a private cloud for you in the region you choose. Your users’ data stays where your regulators and customers need it.",
+    "growthCard2Desc": "Self-host it on any provider, including UK and EU ones, or let us run a private cloud for you in your region. Your users’ data stays where your regulators and customers need it.",
     "growthCard3Title": "An exit you can actually take",
     "growthCard3Desc": "Export every user, password hashes included, whenever you want. Authgear is open source and OIDC-compliant, so leaving is a decision, not a rebuild. We would rather you stay because it works.",
     "growthCard4Title": "A vendor that will still be here",

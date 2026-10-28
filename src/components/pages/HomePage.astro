@@ -1,12 +1,19 @@
 ---
-import { t } from '@/i18n';
-import { localizedPath } from '@/lib/i18n';
+import { t, hasOwnTranslation } from '@/i18n';
+import { hasLocalizedPage, localizedPath } from '@/lib/i18n';
 import ContactForm from '@/components/islands/ContactForm';
 import LogoMarquee from '@/components/islands/LogoMarquee';
 import HomeHeroKv from '@/components/pages/home/HomeHeroKv.astro';
 
 interface Props { locale: string }
 const { locale } = Astro.props;
+
+// The data sovereignty links show only where the locale has both its own link
+// text and its own /solutions/data-sovereignty page, so adding the key to a
+// locale's JSON is enough to turn a link on.
+const SOVEREIGNTY_PATH = '/solutions/data-sovereignty';
+const showSovereigntyLink = (key: string) =>
+  hasOwnTranslation(locale, key) && hasLocalizedPage(locale, SOVEREIGNTY_PATH);
 
 function tRich(locale: string, key: string, gradientExtraClass = ''): string {
   const raw = t(locale, key);
@@ -62,8 +69,8 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
             <a href="https://portal.authgear.com/?utm_source=landing-page&utm_medium=link&utm_campaign=login_button" target="_blank" rel="noopener noreferrer" class="ds-btn ds-btn-primary plausible-event-name--signup plausible-event-location--home-hero">{t(locale, 'Home.heroCtaGetStarted')}</a>
             <a href="https://docs.authgear.com/" class="home-hero__docs">{t(locale, 'Home.heroCtaHowToIntegrate')}</a>
             {/* German and French home pages lead with control over login data, so they link their data sovereignty page from the hero too. */}
-            {['de', 'fr'].includes(locale) && (
-              <a href={localizedPath(locale, '/solutions/data-sovereignty')} class="home-hero__docs plausible-event-name--home-sovereignty-click plausible-event-location--home-hero">{t(locale, 'Home.heroCtaSovereignty')}</a>
+            {showSovereigntyLink('Home.heroCtaSovereignty') && (
+              <a href={localizedPath(locale, SOVEREIGNTY_PATH)} class="home-hero__docs plausible-event-name--home-sovereignty-click plausible-event-location--home-hero">{t(locale, 'Home.heroCtaSovereignty')}</a>
             )}
           </div>
           <ul class="hero-trust-strip">
@@ -119,9 +126,8 @@ function tRich(locale: string, key: string, gradientExtraClass = ''): string {
               <div class="home-feature-cards-v2_info-wrap mb-0 pt-0">
                 <h3 class="home-feature-cards-v2_info-heading text-center text-white">{t(locale, 'Home.growthCard2Title')}</h3>
                 <div class="home-feature-cards-v2_info-description paragraph-small text-center text-afb7ff">{t(locale, 'Home.growthCard2Desc')}</div>
-                {/* Only locales with their own link text and a localized /solutions/data-sovereignty page. */}
-                {['en', 'de', 'fr'].includes(locale) && (
-                  <a href={localizedPath(locale, '/solutions/data-sovereignty')} class="home-growth-card-link paragraph-small plausible-event-name--home-sovereignty-click plausible-event-location--home-card">{t(locale, 'Home.growthCard2Link')}</a>
+                {showSovereigntyLink('Home.growthCard2Link') && (
+                  <a href={localizedPath(locale, SOVEREIGNTY_PATH)} class="home-growth-card-link paragraph-small plausible-event-name--home-sovereignty-click plausible-event-location--home-card">{t(locale, 'Home.growthCard2Link')}</a>
                 )}
               </div>
             </div>

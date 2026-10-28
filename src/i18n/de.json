@@ -16,18 +16,18 @@
   "Seo": {
     "siteName": "Authgear",
     "home": {
-      "title": "Authgear — Open-Source-Login und Identität: selbst gehostet oder Private Cloud",
+      "title": "Authgear — Open-Source-Login: selbst gehostet oder Private Cloud",
       "description": "Authgear erleichtert es Entwicklern, komplexe Authentifizierungsanforderungen zu erfüllen, und liefert dabei ein reibungsloses, herausragendes digitales Erlebnis."
     }
   },
   "Home": {
-    "title": "Authgear — Open-Source-Login und Identität: selbst gehostet oder Private Cloud",
+    "title": "Authgear — Open-Source-Login: selbst gehostet oder Private Cloud",
     "description": "Authgear erleichtert es Entwicklern, komplexe Authentifizierungsanforderungen zu erfüllen, und liefert dabei ein reibungsloses, herausragendes digitales Erlebnis.",
     "productSwitchCloud": "In der Cloud",
     "productSwitchServer": "Auf Ihrem Server",
     "productSwitchServerDemo": "Kontakt aufnehmen",
     "heroHeading": "Login und Identität unter Ihrer Kontrolle.",
-    "heroParagraph": "Open-Source-Authentifizierung und Nutzerverwaltung mit Passkeys, SAML SSO und MFA. Betreiben Sie Authgear auf eigenen Servern in Deutschland oder der EU, als Private Cloud in Ihrer Region oder in unserer Cloud.",
+    "heroParagraph": "Open-Source-Authentifizierung und Nutzerverwaltung mit Passkeys, SAML SSO und MFA. Betreiben Sie Authgear auf eigenen Servern in Deutschland oder anderswo in der EU, als Private Cloud in Ihrer Region oder in unserer Cloud.",
     "heroCtaGetStarted": "Kostenlos starten",
     "heroCtaHowToIntegrate": "Zur Dokumentation →",
     "trustedBy": "VERTRAUEN UNS",
@@ -99,7 +99,7 @@
     "heroTrust1": "ISO 27001",
     "heroTrust2": "SOC 2 Type II",
     "heroTrust3": "Open Source",
-    "heroTrust4": "Selbst hosten oder Private Cloud",
+    "heroTrust4": "Self-Hosting oder Private Cloud",
     "microCard4Title": "Auth für KI-Agenten und MCP-Server",
     "microCard4Desc": "Stellen Sie Authgear als OAuth-Autorisierungsserver vor Ihren MCP-Server. Agenten registrieren sich per <a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a> oder <a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">Dynamic Client Registration</a>. Nutzer erteilen Scopes auf einem Zustimmungsbildschirm, sodass ein Agent nie mehr erhält, als der Nutzer hat, und nie mehr, als der Nutzer genehmigt hat.",
     "heroKv": {

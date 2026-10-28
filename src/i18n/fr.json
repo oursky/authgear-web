@@ -16,18 +16,18 @@
   "Seo": {
     "siteName": "Authgear",
     "home": {
-      "title": "Authgear — Authentification open source : auto-hébergée ou cloud privé",
+      "title": "Authgear — Authentification open source : auto-hébergée ou cloud privé",
       "description": "Authgear permet aux développeurs de répondre plus facilement à des exigences d'authentification complexes, tout en offrant une expérience numérique fluide et exceptionnelle."
     }
   },
   "Home": {
-    "title": "Authgear — Authentification open source : auto-hébergée ou cloud privé",
+    "title": "Authgear — Authentification open source : auto-hébergée ou cloud privé",
     "description": "Authgear permet aux développeurs de répondre plus facilement à des exigences d'authentification complexes, tout en offrant une expérience numérique fluide et exceptionnelle.",
     "productSwitchCloud": "Dans le cloud",
     "productSwitchServer": "Sur votre serveur",
     "productSwitchServerDemo": "Nous contacter",
     "heroHeading": "Votre authentification, sous votre contrôle.",
-    "heroParagraph": "Authentification et gestion des utilisateurs open source, avec passkeys, SSO SAML et MFA. Hébergez Authgear sur vos propres serveurs en France ou dans l’UE, en cloud privé dans votre région, ou dans notre cloud.",
+    "heroParagraph": "Authentification et gestion des utilisateurs open source, avec passkeys, SSO SAML et MFA. Hébergez Authgear sur vos propres serveurs en France ou ailleurs dans l’UE, en cloud privé dans votre région, ou dans notre cloud.",
     "heroCtaGetStarted": "Commencer gratuitement",
     "heroCtaHowToIntegrate": "Lire la documentation →",
     "trustedBy": "ILS NOUS FONT CONFIANCE",
