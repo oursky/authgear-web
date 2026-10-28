@@ -16,18 +16,18 @@
   "Seo": {
     "siteName": "Authgear",
     "home": {
-      "title": "Authgear : connexion sécurisée et identité, entièrement gérées",
+      "title": "Authgear — Authentification open source : auto-hébergée ou cloud privé",
       "description": "Authgear permet aux développeurs de répondre plus facilement à des exigences d'authentification complexes, tout en offrant une expérience numérique fluide et exceptionnelle."
     }
   },
   "Home": {
-    "title": "Authgear : connexion sécurisée et identité, entièrement gérées",
+    "title": "Authgear — Authentification open source : auto-hébergée ou cloud privé",
     "description": "Authgear permet aux développeurs de répondre plus facilement à des exigences d'authentification complexes, tout en offrant une expérience numérique fluide et exceptionnelle.",
     "productSwitchCloud": "Dans le cloud",
     "productSwitchServer": "Sur votre serveur",
     "productSwitchServerDemo": "Nous contacter",
-    "heroHeading": "L'authentification bien faite, une fois pour toutes.",
-    "heroParagraph": "Authentification et gestion des utilisateurs open source pour les identités grand public et de première ligne. Démarrez gratuitement avec les clés d'accès (passkeys), les OTP par WhatsApp et SMS, le SSO SAML et le RBAC. Déployez-la dans notre cloud, dans votre VPC ou sur votre propre matériel.",
+    "heroHeading": "Votre authentification, sous votre contrôle.",
+    "heroParagraph": "Authentification et gestion des utilisateurs open source, avec passkeys, SSO SAML et MFA. Hébergez Authgear sur vos propres serveurs en France ou dans l’UE, en cloud privé dans votre région, ou dans notre cloud.",
     "heroCtaGetStarted": "Commencer gratuitement",
     "heroCtaHowToIntegrate": "Lire la documentation →",
     "trustedBy": "ILS NOUS FONT CONFIANCE",
@@ -37,7 +37,7 @@
     "growthCard1Title": "Aucune fonctionnalité verrouillée",
     "growthCard1Desc": "Chaque plan, y compris Free, inclut les passkeys, la MFA adaptative, le SSO SAML, la connexion Active Directory et le RBAC. Seuls une passerelle SMS personnalisée et la sécurité avancée sont facturés en supplément. Vous n'achetez jamais un palier supérieur pour débloquer une méthode de connexion.",
     "growthCard2Title": "Fonctionne là où vos données doivent résider",
-    "growthCard2Desc": "Une seule plateforme open source, sur Authgear Cloud, dans votre VPC ou sur votre propre matériel. Les charges de travail réglementées restent dans leur région, sur une infrastructure que vous contrôlez.",
+    "growthCard2Desc": "Hébergez Authgear vous-même chez le fournisseur de votre choix, y compris en France et dans l’UE, ou confiez-nous un cloud privé dans la région de votre choix. Les données de vos utilisateurs restent là où vos régulateurs et vos clients l’exigent.",
     "growthCard3Title": "Une porte de sortie que vous pouvez vraiment emprunter",
     "growthCard3Desc": "Exportez tous vos utilisateurs, hachages de mots de passe inclus, quand vous le souhaitez. Authgear est open source et conforme OIDC : partir est une décision, pas une reconstruction. Nous préférons que vous restiez parce que ça fonctionne.",
     "growthCard4Title": "Un fournisseur qui sera encore là",
@@ -99,7 +99,7 @@
     "heroTrust1": "ISO 27001",
     "heroTrust2": "SOC 2 Type II",
     "heroTrust3": "Open source",
-    "heroTrust4": "Auto-hébergeable",
+    "heroTrust4": "Auto-hébergé ou cloud privé",
     "microCard4Title": "Authentification pour agents IA et serveurs MCP",
     "microCard4Desc": "Placez Authgear devant votre serveur MCP comme serveur d'autorisation OAuth. Les agents s'enregistrent via <a href=\"https://docs.authgear.com/integration/client-id-metadata-document\" target=\"_blank\" rel=\"noopener noreferrer\">CIMD</a> ou <a href=\"https://docs.authgear.com/integration/dynamic-client-registration\" target=\"_blank\" rel=\"noopener noreferrer\">Dynamic Client Registration</a>. Les utilisateurs accordent des scopes sur un écran de consentement : un agent n'obtient donc jamais plus que ce que l'utilisateur possède, ni plus que ce qu'il a approuvé.",
     "heroKv": {
@@ -112,7 +112,8 @@
       "continueWithFacebook": "Continuer avec Facebook",
       "passkeys": "Clés d’accès",
       "biometrics": "Biométrie"
-    }
+    },
+    "growthCard2Link": "Comment fonctionne la souveraineté des données →"
   },
   "Pricing": {
     "euRegionTitle": "Région de données UE pour Authgear Cloud : bientôt disponible.",
