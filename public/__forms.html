@@ -45,7 +45,10 @@
       notes               → Is there other things regarding your enquiry we should know about?
 
     `purpose` is a single choice and arrives as the option's label, not its
-    slug. Keep in sync with src/components/islands/HelpDeskForm.tsx.
+    slug: "Increase number of projects limit", "Enable SMS/WhatsApp OTP in the
+    project", "Resume suspended project", "Request a paid plan for the
+    project" (paid plans are vetted before they are enabled), or "Other".
+    Keep in sync with src/components/islands/HelpDeskForm.tsx.
   -->
   <form name="help-desk" method="POST" data-netlify="true" netlify-honeypot="website" hidden>
     <input type="text" name="purpose" />

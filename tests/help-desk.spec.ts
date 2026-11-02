@@ -15,12 +15,13 @@ test.describe('help desk page', () => {
 
     // "What is the purpose of your enquiry?" is a single-choice radio group.
     const purposes = form.locator('input[name="purpose"]');
-    await expect(purposes).toHaveCount(4);
+    await expect(purposes).toHaveCount(5);
     await expect(purposes.first()).toHaveAttribute('type', 'radio');
     await expect(form.locator('.ds-form-radio span')).toHaveText([
       'Increase number of projects limit',
       'Enable SMS/WhatsApp OTP in the project',
       'Resume suspended project',
+      'Request a paid plan for the project',
       'Other',
     ]);
 
@@ -71,6 +72,12 @@ test.describe('help desk page', () => {
     await expect(form.locator('[name="email"]')).toHaveValue('dev@acme.com');
     await expect(form.locator('[name="name"]')).toHaveValue('Alex');
     await expect(form.locator('#hd-purpose-sms-otp')).toBeChecked();
+  });
+
+  test('?purpose=upgrade-plan preselects the paid plan request', async ({ page }) => {
+    await page.goto('/help-desk/?purpose=upgrade-plan');
+    await page.locator('astro-island:not([ssr]):has(form[name="help-desk"])').waitFor();
+    await expect(page.locator('#hd-purpose-upgrade-plan')).toBeChecked();
   });
 
   test('requires target countries once OTP is the selected purpose', async ({ page }) => {

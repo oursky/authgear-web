@@ -19,6 +19,8 @@ const PURPOSES = [
   { value: 'project-limit', label: 'Increase number of projects limit' },
   { value: 'sms-otp', label: 'Enable SMS/WhatsApp OTP in the project' },
   { value: 'resume-suspended', label: 'Resume suspended project' },
+  // Paid plans are vetted by the team before they are enabled.
+  { value: 'upgrade-plan', label: 'Request a paid plan for the project' },
   { value: 'other', label: 'Other' },
 ] as const;
 
