@@ -21,6 +21,7 @@ const PURPOSES = [
   { value: 'resume-suspended', label: 'Resume suspended project' },
   // Paid plans are vetted by the team before they are enabled.
   { value: 'upgrade-plan', label: 'Request a paid plan for the project' },
+  { value: 'custom-messages', label: 'Enable custom SMS and email templates' },
   { value: 'other', label: 'Other' },
 ] as const;
 
