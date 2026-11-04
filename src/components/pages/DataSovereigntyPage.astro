@@ -1,6 +1,7 @@
 ---
 import { t } from '@/i18n';
 import { localizedPath } from '@/lib/i18n';
+import { SOVEREIGNTY_REVIEW_URL, offersSovereigntyReview } from '@/lib/sovereignty-review';
 import ContactForm from '@/components/islands/ContactForm';
 import WaysCell, { type WaysCellValue } from '@/components/pages/data-sovereignty/WaysCell.astro';
 
@@ -13,6 +14,12 @@ const T = (key: string) => t(locale, `DataSovereignty.${key}`);
 // (個資法, 資安法) instead of the CLOUD Act. Everything Taiwan-specific hangs off
 // this flag, so the other locales are untouched.
 const isTaiwan = locale === 'zh-Hant';
+
+// In the UK/EU campaign markets (en, de, fr) every demo link on this page asks
+// for a sovereignty review instead. es and zh-Hant keep the generic demo page.
+const isReview = offersSovereigntyReview(locale);
+const demoHref = isReview ? SOVEREIGNTY_REVIEW_URL : localizedPath(locale, '/schedule-demo');
+const demoLabel = isReview ? T('ctaSovereigntyReview') : T('ctaTalkToUs');
 
 // A newline in `heroTitle` forces a line break. CJK text has no spaces, so
 // the browser breaks wherever it runs out of room and can leave a single
@@ -83,7 +90,7 @@ const threeWaysRows: [string, ...WaysCellValue[]][] = [
         className: 'plausible-event-name--self-host-guide-click plausible-event-location--table' }]],
     [[{ text: T('waysCtaStartFree'), href: PORTAL_SIGNUP_URL, external: true,
         className: 'plausible-event-name--signup plausible-event-location--data-sovereignty-table' }]],
-    [[{ text: T('ctaTalkToUs'), href: localizedPath(locale, '/schedule-demo'),
+    [[{ text: demoLabel, href: demoHref,
         className: 'plausible-event-name--get-demo plausible-event-location--data-sovereignty-table' }]],
   ],
 ];
@@ -117,7 +124,7 @@ const costAnswer: FaqSegment[] = [
   T('faq9APre'),
   {
     text: T('faq9ALink'),
-    href: localizedPath(locale, '/schedule-demo'),
+    href: demoHref,
     className: 'plausible-event-name--get-demo plausible-event-location--data-sovereignty-faq',
   },
   T('faq9APost'),
@@ -321,9 +328,9 @@ const faqLd = {
     <p class="dsov-table-note">
       {T('waysNote')}{' '}
       <a
-        href={localizedPath(locale, '/schedule-demo')}
+        href={demoHref}
         class="dsov-link plausible-event-name--get-demo plausible-event-location--data-sovereignty-table"
-      >{T('ctaTalkToUs')}</a>
+      >{isReview ? T('waysNoteReviewLink') : T('ctaTalkToUs')}</a>{isReview && T('waysNoteReviewPost')}
     </p>
   </div>
 </section>
@@ -405,7 +412,7 @@ const faqLd = {
         <p class="section-lede-on-dark">{T('migrateBody')}</p>
         <div class="ds-feature-callout__ctas">
           <a
-            href={localizedPath(locale, '/schedule-demo')}
+            href={demoHref}
             class="ds-btn ds-btn-primary plausible-event-name--get-demo plausible-event-location--data-sovereignty-migration"
           >
             {T('migrateCta')}
@@ -462,10 +469,10 @@ const faqLd = {
         {T('ctaSelfHostGuide')}
       </a>
       <a
-        href={localizedPath(locale, '/schedule-demo')}
+        href={demoHref}
         class="ds-btn ds-btn-outline-light plausible-event-name--get-demo plausible-event-location--data-sovereignty-footer"
       >
-        {T('ctaTalkToUs')}
+        {demoLabel}
       </a>
     </div>
   </div>
