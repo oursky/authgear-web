@@ -1,0 +1,352 @@
+---
+export const prerender = true;
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { localizedPath } from '@/lib/i18n';
+
+// Gated lead magnet for the UK/EU campaign. Same pattern as
+// /success-stories-download: a Netlify form (registered in
+// public/__forms.html), a client-side POST, then the PDF in a new tab.
+const locale = 'en';
+const FORM_NAME = 'sovereign-login-checklist';
+const PDF_URL = '/downloads/authgear-sovereign-login-checklist.pdf';
+const REVIEW_URL = localizedPath('en', '/schedule-demo?topic=sovereignty-review');
+
+const title = 'The sovereign login checklist: 20 questions for your identity provider';
+const description =
+  "20 questions to ask any identity provider about where your users' data lives, who can reach it, and whether you can leave. Free PDF.";
+
+const inside = [
+  {
+    lead: 'The questions residency misses.',
+    rest: 'A UK or EU data centre is only the start. Check who runs the system and whose law applies to them.',
+  },
+  {
+    lead: 'What a good answer looks like.',
+    rest: 'For each question, a plain note on what to expect from a vendor, so you can tell a real answer from a vague one.',
+  },
+  {
+    lead: 'The parts teams forget.',
+    rest: "Backups, logs, and the email and SMS providers that see your users' phone numbers and one-time codes.",
+  },
+];
+
+const roles = [
+  'CTO or VP Engineering',
+  'Engineering or platform lead',
+  'Security',
+  'Data protection or legal',
+  'Other',
+];
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <section class="ds-hero-banner--gradient">
+    <div class="ds-container ds-container--gradient-hero-shell">
+      <div class="ds-hero-banner--gradient__inner">
+        <div class="ds-container ds-container--hero checklist">
+          <div class="checklist__copy">
+            <h1 class="ds-hero-banner__title checklist__title">The sovereign login checklist</h1>
+            <p class="ds-hero-banner__description checklist__lede">
+              20 questions to ask any identity provider about where your users' data lives, who can
+              reach it, and whether you can leave. Free PDF, three pages.
+            </p>
+            <h2 class="checklist__inside-title">What's inside</h2>
+            <ul class="checklist__inside" role="list">
+              {inside.map(({ lead, rest }) => (
+                <li>
+                  <img src="/images/Checkmark---Iconly-Pro.svg" alt="" width="20" height="20" />
+                  <p><strong>{lead}</strong> {rest}</p>
+                </li>
+              ))}
+            </ul>
+            <p class="checklist__audience">
+              For CTOs, engineering and platform leads, and security and data protection teams in
+              the UK and Europe.
+            </p>
+          </div>
+
+          <div class="form-block ds-form checklist__card">
+            <form
+              class="ds-form__form checklist__form"
+              name={FORM_NAME}
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="website"
+              data-pdf={PDF_URL}
+            >
+              <input type="hidden" name="form-name" value={FORM_NAME} />
+              <input
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                class="checklist__honeypot"
+              />
+
+              <div class="ds-form__field">
+                <label for="cl-name" class="ds-form-label">
+                  Name<span class="ds-form-label__required">*</span>
+                </label>
+                <input id="cl-name" class="ds-form-input" name="Name" type="text" required maxlength="256" autocomplete="name" />
+              </div>
+              <div class="ds-form__field">
+                <label for="cl-email" class="ds-form-label">
+                  Work email<span class="ds-form-label__required">*</span>
+                </label>
+                <input id="cl-email" class="ds-form-input" name="Email" type="email" required maxlength="256" autocomplete="email" />
+              </div>
+              <div class="ds-form__field">
+                <label for="cl-company" class="ds-form-label">
+                  Company<span class="ds-form-label__required">*</span>
+                </label>
+                <input id="cl-company" class="ds-form-input" name="Company" type="text" required maxlength="256" autocomplete="organization" />
+              </div>
+              <div class="ds-form__field">
+                <label for="cl-role" class="ds-form-label">
+                  Role<span class="ds-form-label__required">*</span>
+                </label>
+                <select id="cl-role" class="ds-form-input" name="Role" required>
+                  <option value="" selected disabled>Select one</option>
+                  {roles.map((r) => <option value={r}>{r}</option>)}
+                </select>
+              </div>
+              <label class="checklist__consent">
+                <input type="checkbox" name="marketing-consent" value="yes" />
+                <span>Email me related guides now and then. Unsubscribe at any time.</span>
+              </label>
+
+              <p class="ds-form-error checklist__error" role="alert" hidden>
+                Something went wrong. Please try again.
+              </p>
+              <button type="submit" class="ds-btn ds-btn-primary ds-form__submit checklist__submit">
+                Download the checklist
+              </button>
+              <p class="checklist__fine">
+                The PDF opens straight away. See our{' '}
+                <a href={localizedPath(locale, '/data-privacy')}>privacy policy</a>. Not legal advice.
+              </p>
+            </form>
+
+            <div class="ds-form-success checklist__success" role="status" hidden>
+              <svg class="ds-form-success__icon" aria-hidden="true" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="22" fill="#d1fae5"></circle>
+                <path d="M15 25 L22 32 L34 18" stroke="#047857" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+              </svg>
+              <h2 class="ds-form-success__title">Thanks, your checklist is opening in a new tab.</h2>
+              <p class="ds-form-success__body checklist__success-body">
+                If it doesn't, <a href={PDF_URL} target="_blank" rel="noopener">open the checklist here</a>.
+              </p>
+              <p class="ds-form-success__body checklist__success-body">
+                Want to go through it with us?{' '}
+                <a
+                  href={REVIEW_URL}
+                  class="plausible-event-name--get-demo plausible-event-location--checklist-confirmation"
+                >Book a <span class="checklist__nowrap">30-minute</span> sovereignty review.</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { trackEvent } from '@/lib/plausible';
+  import { pushDataLayer } from '@/lib/gtm';
+
+  const form = document.querySelector<HTMLFormElement>('.checklist__form');
+  const success = document.querySelector<HTMLElement>('.checklist__success');
+  const error = document.querySelector<HTMLElement>('.checklist__error');
+  const submit = document.querySelector<HTMLButtonElement>('.checklist__submit');
+
+  if (form && success && error && submit) {
+    const pdfUrl = form.dataset.pdf ?? '';
+    const submitLabel = submit.textContent?.trim() ?? '';
+    let done = false;
+
+    const showSuccess = () => {
+      form.hidden = true;
+      success.hidden = false;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (done || submit.disabled) return;
+
+      const data = new FormData(form);
+      // Bots fill the hidden `website` field. Netlify drops those submissions
+      // too, but stopping here keeps them out of Plausible and the dataLayer.
+      // The bot sees the normal confirmation and learns nothing.
+      if (String(data.get('website') ?? '')) {
+        done = true;
+        showSuccess();
+        return;
+      }
+
+      const url = new URLSearchParams(window.location.search);
+      const params = new URLSearchParams();
+      params.append('form-name', 'sovereign-login-checklist');
+      params.append('Name', String(data.get('Name') ?? '').trim());
+      params.append('Email', String(data.get('Email') ?? '').trim());
+      params.append('Company', String(data.get('Company') ?? '').trim());
+      params.append('Role', String(data.get('Role') ?? ''));
+      params.append('marketing-consent', data.get('marketing-consent') ? 'yes' : 'no');
+      params.append('locale', 'en');
+      params.append('source', 'sovereign-login-checklist');
+      params.append('page', window.location.pathname);
+      for (const key of ['utm_source', 'utm_medium', 'utm_campaign']) {
+        const value = url.get(key);
+        if (value) params.append(key, value);
+      }
+
+      error.hidden = true;
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString(),
+        });
+        if (!res.ok) throw new Error(`status ${res.status}`);
+        done = true;
+        trackEvent('checklist-download', { location: 'checklist-page' });
+        // No name, email, company or role: GTM forwards the dataLayer to ad platforms.
+        pushDataLayer({ event: 'checklist_download', form_page: window.location.pathname });
+        // Browsers (Safari especially) may block a tab opened after an await,
+        // so the confirmation always carries a direct link to the PDF too.
+        window.open(pdfUrl, '_blank', 'noopener');
+        showSuccess();
+      } catch {
+        error.hidden = false;
+        submit.disabled = false;
+        submit.textContent = submitLabel;
+      }
+    });
+  }
+</script>
+
+<style>
+  .checklist {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+  }
+  .checklist__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #fff;
+  }
+  .checklist__title,
+  .checklist__lede {
+    margin: 0;
+    text-align: left;
+  }
+  .checklist__inside-title {
+    margin: 12px 0 0;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #fff;
+  }
+  .checklist__inside {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .checklist__inside li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .checklist__inside img {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .checklist__inside p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.88);
+  }
+  .checklist__inside strong {
+    color: #9cc0ff;
+    font-weight: 600;
+  }
+  .checklist__audience {
+    margin: 4px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .checklist__card {
+    padding: 32px;
+    color-scheme: light;
+  }
+  .checklist__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+  .checklist__consent {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 400;
+    color: var(--color-text-light-primary);
+    cursor: pointer;
+  }
+  .checklist__consent input {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 1px 0 0;
+    accent-color: var(--color-primary-800);
+  }
+  .checklist__nowrap {
+    white-space: nowrap;
+  }
+  .checklist__submit[disabled] {
+    opacity: 0.7;
+    cursor: wait;
+  }
+  .checklist__fine {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--color-text-light-secondary);
+  }
+  .checklist__fine a,
+  .checklist__success-body a {
+    color: var(--color-primary-800);
+    text-decoration: underline;
+  }
+  /* The design system's success body colour is meant for dark sections. */
+  .checklist__success-body {
+    color: var(--color-text-light-secondary);
+  }
+  @media (width < 992px) {
+    .checklist {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+    }
+  }
+  @media (width < 480px) {
+    .checklist__card {
+      padding: 24px 20px;
+    }
+  }
+</style>

@@ -90,6 +90,8 @@ These indicate the user took a meaningful step toward becoming a customer.
 | `signup` | `McpAuthenticationPage` — hero "Start for free" and footer CTA "Start for free" | Click | `portal.authgear.com` (with UTM) — fires with `props.location` = `mcp-hero` \| `mcp-footer` |
 | `get-demo` | `KeycloakAlternativePage` — hero "Schedule Demo" and migration band "Schedule Demo" | Click | `/schedule-demo` — fires with `props.location` = `keycloak-alternative-hero` \| `keycloak-alternative-migrate` |
 | `get-demo` | `DataSovereigntyPage` — "Talk to us" (Private cloud column and note under the table, FAQ cost answer, closing CTA) and "Plan your migration" (migration callout) | Click | `/schedule-demo` — fires with `props.location` = `data-sovereignty-table` \| `data-sovereignty-faq` \| `data-sovereignty-migration` \| `data-sovereignty-footer` |
+| `checklist-download` | `/sovereign-login-checklist` — gated form (name, work email, company, role, optional marketing consent) | Netlify Forms POST returns OK (not on a honeypot hit) | Netlify Forms (`sovereign-login-checklist`), then the PDF in a new tab — fires with `props.location = 'checklist-page'`. **Not yet registered in Plausible**; the goal and the LinkedIn/GTM conversion are set up separately |
+| `get-demo` | `/sovereign-login-checklist` — "Book a 30-minute sovereignty review" link in the confirmation | Click | `/schedule-demo?topic=sovereignty-review` — fires with `props.location = 'checklist-confirmation'` |
 
 ### Engagement events
 
@@ -97,6 +99,7 @@ These indicate the user is exploring content or interacting with features.
 
 | Event | Component | Trigger | Notes |
 |-------|-----------|---------|-------|
+| `checklist-click` | `DataSovereigntyPage` (en only) — "Download the sovereign login checklist" under the FAQ; UK guide post `uk-data-sovereignty-login-identity` — same link after its checklist | Click | `/sovereign-login-checklist` — fires with `props.location` = `data-sovereignty` \| `uk-guide`. Not yet registered in Plausible |
 | `calculator-preset` | `ReduceSmsOtpCostPage` — preset buttons (10K / 100K / 500K / 1M) | Click | Fires on every preset button; no distinction between which preset was selected |
 | `calculator-open` | `ReduceSmsOtpCostPage` — hero "Calculate My Savings" | Click | `#Saving-Calculator` anchor scroll — renamed from `signup-calculator` in Aug 2026 (it never was a signup click) |
 | `tool-banner-click` | `ToolWidget` — banner image | Click | Links to `/` (placeholder) |
@@ -189,6 +192,7 @@ conversions) is granted, using the built-in consent checks.
 | Event | Component | Trigger | Fields |
 |-------|-----------|---------|--------|
 | `contact_form_submit` | `ContactForm` (every page that embeds it, incl. `/schedule-demo` and `/solutions/data-sovereignty`) | Netlify Forms POST returns OK | `form_page` — `location.pathname` (no query string); `topic` — `?topic=` query param, or `''` |
+| `checklist_download` | `/sovereign-login-checklist` | Netlify Forms POST returns OK | `form_page` (pathname). No name, email, company or role |
 
 `topic` tags campaign entry points, e.g.
 `/schedule-demo?topic=sovereignty-review`. It is also sent to Netlify Forms as
@@ -215,10 +219,10 @@ prefilled from `?name=` / `?email=`. Push events through `pushDataLayer()` in
 
 | Category | Count |
 |----------|-------|
-| Conversion | 24 event placements (4 distinct names) |
-| Engagement | 16 event placements (14 distinct names) |
-| **Total** | **40 event placements across 18 distinct event names** |
+| Conversion | 27 event placements (5 distinct names) |
+| Engagement | 19 event placements (17 distinct names) |
+| **Total** | **46 event placements across 22 distinct event names** |
 
-> Recounted from the tables above in Sep 2026 — the previous figures had
+> Recounted from the tables above in Nov 2026 — the previous figures had
 > drifted several placements behind the inventory. Count the rows again
 > rather than incrementing these when you add an event.

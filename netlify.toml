@@ -34,7 +34,10 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Gated PDFs (the success stories pack, the sovereign login checklist): keep
+# them out of search results so searchers land on the form page instead.
 [[headers]]
   for = "/downloads/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    X-Robots-Tag = "noindex"
