@@ -1,6 +1,7 @@
 ---
 import { t } from '@/i18n';
 import ContactForm from '@/components/islands/ContactForm';
+import { SOVEREIGNTY_REVIEW_TOPIC } from '@/lib/sovereignty-review';
 
 interface Props {
   locale: string;
@@ -12,41 +13,139 @@ const features: Array<{ label: string; desc: string }> = [1, 2, 3, 4, 5].map((i)
   label: t(locale, `ScheduleDemo.feature${i}Label`),
   desc: t(locale, `ScheduleDemo.feature${i}Desc`),
 }));
+
+// The sovereignty review offer (/schedule-demo?topic=sovereignty-review) lives
+// on the English page only: every campaign locale links here, because review
+// calls are in English. The page is prerendered, so both heroes are rendered
+// and an inline script picks one from the query string before the hero is
+// parsed. Neither audience sees a flash or a layout shift.
+const hasReview = locale === 'en';
+const R = (key: string) => t(locale, `ScheduleDemo.${key}`);
+const reviewItems = [1, 2, 3, 4].map((i) => ({
+  label: R(`reviewItem${i}Label`),
+  desc: R(`reviewItem${i}Desc`),
+}));
 ---
 
 <>
+  {hasReview && (
+    <script
+      is:inline
+      define:vars={{ topic: SOVEREIGNTY_REVIEW_TOPIC, reviewTitle: R('reviewTitle') }}
+    >
+      if (new URLSearchParams(location.search).get('topic') === topic) {
+        document.documentElement.dataset.topic = topic;
+        document.title = reviewTitle;
+      }
+    </script>
+  )}
   <div class="page-wrapper">
     <section class="getdemo-bg">
       <div class="w-layout-blockcontainer getdemo w-container">
         <div class="w-layout-hflex getdemo-content">
-          <h1 class="getdemo-title">{t(locale, 'ScheduleDemo.heroTitle')}</h1>
-          <p class="paragraph-7">{t(locale, 'ScheduleDemo.heroLede')}</p>
-          <div class="w-layout-vflex flex-block-69">
-            {features.map(({ label, desc }) => (
-              <div class="w-layout-hflex getdemo-feature-block">
-                <img
-                  src="/images/Checkmark---Iconly-Pro.svg"
-                  loading="lazy"
-                  alt=""
-                  class="getdemo-feature-check"
-                />
-                <p class="getdemo-feature">
-                  <span class="text-span-42">{label}</span>
-                  <br />
-                  {desc}
-                </p>
+          <div class="getdemo-generic">
+            <h1 class="getdemo-title">{t(locale, 'ScheduleDemo.heroTitle')}</h1>
+            <p class="paragraph-7">{t(locale, 'ScheduleDemo.heroLede')}</p>
+            <div class="w-layout-vflex flex-block-69">
+              {features.map(({ label, desc }) => (
+                <div class="w-layout-hflex getdemo-feature-block">
+                  <img
+                    src="/images/Checkmark---Iconly-Pro.svg"
+                    loading="lazy"
+                    alt=""
+                    class="getdemo-feature-check"
+                  />
+                  <p class="getdemo-feature">
+                    <span class="text-span-42">{label}</span>
+                    <br />
+                    {desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p class="getdemo-feature logo-totle">{t(locale, 'ScheduleDemo.trustedBy')}</p>
+            <div class="w-layout-hflex flex-block-70">
+              <img src="/images/demo_customer-logo-Bupa2x.png" loading="lazy" alt="Bupa" />
+              <img src="/images/demo_customer-logo-CIMIC2x.png" loading="lazy" alt="CIMIC" />
+              <img src="/images/demo_customer-logo-HKL2x.png" loading="lazy" alt="Hongkong Land" />
+              <img src="/images/demo_customer-logo-hkpc2x.png" loading="lazy" alt="HKPC" />
+              <img src="/images/demo_customer-logo-K112x.png" loading="lazy" alt="K11" />
+              <img src="/images/demo_customer-logo-嚗胞TR2x.png" loading="lazy" alt="MTR" />
+            </div>
+          </div>
+
+          {hasReview && (
+            <div class="getdemo-review">
+              <h1 class="getdemo-title">{R('reviewHeroTitle')}</h1>
+              <p class="getdemo-review-lede">{R('reviewHeroLede')}</p>
+              <p class="paragraph-7">{R('reviewCoverIntro')}</p>
+              <div class="w-layout-vflex flex-block-69">
+                {reviewItems.map(({ label, desc }) => (
+                  <div class="w-layout-hflex getdemo-feature-block">
+                    <img
+                      src="/images/Checkmark---Iconly-Pro.svg"
+                      loading="lazy"
+                      alt=""
+                      class="getdemo-feature-check"
+                    />
+                    <p class="getdemo-feature">
+                      <span class="text-span-42">{label}</span>
+                      <br />
+                      {desc}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <p class="getdemo-feature logo-totle">{t(locale, 'ScheduleDemo.trustedBy')}</p>
-          <div class="w-layout-hflex flex-block-70">
-            <img src="/images/demo_customer-logo-Bupa2x.png" loading="lazy" alt="Bupa" />
-            <img src="/images/demo_customer-logo-CIMIC2x.png" loading="lazy" alt="CIMIC" />
-            <img src="/images/demo_customer-logo-HKL2x.png" loading="lazy" alt="Hongkong Land" />
-            <img src="/images/demo_customer-logo-hkpc2x.png" loading="lazy" alt="HKPC" />
-            <img src="/images/demo_customer-logo-K112x.png" loading="lazy" alt="K11" />
-            <img src="/images/demo_customer-logo-嚗胞TR2x.png" loading="lazy" alt="MTR" />
-          </div>
+              <p class="getdemo-feature getdemo-review-after">
+                <span class="text-span-42">{R('reviewAfterLabel')}</span>{' '}
+                {R('reviewAfterDesc')}
+              </p>
+              <p class="getdemo-review-fine">
+                {R('reviewAudience')}
+                <br />
+                {R('reviewSmallPrint')}
+              </p>
+
+              <p class="getdemo-feature logo-totle">{R('trustedBy')}</p>
+              <div class="getdemo-proof">
+                <div class="getdemo-proof-card">
+                  <img
+                    src="/images/demo_customer-logo-Bupa2x.png"
+                    loading="lazy"
+                    alt="Bupa"
+                    width="120"
+                    height="48"
+                    class="getdemo-proof-logo"
+                  />
+                  <p class="getdemo-proof-text">{R('reviewProofBupa')}</p>
+                </div>
+                <div class="getdemo-proof-card">
+                  <div class="getdemo-proof-name">
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M7 2v20M4 2v6a3 3 0 0 0 6 0V2M17 22V2c-2.2 1.2-3.5 3.8-3.5 7v4H17" />
+                    </svg>
+                    <span>{R('reviewProofQsrName')}</span>
+                  </div>
+                  <p class="getdemo-proof-text">{R('reviewProofQsr')}</p>
+                </div>
+              </div>
+              <p class="getdemo-review-trust">
+                {R('reviewTrustLine').split(' · ').map((item, i) => (
+                  <>{i > 0 && ' · '}<span>{item}</span></>
+                ))}
+              </p>
+            </div>
+          )}
         </div>
         <div class="w-layout-hflex getdemo-form">
           <ContactForm client:visible locale={locale} />
@@ -55,3 +154,95 @@ const features: Array<{ label: string; desc: string }> = [1, 2, 3, 4, 5].map((i)
     </section>
   </div>
 </>
+
+<style is:global>
+  /* The wrappers take no part in layout: their children stay direct flex items
+     of .getdemo-content, exactly as before the review version existed. */
+  .getdemo-generic {
+    display: contents;
+  }
+  .getdemo-review {
+    display: none;
+  }
+  html[data-topic='sovereignty-review'] .getdemo-generic {
+    display: none;
+  }
+  html[data-topic='sovereignty-review'] .getdemo-review {
+    display: contents;
+  }
+</style>
+
+<style>
+  .getdemo-review-lede {
+    margin: 0;
+    color: #fff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .getdemo-review-after {
+    margin: 0;
+  }
+  .getdemo-review-fine {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .getdemo-proof {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 520px;
+  }
+  .getdemo-proof-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .getdemo-proof-logo {
+    width: auto;
+    height: 36px;
+    margin-left: -8px;
+    object-fit: contain;
+    object-position: left center;
+  }
+  .getdemo-proof-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+  .getdemo-proof-name svg {
+    flex-shrink: 0;
+  }
+  .getdemo-proof-text {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .getdemo-review-trust {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    letter-spacing: 0.01em;
+  }
+  /* Break between items, never inside one ("ISO 27001"). */
+  .getdemo-review-trust span {
+    white-space: nowrap;
+  }
+  @media (max-width: 479px) {
+    .getdemo-proof {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -149,6 +149,17 @@ const MESSAGES = {
   },
 } as const satisfies Record<Locale, Record<string, string>>;
 
+/**
+ * Success copy for sovereignty review requests (?topic=sovereignty-review).
+ * The form is a request, not a calendar booking, so it says what happens next
+ * rather than "you're booked". Only the English /schedule-demo carries the
+ * review offer, so there is no translation.
+ */
+const SOVEREIGNTY_REVIEW_SUCCESS = {
+  title: "Thanks, we've got your request.",
+  body: "We'll email you shortly to pick a time for your review.",
+};
+
 function resolveLocale(locale: string): Locale {
   return locale in MESSAGES ? (locale as Locale) : 'en';
 }
@@ -232,6 +243,10 @@ export default function ContactForm({ locale = 'en', submitLabel }: Props) {
   }
 
   if (status === 'success') {
+    const success =
+      l === 'en' && getQueryParam('topic') === 'sovereignty-review'
+        ? SOVEREIGNTY_REVIEW_SUCCESS
+        : { title: t.successTitle, body: t.successBody };
     return (
       <div className="form-block ds-form">
         <div className="ds-form-success" role="status">
@@ -251,8 +266,8 @@ export default function ContactForm({ locale = 'en', submitLabel }: Props) {
               fill="none"
             />
           </svg>
-          <h3 className="ds-form-success__title">{t.successTitle}</h3>
-          <p className="ds-form-success__body">{t.successBody}</p>
+          <h3 className="ds-form-success__title">{success.title}</h3>
+          <p className="ds-form-success__body">{success.body}</p>
         </div>
       </div>
     );
