@@ -4,8 +4,8 @@ excerpt: "What UK data sovereignty means for your login system: where user data 
 coverImage: ./cover.webp
 publishedAt: 2026-09-25
 updatedAt: 2026-10-23
-metaTitle: "UK Data Sovereignty for Login and Identity (2026 Guide)"
-metaDescription: "UK data sovereignty for login systems: residency vs sovereignty, what a UK sovereign cloud really means, UK GDPR, the CLOUD Act and a vendor checklist."
+metaTitle: "UK Data Sovereignty in 2026: A Guide for Login and User Data"
+metaDescription: "What UK data sovereignty means for login data: where it sits, who can reach it and whose law applies, from UK GDPR to the CLOUD Act. With a vendor checklist."
 category: industry
 readTime: 9
 draft: false

@@ -3,8 +3,8 @@ title: "Managed Keycloak vs a Private Cloud: What You Actually Get"
 excerpt: "The Keycloak project doesn't run a cloud service. Here is what you get from each route instead: running it yourself, a third-party Keycloak host, Red Hat build of Keycloak, or a vendor-run private cloud, compared on upgrades, support, region and exit."
 coverImage: ./cover.webp
 publishedAt: 2026-10-23
-metaTitle: "Managed Keycloak vs Private Cloud: What You Actually Get"
-metaDescription: "There is no official Keycloak cloud. Compare managed Keycloak hosting, Red Hat build of Keycloak and a vendor-run private cloud on upgrades, support and region."
+metaTitle: "Managed Keycloak Hosting: Skycloak, Cloud-IAM, Phase Two"
+metaDescription: "There is no official Keycloak cloud. Compare Skycloak, Cloud-IAM, Phase Two, Red Hat build of Keycloak and a vendor-run private cloud on cost and upgrades."
 category: industry
 readTime: 9
 draft: false

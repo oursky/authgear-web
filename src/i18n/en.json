@@ -1616,8 +1616,8 @@
     "dataSovereigntyLink": "See your options"
   },
   "KeycloakAlternative": {
-    "metaTitle": "Keycloak Alternatives: Open Source, Self-Hosted or Managed",
-    "metaDescription": "Open-source Keycloak alternative under the same Apache-2.0 licence, built by a UK company. Self-host it, or let us run a private cloud in the UK or EU.",
+    "metaTitle": "Keycloak Alternatives in 2026: Open Source and Managed",
+    "metaDescription": "Keycloak alternatives, from hosted Keycloak like Skycloak to Authgear: open source under Apache-2.0, login and passkeys built in. Self-host it or we run it.",
     "heroTitle": "Authgear: the open-source Keycloak alternative",
     "heroDescription": "The same Apache-2.0 licence and the freedom to self-host, with modern login built in and a team you can call. Run it yourself, or let us run it for you.",
     "whyChooseTitle": "Why teams choose Authgear over Keycloak",
