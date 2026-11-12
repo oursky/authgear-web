@@ -350,10 +350,13 @@
     "faq8A": "Nein. Die Self-Hosting-Version bietet dieselben Funktionen wie Authgear Cloud.",
     "faq9Q": "Was kostet Self-Hosting?",
     "faq9APre": "Die Software ist unter Apache-2.0 kostenlos. Sie zahlen für Ihre eigene Infrastruktur und, falls gewünscht, für Support. ",
-    "faq9ALink": "Sprechen Sie mit uns",
-    "faq9APost": " für ein Angebot.",
+    "faq9ALink": "Buchen Sie einen Souveränitäts-Check",
+    "faq9APost": ", und wir erstellen Ihnen ein Angebot.",
     "closingTitle": "Ihre Nutzer, Ihre Infrastruktur",
-    "closingBody": "Starten Sie heute mit Authgear Cloud, hosten Sie selbst, wenn Sie bereit sind, oder sagen Sie uns, dass Sie eine EU-Region brauchen."
+    "closingBody": "Starten Sie heute mit Authgear Cloud, hosten Sie selbst, wenn Sie bereit sind, oder sagen Sie uns, dass Sie eine EU-Region brauchen.",
+    "ctaSovereigntyReview": "Souveränitäts-Check buchen",
+    "waysNoteReviewLink": "Buchen Sie einen Souveränitäts-Check",
+    "waysNoteReviewPost": ", um Ihr Vorhaben zu besprechen."
   },
   "KeycloakAlternative": {
     "metaTitle": "Keycloak-Alternative: Open Source, Cloud oder Self-Hosting",
@@ -421,7 +424,9 @@
     "faq6Q": "Wo werden meine Daten bei Authgear gespeichert?",
     "faq6A": "Das entscheiden Sie. Selbst gehostet überall, auch im Vereinigten Königreich und in der EU. Die Authgear Cloud läuft in den USA oder in Hongkong, eine EU-Region ist in Vorbereitung. Eine Private Cloud, die wir für Sie betreiben, ist schon heute in einer Region im Vereinigten Königreich oder in der EU möglich.",
     "faq7Q": "Ist Keycloak kostenlos?",
-    "faq7A": "Ja. Keycloak ist Open Source unter Apache-2.0 und kostenlos herunterzuladen und zu betreiben. Die Kosten liegen im Betrieb: Server, Upgrades, das erneute Testen eigener Themes und die Menschen, die sich darum kümmern. Red Hat verkauft einen unterstützten Build als Teil seiner Subskriptionen. Authgear können Sie unter derselben Lizenz kostenlos selbst hosten, oder unser Team betreibt es für Sie."
+    "faq7A": "Ja. Keycloak ist Open Source unter Apache-2.0 und kostenlos herunterzuladen und zu betreiben. Die Kosten liegen im Betrieb: Server, Upgrades, das erneute Testen eigener Themes und die Menschen, die sich darum kümmern. Red Hat verkauft einen unterstützten Build als Teil seiner Subskriptionen. Authgear können Sie unter derselben Lizenz kostenlos selbst hosten, oder unser Team betreibt es für Sie.",
+    "ctaSovereigntyReview": "Souveränitäts-Check buchen",
+    "ctaSovereigntyReviewShort": "30-Min.-Check buchen"
   },
   "Features": {
     "startForFree": "Kostenlos starten",

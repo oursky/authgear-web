@@ -367,7 +367,27 @@
     "feature4Desc": "Pre-built, customizable signup and login pages mean no auth code to write or maintain.",
     "feature5Label": "Scales with your business:",
     "feature5Desc": "From startup to millions of users, with predictable pricing and no surprise fees.",
-    "trustedBy": "Authgear is trusted by"
+    "trustedBy": "Authgear is trusted by",
+    "reviewTitle": "Book a sovereignty review — Authgear",
+    "reviewHeroTitle": "Get a free 30-minute sovereignty review",
+    "reviewHeroLede": "Tell us how you handle logins today. We'll show you where your user data sits, who can reach it, and how to keep it in the UK or EU, whether that's with Authgear or not.",
+    "reviewCoverIntro": "In 30 minutes we'll cover:",
+    "reviewItem1Label": "Where your login data lives today:",
+    "reviewItem1Desc": "user records, password hashes, MFA secrets, logs, backups, and the email and SMS providers that touch them.",
+    "reviewItem2Label": "Who runs it and whose law applies:",
+    "reviewItem2Desc": "the questions residency alone doesn't answer.",
+    "reviewItem3Label": "Your options:",
+    "reviewItem3Desc": "self-hosting on UK or EU infrastructure, a private cloud we run for you in your region, or staying where you are.",
+    "reviewItem4Label": "Moving over:",
+    "reviewItem4Desc": "what a migration from Keycloak, Auth0 or Okta looks like, including keeping users' passwords.",
+    "reviewAfterLabel": "What you get afterwards:",
+    "reviewAfterDesc": "a short written summary of what we discussed and the options that fit, by email.",
+    "reviewAudience": "For CTOs, engineering and platform leads, and security and data protection teams in the UK and Europe.",
+    "reviewSmallPrint": "Free, no obligation. Calls are in English. This isn't legal advice.",
+    "reviewProofBupa": "Moved from Azure AD B2C. 80% fewer password recovery requests.",
+    "reviewProofQsrName": "Global quick-service restaurant brand",
+    "reviewProofQsr": "20,000+ employees on Authgear single sign-on.",
+    "reviewTrustLine": "A UK company · Open source under Apache-2.0 · ISO 27001 · SOC 2 Type II"
   },
   "Security": {
     "title": "Security - Authgear",
@@ -1661,7 +1681,9 @@
     "faq6Q": "Where is my data stored with Authgear?",
     "faq6A": "Your choice. Self-host anywhere, including the UK and the EU. Authgear Cloud runs in the US or Hong Kong, and an EU region is coming soon. A private cloud we run for you can be in a UK or EU region today.",
     "faq7Q": "Is Keycloak free?",
-    "faq7A": "Yes. Keycloak is open source under Apache-2.0 and free to download and run. The cost is in running it: servers, upgrades, re-testing custom themes, and the people who look after it. Red Hat sells a supported build as part of its subscriptions. Authgear is free to self-host under the same licence, and our team can run it for you instead."
+    "faq7A": "Yes. Keycloak is open source under Apache-2.0 and free to download and run. The cost is in running it: servers, upgrades, re-testing custom themes, and the people who look after it. Red Hat sells a supported build as part of its subscriptions. Authgear is free to self-host under the same licence, and our team can run it for you instead.",
+    "ctaSovereigntyReview": "Book a sovereignty review",
+    "ctaSovereigntyReviewShort": "Book a 30-min review"
   },
   "CognitoAlternative": {
     "metaTitle": "Authgear vs Amazon Cognito",
@@ -1938,9 +1960,12 @@
     "faq8A": "No. The self-hosted version has the same features as Authgear Cloud.",
     "faq9Q": "What does self-hosting cost?",
     "faq9APre": "The software is free under Apache-2.0. You pay for your own infrastructure, and for support if you want it. ",
-    "faq9ALink": "Talk to us",
-    "faq9APost": " for a quote.",
+    "faq9ALink": "Book a sovereignty review",
+    "faq9APost": " and we'll quote for your setup.",
     "closingTitle": "Your users, your infrastructure",
-    "closingBody": "Start on Authgear Cloud today, self-host when you're ready, or tell us you need an EU region."
+    "closingBody": "Start on Authgear Cloud today, self-host when you're ready, or tell us you need an EU region.",
+    "ctaSovereigntyReview": "Book a sovereignty review",
+    "waysNoteReviewLink": "Book a sovereignty review",
+    "waysNoteReviewPost": " to talk it through."
   }
 }
