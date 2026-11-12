@@ -146,6 +146,8 @@ Copy these into your vendor questionnaire:
 - [ ] Can we self-host the same product if our requirements change?
 - [ ] Which independent audits do you hold, such as ISO 27001 or SOC 2?
 
+Want the full version, with 20 questions and what a good answer looks like for each? <a href="/sovereign-login-checklist/" class="plausible-event-name--checklist-click plausible-event-location--uk-guide">Download the sovereign login checklist.</a>
+
 ## Where Authgear fits
 
 We'll be plain about what Authgear offers today.

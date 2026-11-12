@@ -446,6 +446,15 @@ const faqLd = {
             </div>
           </div>
         ))}
+        {locale === 'en' && (
+          <p class="dsov-faq__more">
+            Want all 20 questions in one place?{' '}
+            <a
+              href="/sovereign-login-checklist/"
+              class="dsov-link plausible-event-name--checklist-click plausible-event-location--data-sovereignty"
+            >Download the sovereign login checklist.</a>
+          </p>
+        )}
       </div>
     </div>
   </div>
@@ -832,6 +841,15 @@ const faqLd = {
     width: 100%;
     max-width: var(--ds-feature-callout-max-width);
     margin-inline: auto;
+  }
+
+  /* The English-only checklist link closes the FAQ list. */
+  .dsov-faq__more {
+    margin: 0;
+    padding-top: var(--spacing-m);
+    font-size: var(--text-body2);
+    line-height: 1.6;
+    color: var(--color-text-light-primary);
   }
 
   @media (width < 1024px) {

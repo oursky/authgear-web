@@ -79,5 +79,25 @@
     <input type="text" name="source" />
     <input type="text" name="website" />
   </form>
+
+  <!--
+    /sovereign-login-checklist lead-magnet form (UK/EU campaign).
+    `marketing-consent` is "yes" or "no" (optional, unticked checkbox).
+    Keep in sync with src/pages/sovereign-login-checklist.astro.
+  -->
+  <form name="sovereign-login-checklist" method="POST" data-netlify="true" netlify-honeypot="website" hidden>
+    <input type="text" name="Name" />
+    <input type="email" name="Email" />
+    <input type="text" name="Company" />
+    <input type="text" name="Role" />
+    <input type="text" name="marketing-consent" />
+    <input type="text" name="utm_source" />
+    <input type="text" name="utm_medium" />
+    <input type="text" name="utm_campaign" />
+    <input type="text" name="page" />
+    <input type="text" name="locale" />
+    <input type="text" name="source" />
+    <input type="text" name="website" />
+  </form>
 </body>
 </html>
