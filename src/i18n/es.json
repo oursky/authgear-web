@@ -37,7 +37,7 @@
     "growthCard2Title": "Funciona donde tus datos deben residir",
     "growthCard2Desc": "Una sola plataforma de código abierto, en Authgear Cloud, en tu VPC o en tu propio hardware. Las cargas de trabajo reguladas se quedan en su región, en infraestructura que tú controlas.",
     "growthCard3Title": "Una salida que realmente puedes tomar",
-    "growthCard3Desc": "Exporta todos tus usuarios, hashes de contraseña incluidos, cuando quieras. Authgear es de código abierto y compatible con OIDC, así que marcharse es una decisión, no una reconstrucción. Preferimos que te quedes porque funciona.",
+    "growthCard3Desc": "Exporta todos tus usuarios cuando quieras. Los hashes de contraseña te los damos bajo petición, o los sacas directamente de tu propia base de datos si lo alojas tú. Authgear es de código abierto y compatible con OIDC, así que marcharse es una decisión, no una reconstrucción. Preferimos que te quedes porque funciona.",
     "growthCard4Title": "Un proveedor que seguirá aquí",
     "growthCard4Desc": "Autofinanciados y rentables, sin levantar capital para una venta. Creado por Skymakers, que lleva más de diez años atendiendo a empresas de todo el mundo. Sin aviso de adquisición, sin fecha de cierre, sin migración forzosa.",
     "ciamHeading": "Protege cada recorrido de usuario con <br></br><gradient>las soluciones a medida de Authgear</gradient>",

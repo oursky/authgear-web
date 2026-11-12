@@ -37,7 +37,7 @@
     "growthCard2Title": "Läuft dort, wo Ihre Daten liegen müssen",
     "growthCard2Desc": "Hosten Sie Authgear selbst bei einem Anbieter Ihrer Wahl, auch in Deutschland und der EU, oder lassen Sie uns eine Private Cloud in Ihrer Region betreiben. Die Daten Ihrer Nutzer bleiben dort, wo Aufsicht und Kunden sie verlangen.",
     "growthCard3Title": "Ein Ausstieg, den Sie wirklich nehmen können",
-    "growthCard3Desc": "Exportieren Sie jederzeit alle Nutzer, Passwort-Hashes inklusive. Authgear ist Open Source und OIDC-konform, ein Wechsel ist also eine Entscheidung, kein Neubau. Uns ist lieber, Sie bleiben, weil es funktioniert.",
+    "growthCard3Desc": "Exportieren Sie jederzeit alle Nutzer. Passwort-Hashes erhalten Sie auf Anfrage von uns oder beim Selbst-Hosting direkt aus Ihrer eigenen Datenbank. Authgear ist Open Source und OIDC-konform, ein Wechsel ist also eine Entscheidung, kein Neubau. Uns ist lieber, Sie bleiben, weil es funktioniert.",
     "growthCard4Title": "Ein Anbieter, der bleibt",
     "growthCard4Desc": "Eigenfinanziert und profitabel, ohne Kapital für einen Exit einzusammeln. Entwickelt von Skymakers, das seit über zehn Jahren Unternehmen weltweit betreut. Keine Übernahmemeldung, kein Abschaltdatum, keine erzwungene Migration.",
     "ciamHeading": "Jede User Journey absichern mit <br></br><gradient>maßgeschneiderten Lösungen von Authgear</gradient>",

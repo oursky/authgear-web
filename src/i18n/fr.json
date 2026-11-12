@@ -37,7 +37,7 @@
     "growthCard2Title": "Fonctionne là où vos données doivent résider",
     "growthCard2Desc": "Hébergez Authgear vous-même chez le fournisseur de votre choix, y compris en France et dans l’UE, ou confiez-nous un cloud privé dans la région de votre choix. Les données de vos utilisateurs restent là où vos régulateurs et vos clients l’exigent.",
     "growthCard3Title": "Une porte de sortie que vous pouvez vraiment emprunter",
-    "growthCard3Desc": "Exportez tous vos utilisateurs, hachages de mots de passe inclus, quand vous le souhaitez. Authgear est open source et conforme OIDC : partir est une décision, pas une reconstruction. Nous préférons que vous restiez parce que ça fonctionne.",
+    "growthCard3Desc": "Exportez tous vos utilisateurs quand vous le souhaitez. Les hachages de mots de passe sont fournis sur demande, ou directement depuis votre propre base de données en auto-hébergement. Authgear est open source et conforme OIDC : partir est une décision, pas une reconstruction. Nous préférons que vous restiez parce que ça fonctionne.",
     "growthCard4Title": "Un fournisseur qui sera encore là",
     "growthCard4Desc": "Autofinancé et rentable, sans levée de fonds en vue d'une sortie. Développé par Skymakers, qui accompagne des entreprises dans le monde entier depuis plus de dix ans. Aucune annonce de rachat, aucune date de fin de vie, aucune migration forcée.",
     "ciamHeading": "Sécurisez chaque parcours utilisateur avec <br></br><gradient>les solutions sur mesure d'Authgear</gradient>",
