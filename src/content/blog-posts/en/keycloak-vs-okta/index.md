@@ -4,8 +4,8 @@ excerpt: "Keycloak or Okta? A fair comparison of the open-source identity server
 coverImage: ./cover.webp
 category: industry
 readTime: 10
-metaTitle: "Keycloak vs Okta (and Authgear): Self-Hosted vs SaaS"
-metaDescription: "Keycloak vs Okta in 2026: open source vs SaaS, pricing, SSO, SCIM, passkeys, directories, support and UK/EU data sovereignty, with Authgear as a third option."
+metaTitle: "Keycloak vs Okta (2026): Cost, Hosting and Which to Pick"
+metaDescription: "Keycloak is free but you run it. Okta is SaaS, priced per user. Compare cost, hosting, SSO, SCIM, support and data location, plus an open-source middle option."
 publishedAt: 2026-10-23
 draft: false
 faq:
