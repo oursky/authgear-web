@@ -30857,6 +30857,11 @@ figcaption {
     grid-template-columns: 1fr 1fr;
   }
 
+  /* Feature label sits on its own row so its divider spans both columns. */
+  .table-header.table-content > :first-child {
+    grid-column: 1 / -1;
+  }
+
   .div-block-25 {
     padding: 32px 16px;
   }
