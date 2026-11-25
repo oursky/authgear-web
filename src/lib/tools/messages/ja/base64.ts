@@ -1,55 +1,56 @@
 export const base64 = {
-  metaTitle: 'Base64 デコード・エンコード | Authgear',
+  metaTitle: 'Base64 デコード・エンコード（オンライン変換ツール） | Authgear',
   metaDescription:
-    'Base64 をテキストにデコード、またはテキストを Base64 にエンコード。すべてブラウザ内で即時処理。JWT 向け Base64URL、UTF-8、UTF-16、ASCII に対応。無料・オープンソース、データは一切送信されません。',
-  heroTitle: 'Base64 デコード & エンコード',
-  heroDescription: 'Base64 文字列のデコードとエンコードをブラウザ上で手軽に行えます。',
-  iframeTitle: 'Base64 エンコーダー & デコーダー',
+    'Base64 のデコード・エンコード（変換）をブラウザ上で無料で行えます。Base64 文字列をテキストに戻すことも、テキストを Base64 に変換することも可能で、データはサーバーに送信されません。JWT の Base64URL や UTF-8、UTF-16、ASCII にも対応したオープンソースのツールです。',
+  heroTitle: 'Base64 デコード・エンコードツール',
+  heroDescription:
+    'Base64 デコードとエンコードをブラウザ上で手軽に行えます。Base64 文字列をテキストに戻したり、テキストを Base64 に変換したりできます。',
+  iframeTitle: 'Base64 デコーダー・エンコーダー',
   policy:
-    'お客様のデータの安全を最優先にしています。エンコードとデコードはすべてブラウザ内のローカルで処理されます。このツールはデータを保存したり、お使いのデバイスの外に送信したりすることはありません。',
+    'データの安全性を最優先に考えています。エンコードとデコードはすべてブラウザ内で処理され、入力したデータが保存されたり、お使いの端末の外に送信されたりすることはありません。',
   card1Title: 'シンプルで高速',
-  card1Desc: 'テキストや Base64 文字列をワンクリックで即座にエンコード／デコードできます。',
+  card1Desc: 'テキストや Base64 文字列を、ワンクリックですぐにエンコード・デコードできます。',
   card2Title: '100% クライアントサイド',
-  card2Desc: 'データはサーバーに一切送信されません。すべてブラウザ内で安全に動作します。',
-  card3Title: '開発者フレンドリー',
-  card3Desc: 'Base64 データを正確かつ効率的にエンコード／デコードできる、使いやすいツールです。',
-  card4Title: 'Base64URL に対応',
+  card2Desc: 'データがサーバーに送信されることはありません。すべての処理がブラウザ内で安全に完結します。',
+  card3Title: '開発者に使いやすい',
+  card3Desc: 'Base64 データのエンコード・デコードを、正確かつ効率よく行えます。',
+  card4Title: 'Base64URL にも対応',
   card4Desc:
-    'URL セーフな Base64URL のデコードとエンコードに対応。JWT、OAuth トークン、URL で使われる形式です。',
+    'URL セーフな Base64URL のデコード・エンコードにも対応しています。JWT や OAuth トークン、URL で使われる形式です。',
   step1Label: 'ステップ 1.',
-  step1Title: '文字セットを選ぶ',
+  step1Title: '文字コードを選ぶ',
   step1Item1:
-    'UTF-8 など、使用する文字セットを選択します。エンコード前やデコード後にテキストをどう変換するかがここで決まります。',
+    'UTF-8 など、使用する文字コードを選択します。エンコード前とデコード後のテキストを、どの文字コードで扱うかが決まります。',
   step2Label: 'ステップ 2.',
-  step2Title: 'プレーンテキストをエンコードする',
+  step2Title: 'テキストを Base64 にエンコードする',
   step2Item1:
-    '「プレーンテキスト」欄にテキストを入力または貼り付けて「エンコード」をクリックします。Base64 の結果が同じ欄の出力エリアに表示されます。',
+    '「プレーンテキスト」欄にテキストを入力または貼り付け、「エンコード」をクリックします。同じ欄の出力エリアに Base64 の結果が表示されます。',
   step3Label: 'ステップ 3.',
-  step3Title: 'Base64 をデコードする',
+  step3Title: 'Base64 をテキストにデコードする',
   step3Item1:
-    '「Base64」欄に Base64 文字列を入力して「デコード」をクリックします。デコードされたテキストがその欄に表示されます。',
+    '「Base64」欄に Base64 文字列を入力し、「デコード」をクリックします。デコードされたテキストが同じ欄に表示されます。',
   faqWhatTitle: 'Base64 エンコードとは？',
   faqWhatBody:
-    'Base64 は、バイナリデータを ASCII 文字で表現する、バイナリからテキストへのエンコード形式です。\nJSON、XML、HTTP ヘッダーなどの形式の中にバイナリコンテンツを安全に含めることができます。\n例:\nAuthgear → QXV0aGdlYXI=',
+    'Base64 は、バイナリデータを ASCII 文字だけで表すエンコード方式です。\nJSON、XML、HTTP ヘッダーなどの形式にも、バイナリデータを安全に含めることができます。\n例:\nAuthgear → QXV0aGdlYXI=',
   faqUrlTitle: 'Base64 と Base64URL の違いは？',
   faqUrlBody:
-    'Base64URL は URL やトークン形式向けに設計された Base64 の一種です。+ を - に、/ を _ に置き換え、URL の安全性のためにパディング文字（=）は省略されることが多くあります。\nJWT、OAuth トークン、OpenID Connect で広く使われている形式です。',
-  faqGuidePart1: 'Base64 の仕組みや使いどころをもっと詳しく知りたい方は、',
-  faqGuideLinkLabel: 'Base64 エンコード & デコードガイド',
+    'Base64URL は、URL やトークンで使いやすいように調整された Base64 の派生形式です。+ を - に、/ を _ に置き換え、URL で安全に扱えるようパディング文字（=）を省略することもよくあります。\nJWT、OAuth トークン、OpenID Connect などで広く使われています。',
+  faqGuidePart1: 'Base64 の仕組みや使いどころをさらに詳しく知りたい方は、',
+  faqGuideLinkLabel: 'Base64 エンコード・デコードの解説記事',
   faqGuidePart2: 'をご覧ください。',
 
   widget: {
-    charsetLabel: '文字セット',
+    charsetLabel: '文字コード',
     urlSafeLabel: 'URL セーフ',
     withoutPaddingLabel: 'パディングなし',
 
     plainTextLabel: 'プレーンテキスト',
-    plainTextHint: 'エンコードするテキストを入力または貼り付け',
+    plainTextHint: 'エンコードするテキストを入力または貼り付けてください',
     plainTextPlaceholder: 'エンコードするテキストを入力…',
 
     base64Label: 'Base64',
-    base64Hint: 'デコードする Base64 を入力または貼り付け',
-    base64Placeholder: 'デコードする Base64 テキストを入力…',
+    base64Hint: 'デコードする Base64 文字列を入力または貼り付けてください',
+    base64Placeholder: 'デコードする Base64 文字列を入力…',
 
     buttonEncode: 'エンコード',
     buttonDecode: 'デコード',
@@ -58,7 +59,7 @@ export const base64 = {
     buttonCopied: 'コピーしました',
     buttonClear: 'クリア',
 
-    errorEncode: '入力をエンコードできませんでした',
-    errorDecode: 'デコードできませんでした: Base64 として無効な入力です',
+    errorEncode: '入力内容をエンコードできませんでした',
+    errorDecode: 'デコードできませんでした。有効な Base64 文字列ではありません',
   },
 } as const;
