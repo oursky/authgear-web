@@ -1,0 +1,675 @@
+/* UK/EU campaign promos on the /tools/ pages. Every rule starts with a
+   `tc-` class so nothing leaks into, or picks up, the Webflow-era styles. */
+
+/* ── Banner ── */
+.tc-banner {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  /* Picture on the left; copy and button stacked on the right. The inline
+     banner only shows below 1200px (wider screens get the side column). */
+  grid-template-columns: 400px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 32px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 230px;
+  margin: 24px 0 8px;
+  padding: 0 40px 0 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background:
+    radial-gradient(60% 120% at 22% 30%, rgba(124, 92, 255, 0.55) 0%, rgba(124, 92, 255, 0) 60%),
+    radial-gradient(40% 80% at 100% 110%, rgba(255, 95, 180, 0.45) 0%, rgba(255, 95, 180, 0) 60%),
+    radial-gradient(35% 70% at 70% -10%, rgba(64, 162, 255, 0.45) 0%, rgba(64, 162, 255, 0) 60%),
+    linear-gradient(110deg, #17105c 0%, #2b1a9c 38%, #4b23d6 68%, #7b35f0 100%);
+  color: #fff;
+  font-family: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+.tc-banner:hover,
+.tc-banner:focus {
+  color: #fff;
+  text-decoration: none;
+}
+.tc-banner:focus-visible {
+  outline: 3px solid #7dc3ff;
+  outline-offset: 3px;
+}
+.tc-banner::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -120px;
+  top: -150px;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 64px);
+}
+.tc-banner__art {
+  position: relative;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  min-height: 250px;
+  overflow: hidden;
+}
+.tc-banner__copy {
+  display: block;
+  align-self: end;
+  min-width: 0;
+  padding: 32px 0 0;
+}
+.tc-banner__eyebrow {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #dfe6ff;
+}
+.tc-banner__title {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-wrap: balance;
+}
+.tc-banner__text {
+  display: block;
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+  text-wrap: pretty;
+}
+.tc-banner__btn {
+  grid-column: 2;
+  justify-self: start;
+  align-self: start;
+  margin: 20px 0 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: #fff;
+  color: #1b1464;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(10, 5, 60, 0.35);
+}
+.tc-banner__btn svg {
+  transition: transform 0.15s ease;
+}
+.tc-banner:hover .tc-banner__btn svg {
+  transform: translateX(3px);
+}
+
+/* Banner art: shared pieces */
+.tc-banner .tc-line {
+  display: inline-block;
+  height: 8px;
+  border-radius: 4px;
+  background: #d9deeb;
+  vertical-align: middle;
+}
+.tc-banner .tc-line--light {
+  background: #e9ecf4;
+}
+.tc-banner .tc-card {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: #fff;
+  color: #1f2340;
+  box-shadow: 0 24px 60px rgba(8, 4, 50, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+.tc-banner .tc-dim {
+  color: #9aa1b8;
+}
+.tc-banner .tc-chip {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: #fff;
+  color: #1f2340;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 12px 30px rgba(8, 4, 50, 0.4);
+}
+.tc-banner .tc-chip svg {
+  color: #4f46e5;
+}
+.tc-banner .tc-chip b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 6px;
+  background: #ffe7b3;
+  color: #8a5a00;
+  font-size: 13px;
+  line-height: 1;
+}
+.tc-banner .tc-chip b.tc-chip__code {
+  padding: 0 6px;
+  background: #e3f6ec;
+  color: #1e6b43;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}
+.tc-banner .tc-chip--a { left: 230px; top: 30px; }
+.tc-banner .tc-chip--b { left: 196px; top: 26px; }
+.tc-banner .tc-chip--c { left: 206px; top: 24px; }
+
+/* A: users table */
+.tc-banner .tc-db {
+  left: 40px;
+  top: 46px;
+  width: 340px;
+  padding: 14px 0 0;
+}
+.tc-banner .tc-db__head {
+  padding: 0 16px 10px;
+}
+.tc-banner .tc-db__name {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+.tc-banner .tc-db__cols,
+.tc-banner .tc-db__row {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 16px;
+}
+.tc-banner .tc-db__cols {
+  border-top: 1px solid #eef0f6;
+  border-bottom: 1px solid #eef0f6;
+  background: #f8f9fc;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: #8a90a8;
+}
+.tc-banner .tc-db__row {
+  border-bottom: 1px solid #f1f2f7;
+}
+.tc-banner .tc-db__row code {
+  overflow: hidden;
+  padding: 0;
+  background: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  color: #3b3f63;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tc-banner .tc-db__row code.tc-dim {
+  color: #9aa1b8;
+}
+.tc-banner .tc-db__row--focus {
+  background: #f2efff;
+  box-shadow: inset 3px 0 0 #6d4cff;
+}
+.tc-banner .tc-db__row--focus code {
+  color: #3a1fb8;
+  font-weight: 600;
+}
+
+/* B: authenticator */
+.tc-banner .tc-otp {
+  left: 56px;
+  top: 44px;
+  width: 330px;
+  padding: 18px 18px 0;
+}
+.tc-banner .tc-otp__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tc-banner .tc-otp__row--dim {
+  margin-top: 14px;
+  padding: 14px 0;
+  border-top: 1px solid #eef0f6;
+}
+.tc-banner .tc-otp__logo {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #4f46e5;
+}
+.tc-banner .tc-otp__logo--dim {
+  background: #eceff6;
+}
+.tc-banner .tc-otp__who {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+.tc-banner .tc-otp__ring {
+  margin-left: auto;
+}
+.tc-banner .tc-otp__code {
+  margin: 14px 0 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #3a1fb8;
+}
+
+/* C: terminal */
+.tc-banner .tc-term {
+  position: absolute;
+  left: 40px;
+  top: 48px;
+  width: 340px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #0f1022;
+  box-shadow: 0 24px 60px rgba(8, 4, 50, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.tc-banner .tc-term__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: #1a1b33;
+}
+.tc-banner .tc-term__bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3a3c5c;
+}
+.tc-banner .tc-term__bar span {
+  margin-left: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: #8b8fb3;
+}
+.tc-banner .tc-term pre {
+  margin: 0;
+  padding: 14px 16px 40px;
+  border: 0;
+  background: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #dfe2ff;
+  white-space: pre;
+}
+.tc-banner .tc-term__line {
+  display: block;
+}
+.tc-banner .tc-term__p {
+  color: #8b8fb3;
+}
+.tc-banner .tc-term__ok {
+  color: #5fe3a1;
+}
+.tc-banner .tc-term__cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: #dfe2ff;
+  vertical-align: -2px;
+}
+
+/* D: login + regions */
+.tc-banner .tc-login {
+  left: 52px;
+  top: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 196px;
+  padding: 20px 18px 60px;
+  text-align: center;
+}
+.tc-banner .tc-login b {
+  font-size: 16px;
+}
+.tc-banner .tc-login__logo {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #4f46e5;
+}
+.tc-banner .tc-login__field {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 34px;
+  margin-top: 6px;
+  padding: 0 10px;
+  border: 1px solid #e2e5ef;
+  border-radius: 8px;
+}
+.tc-banner .tc-login__btn {
+  display: block;
+  width: 100%;
+  padding: 9px 0;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+.tc-banner .tc-regions {
+  position: absolute;
+  left: 236px;
+  top: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tc-banner .tc-region {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 150px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+.tc-banner .tc-region--on {
+  background: #fff;
+  color: #1f2340;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(8, 4, 50, 0.4);
+}
+.tc-banner .tc-region--on > svg {
+  color: #4f46e5;
+}
+.tc-banner .tc-region i {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .tc-banner__art,
+  .tc-banner__btn {
+    grid-row: auto;
+    grid-column: auto;
+  }
+  .tc-banner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: 0;
+    border-radius: 20px;
+  }
+  .tc-banner__art {
+    min-height: 196px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  }
+  .tc-banner__art > * {
+    transform: scale(0.82);
+    transform-origin: top left;
+  }
+  .tc-banner__copy {
+    padding: 8px 24px 0;
+  }
+  .tc-banner__title {
+    font-size: 22px;
+  }
+  .tc-banner__btn {
+    justify-self: start;
+    margin: 20px 24px 28px;
+    white-space: normal;
+  }
+  .tc-banner .tc-db { left: 20px; top: 28px; }
+  .tc-banner .tc-otp { left: 24px; top: 26px; }
+  .tc-banner .tc-term { left: 20px; top: 28px; }
+  .tc-banner .tc-login { left: 20px; top: 24px; }
+  .tc-banner .tc-regions { left: 196px; top: 32px; }
+  /* Chips stay on their card's top-right corner, so they don't drift away
+     from it on wider phones and small tablets. */
+  .tc-banner .tc-chip--a { left: 196px; top: 14px; }
+  .tc-banner .tc-chip--b { left: 160px; top: 12px; }
+  .tc-banner .tc-chip--c { left: 176px; top: 12px; }
+  .tc-banner::before {
+    left: -200px;
+    top: -220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tc-banner__btn svg {
+    transition: none;
+  }
+}
+
+/* ── Privacy strip link ── */
+.tc-strip-link {
+  color: #0043e0;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  white-space: nowrap;
+}
+
+/* ── After-use note ── */
+.tc-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 768px;
+  margin: 16px auto 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #ecf6ff;
+  color: #2e2e2e;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  animation: tc-note-in 0.25s ease-out;
+}
+.tc-note svg {
+  flex-shrink: 0;
+  color: #0043e0;
+}
+.tc-note a {
+  color: #0043e0;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.tc-note a:hover {
+  text-decoration: underline;
+}
+@keyframes tc-note-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+@media (max-width: 767px) {
+  .tc-note {
+    align-items: flex-start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tc-note {
+    animation: none;
+  }
+}
+
+/* ── "More Developer Tools" card ── */
+.more-tools.tc-card-promo {
+  border-color: #b2d9ff;
+  background: #f3f8ff;
+}
+.tc-card-promo .svg-card-image-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.tc-card-promo__badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #0043e0;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* ── Popup second button ── */
+.tool-popup-button.tc-popup-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ── Two-column layout on wide screens: tool on the left, banner on the right ── */
+.tc-rail {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .tc-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 32px;
+    align-items: start;
+  }
+  .tc-layout__main {
+    min-width: 0;
+  }
+  .tc-rail {
+    display: block;
+    position: sticky;
+    top: 140px;
+  }
+  .tc-layout .tc-banner--inline {
+    display: none;
+  }
+}
+
+.tc-banner--rail .tc-banner__art,
+.tc-banner--rail .tc-banner__btn {
+  grid-row: auto;
+  grid-column: auto;
+}
+.tc-banner--rail {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(23, 16, 92, 0.25);
+}
+.tc-banner--rail .tc-banner__art {
+  min-height: 200px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  mask-image: linear-gradient(to bottom, #000 70%, transparent);
+}
+.tc-banner--rail .tc-banner__art > * {
+  transform: scale(0.66);
+  transform-origin: top left;
+}
+.tc-banner--rail .tc-banner__copy {
+  padding: 4px 22px 0;
+}
+.tc-banner--rail .tc-banner__title {
+  font-size: 21px;
+  line-height: 1.25;
+}
+.tc-banner--rail .tc-banner__text {
+  margin-top: 4px;
+  font-size: 14.5px;
+}
+.tc-banner--rail .tc-banner__btn {
+  justify-content: center;
+  margin: 20px 22px 24px;
+  padding: 12px 18px;
+  font-size: 14px;
+  white-space: normal;
+  text-align: center;
+}
+.tc-banner--rail .tc-db { left: 18px; top: 26px; }
+.tc-banner--rail .tc-otp { left: 22px; top: 26px; }
+.tc-banner--rail .tc-term { left: 18px; top: 26px; }
+.tc-banner--rail .tc-login { left: 18px; top: 22px; }
+.tc-banner--rail .tc-regions { left: 166px; top: 30px; }
+.tc-banner--rail .tc-chip--a,
+.tc-banner--rail .tc-chip--b,
+.tc-banner--rail .tc-chip--c {
+  left: auto;
+  right: 14px;
+  top: 14px;
+  transform: none;
+}
+.tc-banner--rail::before {
+  left: -260px;
+  top: -260px;
+}
+
+@media (min-width: 1200px) {
+  /* Native tools are capped at 768px and centred; in the main column they
+     fill its width so their edges line up with the privacy strip below. */
+  .tc-layout__main .tools-widget-native > * {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.tc-banner--rail .tc-banner__btn {
+  padding: 12px 14px;
+  white-space: nowrap;
+}
