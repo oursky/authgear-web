@@ -641,9 +641,10 @@
   white-space: normal;
   text-align: center;
 }
-.tc-banner--rail .tc-db { left: 18px; top: 26px; }
-.tc-banner--rail .tc-otp { left: 22px; top: 26px; }
-.tc-banner--rail .tc-term { left: 18px; top: 26px; }
+/* Cards sit low enough for the chip to clear their first row. */
+.tc-banner--rail .tc-db { left: 18px; top: 46px; }
+.tc-banner--rail .tc-otp { left: 22px; top: 46px; }
+.tc-banner--rail .tc-term { left: 18px; top: 46px; }
 .tc-banner--rail .tc-login { left: 18px; top: 22px; }
 .tc-banner--rail .tc-regions { left: 166px; top: 30px; }
 .tc-banner--rail .tc-chip--a,
@@ -651,7 +652,7 @@
 .tc-banner--rail .tc-chip--c {
   left: auto;
   right: 14px;
-  top: 14px;
+  top: 12px;
   transform: none;
 }
 .tc-banner--rail::before {

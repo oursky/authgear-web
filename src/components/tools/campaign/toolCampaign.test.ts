@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveCampaign, toolFromPath, CAMPAIGN_STARTS, CAMPAIGN_ENDS } from './toolCampaign';
+import { COPY, resolveCampaign, toolFromPath, CAMPAIGN_STARTS, CAMPAIGN_ENDS } from './toolCampaign';
 
 const IN = new Date('2026-12-20T12:00:00Z');
 const base = { pathname: '/tools/password-hash-generator/', locale: 'en', timeZone: 'Europe/London', now: IN };
@@ -50,10 +50,33 @@ describe('resolveCampaign', () => {
     expect(resolveCampaign({ ...base, now: new Date('2027-01-18T00:00:00Z') })).toBeNull();
   });
 
-  it('keeps today’s version on locales without reviewed copy', () => {
-    for (const locale of ['de', 'fr', 'es', 'ja', 'zh-Hant']) {
+  it('keeps today’s version on locales without campaign copy', () => {
+    for (const locale of ['es', 'ja', 'zh-Hant']) {
       expect(resolveCampaign({ ...base, locale, pathname: `/${locale}/tools/password-hash-generator/` })).toBeNull();
     }
+  });
+
+  it('shows German and French pages the campaign in any time zone, linking to their sovereignty page', () => {
+    for (const locale of ['de', 'fr']) {
+      const c = resolveCampaign({ ...base, locale, timeZone: 'America/New_York', pathname: `/${locale}/tools/password-hash-generator/` })!;
+      expect(c.group).toBe('A');
+      expect(c.groupCopy.href).toBe(`/${locale}/solutions/data-sovereignty/`);
+      expect(c.copy.card.href).toBe(`/${locale}/solutions/data-sovereignty/`);
+    }
+  });
+
+  it('gives every locale copy for all four groups and only links to pages that exist in it', () => {
+    for (const [locale, copy] of Object.entries(COPY)) {
+      for (const g of ['A', 'B', 'C', 'D'] as const) {
+        const href = copy!.groups[g].href;
+        if (locale !== 'en') expect(href.startsWith(`/${locale}/`)).toBe(true);
+      }
+    }
+  });
+
+  it('puts a non-breaking space before French ? : ; !', () => {
+    const fr = JSON.stringify(COPY.fr);
+    expect(fr).not.toMatch(/ [?:;!]/);
   });
 
   it('can be forced on or off for previews', () => {
