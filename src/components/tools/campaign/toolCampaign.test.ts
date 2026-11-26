@@ -46,7 +46,7 @@ describe('resolveCampaign', () => {
   it('only runs between the start and end dates, inclusive', () => {
     expect(resolveCampaign({ ...base, now: new Date(`${CAMPAIGN_STARTS}T00:00:00Z`) })).not.toBeNull();
     expect(resolveCampaign({ ...base, now: new Date(`${CAMPAIGN_ENDS}T23:59:00Z`) })).not.toBeNull();
-    expect(resolveCampaign({ ...base, now: new Date('2026-12-13T23:59:00Z') })).toBeNull();
+    expect(resolveCampaign({ ...base, now: new Date('2026-11-25T23:59:00Z') })).toBeNull();
     expect(resolveCampaign({ ...base, now: new Date('2027-01-18T00:00:00Z') })).toBeNull();
   });
 
@@ -57,7 +57,7 @@ describe('resolveCampaign', () => {
   });
 
   it('can be forced on or off for previews', () => {
-    expect(resolveCampaign({ ...base, timeZone: 'Asia/Tokyo', now: new Date('2026-11-26'), force: 'on' })?.group).toBe('A');
+    expect(resolveCampaign({ ...base, timeZone: 'Asia/Tokyo', now: new Date('2026-11-20'), force: 'on' })?.group).toBe('A');
     expect(resolveCampaign({ ...base, force: 'off' })).toBeNull();
   });
 

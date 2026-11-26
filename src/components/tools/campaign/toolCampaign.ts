@@ -10,7 +10,7 @@ export type Group = 'A' | 'B' | 'C' | 'D';
 export type Slot = 'banner' | 'rail' | 'popup' | 'card' | 'note' | 'strip';
 
 /** Campaign window, inclusive of both days (UTC). Outside it, today's version. */
-export const CAMPAIGN_STARTS = '2026-12-14';
+export const CAMPAIGN_STARTS = '2026-11-26';
 export const CAMPAIGN_ENDS = '2027-01-17';
 
 /** Browser time zones of the campaign countries (UK, IE, NL, SE, DK, NO, FI, DE, FR). */

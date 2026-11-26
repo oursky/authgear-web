@@ -4,7 +4,7 @@ import { test, expect, type Page } from '@playwright/test';
 // The browser's time zone and date decide who sees them, so each test fakes both.
 
 const IN_CAMPAIGN = new Date('2026-12-20T12:00:00Z');
-const BEFORE = new Date('2026-12-10T12:00:00Z');
+const BEFORE = new Date('2026-11-20T12:00:00Z');
 const AFTER = new Date('2027-01-18T12:00:00Z');
 
 /** Record Plausible calls; locked so the real script can't replace the stub. */
