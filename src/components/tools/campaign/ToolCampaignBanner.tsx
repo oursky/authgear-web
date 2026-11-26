@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { trackEvent } from '@/lib/plausible';
-import { promoProps, type Campaign, type Group } from './toolCampaign';
+import { promoProps, type Campaign, type Group, type LocaleCopy } from './toolCampaign';
 import './toolCampaign.css';
 
 const Pin = () => (
@@ -94,8 +94,8 @@ const TERMINAL: ReactNode[] = [
   </>,
 ];
 
-/** The small piece of product UI on the left of each group's banner. No words to translate. */
-const ART: Record<Group, ReactNode> = {
+/** The small piece of product UI on the left of each group's banner. Its few words come from the locale's copy. */
+const art = (a: LocaleCopy['art']): Record<Group, ReactNode> => ({
   A: (
     <>
       <div className="tc-card tc-db">
@@ -123,7 +123,7 @@ const ART: Record<Group, ReactNode> = {
       </div>
       <div className="tc-chip tc-chip--a">
         <Pin />
-        <span>Stored in</span>
+        <span>{a.storedIn}</span>
         <b>?</b>
       </div>
     </>
@@ -136,7 +136,7 @@ const ART: Record<Group, ReactNode> = {
             <Lock />
           </span>
           <span className="tc-otp__who">
-            <b>Your app</b>
+            <b>{a.yourApp}</b>
             <Line w={96} light />
           </span>
           <svg className="tc-otp__ring" width="30" height="30" viewBox="0 0 36 36" aria-hidden="true">
@@ -166,7 +166,7 @@ const ART: Record<Group, ReactNode> = {
       </div>
       <div className="tc-chip tc-chip--b">
         <Pin />
-        <span>Secret stored in</span>
+        <span>{a.secretStoredIn}</span>
         <b>?</b>
       </div>
     </>
@@ -190,8 +190,8 @@ const ART: Record<Group, ReactNode> = {
       </div>
       <div className="tc-chip tc-chip--c">
         <Pin />
-        <span>London</span>
-        <b className="tc-chip__code">eu-west-2</b>
+        <span>{a.region.city}</span>
+        <b className="tc-chip__code">{a.region.code}</b>
       </div>
     </>
   ),
@@ -201,22 +201,22 @@ const ART: Record<Group, ReactNode> = {
         <span className="tc-login__logo">
           <Lock />
         </span>
-        <b>Welcome</b>
+        <b>{a.welcome}</b>
         <Line w={90} light />
         <span className="tc-login__field">
           <Line w={60} light />
         </span>
-        <span className="tc-login__btn">Continue</span>
+        <span className="tc-login__btn">{a.continueLabel}</span>
       </div>
       <div className="tc-regions">
         <div className="tc-region tc-region--on">
           <Pin />
-          <span>London</span>
+          <span>{a.regions[0]}</span>
           <i>
             <Check />
           </i>
         </div>
-        {['Frankfurt', 'Amsterdam', 'Stockholm'].map((city) => (
+        {a.regions.slice(1).map((city) => (
           <div className="tc-region" key={city}>
             <Pin />
             <span>{city}</span>
@@ -225,7 +225,7 @@ const ART: Record<Group, ReactNode> = {
       </div>
     </>
   ),
-};
+});
 
 /**
  * `inline`: the wide banner under the tool. `rail`: the same banner stacked in
@@ -242,7 +242,7 @@ export default function ToolCampaignBanner({ campaign, layout = 'inline' }: { ca
       data-testid={layout === 'rail' ? 'tool-campaign-rail' : 'tool-campaign-banner'}
     >
       <span className="tc-banner__art" aria-hidden="true">
-        {ART[group]}
+        {art(copy.art)[group]}
       </span>
       <span className="tc-banner__copy">
         <span className="tc-banner__eyebrow">{copy.eyebrow}</span>

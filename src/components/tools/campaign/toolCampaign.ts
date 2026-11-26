@@ -60,16 +60,33 @@ export interface LocaleCopy {
   strip: { lead: string; cta: string };
   /** "More Developer Tools" card. */
   card: { label: string; badge: string; href: string };
+  /** The few words inside the banner pictures. Table names and code stay as they are. */
+  art: {
+    storedIn: string;
+    secretStoredIn: string;
+    yourApp: string;
+    welcome: string;
+    continueLabel: string;
+    /** Region chip on the terminal (group C). */
+    region: { city: string; code: string };
+    /** Region picker (group D); the first one is selected. */
+    regions: string[];
+  };
 }
 
 const SELF_CHECK = '/sovereignty-self-check/';
 
+const DE_SOVEREIGNTY = '/de/solutions/data-sovereignty/';
+const FR_SOVEREIGNTY = '/fr/solutions/data-sovereignty/';
+/** French puts a non-breaking space before ? : ; and !. */
+const NBSP = '\u00a0';
+
 /**
- * Copy per locale. Only locales listed here get the campaign. German and
- * French go here once a native speaker has checked them (draft 13: no German
- * or French copy goes live unchecked); every link on those pages points to the
- * localised data sovereignty page, and they show the campaign to every
- * visitor, not only by time zone (see `ALWAYS_ON_LOCALES`).
+ * Copy per locale. Only locales listed here get the campaign. The self-check,
+ * checklist and self-host guide are English only, so every German and French
+ * link goes to the localised data sovereignty page, and those pages show the
+ * campaign to every visitor, not only by time zone (see `ALWAYS_ON_LOCALES`).
+ * The German and French copy went live on 26 Nov 2026 before native review.
  */
 export const COPY: Partial<Record<string, LocaleCopy>> = {
   en: {
@@ -106,6 +123,103 @@ export const COPY: Partial<Record<string, LocaleCopy>> = {
     },
     strip: { lead: "Your users' login data deserves the same.", cta: 'See where it lives' },
     card: { label: 'Sovereignty Self\u2011Check', badge: 'New', href: SELF_CHECK },
+    art: {
+      storedIn: 'Stored in',
+      secretStoredIn: 'Secret stored in',
+      yourApp: 'Your app',
+      welcome: 'Welcome',
+      continueLabel: 'Continue',
+      region: { city: 'London', code: 'eu-west-2' },
+      regions: ['London', 'Frankfurt', 'Amsterdam', 'Stockholm'],
+    },
+  },
+  de: {
+    eyebrow: 'Vom Team hinter diesem Tool',
+    groups: {
+      A: {
+        headline: 'Wo liegen die Passwort-Hashes Ihrer Nutzer?',
+        text: 'Ihre Login-Datenbank enthält jeden Hash. Prüfen Sie, wo sie liegt, wer darauf zugreifen kann und ob Sie sie mitnehmen könnten.',
+        cta: 'Mehr zur Datensouveränität',
+        href: DE_SOVEREIGNTY,
+        note: 'Wo werden die Passwort-Hashes Ihrer Nutzer gespeichert?',
+      },
+      B: {
+        headline: 'Auch MFA-Secrets sind Nutzerdaten',
+        text: 'TOTP-Secrets liegen in Ihrer Login-Datenbank, neben E-Mail-Adressen und Telefonnummern. Wissen Sie, in welchem Land das ist und wer darauf zugreifen kann?',
+        cta: 'Mehr zur Datensouveränität',
+        href: DE_SOVEREIGNTY,
+        note: 'Die TOTP-Secrets Ihrer Nutzer liegen in Ihrer Login-Datenbank. Wissen Sie, wo?',
+      },
+      C: {
+        headline: 'Betreiben Sie Ihren eigenen Login-Server in der EU',
+        text: 'Authgear ist Open Source (Apache\u20112.0), mit Passkeys, SSO und MFA. Hosten Sie es selbst in der EU, oder wir betreiben es für Sie.',
+        cta: 'Mehr zur Datensouveränität',
+        href: DE_SOVEREIGNTY,
+        note: 'Möchten Sie Ihren eigenen Login-Server in der EU betreiben?',
+      },
+      D: {
+        headline: 'Login-Daten bleiben, wo Sie es wollen',
+        text: 'Authgear ist Open-Source-Login. Hosten Sie es selbst in der EU, oder wir betreiben dort eine dedizierte Bereitstellung für Sie.',
+        cta: 'Mehr zur Datensouveränität',
+        href: DE_SOVEREIGNTY,
+        note: 'Sie bauen Login für Ihre App? Behalten Sie die Daten in der EU.',
+      },
+    },
+    strip: { lead: 'Die Login-Daten Ihrer Nutzer verdienen denselben Schutz.', cta: 'So behalten Sie die Kontrolle' },
+    card: { label: 'Datensouveränität', badge: 'Neu', href: DE_SOVEREIGNTY },
+    art: {
+      storedIn: 'Wo gespeichert',
+      secretStoredIn: 'Wo gespeichert',
+      yourApp: 'Ihre App',
+      welcome: 'Willkommen',
+      continueLabel: 'Weiter',
+      region: { city: 'Frankfurt', code: 'eu-central-1' },
+      regions: ['Frankfurt', 'Amsterdam', 'Paris', 'Stockholm'],
+    },
+  },
+  fr: {
+    eyebrow: "Par l'équipe derrière cet outil",
+    groups: {
+      A: {
+        headline: `Où se trouvent les hachages de mots de passe de vos utilisateurs${NBSP}?`,
+        text: "Votre base d'authentification contient chaque hachage. Vérifiez où elle se trouve, qui peut y accéder et si vous pourriez l'emporter avec vous.",
+        cta: 'Souveraineté des données',
+        href: FR_SOVEREIGNTY,
+        note: `Où les hachages de mots de passe de vos utilisateurs seront-ils stockés${NBSP}?`,
+      },
+      B: {
+        headline: 'Les secrets MFA sont aussi des données utilisateur',
+        text: `Les secrets TOTP sont stockés dans votre base d'authentification, à côté des adresses e-mail et des numéros de téléphone. Savez-vous dans quel pays, et qui peut y accéder${NBSP}?`,
+        cta: 'Souveraineté des données',
+        href: FR_SOVEREIGNTY,
+        note: `Les secrets TOTP de vos utilisateurs sont dans votre base d'authentification. Savez-vous où${NBSP}?`,
+      },
+      C: {
+        headline: "Exploitez votre propre serveur d'authentification dans l'UE",
+        text: "Authgear est open source (Apache\u20112.0), avec passkeys, SSO et MFA. Auto-hébergez-le dans l'UE, ou nous l'exploitons pour vous.",
+        cta: 'Souveraineté des données',
+        href: FR_SOVEREIGNTY,
+        note: `Envie d'exploiter votre propre serveur d'authentification dans l'UE${NBSP}?`,
+      },
+      D: {
+        headline: 'Gardez les données de connexion là où vous le choisissez',
+        text: "Authgear est une solution d'authentification open source. Auto-hébergez-la dans l'UE, ou nous exploitons pour vous un déploiement privé.",
+        cta: 'Souveraineté des données',
+        href: FR_SOVEREIGNTY,
+        note: `Vous intégrez l'authentification à votre application${NBSP}? Gardez ses données dans l'UE.`,
+      },
+    },
+    strip: { lead: 'Les données de connexion de vos utilisateurs méritent la même protection.', cta: 'Voir comment garder le contrôle' },
+    card: { label: 'Souveraineté des données', badge: 'Nouveau', href: FR_SOVEREIGNTY },
+    art: {
+      storedIn: 'Stocké où',
+      secretStoredIn: 'Stocké où',
+      yourApp: 'Votre app',
+      welcome: 'Bienvenue',
+      continueLabel: 'Continuer',
+      region: { city: 'Paris', code: 'eu-west-3' },
+      regions: ['Paris', 'Francfort', 'Amsterdam', 'Stockholm'],
+    },
   },
 };
 

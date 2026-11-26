@@ -115,10 +115,11 @@ test.describe('tool campaign in a campaign time zone', () => {
     }
   });
 
-  // German and French pages keep today's version until reviewed copy exists:
-  // covered by toolCampaign.test.ts, since /de/ tool pages don't hydrate
-  // under `astro dev` with the Netlify emulation.
 });
+
+// German and French pages: covered by toolCampaign.test.ts. Under `npm test`
+// the dev server serves the built /de/ and /fr/ tool pages, whose scripts
+// don't load there, so they can't hydrate in this suite.
 
 test.describe('tool campaign outside the campaign countries', () => {
   test.use({ timezoneId: 'America/New_York' });
